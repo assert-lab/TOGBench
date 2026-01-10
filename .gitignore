@@ -1,0 +1,11 @@
+# Maven build artifacts
+**/target/
+
+# PIT reports
+**/pit-reports/
+**/pitreport/
+**/linecoverage.xml
+**/mutations.xml
+
+# TOGA outputs
+**/toga_output/
