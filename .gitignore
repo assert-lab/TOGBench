@@ -6,6 +6,7 @@
 **/pitreport/
 **/linecoverage.xml
 **/mutations.xml
+commons-imaging-1.0-alpha3-src/pit.log
 
 # TOGA outputs
 **/toga_output/
