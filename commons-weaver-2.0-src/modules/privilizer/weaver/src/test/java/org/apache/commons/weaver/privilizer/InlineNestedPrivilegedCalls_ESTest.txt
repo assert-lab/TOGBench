@@ -1,0 +1,51 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      HashMap<Method, String> hashMap0 = new HashMap<Method, String>();
+      InlineNestedPrivilegedCalls inlineNestedPrivilegedCalls0 = new InlineNestedPrivilegedCalls((Privilizer) null, hashMap0, (ClassVisitor) null);
+      String[] stringArray0 = new String[7];
+      inlineNestedPrivilegedCalls0.visitMethod(393216, (String) null, "", "byte", stringArray0);
+      inlineNestedPrivilegedCalls0.visitEnd();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      HashMap<Method, String> hashMap0 = new HashMap<Method, String>();
+      InlineNestedPrivilegedCalls inlineNestedPrivilegedCalls0 = new InlineNestedPrivilegedCalls((Privilizer) null, hashMap0, (ClassVisitor) null);
+      inlineNestedPrivilegedCalls0.visitNestHostExperimental("PACKAGE");
+      // Undeclared exception!
+      try { 
+        inlineNestedPrivilegedCalls0.visitEnd();
+        fail("Expecting exception: UnsupportedOperationException");
+      } catch(UnsupportedOperationException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.objectweb.asm.ClassVisitor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      HashMap<Method, String> hashMap0 = new HashMap<Method, String>();
+      InlineNestedPrivilegedCalls inlineNestedPrivilegedCalls0 = new InlineNestedPrivilegedCalls((Privilizer) null, hashMap0, (ClassVisitor) null);
+      String[] stringArray0 = new String[15];
+      String string0 = hashMap0.put((Method) null, (String) null);
+      inlineNestedPrivilegedCalls0.visitMethod(0, string0, string0, (String) null, stringArray0);
+      inlineNestedPrivilegedCalls0.visitEnd();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      HashMap<Method, String> hashMap0 = new HashMap<Method, String>();
+      ClassWriter classWriter0 = new ClassWriter((-1416));
+      InlineNestedPrivilegedCalls inlineNestedPrivilegedCalls0 = new InlineNestedPrivilegedCalls((Privilizer) null, hashMap0, classWriter0);
+      // Undeclared exception!
+      try { 
+        inlineNestedPrivilegedCalls0.visitEnd();
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.objectweb.asm.SymbolTable", e);
+      }
+  }

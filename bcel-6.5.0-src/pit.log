@@ -1,0 +1,205 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.bcel:bcel:jar:6.5.0
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 307, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------------< org.apache.bcel:bcel >------------------------
+[INFO] Building Apache Commons BCEL 6.5.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- pitest:1.9.8:mutationCoverage (default-cli) @ bcel ---
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/bcel-6.5.0-src
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Assertions filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Enum constructor filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Record junk mutation filter
+[INFO] Found plugin : String switch filter
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Enum switch filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Plugin available : Git integration
+[INFO] Plugin available : Support for mutating kotlin bytecode
+[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/bcel-6.5.0-src/target/classes
+8:21:50 PM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+8:21:51 PM PIT >> INFO : Incremental analysis reduced number of mutations by 0
+8:21:51 PM PIT >> INFO : Created 376 mutation test units in pre scan
+8:21:51 PM PIT >> INFO : Sending 452 test classes to minion
+8:21:51 PM PIT >> INFO : Sent tests to minion
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-8:22:10 PM PIT >> INFO : Calculated coverage in 19 seconds.
+8:22:12 PM PIT >> INFO : Incremental analysis reduced number of mutations by 0
+8:22:12 PM PIT >> INFO : Created 374 mutation test units
+/8:22:29 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:23:07 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:23:30 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:23:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:23:43 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:23:52 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:24:41 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:24:52 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:24:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+-\8:26:41 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:26:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:26:59 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:27:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:27:18 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:27:35 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:27:43 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:27:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:28:07 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:28:21 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:28:44 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:29:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:29:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:29:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:29:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:29:57 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:30:13 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-8:31:54 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+8:32:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:32:28 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|8:35:54 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+/-8:36:03 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:36:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|8:39:22 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+8:40:17 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-8:40:48 PM PIT >> INFO : Completed in 1137 seconds
+================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE
+>> Generated 559 Killed 194 (35%)
+> KILLED 193 SURVIVED 125 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 1 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 240 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 2797 Killed 499 (18%)
+> KILLED 494 SURVIVED 500 TIMED_OUT 5 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1798 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator
+>> Generated 61 Killed 32 (52%)
+> KILLED 32 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 26 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
+>> Generated 2009 Killed 568 (28%)
+> KILLED 565 SURVIVED 417 TIMED_OUT 3 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1024 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
+>> Generated 844 Killed 284 (34%)
+> KILLED 284 SURVIVED 46 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 514 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
+>> Generated 559 Killed 231 (41%)
+> KILLED 225 SURVIVED 88 TIMED_OUT 6 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 240 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
+>> Generated 442 Killed 183 (41%)
+> KILLED 175 SURVIVED 64 TIMED_OUT 7 NON_VIABLE 0 
+> MEMORY_ERROR 1 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 195 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
+>> Generated 335 Killed 69 (21%)
+> KILLED 68 SURVIVED 99 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 167 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+>> Generated 559 Killed 216 (39%)
+> KILLED 215 SURVIVED 103 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 240 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
+>> Generated 55 Killed 24 (44%)
+> KILLED 24 SURVIVED 5 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 26 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
+>> Generated 323 Killed 137 (42%)
+> KILLED 129 SURVIVED 40 TIMED_OUT 8 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 146 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
+>> Generated 156 Killed 40 (26%)
+> KILLED 40 SURVIVED 33 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 83 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
+>> Generated 83 Killed 26 (31%)
+> KILLED 26 SURVIVED 16 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 41 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
+>> Generated 2009 Killed 609 (30%)
+> KILLED 608 SURVIVED 376 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1024 
+--------------------------------------------------------------------------------
+================================================================================
+- Timings
+================================================================================
+> pre-scan for mutations : < 1 second
+> scan classpath : < 1 second
+> coverage and dependency analysis : 19 seconds
+> build mutation tests : < 1 second
+> run mutation analysis : 18 minutes and 35 seconds
+--------------------------------------------------------------------------------
+> Total  : 18 minutes and 56 seconds
+--------------------------------------------------------------------------------
+================================================================================
+- Statistics
+================================================================================
+>> Line Coverage: 7614/16456 (46%)
+>> Generated 10791 mutations Killed 3112 (29%)
+>> Mutations with no coverage 5764. Test strength 62%
+>> Ran 43268 tests (4.01 tests per mutation)
+Enhanced functionality available at https://www.arcmutate.com/
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  18:58 min
+[INFO] Finished at: 2026-01-08T20:40:48-05:00
+[INFO] ------------------------------------------------------------------------

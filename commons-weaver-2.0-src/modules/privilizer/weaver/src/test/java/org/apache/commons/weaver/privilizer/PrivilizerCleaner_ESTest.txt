@@ -1,0 +1,16 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      PrivilizerCleaner privilizerCleaner0 = new PrivilizerCleaner();
+      Scanner scanner0 = mock(Scanner.class, new ViolatedAssumptionAnswer());
+      WeaveEnvironment weaveEnvironment0 = mock(WeaveEnvironment.class, new ViolatedAssumptionAnswer());
+      // Undeclared exception!
+      try { 
+        privilizerCleaner0.clean(weaveEnvironment0, scanner0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.weaver.privilizer.Privilizer", e);
+      }
+  }

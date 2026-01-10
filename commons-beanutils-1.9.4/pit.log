@@ -1,0 +1,968 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< commons-beanutils:commons-beanutils >-----------------
+[INFO] Building Apache Commons BeanUtils 1.9.4
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for commons-collections:commons-collections-testframework:jar:3.2.1 is missing, no dependency information available
+[INFO] 
+[INFO] --- pitest:1.9.8:mutationCoverage (default-cli) @ commons-beanutils ---
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-beanutils-1.9.4
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Assertions filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Enum constructor filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Record junk mutation filter
+[INFO] Found plugin : String switch filter
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Enum switch filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Plugin available : Git integration
+[INFO] Plugin available : Support for mutating kotlin bytecode
+[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-beanutils-1.9.4/target/classes
+11:53:21 PM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+11:53:21 PM PIT >> INFO : Incremental analysis reduced number of mutations by 0
+11:53:21 PM PIT >> INFO : Created 125 mutation test units in pre scan
+11:53:21 PM PIT >> INFO : Sending 294 test classes to minion
+11:53:21 PM PIT >> INFO : Sent tests to minion
+11:53:22 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:22 PM org.apache.commons.beanutils.BeanPropertyValueChangeClosure execute
+11:53:22 PM PIT >> INFO : MINION : WARNING: WARNING: Unable to execute Closure. Null value encountered in property path...org.apache.commons.beanutils.NestedNullException: Null property value for 'anotherNested.stringProperty' on bean class 'class org.apache.commons.beanutils.TestBean'
+11:53:22 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:22 PM org.apache.commons.beanutils.BeanPropertyValueEqualsPredicate evaluate
+11:53:22 PM PIT >> INFO : MINION : WARNING: WARNING: Problem during evaluation. Null value encountered in property path...org.apache.commons.beanutils.NestedNullException: Null property value for 'anotherNested.stringProperty' on bean class 'class org.apache.commons.beanutils.TestBean'
+11:53:22 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:22 PM org.apache.commons.beanutils.BeanToPropertyValueTransformer transform
+11:53:22 PM PIT >> INFO : MINION : WARNING: WARNING: Problem during transformation. Null value encountered in property path...org.apache.commons.beanutils.NestedNullException: Null property value for 'anotherNested.stringProperty' on bean class 'class org.apache.commons.beanutils.TestBean'
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/11:53:24 PM PIT >> INFO : MINION : BU.copyProperties(bean,bean), count=100000, time=983
+11:53:25 PM PIT >> INFO : MINION : BU.copyProperties(dyna,bean), count=100000, time=660
+-11:53:27 PM PIT >> INFO : MINION : BU.copyProperties(bean,dyna), count=100000, time=579
+11:53:27 PM PIT >> INFO : MINION : BU.copyProperties(dyna,dyna), count=100000, time=343
+11:53:28 PM PIT >> INFO : MINION : BU.copyProperties(bean, map), count=100000, time=574
+11:53:29 PM PIT >> INFO : MINION : BU.copyProperties(dyna, map), count=100000, time=277
+\|11:53:30 PM PIT >> INFO : MINION : BU.copyProperties(bean,strs), count=100000, time=589
+11:53:31 PM PIT >> INFO : MINION : BU.copyProperties(dyna,strs), count=100000, time=300
+11:53:32 PM PIT >> INFO : MINION : BU.populate(bean, map), count=100000, time=479
+11:53:32 PM PIT >> INFO : MINION : BU.populate(dyna, map), count=100000, time=300
+/-11:53:33 PM PIT >> INFO : MINION : BU.populate(bean,strs), count=100000, time=508
+11:53:34 PM PIT >> INFO : MINION : BU.populate(dyna,strs), count=100000, time=321
+\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/11:53:36 PM PIT >> INFO : MINION : PU.copyProperties(bean,bean), count=100000, time=672
+11:53:37 PM PIT >> INFO : MINION : PU.copyProperties(dyna,bean), count=100000, time=433
+-\|/-\11:53:37 PM PIT >> INFO : MINION : PU.copyProperties(bean,dyna), count=100000, time=462
+11:53:38 PM PIT >> INFO : MINION : PU.copyProperties(dyna,dyna), count=100000, time=127
+11:53:38 PM PIT >> INFO : MINION : PU.copyProperties(bean, map), count=100000, time=389
+11:53:39 PM PIT >> INFO : MINION : PU.copyProperties(dyna, map), count=100000, time=70
+|/-\11:53:39 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:39 PM org.apache.commons.beanutils.PropertyUtils fetchIntrospectionData
+11:53:39 PM PIT >> INFO : MINION : SEVERE: Exception during introspection
+11:53:39 PM PIT >> INFO : MINION : java.beans.IntrospectionException: TestException
+11:53:39 PM PIT >> INFO : MINION : 	at org.apache.commons.beanutils.PropertyUtilsTestCase$2.introspect(PropertyUtilsTestCase.java:4521)
+11:53:39 PM PIT >> INFO : MINION : 	at org.apache.commons.beanutils.PropertyUtilsBean.fetchIntrospectionData(PropertyUtilsBean.java:2246)
+11:53:39 PM PIT >> INFO : MINION : 	at org.apache.commons.beanutils.PropertyUtilsBean.getIntrospectionData(PropertyUtilsBean.java:2227)
+11:53:39 PM PIT >> INFO : MINION : 	at org.apache.commons.beanutils.PropertyUtilsBean.getPropertyDescriptors(PropertyUtilsBean.java:1003)
+11:53:39 PM PIT >> INFO : MINION : 	at org.apache.commons.beanutils.PropertyUtils.getPropertyDescriptors(PropertyUtils.java:518)
+11:53:39 PM PIT >> INFO : MINION : 	at org.apache.commons.beanutils.PropertyUtilsTestCase.testCustomIntrospectionEx(PropertyUtilsTestCase.java:4527)
+11:53:39 PM PIT >> INFO : MINION : 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+11:53:39 PM PIT >> INFO : MINION : 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+11:53:39 PM PIT >> INFO : MINION : 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+11:53:39 PM PIT >> INFO : MINION : 	at java.lang.reflect.Method.invoke(Method.java:498)
+11:53:39 PM PIT >> INFO : MINION : 	at junit.framework.TestCase.runTest(TestCase.java:176)
+11:53:39 PM PIT >> INFO : MINION : 	at junit.framework.TestCase.runBare(TestCase.java:141)
+11:53:39 PM PIT >> INFO : MINION : 	at junit.framework.TestResult$1.protect(TestResult.java:122)
+11:53:39 PM PIT >> INFO : MINION : 	at junit.framework.TestResult.runProtected(TestResult.java:142)
+11:53:39 PM PIT >> INFO : MINION : 	at junit.framework.TestResult.run(TestResult.java:125)
+11:53:39 PM PIT >> INFO : MINION : 	at junit.framework.TestCase.run(TestCase.java:129)
+11:53:39 PM PIT >> INFO : MINION : 	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+11:53:39 PM PIT >> INFO : MINION : 	at junit.framework.TestSuite.run(TestSuite.java:247)
+11:53:39 PM PIT >> INFO : MINION : 	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+11:53:39 PM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.CustomRunnerExecutor.run(CustomRunnerExecutor.java:42)
+11:53:39 PM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.AdaptedJUnitTestUnit.execute(AdaptedJUnitTestUnit.java:69)
+11:53:39 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageDecorator.execute(CoverageDecorator.java:49)
+11:53:39 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.containers.UnContainer.execute(UnContainer.java:31)
+11:53:39 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.executeTests(Pitest.java:57)
+11:53:39 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.run(Pitest.java:48)
+11:53:39 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageWorker.run(CoverageWorker.java:49)
+11:53:39 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:96)
+11:53:39 PM PIT >> INFO : MINION : 
+|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.bugs.Jira349TestCase testIssue_BEANUTILS_349_PropertyUtils_copyProperties
+11:53:46 PM PIT >> INFO : MINION : WARNING: Expected Result
+11:53:46 PM PIT >> INFO : MINION : java.lang.IllegalArgumentException: Cannot invoke org.apache.commons.beanutils.bugs.Jira349TestCase$PrimitiveBean.setTestProperty on bean class 'class org.apache.commons.beanutils.bugs.Jira349TestCase$PrimitiveBean' - null - had objects of type "<null>" but expected signature "boolean"
+11:53:46 PM PIT >> INFO : MINION : 	at org.apache.commons.beanutils.PropertyUtilsBean.invokeMethod(PropertyUtilsBean.java:2196)
+11:53:46 PM PIT >> INFO : MINION : 	at org.apache.commons.beanutils.PropertyUtilsBean.setSimpleProperty(PropertyUtilsBean.java:2109)
+11:53:46 PM PIT >> INFO : MINION : 	at org.apache.commons.beanutils.PropertyUtilsBean.copyProperties(PropertyUtilsBean.java:330)
+11:53:46 PM PIT >> INFO : MINION : 	at org.apache.commons.beanutils.PropertyUtils.copyProperties(PropertyUtils.java:219)
+11:53:46 PM PIT >> INFO : MINION : 	at org.apache.commons.beanutils.bugs.Jira349TestCase.testIssue_BEANUTILS_349_PropertyUtils_copyProperties(Jira349TestCase.java:89)
+11:53:46 PM PIT >> INFO : MINION : 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+11:53:46 PM PIT >> INFO : MINION : 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+11:53:46 PM PIT >> INFO : MINION : 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+11:53:46 PM PIT >> INFO : MINION : 	at java.lang.reflect.Method.invoke(Method.java:498)
+11:53:46 PM PIT >> INFO : MINION : 	at junit.framework.TestCase.runTest(TestCase.java:176)
+11:53:46 PM PIT >> INFO : MINION : 	at junit.framework.TestCase.runBare(TestCase.java:141)
+11:53:46 PM PIT >> INFO : MINION : 	at junit.framework.TestResult$1.protect(TestResult.java:122)
+11:53:46 PM PIT >> INFO : MINION : 	at junit.framework.TestResult.runProtected(TestResult.java:142)
+11:53:46 PM PIT >> INFO : MINION : 	at junit.framework.TestResult.run(TestResult.java:125)
+11:53:46 PM PIT >> INFO : MINION : 	at junit.framework.TestCase.run(TestCase.java:129)
+11:53:46 PM PIT >> INFO : MINION : 	at junit.framework.TestSuite.runTest(TestSuite.java:252)
+11:53:46 PM PIT >> INFO : MINION : 	at junit.framework.TestSuite.run(TestSuite.java:247)
+11:53:46 PM PIT >> INFO : MINION : 	at org.junit.internal.runners.JUnit38ClassRunner.run(JUnit38ClassRunner.java:86)
+11:53:46 PM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.CustomRunnerExecutor.run(CustomRunnerExecutor.java:42)
+11:53:46 PM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.AdaptedJUnitTestUnit.execute(AdaptedJUnitTestUnit.java:69)
+11:53:46 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageDecorator.execute(CoverageDecorator.java:49)
+11:53:46 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.containers.UnContainer.execute(UnContainer.java:31)
+11:53:46 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.executeTests(Pitest.java:57)
+11:53:46 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.run(Pitest.java:48)
+11:53:46 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageWorker.run(CoverageWorker.java:49)
+11:53:46 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:96)
+11:53:46 PM PIT >> INFO : MINION : Caused by: java.lang.IllegalArgumentException
+11:53:46 PM PIT >> INFO : MINION : 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+11:53:46 PM PIT >> INFO : MINION : 	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+11:53:46 PM PIT >> INFO : MINION : 	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+11:53:46 PM PIT >> INFO : MINION : 	at java.lang.reflect.Method.invoke(Method.java:498)
+11:53:46 PM PIT >> INFO : MINION : 	at org.apache.commons.beanutils.PropertyUtilsBean.invokeMethod(PropertyUtilsBean.java:2128)
+11:53:46 PM PIT >> INFO : MINION : 	... 25 more
+11:53:46 PM PIT >> INFO : MINION : 
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.BigDecimalConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     BigDecimalConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.BigDecimalConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     BigDecimalConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.BigDecimalConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     BigDecimalConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.BigDecimalConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     BigDecimalConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.BigDecimalConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     BigDecimalConverter cannot handle conversion to 'Object'
+|11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.BigDecimalConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     BigDecimalConverter cannot handle conversion to 'Object'
+/-\|/-\|11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.BigIntegerConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     BigIntegerConverter cannot handle conversion to 'Object'
+/11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.BigIntegerConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     BigIntegerConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.BigIntegerConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     BigIntegerConverter cannot handle conversion to 'Object'
+-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.BigIntegerConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     BigIntegerConverter cannot handle conversion to 'Object'
+\11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.BigIntegerConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     BigIntegerConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.BigIntegerConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     BigIntegerConverter cannot handle conversion to 'Object'
+|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.ByteConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     ByteConverter cannot handle conversion to 'Object'
+\11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.ByteConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     ByteConverter cannot handle conversion to 'Object'
+|11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.ByteConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     ByteConverter cannot handle conversion to 'Object'
+/-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.ByteConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     ByteConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.ByteConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     ByteConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.ByteConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     ByteConverter cannot handle conversion to 'Object'
+\|/-\|/-\|/-\|/-\|/-\11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.CalendarConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     CalendarConverter does not support default String to 'Calendar' conversion.
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.CalendarConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     (N.B. Re-configure Converter or use alternative implementation)
+|/11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.CalendarConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     CalendarConverter does not support default String to 'Calendar' conversion.
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.CalendarConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     (N.B. Re-configure Converter or use alternative implementation)
+-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.CalendarConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     CalendarConverter cannot handle conversion to 'Character'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.CalendarConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     CalendarConverter cannot handle conversion to 'Character'
+\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.DateConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     DateConverter does not support default String to 'Date' conversion.
+/11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.DateConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     (N.B. Re-configure Converter or use alternative implementation)
+-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.DateConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     DateConverter does not support default String to 'Date' conversion.
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.DateConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     (N.B. Re-configure Converter or use alternative implementation)
+\|/-\11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.DateConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     DateConverter cannot handle conversion to 'Character'
+|/11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.DateConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     DateConverter cannot handle conversion to 'Character'
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.DoubleConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     DoubleConverter cannot handle conversion to 'Object'
+/-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.DoubleConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     DoubleConverter cannot handle conversion to 'Object'
+\11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.DoubleConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     DoubleConverter cannot handle conversion to 'Object'
+|11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.DoubleConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     DoubleConverter cannot handle conversion to 'Object'
+/11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.DoubleConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     DoubleConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.DoubleConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     DoubleConverter cannot handle conversion to 'Object'
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.FloatConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     FloatConverter cannot handle conversion to 'Object'
+\11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.FloatConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     FloatConverter cannot handle conversion to 'Object'
+|11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.FloatConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     FloatConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.FloatConverter toNumber
+/11:53:46 PM PIT >> INFO : MINION : WARNING:     FloatConverter cannot handle conversion to 'Object'
+-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.FloatConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     FloatConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.FloatConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     FloatConverter cannot handle conversion to 'Object'
+\|/-\|/-\|/-\|/-\|/-\|/-\|/-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.IntegerConverter toNumber
+\11:53:46 PM PIT >> INFO : MINION : WARNING:     IntegerConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.IntegerConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     IntegerConverter cannot handle conversion to 'Object'
+|11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.IntegerConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     IntegerConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.IntegerConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     IntegerConverter cannot handle conversion to 'Object'
+/11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.IntegerConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     IntegerConverter cannot handle conversion to 'Object'
+-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.IntegerConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     IntegerConverter cannot handle conversion to 'Object'
+\|/-\|/-\|/-\|/-\|/-\|/-\|11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.LongConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     LongConverter cannot handle conversion to 'Object'
+/11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.LongConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     LongConverter cannot handle conversion to 'Object'
+-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.LongConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     LongConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.LongConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     LongConverter cannot handle conversion to 'Object'
+\11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.LongConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     LongConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.LongConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     LongConverter cannot handle conversion to 'Object'
+|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.ShortConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     ShortConverter cannot handle conversion to 'Object'
+\|/11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.ShortConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     ShortConverter cannot handle conversion to 'Object'
+-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.ShortConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     ShortConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.ShortConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     ShortConverter cannot handle conversion to 'Object'
+\|/11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.ShortConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     ShortConverter cannot handle conversion to 'Object'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.ShortConverter toNumber
+11:53:46 PM PIT >> INFO : MINION : WARNING:     ShortConverter cannot handle conversion to 'Object'
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.SqlDateConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     SqlDateConverter cannot handle conversion to 'Character'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.SqlDateConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     SqlDateConverter cannot handle conversion to 'Character'
+\|/-\|/-\|/-\|/-\|/-\|/-\|11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.SqlTimeConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     SqlTimeConverter cannot handle conversion to 'Character'
+11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.SqlTimeConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     SqlTimeConverter cannot handle conversion to 'Character'
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.SqlTimestampConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     SqlTimestampConverter cannot handle conversion to 'Character'
+|11:53:46 PM PIT >> INFO : MINION : Jan 09, 2026 11:53:46 PM org.apache.commons.beanutils.converters.SqlTimestampConverter toDate
+11:53:46 PM PIT >> INFO : MINION : WARNING:     SqlTimestampConverter cannot handle conversion to 'Character'
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\11:54:58 PM PIT >> INFO : Calculated coverage in 96 seconds.
+11:55:01 PM PIT >> INFO : Incremental analysis reduced number of mutations by 0
+11:55:01 PM PIT >> INFO : Created 125 mutation test units
+11:55:11 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+11:55:12 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:13 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:13 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+11:55:15 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:16 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+11:55:17 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:28 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:29 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:29 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:30 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:32 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:41 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:41 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:42 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:43 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:50 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:52 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:55:55 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:00 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:00 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:10 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:12 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:13 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:14 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:20 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:21 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:27 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:33 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:35 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:39 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:45 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:46 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:48 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:52 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:56 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:56:57 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:00 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:02 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:03 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+11:57:06 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:10 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:12 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:15 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:20 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:23 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:25 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:29 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:33 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:35 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+11:57:36 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:39 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:45 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:46 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:51 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:53 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:57 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:57:57 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:03 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:06 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:08 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:10 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:13 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:15 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:17 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:24 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:26 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:28 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:29 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:40 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:41 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:41 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:42 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:44 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:46 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:52 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:53 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:58:59 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:02 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:03 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:04 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:05 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:10 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:13 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+11:59:16 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+11:59:16 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:17 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:21 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:25 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:29 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:31 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:32 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:32 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:40 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:41 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:44 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:45 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:53 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:54 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+11:59:55 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:05 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:08 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:08 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:17 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:17 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:21 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:21 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:28 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:28 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:32 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:00:35 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:35 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:36 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:36 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:38 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:00:41 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:47 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:47 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:50 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:54 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:00:57 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:00 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:05 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:07 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:09 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:11 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:15 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:15 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:16 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:01:25 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:27 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:29 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:30 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:31 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:42 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:43 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:43 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:45 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:45 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:49 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:01:54 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:57 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:01:57 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:07 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:08 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:08 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:10 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:18 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:19 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:20 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:02:23 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:28 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:31 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:32 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:34 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:38 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:39 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:42 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:46 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:47 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:48 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:49 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:49 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:53 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:02:59 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:00 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:02 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:08 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:08 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:10 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:12 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:14 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:20 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:22 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:26 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:27 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:31 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:34 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:36 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:36 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:40 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:45 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:45 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:56 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:03:59 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:01 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:04 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:08 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:09 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:10 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:13 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:17 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:20 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:23 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:25 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:26 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:30 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:30 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:37 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:42 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:42 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:43 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:44 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:46 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:55 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:04:56 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:57 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:04:59 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:07 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:09 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:09 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:17 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:18 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:20 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:22 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:23 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:28 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:28 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:33 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:36 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:38 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:41 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:44 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:44 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:45 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:48 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:51 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:05:59 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:00 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:01 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:05 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:07 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:10 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:12 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:17 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:19 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:19 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:22 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:25 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:26 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:26 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:28 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:33 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:37 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:38 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:40 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:45 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:47 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:50 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:51 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:51 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:57 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:06:58 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:01 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:01 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:01 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:11 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:13 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:18 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:19 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:21 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:23 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:25 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:26 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:26 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:33 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:34 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:35 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:40 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:41 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:42 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:45 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:47 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:48 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:56 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:56 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:56 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:07:59 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:02 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:03 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:08 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:12 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:13 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:14 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:15 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:15 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:18 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:18 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:08:27 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:29 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:30 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:31 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:34 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:36 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:37 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:41 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:44 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:46 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:46 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:47 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:08:58 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:00 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:00 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:09 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:10 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:11 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:11 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:12 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:17 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:21 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:22 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:24 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:24 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:31 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:32 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:36 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:36 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:37 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:39 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:09:43 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:48 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:09:48 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:50 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:53 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:56 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:09:59 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:03 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:05 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:09 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:12 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:15 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:16 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:10:19 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:20 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:23 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:29 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:30 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:36 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:36 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:37 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:39 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:44 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:45 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:49 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:51 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:52 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:10:59 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:01 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:02 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:04 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:05 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:12 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:13 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:13 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:16 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:22 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:22 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:25 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:27 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:27 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:30 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:36 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:38 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:42 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:43 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:45 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:45 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:49 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:51 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:53 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:58 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:11:59 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:01 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:04 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:07 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:14 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:15 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:16 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:17 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:19 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:21 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:28 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:29 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:30 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:31 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:37 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:40 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:41 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:44 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:12:44 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:48 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:49 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:54 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:56 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:56 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:12:57 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:12:59 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:10 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:11 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:13 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:13 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:14 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:15 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:24 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:25 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:26 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:27 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:32 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:34 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:38 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:44 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:45 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:47 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:49 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:51 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:13:58 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:00 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:02 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:07 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:09 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:10 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:11 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:15 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:17 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:18 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:21 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:24 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:27 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:27 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:30 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:32 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:37 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:40 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:43 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:49 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:49 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:14:51 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:14:53 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:03 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:07 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:11 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:13 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:17 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:21 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:23 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:28 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:32 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:41 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:42 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:47 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:47 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:51 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:15:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:01 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:02 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:07 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:12 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:17 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:23 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:24 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:26 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:30 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:32 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:42 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:47 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:52 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:52 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:16:57 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:01 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:10 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:11 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:13 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:17 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:18 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:23 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:28 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:31 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:33 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:35 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:43 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:48 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:52 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:52 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:55 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:17:58 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:00 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:03 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:08 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:10 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:13 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:15 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:25 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:29 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:31 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:32 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:37 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:38 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:42 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:48 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:48 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:50 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:58 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:18:58 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:19:03 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:07 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:11 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+12:19:16 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:18 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:26 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:31 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:36 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:37 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:41 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:42 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+/-12:19:46 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:48 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:51 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:19:56 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:01 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:05 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:11 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:11 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:15 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:20 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:24 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:29 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:29 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:34 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:38 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:42 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:47 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:48 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:52 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:20:56 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:21:00 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:21:05 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:21:06 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:21:10 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:21:14 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:21:19 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:21:23 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:21:28 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+\|/-12:21:39 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:21:54 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:22:22 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:22:26 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:23:10 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:23:26 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:23:30 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:23:45 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:24:01 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+12:24:15 AM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
+\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/12:24:16 AM PIT >> INFO : Completed in 1855 seconds
+================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE
+>> Generated 123 Killed 67 (54%)
+> KILLED 54 SURVIVED 14 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 13 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 42 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 352 Killed 219 (62%)
+> KILLED 110 SURVIVED 25 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 109 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 108 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator
+>> Generated 2 Killed 2 (100%)
+> KILLED 2 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
+>> Generated 1243 Killed 672 (54%)
+> KILLED 436 SURVIVED 277 TIMED_OUT 14 NON_VIABLE 0 
+> MEMORY_ERROR 222 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 294 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
+>> Generated 571 Killed 354 (62%)
+> KILLED 321 SURVIVED 13 TIMED_OUT 2 NON_VIABLE 0 
+> MEMORY_ERROR 31 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 204 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
+>> Generated 123 Killed 60 (49%)
+> KILLED 53 SURVIVED 21 TIMED_OUT 4 NON_VIABLE 0 
+> MEMORY_ERROR 3 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 42 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
+>> Generated 38 Killed 21 (55%)
+> KILLED 16 SURVIVED 11 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 5 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 6 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
+>> Generated 166 Killed 69 (42%)
+> KILLED 64 SURVIVED 8 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 5 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 89 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+>> Generated 123 Killed 56 (46%)
+> KILLED 47 SURVIVED 25 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 9 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 42 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
+>> Generated 52 Killed 12 (23%)
+> KILLED 9 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 3 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 38 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
+>> Generated 7 Killed 4 (57%)
+> KILLED 4 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 2 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
+>> Generated 133 Killed 33 (25%)
+> KILLED 33 SURVIVED 10 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 90 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
+>> Generated 95 Killed 28 (29%)
+> KILLED 28 SURVIVED 5 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 62 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
+>> Generated 1248 Killed 749 (60%)
+> KILLED 589 SURVIVED 202 TIMED_OUT 2 NON_VIABLE 0 
+> MEMORY_ERROR 158 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 297 
+--------------------------------------------------------------------------------
+================================================================================
+- Timings
+================================================================================
+> pre-scan for mutations : < 1 second
+> scan classpath : < 1 second
+> coverage and dependency analysis : 1 minutes and 36 seconds
+> build mutation tests : < 1 second
+> run mutation analysis : 29 minutes and 15 seconds
+--------------------------------------------------------------------------------
+> Total  : 30 minutes and 52 seconds
+--------------------------------------------------------------------------------
+================================================================================
+- Statistics
+================================================================================
+>> Line Coverage: 3773/6370 (59%)
+>> Generated 4276 mutations Killed 2346 (55%)
+>> Mutations with no coverage 1316. Test strength 79%
+>> Ran 99969 tests (23.38 tests per mutation)
+Enhanced functionality available at https://www.arcmutate.com/
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  30:55 min
+[INFO] Finished at: 2026-01-10T00:24:16-05:00
+[INFO] ------------------------------------------------------------------------

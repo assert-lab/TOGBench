@@ -1,0 +1,57 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      AccessLevel[] accessLevelArray0 = AccessLevel.values();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      AccessLevel accessLevel0 = AccessLevel.valueOf("PROTECTED");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      AccessLevel accessLevel0 = AccessLevel.parse("PACKAGE");
+      int int0 = accessLevel0.merge(0);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      AccessLevel accessLevel0 = AccessLevel.defaultValue();
+      int int0 = accessLevel0.merge(3);
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      AccessLevel accessLevel0 = AccessLevel.PRIVATE;
+      String string0 = accessLevel0.toString();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      AccessLevel accessLevel0 = AccessLevel.of(1232);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      AccessLevel accessLevel0 = AccessLevel.of((-30));
+      int int0 = accessLevel0.merge((-30));
+      assertEquals(0, int0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        AccessLevel.of((-3073));
+        fail("Expecting exception: IllegalArgumentException");
+      } catch(IllegalArgumentException e) {
+         //
+         // -3073 seems to declare multiple access modifiers: [public, protected, private]
+         //
+         verifyException("org.apache.commons.lang3.Validate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      AccessLevel accessLevel0 = AccessLevel.parse("");
+      ;
+}

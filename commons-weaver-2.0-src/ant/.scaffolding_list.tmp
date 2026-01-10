@@ -1,0 +1,4 @@
+org.apache.commons.weaver.ant.CleanTask_ESTest_scaffolding
+org.apache.commons.weaver.ant.WeaveTask_ESTest_scaffolding
+org.apache.commons.weaver.ant.AbstractWeaverTask_ESTest_scaffolding
+org.apache.commons.weaver.ant.InlineProperties_ESTest_scaffolding

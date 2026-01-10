@@ -1,0 +1,101 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Type type0 = Type.BYTE_TYPE;
+      Field field0 = null;
+      try {
+        field0 = new Field((-5938), (String) null, type0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // The validated object is null
+         //
+         verifyException("org.apache.commons.lang3.Validate", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Type type0 = Type.FLOAT_TYPE;
+      Field field0 = new Field(0, "", type0);
+      Class<Type> class0 = Type.class;
+      Type type1 = Type.getType(class0);
+      Field field1 = new Field(6, "", type1);
+      boolean boolean0 = field0.equals(field1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Type type0 = Type.FLOAT_TYPE;
+      Field field0 = new Field(0, "", type0);
+      Class<Type> class0 = Type.class;
+      Type type1 = Type.getType(class0);
+      Field field1 = new Field(6, "", type1);
+      boolean boolean0 = field0.equals(field1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Type type0 = Type.BOOLEAN_TYPE;
+      Field field0 = new Field(1, "", type0);
+      Field field1 = new Field(4, "A%8.>omSmEf", type0);
+      boolean boolean0 = field0.equals(field1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Type type0 = Type.BOOLEAN_TYPE;
+      Field field0 = new Field(1, "", type0);
+      Field field1 = new Field(4, "A%8.>omSmEf", type0);
+      boolean boolean0 = field0.equals(field1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Type type0 = Type.BOOLEAN_TYPE;
+      Field field0 = new Field(1, "", type0);
+      Field field1 = new Field(8, "", type0);
+      boolean boolean0 = field0.equals(field1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Type type0 = Type.BOOLEAN_TYPE;
+      Field field0 = new Field(1, "", type0);
+      Field field1 = new Field(8, "", type0);
+      boolean boolean0 = field0.equals(field1);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Type type0 = Type.BOOLEAN_TYPE;
+      Field field0 = new Field(1, "", type0);
+      boolean boolean0 = field0.equals(field0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Type type0 = Type.BOOLEAN_TYPE;
+      Field field0 = new Field(1, "", type0);
+      boolean boolean0 = field0.equals(field0);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Type type0 = Type.BOOLEAN_TYPE;
+      Field field0 = new Field(1, "", type0);
+      boolean boolean0 = field0.equals((Object) null);
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      Type type0 = Type.BOOLEAN_TYPE;
+      Field field0 = new Field(1, "", type0);
+      boolean boolean0 = field0.equals((Object) null);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test11()  throws Throwable  {
+      Type type0 = Type.BOOLEAN_TYPE;
+      Field field0 = new Field(1, "", type0);
+      field0.hashCode();
+      ;
+}

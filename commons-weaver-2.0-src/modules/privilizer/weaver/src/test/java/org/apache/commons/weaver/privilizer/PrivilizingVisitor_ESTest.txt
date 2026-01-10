@@ -1,0 +1,41 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Class<Integer> class0 = Integer.class;
+      Type type0 = Type.getType(class0);
+      Type[] typeArray0 = new Type[3];
+      typeArray0[0] = type0;
+      typeArray0[1] = type0;
+      typeArray0[2] = type0;
+      Method method0 = new Method("?P&zE1", type0, typeArray0);
+      String[] stringArray0 = new String[3];
+      MethodNode methodNode0 = new MethodNode(1, "fzTwwtmOIjD", (String) null, "03%$'5}SGmBhl<", stringArray0);
+      GeneratorAdapter generatorAdapter0 = new GeneratorAdapter(54, method0, methodNode0);
+      PrivilizingVisitor.checkSecurityManager(generatorAdapter0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      PrivilizingVisitor privilizingVisitor0 = null;
+      try {
+        privilizingVisitor0 = new PrivilizingVisitor((Privilizer) null, (ClassVisitor) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.weaver.privilizer.PrivilizingVisitor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        PrivilizingVisitor.checkSecurityManager((GeneratorAdapter) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.weaver.privilizer.PrivilizingVisitor", e);
+      }
+  }

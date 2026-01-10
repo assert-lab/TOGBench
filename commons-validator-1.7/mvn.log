@@ -1,0 +1,244 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for commons-validator:commons-validator:jar:1.7
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs 4.13 @ line 233, column 17
+[WARNING] 'profiles.profile[jdk9-cldr].plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 389, column 19
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ----------------< commons-validator:commons-validator >-----------------
+[INFO] Building Apache Commons Validator 1.7
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-validator ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-validator ---
+[INFO] 
+[INFO] --- apache-rat:0.13:check (rat-check) @ commons-validator ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper:3.1.0:parse-version (parse-version) @ commons-validator ---
+[INFO] 
+[INFO] --- antrun:3.0.0:run (javadoc.resources) @ commons-validator ---
+[INFO] Executing tasks
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-validator ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-validator ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-validator-1.7' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-validator-1.7
+[INFO] Storing buildNumber: ?????? at timestamp: 1768031793777
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: not a git repository (or any parent up to mount point /sfs)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-validator-1.7' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-validator-1.7
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ commons-validator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources to META-INF
+[INFO] Copying 8 resources
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-validator ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- bundle:4.2.1:manifest (bundle-manifest) @ commons-validator ---
+[INFO] 
+[INFO] --- animal-sniffer:1.18:check (checkAPIcompatibility) @ commons-validator ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-validator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 19 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-validator ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- surefire:2.17:test (default-test) @ commons-validator ---
+[INFO] Surefire report directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-validator-1.7/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+OpenJDK 64-Bit Server VM warning: Insufficient space for shared memory file:
+   971574
+Try using the -Djava.io.tmpdir= option to select an alternate temp location.
+Running org.apache.commons.validator.GenericValidatorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in org.apache.commons.validator.GenericValidatorTest
+Running org.apache.commons.validator.MultipleConfigFilesTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 sec - in org.apache.commons.validator.MultipleConfigFilesTest
+Running org.apache.commons.validator.VarTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.validator.VarTest
+Running org.apache.commons.validator.routines.ISSNValidatorTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.validator.routines.ISSNValidatorTest
+Running org.apache.commons.validator.routines.PercentValidatorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.validator.routines.PercentValidatorTest
+Running org.apache.commons.validator.routines.ISINValidatorTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.validator.routines.ISINValidatorTest
+Running org.apache.commons.validator.routines.ShortValidatorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 sec - in org.apache.commons.validator.routines.ShortValidatorTest
+Running org.apache.commons.validator.routines.DomainValidatorStartupTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 sec - in org.apache.commons.validator.routines.DomainValidatorStartupTest
+Running org.apache.commons.validator.routines.IBANValidatorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.validator.routines.IBANValidatorTest
+Running org.apache.commons.validator.routines.DomainValidatorTest
+>>DomainValidatorTest.testIsIDNtoASCIIBroken()
+IDN.toASCII is OK
+java.version=1.8.0_442
+java.vendor=Red Hat, Inc.
+java.vm.specification.version=1.8
+java.vm.specification.vendor=Oracle Corporation
+java.vm.specification.name=Java Virtual Machine Specification
+java.vm.version=25.442-b06
+java.vm.vendor=Red Hat, Inc.
+java.vm.name=OpenJDK 64-Bit Server VM
+java.specification.version=1.8
+java.specification.vendor=Oracle Corporation
+java.specification.name=Java Platform API Specification
+java.class.version=52.0
+<<DomainValidatorTest.testIsIDNtoASCIIBroken()
+Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 sec - in org.apache.commons.validator.routines.DomainValidatorTest
+Running org.apache.commons.validator.routines.CalendarValidatorTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.apache.commons.validator.routines.CalendarValidatorTest
+Running org.apache.commons.validator.routines.RegexValidatorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.RegexValidatorTest
+Running org.apache.commons.validator.routines.TimeValidatorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.validator.routines.TimeValidatorTest
+Running org.apache.commons.validator.routines.CurrencyValidatorTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.CurrencyValidatorTest
+Running org.apache.commons.validator.routines.FloatValidatorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.validator.routines.FloatValidatorTest
+Running org.apache.commons.validator.routines.IntegerValidatorTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.validator.routines.IntegerValidatorTest
+Running org.apache.commons.validator.routines.ByteValidatorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.ByteValidatorTest
+Running org.apache.commons.validator.routines.InetAddressValidatorTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.validator.routines.InetAddressValidatorTest
+Running org.apache.commons.validator.routines.LongValidatorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.LongValidatorTest
+Running org.apache.commons.validator.routines.CodeValidatorTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.CodeValidatorTest
+Running org.apache.commons.validator.routines.CreditCardValidatorTest
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 sec - in org.apache.commons.validator.routines.CreditCardValidatorTest
+Running org.apache.commons.validator.routines.BigIntegerValidatorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.validator.routines.BigIntegerValidatorTest
+Running org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.validator.routines.checkdigit.ModulusTenSedolCheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.ISSNCheckDigitTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.validator.routines.checkdigit.ISSNCheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigitTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.checkdigit.ABANumberCheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.checkdigit.ModulusTenCUSIPCheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.ModulusTenLuhnCheckDigitTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.checkdigit.ModulusTenLuhnCheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.checkdigit.ISBNCheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.LuhnCheckDigitTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.checkdigit.LuhnCheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.validator.routines.checkdigit.SedolCheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.VerhoeffCheckDigitTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.checkdigit.VerhoeffCheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.validator.routines.checkdigit.CUSIPCheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.ModulusTenABACheckDigitTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.checkdigit.ModulusTenABACheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.ModulusTenEAN13CheckDigitTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.checkdigit.ModulusTenEAN13CheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.checkdigit.ISINCheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.EAN13CheckDigitTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.checkdigit.EAN13CheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.validator.routines.checkdigit.IBANCheckDigitTest
+Running org.apache.commons.validator.routines.checkdigit.ISBN10CheckDigitTest
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.checkdigit.ISBN10CheckDigitTest
+Running org.apache.commons.validator.routines.BigDecimalValidatorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.BigDecimalValidatorTest
+Running org.apache.commons.validator.routines.DateValidatorTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.validator.routines.DateValidatorTest
+Running org.apache.commons.validator.routines.UrlValidatorTest
+Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.294 sec - in org.apache.commons.validator.routines.UrlValidatorTest
+Running org.apache.commons.validator.routines.ISBNValidatorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.ISBNValidatorTest
+Running org.apache.commons.validator.routines.EmailValidatorTest
+Tests run: 25, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.003 sec - in org.apache.commons.validator.routines.EmailValidatorTest
+Running org.apache.commons.validator.routines.DoubleValidatorTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.routines.DoubleValidatorTest
+Running org.apache.commons.validator.CreditCardValidatorTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.validator.CreditCardValidatorTest
+Running org.apache.commons.validator.GenericTypeValidatorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 sec - in org.apache.commons.validator.GenericTypeValidatorTest
+Running org.apache.commons.validator.ParameterTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.validator.ParameterTest
+Running org.apache.commons.validator.DateTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.validator.DateTest
+Running org.apache.commons.validator.CustomValidatorResourcesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.CustomValidatorResourcesTest
+Running org.apache.commons.validator.LocaleTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.commons.validator.LocaleTest
+Running org.apache.commons.validator.ShortTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.apache.commons.validator.ShortTest
+Running org.apache.commons.validator.FloatTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in org.apache.commons.validator.FloatTest
+Running org.apache.commons.validator.RequiredNameTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.apache.commons.validator.RequiredNameTest
+Running org.apache.commons.validator.ValidatorResourcesTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.ValidatorResourcesTest
+Running org.apache.commons.validator.EntityImportTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 sec - in org.apache.commons.validator.EntityImportTest
+Running org.apache.commons.validator.ValidatorResultsTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.validator.ValidatorResultsTest
+Running org.apache.commons.validator.LongTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 sec - in org.apache.commons.validator.LongTest
+Running org.apache.commons.validator.DoubleTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 sec - in org.apache.commons.validator.DoubleTest
+Running org.apache.commons.validator.MultipleTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.apache.commons.validator.MultipleTest
+Running org.apache.commons.validator.ExtensionTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 sec - in org.apache.commons.validator.ExtensionTest
+Running org.apache.commons.validator.IntegerTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 sec - in org.apache.commons.validator.IntegerTest
+Running org.apache.commons.validator.ISBNValidatorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.ISBNValidatorTest
+Running org.apache.commons.validator.UrlTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 sec - in org.apache.commons.validator.UrlTest
+Running org.apache.commons.validator.ValidatorTest
+ValidatorTest.formatDate() - Unparseable date: "2/30/1999"
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.validator.ValidatorTest
+Running org.apache.commons.validator.util.FlagsTest
+Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.util.FlagsTest
+Running org.apache.commons.validator.ExceptionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.ExceptionTest
+Running org.apache.commons.validator.RequiredIfTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.validator.RequiredIfTest
+Running org.apache.commons.validator.FieldTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.validator.FieldTest
+Running org.apache.commons.validator.EmailTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.apache.commons.validator.EmailTest
+Running org.apache.commons.validator.ByteTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 sec - in org.apache.commons.validator.ByteTest
+Running org.apache.commons.validator.RetrieveFormTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.apache.commons.validator.RetrieveFormTest
+
+Results :
+
+Tests run: 576, Failures: 0, Errors: 0, Skipped: 1
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.652 s
+[INFO] Finished at: 2026-01-10T02:56:37-05:00
+[INFO] ------------------------------------------------------------------------

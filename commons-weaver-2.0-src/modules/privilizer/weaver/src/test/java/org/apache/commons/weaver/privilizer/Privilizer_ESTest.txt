@@ -1,0 +1,82 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        Privilizer.wrap((Type) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.weaver.privilizer.Privilizer", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Type type0 = Type.DOUBLE_TYPE;
+      Type type1 = Privilizer.wrap(type0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Type type0 = Type.LONG_TYPE;
+      Type type1 = Privilizer.wrap(type0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Type type0 = Type.FLOAT_TYPE;
+      Type type1 = Privilizer.wrap(type0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Type type0 = Type.INT_TYPE;
+      Type type1 = Privilizer.wrap(type0);
+      Type type2 = Privilizer.wrap(type1);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Type type0 = Type.BYTE_TYPE;
+      Type type1 = Privilizer.wrap(type0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Type type0 = Type.CHAR_TYPE;
+      Type type1 = Privilizer.wrap(type0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Type type0 = Type.BOOLEAN_TYPE;
+      Type type1 = Privilizer.wrap(type0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test8()  throws Throwable  {
+      Type type0 = Type.SHORT_TYPE;
+      Type type1 = Privilizer.wrap(type0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test9()  throws Throwable  {
+      Type type0 = Type.VOID_TYPE;
+      Type type1 = Privilizer.wrap(type0);
+      ;
+}
+ @Test(timeout = 4000)
+  public void test10()  throws Throwable  {
+      WeaveEnvironment weaveEnvironment0 = mock(WeaveEnvironment.class, new ViolatedAssumptionAnswer());
+      Privilizer privilizer0 = null;
+      try {
+        privilizer0 = new Privilizer(weaveEnvironment0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.weaver.privilizer.Privilizer", e);
+      }
+  }

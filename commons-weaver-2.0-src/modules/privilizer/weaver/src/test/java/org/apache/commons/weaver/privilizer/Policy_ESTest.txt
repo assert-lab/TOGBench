@@ -1,0 +1,43 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Policy[] policyArray0 = Policy.values();
+      ;
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      Policy policy0 = Policy.valueOf("ON_INIT");
+      assertTrue(policy0.isConditional());
+}
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      Policy policy0 = Policy.valueOf("ALWAYS");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      Policy policy0 = Policy.parse("ALWAYS");
+      ;
+}
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      Policy policy0 = Policy.defaultValue();
+      assertNotNull(policy0);
+}
+ @Test(timeout = 4000)
+  public void test5()  throws Throwable  {
+      Policy policy0 = Policy.NEVER;
+      boolean boolean0 = policy0.isConditional();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test6()  throws Throwable  {
+      Policy policy0 = Policy.ON_INIT;
+      boolean boolean0 = policy0.isConditional();
+      assertTrue(boolean0);
+}
+ @Test(timeout = 4000)
+  public void test7()  throws Throwable  {
+      Policy policy0 = Policy.parse("");
+      boolean boolean0 = policy0.isConditional();
+      assertTrue(boolean0);
+}

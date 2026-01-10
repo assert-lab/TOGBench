@@ -1,0 +1,201 @@
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for commons-validator:commons-validator:jar:1.7
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs 4.13 @ line 233, column 17
+[WARNING] 'profiles.profile[jdk9-cldr].plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 389, column 19
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ----------------< commons-validator:commons-validator >-----------------
+[INFO] Building Apache Commons Validator 1.7
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- pitest:1.9.8:mutationCoverage (default-cli) @ commons-validator ---
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-validator-1.7
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Assertions filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Enum constructor filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Record junk mutation filter
+[INFO] Found plugin : String switch filter
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Enum switch filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Plugin available : Git integration
+[INFO] Plugin available : Support for mutating kotlin bytecode
+[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-validator-1.7/target/classes
+2:59:00 AM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+2:59:01 AM PIT >> INFO : Incremental analysis reduced number of mutations by 0
+2:59:01 AM PIT >> INFO : Created 70 mutation test units in pre scan
+2:59:01 AM PIT >> INFO : MINION : Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+2:59:01 AM PIT >> INFO : MINION : OpenJDK 64-Bit Server VM warning: Insufficient space for shared memory file:
+2:59:01 AM PIT >> INFO : MINION :    973063
+2:59:01 AM PIT >> INFO : MINION : Try using the -Djava.io.tmpdir= option to select an alternate temp location.
+2:59:01 AM PIT >> INFO : MINION : 
+2:59:01 AM PIT >> INFO : Sending 157 test classes to minion
+2:59:01 AM PIT >> INFO : Sent tests to minion
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\2:59:02 AM PIT >> INFO : MINION : Jan 10, 2026 2:59:02 AM org.apache.commons.validator.ValidatorResources getForm
+2:59:02 AM PIT >> INFO : MINION : WARNING: Form 'INVALID_NAME' not found for locale 'en_US'
+2:59:02 AM PIT >> INFO : MINION : Jan 10, 2026 2:59:02 AM org.apache.commons.validator.ValidatorResources getForm
+2:59:02 AM PIT >> INFO : MINION : WARNING: Form 'INVALID_NAME' not found for locale 'fr'
+2:59:02 AM PIT >> INFO : MINION : Jan 10, 2026 2:59:02 AM org.apache.commons.validator.ValidatorResources getForm
+2:59:02 AM PIT >> INFO : MINION : WARNING: Form 'INVALID_NAME' not found for locale 'fr_FR'
+2:59:02 AM PIT >> INFO : MINION : Jan 10, 2026 2:59:02 AM org.apache.commons.validator.ValidatorResources getForm
+2:59:02 AM PIT >> INFO : MINION : WARNING: Form 'INVALID_NAME' not found for locale 'en_CA'
+2:59:02 AM PIT >> INFO : MINION : Jan 10, 2026 2:59:02 AM org.apache.commons.validator.ValidatorResources getForm
+2:59:02 AM PIT >> INFO : MINION : WARNING: Form 'INVALID_NAME' not found for locale 'fr_CA'
+2:59:02 AM PIT >> INFO : MINION : Jan 10, 2026 2:59:02 AM org.apache.commons.validator.ValidatorResources getForm
+2:59:02 AM PIT >> INFO : MINION : WARNING: Form 'INVALID_NAME' not found for locale 'fr_CA_XXX'
+|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|2:59:02 AM PIT >> INFO : Calculated coverage in 1 seconds.
+2:59:03 AM PIT >> INFO : Incremental analysis reduced number of mutations by 0
+2:59:03 AM PIT >> INFO : Created 69 mutation test units
+2:59:15 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+2:59:23 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+2:59:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+2:59:34 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+/-\|/2:59:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+2:59:51 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:00:01 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:00:01 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:00:07 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:00:09 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+-\|/-\|/-\|/-\3:00:10 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/3:00:16 AM PIT >> INFO : Completed in 75 seconds
+================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE
+>> Generated 243 Killed 184 (76%)
+> KILLED 173 SURVIVED 21 TIMED_OUT 1 NON_VIABLE 10 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 38 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 110 Killed 45 (41%)
+> KILLED 45 SURVIVED 44 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 21 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator
+>> Generated 6 Killed 3 (50%)
+> KILLED 3 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 2 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
+>> Generated 604 Killed 404 (67%)
+> KILLED 364 SURVIVED 137 TIMED_OUT 1 NON_VIABLE 39 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 63 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
+>> Generated 163 Killed 132 (81%)
+> KILLED 132 SURVIVED 5 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 26 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
+>> Generated 243 Killed 159 (65%)
+> KILLED 145 SURVIVED 46 TIMED_OUT 4 NON_VIABLE 10 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 38 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
+>> Generated 89 Killed 76 (85%)
+> KILLED 72 SURVIVED 8 TIMED_OUT 0 NON_VIABLE 4 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 5 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
+>> Generated 160 Killed 104 (65%)
+> KILLED 104 SURVIVED 16 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 40 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+>> Generated 243 Killed 148 (61%)
+> KILLED 136 SURVIVED 57 TIMED_OUT 2 NON_VIABLE 10 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 38 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
+>> Generated 19 Killed 15 (79%)
+> KILLED 12 SURVIVED 1 TIMED_OUT 1 NON_VIABLE 2 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 3 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
+>> Generated 77 Killed 65 (84%)
+> KILLED 64 SURVIVED 6 TIMED_OUT 0 NON_VIABLE 1 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 6 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
+>> Generated 275 Killed 193 (70%)
+> KILLED 172 SURVIVED 10 TIMED_OUT 0 NON_VIABLE 21 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 72 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
+>> Generated 107 Killed 79 (74%)
+> KILLED 69 SURVIVED 5 TIMED_OUT 0 NON_VIABLE 10 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 23 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
+>> Generated 605 Killed 411 (68%)
+> KILLED 371 SURVIVED 130 TIMED_OUT 2 NON_VIABLE 38 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 64 
+--------------------------------------------------------------------------------
+================================================================================
+- Timings
+================================================================================
+> pre-scan for mutations : < 1 second
+> scan classpath : < 1 second
+> coverage and dependency analysis : 1 seconds
+> build mutation tests : < 1 second
+> run mutation analysis : 1 minutes and 12 seconds
+--------------------------------------------------------------------------------
+> Total  : 1 minutes and 14 seconds
+--------------------------------------------------------------------------------
+================================================================================
+- Statistics
+================================================================================
+>> Line Coverage: 2524/3219 (78%)
+>> Generated 2944 mutations Killed 2018 (69%)
+>> Mutations with no coverage 439. Test strength 81%
+>> Ran 54837 tests (18.63 tests per mutation)
+Enhanced functionality available at https://www.arcmutate.com/
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:17 min
+[INFO] Finished at: 2026-01-10T03:00:16-05:00
+[INFO] ------------------------------------------------------------------------

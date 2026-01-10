@@ -1,0 +1,48 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      Pair<Type, Method> pair0 = BlueprintingVisitor.methodKey("Tw-{{U_yIU<Wh!ec", "B|MIA;pkLZ)?S", "5-$,TW`yL1;8YEzD");
+      assertNotNull(pair0);
+}
+ @Test(timeout = 4000)
+  public void test1()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        BlueprintingVisitor.methodKey("", "", ",O>");
+        fail("Expecting exception: StringIndexOutOfBoundsException");
+      } catch(StringIndexOutOfBoundsException e) {
+      }
+  }
+ @Test(timeout = 4000)
+  public void test2()  throws Throwable  {
+      ClassNode classNode0 = new ClassNode();
+      Privilizing privilizing0 = mock(Privilizing.class, new ViolatedAssumptionAnswer());
+      BlueprintingVisitor blueprintingVisitor0 = null;
+      try {
+        blueprintingVisitor0 = new BlueprintingVisitor((Privilizer) null, classNode0, privilizing0);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.weaver.privilizer.BlueprintingVisitor", e);
+      }
+  }
+ @Test(timeout = 4000)
+  public void test3()  throws Throwable  {
+      HashMap<String, FieldNode> hashMap0 = new HashMap<String, FieldNode>();
+      HashMap<Method, MethodNode> hashMap1 = new HashMap<Method, MethodNode>();
+      BlueprintingVisitor.TypeInfo blueprintingVisitor_TypeInfo0 = new BlueprintingVisitor.TypeInfo((-2515), "N-K", hashMap0, hashMap1);
+  }
+ @Test(timeout = 4000)
+  public void test4()  throws Throwable  {
+      // Undeclared exception!
+      try { 
+        BlueprintingVisitor.methodKey((String) null, "CD", (String) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.objectweb.asm.Type", e);
+      }
+  }

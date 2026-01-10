@@ -1,0 +1,13 @@
+ @Test(timeout = 4000)
+  public void test0()  throws Throwable  {
+      ActionGenerator actionGenerator0 = null;
+      try {
+        actionGenerator0 = new ActionGenerator((-1891), (Method) null, (String[]) null, (PrivilizingVisitor) null);
+        fail("Expecting exception: NullPointerException");
+      } catch(NullPointerException e) {
+         //
+         // no message in exception (getMessage() returned null)
+         //
+         verifyException("org.apache.commons.weaver.privilizer.ActionGenerator", e);
+      }
+  }

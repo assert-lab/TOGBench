@@ -1,0 +1,175 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for commons-net:commons-net:jar:3.8.0
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 225, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ----------------------< commons-net:commons-net >-----------------------
+[INFO] Building Apache Commons Net 3.8.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ commons-net ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-net-3.8.0/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-net ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-net ---
+[INFO] 
+[INFO] --- apache-rat:0.13:check (rat-check) @ commons-net ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-net ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-net ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-net-3.8.0/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-net ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-net ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-net-3.8.0' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-net-3.8.0
+[INFO] Storing buildNumber: ?????? at timestamp: 1768030827153
+[WARNING] Cannot get the branch information from the git repository: 
+Detecting the current branch failed: fatal: not a git repository (or any parent up to mount point /sfs)
+Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
+
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-net-3.8.0' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-net-3.8.0
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ commons-net ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-net ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 191 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-net-3.8.0/target/classes
+[INFO] 
+[INFO] --- bundle:5.1.1:manifest (bundle-manifest) @ commons-net ---
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-net ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-net ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 62 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-net-3.8.0/target/test-classes
+[INFO] 
+[INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-net ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- surefire:2.17:test (default-test) @ commons-net ---
+[INFO] Surefire report directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-net-3.8.0/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.apache.commons.net.io.DotTerminatedMessageReaderTest
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in org.apache.commons.net.io.DotTerminatedMessageReaderTest
+Running org.apache.commons.net.io.ToNetASCIIInputStreamTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.net.io.ToNetASCIIInputStreamTest
+Running org.apache.commons.net.SocketClientTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.net.SocketClientTest
+Running org.apache.commons.net.telnet.TelnetOptionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.telnet.TelnetOptionTest
+Running org.apache.commons.net.telnet.TerminalTypeOptionHandlerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.telnet.TerminalTypeOptionHandlerTest
+Running org.apache.commons.net.telnet.EchoOptionHandlerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.telnet.EchoOptionHandlerTest
+Running org.apache.commons.net.telnet.SuppressGAOptionHandlerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.net.telnet.SuppressGAOptionHandlerTest
+Running org.apache.commons.net.telnet.WindowSizeOptionHandlerTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.telnet.WindowSizeOptionHandlerTest
+Running org.apache.commons.net.telnet.SimpleOptionHandlerTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.net.telnet.SimpleOptionHandlerTest
+Running org.apache.commons.net.telnet.InvalidTelnetOptionExceptionTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.telnet.InvalidTelnetOptionExceptionTest
+Running org.apache.commons.net.telnet.TelnetClientTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 46.535 sec - in org.apache.commons.net.telnet.TelnetClientTest
+Running org.apache.commons.net.time.TimeTCPClientTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.014 sec - in org.apache.commons.net.time.TimeTCPClientTest
+Running org.apache.commons.net.ftp.FTPClientConfigTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.net.ftp.FTPClientConfigTest
+Running org.apache.commons.net.ftp.TestConnectTimeout
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.011 sec - in org.apache.commons.net.ftp.TestConnectTimeout
+Running org.apache.commons.net.ftp.parser.OS400FTPEntryParserAdditionalTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec - in org.apache.commons.net.ftp.parser.OS400FTPEntryParserAdditionalTest
+Running org.apache.commons.net.ftp.parser.OS400FTPEntryParserTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.net.ftp.parser.OS400FTPEntryParserTest
+Running org.apache.commons.net.ftp.parser.OS2FTPEntryParserTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.net.ftp.parser.OS2FTPEntryParserTest
+Running org.apache.commons.net.ftp.parser.FTPConfigEntryParserTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.ftp.parser.FTPConfigEntryParserTest
+Running org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest
+Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.net.ftp.parser.UnixFTPEntryParserTest
+Running org.apache.commons.net.ftp.parser.MacOsPeterFTPEntryParserTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.ftp.parser.MacOsPeterFTPEntryParserTest
+Running org.apache.commons.net.ftp.parser.NetwareFTPEntryParserTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.ftp.parser.NetwareFTPEntryParserTest
+Running org.apache.commons.net.ftp.parser.MVSFTPEntryParserTest
+Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.net.ftp.parser.MVSFTPEntryParserTest
+Running org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest
+Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.net.ftp.parser.FTPTimestampParserImplTest
+Running org.apache.commons.net.ftp.parser.EnterpriseUnixFTPEntryParserTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.net.ftp.parser.EnterpriseUnixFTPEntryParserTest
+Running org.apache.commons.net.ftp.parser.NTFTPEntryParserTest
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.net.ftp.parser.NTFTPEntryParserTest
+Running org.apache.commons.net.ftp.parser.VMSFTPEntryParserTest
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.net.ftp.parser.VMSFTPEntryParserTest
+Running org.apache.commons.net.ftp.parser.MLSxEntryParserTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.net.ftp.parser.MLSxEntryParserTest
+Running org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactoryTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.ftp.parser.DefaultFTPFileEntryParserFactoryTest
+Running org.apache.commons.net.ftp.FTPClientTest
+Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.ftp.FTPClientTest
+Running org.apache.commons.net.ftp.FTPCommandTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.ftp.FTPCommandTest
+Running org.apache.commons.net.tftp.TFTPTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.103 sec - in org.apache.commons.net.tftp.TFTPTest
+Running org.apache.commons.net.tftp.TFTPServerPathTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.net.tftp.TFTPServerPathTest
+Running org.apache.commons.net.nntp.TestThreader
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.nntp.TestThreader
+Running org.apache.commons.net.examples.MainTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.apache.commons.net.examples.MainTest
+Running org.apache.commons.net.imap.IMAPTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.net.imap.IMAPTest
+Running org.apache.commons.net.util.UtilTest
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.net.util.UtilTest
+Running org.apache.commons.net.util.Base64Test
+Tests run: 28, Failures: 0, Errors: 0, Skipped: 19, Time elapsed: 0.003 sec - in org.apache.commons.net.util.Base64Test
+Running org.apache.commons.net.smtp.SimpleSMTPHeaderTestCase
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.net.smtp.SimpleSMTPHeaderTestCase
+Running org.apache.commons.net.ntp.TestTimeInfo
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.ntp.TestTimeInfo
+Running org.apache.commons.net.ntp.TimeStampTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.ntp.TimeStampTest
+Running org.apache.commons.net.ntp.TestNtpClient
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.009 sec - in org.apache.commons.net.ntp.TestNtpClient
+Running org.apache.commons.net.ntp.TestNtpPacket
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.ntp.TestNtpPacket
+Running org.apache.commons.net.SubnetUtilsTest
+Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.net.SubnetUtilsTest
+
+Results :
+
+Tests run: 289, Failures: 0, Errors: 0, Skipped: 19
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:01 min
+[INFO] Finished at: 2026-01-10T02:41:27-05:00
+[INFO] ------------------------------------------------------------------------
