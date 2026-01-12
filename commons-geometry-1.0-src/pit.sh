@@ -1,15 +1,29 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-modules=(
-  "commons-geometry-core"
-  "commons-geometry-euclidean"
-  "commons-geometry-spherical"
-  "commons-geometry-io-core"
-  "commons-geometry-io-euclidean"
-)
+# ----- MVN TEST -----
+start_ts=$(date "+%Y-%m-%d %H:%M:%S")
+echo "began at: $start_ts" > mvn.log
 
-for m in "${modules[@]}"; do
-  echo "=== $m ==="
-  mvn -pl "$m" -am "-Drat.skip=true" "-Dtest.dir=src" "-Dtarget.dir=target" \
-    org.pitest:pitest-maven:1.9.8:mutationCoverage 2>&1 | tee "pit-${m}.log"
-done
+timeout 30m mvn clean test -Drat.skip=true -Dtest.dir=src -Dtarget.dir=target 2>&1 | tee -a mvn.log
+exit_code=$?
+
+if [ $exit_code -eq 124 ]; then
+    echo "[TIMEOUT] mvn test" | tee -a mvn.log
+fi
+
+end_ts=$(date "+%Y-%m-%d %H:%M:%S")
+echo "ended at: $end_ts" | tee -a mvn.log
+
+# ----- PIT TEST -----
+start_ts=$(date "+%Y-%m-%d %H:%M:%S")
+echo "began at: $start_ts" > pit.log
+
+timeout 2h mvn -Drat.skip=true -Dtest.dir=src -Dtarget.dir=target pitest:mutationCoverage 2>&1 | tee -a pit.log
+exit_code=$?
+
+if [ $exit_code -eq 124 ]; then
+    echo "[TIMEOUT] PIT" | tee -a pit.log
+fi
+
+end_ts=$(date "+%Y-%m-%d %H:%M:%S")
+echo "ended at: $end_ts" | tee -a pit.log

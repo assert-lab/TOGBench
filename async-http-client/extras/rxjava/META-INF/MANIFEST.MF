@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1768170811262
+Build-Jdk: 1.8.0_171
+Built-By: wxw9rr
+Bundle-Description: The Async Http Client RxJava Extras.
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Asynchronous Http Client RxJava Extras
+Bundle-SymbolicName: org.asynchttpclient.async-http-client-extras-rxjava
+Bundle-Vendor: The AsyncHttpClient Project
+Bundle-Version: 2.12.3
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.asynchttpclient.extras.rxjava;uses:="org.asynchttpcl
+ ient,rx,rx.functions";version="2.12.3",org.asynchttpclient.extras.rxjav
+ a.single;uses:="org.asynchttpclient,rx,rx.functions";version="2.12.3"
+Import-Package: io.netty.handler.codec.http;version="[4.1,5)",org.asynch
+ ttpclient;version="[2.12,3)",org.asynchttpclient.extras.rxjava,org.asyn
+ chttpclient.handler;version="[2.12,3)",org.slf4j;version="[1.7,2)",rx;v
+ ersion="[1.3,2)",rx.exceptions;version="[1.3,2)",rx.functions;version="
+ [1.3,2)",rx.subjects;version="[1.3,2)",rx.subscriptions;version="[1.3,2
+ )",javax.activation;version="[1.1,2)",io.netty.channel.kqueue;resolutio
+ n:=optional;version="[4.1,5)",io.netty.channel.epoll;resolution:=option
+ al;version="[4.1,5)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.0.0.201509101326

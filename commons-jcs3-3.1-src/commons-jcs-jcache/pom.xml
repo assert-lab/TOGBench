@@ -38,16 +38,11 @@
     <tag>commons-jcs3-3.1-rc2</tag>
   </scm>
   <properties>
-    <evosuiteVersion>1.0.6</evosuiteVersion>
+
 
   </properties>
   <dependencies>
-    <dependency>
-      <groupId>org.evosuite</groupId>
-      <artifactId>evosuite-standalone-runtime</artifactId>
-      <version>${evosuiteVersion}</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -106,9 +101,10 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.9.8</version>
-        <configuration>
-          <threads>4</threads>
+        <version>1.22.0</version>
+          <configuration>
+          <threads>16</threads>
+
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -124,7 +120,7 @@
             <param>org.apache.commons.jcs3.*</param>
           </targetClasses>
           <targetTests>
-            <param>org.apache.commons.jcs3.*_ESTest*</param>
+            <param>org.apache.commons.jcs3.*</param>
           </targetTests>
           <fullMutationMatrix>true</fullMutationMatrix>
           <exportLineCoverage>true</exportLineCoverage>
@@ -176,9 +172,7 @@
         <configuration>
           <argLine>-Xmx256m</argLine>
           <useUnlimitedThreads>true</useUnlimitedThreads>
-          <includes>
-            <include>**/*_ESTest.java</include>
-          </includes>
+
         </configuration>
       </plugin>
     </plugins>

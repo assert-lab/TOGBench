@@ -124,12 +124,10 @@
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
-                <version>1.9.8</version>
+                <version>1.22.0</version>
                 <configuration>
-                    <threads>16</threads>
-<jvmArgs>
-    <jvmArg>-Xmx6g</jvmArg> 
-</jvmArgs>
+                <threads>16</threads>
+
                     <timeoutConstant>8000</timeoutConstant>
                     <mutators>
                         <mutator>STRONGER</mutator>
@@ -159,14 +157,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <argLine>@{argLine} -Xmx128m</argLine>
-                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
-                </configuration>
             </plugin>
 
             <plugin>
@@ -313,7 +303,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.17</version>
+                <version>2.22.0</version>
             </plugin>
         </plugins>
     </build>

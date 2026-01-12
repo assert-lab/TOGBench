@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1768170813522
+Build-Jdk: 1.8.0_171
+Built-By: wxw9rr
+Bundle-Description: The Async Http Simple Client.
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Asynchronous Http Simple Client
+Bundle-SymbolicName: org.asynchttpclient.async-http-client-extras-simple
+Bundle-Vendor: The AsyncHttpClient Project
+Bundle-Version: 2.12.3
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.asynchttpclient.extras.simple;uses:="io.netty.handle
+ r.codec.http,io.netty.handler.codec.http.cookie,io.netty.handler.ssl,or
+ g.asynchttpclient,org.asynchttpclient.request.body.generator,org.asynch
+ ttpclient.request.body.multipart,org.asynchttpclient.uri";version="2.12
+ .3"
+Import-Package: io.netty.handler.codec.http;version="[4.1,5)",io.netty.h
+ andler.codec.http.cookie;version="[4.1,5)",io.netty.handler.ssl;version
+ ="[4.1,5)",io.netty.util;version="[4.1,5)",org.asynchttpclient;version=
+ "[2.12,3)",org.asynchttpclient.filter;version="[2.12,3)",org.asynchttpc
+ lient.handler;version="[2.12,3)",org.asynchttpclient.handler.resumable;
+ version="[2.12,3)",org.asynchttpclient.proxy;version="[2.12,3)",org.asy
+ nchttpclient.request.body.generator;version="[2.12,3)",org.asynchttpcli
+ ent.request.body.multipart;version="[2.12,3)",org.asynchttpclient.uri;v
+ ersion="[2.12,3)",org.asynchttpclient.util;version="[2.12,3)",javax.act
+ ivation;version="[1.1,2)",io.netty.channel.kqueue;resolution:=optional;
+ version="[4.1,5)",io.netty.channel.epoll;resolution:=optional;version="
+ [4.1,5)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.0.0.201509101326

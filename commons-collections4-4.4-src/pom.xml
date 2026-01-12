@@ -539,9 +539,10 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.9.8</version>
-        <configuration>
-          <threads>4</threads>
+        <version>1.22.0</version>
+          <configuration>
+          <threads>16</threads>
+
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -564,13 +565,25 @@
           <outputFormats>XML</outputFormats>
         </configuration>
       </plugin>
+            <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <version>4.1.0</version>
+        <executions>
+          <execution>
+            <id>bundle-manifest</id>
+            <phase>deploy</phase>
+            <goals>
+              <goal>manifest</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
           <configuration>
-            <includes>
-              <include>**/*Test.java</include>
-            </includes>
             <excludes>
               <exclude>**/*$*</exclude>
               <exclude>**/TestUtils.java</exclude>

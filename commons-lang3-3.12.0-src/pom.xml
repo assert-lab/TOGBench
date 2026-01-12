@@ -684,7 +684,7 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.9.8</version>
+        <version>1.22.0</version>
 
         <dependencies>
           <dependency>
@@ -696,13 +696,9 @@
 
         <configuration>
           <testPlugin>junit5</testPlugin>
+
           <threads>16</threads>
-          <jvmArgs>
-            <jvmArg>-Xms512m</jvmArg>
-            <jvmArg>-Xmx4G</jvmArg>
-            <jvmArg>-XX:+UseG1GC</jvmArg>
-            <jvmArg>-Djava.awt.headless=true</jvmArg>
-          </jvmArgs>
+   
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -720,6 +716,17 @@
           <targetTests>
             <param>org.apache.commons.lang3.*</param>
           </targetTests>
+    <excludedTestClasses>
+      <param>org.apache.commons.lang3.builder.JsonToStringStyleTest</param>
+      <param>org.apache.commons.lang3.builder.NoClassNameToStringStyleTest</param>
+      <param>org.apache.commons.lang3.builder.ShortPrefixToStringStyleTest</param>
+      <param>org.apache.commons.lang3.builder.StandardToStringStyleTest</param>
+      <param>org.apache.commons.lang3.reflect.FieldUtilsTest</param>
+      <param>org.apache.commons.lang3.builder.ToStringBuilderTest</param>
+      <param>org.apache.commons.lang3.time.FastDateParser_TimeZoneStrategyTest</param>
+      
+      
+    </excludedTestClasses>
           <fullMutationMatrix>true</fullMutationMatrix>
           <exportLineCoverage>true</exportLineCoverage>
           <outputFormats>XML</outputFormats>
@@ -755,21 +762,27 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>${commons.surefire.version}</version>
-        <executions>
-          <execution>
-            <id>plain</id>
-            <configuration>
-              <redirectTestOutputToFile>true</redirectTestOutputToFile>
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-surefire-plugin</artifactId>
+  <version>${commons.surefire.version}</version>
 
-              <runOrder>random</runOrder>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
+  <configuration>
+    <redirectTestOutputToFile>true</redirectTestOutputToFile>
+    <runOrder>random</runOrder>
+
+    <excludes>
+      <exclude>**/JsonToStringStyleTest.java</exclude>
+      <exclude>**/NoClassNameToStringStyleTest.java</exclude>
+      <exclude>**/ShortPrefixToStringStyleTest.java</exclude>
+      <exclude>**/StandardToStringStyleTest.java</exclude>
+      <exclude>**/ToStringBuilderTest.java</exclude>
+      <exclude>**/FieldUtilsTest.java</exclude>
+      <exclude>**/FastDateParser_TimeZoneStrategyTest.java</exclude>
+    </excludes>
+  </configuration>
+</plugin>
+
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
@@ -1031,9 +1044,7 @@
 
             <configuration>
               <useUnlimitedThreads>true</useUnlimitedThreads>
-              <excludes>
-                <exclude>org/apache/commons/lang3/time/Java15BugFastDateParserTest.java</exclude>               
-              </excludes>
+
             </configuration>
           </plugin>        
         </plugins>

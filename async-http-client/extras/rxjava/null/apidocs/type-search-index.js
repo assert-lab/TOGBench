@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.asynchttpclient.extras.rxjava","l":"AsyncHttpObservable"},{"p":"org.asynchttpclient.extras.rxjava.single","l":"AsyncHttpSingle"},{"p":"org.asynchttpclient.extras.rxjava","l":"UnsubscribedException"}];updateSearchResults();

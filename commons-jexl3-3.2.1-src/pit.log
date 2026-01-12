@@ -1,1256 +1,1366 @@
+began at: 2026-01-11 18:00:11
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jexl3:jar:3.2.1
-[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 313, column 21
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
 [INFO] 
 [INFO] ------------------< org.apache.commons:commons-jexl3 >------------------
 [INFO] Building Apache Commons JEXL 3.2.1
 [INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- pitest:1.9.8:mutationCoverage (default-cli) @ commons-jexl3 ---
-[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
+[INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ commons-jexl3 ---
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
 [INFO] Found plugin : Default csv report plugin
 [INFO] Found plugin : Default xml report plugin
 [INFO] Found plugin : Default html report plugin
-[INFO] Found plugin : Implicit null check filter
-[INFO] Found plugin : Kotlin junk mutations filter
-[INFO] Found plugin : Infinite for loop filter
-[INFO] Found plugin : Max mutations per class limit
-[INFO] Found plugin : Logging calls filter
-[INFO] Found plugin : Assertions filter
-[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Excluded annotations plugin
 [INFO] Found plugin : Try with resources filter
-[INFO] Found plugin : Enum constructor filter
-[INFO] Found plugin : Trivial return vals equivalence filter
-[INFO] Found plugin : Long running iterator loop filter
 [INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Enum junk filter
 [INFO] Found plugin : Record junk mutation filter
 [INFO] Found plugin : String switch filter
-[INFO] Found plugin : Excluded annotations plugin
-[INFO] Found plugin : Equals shortcut equivalent mutant filter
-[INFO] Found plugin : Static initializer code detector plugin
-[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Assertions filter
 [INFO] Found plugin : Enum switch filter
-[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
 [INFO] Found plugin : For loop counter filter
-[INFO] Plugin available : Git integration
-[INFO] Plugin available : Support for mutating kotlin bytecode
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Groovy junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Filters mutants with line number <= 1
+[INFO] Found plugin : Division by one equivalent mutant filter
+[INFO] Found plugin : Lombok junk mutations filter
+[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[INFO] Found plugin : Mutant export plugin
 [INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
 [INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
+[INFO] Found plugin : Default build verifier
+[INFO] Found plugin : Detect missing JUnit5 plugin
+[INFO] Found plugin : Detect missing TestNG plugin
+[INFO] Found plugin : Detect missing kotlin plugin
+[INFO] Found plugin : Detect missing spring plugin
+[INFO] Found plugin : Default coverage exporter
+[INFO] Found plugin : Basic test statistics
 [INFO] Found shared classpath plugin : Default mutation engine
 [INFO] Found shared classpath plugin : JUnit plugin
-[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER
+[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
+[INFO] Found shared classpath plugin : Reset environment for javassist
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
 [INFO] Adding org.pitest:pitest to SUT classpath
-[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src/target/classes
-11:14:04 PM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
-11:14:04 PM PIT >> INFO : Incremental analysis reduced number of mutations by 0
-11:14:04 PM PIT >> INFO : Created 228 mutation test units in pre scan
-11:14:05 PM PIT >> INFO : Sending 459 test classes to minion
-11:14:05 PM PIT >> INFO : Sent tests to minion
-/-\|/-\|/-\|/-\|/-\|/11:14:05 PM PIT >> INFO : MINION : Jan 09, 2026 11:14:05 PM org.apache.commons.jexl3.JexlEngine interpret
-11:14:05 PM PIT >> INFO : MINION : WARNING: org.apache.commons.jexl3.AnnotationTest.testVarStmt:148 variable 'y' is undefined
--\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|11:14:13 PM PIT >> INFO : Calculated coverage in 8 seconds.
-11:14:23 PM PIT >> INFO : Incremental analysis reduced number of mutations by 0
-11:14:24 PM PIT >> INFO : Created 227 mutation test units
-11:14:36 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:14:37 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:14:41 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:14:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:14:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:14:52 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:14:56 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:14:59 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:15:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:15:11 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:15:18 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:15:21 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
-11:15:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:15:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:15:32 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:15:38 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:15:41 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:15:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:15:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:15:57 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:07 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:12 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:27 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:27 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:35 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
-11:16:36 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:37 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:44 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:47 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:16:52 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:07 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:29 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:31 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:31 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:39 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:40 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:50 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:17:58 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:06 PM PIT >> WARNING : Error while watching child process
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/target/classes
+6:00:13 PM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+6:00:13 PM PIT >> INFO : Created 231 mutation test units in pre scan
+6:00:13 PM PIT >> INFO : MINION : Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+6:00:13 PM PIT >> INFO : Sending 459 test classes to minion
+6:00:13 PM PIT >> INFO : Sent tests to minion
+/-\|/6:00:14 PM PIT >> INFO : MINION : Jan 11, 2026 6:00:14 PM org.apache.commons.jexl3.JexlEngine interpret
+6:00:14 PM PIT >> INFO : MINION : WARNING: org.apache.commons.jexl3.AnnotationTest.testVarStmt:148 variable 'y' is undefined
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|6:00:21 PM PIT >> INFO : Calculated coverage in 8 seconds.
+6:00:21 PM PIT >> INFO : 0 tests took longer than 2000 ms
+6:00:21 PM PIT >> INFO : Slowest test (testWait(org.apache.commons.jexl3.ScriptCallableTest)) took 1001 ms
+6:00:21 PM PIT >> INFO : Largest test (testArithmeticPlus(org.apache.commons.jexl3.ArithmeticTest)) covered 4267 blocks
+6:00:33 PM PIT >> INFO : Created 226 mutation test units
+6:00:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:00:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:00:54 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:00:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:00 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:07 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:13 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:16 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:27 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:44 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:52 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:01:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:02:00 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:02:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:02:12 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:02:16 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:02:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:02:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:02:34 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:02:35 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:02:41 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:02:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:02:54 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:02:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:11 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:13 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:21 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:21 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:22 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:32 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:32 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:40 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:44 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:03:56 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:12 PM PIT >> WARNING : Error while watching child process
 java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 245097
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 240507
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
 	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
-	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:49)
-	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:92)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:85)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:68)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:56)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
 	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
-	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:30)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 Caused by: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 245097
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 240507
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
 	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
 	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	... 1 more
 Caused by: java.io.EOFException
-	at java.io.DataInputStream.readByte(DataInputStream.java:267)
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
 	... 5 more
-11:18:06 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
-11:18:07 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:11 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:12 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:19 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
-11:18:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:26 PM PIT >> WARNING : Error while watching child process
+6:04:12 PM PIT >> WARNING : Error while watching child process
 java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 264843
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 240507
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
 	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
-	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:47)
-	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:92)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:85)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:68)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:67)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
 	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
-	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:30)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 Caused by: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 264843
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 240507
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
 	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
 	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	... 1 more
 Caused by: java.io.EOFException
-	at java.io.DataInputStream.readByte(DataInputStream.java:267)
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
 	... 5 more
-11:18:26 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
-11:18:28 PM PIT >> WARNING : Error while watching child process
+6:04:12 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
+6:04:13 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:15 PM PIT >> WARNING : Error while watching child process
 java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 266314
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 243982
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
 	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
-	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:47)
-	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:92)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:85)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:68)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:56)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
 	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
-	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:30)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 Caused by: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 266314
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 243982
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
 	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
 	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	... 1 more
 Caused by: java.io.EOFException
-	at java.io.DataInputStream.readByte(DataInputStream.java:267)
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
 	... 5 more
-11:18:28 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
-11:18:31 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:33 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:37 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:37 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:40 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:41 PM PIT >> WARNING : Error while watching child process
+6:04:15 PM PIT >> WARNING : Error while watching child process
 java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 279860
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 243982
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
 	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
-	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:47)
-	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:92)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:85)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:68)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:67)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
 	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
-	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:30)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 Caused by: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 279860
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 243982
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
 	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
 	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	... 1 more
 Caused by: java.io.EOFException
-	at java.io.DataInputStream.readByte(DataInputStream.java:267)
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
 	... 5 more
-11:18:41 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
-11:18:50 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:52 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:52 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:18:54 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:03 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:18 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:19 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:20 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:27 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:32 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:36 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:37 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:38 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:38 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:43 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:45 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:47 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:50 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:54 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:56 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:58 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:19:59 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:05 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:05 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:12 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:14 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:24 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:24 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:31 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:31 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:33 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:33 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:34 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:35 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:39 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:40 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:43 PM PIT >> WARNING : Error while watching child process
+6:04:15 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
+6:04:16 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:22 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:27 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:30 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:31 PM PIT >> WARNING : Error while watching child process
 java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 401753
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 259179
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
 	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
-	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:47)
-	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:92)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:85)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:68)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:61)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
 	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
-	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:30)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 Caused by: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 401753
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 259179
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
 	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
 	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	... 1 more
 Caused by: java.io.EOFException
-	at java.io.DataInputStream.readByte(DataInputStream.java:267)
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
 	... 5 more
-11:20:43 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
-11:20:44 PM PIT >> WARNING : Error while watching child process
+6:04:31 PM PIT >> WARNING : Error while watching child process
 java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 402337
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 259179
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
 	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
-	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:47)
-	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:92)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:85)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:68)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:67)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
 	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
-	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:30)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 Caused by: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 402337
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 259179
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
 	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
 	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	... 1 more
 Caused by: java.io.EOFException
-	at java.io.DataInputStream.readByte(DataInputStream.java:267)
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
 	... 5 more
-11:20:44 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
-11:20:44 PM PIT >> WARNING : Error while watching child process
+6:04:31 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
+6:04:33 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:35 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:38 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:46 PM PIT >> WARNING : Error while watching child process
 java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 402810
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 274660
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
 	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
-	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:47)
-	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:92)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:85)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:68)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:56)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
 	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
-	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:30)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 Caused by: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 402810
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 274660
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
 	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
 	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	... 1 more
 Caused by: java.io.EOFException
-	at java.io.DataInputStream.readByte(DataInputStream.java:267)
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
 	... 5 more
-11:20:44 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
-11:20:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:49 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:57 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:58 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:58 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:20:59 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:01 PM PIT >> WARNING : Error while watching child process
+6:04:46 PM PIT >> WARNING : Error while watching child process
 java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 419429
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 274660
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
 	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
-	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:47)
-	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:92)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:85)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:68)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:67)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
 	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
-	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:30)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 Caused by: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 419429
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 274660
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
 	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
 	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	... 1 more
 Caused by: java.io.EOFException
-	at java.io.DataInputStream.readByte(DataInputStream.java:267)
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
 	... 5 more
-11:21:01 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
-11:21:01 PM PIT >> WARNING : Error while watching child process
+6:04:46 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
+6:04:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:56 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:04:57 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:00 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:12 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:13 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:14 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:18 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:19 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:21 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:30 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:35 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:39 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:43 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:45 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:49 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:05:59 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:00 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:08 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:11 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:12 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:16 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:24 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:27 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:30 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:33 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:35 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:35 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:44 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:50 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:52 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:06:58 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:03 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:03 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:07 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:07 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:10 PM PIT >> WARNING : Error while watching child process
 java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 420125
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 418848
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
 	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
-	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:47)
-	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:92)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:85)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:68)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:56)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
 	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
-	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:30)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 Caused by: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 420125
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 418848
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
 	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
 	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	... 1 more
 Caused by: java.io.EOFException
-	at java.io.DataInputStream.readByte(DataInputStream.java:267)
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
 	... 5 more
-11:21:01 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
-11:21:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:05 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:07 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:08 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:08 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:11 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:11 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:12 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:12 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:30 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:30 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:35 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:39 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:39 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:39 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:43 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:43 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:47 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:49 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:54 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:56 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:56 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:57 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:21:59 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:22:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:22:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:22:08 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:22:09 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:22:16 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:22:19 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:22:22 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:22:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:22:36 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:22:47 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:22:52 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:22:56 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:23:05 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:23:13 PM PIT >> WARNING : Error while watching child process
+6:07:10 PM PIT >> WARNING : Error while watching child process
 java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 552140
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 418848
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
-	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
-	at java.util.concurrent.FutureTask.get(FutureTask.java:206)
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
 	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
-	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:49)
-	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:92)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:85)
-	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:68)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:67)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
 	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
-	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:30)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
-	at java.lang.Thread.run(Thread.java:750)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
 Caused by: org.pitest.util.PitError: null
 
 Please copy and paste the information and the complete stacktrace below when reporting an issue
 VM : OpenJDK 64-Bit Server VM
-Vendor : Red Hat, Inc.
-Version : 25.442-b06
-Uptime : 552140
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 418848
 Input -> 
  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
- 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-BootClassPathSupported : true
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
 
 	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
 	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
 	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
-	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	... 1 more
 Caused by: java.io.EOFException
-	at java.io.DataInputStream.readByte(DataInputStream.java:267)
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
 	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
 	... 5 more
-11:23:13 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
-11:23:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:23:47 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:24:00 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:24:10 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
-11:24:12 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:24:22 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:24:27 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
-11:24:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:24:34 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:24:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:24:43 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:24:59 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:25:09 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:25:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:25:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:25:33 PM PIT >> WARNING : Minion exited abnormally due to MEMORY_ERROR
-11:25:44 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:25:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:25:52 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:25:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:26:07 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:26:16 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:26:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:27:07 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:27:17 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:27:33 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:27:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:27:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:28:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:28:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:28:49 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:29:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:29:24 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:29:39 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:29:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:30:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:30:21 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:30:45 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:31:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:31:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:31:41 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:31:44 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:31:54 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:32:03 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:32:08 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:32:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:32:44 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:32:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:33:08 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:33:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:33:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:34:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:34:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:34:37 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:34:45 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:34:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:35:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:35:30 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:35:58 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:36:54 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:37:09 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:37:18 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:37:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:37:36 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:37:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:37:57 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:38:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:38:30 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:44:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:45:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:45:16 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:45:38 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:45:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:46:27 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:46:38 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:47:00 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:47:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:47:40 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:47:49 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:48:11 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:48:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:48:41 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:48:50 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:49:05 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:49:30 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:49:47 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:49:56 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:50:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:50:14 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:50:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:50:31 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:50:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:51:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:51:11 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:51:20 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:51:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:51:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:51:57 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:52:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:52:16 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:52:31 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:52:41 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:52:57 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:53:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:53:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:53:30 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:53:39 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:54:14 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:54:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:57:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:58:08 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:58:24 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:58:32 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:58:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:59:09 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:59:24 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:59:40 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:59:49 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-11:59:57 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:05:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:05:49 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:06:12 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:06:28 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:06:40 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:06:49 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:07:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:10:52 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:11:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:11:52 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:12:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:12:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:12:22 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:12:31 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:12:39 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:12:50 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:13:12 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:13:31 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:13:46 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:14:11 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:14:38 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:14:47 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:15:20 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:15:29 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:15:39 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:16:15 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:16:44 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:17:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:17:34 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:17:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:18:26 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:18:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:19:11 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:19:26 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:19:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:19:50 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:20:36 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:21:05 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:21:14 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:21:30 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:21:53 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:22:02 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:22:16 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:22:31 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:22:40 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:22:48 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:23:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:23:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:23:29 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:23:38 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:23:48 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:24:06 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:24:17 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:24:38 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:24:46 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:24:55 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:25:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:25:32 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:25:47 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:25:56 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:35:23 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:35:39 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:36:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:36:28 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:36:45 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:37:07 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:37:19 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:37:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:38:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:38:30 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:44:54 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:45:36 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:45:50 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:46:07 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:46:16 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:46:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:46:58 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:47:15 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:47:24 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:47:33 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:47:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:47:52 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:48:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:48:23 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:48:38 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:48:46 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:49:15 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:49:23 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:49:38 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:49:47 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:57:18 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:57:32 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:57:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:58:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:58:19 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:58:27 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:58:37 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:59:18 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-12:59:27 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:00:16 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:00:24 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:01:17 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:01:36 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:01:54 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:02:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:08:20 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:08:45 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:08:56 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:09:18 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:09:46 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:09:54 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:10:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:10:24 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:10:33 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:10:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:10:58 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:11:27 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:11:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:12:27 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:12:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:12:56 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:13:12 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:13:34 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:14:01 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:14:16 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:14:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:20:42 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:20:50 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:20:59 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:21:08 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:21:17 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:21:29 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:21:59 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:22:14 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:22:23 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:22:44 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:23:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:23:30 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:23:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:23:52 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:24:01 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:25:36 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:25:44 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:25:55 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:26:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:27:27 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:27:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:28:05 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:28:27 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:29:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:29:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:29:53 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:30:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:30:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:31:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:31:19 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:31:28 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:32:32 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:32:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:33:12 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:33:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:33:36 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:33:46 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:34:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:34:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:35:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:35:11 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:35:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:35:36 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:36:11 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:36:26 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:36:47 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:37:09 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:37:31 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:37:48 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:37:56 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:38:17 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:38:42 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:39:00 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:39:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:39:57 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:40:07 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:40:16 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:40:48 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:40:58 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:41:07 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:41:18 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:41:39 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:42:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:42:28 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:42:49 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:43:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:43:12 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:43:28 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:43:46 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:43:54 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:44:28 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:44:38 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:44:52 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:45:10 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:45:26 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:45:36 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:45:44 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:46:00 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:46:09 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:46:19 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:47:05 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:47:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:48:00 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:48:08 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:49:05 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:49:33 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:49:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:49:53 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:50:02 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:50:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:51:09 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:51:17 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:51:38 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:52:00 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:52:15 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:52:24 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:52:52 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:53:07 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:53:17 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:53:36 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:53:51 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:54:08 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:54:17 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:54:37 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:54:47 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:55:15 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:56:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:57:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:57:26 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:57:59 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:58:15 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:58:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:58:34 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:58:48 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:59:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:59:19 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:00:05 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:00:14 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:00:47 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:00:57 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:01:06 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:01:15 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:01:33 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:01:42 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:01:56 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:02:12 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:02:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:02:40 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:02:49 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-2:03:08 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\2:03:32 AM PIT >> INFO : Completed in 10167 seconds
-================================================================================
-- Mutators
-================================================================================
-> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE
->> Generated 460 Killed 287 (62%)
-> KILLED 270 SURVIVED 66 TIMED_OUT 17 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 107 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
->> Generated 1508 Killed 678 (45%)
-> KILLED 619 SURVIVED 474 TIMED_OUT 59 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 356 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator
->> Generated 124 Killed 105 (85%)
-> KILLED 104 SURVIVED 7 TIMED_OUT 1 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 12 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
->> Generated 3497 Killed 1878 (54%)
-> KILLED 1668 SURVIVED 952 TIMED_OUT 206 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 4 
-> NO_COVERAGE 667 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
->> Generated 1109 Killed 689 (62%)
-> KILLED 672 SURVIVED 237 TIMED_OUT 15 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 2 
-> NO_COVERAGE 183 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
->> Generated 460 Killed 221 (48%)
-> KILLED 208 SURVIVED 132 TIMED_OUT 11 NON_VIABLE 0 
-> MEMORY_ERROR 2 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 107 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
->> Generated 776 Killed 346 (45%)
-> KILLED 325 SURVIVED 154 TIMED_OUT 20 NON_VIABLE 0 
-> MEMORY_ERROR 1 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 276 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
->> Generated 188 Killed 132 (70%)
-> KILLED 128 SURVIVED 18 TIMED_OUT 4 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 38 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
->> Generated 460 Killed 200 (43%)
-> KILLED 196 SURVIVED 153 TIMED_OUT 4 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 107 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
->> Generated 46 Killed 32 (70%)
-> KILLED 32 SURVIVED 4 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 10 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
->> Generated 673 Killed 251 (37%)
-> KILLED 239 SURVIVED 89 TIMED_OUT 9 NON_VIABLE 0 
-> MEMORY_ERROR 3 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 333 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
->> Generated 627 Killed 409 (65%)
-> KILLED 406 SURVIVED 87 TIMED_OUT 3 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 131 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.InvertNegsMutator
->> Generated 6 Killed 6 (100%)
-> KILLED 6 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 0 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
->> Generated 623 Killed 381 (61%)
-> KILLED 238 SURVIVED 47 TIMED_OUT 143 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 195 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
->> Generated 3501 Killed 1772 (51%)
-> KILLED 1729 SURVIVED 1062 TIMED_OUT 39 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 4 
-> NO_COVERAGE 667 
---------------------------------------------------------------------------------
-================================================================================
-- Timings
-================================================================================
-> pre-scan for mutations : < 1 second
-> scan classpath : < 1 second
-> coverage and dependency analysis : 8 seconds
-> build mutation tests : 2 seconds
-> run mutation analysis : 2 hours, 49 minutes and 8 seconds
---------------------------------------------------------------------------------
-> Total  : 2 hours, 49 minutes and 18 seconds
---------------------------------------------------------------------------------
-================================================================================
-- Statistics
-================================================================================
->> Line Coverage: 10939/14483 (76%)
->> Generated 14058 mutations Killed 7387 (53%)
->> Mutations with no coverage 3189. Test strength 68%
->> Ran 1276512 tests (90.8 tests per mutation)
-Enhanced functionality available at https://www.arcmutate.com/
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  02:49 h
-[INFO] Finished at: 2026-01-10T02:03:32-05:00
-[INFO] ------------------------------------------------------------------------
+6:07:10 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
+6:07:12 PM PIT >> WARNING : Error while watching child process
+java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 420395
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:56)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 420395
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
+	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	... 1 more
+Caused by: java.io.EOFException
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
+	... 5 more
+6:07:12 PM PIT >> WARNING : Error while watching child process
+java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 420395
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:67)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 420395
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
+	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	... 1 more
+Caused by: java.io.EOFException
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
+	... 5 more
+6:07:12 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
+6:07:13 PM PIT >> WARNING : Error while watching child process
+java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 422077
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:56)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 422077
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
+	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	... 1 more
+Caused by: java.io.EOFException
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
+	... 5 more
+6:07:13 PM PIT >> WARNING : Error while watching child process
+java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 422077
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:67)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 422077
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
+	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	... 1 more
+Caused by: java.io.EOFException
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
+	... 5 more
+6:07:13 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
+6:07:14 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:24 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:25 PM PIT >> WARNING : Error while watching child process
+java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 433574
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:56)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 433574
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
+	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	... 1 more
+Caused by: java.io.EOFException
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
+	... 5 more
+6:07:25 PM PIT >> WARNING : Error while watching child process
+java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 433574
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:67)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 433574
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
+	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	... 1 more
+Caused by: java.io.EOFException
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
+	... 5 more
+6:07:25 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
+6:07:26 PM PIT >> WARNING : Error while watching child process
+java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 434273
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:56)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 434273
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
+	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	... 1 more
+Caused by: java.io.EOFException
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
+	... 5 more
+6:07:26 PM PIT >> WARNING : Error while watching child process
+java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 434273
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:67)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 434273
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
+	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	... 1 more
+Caused by: java.io.EOFException
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
+	... 5 more
+6:07:26 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
+6:07:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:32 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:33 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:38 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:40 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:45 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:45 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:07:48 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:00 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:00 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:08 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:12 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:12 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:16 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:19 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:19 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:22 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:22 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:27 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:27 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:27 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:29 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:31 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:37 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:40 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:49 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:50 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:08:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:09:00 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:09:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:09:20 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:09:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:09:29 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:09:32 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:09:47 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+6:09:52 PM PIT >> WARNING : Error while watching child process
+java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 580188
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:61)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 580188
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
+	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	... 1 more
+Caused by: java.io.EOFException
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
+	... 5 more
+6:09:52 PM PIT >> WARNING : Error while watching child process
+java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 580188
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
+	at org.pitest.mutationtest.execute.MutationTestProcess.waitToDie(MutationTestProcess.java:67)
+	at org.pitest.mutationtest.build.MutationTestUnit.waitForMinionToDie(MutationTestUnit.java:103)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestInSeperateProcessForMutationRange(MutationTestUnit.java:90)
+	at org.pitest.mutationtest.build.MutationTestUnit.runTestsInSeperateProcess(MutationTestUnit.java:73)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:55)
+	at org.pitest.mutationtest.build.MutationTestUnit.call(MutationTestUnit.java:33)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 580188
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:78)
+	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:57)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	... 1 more
+Caused by: java.io.EOFException
+	at java.base/java.io.DataInputStream.readUnsignedByte(DataInputStream.java:290)
+	at java.base/java.io.DataInputStream.readByte(DataInputStream.java:268)
+	at org.pitest.util.SafeDataInputStream.readByte(SafeDataInputStream.java:76)
+	... 5 more
+6:09:52 PM PIT >> WARNING : Minion exited abnormally due to RUN_ERROR
+ended at: 2026-01-11 18:10:11

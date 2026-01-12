@@ -38,19 +38,14 @@
     <tag>commons-jcs3-3.1-rc2</tag>
   </scm>
   <properties>
-    <evosuiteVersion>1.0.6</evosuiteVersion>
+
 
   </properties>
   <!-- NOTE: These dependency declarations are only required to sort this project to the 
        end of the line in the multimodule build. 
   -->
   <dependencies>
-    <dependency>
-      <groupId>org.evosuite</groupId>
-      <artifactId>evosuite-standalone-runtime</artifactId>
-      <version>${evosuiteVersion}</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

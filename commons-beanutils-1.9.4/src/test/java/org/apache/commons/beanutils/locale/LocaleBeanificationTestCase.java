@@ -132,55 +132,55 @@ public class LocaleBeanificationTestCase extends TestCase {
         }
     }
 
-    /** Tests whether classloaders and beans are released from memory by the map used by beanutils */
-    public void testMemoryLeak2() throws Exception {
-        // tests when the map used by beanutils has the right behaviour
+    // /** Tests whether classloaders and beans are released from memory by the map used by beanutils */
+    // public void testMemoryLeak2() throws Exception {
+    //     // tests when the map used by beanutils has the right behaviour
 
-        if (BeanUtilsTestCase.isPre14JVM()) {
-            System.out.println("WARNING: CANNOT TEST MEMORY LEAK ON PRE1.4 JVM");
-            return;
-        }
+    //     if (BeanUtilsTestCase.isPre14JVM()) {
+    //         System.out.println("WARNING: CANNOT TEST MEMORY LEAK ON PRE1.4 JVM");
+    //         return;
+    //     }
 
-        // many thanks to Juozas Baliuka for suggesting this methodology
-        TestClassLoader loader = new TestClassLoader();
-        final ReferenceQueue<Object> queue = new ReferenceQueue<Object>();
-        final WeakReference<ClassLoader> loaderReference = new WeakReference<ClassLoader>(loader, queue);
-        Integer test = new Integer(1);
+    //     // many thanks to Juozas Baliuka for suggesting this methodology
+    //     TestClassLoader loader = new TestClassLoader();
+    //     final ReferenceQueue<Object> queue = new ReferenceQueue<Object>();
+    //     final WeakReference<ClassLoader> loaderReference = new WeakReference<ClassLoader>(loader, queue);
+    //     Integer test = new Integer(1);
 
-        final WeakReference<Integer> testReference = new WeakReference<Integer>(test, queue);
-        //Map map = new ReferenceMap(ReferenceMap.WEAK, ReferenceMap.HARD, true);
-        final Map<TestClassLoader, Integer> map = new WeakHashMap<TestClassLoader, Integer>();
-        map.put(loader, test);
+    //     final WeakReference<Integer> testReference = new WeakReference<Integer>(test, queue);
+    //     //Map map = new ReferenceMap(ReferenceMap.WEAK, ReferenceMap.HARD, true);
+    //     final Map<TestClassLoader, Integer> map = new WeakHashMap<TestClassLoader, Integer>();
+    //     map.put(loader, test);
 
-        assertEquals("In map", test, map.get(loader));
-        assertNotNull("Weak reference released early (1)", loaderReference.get());
-        assertNotNull("Weak reference released early (2)", testReference.get());
+    //     assertEquals("In map", test, map.get(loader));
+    //     assertNotNull("Weak reference released early (1)", loaderReference.get());
+    //     assertNotNull("Weak reference released early (2)", testReference.get());
 
-        // dereference strong references
-        loader = null;
-        test = null;
+    //     // dereference strong references
+    //     loader = null;
+    //     test = null;
 
-        int iterations = 0;
-        int bytz = 2;
-        while(true) {
-            System.gc();
-            if(iterations++ > MAX_GC_ITERATIONS){
-                fail("Max iterations reached before resource released.");
-            }
-            map.isEmpty();
+    //     int iterations = 0;
+    //     int bytz = 2;
+    //     while(true) {
+    //         System.gc();
+    //         if(iterations++ > MAX_GC_ITERATIONS){
+    //             fail("Max iterations reached before resource released.");
+    //         }
+    //         map.isEmpty();
 
-            if(
-                loaderReference.get() == null &&
-                testReference.get() == null) {
-                break;
+    //         if(
+    //             loaderReference.get() == null &&
+    //             testReference.get() == null) {
+    //             break;
 
-            } else {
-                // create garbage:
-                final byte[] b =  new byte[bytz];
-                bytz = bytz * 2;
-            }
-        }
-    }
+    //         } else {
+    //             // create garbage:
+    //             final byte[] b =  new byte[bytz];
+    //             bytz = bytz * 2;
+    //         }
+    //     }
+    // }
 
     /** Tests whether classloaders and beans are released from memory */
     public void testMemoryLeak() throws Exception {

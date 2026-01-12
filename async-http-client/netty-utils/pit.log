@@ -1,0 +1,29 @@
+began at: 2026-01-11 23:45:10
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.asynchttpclient:async-http-client-netty-utils:jar:2.12.3
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ org.asynchttpclient:async-http-client-project:2.12.3, /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/pom.xml, line 229, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml
+Progress (1): 4.6 kBProgress (2): 4.6 kB | 3.9 kBProgress (2): 9.8 kB | 3.9 kBProgress (2): 9.8 kB | 7.7 kBProgress (2): 14 kB | 7.7 kB Progress (2): 14 kB | 13 kB Progress (2): 14 kB | 20 kBProgress (2): 14 kB | 20 kB                           Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml (20 kB at 108 kB/s)
+Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml (14 kB at 76 kB/s)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.814 s
+[INFO] Finished at: 2026-01-11T23:45:12-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] No plugin found for prefix 'pitest' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (/home/wxw9rr/.m2/repository), central (https://repo.maven.apache.org/maven2)] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/NoPluginFoundForPrefixException
+ended at: 2026-01-11 23:45:12

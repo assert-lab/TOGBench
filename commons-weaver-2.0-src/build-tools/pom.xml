@@ -46,9 +46,10 @@ under the License.
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.9.8</version>
-        <configuration>
-          <threads>4</threads>
+        <version>1.22.0</version>
+          <configuration>
+          <threads>16</threads>
+
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -64,7 +65,7 @@ under the License.
             <param>org.apache.commons.weaver*</param>
           </targetClasses>
           <targetTests>
-            <param>org.apache.commons.weaver.*_ESTest*</param>
+            <param>org.apache.commons.weaver.*</param>
           </targetTests>
           <fullMutationMatrix>true</fullMutationMatrix>
           <exportLineCoverage>true</exportLineCoverage>

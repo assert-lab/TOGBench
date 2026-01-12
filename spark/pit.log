@@ -1,0 +1,761 @@
+began at: 2026-01-12 00:04:24
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.sparkjava:spark-core >----------------------
+[INFO] Building Spark 2.9.3
+[INFO]   from pom.xml
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ spark-core ---
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Enum junk filter
+[INFO] Found plugin : Record junk mutation filter
+[INFO] Found plugin : String switch filter
+[INFO] Found plugin : Assertions filter
+[INFO] Found plugin : Enum switch filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Groovy junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Filters mutants with line number <= 1
+[INFO] Found plugin : Division by one equivalent mutant filter
+[INFO] Found plugin : Lombok junk mutations filter
+[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
+[INFO] Found plugin : Default build verifier
+[INFO] Found plugin : Detect missing JUnit5 plugin
+[INFO] Found plugin : Detect missing TestNG plugin
+[INFO] Found plugin : Detect missing kotlin plugin
+[INFO] Found plugin : Detect missing spring plugin
+[INFO] Found plugin : Default coverage exporter
+[INFO] Found plugin : Basic test statistics
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
+[INFO] Found shared classpath plugin : Reset environment for javassist
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark/target/classes
+12:04:26 AM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+12:04:26 AM PIT >> INFO : Created 101 mutation test units in pre scan
+12:04:27 AM PIT >> INFO : MINION : Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+12:04:27 AM PIT >> INFO : Sending 186 test classes to minion
+12:04:27 AM PIT >> INFO : Sent tests to minion
+12:04:27 AM PIT >> INFO : MINION : [Thread-0] INFO org.eclipse.jetty.util.log - Logging initialized @614ms to org.eclipse.jetty.util.log.Slf4jLog
+12:04:27 AM PIT >> INFO : MINION : [Thread-0] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-0] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+12:04:27 AM PIT >> INFO : MINION : [Thread-0] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+12:04:27 AM PIT >> INFO : MINION : [Thread-0] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-0] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-0] INFO org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-0] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@7ed898f1{HTTP/1.1, (http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-0] INFO org.eclipse.jetty.server.Server - Started @676ms
+/-12:04:27 AM PIT >> INFO : MINION : [main] INFO spark.BodyAvailabilityTest - the body content
+12:04:27 AM PIT >> INFO : MINION : [Thread-18] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-18] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@7ed898f1{HTTP/1.1, (http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-18] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+12:04:27 AM PIT >> INFO : MINION : [Thread-18] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+12:04:27 AM PIT >> INFO : MINION : [Thread-19] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-19] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+12:04:27 AM PIT >> INFO : MINION : [Thread-19] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+12:04:27 AM PIT >> INFO : MINION : [Thread-19] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-19] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-19] INFO org.eclipse.jetty.server.session - node0 Scavenging every 600000ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-19] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@a01a6a3{HTTP/1.1, (http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-19] INFO org.eclipse.jetty.server.Server - Started @756ms
+12:04:27 AM PIT >> INFO : MINION : [qtp80107595-63] INFO spark.http.matching.MatcherFilter - The requested route [/books] has not been mapped in Spark for Accept: [text/html, image/gif, image/jpeg, */*; q=0.2]
+12:04:27 AM PIT >> INFO : MINION : java.io.FileNotFoundException: http://localhost:4567/books?author=FOO&title=BAR
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:2033)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1626)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.getResponse(BooksIntegrationTest.java:167)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.doMethod(BooksIntegrationTest.java:153)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.createBookViaPOST(BooksIntegrationTest.java:180)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.canUpdateBook(BooksIntegrationTest.java:103)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.CustomRunnerExecutor.run(CustomRunnerExecutor.java:42)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.AdaptedJUnitTestUnit.execute(AdaptedJUnitTestUnit.java:69)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageDecorator.execute(CoverageDecorator.java:51)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.containers.UnContainer.execute(UnContainer.java:33)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.executeTests(Pitest.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.run(Pitest.java:48)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageWorker.run(CoverageWorker.java:49)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:94)
+12:04:27 AM PIT >> INFO : MINION : [qtp80107595-47] INFO spark.http.matching.MatcherFilter - The requested route [/books] has not been mapped in Spark for Accept: [text/html, image/gif, image/jpeg, */*; q=0.2]
+12:04:27 AM PIT >> INFO : MINION : java.io.FileNotFoundException: http://localhost:4567/books?author=FOO&title=BAR
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:2033)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1626)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.getResponse(BooksIntegrationTest.java:167)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.doMethod(BooksIntegrationTest.java:153)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.createBookViaPOST(BooksIntegrationTest.java:180)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.canListBooks(BooksIntegrationTest.java:73)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.CustomRunnerExecutor.run(CustomRunnerExecutor.java:42)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.AdaptedJUnitTestUnit.execute(AdaptedJUnitTestUnit.java:69)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageDecorator.execute(CoverageDecorator.java:51)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.containers.UnContainer.execute(UnContainer.java:33)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.executeTests(Pitest.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.run(Pitest.java:48)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageWorker.run(CoverageWorker.java:49)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:94)
+12:04:27 AM PIT >> INFO : MINION : [qtp80107595-48] INFO spark.http.matching.MatcherFilter - The requested route [/books] has not been mapped in Spark for Accept: [text/html, image/gif, image/jpeg, */*; q=0.2]
+12:04:27 AM PIT >> INFO : MINION : java.io.FileNotFoundException: http://localhost:4567/books?author=FOO&title=BAR
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:2033)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1626)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.getResponse(BooksIntegrationTest.java:167)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.doMethod(BooksIntegrationTest.java:153)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.createBookViaPOST(BooksIntegrationTest.java:180)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.canGetBook(BooksIntegrationTest.java:87)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.CustomRunnerExecutor.run(CustomRunnerExecutor.java:42)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.AdaptedJUnitTestUnit.execute(AdaptedJUnitTestUnit.java:69)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageDecorator.execute(CoverageDecorator.java:51)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.containers.UnContainer.execute(UnContainer.java:33)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.executeTests(Pitest.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.run(Pitest.java:48)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageWorker.run(CoverageWorker.java:49)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:94)
+12:04:27 AM PIT >> INFO : MINION : [qtp80107595-49] INFO spark.http.matching.MatcherFilter - The requested route [/books] has not been mapped in Spark for Accept: [text/html, image/gif, image/jpeg, */*; q=0.2]
+12:04:27 AM PIT >> INFO : MINION : java.io.FileNotFoundException: http://localhost:4567/books?author=FOO&title=BAR
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:2033)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1626)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.getResponse(BooksIntegrationTest.java:167)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.doMethod(BooksIntegrationTest.java:153)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.createBookViaPOST(BooksIntegrationTest.java:180)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.canGetUpdatedBook(BooksIntegrationTest.java:117)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.CustomRunnerExecutor.run(CustomRunnerExecutor.java:42)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.AdaptedJUnitTestUnit.execute(AdaptedJUnitTestUnit.java:69)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageDecorator.execute(CoverageDecorator.java:51)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.containers.UnContainer.execute(UnContainer.java:33)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.executeTests(Pitest.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.run(Pitest.java:48)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageWorker.run(CoverageWorker.java:49)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:94)
+12:04:27 AM PIT >> INFO : MINION : [qtp80107595-50] INFO spark.http.matching.MatcherFilter - The requested route [/books] has not been mapped in Spark for Accept: [text/html, image/gif, image/jpeg, */*; q=0.2]
+12:04:27 AM PIT >> INFO : MINION : java.io.FileNotFoundException: http://localhost:4567/books?author=FOO&title=BAR
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:2033)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1626)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.getResponse(BooksIntegrationTest.java:167)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.doMethod(BooksIntegrationTest.java:153)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.createBookViaPOST(BooksIntegrationTest.java:180)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.canCreateBook(BooksIntegrationTest.java:63)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.CustomRunnerExecutor.run(CustomRunnerExecutor.java:42)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.AdaptedJUnitTestUnit.execute(AdaptedJUnitTestUnit.java:69)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageDecorator.execute(CoverageDecorator.java:51)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.containers.UnContainer.execute(UnContainer.java:33)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.executeTests(Pitest.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.run(Pitest.java:48)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageWorker.run(CoverageWorker.java:49)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:94)
+12:04:27 AM PIT >> INFO : MINION : [qtp80107595-51] INFO spark.http.matching.MatcherFilter - The requested route [/books] has not been mapped in Spark for Accept: [text/html, image/gif, image/jpeg, */*; q=0.2]
+12:04:27 AM PIT >> INFO : MINION : java.io.FileNotFoundException: http://localhost:4567/books?author=FOO&title=BAR
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:2033)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1626)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.getResponse(BooksIntegrationTest.java:167)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.doMethod(BooksIntegrationTest.java:153)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.createBookViaPOST(BooksIntegrationTest.java:180)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.BooksIntegrationTest.canDeleteBook(BooksIntegrationTest.java:132)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.CustomRunnerExecutor.run(CustomRunnerExecutor.java:42)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.AdaptedJUnitTestUnit.execute(AdaptedJUnitTestUnit.java:69)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageDecorator.execute(CoverageDecorator.java:51)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.containers.UnContainer.execute(UnContainer.java:33)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.executeTests(Pitest.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.run(Pitest.java:48)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageWorker.run(CoverageWorker.java:49)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:94)
+12:04:27 AM PIT >> INFO : MINION : [qtp80107595-52] INFO spark.http.matching.MatcherFilter - The requested route [/books/null] has not been mapped in Spark for Accept: [text/html, image/gif, image/jpeg, */*; q=0.2]
+12:04:27 AM PIT >> INFO : MINION : [Thread-37] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-37] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@a01a6a3{HTTP/1.1, (http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-37] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+12:04:27 AM PIT >> INFO : MINION : [Thread-37] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+\12:04:27 AM PIT >> INFO : MINION : [Thread-38] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-38] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+12:04:27 AM PIT >> INFO : MINION : [Thread-38] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+12:04:27 AM PIT >> INFO : MINION : [Thread-38] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-38] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-38] INFO org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-38] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@7f0495ac{HTTP/1.1, (http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-38] INFO org.eclipse.jetty.server.Server - Started @813ms
+12:04:27 AM PIT >> INFO : MINION : [qtp1908635108-84] INFO spark.http.matching.MatcherFilter - The requested route [/justfilter] has not been mapped in Spark for Accept: [text/html]
+12:04:27 AM PIT >> INFO : MINION : [Thread-56] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> SEVERE : Description [testClass=spark.BooksIntegrationTest, name=spark.BooksIntegrationTest] did not pass without mutation.
+12:04:27 AM PIT >> INFO : MINION : [Thread-56] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@7f0495ac{HTTP/1.1, (http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-56] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+12:04:27 AM PIT >> INFO : MINION : [Thread-57] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-56] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+12:04:27 AM PIT >> INFO : MINION : [Thread-57] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+|12:04:27 AM PIT >> SEVERE : Description [testClass=spark.CookiesIntegrationTest, name=spark.CookiesIntegrationTest] did not pass without mutation.
+/-\|/-\12:04:27 AM PIT >> INFO : MINION : [Thread-58] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-58] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+12:04:27 AM PIT >> INFO : MINION : [Thread-58] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+12:04:27 AM PIT >> INFO : MINION : [Thread-58] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-58] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-58] INFO org.eclipse.jetty.server.session - node0 Scavenging every 600000ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-58] INFO org.eclipse.jetty.util.ssl.SslContextFactory - x509=X509@3fcce8c1(selfsigned,h=[],w=[]) for Server@4245f9e8[provider=null,keyStore=file:///sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark/src/test/resources/keystore.jks,trustStore=null]
+12:04:27 AM PIT >> INFO : MINION : [Thread-58] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@9fe680e{SSL, (ssl, http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-58] INFO org.eclipse.jetty.server.Server - Started @851ms
+12:04:27 AM PIT >> INFO : MINION : [qtp2064706400-89] INFO spark.http.matching.MatcherFilter - The requested route [/no/resource] has not been mapped in Spark for Accept: [text/html]
+12:04:27 AM PIT >> INFO : MINION : [main] INFO spark.GenericSecureIntegrationTest - Body was: Fo shizzy
+12:04:27 AM PIT >> INFO : MINION : [main] INFO spark.GenericSecureIntegrationTest - Body was: Fo shizzy
+12:04:27 AM PIT >> INFO : MINION : [Thread-76] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-77] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-78] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-78] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:2147483647
+12:04:27 AM PIT >> INFO : MINION : [Thread-78] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+12:04:27 AM PIT >> INFO : MINION : [Thread-76] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@9fe680e{SSL, (ssl, http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-76] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+12:04:27 AM PIT >> INFO : MINION : [Thread-76] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+12:04:27 AM PIT >> INFO : MINION : [Thread-77] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+|12:04:27 AM PIT >> INFO : MINION : [Thread-78] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-78] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-78] INFO org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+12:04:27 AM PIT >> SEVERE : Description [testClass=spark.GenericIntegrationTest, name=spark.GenericIntegrationTest] did not pass without mutation.
+12:04:27 AM PIT >> INFO : MINION : [Thread-87] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-87] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@23a3b6c{HTTP/1.1, (http/1.1)}{0.0.0.0:2147483647}
+12:04:27 AM PIT >> INFO : MINION : [Thread-87] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+12:04:27 AM PIT >> INFO : MINION : [Thread-87] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+/12:04:27 AM PIT >> INFO : MINION : [Thread-88] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-88] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+12:04:27 AM PIT >> INFO : MINION : [Thread-88] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+12:04:27 AM PIT >> INFO : MINION : [Thread-88] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-88] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-88] INFO org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-88] INFO org.eclipse.jetty.util.ssl.SslContextFactory - x509=X509@2d68d989(selfsigned,h=[],w=[]) for Server@66afc03c[provider=null,keyStore=file:///sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark/src/test/resources/keystore.jks,trustStore=null]
+12:04:27 AM PIT >> INFO : MINION : [Thread-88] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@3ef4a913{SSL, (ssl, http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-88] INFO org.eclipse.jetty.server.Server - Started @938ms
+12:04:27 AM PIT >> INFO : MINION : org.apache.http.client.ClientProtocolException
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:187)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:83)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:108)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:56)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.util.SparkTestUtil.doMethod(SparkTestUtil.java:120)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.util.SparkTestUtil.doMethod(SparkTestUtil.java:114)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.util.SparkTestUtil.doMethod(SparkTestUtil.java:100)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.util.SparkTestUtil.get(SparkTestUtil.java:90)
+12:04:27 AM PIT >> INFO : MINION : 	at spark.MultipleFiltersTest.testMultipleFilters(MultipleFiltersTest.java:51)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+12:04:27 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+12:04:27 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.CustomRunnerExecutor.run(CustomRunnerExecutor.java:42)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.AdaptedJUnitTestUnit.execute(AdaptedJUnitTestUnit.java:69)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageDecorator.execute(CoverageDecorator.java:51)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.containers.UnContainer.execute(UnContainer.java:33)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.executeTests(Pitest.java:57)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.run(Pitest.java:48)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageWorker.run(CoverageWorker.java:49)
+12:04:27 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:94)
+12:04:27 AM PIT >> INFO : MINION : Caused by: org.apache.http.ProtocolException: The server failed to respond with a valid HTTP response
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:149)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+12:04:27 AM PIT >> INFO : MINION : 	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185)
+12:04:27 AM PIT >> INFO : MINION : 	... 35 more
+12:04:27 AM PIT >> INFO : MINION : [Thread-107] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-107] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@3ef4a913{SSL, (ssl, http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-107] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+12:04:27 AM PIT >> INFO : MINION : [Thread-107] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+12:04:27 AM PIT >> INFO : MINION : [main] INFO spark.staticfiles.StaticFilesConfiguration - StaticResourceHandler configured with folder = /public
+12:04:27 AM PIT >> INFO : MINION : [Thread-108] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-108] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+12:04:27 AM PIT >> INFO : MINION : [Thread-108] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+12:04:27 AM PIT >> INFO : MINION : [Thread-109] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-109] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:1234
+12:04:27 AM PIT >> INFO : MINION : [Thread-109] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+12:04:27 AM PIT >> INFO : MINION : [Thread-108] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-108] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-108] INFO org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-109] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-109] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-109] INFO org.eclipse.jetty.server.session - node0 Scavenging every 600000ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-109] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@16a0fc3d{HTTP/1.1, (http/1.1)}{0.0.0.0:1234}
+12:04:27 AM PIT >> INFO : MINION : [Thread-109] INFO org.eclipse.jetty.server.Server - Started @944ms
+-12:04:27 AM PIT >> SEVERE : Description [testClass=spark.GzipTest, name=spark.GzipTest] did not pass without mutation.
+12:04:27 AM PIT >> INFO : MINION : [Thread-108] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@1f8d022e{HTTP/1.1, (http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-108] INFO org.eclipse.jetty.server.Server - Started @945ms
+\|12:04:27 AM PIT >> INFO : MINION : [qtp290127479-145] INFO spark.http.matching.MatcherFilter - The requested route [/css/style.css] has not been mapped in Spark for Accept: [text/html]
+12:04:27 AM PIT >> INFO : MINION : [qtp290127479-170] INFO spark.http.matching.MatcherFilter - The requested route [/uniqueforsecond] has not been mapped in Spark for Accept: [text/html]
+12:04:27 AM PIT >> INFO : MINION : [Thread-135] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-136] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-136] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@16a0fc3d{HTTP/1.1, (http/1.1)}{0.0.0.0:1234}
+12:04:27 AM PIT >> INFO : MINION : [Thread-136] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+12:04:27 AM PIT >> INFO : MINION : [Thread-136] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+12:04:27 AM PIT >> INFO : MINION : [Thread-135] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@1f8d022e{HTTP/1.1, (http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-135] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+/12:04:27 AM PIT >> INFO : MINION : [Thread-135] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+12:04:27 AM PIT >> INFO : MINION : [Thread-137] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-137] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+12:04:27 AM PIT >> INFO : MINION : [Thread-137] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+12:04:27 AM PIT >> INFO : MINION : [Thread-137] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-137] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-137] INFO org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-137] INFO org.eclipse.jetty.util.ssl.SslContextFactory - x509=X509@53145bc7(selfsigned,h=[],w=[]) for Server@46c4ed5e[provider=null,keyStore=file:///sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark/src/test/resources/keystore.jks,trustStore=null]
+-12:04:27 AM PIT >> INFO : MINION : [Thread-137] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@4f77684a{SSL, (ssl, http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-137] INFO org.eclipse.jetty.server.Server - Started @971ms
+\12:04:27 AM PIT >> INFO : MINION : [Thread-156] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+|/12:04:27 AM PIT >> INFO : MINION : [Thread-156] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@4f77684a{SSL, (ssl, http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-156] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+-\|12:04:27 AM PIT >> INFO : MINION : [Thread-156] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+/-12:04:27 AM PIT >> SEVERE : Description [testClass=spark.RedirectTest, name=spark.RedirectTest] did not pass without mutation.
+12:04:27 AM PIT >> INFO : MINION : [Thread-157] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-157] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+12:04:27 AM PIT >> INFO : MINION : [Thread-157] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+12:04:27 AM PIT >> INFO : MINION : [Thread-157] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-157] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-157] INFO org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-157] INFO org.eclipse.jetty.util.ssl.SslContextFactory - x509=X509@1fa6395a(selfsigned,h=[],w=[]) for Server@4c6d52c1[provider=null,keyStore=file:///sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark/src/test/resources/keystore.jks,trustStore=null]
+\12:04:27 AM PIT >> INFO : MINION : [Thread-157] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@4982ddf3{SSL, (ssl, http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-157] INFO org.eclipse.jetty.server.Server - Started @996ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-176] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-176] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@4982ddf3{SSL, (ssl, http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-176] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+12:04:27 AM PIT >> INFO : MINION : [Thread-176] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+12:04:27 AM PIT >> INFO : MINION : [Thread-177] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-177] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:39355
+12:04:27 AM PIT >> INFO : MINION : [Thread-177] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+12:04:27 AM PIT >> INFO : MINION : [Thread-177] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-177] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-177] INFO org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-177] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@3722ec4a{HTTP/1.1, (http/1.1)}{0.0.0.0:39355}
+12:04:27 AM PIT >> INFO : MINION : [Thread-177] INFO org.eclipse.jetty.server.Server - Started @1002ms
+12:04:27 AM PIT >> INFO : MINION : [main] INFO spark.ServicePortIntegrationTest - got port 
+12:04:27 AM PIT >> INFO : MINION : [Thread-195] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> SEVERE : Description [testClass=spark.ResponseBodyTest, name=spark.ResponseBodyTest] did not pass without mutation.
+12:04:27 AM PIT >> INFO : MINION : [Thread-195] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@3722ec4a{HTTP/1.1, (http/1.1)}{0.0.0.0:39355}
+12:04:27 AM PIT >> INFO : MINION : [Thread-195] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+12:04:27 AM PIT >> INFO : MINION : [Thread-195] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+|12:04:27 AM PIT >> SEVERE : Description [testClass=spark.ResponseWrapperDelegationTest, name=spark.ResponseWrapperDelegationTest] did not pass without mutation.
+12:04:27 AM PIT >> INFO : MINION : [main] INFO spark.staticfiles.StaticFilesConfiguration - StaticResourceHandler configured with folder = /public
+12:04:27 AM PIT >> INFO : MINION : [main] INFO spark.staticfiles.StaticFilesConfiguration - External StaticResourceHandler configured with folder = /sfs/weka/scratch/wxw9rr/tmp
+/12:04:27 AM PIT >> INFO : MINION : [Thread-196] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-196] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+12:04:27 AM PIT >> INFO : MINION : [Thread-196] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+-12:04:27 AM PIT >> INFO : MINION : [Thread-196] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-196] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-196] INFO org.eclipse.jetty.server.session - node0 Scavenging every 600000ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-196] INFO org.eclipse.jetty.util.ssl.SslContextFactory - x509=X509@5a0e90af(selfsigned,h=[],w=[]) for Server@46387a58[provider=null,keyStore=file:///sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark/src/test/resources/keystore.jks,trustStore=null]
+\|/-\12:04:27 AM PIT >> INFO : MINION : [Thread-196] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@1ab237cf{SSL, (ssl, http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-196] INFO org.eclipse.jetty.server.Server - Started @1011ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-216] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-216] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@1ab237cf{SSL, (ssl, http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-216] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+12:04:27 AM PIT >> INFO : MINION : [Thread-216] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+12:04:27 AM PIT >> INFO : MINION : [Thread-217] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - == Spark has ignited ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-217] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >> Listening on 0.0.0.0:4567
+12:04:27 AM PIT >> INFO : MINION : [Thread-217] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+|12:04:27 AM PIT >> INFO : MINION : [Thread-217] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:27 AM PIT >> INFO : MINION : [Thread-217] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:27 AM PIT >> INFO : MINION : [Thread-217] INFO org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-217] INFO org.eclipse.jetty.util.ssl.SslContextFactory - x509=X509@2c0d8690(selfsigned,h=[],w=[]) for Server@723b31f0[provider=null,keyStore=file:///sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark/src/test/resources/keystore.jks,trustStore=null]
+12:04:27 AM PIT >> INFO : MINION : [Thread-217] INFO org.eclipse.jetty.server.AbstractConnector - Started ServerConnector@7506725b{SSL, (ssl, http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-217] INFO org.eclipse.jetty.server.Server - Started @1032ms
+12:04:27 AM PIT >> INFO : MINION : [Thread-236] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - >>> Spark shutting down ...
+12:04:27 AM PIT >> INFO : MINION : [Thread-236] INFO org.eclipse.jetty.server.AbstractConnector - Stopped ServerConnector@7506725b{SSL, (ssl, http/1.1)}{0.0.0.0:4567}
+12:04:27 AM PIT >> INFO : MINION : [Thread-236] INFO org.eclipse.jetty.server.session - node0 Stopped scavenging
+12:04:27 AM PIT >> INFO : MINION : [Thread-236] INFO spark.embeddedserver.jetty.EmbeddedJettyServer - done
+12:04:27 AM PIT >> SEVERE : Description [testClass=spark.StaticFilesMemberTest, name=spark.StaticFilesMemberTest] did not pass without mutation.
+/12:04:27 AM PIT >> SEVERE : Description [testClass=spark.UnmapTest, name=testUnmap(spark.UnmapTest)] did not pass without mutation.
+-12:04:27 AM PIT >> SEVERE : Description [testClass=spark.customerrorpages.CustomErrorPagesTest, name=spark.customerrorpages.CustomErrorPagesTest] did not pass without mutation.
+12:04:27 AM PIT >> INFO : MINION : [main] WARN org.eclipse.jetty.server.AbstractConnector - Ignoring deprecated socket close linger time
+\|/-\|/-\|/-\|/-\|/-\|/12:04:27 AM PIT >> INFO : MINION : [Thread-237] INFO spark.servlet.ServletTest - >>> STARTING EMBEDDED JETTY SERVER for jUnit testing of SparkFilter
+12:04:27 AM PIT >> INFO : MINION : [Thread-237] INFO org.eclipse.jetty.server.Server - jetty-9.4.31.v20200723; built: 2020-07-23T17:57:36.812Z; git: 450ba27947e13e66baa8cd1ce7e85a4461cacc1d; jvm 17.0.15+6
+12:04:28 AM PIT >> INFO : MINION : [Thread-237] INFO org.eclipse.jetty.webapp.StandardDescriptorProcessor - NO JSP Support for /somepath, did not find org.eclipse.jetty.jsp.JettyJspServlet
+12:04:28 AM PIT >> INFO : MINION : [Thread-237] INFO org.eclipse.jetty.server.session - DefaultSessionIdManager workerName=node0
+12:04:28 AM PIT >> INFO : MINION : [Thread-237] INFO org.eclipse.jetty.server.session - No SessionScavenger set, using defaults
+12:04:28 AM PIT >> INFO : MINION : [Thread-237] INFO org.eclipse.jetty.server.session - node0 Scavenging every 660000ms
+12:04:28 AM PIT >> INFO : MINION : [Thread-237] INFO spark.staticfiles.StaticFilesConfiguration - External StaticResourceHandler configured with folder = /sfs/weka/scratch/wxw9rr/tmp
+12:04:28 AM PIT >> INFO : MINION : [Thread-237] INFO spark.staticfiles.StaticFilesConfiguration - StaticResourceHandler configured with folder = /public
+12:04:28 AM PIT >> INFO : MINION : [Thread-237] INFO org.eclipse.jetty.server.handler.ContextHandler - Started o.e.j.w.WebAppContext@7959b2f5{Archetype Created Web Application,/somepath,file:///sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark/src/test/webapp/,AVAILABLE}{src/test/webapp}
+12:04:28 AM PIT >> INFO : MINION : java.io.IOException: Failed to bind to 0.0.0.0/0.0.0.0:9393
+12:04:28 AM PIT >> INFO : MINION : 	at org.eclipse.jetty.server.ServerConnector.openAcceptChannel(ServerConnector.java:349)
+12:04:28 AM PIT >> INFO : MINION : 	at org.eclipse.jetty.server.ServerConnector.open(ServerConnector.java:310)
+12:04:28 AM PIT >> INFO : MINION : 	at org.eclipse.jetty.server.AbstractNetworkConnector.doStart(AbstractNetworkConnector.java:80)
+12:04:28 AM PIT >> INFO : MINION : 	at org.eclipse.jetty.server.ServerConnector.doStart(ServerConnector.java:234)
+12:04:28 AM PIT >> INFO : MINION : 	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:72)
+12:04:28 AM PIT >> INFO : MINION : 	at org.eclipse.jetty.server.Server.doStart(Server.java:386)
+12:04:28 AM PIT >> INFO : MINION : 	at org.eclipse.jetty.util.component.AbstractLifeCycle.start(AbstractLifeCycle.java:72)
+12:04:28 AM PIT >> INFO : MINION : 	at spark.servlet.ServletTest$1.run(ServletTest.java:63)
+12:04:28 AM PIT >> INFO : MINION : 	at java.base/java.lang.Thread.run(Thread.java:840)
+12:04:28 AM PIT >> INFO : MINION : Caused by: java.net.BindException: Address already in use
+12:04:28 AM PIT >> INFO : MINION : 	at java.base/sun.nio.ch.Net.bind0(Native Method)
+12:04:28 AM PIT >> INFO : MINION : 	at java.base/sun.nio.ch.Net.bind(Net.java:555)
+12:04:28 AM PIT >> INFO : MINION : 	at java.base/sun.nio.ch.ServerSocketChannelImpl.netBind(ServerSocketChannelImpl.java:337)
+12:04:28 AM PIT >> INFO : MINION : 	at java.base/sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:294)
+12:04:28 AM PIT >> INFO : MINION : 	at java.base/sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:89)
+12:04:28 AM PIT >> INFO : MINION : 	at org.eclipse.jetty.server.ServerConnector.openAcceptChannel(ServerConnector.java:345)
+12:04:28 AM PIT >> INFO : MINION : 	... 8 more
+12:04:28 AM PIT >> WARNING : Error while watching child process
+java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 3750
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
+	at org.pitest.coverage.execute.CoverageProcess.waitToDie(CoverageProcess.java:36)
+	at org.pitest.coverage.execute.DefaultCoverageGenerator.gatherCoverageData(DefaultCoverageGenerator.java:157)
+	at org.pitest.coverage.execute.DefaultCoverageGenerator.calculateCoverage(DefaultCoverageGenerator.java:108)
+	at org.pitest.coverage.execute.DefaultCoverageGenerator.calculateCoverage(DefaultCoverageGenerator.java:54)
+	at org.pitest.mutationtest.tooling.MutationCoverage.runAnalysis(MutationCoverage.java:158)
+	at org.pitest.mutationtest.tooling.MutationCoverage.runReport(MutationCoverage.java:145)
+	at org.pitest.mutationtest.tooling.EntryPoint.execute(EntryPoint.java:139)
+	at org.pitest.mutationtest.tooling.EntryPoint.execute(EntryPoint.java:65)
+	at org.pitest.maven.RunPitStrategy.execute(RunPitStrategy.java:35)
+	at org.pitest.maven.PitMojo.analyse(PitMojo.java:581)
+	at org.pitest.maven.PitMojo.execute(PitMojo.java:485)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:126)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2(MojoExecutor.java:342)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute(MojoExecutor.java:330)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:213)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:175)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.access$000(MojoExecutor.java:76)
+	at org.apache.maven.lifecycle.internal.MojoExecutor$1.run(MojoExecutor.java:163)
+	at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute(DefaultMojosExecutionStrategy.java:39)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:160)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:105)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:73)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:53)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:118)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:260)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:172)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:100)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:821)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:270)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:282)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:225)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:406)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:347)
+Caused by: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 3750
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
+	at org.pitest.util.SafeDataInputStream.readBytes(SafeDataInputStream.java:53)
+	at org.pitest.util.SafeDataInputStream.read(SafeDataInputStream.java:60)
+	at org.pitest.coverage.execute.Receive.handleTestEnd(Receive.java:67)
+	at org.pitest.coverage.execute.Receive.apply(Receive.java:43)
+	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:56)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.io.EOFException
+	at java.base/java.io.DataInputStream.readFully(DataInputStream.java:203)
+	at java.base/java.io.DataInputStream.readFully(DataInputStream.java:172)
+	at org.pitest.util.SafeDataInputStream.readBytes(SafeDataInputStream.java:50)
+	... 8 more
+12:04:45 AM PIT >> WARNING : Error while watching child process
+java.util.concurrent.ExecutionException: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 3750
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:205)
+	at org.pitest.util.CommunicationThread.waitToFinish(CommunicationThread.java:62)
+	at org.pitest.coverage.execute.CoverageProcess.waitToDie(CoverageProcess.java:44)
+	at org.pitest.coverage.execute.DefaultCoverageGenerator.gatherCoverageData(DefaultCoverageGenerator.java:157)
+	at org.pitest.coverage.execute.DefaultCoverageGenerator.calculateCoverage(DefaultCoverageGenerator.java:108)
+	at org.pitest.coverage.execute.DefaultCoverageGenerator.calculateCoverage(DefaultCoverageGenerator.java:54)
+	at org.pitest.mutationtest.tooling.MutationCoverage.runAnalysis(MutationCoverage.java:158)
+	at org.pitest.mutationtest.tooling.MutationCoverage.runReport(MutationCoverage.java:145)
+	at org.pitest.mutationtest.tooling.EntryPoint.execute(EntryPoint.java:139)
+	at org.pitest.mutationtest.tooling.EntryPoint.execute(EntryPoint.java:65)
+	at org.pitest.maven.RunPitStrategy.execute(RunPitStrategy.java:35)
+	at org.pitest.maven.PitMojo.analyse(PitMojo.java:581)
+	at org.pitest.maven.PitMojo.execute(PitMojo.java:485)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:126)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2(MojoExecutor.java:342)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute(MojoExecutor.java:330)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:213)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:175)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.access$000(MojoExecutor.java:76)
+	at org.apache.maven.lifecycle.internal.MojoExecutor$1.run(MojoExecutor.java:163)
+	at org.apache.maven.plugin.DefaultMojosExecutionStrategy.execute(DefaultMojosExecutionStrategy.java:39)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:160)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:105)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:73)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:53)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:118)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:260)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:172)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:100)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:821)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:270)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:192)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:282)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:225)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:406)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:347)
+Caused by: org.pitest.util.PitError: null
+
+Please copy and paste the information and the complete stacktrace below when reporting an issue
+VM : OpenJDK 64-Bit Server VM
+Vendor : Eclipse Adoptium
+Version : 17.0.15+6
+Uptime : 3750
+Input -> 
+ 1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+ 2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+ 3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+ 4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark
+ 5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+BootClassPathSupported : false
+
+	at org.pitest.util.Unchecked.translateCheckedException(Unchecked.java:20)
+	at org.pitest.util.SafeDataInputStream.readBytes(SafeDataInputStream.java:53)
+	at org.pitest.util.SafeDataInputStream.read(SafeDataInputStream.java:60)
+	at org.pitest.coverage.execute.Receive.handleTestEnd(Receive.java:67)
+	at org.pitest.coverage.execute.Receive.apply(Receive.java:43)
+	at org.pitest.util.SocketReadingCallable.receiveResults(SocketReadingCallable.java:56)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:34)
+	at org.pitest.util.SocketReadingCallable.call(SocketReadingCallable.java:11)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.io.EOFException
+	at java.base/java.io.DataInputStream.readFully(DataInputStream.java:203)
+	at java.base/java.io.DataInputStream.readFully(DataInputStream.java:172)
+	at org.pitest.util.SafeDataInputStream.readBytes(SafeDataInputStream.java:50)
+	... 8 more
+12:04:45 AM PIT >> SEVERE : Coverage generator Minion exited abnormally due to UNKNOWN_ERROR
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.812 s
+[INFO] Finished at: 2026-01-12T00:04:45-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.pitest:pitest-maven:1.22.0:mutationCoverage (default-cli) on project spark-core: Execution default-cli of goal org.pitest:pitest-maven:1.22.0:mutationCoverage failed: Coverage generation minion exited abnormally! (UNKNOWN_ERROR)
+[ERROR] 
+[ERROR] Please copy and paste the information and the complete stacktrace below when reporting an issue
+[ERROR] VM : OpenJDK 64-Bit Server VM
+[ERROR] Vendor : Eclipse Adoptium
+[ERROR] Version : 17.0.15+6
+[ERROR] Uptime : 20761
+[ERROR] Input -> 
+[ERROR]  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+[ERROR]  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+[ERROR]  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+[ERROR]  4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark
+[ERROR]  5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[ERROR] BootClassPathSupported : false
+[ERROR] 
+[ERROR] 
+[ERROR] Please copy and paste the information and the complete stacktrace below when reporting an issue
+[ERROR] VM : OpenJDK 64-Bit Server VM
+[ERROR] Vendor : Eclipse Adoptium
+[ERROR] Version : 17.0.15+6
+[ERROR] Uptime : 20761
+[ERROR] Input -> 
+[ERROR]  1 : -Dclassworlds.conf=/apps/software/standard/core/maven/3.9.0/bin/m2.conf
+[ERROR]  2 : -Dmaven.home=/apps/software/standard/core/maven/3.9.0
+[ERROR]  3 : -Dlibrary.jansi.path=/apps/software/standard/core/maven/3.9.0/lib/jansi-native
+[ERROR]  4 : -Dmaven.multiModuleProjectDirectory=/scratch/wxw9rr/artifact/RQ3/OE25-DEV/spark
+[ERROR]  5 : -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[ERROR] BootClassPathSupported : false
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
+ended at: 2026-01-12 00:04:45

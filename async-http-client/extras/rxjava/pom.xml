@@ -30,8 +30,9 @@
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
         <version>1.9.8</version>
-        <configuration>
-          <threads>4</threads>
+          <configuration>
+          <threads>16</threads>
+
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -47,7 +48,7 @@
             <param>org.asynchttpclient.extras.rxjava*</param>
           </targetClasses>
           <targetTests>
-            <param>org.asynchttpclient.extras.rxjava.*_ESTest*</param>
+            <param>org.asynchttpclient.extras.rxjava.*</param>
           </targetTests>
           <fullMutationMatrix>true</fullMutationMatrix>
           <exportLineCoverage>true</exportLineCoverage>

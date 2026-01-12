@@ -1,0 +1,118 @@
+began at: 2026-01-12 03:29:56
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< org.jsoup:jsoup >---------------------------
+[INFO] Building jsoup Java HTML Parser 1.15.3
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'testPlugin' is unknown for plugin 'pitest-maven:1.22.0:mutationCoverage (default-cli)'
+[INFO] 
+[INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ jsoup ---
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/jsoup
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Enum junk filter
+[INFO] Found plugin : Record junk mutation filter
+[INFO] Found plugin : String switch filter
+[INFO] Found plugin : Assertions filter
+[INFO] Found plugin : Enum switch filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Groovy junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Filters mutants with line number <= 1
+[INFO] Found plugin : Division by one equivalent mutant filter
+[INFO] Found plugin : Lombok junk mutations filter
+[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
+[INFO] Found plugin : Default build verifier
+[INFO] Found plugin : Detect missing JUnit5 plugin
+[INFO] Found plugin : Detect missing TestNG plugin
+[INFO] Found plugin : Detect missing kotlin plugin
+[INFO] Found plugin : Detect missing spring plugin
+[INFO] Found plugin : Default coverage exporter
+[INFO] Found plugin : Basic test statistics
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit 5 test framework support
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
+[INFO] Found shared classpath plugin : Reset environment for javassist
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[INFO] Adding org.pitest:pitest-junit5-plugin to SUT classpath
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Auto adding org.junit.platform:junit-platform-launcher:jar:1.10.2 < central (https://repo.maven.apache.org/maven2, default, releases) to classpath.
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/jsoup/target/classes
+[INFO] Replacing properties in argLine -Xss256k
+3:29:59 AM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+3:30:00 AM PIT >> INFO : Created 236 mutation test units in pre scan
+3:30:00 AM PIT >> INFO : MINION : Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+3:30:00 AM PIT >> INFO : Sending 318 test classes to minion
+3:30:00 AM PIT >> INFO : Sent tests to minion
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-3:30:01 AM PIT >> INFO : MINION : 2026-01-12 03:30:01.480:INFO::Thread-0: Logging initialized @1131ms to org.eclipse.jetty.util.log.StdErrLog
+\3:30:01 AM PIT >> INFO : MINION : 2026-01-12 03:30:01.513:INFO:oejs.Server:Thread-0: jetty-9.4.48.v20220622; built: 2022-06-21T20:42:25.880Z; git: 6b67c5719d1f4371b33655ff2d047d24e171e49a; jvm 17.0.15+6
+3:30:01 AM PIT >> INFO : MINION : 2026-01-12 03:30:01.541:INFO:oejs.AbstractConnector:Thread-0: Started ServerConnector@17e006b8{HTTP/1.1, (http/1.1)}{localhost:39879}
+3:30:01 AM PIT >> INFO : MINION : 2026-01-12 03:30:01.541:INFO:oejs.Server:Thread-0: Started @1191ms
+|/-3:30:08 AM PIT >> INFO : MINION : 2026-01-12 03:30:08.600:INFO:oejsh.ContextHandler:qtp2125639934-41: org.jsoup.integration.servlets.SlowRider-20eb1744: Remote connection lost
+3:30:11 AM PIT >> INFO : MINION : 2026-01-12 03:30:11.604:INFO:oejsh.ContextHandler:qtp2125639934-26: org.jsoup.integration.servlets.SlowRider-20eb1744: Remote connection lost
+\|/3:30:21 AM PIT >> INFO : MINION : 2026-01-12 03:30:21.626:INFO:oejsh.ContextHandler:qtp2125639934-28: org.jsoup.integration.servlets.SlowRider-20eb1744: Remote connection lost
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\3:31:28 AM PIT >> INFO : Calculated coverage in 88 seconds.
+3:31:28 AM PIT >> INFO : 13 tests took longer than 2000 ms
+3:31:28 AM PIT >> INFO : Slowest test ([engine:junit-jupiter]/[class:org.jsoup.integration.SessionIT]/[method:multiThreadWithoutNewRequestBlowsUp()]) took 11018 ms
+3:31:28 AM PIT >> INFO : Largest test ([engine:junit-jupiter]/[class:org.jsoup.integration.SessionIT]/[method:multiThread()]) covered 3985 blocks
+3:31:38 AM PIT >> INFO : Created 232 mutation test units
+3:36:07 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:37:28 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:41:33 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:44:09 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:49:19 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+3:58:58 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:02:29 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+/4:11:22 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:12:35 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:18:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:19:18 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:23:20 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:26:32 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:27:48 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:31:11 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:32:28 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:34:11 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:36:31 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:39:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:41:46 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:45:47 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:47:38 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:50:24 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:52:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:53:45 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:58:05 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:59:27 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:00:42 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:02:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:03:16 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:05:51 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:09:32 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:12:11 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:13:24 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:21:09 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:22:30 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:24:36 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:28:14 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+ended at: 2026-01-12 05:29:56

@@ -1,32 +1,448 @@
 ----------------------------------------------------------------
-Fri Oct 07 17:19:13 EDT 2022:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-0183-b451-0923-0000190d2620 
-on database directory memory:/media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/toga-eval/artifacts/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader sun.misc.Launcher$AppClassLoader@7f31245a 
-Loaded from file:/home/FSE_USER/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
-java.vendor=Private Build
-java.runtime.version=1.8.0_312-8u312-b07-0ubuntu1~20.04-b07
-user.dir=/media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/toga-eval/artifacts/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+Mon Jan 12 00:29:51 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
 os.name=Linux
 os.arch=amd64
-os.version=5.13.0-41-generic
+os.version=4.18.0-553.47.1.el8_10.x86_64
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Fri Oct 07 17:19:13 EDT 2022:
-Shutting down instance a816c00e-0183-b451-0923-0000190d2620 on database directory memory:/media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/toga-eval/artifacts/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader sun.misc.Launcher$AppClassLoader@7f31245a 
+Mon Jan 12 00:29:51 EST 2026:
+Shutting down instance a816c00e-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
 ----------------------------------------------------------------
-Fri Oct 07 17:19:13 EDT 2022:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 4b6f00c8-0183-b451-0923-0000190d2620 
-on database directory memory:/media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/toga-eval/artifacts/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader sun.misc.Launcher$AppClassLoader@7f31245a 
-Loaded from file:/home/FSE_USER/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
-java.vendor=Private Build
-java.runtime.version=1.8.0_312-8u312-b07-0ubuntu1~20.04-b07
-user.dir=/media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/toga-eval/artifacts/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+Mon Jan 12 00:29:51 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 906400e0-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
 os.name=Linux
 os.arch=amd64
-os.version=5.13.0-41-generic
+os.version=4.18.0-553.47.1.el8_10.x86_64
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
 ----------------------------------------------------------------
-Fri Oct 07 17:19:13 EDT 2022:
-Shutting down instance 4b6f00c8-0183-b451-0923-0000190d2620 on database directory memory:/media/FSE_USER/extradrive1/toga-eval-FSE_USER-2023/toga-eval/artifacts/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader sun.misc.Launcher$AppClassLoader@7f31245a 
+Mon Jan 12 00:29:51 EST 2026:
+Shutting down instance 906400e0-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance c38ac0ee-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance c38ac0ee-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 22290109-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance 22290109-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 05df4117-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance 05df4117-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 62a30128-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance 62a30128-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 96c5c136-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance 96c5c136-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 140d4147-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance 35924132-019b-b0ae-9879-00000e702c00 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance d7f2c153-019b-b0ae-9879-00000e702c00 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance 789c8155-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 39f20170-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance 39f20170-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 6f10c17e-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance 6f10c17e-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance ad8a418f-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance ad8a418f-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 1315819d-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance 1315819d-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 0212c1ae-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance 0212c1ae-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 780a81bc-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Shutting down instance 780a81bc-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:52 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance e95a01d1-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance e95a01d1-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance cfcc41df-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance cfcc41df-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 44c541fa-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance 44c541fa-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance bbc70208-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance bbc70208-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 6a5d8224-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance 6a5d8224-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a1f24232-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance a1f24232-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 691b824d-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance 691b824d-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance d13fc25b-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance d13fc25b-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 5364826c-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance 5364826c-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 8bf5427a-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance 8bf5427a-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance ee9dc28b-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance ee9dc28b-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance d79b0299-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance d79b0299-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance 2ac742aa-019b-b0ae-987d-00000e5cb000 
+on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 
+Loaded from file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
+java.vendor=Eclipse Adoptium
+java.runtime.version=17.0.15+6
+user.dir=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+os.name=Linux
+os.arch=amd64
+os.version=4.18.0-553.47.1.el8_10.x86_64
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Mon Jan 12 00:29:53 EST 2026:
+Shutting down instance 2ac742aa-019b-b0ae-987d-00000e5cb000 on database directory memory:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 

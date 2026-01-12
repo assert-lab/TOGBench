@@ -1,17 +1,13 @@
+began at: 2026-01-11 17:59:54
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jexl3:jar:3.2.1
-[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 313, column 21
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
 [INFO] 
 [INFO] ------------------< org.apache.commons:commons-jexl3 >------------------
 [INFO] Building Apache Commons JEXL 3.2.1
 [INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ commons-jexl3 ---
 [INFO] 
 [INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-jexl3 ---
 [INFO] 
@@ -26,25 +22,126 @@
 [INFO] Executing tasks
 
 main:
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/target/apidocs/META-INF
 [INFO] Executed tasks
 [INFO] 
 [INFO] --- ph-javacc:4.1.4:jjtree-javacc (jexl-jjtree) @ commons-jexl3 ---
-[INFO] Skipping - all parsers are up to date
+ParserGeneratorCC Version 1.1.3 (Tree Builder)
+(type "jjtree" with no arguments for help)
+Reading from file /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/src/main/java/org/apache/commons/jexl3/parser/Parser.jjt . . .
+Warning: Bad option name "STATIC".  Option setting will be ignored.
+opt:java
+File "Node.java" does not exist.  Will create one.
+File "SimpleNode.java" does not exist.  Will create one.
+File "ASTJexlScript.java" does not exist.  Will create one.
+File "ASTAnnotation.java" does not exist.  Will create one.
+File "ASTAnnotatedStatement.java" does not exist.  Will create one.
+File "ASTBlock.java" does not exist.  Will create one.
+File "ASTAmbiguous.java" does not exist.  Will create one.
+File "ASTIfStatement.java" does not exist.  Will create one.
+File "ASTWhileStatement.java" does not exist.  Will create one.
+File "ASTDoWhileStatement.java" does not exist.  Will create one.
+File "ASTReturnStatement.java" does not exist.  Will create one.
+File "ASTContinue.java" does not exist.  Will create one.
+File "ASTBreak.java" does not exist.  Will create one.
+File "ASTForeachStatement.java" does not exist.  Will create one.
+File "ASTReference.java" does not exist.  Will create one.
+File "ASTAssignment.java" does not exist.  Will create one.
+File "ASTVar.java" does not exist.  Will create one.
+File "ASTSetAddNode.java" does not exist.  Will create one.
+File "ASTSetMultNode.java" does not exist.  Will create one.
+File "ASTSetDivNode.java" does not exist.  Will create one.
+File "ASTSetModNode.java" does not exist.  Will create one.
+File "ASTSetAndNode.java" does not exist.  Will create one.
+File "ASTSetOrNode.java" does not exist.  Will create one.
+File "ASTSetXorNode.java" does not exist.  Will create one.
+File "ASTSetSubNode.java" does not exist.  Will create one.
+File "ASTTernaryNode.java" does not exist.  Will create one.
+File "ASTNullpNode.java" does not exist.  Will create one.
+File "ASTOrNode.java" does not exist.  Will create one.
+File "ASTAndNode.java" does not exist.  Will create one.
+File "ASTBitwiseOrNode.java" does not exist.  Will create one.
+File "ASTBitwiseXorNode.java" does not exist.  Will create one.
+File "ASTBitwiseAndNode.java" does not exist.  Will create one.
+File "ASTEQNode.java" does not exist.  Will create one.
+File "ASTNENode.java" does not exist.  Will create one.
+File "ASTRangeNode.java" does not exist.  Will create one.
+File "ASTLTNode.java" does not exist.  Will create one.
+File "ASTGTNode.java" does not exist.  Will create one.
+File "ASTLENode.java" does not exist.  Will create one.
+File "ASTGENode.java" does not exist.  Will create one.
+File "ASTERNode.java" does not exist.  Will create one.
+File "ASTNRNode.java" does not exist.  Will create one.
+File "ASTSWNode.java" does not exist.  Will create one.
+File "ASTNSWNode.java" does not exist.  Will create one.
+File "ASTEWNode.java" does not exist.  Will create one.
+File "ASTNEWNode.java" does not exist.  Will create one.
+File "ASTAddNode.java" does not exist.  Will create one.
+File "ASTSubNode.java" does not exist.  Will create one.
+File "ASTMulNode.java" does not exist.  Will create one.
+File "ASTDivNode.java" does not exist.  Will create one.
+File "ASTModNode.java" does not exist.  Will create one.
+File "ASTUnaryMinusNode.java" does not exist.  Will create one.
+File "ASTUnaryPlusNode.java" does not exist.  Will create one.
+File "ASTBitwiseComplNode.java" does not exist.  Will create one.
+File "ASTNotNode.java" does not exist.  Will create one.
+File "ASTEmptyFunction.java" does not exist.  Will create one.
+File "ASTSizeFunction.java" does not exist.  Will create one.
+File "ASTIdentifier.java" does not exist.  Will create one.
+File "ASTNamespaceIdentifier.java" does not exist.  Will create one.
+File "ASTNumberLiteral.java" does not exist.  Will create one.
+File "ASTNullLiteral.java" does not exist.  Will create one.
+File "ASTTrueNode.java" does not exist.  Will create one.
+File "ASTFalseNode.java" does not exist.  Will create one.
+File "ASTStringLiteral.java" does not exist.  Will create one.
+File "ASTJxltLiteral.java" does not exist.  Will create one.
+File "ASTRegexLiteral.java" does not exist.  Will create one.
+File "ASTExtendedLiteral.java" does not exist.  Will create one.
+File "ASTArrayLiteral.java" does not exist.  Will create one.
+File "ASTMapLiteral.java" does not exist.  Will create one.
+File "ASTMapEntry.java" does not exist.  Will create one.
+File "ASTSetLiteral.java" does not exist.  Will create one.
+File "ASTArguments.java" does not exist.  Will create one.
+File "ASTFunctionNode.java" does not exist.  Will create one.
+File "ASTConstructorNode.java" does not exist.  Will create one.
+File "ASTJexlLambda.java" does not exist.  Will create one.
+File "ASTIdentifierAccess.java" does not exist.  Will create one.
+File "ASTIdentifierAccessJxlt.java" does not exist.  Will create one.
+File "ASTIdentifierAccessSafe.java" does not exist.  Will create one.
+File "ASTIdentifierAccessSafeJxlt.java" does not exist.  Will create one.
+File "ASTArrayAccess.java" does not exist.  Will create one.
+File "ASTMethodNode.java" does not exist.  Will create one.
+File "ASTReferenceExpression.java" does not exist.  Will create one.
+File "ParserTreeConstants.java" does not exist.  Will create one.
+File "ParserVisitor.java" does not exist.  Will create one.
+File "ParserDefaultVisitor.java" does not exist.  Will create one.
+File "JJTParserState.java" does not exist.  Will create one.
+Annotated grammar generated successfully in /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/target/javacc-1768172396685/node/Parser.jj
+ParserGeneratorCC Version 1.1.3 (ParserGeneratorCC)
+(type "pgcc" with no arguments for help)
+Reading from file /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/target/javacc-1768172396685/node/Parser.jj ...
+Warning: Line 22, Column 4: Bad option name "STATIC".  Option setting will be ignored.
+Note: UNICODE_INPUT option is specified. Please make sure you create the parser/lexer using a Reader with the correct character encoding.
+File "Provider.java" does not exist.  Will create one.
+File "StringProvider.java" does not exist.  Will create one.
+File "StreamProvider.java" does not exist.  Will create one.
+File "TokenMgrException.java" does not exist.  Will create one.
+File "ParseException.java" does not exist.  Will create one.
+File "Token.java" does not exist.  Will create one.
+File "CharStream.java" does not exist.  Will create one.
+File "AbstractCharStream.java" does not exist.  Will create one.
+File "SimpleCharStream.java" does not exist.  Will create one.
+Parser generated with 0 errors and 1 warnings.
+[INFO] Processed 1 grammar
 [INFO] 
 [INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-jexl3 ---
 [INFO] Skipping remote resources execution.
 [INFO] 
 [INFO] --- buildnumber:1.4:create (default) @ commons-jexl3 ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-[INFO] Storing buildNumber: ?????? at timestamp: 1768018413024
-[WARNING] Cannot get the branch information from the git repository: 
-Detecting the current branch failed: fatal: not a git repository (or any parent up to mount point /sfs)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src
-[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src
+[INFO] Storing buildNumber: 77d944d491f2532ea8dc274ce81490a072a96fd9 at timestamp: 1768172397502
+[INFO] Storing buildScmBranch: main
 [INFO] 
 [INFO] --- resources:3.1.0:resources (default-resources) @ commons-jexl3 ---
 [INFO] Using 'iso-8859-1' encoding to copy filtered resources.
@@ -52,144 +149,161 @@ Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 [INFO] Copying 2 resources to META-INF
 [INFO] 
 [INFO] --- compiler:3.8.1:compile (default-compile) @ commons-jexl3 ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 175 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/target/classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/src/main/java/org/apache/commons/jexl3/JexlArithmetic.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/src/main/java/org/apache/commons/jexl3/JexlArithmetic.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
 [INFO] --- bundle:5.1.1:manifest (bundle-manifest) @ commons-jexl3 ---
 [INFO] 
 [INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-jexl3 ---
 [INFO] Using 'iso-8859-1' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src/src/test/resources
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/src/test/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
 [INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-jexl3 ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 73 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/target/test-classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/src/test/java/org/apache/commons/jexl3/JexlTestCase.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/src/test/java/org/apache/commons/jexl3/JexlTestCase.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/src/test/java/org/apache/commons/jexl3/ArrayLiteralTest.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/src/test/java/org/apache/commons/jexl3/ArrayLiteralTest.java: Recompile with -Xlint:removal for details.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/src/test/java/org/apache/commons/jexl3/JexlTestCase.java: Some input files use unchecked or unsafe operations.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/src/test/java/org/apache/commons/jexl3/JexlTestCase.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-jexl3 ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
 [INFO] 
 [INFO] --- jacoco:0.8.7:prepare-agent (prepare-agent) @ commons-jexl3 ---
-[INFO] argLine set to -javaagent:/home/wxw9rr/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src/target/jacoco.exec,excludes=**/generated-sources/**/*:**/org/apache/commons/jexl3/parser/*.class:**/org/apache/commons/jexl3/**/*Test.class:**/java/**/*:**/javax/**/*:**/com/sun/**/*
+[INFO] argLine set to -javaagent:/home/wxw9rr/.m2/repository/org/jacoco/org.jacoco.agent/0.8.7/org.jacoco.agent-0.8.7-runtime.jar=destfile=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jexl3-3.2.1-src/target/jacoco.exec,excludes=**/generated-sources/**/*:**/org/apache/commons/jexl3/parser/*.class:**/org/apache/commons/jexl3/**/*Test.class:**/java/**/*:**/javax/**/*:**/com/sun/**/*
 [INFO] 
-[INFO] --- surefire:2.17:test (default-test) @ commons-jexl3 ---
-[INFO] Surefire report directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-jexl3-3.2.1-src/target/surefire-reports
-
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running org.apache.commons.jexl3.ScriptCallableTest
-Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.938 sec - in org.apache.commons.jexl3.ScriptCallableTest
-Running org.apache.commons.jexl3.CacheTest
-Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.992 sec - in org.apache.commons.jexl3.CacheTest
-Running org.apache.commons.jexl3.FeaturesTest
-Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec - in org.apache.commons.jexl3.FeaturesTest
-Running org.apache.commons.jexl3.introspection.SandboxTest
-Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 sec - in org.apache.commons.jexl3.introspection.SandboxTest
-Running org.apache.commons.jexl3.PropertyAccessTest
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 sec - in org.apache.commons.jexl3.PropertyAccessTest
-Running org.apache.commons.jexl3.internal.introspection.MiscIntrospectionTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.jexl3.internal.introspection.MiscIntrospectionTest
-Running org.apache.commons.jexl3.internal.introspection.DiscoveryTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.jexl3.internal.introspection.DiscoveryTest
-Running org.apache.commons.jexl3.internal.introspection.MethodKeyTest
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.193 sec - in org.apache.commons.jexl3.internal.introspection.MethodKeyTest
-Running org.apache.commons.jexl3.internal.RangeTest
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.jexl3.internal.RangeTest
-Running org.apache.commons.jexl3.ForEachTest
-Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 sec - in org.apache.commons.jexl3.ForEachTest
-Running org.apache.commons.jexl3.MapLiteralTest
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.jexl3.MapLiteralTest
-Running org.apache.commons.jexl3.jexl342.OptionalTest
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.jexl3.jexl342.OptionalTest
-Running org.apache.commons.jexl3.IssuesTest
-Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.jexl3.IssuesTest
-Running org.apache.commons.jexl3.StrategyTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.jexl3.StrategyTest
-Running org.apache.commons.jexl3.ContextNamespaceTest
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.jexl3.ContextNamespaceTest
-Running org.apache.commons.jexl3.ArithmeticOperatorTest
-Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 sec - in org.apache.commons.jexl3.ArithmeticOperatorTest
-Running org.apache.commons.jexl3.ArrayAccessTest
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 sec - in org.apache.commons.jexl3.ArrayAccessTest
-Running org.apache.commons.jexl3.DoWhileTest
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 sec - in org.apache.commons.jexl3.DoWhileTest
-Running org.apache.commons.jexl3.BitwiseOperatorTest
-Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.jexl3.BitwiseOperatorTest
-Running org.apache.commons.jexl3.MethodTest
-Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in org.apache.commons.jexl3.MethodTest
-Running org.apache.commons.jexl3.ParseFailuresTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.jexl3.ParseFailuresTest
-Running org.apache.commons.jexl3.AnnotationTest
-Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 sec - in org.apache.commons.jexl3.AnnotationTest
-Running org.apache.commons.jexl3.ClassCreatorTest
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.821 sec - in org.apache.commons.jexl3.ClassCreatorTest
-Running org.apache.commons.jexl3.Issues300Test
-Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.commons.jexl3.Issues300Test
-Running org.apache.commons.jexl3.SideEffectTest
-Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 sec - in org.apache.commons.jexl3.SideEffectTest
-Running org.apache.commons.jexl3.LambdaTest
-Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 sec - in org.apache.commons.jexl3.LambdaTest
-Running org.apache.commons.jexl3.parser.ParserTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.jexl3.parser.ParserTest
-Running org.apache.commons.jexl3.JXLTTest
-Tests run: 174, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 sec - in org.apache.commons.jexl3.JXLTTest
-Running org.apache.commons.jexl3.scripting.JexlScriptEngineTest
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec - in org.apache.commons.jexl3.scripting.JexlScriptEngineTest
-Running org.apache.commons.jexl3.scripting.JexlScriptEngineOptionalTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.jexl3.scripting.JexlScriptEngineOptionalTest
-Running org.apache.commons.jexl3.BuilderTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.jexl3.BuilderTest
-Running org.apache.commons.jexl3.Issues100Test
-Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec - in org.apache.commons.jexl3.Issues100Test
-Running org.apache.commons.jexl3.ArrayLiteralTest
-Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.jexl3.ArrayLiteralTest
-Running org.apache.commons.jexl3.Issues200Test
-Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 sec - in org.apache.commons.jexl3.Issues200Test
-Running org.apache.commons.jexl3.LexicalTest
-Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec - in org.apache.commons.jexl3.LexicalTest
-Running org.apache.commons.jexl3.SynchronizedOverloadsTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.jexl3.SynchronizedOverloadsTest
-Running org.apache.commons.jexl3.ExceptionTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.jexl3.ExceptionTest
-Running org.apache.commons.jexl3.BlockTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.jexl3.BlockTest
-Running org.apache.commons.jexl3.PragmaTest
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.402 sec - in org.apache.commons.jexl3.PragmaTest
-Running org.apache.commons.jexl3.WhileTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.jexl3.WhileTest
-Running org.apache.commons.jexl3.AntishCallTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.jexl3.AntishCallTest
-Running org.apache.commons.jexl3.RangeTest
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.jexl3.RangeTest
-Running org.apache.commons.jexl3.IfTest
-Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.jexl3.IfTest
-Running org.apache.commons.jexl3.AssignTest
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in org.apache.commons.jexl3.AssignTest
-Running org.apache.commons.jexl3.ArithmeticTest
-Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 sec - in org.apache.commons.jexl3.ArithmeticTest
-Running org.apache.commons.jexl3.junit.AsserterTest
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.jexl3.junit.AsserterTest
-Running org.apache.commons.jexl3.SetLiteralTest
-Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.jexl3.SetLiteralTest
-Running org.apache.commons.jexl3.VarTest
-Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 sec - in org.apache.commons.jexl3.VarTest
-Running org.apache.commons.jexl3.PublicFieldsTest
-Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 sec - in org.apache.commons.jexl3.PublicFieldsTest
-Running org.apache.commons.jexl3.JexlTest
-Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 sec - in org.apache.commons.jexl3.JexlTest
-Running org.apache.commons.jexl3.ScriptTest
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.jexl3.ScriptTest
-Running org.apache.commons.jexl3.examples.ArrayTest
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.jexl3.examples.ArrayTest
-Running org.apache.commons.jexl3.examples.MethodPropertyTest
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.jexl3.examples.MethodPropertyTest
-
-Results :
-
-Tests run: 792, Failures: 0, Errors: 0, Skipped: 0
-
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-jexl3 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.jexl3.ExceptionTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.209 s - in org.apache.commons.jexl3.ExceptionTest
+[INFO] Running org.apache.commons.jexl3.ArrayAccessTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.apache.commons.jexl3.ArrayAccessTest
+[INFO] Running org.apache.commons.jexl3.ContextNamespaceTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.jexl3.ContextNamespaceTest
+[INFO] Running org.apache.commons.jexl3.DoWhileTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.jexl3.DoWhileTest
+[INFO] Running org.apache.commons.jexl3.RangeTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.jexl3.RangeTest
+[INFO] Running org.apache.commons.jexl3.introspection.SandboxTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.jexl3.introspection.SandboxTest
+[INFO] Running org.apache.commons.jexl3.SideEffectTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.jexl3.SideEffectTest
+[INFO] Running org.apache.commons.jexl3.JXLTTest
+[INFO] Tests run: 174, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 s - in org.apache.commons.jexl3.JXLTTest
+[INFO] Running org.apache.commons.jexl3.SetLiteralTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jexl3.SetLiteralTest
+[INFO] Running org.apache.commons.jexl3.ArithmeticOperatorTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.jexl3.ArithmeticOperatorTest
+[INFO] Running org.apache.commons.jexl3.parser.ParserTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jexl3.parser.ParserTest
+[INFO] Running org.apache.commons.jexl3.ScriptTest
+Starting test script
+The result is 7
+Starting test script
+The result is 7
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.jexl3.ScriptTest
+[INFO] Running org.apache.commons.jexl3.ArithmeticTest
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s - in org.apache.commons.jexl3.ArithmeticTest
+[INFO] Running org.apache.commons.jexl3.PragmaTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.404 s - in org.apache.commons.jexl3.PragmaTest
+[INFO] Running org.apache.commons.jexl3.Issues100Test
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.jexl3.Issues100Test
+[INFO] Running org.apache.commons.jexl3.StrategyTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.jexl3.StrategyTest
+[INFO] Running org.apache.commons.jexl3.LambdaTest
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.jexl3.LambdaTest
+[INFO] Running org.apache.commons.jexl3.BitwiseOperatorTest
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.jexl3.BitwiseOperatorTest
+[INFO] Running org.apache.commons.jexl3.JexlTest
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.jexl3.JexlTest
+[INFO] Running org.apache.commons.jexl3.scripting.JexlScriptEngineOptionalTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.jexl3.scripting.JexlScriptEngineOptionalTest
+[INFO] Running org.apache.commons.jexl3.scripting.JexlScriptEngineTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.jexl3.scripting.JexlScriptEngineTest
+[INFO] Running org.apache.commons.jexl3.CacheTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.949 s - in org.apache.commons.jexl3.CacheTest
+[INFO] Running org.apache.commons.jexl3.AssignTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.jexl3.AssignTest
+[INFO] Running org.apache.commons.jexl3.PublicFieldsTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.jexl3.PublicFieldsTest
+[INFO] Running org.apache.commons.jexl3.examples.MethodPropertyTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jexl3.examples.MethodPropertyTest
+[INFO] Running org.apache.commons.jexl3.examples.ArrayTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jexl3.examples.ArrayTest
+[INFO] Running org.apache.commons.jexl3.IfTest
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jexl3.IfTest
+[INFO] Running org.apache.commons.jexl3.PropertyAccessTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.jexl3.PropertyAccessTest
+[INFO] Running org.apache.commons.jexl3.ArrayLiteralTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jexl3.ArrayLiteralTest
+[INFO] Running org.apache.commons.jexl3.FeaturesTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.jexl3.FeaturesTest
+[INFO] Running org.apache.commons.jexl3.AnnotationTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.commons.jexl3.AnnotationTest
+[INFO] Running org.apache.commons.jexl3.ParseFailuresTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jexl3.ParseFailuresTest
+[INFO] Running org.apache.commons.jexl3.IssuesTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.jexl3.IssuesTest
+[INFO] Running org.apache.commons.jexl3.MethodTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.jexl3.MethodTest
+[INFO] Running org.apache.commons.jexl3.VarTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.jexl3.VarTest
+[INFO] Running org.apache.commons.jexl3.Issues200Test
+null
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.jexl3.Issues200Test
+[INFO] Running org.apache.commons.jexl3.ForEachTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.jexl3.ForEachTest
+[INFO] Running org.apache.commons.jexl3.Issues300Test
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.jexl3.Issues300Test
+[INFO] Running org.apache.commons.jexl3.AntishCallTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.jexl3.AntishCallTest
+[INFO] Running org.apache.commons.jexl3.SynchronizedOverloadsTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jexl3.SynchronizedOverloadsTest
+[INFO] Running org.apache.commons.jexl3.LexicalTest
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.jexl3.LexicalTest
+[INFO] Running org.apache.commons.jexl3.BlockTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jexl3.BlockTest
+[INFO] Running org.apache.commons.jexl3.internal.introspection.MiscIntrospectionTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jexl3.internal.introspection.MiscIntrospectionTest
+[INFO] Running org.apache.commons.jexl3.internal.introspection.MethodKeyTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.138 s - in org.apache.commons.jexl3.internal.introspection.MethodKeyTest
+[INFO] Running org.apache.commons.jexl3.internal.introspection.DiscoveryTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jexl3.internal.introspection.DiscoveryTest
+[INFO] Running org.apache.commons.jexl3.internal.RangeTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jexl3.internal.RangeTest
+[INFO] Running org.apache.commons.jexl3.MapLiteralTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jexl3.MapLiteralTest
+[INFO] Running org.apache.commons.jexl3.ScriptCallableTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.729 s - in org.apache.commons.jexl3.ScriptCallableTest
+[INFO] Running org.apache.commons.jexl3.ClassCreatorTest
+Jan 11, 2026 6:00:11 PM org.apache.commons.jexl3.JexlTestCase testMany
+WARNING: unable to force GC
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.085 s - in org.apache.commons.jexl3.ClassCreatorTest
+[INFO] Running org.apache.commons.jexl3.WhileTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jexl3.WhileTest
+[INFO] Running org.apache.commons.jexl3.jexl342.OptionalTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jexl3.jexl342.OptionalTest
+[INFO] Running org.apache.commons.jexl3.junit.AsserterTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jexl3.junit.AsserterTest
+[INFO] Running org.apache.commons.jexl3.BuilderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jexl3.BuilderTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 792, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  19.542 s
-[INFO] Finished at: 2026-01-09T23:13:48-05:00
+[INFO] Total time:  16.359 s
+[INFO] Finished at: 2026-01-11T18:00:11-05:00
 [INFO] ------------------------------------------------------------------------
+ended at: 2026-01-11 18:00:11

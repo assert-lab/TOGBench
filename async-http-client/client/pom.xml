@@ -21,8 +21,9 @@
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
         <version>1.9.8</version>
-        <configuration>
-          <threads>24</threads>
+          <configuration>
+          <threads>16</threads>
+
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -62,11 +63,6 @@
         <artifactId>maven-surefire-plugin</artifactId>
         <version>2.19.1</version>
         <configuration>
-          <excludes>
-            <exclude>**/Continue100Interceptor_ESTest.java</exclude>
-            <exclude>**/ResponseFiltersInterceptor_ESTest.java</exclude>
-            <exclude>**/StreamedResponsePublisher_ESTest.java</exclude>
-          </excludes>
           <properties>
             <property>
               <name>junit</name>
@@ -147,7 +143,7 @@
         <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
-      <version>7.1.0</version>
+      <version>6.14.3</version>
       <scope>test</scope>
     </dependency>
     <dependency>

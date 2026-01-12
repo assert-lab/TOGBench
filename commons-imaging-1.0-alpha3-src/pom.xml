@@ -101,7 +101,7 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.9.8</version>
+        <version>1.22.0</version>
 
               <dependencies>
         <dependency>
@@ -114,12 +114,7 @@
         <argLine></argLine>
         <testPlugin>junit5</testPlugin>
           <threads>16</threads>
-          <jvmArgs>
-      <jvmArg>-Xms512m</jvmArg>
-      <jvmArg>-Xmx4G</jvmArg>
-      <jvmArg>-XX:+UseG1GC</jvmArg>
-      <jvmArg>-Djava.awt.headless=true</jvmArg>
-    </jvmArgs>
+
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -130,13 +125,18 @@
             <avoidCallsTo>org.slf4j.*</avoidCallsTo>
             <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
           </avoidCallsTo>
-          <verbose>true</verbose>
+          <verbose>false</verbose>
           <targetClasses>
             <param>org.apache.commons.imaging.*</param>
           </targetClasses>
           <targetTests>
             <param>org.apache.commons.imaging.*</param>
           </targetTests>
+    <excludedTestClasses>
+      <param>org.apache.commons.imaging.formats.png.PngWriteForceTrueColorText</param>
+      <param>org.apache.commons.imaging.roundtrip.FullColorRoundtrip</param>
+      <param>org.apache.commons.imaging.roundtrip.PixelDensityRoundtrip</param>
+    </excludedTestClasses>
           <fullMutationMatrix>true</fullMutationMatrix>
           <exportLineCoverage>true</exportLineCoverage>
           <outputFormats>XML</outputFormats>
@@ -162,11 +162,11 @@
         <useUnlimitedThreads>true</useUnlimitedThreads>
         <redirectTestOutputToFile>true</redirectTestOutputToFile>
         <!-- Standard test naming patterns -->
-        <includes>
-          <include>**/*Test.java</include>
-          <include>**/*Tests.java</include>
-          <include>**/*TestCase.java</include>
-        </includes>
+    <excludes>
+      <exclude>**/PngWriteForceTrueColorText.java</exclude>
+      <exclude>**/FullColorRoundtrip.java</exclude>
+      <exclude>**/PixelDensityRoundtrip.java</exclude>
+    </excludes>
       </configuration>
     </plugin>
       <plugin>

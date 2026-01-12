@@ -71,9 +71,10 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.9.8</version>
-        <configuration>
-          <threads>4</threads>
+        <version>1.22.0</version>
+          <configuration>
+          <threads>16</threads>
+
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -89,7 +90,7 @@
             <param>org.apache.commons.rng.*</param>
           </targetClasses>
           <targetTests>
-            <param>org.apache.commons.rng.*_ESTest*</param>
+            <param>org.apache.commons.rng.*</param>
           </targetTests>
           <fullMutationMatrix>true</fullMutationMatrix>
           <exportLineCoverage>true</exportLineCoverage>
@@ -100,9 +101,6 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
-          <includes>
-            <include>**/*_ESTest.java</include>
-          </includes>
           <redirectTestOutputToFile>true</redirectTestOutputToFile>
         </configuration>
       </plugin>

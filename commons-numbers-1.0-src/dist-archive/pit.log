@@ -1,0 +1,24 @@
+began at: 2026-01-12 00:00:01
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+Downloading from apache.snapshots: https://repository.apache.org/snapshots/org/codehaus/mojo/maven-metadata.xml
+Downloading from apache.snapshots: https://repository.apache.org/snapshots/org/apache/maven/plugins/maven-metadata.xml
+Progress (1): 7.6/8.9 kBProgress (1): 8.2/8.9 kBProgress (1): 8.9 kB                        Downloaded from apache.snapshots: https://repository.apache.org/snapshots/org/apache/maven/plugins/maven-metadata.xml (8.9 kB at 14 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml
+Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml
+Progress (1): 3.9 kBProgress (1): 7.7 kBProgress (1): 13 kB Progress (1): 20 kBProgress (1): 20 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml (20 kB at 321 kB/s)
+Progress (1): 4.6 kBProgress (1): 9.8 kBProgress (1): 14 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml (14 kB at 193 kB/s)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.361 s
+[INFO] Finished at: 2026-01-12T00:00:04-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] No plugin found for prefix 'pitest' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (/home/wxw9rr/.m2/repository), apache.snapshots (https://repository.apache.org/snapshots), central (https://repo.maven.apache.org/maven2)] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/NoPluginFoundForPrefixException
+ended at: 2026-01-12 00:00:04

@@ -34,16 +34,11 @@
   </parent>
 
   <dependencies>
-    <dependency>
-      <groupId>org.evosuite</groupId>
-      <artifactId>evosuite-standalone-runtime</artifactId>
-      <version>${evosuiteVersion}</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
+
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -187,7 +182,7 @@
   </dependencies>
 
   <properties>
-    <evosuiteVersion>1.0.6</evosuiteVersion>
+
     <vfs.parent.dir>${basedir}/..</vfs.parent.dir>
   </properties>
 
@@ -230,9 +225,10 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.9.8</version>
-        <configuration>
-          <threads>4</threads>
+        <version>1.22.0</version>
+          <configuration>
+          <threads>16</threads>
+
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -248,11 +244,9 @@
             <param>org.apache.commons.vfs2.*</param>
           </targetClasses>
           <targetTests>
-            <param>org.apache.commons.vfs2.*_ESTest*</param>
+            <param>org.apache.commons.vfs2.*</param>
           </targetTests>
-          <excludedTestClasses>
-            <excludedTestClass>*.DefaultVfsComponentContext_ESTest*</excludedTestClass>
-          </excludedTestClasses>
+
           <fullMutationMatrix>true</fullMutationMatrix>
           <exportLineCoverage>true</exportLineCoverage>
           <outputFormats>XML</outputFormats>
@@ -424,7 +418,7 @@
                 <exclude>**/HdfsFileProviderTestCase.java</exclude>
                 <!-- Need to port fully to JUnit 4 or 5. -->
                 <!-- *Tests.java files with @Test methods should not be run since these classes are in fact JUnit 3 classes used in custom JUnit 3 test suites. -->
-                <exclude>**/*Tests.java</exclude>
+
               </excludes>
             </configuration>
           </plugin>

@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1768170818267
+Build-Jdk: 1.8.0_171
+Built-By: wxw9rr
+Bundle-Description: The Async Http Client Typesafe Config Extras.
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Asynchronous Http Client Typesafe Config Extras
+Bundle-SymbolicName: org.asynchttpclient.async-http-client-extras-typesa
+ fe-config
+Bundle-Vendor: The AsyncHttpClient Project
+Bundle-Version: 2.12.3
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.asynchttpclient.extras.typesafeconfig;uses:="com.typ
+ esafe.config,io.netty.buffer,io.netty.channel,io.netty.handler.ssl,io.n
+ etty.util,org.asynchttpclient,org.asynchttpclient.channel,org.asynchttp
+ client.cookie,org.asynchttpclient.filter,org.asynchttpclient.netty.chan
+ nel,org.asynchttpclient.proxy";version="2.12.3"
+Import-Package: com.typesafe.config;version="[1.3,2)",io.netty.buffer;ve
+ rsion="[4.1,5)",io.netty.channel;version="[4.1,5)",io.netty.handler.ssl
+ ;version="[4.1,5)",io.netty.util;version="[4.1,5)",org.asynchttpclient;
+ version="[2.12,3)",org.asynchttpclient.channel;version="[2.12,3)",org.a
+ synchttpclient.config;version="[2.12,3)",org.asynchttpclient.cookie;ver
+ sion="[2.12,3)",org.asynchttpclient.filter;version="[2.12,3)",org.async
+ httpclient.netty.channel;version="[2.12,3)",org.asynchttpclient.proxy;v
+ ersion="[2.12,3)",javax.activation;version="[1.1,2)",io.netty.channel.k
+ queue;resolution:=optional;version="[4.1,5)",io.netty.channel.epoll;res
+ olution:=optional;version="[4.1,5)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.0.0.201509101326

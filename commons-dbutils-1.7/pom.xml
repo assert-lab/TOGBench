@@ -253,9 +253,10 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.9.8</version>
-        <configuration>
-          <threads>24</threads>
+        <version>1.22.0</version>
+          <configuration>
+          <threads>16</threads>
+
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -278,25 +279,28 @@
           <outputFormats>XML</outputFormats>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.17</version>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <artifactId>maven-assembly-plugin</artifactId>
-        <configuration>
-          <descriptors>
-            <descriptor>src/main/assembly/bin.xml</descriptor>
-            <descriptor>src/main/assembly/src.xml</descriptor>
-          </descriptors>
-          <tarLongFileMode>gnu</tarLongFileMode>
-        </configuration>
-      </plugin>
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-surefire-plugin</artifactId>
+  <version>2.22.0</version>
+  <configuration>
+    <argLine>
+      --add-opens java.base/java.lang=ALL-UNNAMED
+      --add-opens java.sql/java.sql=ALL-UNNAMED
+    </argLine>
+  </configuration>
+</plugin>
+
+<plugin>
+  <artifactId>maven-assembly-plugin</artifactId>
+  <configuration>
+    <descriptors>
+      <descriptor>src/main/assembly/bin.xml</descriptor>
+      <descriptor>src/main/assembly/src.xml</descriptor>
+    </descriptors>
+    <tarLongFileMode>gnu</tarLongFileMode>
+  </configuration>
+</plugin>
       <plugin>
         <groupId>org.apache.rat</groupId>
         <artifactId>apache-rat-plugin</artifactId>

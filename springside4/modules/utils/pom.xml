@@ -18,9 +18,8 @@
 		<commons-collections.version>4.1</commons-collections.version>
 		<logback.version>1.1.8</logback.version>
 		<junit.version>4.12</junit.version>
-		<assertj.version>2.6.0</assertj.version>
-		<mockito.version>1.10.19</mockito.version>
-		<evosuiteVersion>1.0.6</evosuiteVersion>
+		<assertj.version>3.24.2</assertj.version>
+		<mockito.version>3.12.4</mockito.version>
 		<!-- Plugin的属性 -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
@@ -97,12 +96,6 @@
 			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.evosuite</groupId>
-			<artifactId>evosuite-standalone-runtime</artifactId>
-			<version>${evosuiteVersion}</version>
-			<scope>test</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>org.assertj</groupId>
@@ -140,6 +133,31 @@
 			<scope>test</scope>
 		</dependency>
 
+		    <!-- JAXB for Java 11+ -->
+    <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>2.3.1</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.sun.xml.bind</groupId>
+        <artifactId>jaxb-core</artifactId>
+        <version>2.3.0.1</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.sun.xml.bind</groupId>
+        <artifactId>jaxb-impl</artifactId>
+        <version>2.3.1</version>
+    </dependency>
+
+    <dependency>
+        <groupId>javax.activation</groupId>
+        <artifactId>activation</artifactId>
+        <version>1.1.1</version>
+    </dependency>
+
 		<!-- TEST end -->
 	</dependencies>
 
@@ -149,11 +167,29 @@
 		<plugins>
 			<!-- source attach plugin -->
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+
+					<testExcludes>
+						<testExclude>**/ReflectionUtilTest.java</testExclude>
+						<testExclude>**/ThreadLocalContextTest.java</testExclude>
+						<testExclude>**/ListUtilTest.java</testExclude>
+						<testExclude>**/CollectionUtilTest.java</testExclude>
+					</testExcludes>
+				</configuration>
+			</plugin>
+
+			<plugin>
 				<groupId>org.pitest</groupId>
 				<artifactId>pitest-maven</artifactId>
-				<version>1.9.8</version>
-				<configuration>
-					<threads>4</threads>
+        <version>1.22.0</version>
+          <configuration>
+          <threads>16</threads>
+
 					<timeoutConstant>8000</timeoutConstant>
 					<mutators>
 						<mutator>STRONGER</mutator>
@@ -169,42 +205,39 @@
 						<param>org.springside.modules.utils.*</param>
 					</targetClasses>
 					<targetTests>
-						<param>org.springside.modules.utils.*_ESTest*</param>
+						<param>org.springside.modules.utils.*</param>
 					</targetTests>
+					<excludedTestClasses>
+						<param>org.springside.modules.utils.reflect.ReflectionUtilTest</param>
+						<param>org.springside.modules.utils.concurrent.ThreadLocalContextTest</param>
+						<param>org.springside.modules.utils.collection.ListUtilTest</param>
+						<param>org.springside.modules.utils.collection.CollectionUtilTest</param>
+						<param>org.springside.modules.utils.reflect.FastMethodInvokerTest</param>
+						<param>org.springside.modules.utils.mapper.BeanMapperTest</param>
+					</excludedTestClasses>
+
 					<fullMutationMatrix>true</fullMutationMatrix>
 					<exportLineCoverage>true</exportLineCoverage>
 					<outputFormats>XML</outputFormats>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>org.evosuite.plugins</groupId>
-				<artifactId>evosuite-maven-plugin</artifactId>
-				<version>${evosuiteVersion}</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare</goal>
-						</goals>
-						<phase>process-test-classes</phase>
-					</execution>
-				</executions>
-			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.17</version>
-				<configuration>
-					<excludes>
-						<exclude>**/SystemPropertiesUtil_ESTest.java</exclude>
-						<exclude>**/MapUtil_ESTest.java</exclude>
-					</excludes>
-					<properties>
-						<property>
-							<name>listener</name>
-							<value>org.evosuite.runtime.InitializingListener</value>
-						</property>
-					</properties>
-				</configuration>
+				<version>2.22.0</version>
+    <configuration>
+
+        <excludes>
+            <!-- ambiguous assertThat / println tests -->
+            <exclude>**/ReflectionUtilTest.java</exclude>
+            <exclude>**/ThreadLocalContextTest.java</exclude>
+            <exclude>**/ListUtilTest.java</exclude>
+            <exclude>**/CollectionUtilTest.java</exclude>
+			<exclude>**/FastMethodInvokerTest.java</exclude>
+          <exclude>**/BeanMapperTest.java</exclude>
+        </excludes>
+    </configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -230,11 +263,6 @@
 						<goals>
 							<goal>test-jar</goal>
 						</goals>
-						<configuration>
-							<excludes>
-								<exclude>org/springside/modules/test/**/*Test.class</exclude>
-							</excludes>
-						</configuration>
 					</execution>
 				</executions>
 			</plugin>

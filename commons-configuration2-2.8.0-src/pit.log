@@ -1,8 +1,10 @@
+began at: 2026-01-12 04:55:12
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] Scanning for projects...
 [WARNING] 
 [WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-configuration2:jar:2.8.0
 [WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs 4.13.2 @ line 463, column 17
-[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 722, column 15
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 723, column 15
 [WARNING] 
 [WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
 [WARNING] 
@@ -15,207 +17,223 @@
 [INFO] --------------------------------[ jar ]---------------------------------
 [WARNING] The artifact org.slf4j:slf4j-log4j12:jar:1.7.36 has been relocated to org.slf4j:slf4j-reload4j:jar:1.7.36
 [INFO] 
-[INFO] --- pitest:1.9.8:mutationCoverage (default-cli) @ commons-configuration2 ---
-[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-configuration2-2.8.0-src
+[INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ commons-configuration2 ---
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-configuration2-2.8.0-src
 [INFO] Found plugin : Default csv report plugin
 [INFO] Found plugin : Default xml report plugin
 [INFO] Found plugin : Default html report plugin
-[INFO] Found plugin : Implicit null check filter
-[INFO] Found plugin : Kotlin junk mutations filter
-[INFO] Found plugin : Infinite for loop filter
-[INFO] Found plugin : Max mutations per class limit
-[INFO] Found plugin : Logging calls filter
-[INFO] Found plugin : Assertions filter
-[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Excluded annotations plugin
 [INFO] Found plugin : Try with resources filter
-[INFO] Found plugin : Enum constructor filter
-[INFO] Found plugin : Trivial return vals equivalence filter
-[INFO] Found plugin : Long running iterator loop filter
 [INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Enum junk filter
 [INFO] Found plugin : Record junk mutation filter
 [INFO] Found plugin : String switch filter
-[INFO] Found plugin : Excluded annotations plugin
-[INFO] Found plugin : Equals shortcut equivalent mutant filter
-[INFO] Found plugin : Static initializer code detector plugin
-[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Assertions filter
 [INFO] Found plugin : Enum switch filter
-[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
 [INFO] Found plugin : For loop counter filter
-[INFO] Plugin available : Git integration
-[INFO] Plugin available : Support for mutating kotlin bytecode
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Groovy junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Filters mutants with line number <= 1
+[INFO] Found plugin : Division by one equivalent mutant filter
+[INFO] Found plugin : Lombok junk mutations filter
+[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[INFO] Found plugin : Mutant export plugin
 [INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
 [INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
+[INFO] Found plugin : Default build verifier
+[INFO] Found plugin : Detect missing JUnit5 plugin
+[INFO] Found plugin : Detect missing TestNG plugin
+[INFO] Found plugin : Detect missing kotlin plugin
+[INFO] Found plugin : Detect missing spring plugin
+[INFO] Found plugin : Default coverage exporter
+[INFO] Found plugin : Basic test statistics
 [INFO] Found shared classpath plugin : Default mutation engine
 [INFO] Found shared classpath plugin : JUnit plugin
-[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER
+[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
+[INFO] Found shared classpath plugin : Reset environment for javassist
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
 [INFO] Adding org.pitest:pitest to SUT classpath
-[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-configuration2-2.8.0-src/target/classes
-5:37:04 PM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
-5:37:04 PM PIT >> INFO : Incremental analysis reduced number of mutations by 0
-5:37:04 PM PIT >> INFO : Created 266 mutation test units in pre scan
-5:37:05 PM PIT >> INFO : Sending 579 test classes to minion
-5:37:05 PM PIT >> INFO : Sent tests to minion
-5:37:05 PM PIT >> INFO : MINION : SLF4J: Class path contains multiple SLF4J bindings.
-5:37:05 PM PIT >> INFO : MINION : SLF4J: Found binding in [jar:file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/slf4j/slf4j-reload4j/1.7.36/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-5:37:05 PM PIT >> INFO : MINION : SLF4J: Found binding in [jar:file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/slf4j/slf4j-nop/1.7.36/slf4j-nop-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
-5:37:05 PM PIT >> INFO : MINION : SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
-5:37:05 PM PIT >> INFO : MINION : SLF4J: Actual binding is of type [org.slf4j.impl.Reload4jLoggerFactory]
-5:37:05 PM PIT >> INFO : MINION : log4j:WARN No appenders could be found for logger (org.springframework.test.context.junit4.SpringJUnit4ClassRunner).
-5:37:05 PM PIT >> INFO : MINION : log4j:WARN Please initialize the log4j system properly.
-5:37:05 PM PIT >> INFO : MINION : log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\5:37:12 PM PIT >> INFO : MINION : [Fatal Error] :1:39: The element type "test" must be terminated by the matching end-tag "</test>".
-|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/5:37:13 PM PIT >> INFO : MINION : Warning: validation was turned on but an org.xml.sax.ErrorHandler was not set, which is probably not what is desired.  Parser will use a default ErrorHandler to print the first 0  errors.  Please call the setErrorHandler method to fix this.
-5:37:13 PM PIT >> INFO : MINION : Error: URI=null Line=1: Document root element "properties", must match DOCTYPE root "null".
-5:37:13 PM PIT >> INFO : MINION : Error: URI=null Line=1: Document is invalid: no grammar found.
--\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-5:37:24 PM PIT >> INFO : Calculated coverage in 19 seconds.
-5:37:41 PM PIT >> INFO : Incremental analysis reduced number of mutations by 0
-5:37:41 PM PIT >> INFO : Created 260 mutation test units
-5:37:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:38:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:38:08 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:38:09 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:38:11 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:38:13 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:38:14 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:38:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:38:24 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-/5:38:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
--5:38:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:38:30 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:38:37 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:38:54 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:39:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:39:13 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:39:17 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:39:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:39:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:39:40 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:39:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:39:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:40:24 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:40:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:40:27 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:40:30 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:40:32 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:40:41 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:40:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:40:45 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:40:58 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:41:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:41:09 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:41:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:41:18 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:41:35 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:41:36 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:41:44 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:41:44 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:41:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:41:54 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-\5:42:08 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:42:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:42:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:42:52 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:42:54 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:42:56 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:43:17 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:43:19 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:43:43 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:43:52 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:43:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:43:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:43:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:44:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:44:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:44:14 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:44:19 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:44:19 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:44:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:44:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:44:40 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:44:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:45:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:45:17 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:45:20 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:45:27 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:45:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:45:36 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:45:40 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:45:42 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:45:47 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:45:50 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:45:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:18 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:18 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:32 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:33 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:35 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:36 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:38 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:39 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:44 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:47 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:50 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:46:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:47:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:47:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:47:11 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:47:17 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:47:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:48:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:48:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:48:16 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:48:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:48:34 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:48:36 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:49:03 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:49:35 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:49:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:49:57 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:05 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:10 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:20 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:25 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:34 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:36 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:41 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:43 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:46 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:49 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:50:58 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:51:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:51:24 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:51:38 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:51:53 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:52:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:52:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:52:03 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:52:12 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:52:14 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:52:23 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:53:06 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:53:11 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:53:15 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:53:33 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:53:43 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:53:55 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:54:00 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:54:05 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:54:08 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:54:14 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:54:24 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:54:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:54:39 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:55:01 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:55:04 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:55:22 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:56:51 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-5:57:02 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-|/-6:00:38 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|6:00:44 PM PIT >> INFO : Completed in 1419 seconds
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-configuration2-2.8.0-src/target/classes
+[INFO] Replacing properties in argLine --illegal-access=permit
+                --add-opens java.base/java.lang=ALL-UNNAMED
+4:55:17 AM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+4:55:17 AM PIT >> INFO : Created 270 mutation test units in pre scan
+4:55:18 AM PIT >> INFO : MINION : Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+4:55:18 AM PIT >> INFO : MINION : OpenJDK 64-Bit Server VM warning: Ignoring option --illegal-access=permit; support was removed in 17.0
+4:55:18 AM PIT >> INFO : Sending 579 test classes to minion
+4:55:18 AM PIT >> INFO : Sent tests to minion
+4:55:19 AM PIT >> INFO : MINION : SLF4J: Class path contains multiple SLF4J bindings.
+4:55:19 AM PIT >> INFO : MINION : SLF4J: Found binding in [jar:file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/slf4j/slf4j-reload4j/1.7.36/slf4j-reload4j-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+4:55:19 AM PIT >> INFO : MINION : SLF4J: Found binding in [jar:file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/slf4j/slf4j-nop/1.7.36/slf4j-nop-1.7.36.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+4:55:19 AM PIT >> INFO : MINION : SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+4:55:19 AM PIT >> INFO : MINION : SLF4J: Actual binding is of type [org.slf4j.impl.Reload4jLoggerFactory]
+4:55:19 AM PIT >> INFO : MINION : log4j:WARN No appenders could be found for logger (org.springframework.test.context.junit4.SpringJUnit4ClassRunner).
+4:55:19 AM PIT >> INFO : MINION : log4j:WARN Please initialize the log4j system properly.
+4:55:19 AM PIT >> INFO : MINION : log4j:WARN See http://logging.apache.org/log4j/1.2/faq.html#noconfig for more info.
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-4:55:26 AM PIT >> INFO : MINION : [Fatal Error] :1:39: The element type "test" must be terminated by the matching end-tag "</test>".
+\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|4:55:27 AM PIT >> INFO : MINION : Warning: validation was turned on but an org.xml.sax.ErrorHandler was not set, which is probably not what is desired.  Parser will use a default ErrorHandler to print the first 0  errors.  Please call the setErrorHandler method to fix this.
+4:55:27 AM PIT >> INFO : MINION : Error: URI=null Line=1: Document root element "properties", must match DOCTYPE root "null".
+4:55:27 AM PIT >> INFO : MINION : Error: URI=null Line=1: Document is invalid: no grammar found.
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-4:55:39 AM PIT >> INFO : Calculated coverage in 21 seconds.
+4:55:39 AM PIT >> INFO : 3 tests took longer than 2000 ms
+4:55:39 AM PIT >> INFO : Slowest test (testMultiTenentConfigurationReloading(org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilder)) took 5021 ms
+4:55:39 AM PIT >> INFO : Largest test (org.apache.commons.configuration2.TestDynamicCombinedConfiguration) covered 5893 blocks
+4:55:55 AM PIT >> INFO : Created 260 mutation test units
+4:56:05 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:56:18 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:56:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:56:24 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:56:33 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:56:34 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:56:35 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:56:47 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:56:48 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:56:48 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:56:48 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:57:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+/-4:57:08 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:57:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:57:14 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:57:31 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:57:44 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:57:49 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:57:59 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:58:18 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:58:26 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:58:36 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:58:39 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:58:45 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:59:00 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:59:08 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:59:09 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:59:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:59:24 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:59:34 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:59:37 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+\4:59:49 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:59:49 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:59:53 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:59:55 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+4:59:59 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:00:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:00:20 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:01:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:01:05 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:01:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:01:38 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:01:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:01:58 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:02:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:02:07 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:02:16 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:02:18 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:02:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:02:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:02:28 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:02:34 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:02:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:02:57 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:02:58 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:03:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:03:47 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:03:56 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:03:59 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:04:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:04:09 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:04:34 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:04:35 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:04:39 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:04:44 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:04:45 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:04:52 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:04:53 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:04:56 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:05:01 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:05:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:05:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:05:11 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:05:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:05:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:05:23 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:05:32 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:05:42 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:05:42 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:06:40 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:06:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:07:08 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:07:10 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:07:14 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:07:50 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:08:01 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:08:15 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:08:20 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:08:28 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:08:31 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:08:43 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:08:50 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:09:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:09:16 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:09:28 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:09:38 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:09:40 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:09:40 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:09:48 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:10:10 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:10:45 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:10:50 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:10:51 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:11:02 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:11:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:11:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:11:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:11:28 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:11:36 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:11:45 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:11:45 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:12:09 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:12:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:12:20 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:12:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+|5:12:30 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:12:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+/-5:13:08 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:13:30 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:14:13 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:14:22 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:14:30 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:15:15 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:15:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:15:36 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:15:56 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:15:59 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:16:08 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:16:17 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:16:17 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:16:21 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:16:26 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:16:51 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:17:03 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:17:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:17:27 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:17:46 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:17:54 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:18:30 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:18:41 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|5:19:55 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:20:09 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+5:20:50 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|5:21:45 AM PIT >> INFO : Completed in 1587 seconds
 ================================================================================
 - Mutators
 ================================================================================
@@ -226,8 +244,8 @@
 > NO_COVERAGE 46 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
->> Generated 1406 Killed 1074 (76%)
-> KILLED 1029 SURVIVED 177 TIMED_OUT 45 NON_VIABLE 0 
+>> Generated 1406 Killed 1078 (77%)
+> KILLED 1033 SURVIVED 173 TIMED_OUT 45 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 155 
 --------------------------------------------------------------------------------
@@ -238,20 +256,20 @@
 > NO_COVERAGE 4 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
->> Generated 1822 Killed 1464 (80%)
-> KILLED 1432 SURVIVED 245 TIMED_OUT 32 NON_VIABLE 0 
+>> Generated 1822 Killed 1471 (81%)
+> KILLED 1440 SURVIVED 238 TIMED_OUT 31 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 113 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
->> Generated 1093 Killed 982 (90%)
-> KILLED 980 SURVIVED 14 TIMED_OUT 2 NON_VIABLE 0 
+>> Generated 1089 Killed 978 (90%)
+> KILLED 976 SURVIVED 14 TIMED_OUT 2 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 97 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
->> Generated 224 Killed 126 (56%)
-> KILLED 112 SURVIVED 52 TIMED_OUT 14 NON_VIABLE 0 
+>> Generated 224 Killed 124 (55%)
+> KILLED 111 SURVIVED 54 TIMED_OUT 13 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 46 
 --------------------------------------------------------------------------------
@@ -262,8 +280,8 @@
 > NO_COVERAGE 95 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
->> Generated 537 Killed 446 (83%)
-> KILLED 439 SURVIVED 16 TIMED_OUT 7 NON_VIABLE 0 
+>> Generated 541 Killed 449 (83%)
+> KILLED 442 SURVIVED 17 TIMED_OUT 7 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 75 
 --------------------------------------------------------------------------------
@@ -286,8 +304,8 @@
 > NO_COVERAGE 52 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
->> Generated 239 Killed 182 (76%)
-> KILLED 177 SURVIVED 19 TIMED_OUT 5 NON_VIABLE 0 
+>> Generated 240 Killed 187 (78%)
+> KILLED 182 SURVIVED 15 TIMED_OUT 5 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 38 
 --------------------------------------------------------------------------------
@@ -298,14 +316,14 @@
 > NO_COVERAGE 0 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
->> Generated 167 Killed 133 (80%)
-> KILLED 130 SURVIVED 12 TIMED_OUT 3 NON_VIABLE 0 
+>> Generated 168 Killed 134 (80%)
+> KILLED 131 SURVIVED 12 TIMED_OUT 3 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 22 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
->> Generated 1829 Killed 1404 (77%)
-> KILLED 1392 SURVIVED 311 TIMED_OUT 12 NON_VIABLE 0 
+>> Generated 1829 Killed 1410 (77%)
+> KILLED 1398 SURVIVED 305 TIMED_OUT 12 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 114 
 --------------------------------------------------------------------------------
@@ -314,23 +332,31 @@
 ================================================================================
 > pre-scan for mutations : < 1 second
 > scan classpath : < 1 second
-> coverage and dependency analysis : 19 seconds
+> coverage and dependency analysis : 20 seconds
 > build mutation tests : < 1 second
-> run mutation analysis : 23 minutes and 3 seconds
+> run mutation analysis : 25 minutes and 49 seconds
 --------------------------------------------------------------------------------
-> Total  : 23 minutes and 24 seconds
+> Total  : 26 minutes and 11 seconds
 --------------------------------------------------------------------------------
+> 3 tests took longer than 2000 ms
+> Slowest test (testMultiTenentConfigurationReloading(org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilder)) took 5021 ms
+> Largest test (org.apache.commons.configuration2.TestDynamicCombinedConfiguration) covered 5893 blocks
 ================================================================================
 - Statistics
 ================================================================================
->> Line Coverage: 9881/11210 (88%)
->> Generated 8294 mutations Killed 6331 (76%)
+>> Line Coverage (for mutated classes only): 9758/11080 (88%)
+>> 579 tests examined
+>> Generated 8296 mutations Killed 6351 (77%)
 >> Mutations with no coverage 926. Test strength 86%
->> Ran 955791 tests (115.24 tests per mutation)
+>> Ran 955979 tests (115.23 tests per mutation)
 Enhanced functionality available at https://www.arcmutate.com/
+
+Build messages:- 
+* Project uses Spring, but the Arcmutate Spring plugin is not present. (https://docs.arcmutate.com/docs/spring.html)
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  23:40 min
-[INFO] Finished at: 2026-01-09T18:00:44-05:00
+[INFO] Total time:  26:30 min
+[INFO] Finished at: 2026-01-12T05:21:45-05:00
 [INFO] ------------------------------------------------------------------------
+ended at: 2026-01-12 05:21:45

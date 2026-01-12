@@ -1,0 +1,544 @@
+began at: 2026-01-12 00:29:33
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-jcache-extras:jar:3.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version (?) vs 4.12 @ line 112, column 17
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------< org.apache.commons:commons-jcs3-jcache-extras >------------
+[INFO] Building Apache Commons JCS :: JCache Extras 3.1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ commons-jcs3-jcache-extras ---
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-extras
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Enum junk filter
+[INFO] Found plugin : Record junk mutation filter
+[INFO] Found plugin : String switch filter
+[INFO] Found plugin : Assertions filter
+[INFO] Found plugin : Enum switch filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Groovy junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Filters mutants with line number <= 1
+[INFO] Found plugin : Division by one equivalent mutant filter
+[INFO] Found plugin : Lombok junk mutations filter
+[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
+[INFO] Found plugin : Default build verifier
+[INFO] Found plugin : Detect missing JUnit5 plugin
+[INFO] Found plugin : Detect missing TestNG plugin
+[INFO] Found plugin : Detect missing kotlin plugin
+[INFO] Found plugin : Detect missing spring plugin
+[INFO] Found plugin : Default coverage exporter
+[INFO] Found plugin : Basic test statistics
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
+[INFO] Found shared classpath plugin : Reset environment for javassist
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-extras/target/classes
+[INFO] Replacing properties in argLine -Xmx256m
+12:29:35 AM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+12:29:35 AM PIT >> INFO : Created 22 mutation test units in pre scan
+12:29:35 AM PIT >> INFO : MINION : Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+12:29:35 AM PIT >> INFO : Sending 37 test classes to minion
+12:29:35 AM PIT >> INFO : Sent tests to minion
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.webbeans.lifecycle.AbstractLifeCycle bootstrapApplication
+12:29:35 AM PIT >> INFO : MINION : INFO: OpenWebBeans Container is starting...
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.webbeans.corespi.scanner.AbstractMetaDataDiscovery addWebBeansXmlLocation
+12:29:35 AM PIT >> INFO : MINION : INFO: added beans archive URL: file:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-extras/target/test-classes/META-INF/beans.xml
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.webbeans.corespi.scanner.AbstractMetaDataDiscovery addWebBeansXmlLocation
+12:29:35 AM PIT >> INFO : MINION : INFO: added beans archive URL: jar:file:/sfs/gpfs/tardis/home/wxw9rr/.m2/repository/org/pitest/pitest/1.22.0/pitest-1.22.0.jar!/
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.webbeans.corespi.scanner.AbstractMetaDataDiscovery addWebBeansXmlLocation
+12:29:35 AM PIT >> INFO : MINION : INFO: added beans archive URL: file:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-extras/target/classes/
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:35 AM PIT >> INFO : MINION : INFO: Setting default auxiliaries to "null"
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:35 AM PIT >> INFO : MINION : INFO: No special CompositeCacheAttributes class defined for key [jcs.default.cacheattributes], using default class.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:35 AM PIT >> INFO : MINION : INFO: setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:35 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.default.elementattributes], using default class.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:35 AM PIT >> INFO : MINION : INFO: setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = -1, CreateTime = 1768195775752, LastAccessTime = 1768195775752, getTimeToLiveSeconds() = -1, createTime = 1768195775752 ]
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:35 AM PIT >> INFO : MINION : INFO: Parsed regions []
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:35 AM PIT >> INFO : MINION : INFO: Finished configuration in 4 ms.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.webbeans.config.BeansDeployer validateInjectionPoints
+12:29:35 AM PIT >> INFO : MINION : INFO: All injection points were validated successfully.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.webbeans.lifecycle.AbstractLifeCycle bootstrapApplication
+12:29:35 AM PIT >> INFO : MINION : INFO: OpenWebBeans Container has started, it took [256] ms.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.event.ElementEventQueue 
+12:29:35 AM PIT >> INFO : MINION : INFO: Element event queue destroyed: org.apache.commons.jcs3.engine.control.event.ElementEventQueue@61b838f2
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:35 AM PIT >> INFO : MINION : INFO: Setting default auxiliaries to "null"
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:35 AM PIT >> INFO : MINION : INFO: No special CompositeCacheAttributes class defined for key [jcs.default.cacheattributes], using default class.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:35 AM PIT >> INFO : MINION : INFO: setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:35 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.default.elementattributes], using default class.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:35 AM PIT >> INFO : MINION : INFO: setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = -1, CreateTime = 1768195775791, LastAccessTime = 1768195775791, getTimeToLiveSeconds() = -1, createTime = 1768195775791 ]
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:35 AM PIT >> INFO : MINION : INFO: Parsed regions []
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:35 AM PIT >> INFO : MINION : INFO: Finished configuration in 1 ms.
+12:29:35 AM PIT >> SEVERE : Description [testClass=org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest, name=org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest] did not pass without mutation.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:35 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.region.cache.elementattributes], using default class.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache 
+12:29:35 AM PIT >> INFO : MINION : INFO: initialized MemoryCache for cache
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:35 AM PIT >> INFO : MINION : INFO: Constructed cache with name [cache] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+/12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.event.ElementEventQueue 
+12:29:35 AM PIT >> INFO : MINION : INFO: Element event queue destroyed: org.apache.commons.jcs3.engine.control.event.ElementEventQueue@62c53685
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:35 AM PIT >> INFO : MINION : INFO: In DISPOSE, [cache] fromRemote [false]
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:35 AM PIT >> INFO : MINION : INFO: In DISPOSE, [cache] disposing of memory cache.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.memory.AbstractMemoryCache 
+12:29:35 AM PIT >> INFO : MINION : INFO: Memory Cache dispose called.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:35 AM PIT >> INFO : MINION : INFO: Setting default auxiliaries to "null"
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:35 AM PIT >> INFO : MINION : INFO: No special CompositeCacheAttributes class defined for key [jcs.default.cacheattributes], using default class.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:35 AM PIT >> INFO : MINION : INFO: setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:35 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.default.elementattributes], using default class.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:35 AM PIT >> INFO : MINION : INFO: setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = -1, CreateTime = 1768195775843, LastAccessTime = 1768195775843, getTimeToLiveSeconds() = -1, createTime = 1768195775843 ]
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:35 AM PIT >> INFO : MINION : INFO: Parsed regions []
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:35 AM PIT >> INFO : MINION : INFO: Finished configuration in 1 ms.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:35 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.region.cache.elementattributes], using default class.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache 
+12:29:35 AM PIT >> INFO : MINION : INFO: initialized MemoryCache for cache
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:35 AM PIT >> INFO : MINION : INFO: Constructed cache with name [cache] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.event.ElementEventQueue 
+12:29:35 AM PIT >> INFO : MINION : INFO: Element event queue destroyed: org.apache.commons.jcs3.engine.control.event.ElementEventQueue@3c46e6f6
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:35 AM PIT >> INFO : MINION : INFO: In DISPOSE, [cache] fromRemote [false]
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:35 AM PIT >> INFO : MINION : INFO: In DISPOSE, [cache] disposing of memory cache.
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.commons.jcs3.engine.memory.AbstractMemoryCache 
+12:29:35 AM PIT >> INFO : MINION : INFO: Memory Cache dispose called.
+-12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.coyote.AbstractProtocol init
+12:29:35 AM PIT >> INFO : MINION : INFO: Initializing ProtocolHandler ["http-bio-auto-1"]
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.catalina.core.StandardService startInternal
+12:29:35 AM PIT >> INFO : MINION : INFO: Starting service Tomcat
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.catalina.core.StandardEngine startInternal
+12:29:35 AM PIT >> INFO : MINION : INFO: Starting Servlet Engine: Apache Tomcat/7.0.72
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.coyote.AbstractProtocol start
+12:29:35 AM PIT >> INFO : MINION : INFO: Starting ProtocolHandler ["http-bio-auto-1-45853"]
+12:29:35 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:35 AM org.apache.catalina.connector.MapperListener findDefaultHost
+12:29:35 AM PIT >> INFO : MINION : WARNING: Unknown default host [localhost] for connector [Connector[HTTP/1.1-auto-1]]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.loader.WebappLoader buildClassPath
+12:29:36 AM PIT >> INFO : MINION : INFO: Unknown loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 class jdk.internal.loader.ClassLoaders$AppClassLoader
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.startup.ContextConfig getDefaultWebXmlFragment
+12:29:36 AM PIT >> INFO : MINION : INFO: No global web.xml found
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: Setting default auxiliaries to "null"
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: No special CompositeCacheAttributes class defined for key [jcs.default.cacheattributes], using default class.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.default.elementattributes], using default class.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = -1, CreateTime = 1768195776081, LastAccessTime = 1768195776081, getTimeToLiveSeconds() = -1, createTime = 1768195776081 ]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: Parsed regions []
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: Finished configuration in 1 ms.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.region.org.apache.commons.jcs3.jcache.extras.web.JCacheFilter.elementattributes], using default class.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: initialized MemoryCache for org.apache.commons.jcs3.jcache.extras.web.JCacheFilter
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: Constructed cache with name [org.apache.commons.jcs3.jcache.extras.web.JCacheFilter] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.coyote.AbstractProtocol pause
+12:29:36 AM PIT >> INFO : MINION : INFO: Pausing ProtocolHandler ["http-bio-auto-1-45853"]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.core.StandardService stopInternal
+12:29:36 AM PIT >> INFO : MINION : INFO: Stopping service Tomcat
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.event.ElementEventQueue 
+12:29:36 AM PIT >> INFO : MINION : INFO: Element event queue destroyed: org.apache.commons.jcs3.engine.control.event.ElementEventQueue@6df79b04
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: In DISPOSE, [org.apache.commons.jcs3.jcache.extras.web.JCacheFilter] fromRemote [false]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: In DISPOSE, [org.apache.commons.jcs3.jcache.extras.web.JCacheFilter] disposing of memory cache.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.memory.AbstractMemoryCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: Memory Cache dispose called.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalsForLeaks
+12:29:36 AM PIT >> INFO : MINION : WARNING: Failed to check for ThreadLocal references for web application [/sample]
+12:29:36 AM PIT >> INFO : MINION : java.lang.reflect.InaccessibleObjectException: Unable to make field java.lang.ThreadLocal$ThreadLocalMap java.lang.Thread.threadLocals accessible: module java.base does not "opens java.lang" to unnamed module @75d3a5e0
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Field.setAccessible(Field.java:172)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks(WebappClassLoaderBase.java:2704)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:2229)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:2123)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:663)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5872)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1587)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1576)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.Thread.run(Thread.java:840)
+12:29:36 AM PIT >> INFO : MINION : 
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesRmiTargets
+12:29:36 AM PIT >> INFO : MINION : WARNING: When running on Java 9 you need to add "-XaddExports:java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.core.ContainerBase stopInternal
+12:29:36 AM PIT >> INFO : MINION : SEVERE: A child container failed during stop
+12:29:36 AM PIT >> INFO : MINION : java.util.concurrent.ExecutionException: org.apache.catalina.LifecycleException: Failed to stop component [StandardEngine[Tomcat].StandardHost[localhost].StandardContext[/sample]]
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:1175)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1587)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1576)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.Thread.run(Thread.java:840)
+12:29:36 AM PIT >> INFO : MINION : Caused by: org.apache.catalina.LifecycleException: Failed to stop component [StandardEngine[Tomcat].StandardHost[localhost].StandardContext[/sample]]
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:233)
+12:29:36 AM PIT >> INFO : MINION : 	... 6 more
+12:29:36 AM PIT >> INFO : MINION : Caused by: org.apache.catalina.LifecycleException: Failed to stop component [WebappLoader[/sample]]
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:233)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5872)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	... 6 more
+12:29:36 AM PIT >> INFO : MINION : Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make field private static final java.util.concurrent.ConcurrentMap java.util.ResourceBundle.cacheList accessible: module java.base does not "opens java.util" to unnamed module @75d3a5e0
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Field.setAccessible(Field.java:172)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesResourceBundles(WebappClassLoaderBase.java:3019)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:2255)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:2123)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:663)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	... 8 more
+12:29:36 AM PIT >> INFO : MINION : 
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.core.ContainerBase stopInternal
+12:29:36 AM PIT >> INFO : MINION : SEVERE: A child container failed during stop
+12:29:36 AM PIT >> INFO : MINION : java.util.concurrent.ExecutionException: org.apache.catalina.LifecycleException: Failed to stop component [StandardEngine[Tomcat].StandardHost[localhost]]
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:1175)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.StandardService.stopInternal(StandardService.java:503)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.StandardServer.stopInternal(StandardServer.java:777)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.startup.Tomcat.stop(Tomcat.java:358)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.commons.jcs3.jcache.extras.web.JCacheFilterTest.stop(JCacheFilterTest.java:112)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.commons.jcs3.jcache.extras.web.JCacheFilterTest.testFilterNoOutput(JCacheFilterTest.java:80)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.CustomRunnerExecutor.run(CustomRunnerExecutor.java:42)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.AdaptedJUnitTestUnit.execute(AdaptedJUnitTestUnit.java:69)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageDecorator.execute(CoverageDecorator.java:51)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.containers.UnContainer.execute(UnContainer.java:33)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.executeTests(Pitest.java:57)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.run(Pitest.java:48)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageWorker.run(CoverageWorker.java:49)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:94)
+12:29:36 AM PIT >> INFO : MINION : Caused by: org.apache.catalina.LifecycleException: Failed to stop component [StandardEngine[Tomcat].StandardHost[localhost]]
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:233)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1587)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1576)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.Thread.run(Thread.java:840)
+12:29:36 AM PIT >> INFO : MINION : Caused by: org.apache.catalina.LifecycleException: A child container failed during stop
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:1182)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	... 6 more
+12:29:36 AM PIT >> INFO : MINION : 
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.coyote.AbstractProtocol init
+12:29:36 AM PIT >> INFO : MINION : INFO: Initializing ProtocolHandler ["http-bio-auto-2"]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.core.StandardService startInternal
+12:29:36 AM PIT >> INFO : MINION : INFO: Starting service Tomcat
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.core.StandardEngine startInternal
+12:29:36 AM PIT >> INFO : MINION : INFO: Starting Servlet Engine: Apache Tomcat/7.0.72
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.coyote.AbstractProtocol start
+12:29:36 AM PIT >> INFO : MINION : INFO: Starting ProtocolHandler ["http-bio-auto-2-40799"]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.connector.MapperListener findDefaultHost
+12:29:36 AM PIT >> INFO : MINION : WARNING: Unknown default host [localhost] for connector [Connector[HTTP/1.1-auto-2]]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.loader.WebappLoader buildClassPath
+12:29:36 AM PIT >> INFO : MINION : INFO: Unknown loader jdk.internal.loader.ClassLoaders$AppClassLoader@1dbd16a6 class jdk.internal.loader.ClassLoaders$AppClassLoader
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: Setting default auxiliaries to "null"
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: No special CompositeCacheAttributes class defined for key [jcs.default.cacheattributes], using default class.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.default.elementattributes], using default class.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = -1, CreateTime = 1768195776212, LastAccessTime = 1768195776212, getTimeToLiveSeconds() = -1, createTime = 1768195776212 ]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: Parsed regions []
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: Finished configuration in 1 ms.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.region.org.apache.commons.jcs3.jcache.extras.web.JCacheFilter.elementattributes], using default class.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: initialized MemoryCache for org.apache.commons.jcs3.jcache.extras.web.JCacheFilter
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: Constructed cache with name [org.apache.commons.jcs3.jcache.extras.web.JCacheFilter] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.coyote.AbstractProtocol pause
+12:29:36 AM PIT >> INFO : MINION : INFO: Pausing ProtocolHandler ["http-bio-auto-2-40799"]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.core.StandardService stopInternal
+12:29:36 AM PIT >> INFO : MINION : INFO: Stopping service Tomcat
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.event.ElementEventQueue 
+12:29:36 AM PIT >> INFO : MINION : INFO: Element event queue destroyed: org.apache.commons.jcs3.engine.control.event.ElementEventQueue@57e59f24
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: In DISPOSE, [org.apache.commons.jcs3.jcache.extras.web.JCacheFilter] fromRemote [false]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: In DISPOSE, [org.apache.commons.jcs3.jcache.extras.web.JCacheFilter] disposing of memory cache.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.memory.AbstractMemoryCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: Memory Cache dispose called.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.loader.WebappClassLoaderBase checkThreadLocalsForLeaks
+12:29:36 AM PIT >> INFO : MINION : WARNING: Failed to check for ThreadLocal references for web application [/sample]
+12:29:36 AM PIT >> INFO : MINION : java.lang.reflect.InaccessibleObjectException: Unable to make field java.lang.ThreadLocal$ThreadLocalMap java.lang.Thread.threadLocals accessible: module java.base does not "opens java.lang" to unnamed module @75d3a5e0
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Field.setAccessible(Field.java:172)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappClassLoaderBase.checkThreadLocalsForLeaks(WebappClassLoaderBase.java:2704)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:2229)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:2123)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:663)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5872)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1587)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1576)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.Thread.run(Thread.java:840)
+12:29:36 AM PIT >> INFO : MINION : 
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.loader.WebappClassLoaderBase clearReferencesRmiTargets
+12:29:36 AM PIT >> INFO : MINION : WARNING: When running on Java 9 you need to add "-XaddExports:java.rmi/sun.rmi.transport=ALL-UNNAMED" to the JVM command line arguments to enable RMI Target memory leak detection. Alternatively, you can suppress this warning by disabling RMI Target memory leak detection.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.core.ContainerBase stopInternal
+12:29:36 AM PIT >> INFO : MINION : SEVERE: A child container failed during stop
+12:29:36 AM PIT >> INFO : MINION : java.util.concurrent.ExecutionException: org.apache.catalina.LifecycleException: Failed to stop component [StandardEngine[Tomcat].StandardHost[localhost].StandardContext[/sample]]
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:1175)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1587)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1576)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.Thread.run(Thread.java:840)
+12:29:36 AM PIT >> INFO : MINION : Caused by: org.apache.catalina.LifecycleException: Failed to stop component [StandardEngine[Tomcat].StandardHost[localhost].StandardContext[/sample]]
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:233)
+12:29:36 AM PIT >> INFO : MINION : 	... 6 more
+12:29:36 AM PIT >> INFO : MINION : Caused by: org.apache.catalina.LifecycleException: Failed to stop component [WebappLoader[/sample]]
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:233)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.StandardContext.stopInternal(StandardContext.java:5872)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	... 6 more
+12:29:36 AM PIT >> INFO : MINION : Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make field private static final java.util.concurrent.ConcurrentMap java.util.ResourceBundle.cacheList accessible: module java.base does not "opens java.util" to unnamed module @75d3a5e0
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Field.checkCanSetAccessible(Field.java:178)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Field.setAccessible(Field.java:172)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesResourceBundles(WebappClassLoaderBase.java:3019)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappClassLoaderBase.clearReferences(WebappClassLoaderBase.java:2255)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappClassLoaderBase.stop(WebappClassLoaderBase.java:2123)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.loader.WebappLoader.stopInternal(WebappLoader.java:663)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	... 8 more
+12:29:36 AM PIT >> INFO : MINION : 
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.catalina.core.ContainerBase stopInternal
+12:29:36 AM PIT >> INFO : MINION : SEVERE: A child container failed during stop
+12:29:36 AM PIT >> INFO : MINION : java.util.concurrent.ExecutionException: org.apache.catalina.LifecycleException: Failed to stop component [StandardEngine[Tomcat].StandardHost[localhost]]
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:1175)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.StandardService.stopInternal(StandardService.java:503)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.StandardServer.stopInternal(StandardServer.java:777)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.startup.Tomcat.stop(Tomcat.java:358)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.commons.jcs3.jcache.extras.web.JCacheFilterTest.stop(JCacheFilterTest.java:112)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.commons.jcs3.jcache.extras.web.JCacheFilterTest.testFilter(JCacheFilterTest.java:106)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+12:29:36 AM PIT >> INFO : MINION : 	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.CustomRunnerExecutor.run(CustomRunnerExecutor.java:42)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.junit.adapter.AdaptedJUnitTestUnit.execute(AdaptedJUnitTestUnit.java:69)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageDecorator.execute(CoverageDecorator.java:51)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.containers.UnContainer.execute(UnContainer.java:33)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.executeTests(Pitest.java:57)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.Pitest.run(Pitest.java:48)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageWorker.run(CoverageWorker.java:49)
+12:29:36 AM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:94)
+12:29:36 AM PIT >> INFO : MINION : Caused by: org.apache.catalina.LifecycleException: Failed to stop component [StandardEngine[Tomcat].StandardHost[localhost]]
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:233)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1587)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase$StopChild.call(ContainerBase.java:1576)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+12:29:36 AM PIT >> INFO : MINION : 	at java.base/java.lang.Thread.run(Thread.java:840)
+12:29:36 AM PIT >> INFO : MINION : Caused by: org.apache.catalina.LifecycleException: A child container failed during stop
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.core.ContainerBase.stopInternal(ContainerBase.java:1182)
+12:29:36 AM PIT >> INFO : MINION : 	at org.apache.catalina.util.LifecycleBase.stop(LifecycleBase.java:221)
+12:29:36 AM PIT >> INFO : MINION : 	... 6 more
+12:29:36 AM PIT >> INFO : MINION : 
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: Setting default auxiliaries to "null"
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: No special CompositeCacheAttributes class defined for key [jcs.default.cacheattributes], using default class.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.default.elementattributes], using default class.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = -1, CreateTime = 1768195776272, LastAccessTime = 1768195776272, getTimeToLiveSeconds() = -1, createTime = 1768195776272 ]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: Parsed regions []
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: Finished configuration in 1 ms.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.region.cache.elementattributes], using default class.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: initialized MemoryCache for cache
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: Constructed cache with name [cache] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+\12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.event.ElementEventQueue 
+12:29:36 AM PIT >> INFO : MINION : INFO: Element event queue destroyed: org.apache.commons.jcs3.engine.control.event.ElementEventQueue@c7c07ff
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: In DISPOSE, [cache] fromRemote [false]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: In DISPOSE, [cache] disposing of memory cache.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.memory.AbstractMemoryCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: Memory Cache dispose called.
+12:29:36 AM PIT >> SEVERE : Description [testClass=org.apache.commons.jcs3.jcache.extras.web.JCacheFilterTest, name=org.apache.commons.jcs3.jcache.extras.web.JCacheFilterTest] did not pass without mutation.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: Setting default auxiliaries to "null"
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: No special CompositeCacheAttributes class defined for key [jcs.default.cacheattributes], using default class.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.default.elementattributes], using default class.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = -1, CreateTime = 1768195776278, LastAccessTime = 1768195776278, getTimeToLiveSeconds() = -1, createTime = 1768195776278 ]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: Parsed regions []
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:36 AM PIT >> INFO : MINION : INFO: Finished configuration in 0 ms.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:36 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.region.cache.elementattributes], using default class.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: initialized MemoryCache for cache
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: Constructed cache with name [cache] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.event.ElementEventQueue 
+12:29:36 AM PIT >> INFO : MINION : INFO: Element event queue destroyed: org.apache.commons.jcs3.engine.control.event.ElementEventQueue@5b324447
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: In DISPOSE, [cache] fromRemote [false]
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: In DISPOSE, [cache] disposing of memory cache.
+12:29:36 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:36 AM org.apache.commons.jcs3.engine.memory.AbstractMemoryCache 
+12:29:36 AM PIT >> INFO : MINION : INFO: Memory Cache dispose called.
+|/-12:29:36 AM PIT >> INFO : Calculated coverage in 1 seconds.
+12:29:36 AM PIT >> INFO : 0 tests took longer than 2000 ms
+12:29:36 AM PIT >> INFO : Slowest test (org.apache.commons.jcs3.jcache.extras.web.JCacheFilterTest) took 424 ms
+12:29:36 AM PIT >> INFO : Largest test (org.apache.commons.jcs3.jcache.extras.web.JCacheFilterTest) covered 1446 blocks
+12:29:36 AM PIT >> SEVERE : Tests failing without mutation: 
+Description [testClass=org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest, name=org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest]
+Description [testClass=org.apache.commons.jcs3.jcache.extras.web.JCacheFilterTest, name=org.apache.commons.jcs3.jcache.extras.web.JCacheFilterTest]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.952 s
+[INFO] Finished at: 2026-01-12T00:29:36-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.pitest:pitest-maven:1.22.0:mutationCoverage (default-cli) on project commons-jcs3-jcache-extras: Execution default-cli of goal org.pitest:pitest-maven:1.22.0:mutationCoverage failed: 2 tests did not pass without mutation when calculating line coverage. Mutation testing requires a green suite.
+[ERROR] See https://pitest.org for more details.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
+ended at: 2026-01-12 00:29:36

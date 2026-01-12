@@ -29,10 +29,12 @@
     <cdata>&lt;cdata value&gt;</cdata>
     <entity name="foo&quot;bar">1&lt;2</entity>
   </test>
-  <mean>This is
+  <mean>
+    This is
  A long story...
       
-And even longer.<submean>really complex structure</submean>
+And even longer.
+    <submean>really complex structure</submean>
   </mean>
   <!-- non string properties -->
   <test>
@@ -84,7 +86,9 @@ And even longer.<submean>really complex structure</submean>
   </clear>
   <!-- Complex property names -->
   <complexNames>
-    <my.elem>Name with dot<sub.elem>Another dot</sub.elem>
+    <my.elem>
+      Name with dot
+      <sub.elem>Another dot</sub.elem>
     </my.elem>
   </complexNames>
   <!-- An empty element. This should occur in the configuration with an
@@ -102,12 +106,7 @@ And even longer.<submean>really complex structure</submean>
     -->
   <expressions value="a || (b &amp;&amp; c) | !d" value2="a,b|c"/>
   <!-- Tests for handling of spaces -->
-  <space xml:space="preserve">
-    <blank> </blank>
-    <stars> * * </stars>
-    <description xml:space="default">Some text</description>
-    <testInvalid xml:space="invalid">Some other text</testInvalid>
-  </space>
+  <space xml:space="preserve"><blank> </blank><stars> * * </stars><description xml:space="default">Some text</description><testInvalid xml:space="invalid">Some other text</testInvalid></space>
   <spaceElement xml:space="preserve"> preserved </spaceElement>
   <spaceBlankElement xml:space="preserve">   </spaceBlankElement>
 </testconfig>

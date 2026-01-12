@@ -40,7 +40,7 @@
       <commons.jira.pid>12310460</commons.jira.pid>
       <!-- limit memory size see BEANUTILS-291; allow command-line override -->
       <!-- Originally 25M, increased to 50M to get round Continuum CI build failures -->
-      <surefire.argLine>-Xmx50M</surefire.argLine>
+            <surefire.argLine>-XX:+UseG1GC</surefire.argLine>
 
       <maven.javadoc.failOnError>false</maven.javadoc.failOnError>
 
@@ -371,15 +371,9 @@
         <plugin>
           <groupId>org.pitest</groupId>
           <artifactId>pitest-maven</artifactId>
-          <version>1.9.8</version>
+        <version>1.22.0</version>
           <configuration>
-            <threads>8</threads>
-
-            <jvmArgs>
-              <jvmArg>-Xmx4G</jvmArg>
-              <jvmArg>-Xms1G</jvmArg>
-              <jvmArg>-XX:+UseG1GC</jvmArg>
-            </jvmArgs>
+          <threads>16</threads>
 
             <timeoutConstant>8000</timeoutConstant>
             <mutators>

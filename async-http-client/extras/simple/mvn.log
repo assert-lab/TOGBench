@@ -1,0 +1,59 @@
+began at: 2026-01-12 03:49:13
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.asynchttpclient:async-http-client-extras-simple:jar:2.12.3
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ org.asynchttpclient:async-http-client-project:2.12.3, /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/pom.xml, line 229, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] --------< org.asynchttpclient:async-http-client-extras-simple >---------
+[INFO] Building Asynchronous Http Simple Client 2.12.3
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ async-http-client-extras-simple ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/simple/target
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-versions) @ async-http-client-extras-simple ---
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ async-http-client-extras-simple ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/simple/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.6.1:compile (default-compile) @ async-http-client-extras-simple ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/simple/target/classes
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ async-http-client-extras-simple ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/simple/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-simple ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/simple/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.17:test (default-test) @ async-http-client-extras-simple ---
+[INFO] Surefire report directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/simple/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+Running TestSuite
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.719 sec - in TestSuite
+
+Results :
+
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.763 s
+[INFO] Finished at: 2026-01-12T03:49:23-05:00
+[INFO] ------------------------------------------------------------------------
+ended at: 2026-01-12 03:49:23

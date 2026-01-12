@@ -1,0 +1,246 @@
+began at: 2026-01-12 00:29:47
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-jcache-openjpa:jar:3.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs (?) @ line 67, column 17
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------< org.apache.commons:commons-jcs3-jcache-openjpa >-----------
+[INFO] Building Apache Commons JCS :: JCache OpenJPA 3.1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ commons-jcs3-jcache-openjpa ---
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Enum junk filter
+[INFO] Found plugin : Record junk mutation filter
+[INFO] Found plugin : String switch filter
+[INFO] Found plugin : Assertions filter
+[INFO] Found plugin : Enum switch filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Groovy junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Filters mutants with line number <= 1
+[INFO] Found plugin : Division by one equivalent mutant filter
+[INFO] Found plugin : Lombok junk mutations filter
+[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
+[INFO] Found plugin : Default build verifier
+[INFO] Found plugin : Detect missing JUnit5 plugin
+[INFO] Found plugin : Detect missing TestNG plugin
+[INFO] Found plugin : Detect missing kotlin plugin
+[INFO] Found plugin : Detect missing spring plugin
+[INFO] Found plugin : Default coverage exporter
+[INFO] Found plugin : Basic test statistics
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
+[INFO] Found shared classpath plugin : Reset environment for javassist
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/target/classes
+[INFO] Replacing properties in argLine -Xmx256m
+12:29:48 AM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+12:29:48 AM PIT >> INFO : Created 4 mutation test units in pre scan
+12:29:49 AM PIT >> INFO : MINION : Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+12:29:49 AM PIT >> INFO : Sending 8 test classes to minion
+12:29:49 AM PIT >> INFO : Sent tests to minion
+12:29:49 AM PIT >> INFO : MINION : 22  INFO   [main] openjpa.Runtime - Starting OpenJPA 2.4.3
+12:29:49 AM PIT >> INFO : MINION : 52  INFO   [main] openjpa.jdbc.JDBC - Using dictionary class "org.apache.openjpa.jdbc.sql.DerbyDictionary".
+12:29:49 AM PIT >> INFO : MINION : 393  INFO   [main] openjpa.jdbc.JDBC - Connected to Apache Derby version 10.10 using JDBC driver Apache Derby Embedded JDBC Driver version 10.11.1.1 - (1616546). 
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:50 AM PIT >> INFO : MINION : INFO: Setting default auxiliaries to "null"
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:50 AM PIT >> INFO : MINION : INFO: No special CompositeCacheAttributes class defined for key [jcs.default.cacheattributes], using default class.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:50 AM PIT >> INFO : MINION : INFO: setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:50 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.default.elementattributes], using default class.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:50 AM PIT >> INFO : MINION : INFO: setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = -1, CreateTime = 1768195790042, LastAccessTime = 1768195790042, getTimeToLiveSeconds() = -1, createTime = 1768195790042 ]
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:50 AM PIT >> INFO : MINION : INFO: Parsed regions []
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:50 AM PIT >> INFO : MINION : INFO: Finished configuration in 11 ms.
+12:29:50 AM PIT >> INFO : MINION : 718  WARN   [main] openjpa.Enhance - Creating subclass for "[class org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest$MyEntity]". This means that your application will be less efficient and will consume more memory than it would if you ran the OpenJPA enhancer. Additionally, lazy loading will not be available for one-to-one and many-to-one persistent attributes in types using field access; they will be loaded eagerly instead.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:50 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.region.openjpa.querycache.query.elementattributes], using default class.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: initialized MemoryCache for openjpa.querycache.query
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: Constructed cache with name [openjpa.querycache.query] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:50 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.region.openjpa.datacache.org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest$MyEntity.elementattributes], using default class.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: initialized MemoryCache for openjpa.datacache.org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest$MyEntity
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: Constructed cache with name [openjpa.datacache.org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest$MyEntity] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.event.ElementEventQueue 
+12:29:50 AM PIT >> INFO : MINION : INFO: Element event queue destroyed: org.apache.commons.jcs3.engine.control.event.ElementEventQueue@652f26da
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: In DISPOSE, [openjpa.datacache.org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest$MyEntity] fromRemote [false]
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: In DISPOSE, [openjpa.datacache.org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest$MyEntity] disposing of memory cache.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.memory.AbstractMemoryCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: Memory Cache dispose called.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: In DISPOSE, [openjpa.querycache.query] fromRemote [false]
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: In DISPOSE, [openjpa.querycache.query] disposing of memory cache.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.memory.AbstractMemoryCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: Memory Cache dispose called.
+12:29:50 AM PIT >> INFO : MINION : 1  INFO   [main] openjpa.Runtime - Starting OpenJPA 2.4.3
+12:29:50 AM PIT >> INFO : MINION : 1  INFO   [main] openjpa.jdbc.JDBC - Using dictionary class "org.apache.openjpa.jdbc.sql.DerbyDictionary".
+12:29:50 AM PIT >> INFO : MINION : 9  INFO   [main] openjpa.jdbc.JDBC - Connected to Apache Derby version 10.10 using JDBC driver Apache Derby Embedded JDBC Driver version 10.11.1.1 - (1616546). 
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:50 AM PIT >> INFO : MINION : INFO: Setting default auxiliaries to "null"
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:50 AM PIT >> INFO : MINION : INFO: No special CompositeCacheAttributes class defined for key [jcs.default.cacheattributes], using default class.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:50 AM PIT >> INFO : MINION : INFO: setting defaultCompositeCacheAttributes to [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:50 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.default.elementattributes], using default class.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:50 AM PIT >> INFO : MINION : INFO: setting defaultElementAttributes to [ IS_LATERAL = true, IS_SPOOL = true, IS_REMOTE = true, IS_ETERNAL = true, MaxLifeSeconds = -1, IdleTime = -1, CreateTime = 1768195790215, LastAccessTime = 1768195790215, getTimeToLiveSeconds() = -1, createTime = 1768195790215 ]
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:50 AM PIT >> INFO : MINION : INFO: Parsed regions []
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheManager 
+12:29:50 AM PIT >> INFO : MINION : INFO: Finished configuration in 1 ms.
+12:29:50 AM PIT >> INFO : MINION : 23  WARN   [main] openjpa.Enhance - Creating subclass for "[class org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest$MyEntity]". This means that your application will be less efficient and will consume more memory than it would if you ran the OpenJPA enhancer. Additionally, lazy loading will not be available for one-to-one and many-to-one persistent attributes in types using field access; they will be loaded eagerly instead.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:50 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.region.openjpa.querycache.query.elementattributes], using default class.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: initialized MemoryCache for openjpa.querycache.query
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: Constructed cache with name [openjpa.querycache.query] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCacheConfigurator 
+12:29:50 AM PIT >> INFO : MINION : INFO: No special ElementAttribute class defined for key [jcs.region.openjpa.datacache.org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest$MyEntity.elementattributes], using default class.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.memory.AbstractDoubleLinkedListMemoryCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: initialized MemoryCache for openjpa.datacache.org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest$MyEntity
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: Constructed cache with name [openjpa.datacache.org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest$MyEntity] and cache attributes [ useLateral = true, useRemote = true, useDisk = true, maxObjs = 100, maxSpoolPerRun = -1, diskUsagePattern = SWAP, spoolChunkSize = 2 ]
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.event.ElementEventQueue 
+12:29:50 AM PIT >> INFO : MINION : INFO: Element event queue destroyed: org.apache.commons.jcs3.engine.control.event.ElementEventQueue@3205610d
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: In DISPOSE, [openjpa.datacache.org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest$MyEntity] fromRemote [false]
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: In DISPOSE, [openjpa.datacache.org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest$MyEntity] disposing of memory cache.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.memory.AbstractMemoryCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: Memory Cache dispose called.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: In DISPOSE, [openjpa.querycache.query] fromRemote [false]
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.control.CompositeCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: In DISPOSE, [openjpa.querycache.query] disposing of memory cache.
+12:29:50 AM PIT >> INFO : MINION : Jan 12, 2026 12:29:50 AM org.apache.commons.jcs3.engine.memory.AbstractMemoryCache 
+12:29:50 AM PIT >> INFO : MINION : INFO: Memory Cache dispose called.
+/-12:29:50 AM PIT >> INFO : Calculated coverage in 1 seconds.
+12:29:50 AM PIT >> INFO : 0 tests took longer than 2000 ms
+12:29:50 AM PIT >> INFO : Slowest test (entity(org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest)) took 916 ms
+12:29:50 AM PIT >> INFO : Largest test (entity(org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest)) covered 1603 blocks
+12:29:50 AM PIT >> INFO : Created 4 mutation test units
+/-\|12:29:53 AM PIT >> INFO : Completed in 4 seconds
+================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
+>> Generated 1 Killed 0 (0%)
+> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 18 Killed 8 (44%)
+> KILLED 8 SURVIVED 9 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
+>> Generated 2 Killed 0 (0%)
+> KILLED 0 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
+>> Generated 25 Killed 6 (24%)
+> KILLED 6 SURVIVED 13 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 6 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
+>> Generated 9 Killed 4 (44%)
+> KILLED 4 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 2 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
+>> Generated 2 Killed 0 (0%)
+> KILLED 0 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
+>> Generated 1 Killed 0 (0%)
+> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
+>> Generated 25 Killed 7 (28%)
+> KILLED 7 SURVIVED 12 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 6 
+--------------------------------------------------------------------------------
+================================================================================
+- Timings
+================================================================================
+> pre-scan for mutations : < 1 second
+> scan classpath : < 1 second
+> coverage and dependency analysis : 1 seconds
+> build mutation tests : < 1 second
+> run mutation analysis : 3 seconds
+--------------------------------------------------------------------------------
+> Total  : 4 seconds
+--------------------------------------------------------------------------------
+> 0 tests took longer than 2000 ms
+> Slowest test (entity(org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest)) took 916 ms
+> Largest test (entity(org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest)) covered 1603 blocks
+================================================================================
+- Statistics
+================================================================================
+>> Line Coverage (for mutated classes only): 105/138 (76%)
+>> 8 tests examined
+>> Generated 83 mutations Killed 25 (30%)
+>> Mutations with no coverage 15. Test strength 37%
+>> Ran 132 tests (1.59 tests per mutation)
+Enhanced functionality available at https://www.arcmutate.com/
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.587 s
+[INFO] Finished at: 2026-01-12T00:29:53-05:00
+[INFO] ------------------------------------------------------------------------
+ended at: 2026-01-12 00:29:53

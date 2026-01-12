@@ -11,5 +11,5 @@ org/asynchttpclient/extras/simple/SimpleAsyncHttpClient$DerivedBuilder.class
 org/asynchttpclient/extras/simple/ResumableBodyConsumer.class
 org/asynchttpclient/extras/simple/FileBodyConsumer.class
 org/asynchttpclient/extras/simple/SimpleAsyncHttpClient$BodyConsumerAsyncHandler.class
-org/asynchttpclient/extras/simple/SimpleAsyncHttpClient$ResumableBodyConsumerAsyncHandler.class
 org/asynchttpclient/extras/simple/SimpleAsyncHttpClient$ErrorDocumentBehaviour.class
+org/asynchttpclient/extras/simple/SimpleAsyncHttpClient$ResumableBodyConsumerAsyncHandler.class

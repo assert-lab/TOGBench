@@ -43,16 +43,31 @@
     <!-- Workaround to avoid duplicating config files. -->
     <rng.parent.dir>${basedir}/..</rng.parent.dir>
     <rng.jira.component>core</rng.jira.component>
-    <evosuiteVersion>1.0.6</evosuiteVersion>
+
   </properties>
 
   <dependencies>
     <dependency>
-      <groupId>org.evosuite</groupId>
-      <artifactId>evosuite-standalone-runtime</artifactId>
-      <version>${evosuiteVersion}</version>
-      <scope>test</scope>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.9.3</version>
+        <scope>test</scope>
     </dependency>
+
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-params</artifactId>
+        <version>5.9.3</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.9.3</version>
+        <scope>test</scope>
+    </dependency>
+    
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -80,18 +95,20 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
-          <includes>
-            <include>**/*Test.java</include>
-          </includes>
+
           <redirectTestOutputToFile>true</redirectTestOutputToFile>
+        <excludes>
+          <exclude>**/ProvidersCommonParametricTest.java</exclude>
+        </excludes>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.9.8</version>
-        <configuration>
-          <threads>4</threads>
+        <version>1.22.0</version>
+          <configuration>
+          <threads>16</threads>
+
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -107,8 +124,11 @@
             <param>org.apache.commons.rng.*</param>
           </targetClasses>
           <targetTests>
-            <param>org.apache.commons.rng.*_ESTest*</param>
+            <param>org.apache.commons.rng.*</param>
           </targetTests>
+    <excludedTestClasses>
+      <param>org.apache.commons.rng.core.ProvidersCommonParametricTest</param>
+    </excludedTestClasses>
           <fullMutationMatrix>true</fullMutationMatrix>
           <exportLineCoverage>true</exportLineCoverage>
           <outputFormats>XML</outputFormats>

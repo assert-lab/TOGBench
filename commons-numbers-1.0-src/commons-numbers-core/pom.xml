@@ -40,7 +40,7 @@
     <commons.osgi.export>org.apache.commons.numbers.core</commons.osgi.export>
     <!-- Workaround to avoid duplicating config files. -->
     <numbers.parent.dir>${basedir}/..</numbers.parent.dir>
-    <evosuiteVersion>1.0.6</evosuiteVersion>
+
 
   </properties>
 
@@ -50,12 +50,7 @@
       <artifactId>commons-rng-simple</artifactId>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.evosuite</groupId>
-      <artifactId>evosuite-standalone-runtime</artifactId>
-      <version>${evosuiteVersion}</version>
-      <scope>test</scope>
-    </dependency>
+
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -83,9 +78,10 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.9.8</version>
-        <configuration>
-          <threads>4</threads>
+        <version>1.22.0</version>
+          <configuration>
+          <threads>16</threads>
+
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -101,7 +97,7 @@
             <param>org.apache.commons.numbers.core.*</param>
           </targetClasses>
           <targetTests>
-            <param>org.apache.commons.numbers.core.*_ESTest*</param>
+            <param>org.apache.commons.numbers.core.*</param>
           </targetTests>
           <fullMutationMatrix>true</fullMutationMatrix>
           <exportLineCoverage>true</exportLineCoverage>

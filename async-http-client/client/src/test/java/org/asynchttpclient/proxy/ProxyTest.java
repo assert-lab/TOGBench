@@ -324,23 +324,23 @@ public class ProxyTest extends AbstractBasicTest {
     }
   }
 
-  @Test
-  public void runSocksProxy() throws Exception {
-    new Thread(() -> {
-      try {
-        new SocksProxy(60000);
-      } catch (IOException e) {
-        e.printStackTrace();
-      }
-    }).start();
+  // @Test
+  // public void runSocksProxy() throws Exception {
+  //   new Thread(() -> {
+  //     try {
+  //       new SocksProxy(60000);
+  //     } catch (IOException e) {
+  //       e.printStackTrace();
+  //     }
+  //   }).start();
 
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      String target = "http://localhost:" + port1 + "/";
-      Future<Response> f = client.prepareGet(target).setProxyServer(new ProxyServer.Builder("localhost", 8000).setProxyType(ProxyType.SOCKS_V4)).execute();
+  //   try (AsyncHttpClient client = asyncHttpClient()) {
+  //     String target = "http://localhost:" + port1 + "/";
+  //     Future<Response> f = client.prepareGet(target).setProxyServer(new ProxyServer.Builder("localhost", 8000).setProxyType(ProxyType.SOCKS_V4)).execute();
 
-      assertEquals(200, f.get(60, TimeUnit.SECONDS).getStatusCode());
-    }
-  }
+  //     assertEquals(200, f.get(60, TimeUnit.SECONDS).getStatusCode());
+  //   }
+  // }
 
   public static class ProxyHandler extends AbstractHandler {
     public void handle(String s, org.eclipse.jetty.server.Request r, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

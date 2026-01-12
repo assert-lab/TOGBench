@@ -67,7 +67,7 @@
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.9.8</version>
+        <version>1.22.0</version>
           <dependencies>
     <dependency>
       <groupId>org.pitest</groupId>
@@ -78,7 +78,9 @@
 
   <configuration>
     <testPlugin>junit5</testPlugin>
-          <threads>24</threads>
+
+          <threads>16</threads>
+
           <timeoutConstant>8000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
@@ -89,7 +91,7 @@
             <avoidCallsTo>org.slf4j.*</avoidCallsTo>
             <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
           </avoidCallsTo>
-          <verbose>true</verbose>
+          <verbose>false</verbose>
           <targetClasses>
             <param>org.apache.commons.geometry.core.*</param>
           </targetClasses>

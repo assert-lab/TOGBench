@@ -197,7 +197,7 @@
     <clirr.skip>true</clirr.skip>
     <japicmp.skip>false</japicmp.skip>
     <jacoco.skip>false</jacoco.skip>
-    <evosuiteVersion>1.0.6</evosuiteVersion>
+
   </properties>
   <build>
     <!-- japicmp:cmp needs package to work from a jar -->
@@ -292,31 +292,12 @@
       </resource>
     </resources>
     <plugins>
-      <plugin>
-        <groupId>org.evosuite.plugins</groupId>
-        <artifactId>evosuite-maven-plugin</artifactId>
-        <version>${evosuiteVersion}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>prepare</goal>
-            </goals>
-            <phase>process-test-classes</phase>
-          </execution>
-        </executions>
-      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.17</version>
-        <configuration>
-          <properties>
-            <property>
-              <name>listener</name>
-              <value>org.evosuite.runtime.InitializingListener</value>
-            </property>
-          </properties>
-        </configuration>
+        <version>2.22.0</version>
+
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -507,18 +488,14 @@
   <dependencyManagement>
     <dependencies>
       <!-- artifacts of project, versions managed by release-plugin -->
-      <dependency>
-        <groupId>org.evosuite</groupId>
-        <artifactId>evosuite-standalone-runtime</artifactId>
-        <version>${evosuiteVersion}</version>
-        <scope>test</scope>
-      </dependency>
+
+      <!-- Testing -->
       <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>4.12</version>
-        <scope>test</scope>
+        <version>4.13.2</version>
       </dependency>
+
       <dependency>
         <groupId>org.apache.commons</groupId>
         <artifactId>commons-vfs2</artifactId>
@@ -635,12 +612,7 @@
           </exclusion>
         </exclusions>
       </dependency>
-      <!-- Testing -->
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.13.2</version>
-      </dependency>
+
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>

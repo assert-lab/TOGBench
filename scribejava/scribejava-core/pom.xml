@@ -48,9 +48,10 @@
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
-                <version>1.9.8</version>
-                <configuration>
-                    <threads>4</threads>
+        <version>1.22.0</version>
+          <configuration>
+          <threads>16</threads>
+
                     <timeoutConstant>8000</timeoutConstant>
                     <mutators>
                         <mutator>STRONGER</mutator>
@@ -66,7 +67,7 @@
                         <param>com.github.scribejava.core.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>com.github.scribejava.core.*_ESTest*</param>
+                        <param>com.github.scribejava.core.*</param>
                     </targetTests>
                     <fullMutationMatrix>true</fullMutationMatrix>
                     <exportLineCoverage>true</exportLineCoverage>

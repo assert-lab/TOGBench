@@ -1,0 +1,398 @@
+began at: 2026-01-12 00:54:25
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-vfs2:jar:2.9.0
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ org.apache.commons:commons-vfs2-project:2.9.0, /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/pom.xml, line 338, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-vfs2 >-------------------
+[INFO] Building Apache Commons VFS 2.9.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ commons-vfs2 ---
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Enum junk filter
+[INFO] Found plugin : Record junk mutation filter
+[INFO] Found plugin : String switch filter
+[INFO] Found plugin : Assertions filter
+[INFO] Found plugin : Enum switch filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Groovy junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Filters mutants with line number <= 1
+[INFO] Found plugin : Division by one equivalent mutant filter
+[INFO] Found plugin : Lombok junk mutations filter
+[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
+[INFO] Found plugin : Default build verifier
+[INFO] Found plugin : Detect missing JUnit5 plugin
+[INFO] Found plugin : Detect missing TestNG plugin
+[INFO] Found plugin : Detect missing kotlin plugin
+[INFO] Found plugin : Detect missing spring plugin
+[INFO] Found plugin : Default coverage exporter
+[INFO] Found plugin : Basic test statistics
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
+[INFO] Found shared classpath plugin : Reset environment for javassist
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/target/classes
+[INFO] Replacing properties in argLine -Xmx64m -Djdk.tls.client.protocols=TLSv1.2
+12:54:28 AM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+12:54:28 AM PIT >> INFO : Created 284 mutation test units in pre scan
+12:54:28 AM PIT >> INFO : MINION : Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+12:54:28 AM PIT >> INFO : Sending 485 test classes to minion
+12:54:28 AM PIT >> INFO : Sent tests to minion
+12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testAllContent(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testAttributes(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testByteArrayReadAll(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testChildren(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testContent(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testExists(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testGetString_Charset(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testGetString_String(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testInputStreamMultipleCleanup(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testInputStreamReadAll(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testInputStreamSingleCleanup(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testParent(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testReadMultipleConcurrent(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testReadSingleConcurrent(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testReadSingleSequencial(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testReuse(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testRootAPI(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testRootURI(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ContentTests, name=testUnknownContent(org.apache.commons.vfs2.ContentTests)] did not pass without mutation.
+\|/-\|/-\|/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.FileSystemManagerFactoryTestCase, name=testDefaultInstance(org.apache.commons.vfs2.FileSystemManagerFactoryTestCase)] did not pass without mutation.
+-\|/-\|/-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.LastModifiedTests, name=testGetAccurary(org.apache.commons.vfs2.LastModifiedTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.LastModifiedTests, name=testGetLastModifiedFile(org.apache.commons.vfs2.LastModifiedTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.LastModifiedTests, name=testGetLastModifiedFolder(org.apache.commons.vfs2.LastModifiedTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.LastModifiedTests, name=testSetLastModifiedFile(org.apache.commons.vfs2.LastModifiedTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.LastModifiedTests, name=testSetLastModifiedFolder(org.apache.commons.vfs2.LastModifiedTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.NamingTests, name=testAbsoluteNameConvert(org.apache.commons.vfs2.NamingTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.NamingTests, name=testAbsoluteNames(org.apache.commons.vfs2.NamingTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.NamingTests, name=testChildName(org.apache.commons.vfs2.NamingTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.NamingTests, name=testDescendentName(org.apache.commons.vfs2.NamingTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.NamingTests, name=testNameResolution(org.apache.commons.vfs2.NamingTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.NamingTests, name=testRelativeURI(org.apache.commons.vfs2.NamingTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.NamingTests, name=testRelativeUriEncoding(org.apache.commons.vfs2.NamingTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.NamingTests, name=testRootFileName(org.apache.commons.vfs2.NamingTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.PathTests, name=testAbsoluteURI(org.apache.commons.vfs2.PathTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.PathTests, name=testGetPath(org.apache.commons.vfs2.PathTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.PathTests, name=testReservedCharacterSpace(org.apache.commons.vfs2.PathTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.PathTests, name=testURIContentProvider(org.apache.commons.vfs2.PathTests)] did not pass without mutation.
+\|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.PermissionsTests, name=testExecutable(org.apache.commons.vfs2.PermissionsTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.PermissionsTests, name=testReadable(org.apache.commons.vfs2.PermissionsTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.PermissionsTests, name=testWriteable(org.apache.commons.vfs2.PermissionsTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderCacheStrategyTests, name=testManualCache(org.apache.commons.vfs2.ProviderCacheStrategyTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderCacheStrategyTests, name=testOnCallCache(org.apache.commons.vfs2.ProviderCacheStrategyTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderCacheStrategyTests, name=testOnResolveCache(org.apache.commons.vfs2.ProviderCacheStrategyTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderDeleteTests, name=testDeleteAllFiles(org.apache.commons.vfs2.ProviderDeleteTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderDeleteTests, name=testDeleteFile(org.apache.commons.vfs2.ProviderDeleteTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderDeleteTests, name=testDeleteFiles(org.apache.commons.vfs2.ProviderDeleteTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderDeleteTests, name=testDeleteNonExistantFile(org.apache.commons.vfs2.ProviderDeleteTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderDeleteTests, name=testDeleteOneFiles(org.apache.commons.vfs2.ProviderDeleteTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderRandomReadTests, name=testRandomRead(org.apache.commons.vfs2.ProviderRandomReadTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderRandomReadWriteTests, name=testRandomWrite(org.apache.commons.vfs2.ProviderRandomReadWriteTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderRandomSetLengthTests, name=testRandomSetLength(org.apache.commons.vfs2.ProviderRandomSetLengthTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testConcurrentReadFolder(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testDotJarFolderName(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testDotJarFolderNameLayer(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testFindFiles(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testFolderContent(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testFolderIsHidden(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testFolderIsReadable(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testFolderIsSymbolicLink(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testGetContent(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testGetContentInfo(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testReadEmptyMultipleEOF(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testReadFileEOFMultiple(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testRoot(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testSort(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testStructure(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testType(org.apache.commons.vfs2.ProviderReadTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderRenameTests, name=testRenameFile(org.apache.commons.vfs2.ProviderRenameTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderRenameTests, name=testRenameFileAndLeaveFolderEmpty(org.apache.commons.vfs2.ProviderRenameTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderRenameTests, name=testRenameFileIntoEmptyFolder(org.apache.commons.vfs2.ProviderRenameTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteAppendTests, name=testAppendContent(org.apache.commons.vfs2.ProviderWriteAppendTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testCopyFromOverwriteSameFileSystem(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testCopySameFileSystem(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testCreateDeleteCreateSameFileSystem(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testDelete(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testDeleteAllDescendents(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testFileCreate(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testFileCreateMismatched(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testFolderCreate(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testFolderIsHidden(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testFolderIsReadable(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testFolderIsWritable(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testListChildren(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testListener(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testOverwriteSameFileSystem(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testWriteSameFileSystem(org.apache.commons.vfs2.ProviderWriteTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.UriTests, name=testAbsoluteURI(org.apache.commons.vfs2.UriTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.UriTests, name=testGetURI(org.apache.commons.vfs2.UriTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.UriTests, name=testReservedCharacterSpace(org.apache.commons.vfs2.UriTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.UriTests, name=testURIContentProvider(org.apache.commons.vfs2.UriTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.UrlStructureTests, name=testFolderURL(org.apache.commons.vfs2.UrlStructureTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.UrlTests, name=testReservedCharacter_Space(org.apache.commons.vfs2.UrlTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.UrlTests, name=testURL(org.apache.commons.vfs2.UrlTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.UrlTests, name=testURLContent(org.apache.commons.vfs2.UrlTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.UrlTests, name=testURLContentProvider(org.apache.commons.vfs2.UrlTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.UrlTests, name=testUnknownURL(org.apache.commons.vfs2.UrlTests)] did not pass without mutation.
+\|/-\|/-\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.DefaultFilesCacheTests, name=testBasicCacheOps(org.apache.commons.vfs2.cache.DefaultFilesCacheTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.DefaultFilesCacheTests, name=testClearFiles(org.apache.commons.vfs2.cache.DefaultFilesCacheTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.DefaultFilesCacheTests, name=testFilesCache(org.apache.commons.vfs2.cache.DefaultFilesCacheTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.LRUFilesCacheTests, name=testBasicCacheOps(org.apache.commons.vfs2.cache.LRUFilesCacheTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.LRUFilesCacheTests, name=testClass(org.apache.commons.vfs2.cache.LRUFilesCacheTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.LRUFilesCacheTests, name=testClearFiles(org.apache.commons.vfs2.cache.LRUFilesCacheTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.LRUFilesCacheTests, name=testFilesCache(org.apache.commons.vfs2.cache.LRUFilesCacheTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.NullFilesCacheTests, name=testBasicCacheOps(org.apache.commons.vfs2.cache.NullFilesCacheTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.NullFilesCacheTests, name=testClass(org.apache.commons.vfs2.cache.NullFilesCacheTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.NullFilesCacheTests, name=testClearFiles(org.apache.commons.vfs2.cache.NullFilesCacheTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.NullFilesCacheTests, name=testFilesCache(org.apache.commons.vfs2.cache.NullFilesCacheTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.SoftRefFilesCacheTests, name=testBasicCacheOps(org.apache.commons.vfs2.cache.SoftRefFilesCacheTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.SoftRefFilesCacheTests, name=testClearFiles(org.apache.commons.vfs2.cache.SoftRefFilesCacheTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.SoftRefFilesCacheTests, name=testFilesCache(org.apache.commons.vfs2.cache.SoftRefFilesCacheTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.SoftRefFilesCacheTests, name=testFilesCacheClass(org.apache.commons.vfs2.cache.SoftRefFilesCacheTests)] did not pass without mutation.
+-12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.WeakRefFilesCacheTests, name=testBasicCacheOps(org.apache.commons.vfs2.cache.WeakRefFilesCacheTests)] did not pass without mutation.
+\12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.WeakRefFilesCacheTests, name=testClass(org.apache.commons.vfs2.cache.WeakRefFilesCacheTests)] did not pass without mutation.
+|12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.WeakRefFilesCacheTests, name=testClearFiles(org.apache.commons.vfs2.cache.WeakRefFilesCacheTests)] did not pass without mutation.
+/12:54:29 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.cache.WeakRefFilesCacheTests, name=testFilesCache(org.apache.commons.vfs2.cache.WeakRefFilesCacheTests)] did not pass without mutation.
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/12:54:40 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest, name=testCreateBz2FileSystem(org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest)] did not pass without mutation.
+-\12:54:40 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest, name=testCreateJarFileSystem(org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest)] did not pass without mutation.
+|/-\|/-\|/-12:54:40 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.impl.VfsClassLoaderTests, name=testGetResourcesJARs(org.apache.commons.vfs2.impl.VfsClassLoaderTests)] did not pass without mutation.
+\12:54:40 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.impl.VfsClassLoaderTests, name=testGetResourcesNoLayerLocal(org.apache.commons.vfs2.impl.VfsClassLoaderTests)] did not pass without mutation.
+|12:54:40 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.impl.VfsClassLoaderTests, name=testLoadClass(org.apache.commons.vfs2.impl.VfsClassLoaderTests)] did not pass without mutation.
+/12:54:40 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.impl.VfsClassLoaderTests, name=testLoadResource(org.apache.commons.vfs2.impl.VfsClassLoaderTests)] did not pass without mutation.
+-12:54:40 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.impl.VfsClassLoaderTests, name=testSealing(org.apache.commons.vfs2.impl.VfsClassLoaderTests)] did not pass without mutation.
+\|/-\|/-\|/-\|/-\|/-\|12:54:41 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests, name=testGetAccurary(org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests)] did not pass without mutation.
+/12:54:41 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests, name=testGetLastModifiedFile(org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests)] did not pass without mutation.
+-12:54:41 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests, name=testGetLastModifiedFileInexactMatch(org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests)] did not pass without mutation.
+\12:54:41 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests, name=testGetLastModifiedFolder(org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests)] did not pass without mutation.
+|12:54:41 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests, name=testSetLastModifiedFile(org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests)] did not pass without mutation.
+/12:54:41 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests, name=testSetLastModifiedFolder(org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests)] did not pass without mutation.
+-12:54:41 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests, name=testGetAccurary(org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests)] did not pass without mutation.
+\12:54:41 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests, name=testGetLastModifiedFile(org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests)] did not pass without mutation.
+|12:54:41 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests, name=testGetLastModifiedFileExactMatch(org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests)] did not pass without mutation.
+/12:54:41 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests, name=testGetLastModifiedFolder(org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests)] did not pass without mutation.
+-12:54:41 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests, name=testSetLastModifiedFile(org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests)] did not pass without mutation.
+\12:54:41 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests, name=testSetLastModifiedFolder(org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests)] did not pass without mutation.
+|/-\|/-\|/-\|/-\|/-\12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.local.FileNameTests, name=testAbsoluteFileName(org.apache.commons.vfs2.provider.local.FileNameTests)] did not pass without mutation.
+|/12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.local.TempFileTests, name=testLocalFile(org.apache.commons.vfs2.provider.local.TempFileTests)] did not pass without mutation.
+-12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.local.UrlTests, name=testHashFindFiles(org.apache.commons.vfs2.provider.local.UrlTests)] did not pass without mutation.
+\12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.local.UrlTests, name=testHashURL(org.apache.commons.vfs2.provider.local.UrlTests)] did not pass without mutation.
+|12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.local.WindowsFileNameTests, name=testWindowsFilenameParserError(org.apache.commons.vfs2.provider.local.WindowsFileNameTests)] did not pass without mutation.
+/12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.local.WindowsFileNameTests, name=testWindowsFilenameUNCStartError(org.apache.commons.vfs2.provider.local.WindowsFileNameTests)] did not pass without mutation.
+-12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.local.WindowsFileNameTests, name=testWindowsRoots(org.apache.commons.vfs2.provider.local.WindowsFileNameTests)] did not pass without mutation.
+\12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.local.WindowsFileNameTests, name=testWindowsWrongRoots(org.apache.commons.vfs2.provider.local.WindowsFileNameTests)] did not pass without mutation.
+|/-\|/-\|/-\|/-\|/-\|/-\|/-\12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolveFullPathFile0(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)] did not pass without mutation.
+|12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolveFullPathFile1(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)] did not pass without mutation.
+/12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolveFullPathFile2(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)] did not pass without mutation.
+-12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolveFullPathURI0(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)] did not pass without mutation.
+\12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolveFullPathURI1(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)] did not pass without mutation.
+|12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolveFullPathURI2(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)] did not pass without mutation.
+/12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolvePartialPath1(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)] did not pass without mutation.
+-12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolvePartialPath2(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)] did not pass without mutation.
+\|/12:54:43 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.sftp.SftpMultiThreadWriteTests, name=testParallelCopyFromLocalFileSystem(org.apache.commons.vfs2.provider.sftp.SftpMultiThreadWriteTests)] did not pass without mutation.
+-\|/-\|/-\|/-\|/-12:55:52 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.test.JunctionTests, name=testAncestors(org.apache.commons.vfs2.provider.test.JunctionTests)] did not pass without mutation.
+\12:55:52 AM PIT >> SEVERE : Description [testClass=org.apache.commons.vfs2.provider.test.JunctionTests, name=testNestedJunction(org.apache.commons.vfs2.provider.test.JunctionTests)] did not pass without mutation.
+|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\12:56:08 AM PIT >> INFO : Calculated coverage in 100 seconds.
+12:56:08 AM PIT >> INFO : 11 tests took longer than 2000 ms
+12:56:08 AM PIT >> INFO : Slowest test (testZipFileUseWeakRefFilesCache(org.apache.commons.vfs2.provider.zip.ZipFileSystemTestCase)) took 16206 ms
+12:56:08 AM PIT >> INFO : Largest test (testZipParentLayer(org.apache.commons.vfs2.provider.zip.Jira733TestCase)) covered 1469 blocks
+12:56:08 AM PIT >> SEVERE : Tests failing without mutation: 
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testAllContent(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testAttributes(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testByteArrayReadAll(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testChildren(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testContent(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testExists(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testGetString_Charset(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testGetString_String(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testInputStreamMultipleCleanup(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testInputStreamReadAll(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testInputStreamSingleCleanup(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testParent(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testReadMultipleConcurrent(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testReadSingleConcurrent(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testReadSingleSequencial(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testReuse(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testRootAPI(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testRootURI(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.ContentTests, name=testUnknownContent(org.apache.commons.vfs2.ContentTests)]
+Description [testClass=org.apache.commons.vfs2.FileSystemManagerFactoryTestCase, name=testDefaultInstance(org.apache.commons.vfs2.FileSystemManagerFactoryTestCase)]
+Description [testClass=org.apache.commons.vfs2.LastModifiedTests, name=testGetAccurary(org.apache.commons.vfs2.LastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.LastModifiedTests, name=testGetLastModifiedFile(org.apache.commons.vfs2.LastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.LastModifiedTests, name=testGetLastModifiedFolder(org.apache.commons.vfs2.LastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.LastModifiedTests, name=testSetLastModifiedFile(org.apache.commons.vfs2.LastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.LastModifiedTests, name=testSetLastModifiedFolder(org.apache.commons.vfs2.LastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.NamingTests, name=testAbsoluteNameConvert(org.apache.commons.vfs2.NamingTests)]
+Description [testClass=org.apache.commons.vfs2.NamingTests, name=testAbsoluteNames(org.apache.commons.vfs2.NamingTests)]
+Description [testClass=org.apache.commons.vfs2.NamingTests, name=testChildName(org.apache.commons.vfs2.NamingTests)]
+Description [testClass=org.apache.commons.vfs2.NamingTests, name=testDescendentName(org.apache.commons.vfs2.NamingTests)]
+Description [testClass=org.apache.commons.vfs2.NamingTests, name=testNameResolution(org.apache.commons.vfs2.NamingTests)]
+Description [testClass=org.apache.commons.vfs2.NamingTests, name=testRelativeURI(org.apache.commons.vfs2.NamingTests)]
+Description [testClass=org.apache.commons.vfs2.NamingTests, name=testRelativeUriEncoding(org.apache.commons.vfs2.NamingTests)]
+Description [testClass=org.apache.commons.vfs2.NamingTests, name=testRootFileName(org.apache.commons.vfs2.NamingTests)]
+Description [testClass=org.apache.commons.vfs2.PathTests, name=testAbsoluteURI(org.apache.commons.vfs2.PathTests)]
+Description [testClass=org.apache.commons.vfs2.PathTests, name=testGetPath(org.apache.commons.vfs2.PathTests)]
+Description [testClass=org.apache.commons.vfs2.PathTests, name=testReservedCharacterSpace(org.apache.commons.vfs2.PathTests)]
+Description [testClass=org.apache.commons.vfs2.PathTests, name=testURIContentProvider(org.apache.commons.vfs2.PathTests)]
+Description [testClass=org.apache.commons.vfs2.PermissionsTests, name=testExecutable(org.apache.commons.vfs2.PermissionsTests)]
+Description [testClass=org.apache.commons.vfs2.PermissionsTests, name=testReadable(org.apache.commons.vfs2.PermissionsTests)]
+Description [testClass=org.apache.commons.vfs2.PermissionsTests, name=testWriteable(org.apache.commons.vfs2.PermissionsTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderCacheStrategyTests, name=testManualCache(org.apache.commons.vfs2.ProviderCacheStrategyTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderCacheStrategyTests, name=testOnCallCache(org.apache.commons.vfs2.ProviderCacheStrategyTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderCacheStrategyTests, name=testOnResolveCache(org.apache.commons.vfs2.ProviderCacheStrategyTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderDeleteTests, name=testDeleteAllFiles(org.apache.commons.vfs2.ProviderDeleteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderDeleteTests, name=testDeleteFile(org.apache.commons.vfs2.ProviderDeleteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderDeleteTests, name=testDeleteFiles(org.apache.commons.vfs2.ProviderDeleteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderDeleteTests, name=testDeleteNonExistantFile(org.apache.commons.vfs2.ProviderDeleteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderDeleteTests, name=testDeleteOneFiles(org.apache.commons.vfs2.ProviderDeleteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderRandomReadTests, name=testRandomRead(org.apache.commons.vfs2.ProviderRandomReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderRandomReadWriteTests, name=testRandomWrite(org.apache.commons.vfs2.ProviderRandomReadWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderRandomSetLengthTests, name=testRandomSetLength(org.apache.commons.vfs2.ProviderRandomSetLengthTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testConcurrentReadFolder(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testDotJarFolderName(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testDotJarFolderNameLayer(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testFindFiles(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testFolderContent(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testFolderIsHidden(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testFolderIsReadable(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testFolderIsSymbolicLink(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testGetContent(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testGetContentInfo(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testReadEmptyMultipleEOF(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testReadFileEOFMultiple(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testRoot(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testSort(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testStructure(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderReadTests, name=testType(org.apache.commons.vfs2.ProviderReadTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderRenameTests, name=testRenameFile(org.apache.commons.vfs2.ProviderRenameTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderRenameTests, name=testRenameFileAndLeaveFolderEmpty(org.apache.commons.vfs2.ProviderRenameTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderRenameTests, name=testRenameFileIntoEmptyFolder(org.apache.commons.vfs2.ProviderRenameTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteAppendTests, name=testAppendContent(org.apache.commons.vfs2.ProviderWriteAppendTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testCopyFromOverwriteSameFileSystem(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testCopySameFileSystem(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testCreateDeleteCreateSameFileSystem(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testDelete(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testDeleteAllDescendents(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testFileCreate(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testFileCreateMismatched(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testFolderCreate(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testFolderIsHidden(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testFolderIsReadable(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testFolderIsWritable(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testListChildren(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testListener(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testOverwriteSameFileSystem(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.ProviderWriteTests, name=testWriteSameFileSystem(org.apache.commons.vfs2.ProviderWriteTests)]
+Description [testClass=org.apache.commons.vfs2.UriTests, name=testAbsoluteURI(org.apache.commons.vfs2.UriTests)]
+Description [testClass=org.apache.commons.vfs2.UriTests, name=testGetURI(org.apache.commons.vfs2.UriTests)]
+Description [testClass=org.apache.commons.vfs2.UriTests, name=testReservedCharacterSpace(org.apache.commons.vfs2.UriTests)]
+Description [testClass=org.apache.commons.vfs2.UriTests, name=testURIContentProvider(org.apache.commons.vfs2.UriTests)]
+Description [testClass=org.apache.commons.vfs2.UrlStructureTests, name=testFolderURL(org.apache.commons.vfs2.UrlStructureTests)]
+Description [testClass=org.apache.commons.vfs2.UrlTests, name=testReservedCharacter_Space(org.apache.commons.vfs2.UrlTests)]
+Description [testClass=org.apache.commons.vfs2.UrlTests, name=testURL(org.apache.commons.vfs2.UrlTests)]
+Description [testClass=org.apache.commons.vfs2.UrlTests, name=testURLContent(org.apache.commons.vfs2.UrlTests)]
+Description [testClass=org.apache.commons.vfs2.UrlTests, name=testURLContentProvider(org.apache.commons.vfs2.UrlTests)]
+Description [testClass=org.apache.commons.vfs2.UrlTests, name=testUnknownURL(org.apache.commons.vfs2.UrlTests)]
+Description [testClass=org.apache.commons.vfs2.cache.DefaultFilesCacheTests, name=testBasicCacheOps(org.apache.commons.vfs2.cache.DefaultFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.DefaultFilesCacheTests, name=testClearFiles(org.apache.commons.vfs2.cache.DefaultFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.DefaultFilesCacheTests, name=testFilesCache(org.apache.commons.vfs2.cache.DefaultFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.LRUFilesCacheTests, name=testBasicCacheOps(org.apache.commons.vfs2.cache.LRUFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.LRUFilesCacheTests, name=testClass(org.apache.commons.vfs2.cache.LRUFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.LRUFilesCacheTests, name=testClearFiles(org.apache.commons.vfs2.cache.LRUFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.LRUFilesCacheTests, name=testFilesCache(org.apache.commons.vfs2.cache.LRUFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.NullFilesCacheTests, name=testBasicCacheOps(org.apache.commons.vfs2.cache.NullFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.NullFilesCacheTests, name=testClass(org.apache.commons.vfs2.cache.NullFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.NullFilesCacheTests, name=testClearFiles(org.apache.commons.vfs2.cache.NullFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.NullFilesCacheTests, name=testFilesCache(org.apache.commons.vfs2.cache.NullFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.SoftRefFilesCacheTests, name=testBasicCacheOps(org.apache.commons.vfs2.cache.SoftRefFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.SoftRefFilesCacheTests, name=testClearFiles(org.apache.commons.vfs2.cache.SoftRefFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.SoftRefFilesCacheTests, name=testFilesCache(org.apache.commons.vfs2.cache.SoftRefFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.SoftRefFilesCacheTests, name=testFilesCacheClass(org.apache.commons.vfs2.cache.SoftRefFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.WeakRefFilesCacheTests, name=testBasicCacheOps(org.apache.commons.vfs2.cache.WeakRefFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.WeakRefFilesCacheTests, name=testClass(org.apache.commons.vfs2.cache.WeakRefFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.WeakRefFilesCacheTests, name=testClearFiles(org.apache.commons.vfs2.cache.WeakRefFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.cache.WeakRefFilesCacheTests, name=testFilesCache(org.apache.commons.vfs2.cache.WeakRefFilesCacheTests)]
+Description [testClass=org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest, name=testCreateBz2FileSystem(org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest)]
+Description [testClass=org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest, name=testCreateJarFileSystem(org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest)]
+Description [testClass=org.apache.commons.vfs2.impl.VfsClassLoaderTests, name=testGetResourcesJARs(org.apache.commons.vfs2.impl.VfsClassLoaderTests)]
+Description [testClass=org.apache.commons.vfs2.impl.VfsClassLoaderTests, name=testGetResourcesNoLayerLocal(org.apache.commons.vfs2.impl.VfsClassLoaderTests)]
+Description [testClass=org.apache.commons.vfs2.impl.VfsClassLoaderTests, name=testLoadClass(org.apache.commons.vfs2.impl.VfsClassLoaderTests)]
+Description [testClass=org.apache.commons.vfs2.impl.VfsClassLoaderTests, name=testLoadResource(org.apache.commons.vfs2.impl.VfsClassLoaderTests)]
+Description [testClass=org.apache.commons.vfs2.impl.VfsClassLoaderTests, name=testSealing(org.apache.commons.vfs2.impl.VfsClassLoaderTests)]
+Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests, name=testGetAccurary(org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests, name=testGetLastModifiedFile(org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests, name=testGetLastModifiedFileInexactMatch(org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests, name=testGetLastModifiedFolder(org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests, name=testSetLastModifiedFile(org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests, name=testSetLastModifiedFolder(org.apache.commons.vfs2.provider.ftp.FtpMdtmOffLastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests, name=testGetAccurary(org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests, name=testGetLastModifiedFile(org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests, name=testGetLastModifiedFileExactMatch(org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests, name=testGetLastModifiedFolder(org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests, name=testSetLastModifiedFile(org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests, name=testSetLastModifiedFolder(org.apache.commons.vfs2.provider.ftp.FtpMdtmOnLastModifiedTests)]
+Description [testClass=org.apache.commons.vfs2.provider.local.FileNameTests, name=testAbsoluteFileName(org.apache.commons.vfs2.provider.local.FileNameTests)]
+Description [testClass=org.apache.commons.vfs2.provider.local.TempFileTests, name=testLocalFile(org.apache.commons.vfs2.provider.local.TempFileTests)]
+Description [testClass=org.apache.commons.vfs2.provider.local.UrlTests, name=testHashFindFiles(org.apache.commons.vfs2.provider.local.UrlTests)]
+Description [testClass=org.apache.commons.vfs2.provider.local.UrlTests, name=testHashURL(org.apache.commons.vfs2.provider.local.UrlTests)]
+Description [testClass=org.apache.commons.vfs2.provider.local.WindowsFileNameTests, name=testWindowsFilenameParserError(org.apache.commons.vfs2.provider.local.WindowsFileNameTests)]
+Description [testClass=org.apache.commons.vfs2.provider.local.WindowsFileNameTests, name=testWindowsFilenameUNCStartError(org.apache.commons.vfs2.provider.local.WindowsFileNameTests)]
+Description [testClass=org.apache.commons.vfs2.provider.local.WindowsFileNameTests, name=testWindowsRoots(org.apache.commons.vfs2.provider.local.WindowsFileNameTests)]
+Description [testClass=org.apache.commons.vfs2.provider.local.WindowsFileNameTests, name=testWindowsWrongRoots(org.apache.commons.vfs2.provider.local.WindowsFileNameTests)]
+Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolveFullPathFile0(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)]
+Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolveFullPathFile1(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)]
+Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolveFullPathFile2(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)]
+Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolveFullPathURI0(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)]
+Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolveFullPathURI1(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)]
+Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolveFullPathURI2(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)]
+Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolvePartialPath1(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)]
+Description [testClass=org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests, name=testResolvePartialPath2(org.apache.commons.vfs2.provider.res.Vfs444TestCase$Vfs444Tests)]
+Description [testClass=org.apache.commons.vfs2.provider.sftp.SftpMultiThreadWriteTests, name=testParallelCopyFromLocalFileSystem(org.apache.commons.vfs2.provider.sftp.SftpMultiThreadWriteTests)]
+Description [testClass=org.apache.commons.vfs2.provider.test.JunctionTests, name=testAncestors(org.apache.commons.vfs2.provider.test.JunctionTests)]
+Description [testClass=org.apache.commons.vfs2.provider.test.JunctionTests, name=testNestedJunction(org.apache.commons.vfs2.provider.test.JunctionTests)]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:42 min
+[INFO] Finished at: 2026-01-12T00:56:08-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.pitest:pitest-maven:1.22.0:mutationCoverage (default-cli) on project commons-vfs2: Execution default-cli of goal org.pitest:pitest-maven:1.22.0:mutationCoverage failed: 153 tests did not pass without mutation when calculating line coverage. Mutation testing requires a green suite.
+[ERROR] See https://pitest.org for more details.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException
+ended at: 2026-01-12 00:56:09

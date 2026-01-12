@@ -1,12 +1,6 @@
+began at: 2026-01-12 05:21:45
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for commons-dbutils:commons-dbutils:jar:1.7
-[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ line 286, column 15
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
 [INFO] 
 [INFO] ------------------< commons-dbutils:commons-dbutils >-------------------
 [INFO] Building Apache Commons DbUtils 1.7
@@ -14,7 +8,6 @@
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- clean:3.0.0:clean (default-clean) @ commons-dbutils ---
-[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7/target
 [INFO] 
 [INFO] --- enforcer:1.4.1:enforce (enforce-maven-3) @ commons-dbutils ---
 [INFO] 
@@ -24,22 +17,16 @@
 [INFO] Executing tasks
 
 main:
-     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7/target/apidocs/META-INF
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/target/apidocs/META-INF
 [INFO] Executed tasks
 [INFO] 
 [INFO] --- remote-resources:1.5:process (default) @ commons-dbutils ---
 [INFO] 
 [INFO] --- buildnumber:1.4:create (default) @ commons-dbutils ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7
-[INFO] Storing buildNumber: ?????? at timestamp: 1768003940788
-[WARNING] Cannot get the branch information from the git repository: 
-Detecting the current branch failed: fatal: not a git repository (or any parent up to mount point /sfs)
-Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
-
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7
-[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7
+[INFO] Storing buildNumber: 77d944d491f2532ea8dc274ce81490a072a96fd9 at timestamp: 1768213311964
+[INFO] Storing buildScmBranch: main
 [INFO] 
 [INFO] --- resources:2.7:resources (default-resources) @ commons-dbutils ---
 [INFO] Using 'iso-8859-1' encoding to copy filtered resources.
@@ -48,9 +35,11 @@ Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 [INFO] 
 [INFO] --- compiler:3.5.1:compile (default-compile) @ commons-dbutils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 46 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7/target/classes
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java uses unchecked or unsafe operations.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 46 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/target/classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/src/main/java/org/apache/commons/dbutils/BeanProcessor.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/src/main/java/org/apache/commons/dbutils/BeanProcessor.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java uses unchecked or unsafe operations.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/src/main/java/org/apache/commons/dbutils/handlers/properties/StringEnumPropertyHandler.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- bundle:3.0.1:manifest (bundle-manifest) @ commons-dbutils ---
 [INFO] 
@@ -64,27 +53,84 @@ Stopping at filesystem boundary (GIT_DISCOVERY_ACROSS_FILESYSTEM not set).
 [INFO] 
 [INFO] --- compiler:3.5.1:testCompile (default-testCompile) @ commons-dbutils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 46 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7/target/test-classes
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java uses unchecked or unsafe operations.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 46 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/target/test-classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/src/test/java/org/apache/commons/dbutils/handlers/ColumnListHandlerTest.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/src/test/java/org/apache/commons/dbutils/handlers/ColumnListHandlerTest.java: Recompile with -Xlint:removal for details.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java uses unchecked or unsafe operations.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-dbutils-1.7/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
-[INFO] --- surefire:2.17:test (default-test) @ commons-dbutils ---
-[INFO] Surefire report directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/evosuite-artifacts/commons-dbutils-1.7/target/surefire-reports
-
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 sec - in org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest
-Running org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest
-Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 sec - in org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest
-Running org.apache.commons.dbutils.QueryRunnerTest
-Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.248 sec - in org.apache.commons.dbutils.QueryRunnerTest
-Running org.apache.commons.dbutils.AsyncQueryRunnerTest
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-dbutils ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.dbutils.DbUtilsTest
+[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.193 s - in org.apache.commons.dbutils.DbUtilsTest
+[INFO] Running org.apache.commons.dbutils.OutParameterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.dbutils.OutParameterTest
+[INFO] Running org.apache.commons.dbutils.handlers.ArrayListHandlerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.dbutils.handlers.ArrayListHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.ArrayHandlerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.dbutils.handlers.ArrayHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.KeyedHandlerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.dbutils.handlers.KeyedHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.BeanMapHandlerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.dbutils.handlers.BeanMapHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.columns.LongColumnHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.dbutils.handlers.columns.LongColumnHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.columns.ByteColumnHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.dbutils.handlers.columns.ByteColumnHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.columns.BooleanColumnHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.dbutils.handlers.columns.BooleanColumnHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.columns.ShortColumnHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.dbutils.handlers.columns.ShortColumnHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.columns.StringColumnHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.dbutils.handlers.columns.StringColumnHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.columns.DoubleColumnHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.dbutils.handlers.columns.DoubleColumnHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.columns.TimestampColumnHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.dbutils.handlers.columns.TimestampColumnHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.columns.FloatColumnHandlerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.dbutils.handlers.columns.FloatColumnHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.ColumnListHandlerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.dbutils.handlers.ColumnListHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.ScalarHandlerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.ScalarHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.MapListHandlerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.MapListHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.BeanListHandlerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.dbutils.handlers.BeanListHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.BeanHandlerTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.dbutils.handlers.BeanHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest
+[INFO] Running org.apache.commons.dbutils.handlers.MapHandlerTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.dbutils.handlers.MapHandlerTest
+[INFO] Running org.apache.commons.dbutils.BaseTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.BaseTestCase
+[INFO] Running org.apache.commons.dbutils.ResultSetIteratorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.ResultSetIteratorTest
+[INFO] Running org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest
+[INFO] Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetTest
+[INFO] Running org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.wrappers.StringTrimmedResultSetTest
+[INFO] Running org.apache.commons.dbutils.BasicRowProcessorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.dbutils.BasicRowProcessorTest
+[INFO] Running org.apache.commons.dbutils.StatementConfigurationTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.StatementConfigurationTest
+[INFO] Running org.apache.commons.dbutils.AsyncQueryRunnerTest
 ############ Logging method invocation #1 on mock/spy ########
 queryRunner.insert(
     "1",
-    org.apache.commons.dbutils.handlers.ArrayHandler@561347b1
+    org.apache.commons.dbutils.handlers.ArrayHandler@26ef59e5
 );
    invoked: -> at org.apache.commons.dbutils.AsyncQueryRunner$13.call(AsyncQueryRunner.java:571)
    has returned: "null"
@@ -92,7 +138,7 @@ queryRunner.insert(
 ############ Logging method invocation #2 on mock/spy ########
 queryRunner.insert(
     "2",
-    org.apache.commons.dbutils.handlers.ArrayHandler@561347b1,
+    org.apache.commons.dbutils.handlers.ArrayHandler@26ef59e5,
     "param1"
 );
    invoked: -> at org.apache.commons.dbutils.AsyncQueryRunner$14.call(AsyncQueryRunner.java:594)
@@ -102,7 +148,7 @@ queryRunner.insert(
 queryRunner.insert(
     conn,
     "3",
-    org.apache.commons.dbutils.handlers.ArrayHandler@561347b1
+    org.apache.commons.dbutils.handlers.ArrayHandler@26ef59e5
 );
    invoked: -> at org.apache.commons.dbutils.AsyncQueryRunner$15.call(AsyncQueryRunner.java:616)
    has returned: "null"
@@ -111,7 +157,7 @@ queryRunner.insert(
 queryRunner.insert(
     conn,
     "4",
-    org.apache.commons.dbutils.handlers.ArrayHandler@561347b1,
+    org.apache.commons.dbutils.handlers.ArrayHandler@26ef59e5,
     "param1"
 );
    invoked: -> at org.apache.commons.dbutils.AsyncQueryRunner$16.call(AsyncQueryRunner.java:639)
@@ -120,7 +166,7 @@ queryRunner.insert(
 ############ Logging method invocation #5 on mock/spy ########
 queryRunner.insert(
     "1",
-    org.apache.commons.dbutils.handlers.ArrayHandler@561347b1
+    org.apache.commons.dbutils.handlers.ArrayHandler@26ef59e5
 );
    invoked: -> at org.apache.commons.dbutils.AsyncQueryRunnerTest.testInsertUsesGivenQueryRunner(AsyncQueryRunnerTest.java:460)
    has returned: "null"
@@ -128,7 +174,7 @@ queryRunner.insert(
 ############ Logging method invocation #6 on mock/spy ########
 queryRunner.insert(
     "2",
-    org.apache.commons.dbutils.handlers.ArrayHandler@561347b1,
+    org.apache.commons.dbutils.handlers.ArrayHandler@26ef59e5,
     "param1"
 );
    invoked: -> at org.apache.commons.dbutils.AsyncQueryRunnerTest.testInsertUsesGivenQueryRunner(AsyncQueryRunnerTest.java:461)
@@ -138,7 +184,7 @@ queryRunner.insert(
 queryRunner.insert(
     conn,
     "3",
-    org.apache.commons.dbutils.handlers.ArrayHandler@561347b1
+    org.apache.commons.dbutils.handlers.ArrayHandler@26ef59e5
 );
    invoked: -> at org.apache.commons.dbutils.AsyncQueryRunnerTest.testInsertUsesGivenQueryRunner(AsyncQueryRunnerTest.java:462)
    has returned: "null"
@@ -147,91 +193,41 @@ queryRunner.insert(
 queryRunner.insert(
     conn,
     "4",
-    org.apache.commons.dbutils.handlers.ArrayHandler@561347b1,
+    org.apache.commons.dbutils.handlers.ArrayHandler@26ef59e5,
     "param1"
 );
    invoked: -> at org.apache.commons.dbutils.AsyncQueryRunnerTest.testInsertUsesGivenQueryRunner(AsyncQueryRunnerTest.java:463)
    has returned: "null"
 
-Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 sec - in org.apache.commons.dbutils.AsyncQueryRunnerTest
-Running org.apache.commons.dbutils.GenerousBeanProcessorTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.GenerousBeanProcessorTest
-Running org.apache.commons.dbutils.ServiceLoaderTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.dbutils.ServiceLoaderTest
-Running org.apache.commons.dbutils.BeanProcessorTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 sec - in org.apache.commons.dbutils.BeanProcessorTest
-Running org.apache.commons.dbutils.ProxyFactoryTest
-Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 sec - in org.apache.commons.dbutils.ProxyFactoryTest
-Running org.apache.commons.dbutils.BaseTestCase
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.BaseTestCase
-Running org.apache.commons.dbutils.DbUtilsTest
-Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec - in org.apache.commons.dbutils.DbUtilsTest
-Running org.apache.commons.dbutils.OutParameterTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.OutParameterTest
-Running org.apache.commons.dbutils.ResultSetIteratorTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 sec - in org.apache.commons.dbutils.ResultSetIteratorTest
-Running org.apache.commons.dbutils.handlers.BeanMapHandlerTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.BeanMapHandlerTest
-Running org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.properties.PropertyHandlerTest
-Running org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.properties.StringEnumPropertyHandlerTest
-Running org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.properties.DatePropertyHandlerTest
-Running org.apache.commons.dbutils.handlers.BeanListHandlerTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.BeanListHandlerTest
-Running org.apache.commons.dbutils.handlers.MapListHandlerTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.MapListHandlerTest
-Running org.apache.commons.dbutils.handlers.BeanHandlerTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.BeanHandlerTest
-Running org.apache.commons.dbutils.handlers.columns.TimestampColumnHandlerTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.TimestampColumnHandlerTest
-Running org.apache.commons.dbutils.handlers.columns.LongColumnHandlerTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.LongColumnHandlerTest
-Running org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest
-Running org.apache.commons.dbutils.handlers.columns.ByteColumnHandlerTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.ByteColumnHandlerTest
-Running org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandlerTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandlerTest
-Running org.apache.commons.dbutils.handlers.columns.StringColumnHandlerTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.StringColumnHandlerTest
-Running org.apache.commons.dbutils.handlers.columns.FloatColumnHandlerTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.FloatColumnHandlerTest
-Running org.apache.commons.dbutils.handlers.columns.ShortColumnHandlerTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.ShortColumnHandlerTest
-Running org.apache.commons.dbutils.handlers.columns.DoubleColumnHandlerTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.DoubleColumnHandlerTest
-Running org.apache.commons.dbutils.handlers.columns.BooleanColumnHandlerTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.columns.BooleanColumnHandlerTest
-Running org.apache.commons.dbutils.handlers.KeyedHandlerTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.KeyedHandlerTest
-Running org.apache.commons.dbutils.handlers.ColumnListHandlerTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.ColumnListHandlerTest
-Running org.apache.commons.dbutils.handlers.ArrayHandlerTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.ArrayHandlerTest
-Running org.apache.commons.dbutils.handlers.ScalarHandlerTest
-Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.ScalarHandlerTest
-Running org.apache.commons.dbutils.handlers.MapHandlerTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.MapHandlerTest
-Running org.apache.commons.dbutils.handlers.ArrayListHandlerTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.handlers.ArrayListHandlerTest
-Running org.apache.commons.dbutils.BasicRowProcessorTest
-Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.BasicRowProcessorTest
-Running org.apache.commons.dbutils.BaseResultSetHandlerTest
-Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.BaseResultSetHandlerTest
-Running org.apache.commons.dbutils.QueryLoaderTest
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.QueryLoaderTest
-Running org.apache.commons.dbutils.StatementConfigurationTest
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in org.apache.commons.dbutils.StatementConfigurationTest
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.287 s - in org.apache.commons.dbutils.AsyncQueryRunnerTest
+[INFO] Running org.apache.commons.dbutils.ServiceLoaderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.ServiceLoaderTest
+[INFO] Running org.apache.commons.dbutils.GenerousBeanProcessorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.dbutils.GenerousBeanProcessorTest
+[INFO] Running org.apache.commons.dbutils.ProxyFactoryTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.dbutils.ProxyFactoryTest
+[INFO] Running org.apache.commons.dbutils.QueryLoaderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.dbutils.QueryLoaderTest
+[INFO] Running org.apache.commons.dbutils.BaseResultSetHandlerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.dbutils.BaseResultSetHandlerTest
+[INFO] Running org.apache.commons.dbutils.BeanProcessorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.dbutils.BeanProcessorTest
+[INFO] Running org.apache.commons.dbutils.QueryRunnerTest
+############ Logging method invocation #9 on mock/spy ########
+queryRunner.finalize();
+   invoked: -> at java.base/java.lang.System$2.invokeFinalize(System.java:2314)
+   has returned: "null"
 
-Results :
-
-Tests run: 309, Failures: 0, Errors: 0, Skipped: 0
-
+[INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.498 s - in org.apache.commons.dbutils.QueryRunnerTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 309, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.815 s
-[INFO] Finished at: 2026-01-09T19:12:24-05:00
+[INFO] Total time:  8.283 s
+[INFO] Finished at: 2026-01-12T05:21:57-05:00
 [INFO] ------------------------------------------------------------------------
+ended at: 2026-01-12 05:21:57

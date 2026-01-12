@@ -10,7 +10,6 @@
 
   <properties>
     <javaModuleName>org.asynchttpclient.utils</javaModuleName>
-    <evosuiteVersion>1.0.6</evosuiteVersion>
   </properties>
 
   <dependencies>
@@ -18,12 +17,6 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.evosuite</groupId>
-      <artifactId>evosuite-standalone-runtime</artifactId>
-      <version>${evosuiteVersion}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
