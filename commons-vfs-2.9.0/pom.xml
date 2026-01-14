@@ -366,6 +366,7 @@
             <exclude>commons-vfs2-sandbox/**</exclude>
             <exclude>dist/target/**</exclude>
           </excludes>
+ 
         </configuration>
       </plugin>
       <plugin>

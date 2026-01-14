@@ -18,7 +18,7 @@ echo "ended at: $end_ts" | tee -a mvn.log
 start_ts=$(date "+%Y-%m-%d %H:%M:%S")
 echo "began at: $start_ts" > pit.log
 
-timeout 2h mvn -Drat.skip=true -Dtest.dir=src -Dtarget.dir=target pitest:mutationCoverage 2>&1 | tee -a pit.log
+timeout 2h mvn pitest:mutationCoverage 2>&1 | tee pit.log
 exit_code=$?
 
 if [ $exit_code -eq 124 ]; then

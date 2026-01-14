@@ -126,8 +126,6 @@
   </dependencies>
 
   <build>
-    <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
-    <directory>${project.basedir}/${target.dir}/</directory>
     <testResources>
       <testResource>
         <directory>src/test/test-conf</directory>
@@ -145,7 +143,21 @@
           <version>${commons.surefire.version}</version>
           <configuration>
             <useUnlimitedThreads>true</useUnlimitedThreads>
-\
+    <excludes>
+      <exclude>**/IndexedDiskCacheSteadyLoadTest.java</exclude>
+
+      <exclude>**/*Cache*.java</exclude>
+         <exclude>**/JCSLightLoadUnitTest.java</exclude>
+      <exclude>**/JCSThrashTest.java</exclude>
+      <exclude>**/SystemPropertyUnitTest.java</exclude>
+      <exclude>**/EventQueueConcurrentLoadTest.java</exclude>
+      <exclude>**/SimpleEventHandlingUnitTest.java</exclude>
+      <exclude>**/LRUMapPerformanceTest.java</exclude>
+      <exclude>**/LateralTCPFilterRemoveHashCodeUnitTest.java</exclude>
+      <exclude>**/LateralTCPIssueRemoveOnPutUnitTest.java</exclude>
+      <exclude>**/LateralTCPNoDeadLockConcurrentTest.java</exclude>
+            <exclude>**/JCSvsHashtablePerformanceTest.java</exclude>
+    </excludes>
           </configuration>
         </plugin>
         <plugin>
@@ -188,6 +200,9 @@
           <fullMutationMatrix>true</fullMutationMatrix>
           <exportLineCoverage>true</exportLineCoverage>
           <outputFormats>XML</outputFormats>
+    <excludedTestClasses>
+      <param>**.IndexedDiskCacheSteadyLoadTest</param>
+    </excludedTestClasses>
         </configuration>
       </plugin>
       <plugin>

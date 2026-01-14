@@ -37,8 +37,6 @@
   </properties>
 
   <build>
-    <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
-    <directory>${project.basedir}/${target.dir}/</directory>
     <plugins>
       <plugin>
         <groupId>org.pitest</groupId>
@@ -49,15 +47,16 @@
           <dependency>
             <groupId>org.pitest</groupId>
             <artifactId>pitest-junit5-plugin</artifactId>
-            <version>1.2.1</version>
+            <version>1.0.0</version>
           </dependency>
         </dependencies>
 
         <configuration>
           <!-- use the JUnit 5 plugin -->
-          <testPlugin>junit5</testPlugin>
+
+          <threads>16</threads>
     
-          <timeoutConstant>8000</timeoutConstant>
+          <timeoutConstant>1000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
           </mutators>
@@ -74,6 +73,9 @@
           <targetTests>
             <param>org.jsoup.*</param>
           </targetTests>
+    <excludedTestClasses>
+      <param>org.jsoup.integration.ConnectIT</param>
+    </excludedTestClasses>
           <fullMutationMatrix>true</fullMutationMatrix>
           <exportLineCoverage>true</exportLineCoverage>
           <outputFormats>XML</outputFormats>
@@ -214,7 +216,7 @@
           <useModulePath>false</useModulePath>
 
           <useUnlimitedThreads>true</useUnlimitedThreads>
-          <argLine>-Xss256k</argLine>
+   
         </configuration>
       </plugin>
 

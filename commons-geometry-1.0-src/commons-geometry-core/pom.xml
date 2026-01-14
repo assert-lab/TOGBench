@@ -77,9 +77,9 @@
   <configuration>
     <testPlugin>junit5</testPlugin>
 
-          <threads>16</threads>
+          <threads>8</threads>
 
-          <timeoutConstant>8000</timeoutConstant>
+          <timeoutConstant>1000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
           </mutators>

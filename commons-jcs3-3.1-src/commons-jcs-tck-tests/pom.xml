@@ -162,7 +162,35 @@
           <skipSource>true</skipSource>
         </configuration>
       </plugin>
+<plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.22.0</version>
+          <configuration>
+          <threads>16</threads>
 
+          <timeoutConstant>8000</timeoutConstant>
+          <mutators>
+            <mutator>STRONGER</mutator>
+          </mutators>
+          <avoidCallsTo>
+            <avoidCallsTo>java.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+            <avoidCallsTo>org.slf4j.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+          </avoidCallsTo>
+          <verbose>false</verbose>
+          <targetClasses>
+            <param>org.apache.commons.jcs3.*</param>
+          </targetClasses>
+          <targetTests>
+            <param>org.apache.commons.jcs3.*</param>
+          </targetTests>
+          <fullMutationMatrix>true</fullMutationMatrix>
+          <exportLineCoverage>true</exportLineCoverage>
+          <outputFormats>XML</outputFormats>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
@@ -192,6 +220,7 @@
       </activation>
       <build>
         <plugins>
+        
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-dependency-plugin</artifactId>

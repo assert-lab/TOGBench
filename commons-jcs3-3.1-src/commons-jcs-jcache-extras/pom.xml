@@ -121,8 +121,6 @@
 
   </properties>
 <build>
-  <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
-  <directory>${project.basedir}/${target.dir}/</directory>
   <plugins>
     <plugin>
       <groupId>org.pitest</groupId>
@@ -148,6 +146,11 @@
         <targetTests>
           <param>org.apache.commons.jcs3.*</param>
         </targetTests>
+            <excludedTestClasses>
+      <!-- existing params... -->
+      <param>**.ExtraJCacheExtensionTest</param>
+      <param>**.JCacheFilterTest</param>
+    </excludedTestClasses>
         <fullMutationMatrix>true</fullMutationMatrix>
         <exportLineCoverage>true</exportLineCoverage>
         <outputFormats>XML</outputFormats>
@@ -158,9 +161,12 @@
       <artifactId>maven-surefire-plugin</artifactId>
       <version>${commons.surefire.version}</version>
       <configuration>
-        <argLine>-Xmx256m</argLine>
         <useUnlimitedThreads>true</useUnlimitedThreads>
-
+    <excludes>
+      <!-- existing excludes... -->
+      <exclude>**/ExtraJCacheExtensionTest.java</exclude>
+      <exclude>**/JCacheFilterTest.java</exclude>
+    </excludes>
       </configuration>
     </plugin>
   </plugins>

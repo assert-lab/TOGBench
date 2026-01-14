@@ -118,17 +118,15 @@
     </dependencies>
 
     <build>
-        <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
-        <directory>${project.basedir}/${target.dir}/</directory>
         <plugins>
             <plugin>
                 <groupId>org.pitest</groupId>
                 <artifactId>pitest-maven</artifactId>
                 <version>1.22.0</version>
                 <configuration>
-                <threads>16</threads>
+                <threads>8</threads>
 
-                    <timeoutConstant>8000</timeoutConstant>
+                    <timeoutConstant>1000</timeoutConstant>
                     <mutators>
                         <mutator>STRONGER</mutator>
                     </mutators>

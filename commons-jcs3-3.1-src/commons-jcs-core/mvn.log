@@ -1,5 +1,3 @@
-began at: 2026-01-12 00:09:25
-Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] Scanning for projects...
 [WARNING] 
 [WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-core:jar:3.1
@@ -16,6 +14,7 @@ Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- clean:3.1.0:clean (default-clean) @ commons-jcs3-core ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-core/target
 [INFO] 
 [INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-jcs3-core ---
 [INFO] 
@@ -36,7 +35,7 @@ Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] --- buildnumber:1.4:create (default) @ commons-jcs3-core ---
 [INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-jcs3-3.1-src/commons-jcs-core
-[INFO] Storing buildNumber: 77d944d491f2532ea8dc274ce81490a072a96fd9 at timestamp: 1768194567943
+[INFO] Storing buildNumber: 3bc558605d7b1f44972a447c2af34da08d49f5bd at timestamp: 1768420788485
 [INFO] Storing buildScmBranch: main
 [INFO] 
 [INFO] --- resources:3.1.0:resources (default-resources) @ commons-jcs3-core ---
@@ -73,228 +72,82 @@ Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.jcs3.admin.AdminBeanUnitTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 s - in org.apache.commons.jcs3.admin.AdminBeanUnitTest
+[INFO] Running org.apache.commons.jcs3.JCSUnitTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.207 s - in org.apache.commons.jcs3.JCSUnitTest
+[INFO] Running org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TestTCPLateralUnitTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.222 s - in org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TestTCPLateralUnitTest
+[INFO] Running org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPDiscoveryListenerUnitTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s - in org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.LateralTCPDiscoveryListenerUnitTest
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.util.ScheduleParserUtilUnitTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.util.ScheduleParserUtilUnitTest
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDataSourceFactoryUnitTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDataSourceFactoryUnitTest
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.PurgatoryElementUnitTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.PurgatoryElementUnitTest
+[INFO] Running org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskUnitTest
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.TimeoutConfigurableRMISocketFactoryUnitTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.remote.server.TimeoutConfigurableRMISocketFactoryUnitTest
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.server.RegistryKeepAliveRunnerUnitTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.jcs3.auxiliary.remote.server.RegistryKeepAliveRunnerUnitTest
+[INFO] Running org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.remote.RemoteUtilsUnitTest
+[INFO] Running org.apache.commons.jcs3.ConcurrentRemovalLoadTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in org.apache.commons.jcs3.ConcurrentRemovalLoadTest
+[INFO] Running org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest
 [INFO] Running org.apache.commons.jcs3.admin.CountingStreamUnitTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.admin.CountingStreamUnitTest
-[INFO] Running org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest
-[INFO] Running org.apache.commons.jcs3.engine.memory.mru.LRUvsMRUPerformanceTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.155 s - in org.apache.commons.jcs3.engine.memory.mru.LRUvsMRUPerformanceTest
-[INFO] Running org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest
-[ERROR] Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! - in org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest
-[ERROR] testLoadFromCCF(org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest)  Time elapsed: 0.004 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Cache name should have MRU in it.
-	at org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest.testLoadFromCCF(MRUMemoryCacheUnitTest.java:62)
-
-[ERROR] testGetStatsThroughHub(org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Should have 200 puts
-	at org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest.testGetStatsThroughHub(MRUMemoryCacheUnitTest.java:240)
-
-[INFO] Running org.apache.commons.jcs3.engine.memory.lru.LRUMemoryCacheConcurrentUnitTest
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.jcs3.engine.memory.lru.LRUMemoryCacheConcurrentUnitTest
-[ERROR] testLRUMemoryCache(org.apache.commons.jcs3.engine.memory.lru.LRUMemoryCacheConcurrentUnitTest$1)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Should not have 0:key
-	at org.apache.commons.jcs3.engine.memory.lru.LRUMemoryCacheConcurrentUnitTest$1.runTest(LRUMemoryCacheConcurrentUnitTest.java:84)
-
-[INFO] Running org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest
-[ERROR] Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest
-[ERROR] testLoadFromCCF(org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Cache name should have LHMLRU in it.
-	at org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest.testLoadFromCCF(LHMLRUMemoryCacheUnitTest.java:62)
-
-[ERROR] testGetStatsThroughHub(org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: 
-Should have 200 putsRegion Name = testGetStatsThroughHub
-HitCountRam = 501
-HitCountAux = 0
----------------------------Memory Cache
-Put Count = 4501
-Hit Count = 501
-Miss Count = 500
-Map Size = 999
-List Size = 999
-	at org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest.testGetStatsThroughHub(LHMLRUMemoryCacheUnitTest.java:240)
-
-[INFO] Running org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheConcurrentUnitTest
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheConcurrentUnitTest
-[ERROR] testLHMLRUMemoryCache(org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheConcurrentUnitTest$1)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Should not have 0:key
-	at org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheConcurrentUnitTest$1.runTest(LHMLRUMemoryCacheConcurrentUnitTest.java:84)
-
-[INFO] Running org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest
-[ERROR] Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest
-[ERROR] testLoadFromCCF(org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest)  Time elapsed: 0.004 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Cache name should have SoftReference in it.
-	at org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest.testLoadFromCCF(SoftReferenceMemoryCacheUnitTest.java:70)
-
-[INFO] Running org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest
-[INFO] Running org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.504 s - in org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.admin.CountingStreamUnitTest
+[INFO] Running org.apache.commons.jcs3.admin.AdminBeanUnitTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.admin.AdminBeanUnitTest
+[INFO] Running org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest
 [INFO] Running org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest
-[INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest
-[INFO] Running org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.917 s - in org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest
-[INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest
-[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest
-[ERROR] testParseSpoolChunkSize_Normal(org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest)  Time elapsed: 0.001 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Wrong chunkSize expected:<2> but was:<5>
-	at org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest.testParseSpoolChunkSize_Normal(CompositeCacheConfiguratorUnitTest.java:90)
-
-[INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest
-[ERROR] testRelease(org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: The cache was NOT disposed during release! expected:<DISPOSED> but was:<ALIVE>
-	at org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest.testRelease(CompositeCacheManagerTest.java:52)
-
-[INFO] Running org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest
-[INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest
-[ERROR] Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest
-[ERROR] testUpdateConfig(org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: expected:<UPDATE> but was:<SWAP>
-	at org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest.testUpdateConfig(CompositeCacheDiskUsageUnitTest.java:89)
-
-[INFO] Running org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest
-[INFO] Running org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest
-[INFO] Running org.apache.commons.jcs3.engine.EventQueueConcurrentLoadTest
-[ERROR] Tests run: 6, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 1.157 s <<< FAILURE! - in org.apache.commons.jcs3.engine.EventQueueConcurrentLoadTest
-[ERROR] testRunPutTest1(org.apache.commons.jcs3.engine.EventQueueConcurrentLoadTest$1)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: The put count [0] is below the expected minimum threshold [200]
-	at org.apache.commons.jcs3.engine.EventQueueConcurrentLoadTest$1.runTest(EventQueueConcurrentLoadTest.java:88)
-
-[ERROR] testRunPutTest2(org.apache.commons.jcs3.engine.EventQueueConcurrentLoadTest$2)  Time elapsed: 0.003 s  <<< FAILURE!
-junit.framework.AssertionFailedError: The put count [0] is below the expected minimum threshold [1400]
-	at org.apache.commons.jcs3.engine.EventQueueConcurrentLoadTest$2.runTest(EventQueueConcurrentLoadTest.java:98)
-
-[ERROR] testRunPutTest4(org.apache.commons.jcs3.engine.EventQueueConcurrentLoadTest$4)  Time elapsed: 0.011 s  <<< FAILURE!
-junit.framework.AssertionFailedError: The put count [0] is below the expected minimum threshold [6600]
-	at org.apache.commons.jcs3.engine.EventQueueConcurrentLoadTest$4.runTest(EventQueueConcurrentLoadTest.java:118)
-
-[ERROR] testRunPutDelayTest(org.apache.commons.jcs3.engine.EventQueueConcurrentLoadTest$6)  Time elapsed: 1.157 s  <<< FAILURE!
-junit.framework.AssertionFailedError: The put count [0] is below the expected minimum threshold [6700]
-	at org.apache.commons.jcs3.engine.EventQueueConcurrentLoadTest$6.runTest(EventQueueConcurrentLoadTest.java:138)
-
-[INFO] Running org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.466 s - in org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest
-[INFO] Running org.apache.commons.jcs3.JCSConcurrentCacheAccessUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.634 s - in org.apache.commons.jcs3.JCSConcurrentCacheAccessUnitTest
-[INFO] Running org.apache.commons.jcs3.JCSvsHashtablePerformanceTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.JCSvsHashtablePerformanceTest
-[INFO] Running org.apache.commons.jcs3.utils.struct.DoubleLinkedListDumpUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.DoubleLinkedListDumpUnitTest
-[INFO] Running org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest
+[INFO] Running org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.516 s - in org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest
+[INFO] Running org.apache.commons.jcs3.engine.memory.mru.LRUvsMRUPerformanceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.214 s - in org.apache.commons.jcs3.engine.memory.mru.LRUvsMRUPerformanceTest
+[INFO] Running org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest
+[INFO] Running org.apache.commons.jcs3.utils.config.PropertySetterUnitTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.jcs3.utils.config.PropertySetterUnitTest
+[INFO] Running org.apache.commons.jcs3.utils.discovery.UDPDiscoverySenderUnitTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.jcs3.utils.discovery.UDPDiscoverySenderUnitTest
+[INFO] Running org.apache.commons.jcs3.utils.discovery.UDPDiscoveryUnitTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.745 s - in org.apache.commons.jcs3.utils.discovery.UDPDiscoveryUnitTest
+[INFO] Running org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest
 [INFO] Running org.apache.commons.jcs3.utils.struct.DoubleLinkedListUnitTest
 [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.DoubleLinkedListUnitTest
-[INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest
-[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 2.342 s <<< FAILURE! - in org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest
-[ERROR] testSimpleLoad(org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest)  Time elapsed: 2.342 s  <<< FAILURE!
-junit.framework.AssertionFailedError
-	at org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest.testSimpleLoad(LRUMapPerformanceTest.java:64)
-
+[INFO] Running org.apache.commons.jcs3.utils.struct.DoubleLinkedListDumpUnitTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.utils.struct.DoubleLinkedListDumpUnitTest
+[INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapConcurrentUnitTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.244 s - in org.apache.commons.jcs3.utils.struct.LRUMapConcurrentUnitTest
 [INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapUnitTest
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.LRUMapUnitTest
-[INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapConcurrentUnitTest
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.116 s - in org.apache.commons.jcs3.utils.struct.LRUMapConcurrentUnitTest
-[INFO] Running org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest
-[INFO] Running org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest
-[INFO] Running org.apache.commons.jcs3.utils.discovery.UDPDiscoveryUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.782 s - in org.apache.commons.jcs3.utils.discovery.UDPDiscoveryUnitTest
-[INFO] Running org.apache.commons.jcs3.utils.discovery.UDPDiscoverySenderUnitTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.discovery.UDPDiscoverySenderUnitTest
-[INFO] Running org.apache.commons.jcs3.utils.config.PropertySetterUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.jcs3.utils.config.PropertySetterUnitTest
+[INFO] Running org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest
 [INFO] Running org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest
-[INFO] Running org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest
-[INFO] Running org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest
-[INFO] Running org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest
-[INFO] Running org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest
 [INFO] Running org.apache.commons.jcs3.utils.zip.CompressionUtilUnitTest
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.zip.CompressionUtilUnitTest
-[INFO] Running org.apache.commons.jcs3.TestTCPLateralCache
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.jcs3.TestTCPLateralCache
-[INFO] Running org.apache.commons.jcs3.JCSUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.187 s - in org.apache.commons.jcs3.JCSUnitTest
-[INFO] Running org.apache.commons.jcs3.JCSLightLoadUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.509 s - in org.apache.commons.jcs3.JCSLightLoadUnitTest
-[INFO] Running org.apache.commons.jcs3.JCSCacheElementRetrievalUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.JCSCacheElementRetrievalUnitTest
-[INFO] Running org.apache.commons.jcs3.access.SystemPropertyUnitTest
-[ERROR] Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.jcs3.access.SystemPropertyUnitTest
-[ERROR] test1SystemPropertyInValueDelimiter(org.apache.commons.jcs3.access.SystemPropertyUnitTest)  Time elapsed: 0 s  <<< FAILURE!
-junit.framework.AssertionFailedError: We should have used the system property for the memory size expected:<1234> but was:<-1>
-	at org.apache.commons.jcs3.access.SystemPropertyUnitTest.test1SystemPropertyInValueDelimiter(SystemPropertyUnitTest.java:57)
-
-[ERROR] test2SystemPropertyMissingInValueDelimeter(org.apache.commons.jcs3.access.SystemPropertyUnitTest)  Time elapsed: 0.002 s  <<< FAILURE!
-junit.framework.AssertionFailedError: We should have used the default property for the memory size expected:<100> but was:<-1>
-	at org.apache.commons.jcs3.access.SystemPropertyUnitTest.test2SystemPropertyMissingInValueDelimeter(SystemPropertyUnitTest.java:82)
-
-[INFO] Running org.apache.commons.jcs3.access.GroupCacheAccessUnitTest
-[ERROR] Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.jcs3.access.GroupCacheAccessUnitTest
-[ERROR] testGroupCache(org.apache.commons.jcs3.access.GroupCacheAccessUnitTest)  Time elapsed: 0.004 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Wrong number returned 2: expected:<50> but was:<14>
-	at org.apache.commons.jcs3.access.GroupCacheAccessUnitTest.testGroupCache(GroupCacheAccessUnitTest.java:232)
-
-[INFO] Running org.apache.commons.jcs3.access.CacheAccessUnitTest
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.jcs3.access.CacheAccessUnitTest
-[INFO] Running org.apache.commons.jcs3.ConcurrentRemovalLoadTest
-[ERROR] Tests run: 8, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.116 s <<< FAILURE! - in org.apache.commons.jcs3.ConcurrentRemovalLoadTest
-[ERROR] testRemoveCache1(org.apache.commons.jcs3.ConcurrentRemovalLoadTest$6)  Time elapsed: 0.08 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: data782
-	at org.apache.commons.jcs3.ConcurrentRemovalLoadTest$6.runTest(ConcurrentRemovalLoadTest.java:100)
-
-[ERROR] testRemoveCache1(org.apache.commons.jcs3.ConcurrentRemovalLoadTest$7)  Time elapsed: 0.085 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: data980
-	at org.apache.commons.jcs3.ConcurrentRemovalLoadTest$7.runTest(ConcurrentRemovalLoadTest.java:110)
-
-[ERROR] testRemoveCache1(org.apache.commons.jcs3.ConcurrentRemovalLoadTest$5)  Time elapsed: 0.087 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: data699
-	at org.apache.commons.jcs3.ConcurrentRemovalLoadTest$5.runTest(ConcurrentRemovalLoadTest.java:90)
-
-[ERROR] testRemoveCache1(org.apache.commons.jcs3.ConcurrentRemovalLoadTest$1)  Time elapsed: 0.114 s  <<< FAILURE!
-junit.framework.AssertionFailedError: Expected: <null> but was: data153
-	at org.apache.commons.jcs3.ConcurrentRemovalLoadTest$1.runTest(ConcurrentRemovalLoadTest.java:49)
-
-[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheConcurrentUnitTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheConcurrentUnitTest
-[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.016 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest
-[ERROR] testRemoveAllProhibition(org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest)  Time elapsed: 0.006 s  <<< FAILURE!
-junit.framework.ComparisonFailure: key = [0:key] value = [null] expected:<noRemoveAll data 0> but was:<null>
-	at org.apache.commons.jcs3.auxiliary.disk.jdbc.hsql.HSQLDiskCacheUnitTest.testRemoveAllProhibition(HSQLDiskCacheUnitTest.java:170)
-
-[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheUnitTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.119 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheUnitTest
-[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheSharedPoolUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.021 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheSharedPoolUnitTest
-[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheRemovalUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.012 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheRemovalUnitTest
-[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDataSourceFactoryUnitTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDataSourceFactoryUnitTest
-[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheUnitTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheUnitTest
-[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheHsqlBackedUnitTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.027 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.MySQLDiskCacheHsqlBackedUnitTest
-[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.util.ScheduleParserUtilUnitTest
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.jcs3.auxiliary.disk.jdbc.mysql.util.ScheduleParserUtilUnitTest
-[INFO] Running org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 10.034 s <<< FAILURE! - in org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest
-[ERROR] testExpireInBackground(org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest)  Time elapsed: 6.006 s  <<< FAILURE!
-java.lang.AssertionError: Removed key should be null: 0:key expected null, but was:<expire1Second data 0>
-	at org.apache.commons.jcs3.auxiliary.disk.jdbc.JDBCDiskCacheShrinkUnitTest.testExpireInBackground(JDBCDiskCacheShrinkUnitTest.java:112)
-
-[INFO] Running org.apache.commons.jcs3.auxiliary.disk.block.BlockDiskCacheSteadyLoadTest
-ended at: 2026-01-12 00:19:26
+[INFO] Running org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest
+[INFO] Running org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest
+[INFO] Running org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest
+[INFO] Running org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 127, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.658 s
+[INFO] Finished at: 2026-01-14T15:00:06-05:00
+[INFO] ------------------------------------------------------------------------

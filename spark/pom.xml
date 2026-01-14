@@ -34,8 +34,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <powermock.version>1.7.4</powermock.version>
         <mockito.version>1.10.19</mockito.version>
-
-
     </properties>
 
     <dependencies>
@@ -78,14 +76,12 @@
         </dependency>
 
         <!-- JUNIT DEPENDENCY FOR TESTING -->
-        <!-- junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
@@ -131,8 +127,7 @@
     </dependencies>
 
     <build>
-        <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
-        <directory>${project.basedir}/${target.dir}/</directory>
+
         <resources>
             <resource>
                 <filtering>false</filtering>
@@ -144,53 +139,13 @@
                 <includes>
                     <include>**</include>
                 </includes>
+                <excludes>
+                    <exclude>**/*.java</exclude>
+                </excludes>
             </resource>
         </resources>
 
         <plugins>
-
-            <plugin>
-                <groupId>org.pitest</groupId>
-                <artifactId>pitest-maven</artifactId>
-         <version>1.22.0</version>
-          <configuration>
-          <threads>16</threads>
-
-                    <timeoutConstant>8000</timeoutConstant>
-                    <mutators>
-                        <mutator>STRONGER</mutator>
-                    </mutators>
-                    <avoidCallsTo>
-                        <avoidCallsTo>java.*</avoidCallsTo>
-                        <avoidCallsTo>org.apache.log4j</avoidCallsTo>
-                        <avoidCallsTo>org.slf4j.*</avoidCallsTo>
-                        <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
-                    </avoidCallsTo>
-                    <verbose>false</verbose>
-                    <targetClasses>
-                        <param>spark.*</param>
-                    </targetClasses>
-                    <targetTests>
-                        <param>spark.*</param>
-                    </targetTests>
-                    <excludedTestClasses>
-                        <param>*RequestTest</param>
-                        <param>*ResponseTest</param>
-                        <param>*SessionTest</param>
-                        <param>*ServiceTest</param>
-                        <param>*EmbeddedServersTest</param>
-                        <param>*EmbeddedJettyFactoryTest</param>
-                        <param>*ServletFlagTest</param>
-                        <param>*WebSocketServletContextHandlerFactoryTest</param>
-                        <param>*StaticFilesFromArchiveTest</param>
-                        <param>*ServletTest</param>
-                    </excludedTestClasses>
-                    <fullMutationMatrix>true</fullMutationMatrix>
-                    <exportLineCoverage>true</exportLineCoverage>
-                    <outputFormats>XML</outputFormats>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -222,31 +177,54 @@
                     </execution>
                 </executions>
             </plugin>
+<plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>1.9.8</version>
+    <configuration>
+        <threads>1</threads>
+        <timeoutConstant>60000</timeoutConstant>
+        <timeoutFactor>2.0</timeoutFactor>
+        <mutators>
+            <mutator>STRONGER</mutator>
+        </mutators>
+        <avoidCallsTo>
+            <avoidCallsTo>java.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+            <avoidCallsTo>org.slf4j.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+        </avoidCallsTo>
+        <verbose>false</verbose>
+        <targetClasses>
+            <param>spark.*</param>
+        </targetClasses>
+        <targetTests>
+            <param>spark.*</param>
+        </targetTests>
+        <excludedTestClasses>
+            <param>spark.*IntegrationTest</param>
+            <param>spark.*Test</param>
+        </excludedTestClasses>
+        <includedTestClasses>
+            <param>spark.route.*</param>
+            <param>spark.utils.*</param>
+        </includedTestClasses>
+        <fullMutationMatrix>true</fullMutationMatrix>
+        <exportLineCoverage>true</exportLineCoverage>
+        <outputFormats>XML</outputFormats>
+        <skipFailingTests>true</skipFailingTests>
+        <jvmArgs>
+            <value>-Dspark.test.port.start=45670</value>
+        </jvmArgs>
+    </configuration>
+</plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.0</version>
                 <configuration>
-                    <forkCount>0</forkCount>
+                    <forkCount>1</forkCount>
                     <reuseForks>false</reuseForks>
-                    <redirectTestOutputToFile>true</redirectTestOutputToFile>
-                    <excludes>
-                        <!-- Request/Response/Session/Service tests -->
-                        <exclude>**/RequestTest.*</exclude>
-                        <exclude>**/ResponseTest.*</exclude>
-                        <exclude>**/SessionTest.*</exclude>
-                        <exclude>**/ServiceTest.*</exclude>
-
-                        <!-- Embedded server / Jetty / servlet flag / websocket -->
-                        <exclude>**/EmbeddedServersTest.*</exclude>
-                        <exclude>**/EmbeddedJettyFactoryTest.*</exclude>
-                        <exclude>**/ServletFlagTest.*</exclude>
-                        <exclude>**/WebSocketServletContextHandlerFactoryTest.*</exclude>
-                        <exclude>**/ServletTest.*</exclude>
-
-
-                        <exclude>**/StaticFilesFromArchiveTest.*</exclude>
-                    </excludes>
                 </configuration>
             </plugin>
             <plugin>
@@ -265,22 +243,4 @@
             </plugin>
         </plugins>
     </build>
-    <profiles>
-        <profile>
-            <id>testID</id>
-            <activation>
-                <property>
-                    <name>test.dir</name>
-                </property>
-            </activation>
-        </profile>
-        <profile>
-            <id>targetID</id>
-            <activation>
-                <property>
-                    <name>target.dir</name>
-                </property>
-            </activation>
-        </profile>
-    </profiles>
 </project>
