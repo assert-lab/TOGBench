@@ -159,6 +159,7 @@
     </dependency>
 
 		<!-- TEST end -->
+
 	</dependencies>
 
 	<build>
@@ -187,6 +188,15 @@
 				<groupId>org.pitest</groupId>
 				<artifactId>pitest-maven</artifactId>
         <version>1.22.0</version>
+
+		  <dependencies>
+    <dependency>
+      <groupId>org.pitest</groupId>
+      <artifactId>pitest-junit5-plugin</artifactId>
+      <version>1.2.1</version>
+    </dependency>
+  </dependencies>
+  
           <configuration>
           <threads>16</threads>
 

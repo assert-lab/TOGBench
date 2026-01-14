@@ -29,8 +29,6 @@ under the License.
   <description>Provide common setup, from http://maven.apache.org/plugins/maven-checkstyle-plugin/examples/multi-module-config.html</description>
 
   <build>
-    <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
-    <directory>${project.basedir}/${target.dir}/</directory>
     <pluginManagement>
       <plugins>
         <plugin>

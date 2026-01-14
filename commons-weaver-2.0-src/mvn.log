@@ -280,3 +280,1765 @@ java.lang.IllegalArgumentException: Unsupported class file major version 61
 [ERROR] 
 [ERROR] After correcting the problems, you can resume the build with the command
 [ERROR]   mvn <args> -rf :commons-weaver-processor
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Apache Commons Weaver                                              [pom]
+[INFO] Apache Commons Weaver Build Tools                                  [jar]
+[INFO] Apache Commons Weaver Parent                                       [pom]
+[INFO] Apache Commons Weaver Processor                                    [jar]
+[INFO] Apache Commons Weaver Maven Plugin                        [maven-plugin]
+[INFO] Apache Commons Weaver Antlib                                       [jar]
+[INFO] Apache Commons Weaver Modules aggregator project                   [pom]
+[INFO] Apache Commons Weaver Privilizer Parent POM                        [pom]
+[INFO] Apache Commons Weaver Privilizer API                               [jar]
+[INFO] Apache Commons Weaver Privilizer Weaver                            [jar]
+[INFO] Apache Commons Weaver Normalizer                                   [jar]
+[INFO] Apache Commons Weaver Distribution                                 [pom]
+[INFO] 
+[INFO] ---------------< org.apache.commons:commons-weaver-base >---------------
+[INFO] Building Apache Commons Weaver 2.0                                [1/12]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-base ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-base ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-base ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-base ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-base ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-base ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-base ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-base ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-base ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768264465469
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-base ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-base ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] -----------< org.apache.commons:commons-weaver-build-tools >------------
+[INFO] Building Apache Commons Weaver Build Tools 2.0                    [2/12]
+[INFO]   from build-tools/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-build-tools ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-build-tools ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/${target.dir}/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-build-tools ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768264468416
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-build-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-build-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-build-tools ---
+[WARNING] Manifest org.apache.commons:commons-weaver-build-tools:jar:2.0 : No translation found for macro: target.dir
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-build-tools ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-build-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-build-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-weaver-parent >--------------
+[INFO] Building Apache Commons Weaver Parent 2.0                         [3/12]
+[INFO]   from parent/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-parent ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/parent/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-parent ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-parent ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-parent ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-parent ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-parent ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-parent ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/parent' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/parent
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768264471337
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-parent ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] ------------< org.apache.commons:commons-weaver-processor >-------------
+[INFO] Building Apache Commons Weaver Processor 2.0                      [4/12]
+[INFO]   from processor/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-processor ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-processor ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-processor ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768264472618
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-processor ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/src/main/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-processor ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 39 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/${target.dir}/classes
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-processor ---
+[WARNING] Manifest org.apache.commons:commons-weaver-processor:jar:2.0 : No translation found for macro: target.dir
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-processor ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- build-helper:1.9:add-test-resource (add-test-notices) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-processor ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-processor ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-processor ---
+[INFO] 
+[INFO] -----------< org.apache.commons:commons-weaver-maven-plugin >-----------
+[INFO] Building Apache Commons Weaver Maven Plugin 2.0                   [5/12]
+[INFO]   from maven-plugin/pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-maven-plugin ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-maven-plugin ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- plugin:3.5.2:helpmojo (help-goal) @ commons-weaver-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] java-annotations mojo extractor found 0 mojo descriptor.
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-maven-plugin ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768264489545
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-maven-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 10 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/${target.dir}/classes
+[INFO] 
+[INFO] --- plugin:3.5.2:descriptor (default-descriptor) @ commons-weaver-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] java-annotations mojo extractor found 5 mojo descriptors.
+[INFO] 
+[INFO] --- plugin:3.5.2:descriptor (mojo-descriptor) @ commons-weaver-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] java-annotations mojo extractor found 5 mojo descriptors.
+[INFO] 
+[INFO] --- bundle:2.4.0:manifest (bundle-manifest) @ commons-weaver-maven-plugin ---
+[WARNING] Manifest org.apache.commons:commons-weaver-maven-plugin:maven-plugin:2.0 : No translation found for macro: target.dir
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-maven-plugin ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-maven-plugin ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-weaver-antlib >--------------
+[INFO] Building Apache Commons Weaver Antlib 2.0                         [6/12]
+[INFO]   from ant/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-antlib ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant (includes = [dependency-reduced-pom.xml], excludes = [])
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-antlib ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-antlib ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-antlib ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768264500449
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-antlib ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-antlib ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/${target.dir}/classes
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-antlib ---
+[WARNING] Manifest org.apache.commons:commons-weaver-antlib:jar:2.0 : No translation found for macro: target.dir
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-antlib ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-antlib ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-antlib ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] ----------< org.apache.commons:commons-weaver-modules-parent >----------
+[INFO] Building Apache Commons Weaver Modules aggregator project 2.0     [7/12]
+[INFO]   from modules/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-modules-parent ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-modules-parent ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-modules-parent ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-modules-parent ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-modules-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-modules-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-modules-parent ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-modules-parent ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-modules-parent ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768264505427
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-modules-parent ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-modules-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --------< org.apache.commons:commons-weaver-privilizer-parent >---------
+[INFO] Building Apache Commons Weaver Privilizer Parent POM 2.0          [8/12]
+[INFO]   from modules/privilizer/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-privilizer-parent ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-privilizer-parent ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-privilizer-parent ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-privilizer-parent ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-privilizer-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-privilizer-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-privilizer-parent ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-privilizer-parent ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-privilizer-parent ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768264506163
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-privilizer-parent ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-privilizer-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] ----------< org.apache.commons:commons-weaver-privilizer-api >----------
+[INFO] Building Apache Commons Weaver Privilizer API 2.0                 [9/12]
+[INFO]   from modules/privilizer/api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-privilizer-api ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-privilizer-api ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-privilizer-api ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768264506970
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-privilizer-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/src/main/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-privilizer-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/${target.dir}/classes
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-privilizer-api ---
+[WARNING] Manifest org.apache.commons:commons-weaver-privilizer-api:jar:2.0 : No translation found for macro: target.dir
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-privilizer-api ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-privilizer-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-privilizer-api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] ------------< org.apache.commons:commons-weaver-privilizer >------------
+[INFO] Building Apache Commons Weaver Privilizer Weaver 2.0             [10/12]
+[INFO]   from modules/privilizer/weaver/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-privilizer ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver (includes = [dependency-reduced-pom.xml], excludes = [])
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-privilizer ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-privilizer ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-privilizer ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768264509975
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-privilizer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-privilizer ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/${target.dir}/classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/main/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/main/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor.java uses or overrides a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/main/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor.java: Recompile with -Xlint:removal for details.
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-privilizer ---
+[WARNING] Manifest org.apache.commons:commons-weaver-privilizer:jar:2.0 : No translation found for macro: target.dir
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-privilizer ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- build-helper:1.9:add-test-resource (add-test-notices) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-privilizer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-privilizer ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] ------------< org.apache.commons:commons-weaver-normalizer >------------
+[INFO] Building Apache Commons Weaver Normalizer 2.0                    [11/12]
+[INFO]   from modules/normalizer/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-normalizer ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer (includes = [dependency-reduced-pom.xml], excludes = [])
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-normalizer ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-normalizer ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-normalizer ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-normalizer ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-normalizer ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-normalizer ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-normalizer ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-normalizer ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768264519730
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-normalizer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-normalizer ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/${target.dir}/classes
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-normalizer ---
+[WARNING] Manifest org.apache.commons:commons-weaver-normalizer:jar:2.0 : No translation found for macro: target.dir
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-normalizer ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- build-helper:1.9:add-test-resource (add-test-notices) @ commons-weaver-normalizer ---
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-normalizer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/normalizer/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-normalizer ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-normalizer ---
+[INFO] 
+[INFO] -----------------< org.apache.commons:commons-weaver >------------------
+[INFO] Building Apache Commons Weaver Distribution 2.0                  [12/12]
+[INFO]   from dist/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/dist' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/dist
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768264527152
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Apache Commons Weaver 2.0:
+[INFO] 
+[INFO] Apache Commons Weaver .............................. SUCCESS [  7.333 s]
+[INFO] Apache Commons Weaver Build Tools .................. SUCCESS [  3.535 s]
+[INFO] Apache Commons Weaver Parent ....................... SUCCESS [  0.723 s]
+[INFO] Apache Commons Weaver Processor .................... SUCCESS [ 13.447 s]
+[INFO] Apache Commons Weaver Maven Plugin ................. SUCCESS [ 14.609 s]
+[INFO] Apache Commons Weaver Antlib ....................... SUCCESS [  5.420 s]
+[INFO] Apache Commons Weaver Modules aggregator project ... SUCCESS [  0.679 s]
+[INFO] Apache Commons Weaver Privilizer Parent POM ........ SUCCESS [  0.589 s]
+[INFO] Apache Commons Weaver Privilizer API ............... SUCCESS [  2.707 s]
+[INFO] Apache Commons Weaver Privilizer Weaver ............ SUCCESS [  9.617 s]
+[INFO] Apache Commons Weaver Normalizer ................... SUCCESS [  8.023 s]
+[INFO] Apache Commons Weaver Distribution ................. SUCCESS [  3.106 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:11 min
+[INFO] Finished at: 2026-01-12T19:35:30-05:00
+[INFO] ------------------------------------------------------------------------
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Apache Commons Weaver                                              [pom]
+[INFO] Apache Commons Weaver Build Tools                                  [jar]
+[INFO] Apache Commons Weaver Parent                                       [pom]
+[INFO] Apache Commons Weaver Processor                                    [jar]
+[INFO] Apache Commons Weaver Maven Plugin                        [maven-plugin]
+[INFO] Apache Commons Weaver Antlib                                       [jar]
+[INFO] Apache Commons Weaver Modules aggregator project                   [pom]
+[INFO] Apache Commons Weaver Privilizer Parent POM                        [pom]
+[INFO] Apache Commons Weaver Privilizer API                               [jar]
+[INFO] Apache Commons Weaver Privilizer Weaver                            [jar]
+[INFO] Apache Commons Weaver Normalizer                                   [jar]
+[INFO] Apache Commons Weaver Distribution                                 [pom]
+[INFO] 
+[INFO] ---------------< org.apache.commons:commons-weaver-base >---------------
+[INFO] Building Apache Commons Weaver 2.0                                [1/12]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-base ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-base ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-base ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-base ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-base ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-base ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-base ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-base ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-base ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768266281772
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-base ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-base ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] -----------< org.apache.commons:commons-weaver-build-tools >------------
+[INFO] Building Apache Commons Weaver Build Tools 2.0                    [2/12]
+[INFO]   from build-tools/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-build-tools ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-build-tools ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-build-tools ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/target/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-build-tools ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768266284545
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-build-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-build-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-build-tools ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-build-tools ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/build-tools/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-build-tools ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-build-tools ---
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-weaver-parent >--------------
+[INFO] Building Apache Commons Weaver Parent 2.0                         [3/12]
+[INFO]   from parent/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-parent ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/parent/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-parent ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-parent ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-parent ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-parent ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-parent ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-parent ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/parent' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/parent
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768266286881
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-parent ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] ------------< org.apache.commons:commons-weaver-processor >-------------
+[INFO] Building Apache Commons Weaver Processor 2.0                      [4/12]
+[INFO]   from processor/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-processor ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-processor ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-processor ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-processor ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768266288805
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-processor ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/src/main/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-processor ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 39 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/classes
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-processor ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- build-helper:1.9:add-test-resource (add-test-notices) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-processor ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-processor ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 14 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/processor/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-processor ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.weaver.utils.ArgsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.893 s - in org.apache.commons.weaver.utils.ArgsTest
+[INFO] Running org.apache.commons.weaver.utils.ProvidersTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 s - in org.apache.commons.weaver.utils.ProvidersTest
+[INFO] Running org.apache.commons.weaver.test.WeaveProcessorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.495 s - in org.apache.commons.weaver.test.WeaveProcessorTest
+[INFO] Running org.apache.commons.weaver.test.CleanProcessorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.444 s - in org.apache.commons.weaver.test.CleanProcessorTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] -----------< org.apache.commons:commons-weaver-maven-plugin >-----------
+[INFO] Building Apache Commons Weaver Maven Plugin 2.0                   [5/12]
+[INFO]   from maven-plugin/pom.xml
+[INFO] ----------------------------[ maven-plugin ]----------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-maven-plugin ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-maven-plugin ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-maven-plugin ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- plugin:3.5.2:helpmojo (help-goal) @ commons-weaver-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] java-annotations mojo extractor found 0 mojo descriptor.
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-maven-plugin ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768266308769
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-maven-plugin ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 10 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/target/classes
+[INFO] 
+[INFO] --- plugin:3.5.2:descriptor (default-descriptor) @ commons-weaver-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] java-annotations mojo extractor found 5 mojo descriptors.
+[INFO] 
+[INFO] --- plugin:3.5.2:descriptor (mojo-descriptor) @ commons-weaver-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to read mojo source files.
+[INFO] java-javadoc mojo extractor found 0 mojo descriptor.
+[INFO] java-annotations mojo extractor found 5 mojo descriptors.
+[INFO] 
+[INFO] --- bundle:2.4.0:manifest (bundle-manifest) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-maven-plugin ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-maven-plugin ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/maven-plugin/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-maven-plugin ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-maven-plugin ---
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-weaver-antlib >--------------
+[INFO] Building Apache Commons Weaver Antlib 2.0                         [6/12]
+[INFO]   from ant/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-antlib ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant (includes = [dependency-reduced-pom.xml], excludes = [])
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-antlib ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-antlib ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-antlib ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768266318772
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-antlib ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-antlib ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/classes
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-antlib ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-antlib ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-antlib ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-antlib ---
+[INFO] 
+[INFO] ----------< org.apache.commons:commons-weaver-modules-parent >----------
+[INFO] Building Apache Commons Weaver Modules aggregator project 2.0     [7/12]
+[INFO]   from modules/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-modules-parent ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-modules-parent ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-modules-parent ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-modules-parent ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-modules-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-modules-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-modules-parent ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-modules-parent ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-modules-parent ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768266323796
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-modules-parent ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-modules-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --------< org.apache.commons:commons-weaver-privilizer-parent >---------
+[INFO] Building Apache Commons Weaver Privilizer Parent POM 2.0          [8/12]
+[INFO]   from modules/privilizer/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-privilizer-parent ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-privilizer-parent ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-privilizer-parent ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-privilizer-parent ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-privilizer-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-privilizer-parent ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-privilizer-parent ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-privilizer-parent ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-privilizer-parent ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768266324360
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-privilizer-parent ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-privilizer-parent ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] ----------< org.apache.commons:commons-weaver-privilizer-api >----------
+[INFO] Building Apache Commons Weaver Privilizer API 2.0                 [9/12]
+[INFO]   from modules/privilizer/api/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-privilizer-api ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-privilizer-api ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-privilizer-api ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-privilizer-api ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768266325910
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-privilizer-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/src/main/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-privilizer-api ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/target/classes
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-privilizer-api ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-privilizer-api ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/api/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-privilizer-api ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-privilizer-api ---
+[INFO] 
+[INFO] ------------< org.apache.commons:commons-weaver-privilizer >------------
+[INFO] Building Apache Commons Weaver Privilizer Weaver 2.0             [10/12]
+[INFO]   from modules/privilizer/weaver/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-privilizer ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver (includes = [dependency-reduced-pom.xml], excludes = [])
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-privilizer ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-privilizer ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-privilizer ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768266329625
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-privilizer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-privilizer ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/main/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/main/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor.java uses or overrides a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/main/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor.java: Recompile with -Xlint:removal for details.
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-privilizer ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- build-helper:1.9:add-test-resource (add-test-notices) @ commons-weaver-privilizer ---
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-privilizer ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-privilizer ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 22 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest.java:[10,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest.java:[12,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest.java:[13,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest_scaffolding.java:[17,2] cannot find symbol
+  symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest.java:[17,28] cannot find symbol
+  symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest_scaffolding.java:[21,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest_scaffolding.java:[25,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest.java:[11,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest.java:[12,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest_scaffolding.java:[17,2] cannot find symbol
+  symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest.java:[15,28] cannot find symbol
+  symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest_scaffolding.java:[21,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest_scaffolding.java:[25,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[17,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[18,2] cannot find symbol
+  symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[22,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[26,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest.java:[10,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest.java:[11,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest.java:[15,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest.java:[16,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest.java:[17,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[17,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[18,2] cannot find symbol
+  symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest.java:[20,28] cannot find symbol
+  symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[22,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[26,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest.java:[10,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest.java:[14,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest.java:[15,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest_scaffolding.java:[17,2] cannot find symbol
+  symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest.java:[21,28] cannot find symbol
+  symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest_scaffolding.java:[21,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest_scaffolding.java:[25,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest.java:[10,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest.java:[13,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest.java:[14,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest_scaffolding.java:[17,2] cannot find symbol
+  symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest.java:[18,28] cannot find symbol
+  symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest_scaffolding.java:[21,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest_scaffolding.java:[25,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[17,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[18,2] cannot find symbol
+  symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[22,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[26,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor_ESTest_scaffolding.java:[17,2] cannot find symbol
+  symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor_ESTest_scaffolding.java:[21,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor_ESTest_scaffolding.java:[25,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest.java:[10,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest.java:[11,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest.java:[17,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest.java:[18,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest.java:[19,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest.java:[27,28] cannot find symbol
+  symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest.java:[10,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest.java:[11,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest.java:[14,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest.java:[15,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest.java:[16,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest.java:[20,28] cannot find symbol
+  symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest_scaffolding.java:[17,2] cannot find symbol
+  symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest_scaffolding.java:[21,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest_scaffolding.java:[25,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest.java:[10,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest.java:[12,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest.java:[13,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest.java:[17,28] cannot find symbol
+  symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerWeaver_ESTest.java:[10,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerWeaver_ESTest.java:[11,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerWeaver_ESTest.java:[15,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerWeaver_ESTest.java:[16,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerWeaver_ESTest.java:[17,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerWeaver_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Apache Commons Weaver 2.0:
+[INFO] 
+[INFO] Apache Commons Weaver .............................. SUCCESS [  6.972 s]
+[INFO] Apache Commons Weaver Build Tools .................. SUCCESS [  2.997 s]
+[INFO] Apache Commons Weaver Parent ....................... SUCCESS [  0.570 s]
+[INFO] Apache Commons Weaver Processor .................... SUCCESS [ 16.958 s]
+[INFO] Apache Commons Weaver Maven Plugin ................. SUCCESS [ 13.299 s]
+[INFO] Apache Commons Weaver Antlib ....................... SUCCESS [  6.108 s]
+[INFO] Apache Commons Weaver Modules aggregator project ... SUCCESS [  0.554 s]
+[INFO] Apache Commons Weaver Privilizer Parent POM ........ SUCCESS [  0.510 s]
+[INFO] Apache Commons Weaver Privilizer API ............... SUCCESS [  3.359 s]
+[INFO] Apache Commons Weaver Privilizer Weaver ............ FAILURE [ 10.946 s]
+[INFO] Apache Commons Weaver Normalizer ................... SKIPPED
+[INFO] Apache Commons Weaver Distribution ................. SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:03 min
+[INFO] Finished at: 2026-01-12T20:05:39-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project commons-weaver-privilizer: Compilation failure: Compilation failure: 
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest.java:[10,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest.java:[12,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest.java:[13,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest_scaffolding.java:[17,2] cannot find symbol
+[ERROR]   symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest.java:[17,28] cannot find symbol
+[ERROR]   symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest_scaffolding.java:[21,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/FieldAccess_ESTest_scaffolding.java:[25,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest.java:[11,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest.java:[12,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest_scaffolding.java:[17,2] cannot find symbol
+[ERROR]   symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest.java:[15,28] cannot find symbol
+[ERROR]   symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest_scaffolding.java:[21,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Policy_ESTest_scaffolding.java:[25,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[17,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[18,2] cannot find symbol
+[ERROR]   symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[22,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest_scaffolding.java:[26,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest.java:[10,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest.java:[11,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest.java:[15,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest.java:[16,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest.java:[17,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[17,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[18,2] cannot find symbol
+[ERROR]   symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest.java:[20,28] cannot find symbol
+[ERROR]   symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[22,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerCleaner_ESTest_scaffolding.java:[26,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest.java:[10,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest.java:[14,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest.java:[15,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest_scaffolding.java:[17,2] cannot find symbol
+[ERROR]   symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest.java:[21,28] cannot find symbol
+[ERROR]   symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest_scaffolding.java:[21,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/InlineNestedPrivilegedCalls_ESTest_scaffolding.java:[25,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest.java:[10,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest.java:[13,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest.java:[14,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest_scaffolding.java:[17,2] cannot find symbol
+[ERROR]   symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest.java:[18,28] cannot find symbol
+[ERROR]   symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest_scaffolding.java:[21,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/ActionGenerator_ESTest_scaffolding.java:[25,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[17,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[18,2] cannot find symbol
+[ERROR]   symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[22,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest_scaffolding.java:[26,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor_ESTest_scaffolding.java:[17,2] cannot find symbol
+[ERROR]   symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor_ESTest_scaffolding.java:[21,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizingVisitor_ESTest_scaffolding.java:[25,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest.java:[10,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest.java:[11,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest.java:[17,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest.java:[18,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest.java:[19,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/BlueprintingVisitor_ESTest.java:[27,28] cannot find symbol
+[ERROR]   symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest.java:[10,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest.java:[11,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest.java:[14,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest.java:[15,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest.java:[16,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Privilizer_ESTest.java:[20,28] cannot find symbol
+[ERROR]   symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest_scaffolding.java:[14,36] package org.evosuite.runtime.sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest_scaffolding.java:[15,44] package org.evosuite.runtime.sandbox.Sandbox does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest_scaffolding.java:[17,2] cannot find symbol
+[ERROR]   symbol: class EvoSuiteClassExclude
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest_scaffolding.java:[21,35] package org.evosuite.runtime.vnet does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest_scaffolding.java:[25,38] package org.evosuite.runtime.thread does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest.java:[10,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest.java:[12,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest.java:[13,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/Field_ESTest.java:[17,28] cannot find symbol
+[ERROR]   symbol: class EvoRunnerParameters
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerWeaver_ESTest.java:[10,46] package org.evosuite.shaded.org.mockito does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerWeaver_ESTest.java:[11,35] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerWeaver_ESTest.java:[15,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerWeaver_ESTest.java:[16,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerWeaver_ESTest.java:[17,28] package org.evosuite.runtime does not exist
+[ERROR] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/modules/privilizer/weaver/src/test/java/org/apache/commons/weaver/privilizer/PrivilizerWeaver_ESTest_scaffolding.java:[9,39] package org.evosuite.runtime.annotation does not exist
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :commons-weaver-privilizer

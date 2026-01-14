@@ -27,3 +27,5 @@ fi
 
 end_ts=$(date "+%Y-%m-%d %H:%M:%S")
 echo "ended at: $end_ts" | tee -a pit.log
+
+mvn pitest:mutationCoverage 2>&1 | tee pit.log

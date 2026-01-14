@@ -4,7 +4,7 @@
 start_ts=$(date "+%Y-%m-%d %H:%M:%S")
 echo "began at: $start_ts" > mvn.log
 
-timeout 30m mvn clean test -Drat.skip=true -Dtest.dir=src -Dtarget.dir=target 2>&1 | tee -a mvn.log
+timeout 30m mvn clean test 2>&1 | tee -a mvn.log
 exit_code=$?
 
 if [ $exit_code -eq 124 ]; then

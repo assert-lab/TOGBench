@@ -1,4 +1,4 @@
-began at: 2026-01-12 00:02:58
+began at: 2026-01-13 17:25:51
 Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] Scanning for projects...
 [INFO] 
@@ -6,10 +6,9 @@ Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] Building Apache Commons Numbers Fraction 1.0
 [INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-numbers-core/1.0/commons-numbers-core-1.0-tests.jar
-Progress (1): 0.9/43 kBProgress (1): 2.3/43 kBProgress (1): 3.6/43 kBProgress (1): 5.0/43 kBProgress (1): 6.4/43 kBProgress (1): 7.8/43 kBProgress (1): 9.1/43 kBProgress (1): 10/43 kB Progress (1): 12/43 kBProgress (1): 13/43 kBProgress (1): 14/43 kBProgress (1): 16/43 kBProgress (1): 17/43 kBProgress (1): 18/43 kBProgress (1): 20/43 kBProgress (1): 21/43 kBProgress (1): 22/43 kBProgress (1): 24/43 kBProgress (1): 25/43 kBProgress (1): 27/43 kBProgress (1): 28/43 kBProgress (1): 29/43 kBProgress (1): 31/43 kBProgress (1): 32/43 kBProgress (1): 33/43 kBProgress (1): 35/43 kBProgress (1): 36/43 kBProgress (1): 38/43 kBProgress (1): 39/43 kBProgress (1): 40/43 kBProgress (1): 42/43 kBProgress (1): 43/43 kBProgress (1): 43 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-numbers-core/1.0/commons-numbers-core-1.0-tests.jar (43 kB at 136 kB/s)
 [INFO] 
 [INFO] --- clean:3.1.0:clean (default-clean) @ commons-numbers-fraction ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-numbers-1.0-src/commons-numbers-fraction/target
 [INFO] 
 [INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-fraction ---
 [INFO] 
@@ -33,7 +32,7 @@ main:
 [INFO] --- buildnumber:1.4:create (default) @ commons-numbers-fraction ---
 [INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-numbers-1.0-src/commons-numbers-fraction' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-numbers-1.0-src/commons-numbers-fraction
-[INFO] Storing buildNumber: 77d944d491f2532ea8dc274ce81490a072a96fd9 at timestamp: 1768194180739
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768343159582
 [INFO] Storing buildScmBranch: main
 [INFO] 
 [INFO] --- resources:3.1.0:resources (default-resources) @ commons-numbers-fraction ---
@@ -403,14 +402,14 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:75)
 	at org.jacoco.agent.rt.internal_43f5073.core.instr.Instrumenter.instrument(Instrumenter.java:107)
 	... 44 more
-[INFO] Running org.apache.commons.numbers.fraction.ContinuedFractionTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.numbers.fraction.ContinuedFractionTest
-[INFO] Running org.apache.commons.numbers.fraction.FractionTest
-[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.numbers.fraction.FractionTest
-[INFO] Running org.apache.commons.numbers.fraction.BigFractionTest
-[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.127 s - in org.apache.commons.numbers.fraction.BigFractionTest
 [INFO] Running org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest
+[INFO] Running org.apache.commons.numbers.fraction.BigFractionTest
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.14 s - in org.apache.commons.numbers.fraction.BigFractionTest
+[INFO] Running org.apache.commons.numbers.fraction.FractionTest
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.numbers.fraction.FractionTest
+[INFO] Running org.apache.commons.numbers.fraction.ContinuedFractionTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.numbers.fraction.ContinuedFractionTest
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -419,7 +418,7 @@ Caused by: java.lang.IllegalArgumentException: Unsupported class file major vers
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.241 s
-[INFO] Finished at: 2026-01-12T00:03:03-05:00
+[INFO] Total time:  4.604 s
+[INFO] Finished at: 2026-01-13T17:26:02-05:00
 [INFO] ------------------------------------------------------------------------
-ended at: 2026-01-12 00:03:45
+ended at: 2026-01-13 17:26:03

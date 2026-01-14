@@ -68,16 +68,35 @@
       <version>4.12</version>
       <scope>test</scope>
     </dependency>
+
+  <dependency>
+    <groupId>org.junit.vintage</groupId>
+    <artifactId>junit-vintage-engine</artifactId>
+    <scope>test</scope>
+  </dependency>
+  
+  <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-numbers-core</artifactId>
+  </dependency>
+
   </dependencies>
   <build>
-    <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
-    <directory>${project.basedir}/${target.dir}/</directory>
     <plugins>
 
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
         <version>1.22.0</version>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.pitest</groupId>
+      <artifactId>pitest-junit5-plugin</artifactId>
+      <version>1.0.0</version> 
+    </dependency>
+  </dependencies>
+
           <configuration>
           <threads>16</threads>
 

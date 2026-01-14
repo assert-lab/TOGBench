@@ -63,6 +63,45 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.22.0</version>
+        <dependencies>
+          <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-junit5-plugin</artifactId>
+            <version>1.0.0</version> 
+          </dependency>
+        </dependencies>
+        <configuration>
+          <threads>16</threads>
+          <timeoutConstant>8000</timeoutConstant>
+          <mutators>
+            <mutator>STRONGER</mutator>
+          </mutators>
+          <avoidCallsTo>
+            <avoidCallsTo>java.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+            <avoidCallsTo>org.slf4j.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+          </avoidCallsTo>
+          <verbose>false</verbose>
+          <targetClasses>
+            <param>org.apache.commons.rng.examples.stress.*</param>
+          </targetClasses>
+          <targetTests>
+            <param>org.apache.commons.rng.examples.stress.*</param>
+          </targetTests>
+          <fullMutationMatrix>true</fullMutationMatrix>
+          <exportLineCoverage>true</exportLineCoverage>
+          <outputFormats>
+            <outputFormat>XML</outputFormat>
+            <outputFormat>HTML</outputFormat>
+          </outputFormats>
+        </configuration>
+      </plugin>
+      
+      <plugin>
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>${rng.checkstyle.version}</version>
         <!-- The custom ApplicationException cannot be loaded by checkstyle unless the source is
