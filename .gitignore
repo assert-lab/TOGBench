@@ -1,0 +1,17 @@
+# Maven build artifacts
+**/target/
+
+# PIT reports
+**/pit-reports/
+**/pitreport/
+**/linecoverage.xml
+**/mutations.xml
+commons-imaging-1.0-alpha3-src/pit.log
+
+# TOGA outputs
+**/toga_output/
+
+# Maven build output
+**/target/
+
+**/mutation-report/
