@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>async-http-client-extras-parent</artifactId>
+    <groupId>org.asynchttpclient</groupId>
+    <version>2.12.3</version>
+  </parent>
+
+  <artifactId>async-http-client-extras-typesafe-config</artifactId>
+  <name>Asynchronous Http Client Typesafe Config Extras</name>
+  <description>The Async Http Client Typesafe Config Extras.</description>
+
+  <properties>
+    <typesafeconfig.version>1.3.3</typesafeconfig.version>
+    <javaModuleName>org.asynchttpclient.extras.typesafeconfig</javaModuleName>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.typesafe</groupId>
+      <artifactId>config</artifactId>
+      <version>${typesafeconfig.version}</version>
+    </dependency>
+  </dependencies>
+
+   <build>
+    <plugins>
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.22.0</version>
+
+        <dependencies>
+          <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-testng-plugin</artifactId>
+            <version>1.0.0</version>
+          </dependency>
+        </dependencies>
+
+        <configuration>
+          <testPlugin>testng</testPlugin>
+          <threads>8</threads>
+          <timeoutConstant>1000</timeoutConstant>
+          <mutators>
+            <mutator>STRONGER</mutator>
+          </mutators>
+          <avoidCallsTo>
+            <avoidCallsTo>java.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+            <avoidCallsTo>org.slf4j.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+          </avoidCallsTo>
+          <verbose>false</verbose>
+          <targetClasses>
+            <param>org.asynchttpclient.extras.*</param>
+          </targetClasses>
+          <targetTests>
+            <param>org.asynchttpclient.extras.*</param>
+          </targetTests>
+
+          <fullMutationMatrix>true</fullMutationMatrix>
+          <exportLineCoverage>true</exportLineCoverage>
+          <outputFormats>
+            <param>XML</param>
+          </outputFormats>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+</project>

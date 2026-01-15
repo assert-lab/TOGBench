@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>org.asynchttpclient</groupId>
+    <artifactId>async-http-client-project</artifactId>
+    <version>2.12.3</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>async-http-client-netty-utils</artifactId>
+  <name>Asynchronous Http Client Netty Utils</name>
+
+  <properties>
+    <javaModuleName>org.asynchttpclient.utils</javaModuleName>
+  </properties>
+
+<build>
+<plugins>
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.22.0</version>
+   <dependencies>
+        <dependency>
+          <groupId>org.pitest</groupId>
+          <artifactId>pitest-testng-plugin</artifactId>
+          <version>1.0.0</version>
+        </dependency>
+      </dependencies>
+
+
+        <configuration>
+        <testPlugin>testng</testPlugin>
+          <threads>8</threads>
+          <timeoutConstant>1000</timeoutConstant>
+          <mutators>
+            <mutator>STRONGER</mutator>
+          </mutators>
+          <avoidCallsTo>
+            <avoidCallsTo>java.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+            <avoidCallsTo>org.slf4j.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+          </avoidCallsTo>
+          <verbose>false</verbose>
+          <targetClasses>
+            <param>org.asynchttpclient*</param>
+          </targetClasses>
+          <targetTests>
+            <param>org.asynchttpclient.*</param>
+          </targetTests>
+<excludedTestClasses>
+  <param>**/AsyncStreamHandlerTest*</param>
+  <param>**/ReactiveStreamsTest*</param>
+  <param>**/WebdavTest*</param>
+  <param>**/ProxyTest*</param>
+</excludedTestClasses>
+          <fullMutationMatrix>true</fullMutationMatrix>
+          <exportLineCoverage>true</exportLineCoverage>
+          <outputFormats>XML</outputFormats>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+
+  <dependencies>
+    <dependency>
+      <groupId>io.netty</groupId>
+      <artifactId>netty-buffer</artifactId>
+    </dependency>
+  </dependencies>
+</project>

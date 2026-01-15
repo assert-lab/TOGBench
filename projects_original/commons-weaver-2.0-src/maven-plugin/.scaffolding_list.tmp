@@ -1,0 +1,6 @@
+org.apache.commons.weaver.maven.TestWeaveMojo_ESTest_scaffolding
+org.apache.commons.weaver.maven.WeaveMojo_ESTest_scaffolding
+org.apache.commons.weaver.maven.PrepareMojo_ESTest_scaffolding
+org.apache.commons.weaver.maven.AbstractPrepareMojo_ESTest_scaffolding
+org.apache.commons.weaver.maven.TestPrepareMojo_ESTest_scaffolding
+org.apache.commons.weaver.maven.AbstractWeaveMojo_ESTest_scaffolding

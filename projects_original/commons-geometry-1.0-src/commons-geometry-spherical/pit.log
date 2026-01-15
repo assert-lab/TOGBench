@@ -1,0 +1,1466 @@
+began at: 2026-01-11 23:27:44
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-geometry-spherical:jar:1.0
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ org.apache.commons:commons-geometry-parent:1.0, /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-geometry-1.0-src/pom.xml, line 232, column 15
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------< org.apache.commons:commons-geometry-spherical >------------
+[INFO] Building Apache Commons Geometry Spherical 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] Parameter 'testPlugin' is unknown for plugin 'pitest-maven:1.22.0:mutationCoverage (default-cli)'
+[INFO] 
+[INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ commons-geometry-spherical ---
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-geometry-1.0-src/commons-geometry-spherical
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Enum junk filter
+[INFO] Found plugin : Record junk mutation filter
+[INFO] Found plugin : String switch filter
+[INFO] Found plugin : Assertions filter
+[INFO] Found plugin : Enum switch filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Groovy junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Filters mutants with line number <= 1
+[INFO] Found plugin : Division by one equivalent mutant filter
+[INFO] Found plugin : Lombok junk mutations filter
+[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
+[INFO] Found plugin : Default build verifier
+[INFO] Found plugin : Detect missing JUnit5 plugin
+[INFO] Found plugin : Detect missing TestNG plugin
+[INFO] Found plugin : Detect missing kotlin plugin
+[INFO] Found plugin : Detect missing spring plugin
+[INFO] Found plugin : Default coverage exporter
+[INFO] Found plugin : Basic test statistics
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit 5 test framework support
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
+[INFO] Found shared classpath plugin : Reset environment for javassist
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[INFO] Adding org.pitest:pitest-junit5-plugin to SUT classpath
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-geometry-1.0-src/commons-geometry-spherical/target/classes
+11:27:47 PM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
+11:27:47 PM PIT >> INFO : Created 31 mutation test units in pre scan
+11:27:47 PM PIT >> INFO : MINION : Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+11:27:47 PM PIT >> INFO : Sending 52 test classes to minion
+11:27:47 PM PIT >> INFO : Sent tests to minion
+11:27:47 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:47 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:47 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@56078cea)
+11:27:47 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:47 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:47 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:47 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:47 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:47 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:47 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:47 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:47 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:47 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:47 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:47 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:47 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:47 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:47 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:47 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:47 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:47 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:47 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:47 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:47 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:47 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@1debc91c)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@e042c99)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@64fe9da7)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@1442f788)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@4e08acf9)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@de8039f)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@7e7f0216)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@5b3a7ef5)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@43e9089)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+\|/-\|/-\|11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+/-\11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@a9f023e)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@4ce94d2f)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@5e7c141d)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@350d3f4d)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+\|/-\|/11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@2a369e14)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+-\|/-\|/11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@4f89331f)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+-\|/-\|/-\|11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@142213d5)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+/-\|/-\|/11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@41294371)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+-\|/-\|11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@439b15f2)
+/11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@188ac8a3)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@71e4b308)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@6f1a16fe)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@57562473)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@12e5da86)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@1f03fba0)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+\|/-\|/-\|/-\|/-\|/11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@4b4eced1)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+-\|/-\|/-\|/11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@4e682398)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+-11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@4397a639)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@65ddee5a)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+-\11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@78a0ff63)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+|/11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@24d61e4)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+-\|/-\|/-\|11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@54067fdc)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+/11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+-\|/-\11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@5f2de715)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@2f860823)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+11:27:48 PM PIT >> INFO : MINION : Jan 11, 2026 11:27:48 PM org.junit.platform.launcher.core.CompositeTestExecutionListener lambda$notifyEach$19
+11:27:48 PM PIT >> INFO : MINION : WARNING: TestExecutionListener [org.junit.platform.launcher.listeners.UniqueIdTrackingListener] threw exception for method: testPlanExecutionStarted(org.junit.platform.launcher.core.InternalTestPlan@7bac686b)
+11:27:48 PM PIT >> INFO : MINION : java.lang.NoSuchMethodError: 'org.junit.platform.engine.ConfigurationParameters org.junit.platform.launcher.TestPlan.getConfigurationParameters()'
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.listeners.UniqueIdTrackingListener.testPlanExecutionStarted(UniqueIdTrackingListener.java:140)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$testPlanExecutionStarted$12(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.lambda$notifyEach$19(CompositeTestExecutionListener.java:95)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.notifyEach(CompositeTestExecutionListener.java:93)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.CompositeTestExecutionListener.testPlanExecutionStarted(CompositeTestExecutionListener.java:75)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+11:27:48 PM PIT >> INFO : MINION : 	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.junit5.JUnit5TestUnitFinder.findTestUnits(JUnit5TestUnitFinder.java:84)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.mutationtest.config.PrioritisingTestUnitFinder.findTestUnits(PrioritisingTestUnitFinder.java:20)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.lambda$findTestUnitsForAllSuppliedClasses$1(FindTestUnits.java:34)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:273)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.DistinctOps$1$2.accept(DistinctOps.java:174)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$StreamBuilderImpl.forEachRemaining(Streams.java:411)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.Streams$ConcatSpliterator.forEachRemaining(Streams.java:734)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$Head.forEach(ReferencePipeline.java:762)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline$7$1.accept(ReferencePipeline.java:276)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+11:27:48 PM PIT >> INFO : MINION : 	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.testapi.execute.FindTestUnits.findTestUnitsForAllSuppliedClasses(FindTestUnits.java:35)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.discoverTests(CoverageMinion.java:169)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.getTestsFromParent(CoverageMinion.java:154)
+11:27:48 PM PIT >> INFO : MINION : 	at org.pitest.coverage.execute.CoverageMinion.main(CoverageMinion.java:82)
+11:27:48 PM PIT >> INFO : MINION : 
+|/-\|/-\|/-\11:27:48 PM PIT >> INFO : Calculated coverage in 1 seconds.
+11:27:48 PM PIT >> INFO : 0 tests took longer than 2000 ms
+11:27:48 PM PIT >> INFO : Slowest test ([engine:junit-jupiter]/[class:org.apache.commons.geometry.spherical.twod.RegionBSPTree2STest]/[method:testCircleToPolygonCentroid()]) took 70 ms
+11:27:48 PM PIT >> INFO : Largest test ([engine:junit-jupiter]/[class:org.apache.commons.geometry.spherical.twod.RegionBSPTree2STest]/[method:testGeometricProperties_quadrant_complement()]) covered 1018 blocks
+11:27:49 PM PIT >> INFO : Created 31 mutation test units
+11:28:13 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+11:28:18 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+11:28:26 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+/-11:28:28 PM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
+\|/-\|/-\|/-\|/-\|/-\|/-\|/-\11:28:36 PM PIT >> INFO : Completed in 49 seconds
+================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE
+>> Generated 29 Killed 27 (93%)
+> KILLED 27 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 40 Killed 39 (98%)
+> KILLED 39 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator
+>> Generated 1 Killed 1 (100%)
+> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
+>> Generated 256 Killed 234 (91%)
+> KILLED 234 SURVIVED 21 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
+>> Generated 228 Killed 226 (99%)
+> KILLED 226 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
+>> Generated 29 Killed 25 (86%)
+> KILLED 24 SURVIVED 4 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
+>> Generated 50 Killed 40 (80%)
+> KILLED 40 SURVIVED 10 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
+>> Generated 34 Killed 34 (100%)
+> KILLED 34 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+>> Generated 29 Killed 18 (62%)
+> KILLED 18 SURVIVED 11 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
+>> Generated 1 Killed 1 (100%)
+> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
+>> Generated 43 Killed 41 (95%)
+> KILLED 41 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
+>> Generated 54 Killed 49 (91%)
+> KILLED 49 SURVIVED 4 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.InvertNegsMutator
+>> Generated 3 Killed 3 (100%)
+> KILLED 3 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
+>> Generated 25 Killed 23 (92%)
+> KILLED 23 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
+>> Generated 263 Killed 211 (80%)
+> KILLED 208 SURVIVED 51 TIMED_OUT 3 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1 
+--------------------------------------------------------------------------------
+================================================================================
+- Timings
+================================================================================
+> pre-scan for mutations : < 1 second
+> scan classpath : < 1 second
+> coverage and dependency analysis : 1 seconds
+> build mutation tests : < 1 second
+> run mutation analysis : 46 seconds
+--------------------------------------------------------------------------------
+> Total  : 48 seconds
+--------------------------------------------------------------------------------
+> 0 tests took longer than 2000 ms
+> Slowest test ([engine:junit-jupiter]/[class:org.apache.commons.geometry.spherical.twod.RegionBSPTree2STest]/[method:testCircleToPolygonCentroid()]) took 70 ms
+> Largest test ([engine:junit-jupiter]/[class:org.apache.commons.geometry.spherical.twod.RegionBSPTree2STest]/[method:testGeometricProperties_quadrant_complement()]) covered 1018 blocks
+================================================================================
+- Statistics
+================================================================================
+>> Line Coverage (for mutated classes only): 1282/1289 (99%)
+>> 52 tests examined
+>> Generated 1085 mutations Killed 972 (90%)
+>> Mutations with no coverage 4. Test strength 90%
+>> Ran 41237 tests (38.01 tests per mutation)
+Enhanced functionality available at https://www.arcmutate.com/
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  51.435 s
+[INFO] Finished at: 2026-01-11T23:28:36-05:00
+[INFO] ------------------------------------------------------------------------
+ended at: 2026-01-11 23:28:36

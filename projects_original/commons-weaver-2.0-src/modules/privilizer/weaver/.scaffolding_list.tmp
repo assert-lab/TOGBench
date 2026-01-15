@@ -1,0 +1,11 @@
+org.apache.commons.weaver.privilizer.PrivilizingVisitor_ESTest_scaffolding
+org.apache.commons.weaver.privilizer.ActionGenerator_ESTest_scaffolding
+org.apache.commons.weaver.privilizer.PrivilizerWeaver_ESTest_scaffolding
+org.apache.commons.weaver.privilizer.Privilizer_ESTest_scaffolding
+org.apache.commons.weaver.privilizer.PrivilizerCleaner_ESTest_scaffolding
+org.apache.commons.weaver.privilizer.FieldAccess_ESTest_scaffolding
+org.apache.commons.weaver.privilizer.Field_ESTest_scaffolding
+org.apache.commons.weaver.privilizer.InlineNestedPrivilegedCalls_ESTest_scaffolding
+org.apache.commons.weaver.privilizer.AccessLevel_ESTest_scaffolding
+org.apache.commons.weaver.privilizer.BlueprintingVisitor_ESTest_scaffolding
+org.apache.commons.weaver.privilizer.Policy_ESTest_scaffolding

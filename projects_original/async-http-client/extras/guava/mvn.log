@@ -1,0 +1,31 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------< org.asynchttpclient:async-http-client-extras-guava >---------
+[INFO] Building Asynchronous Http Client Guava Extras 2.12.3
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-versions) @ async-http-client-extras-guava ---
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ async-http-client-extras-guava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/guava/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.6.1:compile (default-compile) @ async-http-client-extras-guava ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ async-http-client-extras-guava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/guava/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-guava ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:2.19.1:test (default-test) @ async-http-client-extras-guava ---
+[INFO] No tests to run.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.971 s
+[INFO] Finished at: 2026-01-15T01:22:29-05:00
+[INFO] ------------------------------------------------------------------------

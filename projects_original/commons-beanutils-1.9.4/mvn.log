@@ -1,0 +1,280 @@
+began at: 2026-01-12 01:52:02
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------< commons-beanutils:commons-beanutils >-----------------
+[INFO] Building Apache Commons BeanUtils 1.9.4
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for commons-collections:commons-collections-testframework:jar:3.2.1 is missing, no dependency information available
+[INFO] 
+[INFO] --- clean:3.0.0:clean (default-clean) @ commons-beanutils ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-beanutils ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-beanutils ---
+[INFO] 
+[INFO] --- build-helper:3.0.0:parse-version (parse-version) @ commons-beanutils ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-beanutils ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-beanutils ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-beanutils ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4' && 'svn' '--non-interactive' 'info'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4
+[INFO] Storing buildNumber: ?????? at timestamp: 1768200725442
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4' && 'svn' '--non-interactive' 'info'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-beanutils ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-beanutils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 111 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/target/classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/main/java/org/apache/commons/beanutils/WrapDynaClass.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/main/java/org/apache/commons/beanutils/WrapDynaClass.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/main/java/org/apache/commons/beanutils/PropertyUtilsBean.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/main/java/org/apache/commons/beanutils/PropertyUtilsBean.java: Recompile with -Xlint:removal for details.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/main/java/org/apache/commons/beanutils/converters/AbstractArrayConverter.java: Some input files use unchecked or unsafe operations.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/main/java/org/apache/commons/beanutils/converters/AbstractArrayConverter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-beanutils ---
+[WARNING] The POM for commons-collections:commons-collections-testframework:jar:3.2.1 is missing, no dependency information available
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-beanutils ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-beanutils ---
+[INFO] Using 'iso-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/test/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-beanutils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 147 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/target/test-classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/test/java/org/apache/commons/beanutils/converters/ClassReloaderTestCase.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/test/java/org/apache/commons/beanutils/converters/ClassReloaderTestCase.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/test/java/org/apache/commons/beanutils/BeanPropertyValueChangeClosureTestCase.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/test/java/org/apache/commons/beanutils/BeanPropertyValueChangeClosureTestCase.java: Recompile with -Xlint:removal for details.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/test/java/org/apache/commons/beanutils/BeanMapTestCase.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/test/java/org/apache/commons/beanutils/BeanMapTestCase.java uses unchecked or unsafe operations.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-beanutils-1.9.4/src/test/java/org/apache/commons/beanutils/BeanMapTestCase.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-beanutils ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.beanutils.bugs.Jira349TestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.beanutils.bugs.Jira349TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira347TestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 18.174 s - in org.apache.commons.beanutils.bugs.Jira347TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira458TestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira458TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira493TestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.beanutils.bugs.Jira493TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira368TestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira368TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira381TestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira381TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira92TestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.beanutils.bugs.Jira92TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira422TestCase
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira422TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira298TestCase
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira298TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira463TestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.beanutils.bugs.Jira463TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira359TestCase
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.bugs.Jira359TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira520TestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira520TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira456TestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira456TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira357TestCase
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.beanutils.bugs.Jira357TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira454TestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira454TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira345TestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira345TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira157TestCase
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira157TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira87TestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira87TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira358TestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira358TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira411TestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira411TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira61TestCase
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira61TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira369TestCase
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira369TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira18TestCase
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.beanutils.bugs.Jira18TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira273TestCase
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.bugs.Jira273TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira465TestCase
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.beanutils.bugs.Jira465TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira492TestCase
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.bugs.Jira492TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira339TestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.bugs.Jira339TestCase
+[INFO] Running org.apache.commons.beanutils.bugs.Jira422bTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.beanutils.bugs.Jira422bTestCase
+[INFO] Running org.apache.commons.beanutils.ConstructorUtilsTestCase
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.ConstructorUtilsTestCase
+[INFO] Running org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.FluentPropertyBeanIntrospectorTestCase
+[INFO] Running org.apache.commons.beanutils.BeanUtilsTestCase
+[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in org.apache.commons.beanutils.BeanUtilsTestCase
+[INFO] Running org.apache.commons.beanutils.MappedPropertyTestCase
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.MappedPropertyTestCase
+[INFO] Running org.apache.commons.beanutils.BeanUtils2TestCase
+[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.beanutils.BeanUtils2TestCase
+[INFO] Running org.apache.commons.beanutils.BeanificationTestCase
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 s - in org.apache.commons.beanutils.BeanificationTestCase
+[INFO] Running org.apache.commons.beanutils.expression.DefaultResolverTestCase
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.beanutils.expression.DefaultResolverTestCase
+[INFO] Running org.apache.commons.beanutils.IndexedPropertyTestCase
+[WARNING] Tests run: 29, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0.006 s - in org.apache.commons.beanutils.IndexedPropertyTestCase
+[INFO] Running org.apache.commons.beanutils.MethodUtilsTestCase
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.beanutils.MethodUtilsTestCase
+[INFO] Running org.apache.commons.beanutils.DynaResultSetTestCase
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.beanutils.DynaResultSetTestCase
+[INFO] Running org.apache.commons.beanutils.PropertyUtilsTestCase
+[INFO] Tests run: 116, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.204 s - in org.apache.commons.beanutils.PropertyUtilsTestCase
+[INFO] Running org.apache.commons.beanutils.LazyDynaMapTestCase
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.LazyDynaMapTestCase
+[INFO] Running org.apache.commons.beanutils.locale.LocaleBeanUtilsTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.beanutils.locale.LocaleBeanUtilsTestCase
+[INFO] Running org.apache.commons.beanutils.locale.converters.FloatLocaleConverterTestCase
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.locale.converters.FloatLocaleConverterTestCase
+[INFO] Running org.apache.commons.beanutils.locale.converters.BigIntegerLocaleConverterTestCase
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.converters.BigIntegerLocaleConverterTestCase
+[INFO] Running org.apache.commons.beanutils.locale.converters.ShortLocaleConverterTestCase
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.converters.ShortLocaleConverterTestCase
+[INFO] Running org.apache.commons.beanutils.locale.converters.IntegerLocaleConverterTestCase
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.beanutils.locale.converters.IntegerLocaleConverterTestCase
+[INFO] Running org.apache.commons.beanutils.locale.converters.DoubleLocaleConverterTestCase
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.converters.DoubleLocaleConverterTestCase
+[INFO] Running org.apache.commons.beanutils.locale.converters.DateLocaleConverterTestCase
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.beanutils.locale.converters.DateLocaleConverterTestCase
+[INFO] Running org.apache.commons.beanutils.locale.converters.LongLocaleConverterTestCase
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.locale.converters.LongLocaleConverterTestCase
+[INFO] Running org.apache.commons.beanutils.locale.converters.BaseLocaleConverterTestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.converters.BaseLocaleConverterTestCase
+[INFO] Running org.apache.commons.beanutils.locale.converters.BigDecimalLocaleConverterTestCase
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.converters.BigDecimalLocaleConverterTestCase
+[INFO] Running org.apache.commons.beanutils.locale.converters.ByteLocaleConverterTestCase
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.locale.converters.ByteLocaleConverterTestCase
+[INFO] Running org.apache.commons.beanutils.locale.LocaleBeanificationTestCase
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s - in org.apache.commons.beanutils.locale.LocaleBeanificationTestCase
+[INFO] Running org.apache.commons.beanutils.BeanComparatorTestCase
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.beanutils.BeanComparatorTestCase
+[INFO] Running org.apache.commons.beanutils.LazyDynaClassTestCase
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.LazyDynaClassTestCase
+[INFO] Running org.apache.commons.beanutils.DynaPropertyUtilsTestCase
+[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.DynaPropertyUtilsTestCase
+[INFO] Running org.apache.commons.beanutils.ConvertUtilsTestCase
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.ConvertUtilsTestCase
+[INFO] Running org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 122.156 s - in org.apache.commons.beanutils.memoryleaktests.MemoryLeakTestCase
+[INFO] Running org.apache.commons.beanutils.BeanIntrospectionDataTestCase
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.beanutils.BeanIntrospectionDataTestCase
+[INFO] Running org.apache.commons.beanutils.WrapDynaBeanTestCase
+[INFO] Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.commons.beanutils.WrapDynaBeanTestCase
+[INFO] Running org.apache.commons.beanutils.BasicDynaBeanTestCase
+[INFO] Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.beanutils.BasicDynaBeanTestCase
+[INFO] Running org.apache.commons.beanutils.DynaRowSetTestCase
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.beanutils.DynaRowSetTestCase
+[INFO] Running org.apache.commons.beanutils.BeanToPropertyValueTransformerTestCase
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.BeanToPropertyValueTransformerTestCase
+[INFO] Running org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.SuppressPropertiesBeanIntrospectorTestCase
+[INFO] Running org.apache.commons.beanutils.DynaPropertyTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.DynaPropertyTestCase
+[INFO] Running org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.DynaBeanMapDecoratorTestCase
+[INFO] Running org.apache.commons.beanutils.BeanPredicateTestCase
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.BeanPredicateTestCase
+[INFO] Running org.apache.commons.beanutils.LazyDynaBeanTestCase
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.LazyDynaBeanTestCase
+[INFO] Running org.apache.commons.beanutils.converters.StringConverterTestCase
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.StringConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.LongConverterTestCase
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.LongConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.CalendarConverterTestCase
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.CalendarConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.URLConverterTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.beanutils.converters.URLConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.SqlTimeConverterTestCase
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.SqlTimeConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.CharacterConverterTestCase
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.CharacterConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.FloatConverterTestCase
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.beanutils.converters.FloatConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.DoubleConverterTestCase
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.DoubleConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.BigDecimalConverterTestCase
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.BigDecimalConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.ArrayConverterTestCase
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.ArrayConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.SqlDateConverterTestCase
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.SqlDateConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.BooleanArrayConverterTestCase
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.BooleanArrayConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.StringArrayConverterTestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.beanutils.converters.StringArrayConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.ByteConverterTestCase
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.ByteConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.FileConverterTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.FileConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.ClassReloaderTestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.ClassReloaderTestCase
+[INFO] Running org.apache.commons.beanutils.converters.SqlTimestampConverterTestCase
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.SqlTimestampConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.IntegerConverterTestCase
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.IntegerConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.ShortConverterTestCase
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.beanutils.converters.ShortConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.BooleanConverterTestCase
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.BooleanConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.ClassConverterTestCase
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.beanutils.converters.ClassConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.DateConverterTestCase
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.DateConverterTestCase
+[INFO] Running org.apache.commons.beanutils.converters.BigIntegerConverterTestCase
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.converters.BigIntegerConverterTestCase
+[INFO] Running org.apache.commons.beanutils.LazyDynaListTestCase
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.LazyDynaListTestCase
+[INFO] Running org.apache.commons.beanutils.DynaBeanUtilsTestCase
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.beanutils.DynaBeanUtilsTestCase
+[INFO] Running org.apache.commons.beanutils.BeanMapTestCase
+[INFO] Tests run: 132, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.103 s - in org.apache.commons.beanutils.BeanMapTestCase
+[INFO] Running org.apache.commons.beanutils.BeanPropertyValueEqualsPredicateTestCase
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.BeanPropertyValueEqualsPredicateTestCase
+[INFO] Running org.apache.commons.beanutils.BeanPropertyValueChangeClosureTestCase
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.BeanPropertyValueChangeClosureTestCase
+[INFO] Running org.apache.commons.beanutils.DefaultIntrospectionContextTestCase
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.beanutils.DefaultIntrospectionContextTestCase
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 1286, Failures: 0, Errors: 0, Skipped: 3
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  02:28 min
+[INFO] Finished at: 2026-01-12T01:54:33-05:00
+[INFO] ------------------------------------------------------------------------
+ended at: 2026-01-12 01:54:33

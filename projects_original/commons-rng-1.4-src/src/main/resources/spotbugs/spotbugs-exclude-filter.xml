@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
+<!--
+  This file contains some false positive bugs detected by spotbugs. Their
+  false positive nature has been analyzed individually and they have been
+  put here to instruct spotbugs it must ignore them.
+-->
+<FindBugsFilter
+    xmlns="https://github.com/spotbugs/filter/3.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://github.com/spotbugs/filter/3.0.0 https://raw.githubusercontent.com/spotbugs/spotbugs/3.1.0/spotbugs/etc/findbugsfilter.xsd">
+
+  <Match>
+    <Class name="~.*\.jmh\..*generated\..*"/>
+  </Match>
+
+  <Match>
+    <!-- Direct access to an internal array is required for the benchmark. -->
+    <Class name="org.apache.commons.rng.examples.jmh.ConstructionPerformance$Sources"/>
+    <BugPattern name="EI_EXPOSE_REP"/>
+  </Match>
+
+  <Match>
+    <!-- The EnumMap allows a null key so it must be checked for null. -->
+    <Class name="org.apache.commons.rng.simple.ThreadLocalRandomSource"/>
+    <Method name="current"/>
+    <BugPattern name="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE"/>
+  </Match>
+
+  <!-- False positives for NPE checks. -->
+  <Match>
+    <Class name="org.apache.commons.rng.examples.stress.StressTestCommand"/>
+    <Method name="createStressTestData"/>
+    <BugPattern name="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE"/>
+  </Match>
+  <Match>
+    <Class name="org.apache.commons.rng.examples.stress.StressTestCommand$StressTestTask"/>
+    <Method name="write"/>
+    <BugPattern name="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE"/>
+  </Match>
+  <Match>
+    <Class name="org.apache.commons.rng.examples.stress.RngDataOutput"/>
+    <Method name="close"/>
+    <BugPattern name="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE"/>
+  </Match>
+  <Match>
+    <Class name="org.apache.commons.rng.examples.stress.ResultsCommand"/>
+    <Method name="readFileContents"/>
+    <BugPattern name="RCN_REDUNDANT_NULLCHECK_WOULD_HAVE_BEEN_A_NPE"/>
+  </Match>
+
+  <Match>
+    <!-- Benchmark state classes can expose internal representations.
+         Unwritten fields can be used for baseline values. -->
+    <Class name="~org.apache.commons.rng.examples.jmh..*(Benchmark|Performance).*"/>
+    <Or>
+      <BugPattern name="EI_EXPOSE_REP"/>
+      <BugPattern name="UWF_UNWRITTEN_FIELD"/>
+    </Or>
+  </Match>
+
+  <Match>
+    <Class name="org.apache.commons.rng.examples.sampling.ProbabilityDensityApproximationCommand"/>
+    <Method name="call"/>
+    <BugPattern name="DLS_DEAD_LOCAL_STORE"/>
+  </Match>
+
+  <Match>
+    <Or>
+      <Class name="org.apache.commons.rng.examples.sampling.ProbabilityDensityApproximationCommand"/>
+      <Class name="org.apache.commons.rng.examples.stress.ExamplesStressApplication"/>
+    </Or>
+    <BugPattern name="DM_EXIT"/>
+  </Match>
+
+  <Match>
+    <!-- This is required to ensure the uniform deviate has exclusive lower bounds. -->
+    <Or>
+      <Class name="org.apache.commons.rng.sampling.distribution.StableSampler$BaseStableSampler"/>
+      <Class name="org.apache.commons.rng.examples.jmh.sampling.distribution.StableSamplerPerformance$StableRandomGenerator"/>
+    </Or>
+    <Or>
+      <Method name="getPhi"/>
+      <Method name="getPhiBy2"/>
+    </Or>
+    <BugPattern name="FE_FLOATING_POINT_EQUALITY"/>
+  </Match>
+  <Match>
+    <!-- This is required to ensure the uniform deviate has exclusive lower bounds. -->
+    <Class name="~.*\.StableSamplerPerformance\$UniformRandomSource.*"/>
+    <BugPattern name="FE_FLOATING_POINT_EQUALITY"/>
+  </Match>
+
+</FindBugsFilter>
