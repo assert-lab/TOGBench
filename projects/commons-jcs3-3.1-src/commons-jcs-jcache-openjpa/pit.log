@@ -1,0 +1,24 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-jcache-openjpa:jar:3.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs (?) @ line 67, column 17
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------< org.apache.commons:commons-jcs3-jcache-openjpa >-----------
+[INFO] Building Apache Commons JCS :: JCache OpenJPA 3.1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ commons-jcs3-jcache-openjpa ---
+[INFO] Skipping project because:
+[INFO]   - Project has either no tests or no production code.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.615 s
+[INFO] Finished at: 2026-01-15T14:34:04-05:00
+[INFO] ------------------------------------------------------------------------

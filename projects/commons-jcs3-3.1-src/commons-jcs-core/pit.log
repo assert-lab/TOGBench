@@ -1,0 +1,186 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-core:jar:3.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs (?) @ line 96, column 17
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ----------------< org.apache.commons:commons-jcs3-core >----------------
+[INFO] Building Apache Commons JCS :: Core 3.1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ commons-jcs3-core ---
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects/commons-jcs3-3.1-src/commons-jcs-core
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Enum junk filter
+[INFO] Found plugin : Record junk mutation filter
+[INFO] Found plugin : String switch filter
+[INFO] Found plugin : Assertions filter
+[INFO] Found plugin : Enum switch filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Groovy junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Filters mutants with line number <= 1
+[INFO] Found plugin : Division by one equivalent mutant filter
+[INFO] Found plugin : Lombok junk mutations filter
+[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
+[INFO] Found plugin : Default build verifier
+[INFO] Found plugin : Detect missing JUnit5 plugin
+[INFO] Found plugin : Detect missing TestNG plugin
+[INFO] Found plugin : Detect missing kotlin plugin
+[INFO] Found plugin : Detect missing spring plugin
+[INFO] Found plugin : Default coverage exporter
+[INFO] Found plugin : Basic test statistics
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
+[INFO] Found shared classpath plugin : Reset environment for javassist
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[INFO] Adding org.pitest:pitest to SUT classpath
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects/commons-jcs3-3.1-src/commons-jcs-core/target/classes
+[INFO] Replacing properties in argLine --add-opens java.base/java.lang=ALL-UNNAMED --add-opens java.base/java.util=ALL-UNNAMED
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE
+>> Generated 100 Killed 18 (18%)
+> KILLED 18 SURVIVED 19 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 63 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 2023 Killed 190 (9%)
+> KILLED 178 SURVIVED 276 TIMED_OUT 12 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1557 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator
+>> Generated 7 Killed 2 (29%)
+> KILLED 2 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 5 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
+>> Generated 1010 Killed 170 (17%)
+> KILLED 164 SURVIVED 156 TIMED_OUT 6 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 684 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
+>> Generated 596 Killed 135 (23%)
+> KILLED 133 SURVIVED 39 TIMED_OUT 2 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 422 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
+>> Generated 100 Killed 21 (21%)
+> KILLED 21 SURVIVED 16 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 63 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
+>> Generated 150 Killed 43 (29%)
+> KILLED 40 SURVIVED 27 TIMED_OUT 3 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 80 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
+>> Generated 301 Killed 54 (18%)
+> KILLED 54 SURVIVED 30 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 217 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+>> Generated 100 Killed 14 (14%)
+> KILLED 14 SURVIVED 23 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 63 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
+>> Generated 144 Killed 39 (27%)
+> KILLED 38 SURVIVED 29 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 76 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
+>> Generated 11 Killed 3 (27%)
+> KILLED 3 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 8 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
+>> Generated 173 Killed 28 (16%)
+> KILLED 27 SURVIVED 17 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 128 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.InvertNegsMutator
+>> Generated 1 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
+>> Generated 123 Killed 28 (23%)
+> KILLED 28 SURVIVED 11 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 84 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
+>> Generated 1013 Killed 186 (18%)
+> KILLED 176 SURVIVED 141 TIMED_OUT 10 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 686 
+--------------------------------------------------------------------------------
+================================================================================
+- Timings
+================================================================================
+> pre-scan for mutations : < 1 second
+> scan classpath : < 1 second
+> coverage and dependency analysis : 14 seconds
+> build mutation tests : < 1 second
+> run mutation analysis : 3 minutes and 41 seconds
+--------------------------------------------------------------------------------
+> Total  : 3 minutes and 56 seconds
+--------------------------------------------------------------------------------
+> 2 tests took longer than 2000 ms
+> Slowest test (testSameKeyDifferentObject(org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TestTCPLateralUnitTest)) took 2602 ms
+> Largest test (testClear(org.apache.commons.jcs3.JCSRemovalSimpleConcurrentTest)) covered 1115 blocks
+================================================================================
+- Statistics
+================================================================================
+>> Line Coverage (for mutated classes only): 2927/9554 (31%)
+>> 176 tests examined
+>> Generated 5852 mutations Killed 931 (16%)
+>> Mutations with no coverage 4137. Test strength 54%
+>> Ran 10459 tests (1.79 tests per mutation)
+Enhanced functionality available at https://www.arcmutate.com/
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  03:57 min
+[INFO] Finished at: 2026-01-15T14:33:28-05:00
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,140 @@
+began at: 2026-01-12 14:37:31
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-pool2 >------------------
+[INFO] Building Apache Commons Pool 2.11.1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ commons-pool2 ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/target
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-pool2 ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-pool2 ---
+[INFO] 
+[INFO] --- apache-rat:0.13:check (rat-check) @ commons-pool2 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-pool2 ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-pool2 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-pool2 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-pool2 ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src
+[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 1768246668039
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ commons-pool2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-pool2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 49 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/target/classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/src/main/java/org/apache/commons/pool2/impl/SoftReferenceObjectPool.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/src/main/java/org/apache/commons/pool2/impl/SoftReferenceObjectPool.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/src/main/java/org/apache/commons/pool2/impl/EvictionTimer.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/src/main/java/org/apache/commons/pool2/impl/EvictionTimer.java: Recompile with -Xlint:removal for details.
+[INFO] 
+[INFO] --- bundle:5.1.2:manifest (bundle-manifest) @ commons-pool2 ---
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-pool2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-pool2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 45 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/target/test-classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/src/test/java/org/apache/commons/pool2/TestTrackedUse.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/src/test/java/org/apache/commons/pool2/TestTrackedUse.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/src/test/java/org/apache/commons/pool2/TestPoolUtils.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/src/test/java/org/apache/commons/pool2/TestPoolUtils.java uses unchecked or unsafe operations.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-pool2-2.11.1-src/src/test/java/org/apache/commons/pool2/TestPoolUtils.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- animal-sniffer:1.20:check (checkAPIcompatibility) @ commons-pool2 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- surefire:3.0.0-M7:test (default-test) @ commons-pool2 ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+OpenJDK 64-Bit Server VM warning: Ignoring option --illegal-access=permit; support was removed in 17.0
+[INFO] Running org.apache.commons.pool2.TestBaseObjectPool
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.commons.pool2.TestBaseObjectPool
+[INFO] Running org.apache.commons.pool2.TestPoolUtils
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 35.42 s - in org.apache.commons.pool2.TestPoolUtils
+[INFO] Running org.apache.commons.pool2.impl.TestDefaultPooledObject
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.589 s - in org.apache.commons.pool2.impl.TestDefaultPooledObject
+[INFO] Running org.apache.commons.pool2.impl.TestPoolImplUtils
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.pool2.impl.TestPoolImplUtils
+[INFO] Running org.apache.commons.pool2.impl.TestGenericObjectPool
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 107.548 s - in org.apache.commons.pool2.impl.TestGenericObjectPool
+[INFO] Running org.apache.commons.pool2.impl.TestEvictionConfig
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.pool2.impl.TestEvictionConfig
+[INFO] Running org.apache.commons.pool2.impl.TestGenericObjectPoolFactoryCreateFailure
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.007 s - in org.apache.commons.pool2.impl.TestGenericObjectPoolFactoryCreateFailure
+[INFO] Running org.apache.commons.pool2.impl.TestLinkedBlockingDeque
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.375 s - in org.apache.commons.pool2.impl.TestLinkedBlockingDeque
+[INFO] Running org.apache.commons.pool2.impl.TestBaseGenericObjectPool
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.114 s - in org.apache.commons.pool2.impl.TestBaseGenericObjectPool
+[INFO] Running org.apache.commons.pool2.impl.TestEvictionTimer
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.pool2.impl.TestEvictionTimer
+[INFO] Running org.apache.commons.pool2.impl.TestDefaultPooledObjectInfo
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.326 s - in org.apache.commons.pool2.impl.TestDefaultPooledObjectInfo
+[INFO] Running org.apache.commons.pool2.impl.TestAbandonedObjectPool
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.863 s - in org.apache.commons.pool2.impl.TestAbandonedObjectPool
+[INFO] Running org.apache.commons.pool2.impl.NoOpCallStackTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.pool2.impl.NoOpCallStackTest
+[INFO] Running org.apache.commons.pool2.impl.TestPooledSoftReference
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.pool2.impl.TestPooledSoftReference
+[INFO] Running org.apache.commons.pool2.impl.CallStackTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.pool2.impl.CallStackTest
+[INFO] Running org.apache.commons.pool2.impl.TestGenericObjectPoolClassLoaders
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.404 s - in org.apache.commons.pool2.impl.TestGenericObjectPoolClassLoaders
+[INFO] Running org.apache.commons.pool2.impl.TestAbandonedKeyedObjectPool
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.866 s - in org.apache.commons.pool2.impl.TestAbandonedKeyedObjectPool
+[INFO] Running org.apache.commons.pool2.impl.TestSoftReferenceObjectPool
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.257 s - in org.apache.commons.pool2.impl.TestSoftReferenceObjectPool
+[INFO] Running org.apache.commons.pool2.impl.TestGenericKeyedObjectPool
+[INFO] Tests run: 70, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 169.283 s - in org.apache.commons.pool2.impl.TestGenericKeyedObjectPool
+[INFO] Running org.apache.commons.pool2.TestTrackedUse
+[WARNING] Tests run: 2, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in org.apache.commons.pool2.TestTrackedUse
+[INFO] Running org.apache.commons.pool2.TestBaseKeyedPoolableObjectFactory
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.pool2.TestBaseKeyedPoolableObjectFactory
+[INFO] Running org.apache.commons.pool2.proxy.TestProxiedObjectPoolWithJdkProxy
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.009 s - in org.apache.commons.pool2.proxy.TestProxiedObjectPoolWithJdkProxy
+[INFO] Running org.apache.commons.pool2.proxy.TestProxiedKeyedObjectPoolWithJdkProxy
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.01 s - in org.apache.commons.pool2.proxy.TestProxiedKeyedObjectPoolWithJdkProxy
+[INFO] Running org.apache.commons.pool2.proxy.TestProxiedObjectPoolWithCglibProxy
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.083 s - in org.apache.commons.pool2.proxy.TestProxiedObjectPoolWithCglibProxy
+[INFO] Running org.apache.commons.pool2.proxy.TestProxiedKeyedObjectPoolWithCglibProxy
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.007 s - in org.apache.commons.pool2.proxy.TestProxiedKeyedObjectPoolWithCglibProxy
+[INFO] Running org.apache.commons.pool2.TestBasePoolableObjectFactory
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.pool2.TestBasePoolableObjectFactory
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 331, Failures: 0, Errors: 0, Skipped: 1
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  06:13 min
+[INFO] Finished at: 2026-01-12T14:43:54-05:00
+[INFO] ------------------------------------------------------------------------
+ended at: 2026-01-12 14:43:54

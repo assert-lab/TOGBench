@@ -1,0 +1,98 @@
+began at: 2026-01-12 00:29:54
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.github.scribejava:scribejava-core:jar:8.3.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs 4.13.2 @ com.github.scribejava:scribejava:8.3.1, /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/scribejava/pom.xml, line 61, column 21
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ---------------< com.github.scribejava:scribejava-core >----------------
+[INFO] Building ScribeJava Core 8.3.1
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from central: https://repo.maven.apache.org/maven2/com/github/scribejava/scribejava/8.3.1/scribejava-8.3.1.pom
+Progress (1): 1.4 kBProgress (1): 3.1 kBProgress (1): 7.5 kBProgress (1): 12 kB Progress (1): 12 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/com/github/scribejava/scribejava/8.3.1/scribejava-8.3.1.pom (12 kB at 72 kB/s)
+[INFO] 
+[INFO] --- clean:3.1.0:clean (default-clean) @ scribejava-core ---
+[INFO] 
+[INFO] --- enforcer:1.2:enforce (enforce-maven) @ scribejava-core ---
+[INFO] 
+[INFO] --- resources:3.2.0:resources (default-resources) @ scribejava-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ scribejava-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 86 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/scribejava/scribejava-core/target/classes
+[INFO] 
+[INFO] --- bundle:5.1.2:manifest (bundle-manifest) @ scribejava-core ---
+[INFO] 
+[INFO] --- resources:3.2.0:testResources (default-testResources) @ scribejava-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Using 'UTF-8' encoding to copy filtered properties files.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/scribejava/scribejava-core/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ scribejava-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 25 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/scribejava/scribejava-core/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.2:test (default-test) @ scribejava-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.scribejava.core.oauth.OAuth20ServiceTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.143 s - in com.github.scribejava.core.oauth.OAuth20ServiceTest
+[INFO] Running com.github.scribejava.core.httpclient.jdk.JDKHttpClientTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s - in com.github.scribejava.core.httpclient.jdk.JDKHttpClientTest
+[INFO] Running com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest
+[INFO] Running com.github.scribejava.core.extractors.HeaderExtractorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.extractors.HeaderExtractorTest
+[INFO] Running com.github.scribejava.core.extractors.BaseStringExtractorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.extractors.BaseStringExtractorTest
+[INFO] Running com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest
+[INFO] Running com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest
+[INFO] Running com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest
+[INFO] Running com.github.scribejava.core.utils.StreamUtilsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.github.scribejava.core.utils.StreamUtilsTest
+[INFO] Running com.github.scribejava.core.utils.OAuthEncoderTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.utils.OAuthEncoderTest
+[INFO] Running com.github.scribejava.core.services.HMACSha1SignatureServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.github.scribejava.core.services.HMACSha1SignatureServiceTest
+[INFO] Running com.github.scribejava.core.services.TimestampServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.services.TimestampServiceTest
+[INFO] Running com.github.scribejava.core.services.RSASha1SignatureServiceTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in com.github.scribejava.core.services.RSASha1SignatureServiceTest
+[INFO] Running com.github.scribejava.core.model.TokenTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.model.TokenTest
+[INFO] Running com.github.scribejava.core.model.RequestTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.model.RequestTest
+[INFO] Running com.github.scribejava.core.model.ParameterListTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.model.ParameterListTest
+[INFO] Running com.github.scribejava.core.model.OAuthRequestTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.model.OAuthRequestTest
+[INFO] Running com.github.scribejava.core.base64.Base64Test
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in com.github.scribejava.core.base64.Base64Test
+[INFO] Running com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 82, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.295 s
+[INFO] Finished at: 2026-01-12T00:29:59-05:00
+[INFO] ------------------------------------------------------------------------
+ended at: 2026-01-12 00:29:59

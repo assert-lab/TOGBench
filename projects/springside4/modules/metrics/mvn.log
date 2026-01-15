@@ -1,0 +1,109 @@
+began at: 2026-01-12 05:34:37
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< io.springside:springside-metrics >------------------
+[INFO] Building Springside :: Module :: Metrics 5.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ springside-metrics ---
+[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/metrics/target
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ springside-metrics ---
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/metrics/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.10.1:compile (default-compile) @ springside-metrics ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 18 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/metrics/target/classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java uses or overrides a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java: Recompile with -Xlint:removal for details.
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ springside-metrics ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ springside-metrics ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/metrics/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ springside-metrics ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.springside.modules.metrics.CounterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in org.springside.modules.metrics.CounterTest
+[INFO] Running org.springside.modules.metrics.HistogramTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.springside.modules.metrics.HistogramTest
+[INFO] Running org.springside.modules.metrics.MetricRegistryTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.springside.modules.metrics.MetricRegistryTest
+[INFO] Running org.springside.modules.metrics.TimerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.TimerTest
+[INFO] Running org.springside.modules.metrics.ReporterTest
+05:34:45.901 [main] INFO  o.s.modules.metrics.ReportScheduler - metric reporters started.
+Mon Jan 12 05:34:46 EST 2026 ===================================================
+
+Mon Jan 12 05:34:47 EST 2026 ===================================================
+
+05:34:47.938 [main] INFO  o.s.modules.metrics.ReportScheduler - metric reporters stopped.
+05:34:47.969 [main] INFO  metrics - type=COUNTER, name=UserService.getUser.counter, totalCount=4, avgRate=2, latestRate=2
+05:34:47.995 [main] INFO  metrics - type=COUNTER, name=UserService.setUser.counter, totalCount=6, avgRate=3, latestRate=3
+05:34:47.995 [main] INFO  metrics - type=HISTOGRAM, name=UserService.getUser.latency, min=1, max=100, avg=50.5
+05:34:47.995 [main] INFO  metrics - type=HISTOGRAM, name=UserService.setUser.latency, min=2, max=200, avg=101.0
+05:34:47.995 [main] INFO  metrics - type=TIMER, name=UserService.getUser.timer, totalCount=10, avgRate=10, latestRate=10, minLatency=25ms, maxLatency=25ms, avgLatency=25.0ms
+05:34:47.995 [main] INFO  metrics - type=TIMER, name=UserService.setUser.timer, totalCount=10, avgRate=13, latestRate=13, minLatency=75ms, maxLatency=75ms, avgLatency=75.0ms
+Mon Jan 12 05:34:47 EST 2026 ===================================================
+
+-- Counters --------------------------------------------------------------------
+UserService.getUser.counter
+      latest count = 4
+       total count = 4
+       latest rate = 2
+          avg rate = 2
+UserService.setUser.counter
+      latest count = 6
+       total count = 6
+       latest rate = 3
+          avg rate = 3
+
+-- Histograms ------------------------------------------------------------------
+UserService.getUser.latency
+               min = 1
+               max = 100
+               avg = 50.50
+UserService.setUser.latency
+               min = 2
+               max = 200
+               avg = 101.00
+
+-- Timers ----------------------------------------------------------------------
+UserService.getUser.timer
+      latest count = 10
+       total count = 10
+       latest rate = 10
+          avg rate = 10
+       min latency = 25 ms
+       max latency = 25 ms
+       avg latency = 25.00 ms
+UserService.setUser.timer
+      latest count = 10
+       total count = 10
+       latest rate = 13
+          avg rate = 13
+       min latency = 75 ms
+       max latency = 75 ms
+       avg latency = 75.00 ms
+
+[WARNING] Tests run: 4, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 2.39 s - in org.springside.modules.metrics.ReporterTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 16, Failures: 0, Errors: 0, Skipped: 1
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.968 s
+[INFO] Finished at: 2026-01-12T05:34:48-05:00
+[INFO] ------------------------------------------------------------------------
+ended at: 2026-01-12 05:34:48

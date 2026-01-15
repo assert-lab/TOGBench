@@ -1,0 +1,23 @@
+began at: 2026-01-12 05:34:26
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< io.springside:springside-core >--------------------
+[INFO] Building Springside :: Module :: Core 5.0.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The POM for io.springside:springside-utils:jar:5.0.0-SNAPSHOT is missing, no dependency information available
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.181 s
+[INFO] Finished at: 2026-01-12T05:34:32-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal on project springside-core: Could not resolve dependencies for project io.springside:springside-core:jar:5.0.0-SNAPSHOT: Could not find artifact io.springside:springside-utils:jar:5.0.0-SNAPSHOT -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/DependencyResolutionException
+ended at: 2026-01-12 05:34:32

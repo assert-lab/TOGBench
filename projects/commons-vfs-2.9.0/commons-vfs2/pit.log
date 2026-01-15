@@ -1,0 +1,718 @@
+Apache Maven 3.9.0 (9b58d2bad23a66be161c4664ef21ce219c2c8584)
+Maven home: /apps/software/standard/core/maven/3.9.0
+Java version: 17.0.15, vendor: Eclipse Adoptium, runtime: /sfs/gpfs/tardis/applications/202512/software/standard/core/java/17
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "4.18.0-553.47.1.el8_10.x86_64", arch: "amd64", family: "unix"
+[DEBUG] Created new class realm maven.api
+[DEBUG] Importing foreign packages into class realm maven.api
+[DEBUG]   Imported: javax.annotation.* < plexus.core
+[DEBUG]   Imported: javax.annotation.security.* < plexus.core
+[DEBUG]   Imported: javax.inject.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.artifact < plexus.core
+[DEBUG]   Imported: org.apache.maven.classrealm < plexus.core
+[DEBUG]   Imported: org.apache.maven.cli < plexus.core
+[DEBUG]   Imported: org.apache.maven.configuration < plexus.core
+[DEBUG]   Imported: org.apache.maven.exception < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution < plexus.core
+[DEBUG]   Imported: org.apache.maven.execution.scope < plexus.core
+[DEBUG]   Imported: org.apache.maven.graph < plexus.core
+[DEBUG]   Imported: org.apache.maven.lifecycle < plexus.core
+[DEBUG]   Imported: org.apache.maven.model < plexus.core
+[DEBUG]   Imported: org.apache.maven.monitor < plexus.core
+[DEBUG]   Imported: org.apache.maven.plugin < plexus.core
+[DEBUG]   Imported: org.apache.maven.profiles < plexus.core
+[DEBUG]   Imported: org.apache.maven.project < plexus.core
+[DEBUG]   Imported: org.apache.maven.reporting < plexus.core
+[DEBUG]   Imported: org.apache.maven.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.rtinfo < plexus.core
+[DEBUG]   Imported: org.apache.maven.settings < plexus.core
+[DEBUG]   Imported: org.apache.maven.toolchain < plexus.core
+[DEBUG]   Imported: org.apache.maven.usability < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.* < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authentication < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.authorization < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.events < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.observers < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.proxy < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.repository < plexus.core
+[DEBUG]   Imported: org.apache.maven.wagon.resource < plexus.core
+[DEBUG]   Imported: org.codehaus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.* < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.classworlds < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.component < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.configuration < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.container < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.context < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.lifecycle < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.logging < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.personality < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.Xpp3Dom < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParser < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlPullParserException < plexus.core
+[DEBUG]   Imported: org.codehaus.plexus.util.xml.pull.XmlSerializer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.* < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.artifact < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.collection < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.deployment < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.graph < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.installation < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.internal.impl < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.metadata < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.repository < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.resolution < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.spi < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.transfer < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.util < plexus.core
+[DEBUG]   Imported: org.eclipse.aether.version < plexus.core
+[DEBUG]   Imported: org.fusesource.jansi.* < plexus.core
+[DEBUG]   Imported: org.slf4j.* < plexus.core
+[DEBUG]   Imported: org.slf4j.event.* < plexus.core
+[DEBUG]   Imported: org.slf4j.helpers.* < plexus.core
+[DEBUG]   Imported: org.slf4j.spi.* < plexus.core
+[DEBUG] Populating class realm maven.api
+[DEBUG] Created adapter factory; available factories [file-lock, rwlock-local, semaphore-local, noop]; available name mappers [discriminating, file-gav, file-hgav, gav, static]
+[INFO] Error stacktraces are turned on.
+[DEBUG] Message scheme: color
+[DEBUG] Message styles: debug info warning error success failure strong mojo project
+[DEBUG] Reading global settings from /apps/software/standard/core/maven/3.9.0/conf/settings.xml
+[DEBUG] Reading user settings from /home/wxw9rr/.m2/settings.xml
+[DEBUG] Reading global toolchains from /apps/software/standard/core/maven/3.9.0/conf/toolchains.xml
+[DEBUG] Reading user toolchains from /home/wxw9rr/.m2/toolchains.xml
+[DEBUG] Using local repository at /home/wxw9rr/.m2/repository
+[DEBUG] Using manager EnhancedLocalRepositoryManager with priority 10.0 for /home/wxw9rr/.m2/repository
+[INFO] Scanning for projects...
+[DEBUG] Creating adapter using nameMapper 'gav' and factory 'rwlock-local'
+[DEBUG] Extension realms for project org.apache.commons:commons-vfs2:jar:2.9.0: (none)
+[DEBUG] Looking up lifecycle mappings for packaging jar from ClassRealm[plexus.core, parent: null]
+[DEBUG] Extension realms for project org.apache.commons:commons-vfs2-project:pom:2.9.0: (none)
+[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] Extension realms for project org.apache.commons:commons-parent:pom:52: (none)
+[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] Extension realms for project org.apache:apache:pom:23: (none)
+[DEBUG] Looking up lifecycle mappings for packaging pom from ClassRealm[plexus.core, parent: null]
+[DEBUG] === REACTOR BUILD PLAN ================================================
+[DEBUG] Project: org.apache.commons:commons-vfs2:jar:2.9.0
+[DEBUG] Tasks:   [org.pitest:pitest-maven:1.22.0:mutationCoverage]
+[DEBUG] Style:   Regular
+[DEBUG] =======================================================================
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-vfs2 >-------------------
+[INFO] Building Apache Commons VFS 2.9.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[DEBUG] Lifecycle clean -> [pre-clean, clean, post-clean]
+[DEBUG] Lifecycle default -> [validate, initialize, generate-sources, process-sources, generate-resources, process-resources, compile, process-classes, generate-test-sources, process-test-sources, generate-test-resources, process-test-resources, test-compile, process-test-classes, test, prepare-package, package, pre-integration-test, integration-test, post-integration-test, verify, install, deploy]
+[DEBUG] Lifecycle site -> [pre-site, site, post-site, site-deploy]
+[DEBUG] === PROJECT BUILD PLAN ================================================
+[DEBUG] Project:       org.apache.commons:commons-vfs2:2.9.0
+[DEBUG] Dependencies (collect): []
+[DEBUG] Dependencies (resolve): [test]
+[DEBUG] Repositories (dependencies): [apache.snapshots (https://repository.apache.org/snapshots, default, snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] Repositories (plugins)     : [apache.snapshots (https://repository.apache.org/snapshots, default, snapshots), central (https://repo.maven.apache.org/maven2, default, releases)]
+[DEBUG] -----------------------------------------------------------------------
+[DEBUG] Goal:          org.pitest:pitest-maven:1.22.0:mutationCoverage (default-cli)
+[DEBUG] Style:         Regular
+[DEBUG] Configuration: <?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <additionalClasspathElements>${additionalClasspathElements}</additionalClasspathElements>
+  <additionalSources default-value="src/main/kotlin">${pit.additionalSources}</additionalSources>
+  <additionalTestSources default-value="src/test/kotlin">${pit.additionalTestSources}</additionalTestSources>
+  <argLine>${argLine}</argLine>
+  <avoidCallsTo>${avoidCallsTo}</avoidCallsTo>
+  <classpathDependencyExcludes>${classpathDependencyExcludes}</classpathDependencyExcludes>
+  <coverageThreshold default-value="0">${coverageThreshold}</coverageThreshold>
+  <crossModule default-value="false">${crossModule}</crossModule>
+  <detectInlinedCode default-value="true">${detectInlinedCode}</detectInlinedCode>
+  <dryRun default-value="false">${pit.dryRun}</dryRun>
+  <excludedClasses>${excludedClasses}</excludedClasses>
+  <excludedGroups>${excludedGroups}</excludedGroups>
+  <excludedMethods>${excludedMethods}</excludedMethods>
+  <excludedRunners>${excludedRunners}</excludedRunners>
+  <excludedTestClasses>
+    <param>**/RunTest</param>
+    <param>**/*$*</param>
+    <param>**/*Tests</param>
+    <param>**/NestedJarTestCase</param>
+    <param>**/FileSystemManagerFactoryTestCase</param>
+    <param>**/Hdfs*</param>
+    <param>**/Ftp*</param>
+    <param>**/Sftp*</param>
+    <param>**/WebDav*</param>
+    <param>**/Webdav*</param>
+    <param>**/Http*</param>${excludedTestClasses}</excludedTestClasses>
+  <exportLineCoverage default-value="false">${exportLineCoverage}</exportLineCoverage>
+  <extraFeatures>${extraFeatures}</extraFeatures>
+  <failWhenNoMutations default-value="true">${failWhenNoMutations}</failWhenNoMutations>
+  <features>${features}</features>
+  <fullMutationMatrix default-value="false">${fullMutationMatrix}</fullMutationMatrix>
+  <historyInputFile>${historyInputFile}</historyInputFile>
+  <historyOutputFile>${historyOutputFile}</historyOutputFile>
+  <includedGroups>${includedGroups}</includedGroups>
+  <includedTestMethods>${includedTestMethods}</includedTestMethods>
+  <inputEncoding default-value="${project.build.sourceEncoding}">${pit.inputEncoding}</inputEncoding>
+  <jvmArgs>${jvmArgs}</jvmArgs>
+  <maxMutationsPerClass default-value="-1">${maxMutationsPerClass}</maxMutationsPerClass>
+  <maxSurviving default-value="-1">${maxSurviving}</maxSurviving>
+  <mutationEngine default-value="gregor">${mutationEngine}</mutationEngine>
+  <mutationThreshold default-value="0">${mutationThreshold}</mutationThreshold>
+  <mutationUnitSize>${mutationUnitSize}</mutationUnitSize>
+  <mutators>${mutators}</mutators>
+  <outputEncoding default-value="${project.reporting.outputEncoding}">${pit.outputEncoding}</outputEncoding>
+  <outputFormats>
+    <outputFormat>XML</outputFormat>
+    <outputFormat>HTML</outputFormat>${outputFormats}</outputFormats>
+  <parseSurefireArgLine default-value="true"/>
+  <parseSurefireConfig default-value="true"/>
+  <pluginArtifactMap>${plugin.artifactMap}</pluginArtifactMap>
+  <project>${project}</project>
+  <projectBase default-value="${session.executionRootDirectory}">${projectBase}</projectBase>
+  <reportsDirectory default-value="${project.build.directory}/pit-reports">${reportsDirectory}</reportsDirectory>
+  <session default-value="${session}"/>
+  <settings>${settings}</settings>
+  <skip default-value="false">${skipPitest}</skip>
+  <skipFailingTests default-value="false">true</skipFailingTests>
+  <skipTests default-value="false">${skipTests}</skipTests>
+  <targetClasses>
+    <param>org.apache.commons.vfs2.*</param>${targetClasses}</targetClasses>
+  <targetTests>
+    <param>org.apache.commons.vfs2.*</param>${targetTests}</targetTests>
+  <testStrengthThreshold default-value="0">${testStrengthThreshold}</testStrengthThreshold>
+  <threads default-value="1">8</threads>
+  <timeoutConstant default-value="3000">1000</timeoutConstant>
+  <timeoutFactor default-value="1.25">${timeoutFactor}</timeoutFactor>
+  <timestampedReports default-value="false">${timestampedReports}</timestampedReports>
+  <useClasspathJar default-value="false">${useClasspathJar}</useClasspathJar>
+  <useSlf4j default-value="false">${useSlf4j}</useSlf4j>
+  <verbose default-value="false">${verbose}</verbose>
+  <verbosity default-value="DEFAULT">${verbosity}</verbosity>
+  <withHistory default-value="false">${withHistory}</withHistory>
+</configuration>
+[DEBUG] =======================================================================
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for apache.snapshots (http://repository.apache.org/snapshots).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for apache.snapshots (http://people.apache.org/repo/m2-snapshot-repository).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for servicemix (http://svn.apache.org/repos/asf/servicemix/m2-repo).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for ossrh-snapshots (http://oss.sonatype.org/content/repositories/snapshots).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for glassfish-repository (http://download.java.net/maven/glassfish).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for repository.jboss.org (http://repository.jboss.org/nexus/content/groups/public/).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for eclipselink.repository (http://www.eclipse.org/downloads/download.php?r=1&nf=1&file=/rt/eclipselink/maven.repo).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for m2.dev.java.net (http://download.java.net/maven/2).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for maven2-repository.dev.java.net (http://download.java.net/maven/2/).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for ow2-snapshot (http://repository.ow2.org/nexus/content/repositories/snapshots).
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=884686, ConflictMarker.markTime=295233, ConflictMarker.nodeCount=272, ConflictIdSorter.graphTime=414337, ConflictIdSorter.topsortTime=259001, ConflictIdSorter.conflictIdCount=135, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=6438412, ConflictResolver.conflictItemCount=240, DfDependencyCollector.collectTime=284576101, DfDependencyCollector.transformTime=9328600}
+[DEBUG] org.apache.commons:commons-vfs2:jar:2.9.0
+[DEBUG]    commons-logging:commons-logging:jar:1.2:compile
+[DEBUG]    ant:ant:jar:1.6.5:compile (optional)
+[DEBUG]    commons-net:commons-net:jar:3.8.0:compile (optional)
+[DEBUG]    org.apache.commons:commons-compress:jar:1.21:compile (optional)
+[DEBUG]    org.apache.commons:commons-collections4:jar:4.4:compile (optional)
+[DEBUG]    org.apache.hadoop:hadoop-hdfs-client:jar:3.3.1:compile
+[DEBUG]       com.squareup.okhttp:okhttp:jar:2.7.5:compile
+[DEBUG]          com.squareup.okio:okio:jar:1.6.0:compile
+[DEBUG]       com.fasterxml.jackson.core:jackson-annotations:jar:2.10.5:compile
+[DEBUG]       com.fasterxml.jackson.core:jackson-databind:jar:2.10.5.1:compile
+[DEBUG]          com.fasterxml.jackson.core:jackson-core:jar:2.10.5:compile
+[DEBUG]    org.apache.hadoop:hadoop-common:jar:3.3.1:compile (optional) (exclusions managed from [*:*:*:*])
+[DEBUG]    org.apache.hadoop:hadoop-hdfs:jar:3.3.1:compile (optional) (exclusions managed from [*:*:*:*])
+[DEBUG]    commons-httpclient:commons-httpclient:jar:3.1:compile (optional)
+[DEBUG]       commons-codec:commons-codec:jar:1.15:compile (version managed from 1.2)
+[DEBUG]    org.apache.httpcomponents:httpclient:jar:4.5.13:compile (optional)
+[DEBUG]       org.apache.httpcomponents:httpcore:jar:4.4.13:compile
+[DEBUG]    org.apache.httpcomponents.client5:httpclient5:jar:5.1:compile (optional)
+[DEBUG]       org.apache.httpcomponents.core5:httpcore5:jar:5.1.1:compile (optional)
+[DEBUG]       org.apache.httpcomponents.core5:httpcore5-h2:jar:5.1.1:compile (optional)
+[DEBUG]    com.jcraft:jsch:jar:0.1.55:compile (optional)
+[DEBUG]    junit:junit:jar:4.13.2:test
+[DEBUG]       org.hamcrest:hamcrest-core:jar:1.3:test
+[DEBUG]    org.mockito:mockito-core:jar:3.11.2:test
+[DEBUG]       net.bytebuddy:byte-buddy:jar:1.11.3:test
+[DEBUG]       net.bytebuddy:byte-buddy-agent:jar:1.11.3:test
+[DEBUG]       org.objenesis:objenesis:jar:3.2:test
+[DEBUG]    org.apache.commons:commons-lang3:jar:3.12.0:compile
+[DEBUG]    org.apache.ftpserver:ftpserver-core:jar:1.1.1:test
+[DEBUG]       org.apache.ftpserver:ftplet-api:jar:1.1.1:test
+[DEBUG]       org.apache.mina:mina-core:jar:2.1.4:test (version managed from 2.0.16)
+[DEBUG]    org.slf4j:slf4j-api:jar:1.7.26:test
+[DEBUG]    org.apache.logging.log4j:log4j-slf4j-impl:jar:2.14.1:test
+[DEBUG]       org.apache.logging.log4j:log4j-api:jar:2.14.1:test
+[DEBUG]    org.apache.logging.log4j:log4j-core:jar:2.14.1:test
+[DEBUG]    org.apache.sshd:sshd-core:jar:0.8.0:test
+[DEBUG]    org.bouncycastle:bcprov-jdk16:jar:1.46:test
+[DEBUG]    commons-io:commons-io:jar:2.11.0:test
+[DEBUG]    org.apache.httpcomponents:httpcore-nio:jar:4.4.14:test
+[DEBUG]    org.apache.hadoop:hadoop-common:jar:tests:3.3.1:test (exclusions managed from [jdk.tools:jdk.tools:*:*])
+[DEBUG]       org.apache.hadoop.thirdparty:hadoop-shaded-protobuf_3_7:jar:1.1.1:test
+[DEBUG]       org.apache.hadoop:hadoop-annotations:jar:3.3.1:test
+[DEBUG]       org.apache.hadoop.thirdparty:hadoop-shaded-guava:jar:1.1.1:test
+[DEBUG]       com.google.guava:guava:jar:27.0-jre:test
+[DEBUG]          com.google.guava:failureaccess:jar:1.0:test
+[DEBUG]          com.google.guava:listenablefuture:jar:9999.0-empty-to-avoid-conflict-with-guava:test
+[DEBUG]          org.checkerframework:checker-qual:jar:2.5.2:test
+[DEBUG]          com.google.j2objc:j2objc-annotations:jar:1.1:test
+[DEBUG]          org.codehaus.mojo:animal-sniffer-annotations:jar:1.17:test
+[DEBUG]       commons-cli:commons-cli:jar:1.2:test
+[DEBUG]       org.apache.commons:commons-math3:jar:3.1.1:test
+[DEBUG]       commons-collections:commons-collections:jar:3.2.2:test
+[DEBUG]       javax.servlet:javax.servlet-api:jar:3.1.0:test
+[DEBUG]       jakarta.activation:jakarta.activation-api:jar:1.2.1:test
+[DEBUG]       org.eclipse.jetty:jetty-server:jar:9.4.40.v20210413:test
+[DEBUG]          org.eclipse.jetty:jetty-http:jar:9.4.40.v20210413:test
+[DEBUG]          org.eclipse.jetty:jetty-io:jar:9.4.40.v20210413:test
+[DEBUG]       org.eclipse.jetty:jetty-util:jar:9.4.40.v20210413:test
+[DEBUG]       org.eclipse.jetty:jetty-servlet:jar:9.4.40.v20210413:test
+[DEBUG]          org.eclipse.jetty:jetty-security:jar:9.4.40.v20210413:test
+[DEBUG]       org.eclipse.jetty:jetty-webapp:jar:9.4.40.v20210413:test
+[DEBUG]          org.eclipse.jetty:jetty-xml:jar:9.4.40.v20210413:test
+[DEBUG]       javax.servlet.jsp:jsp-api:jar:2.1:test
+[DEBUG]       com.sun.jersey:jersey-core:jar:1.19:test
+[DEBUG]       com.sun.jersey:jersey-servlet:jar:1.19:test
+[DEBUG]       com.sun.jersey:jersey-json:jar:1.19:test
+[DEBUG]          org.codehaus.jettison:jettison:jar:1.1:test
+[DEBUG]          com.sun.xml.bind:jaxb-impl:jar:2.2.3-1:test
+[DEBUG]             javax.xml.bind:jaxb-api:jar:2.2.2:test
+[DEBUG]                javax.xml.stream:stax-api:jar:1.0-2:test
+[DEBUG]                javax.activation:activation:jar:1.1:test
+[DEBUG]          org.codehaus.jackson:jackson-core-asl:jar:1.9.2:test
+[DEBUG]          org.codehaus.jackson:jackson-mapper-asl:jar:1.9.2:test
+[DEBUG]          org.codehaus.jackson:jackson-jaxrs:jar:1.9.2:test
+[DEBUG]          org.codehaus.jackson:jackson-xc:jar:1.9.2:test
+[DEBUG]       com.sun.jersey:jersey-server:jar:1.19:test
+[DEBUG]       log4j:log4j:jar:1.2.17:test
+[DEBUG]       commons-beanutils:commons-beanutils:jar:1.9.4:test
+[DEBUG]       org.apache.commons:commons-configuration2:jar:2.1.1:test
+[DEBUG]       org.apache.commons:commons-text:jar:1.4:test
+[DEBUG]       org.apache.avro:avro:jar:1.7.7:test
+[DEBUG]          com.thoughtworks.paranamer:paranamer:jar:2.3:test
+[DEBUG]       com.google.re2j:re2j:jar:1.1:test
+[DEBUG]       com.google.protobuf:protobuf-java:jar:2.5.0:test
+[DEBUG]       com.google.code.gson:gson:jar:2.2.4:test
+[DEBUG]       org.apache.hadoop:hadoop-auth:jar:3.3.1:test
+[DEBUG]          com.nimbusds:nimbus-jose-jwt:jar:9.8.1:test
+[DEBUG]             com.github.stephenc.jcip:jcip-annotations:jar:1.0-1:test
+[DEBUG]          net.minidev:json-smart:jar:2.4.2:test
+[DEBUG]             net.minidev:accessors-smart:jar:2.4.2:test
+[DEBUG]                org.ow2.asm:asm:jar:8.0.1:test
+[DEBUG]          org.apache.curator:curator-framework:jar:4.2.0:test
+[DEBUG]          org.apache.kerby:kerb-simplekdc:jar:1.0.1:test
+[DEBUG]             org.apache.kerby:kerb-client:jar:1.0.1:test
+[DEBUG]                org.apache.kerby:kerby-config:jar:1.0.1:test
+[DEBUG]                org.apache.kerby:kerb-common:jar:1.0.1:test
+[DEBUG]                   org.apache.kerby:kerb-crypto:jar:1.0.1:test
+[DEBUG]                org.apache.kerby:kerb-util:jar:1.0.1:test
+[DEBUG]                org.apache.kerby:token-provider:jar:1.0.1:test
+[DEBUG]             org.apache.kerby:kerb-admin:jar:1.0.1:test
+[DEBUG]                org.apache.kerby:kerb-server:jar:1.0.1:test
+[DEBUG]                   org.apache.kerby:kerb-identity:jar:1.0.1:test
+[DEBUG]                org.apache.kerby:kerby-xdr:jar:1.0.1:test
+[DEBUG]       org.apache.curator:curator-client:jar:4.2.0:test
+[DEBUG]       org.apache.curator:curator-recipes:jar:4.2.0:test
+[DEBUG]       com.google.code.findbugs:jsr305:jar:3.0.2:test
+[DEBUG]       org.apache.htrace:htrace-core4:jar:4.1.0-incubating:test
+[DEBUG]       org.apache.zookeeper:zookeeper:jar:3.5.6:test
+[DEBUG]          org.apache.zookeeper:zookeeper-jute:jar:3.5.6:test
+[DEBUG]          org.apache.yetus:audience-annotations:jar:0.5.0:test
+[DEBUG]          io.netty:netty-handler:jar:4.1.42.Final:test
+[DEBUG]             io.netty:netty-common:jar:4.1.42.Final:test
+[DEBUG]             io.netty:netty-buffer:jar:4.1.42.Final:test
+[DEBUG]             io.netty:netty-transport:jar:4.1.42.Final:test
+[DEBUG]                io.netty:netty-resolver:jar:4.1.42.Final:test
+[DEBUG]             io.netty:netty-codec:jar:4.1.42.Final:test
+[DEBUG]          io.netty:netty-transport-native-epoll:jar:4.1.42.Final:test
+[DEBUG]             io.netty:netty-transport-native-unix-common:jar:4.1.42.Final:test
+[DEBUG]       org.apache.kerby:kerb-core:jar:1.0.1:test
+[DEBUG]          org.apache.kerby:kerby-pkix:jar:1.0.1:test
+[DEBUG]             org.apache.kerby:kerby-asn1:jar:1.0.1:test
+[DEBUG]             org.apache.kerby:kerby-util:jar:1.0.1:test
+[DEBUG]       org.codehaus.woodstox:stax2-api:jar:4.2.1:test
+[DEBUG]       com.fasterxml.woodstox:woodstox-core:jar:5.3.0:test
+[DEBUG]       dnsjava:dnsjava:jar:2.1.7:test
+[DEBUG]       org.xerial.snappy:snappy-java:jar:1.1.8.2:test
+[DEBUG]    org.apache.hadoop:hadoop-hdfs:jar:tests:3.3.1:test
+[DEBUG]       org.eclipse.jetty:jetty-util-ajax:jar:9.4.40.v20210413:test
+[DEBUG]       commons-daemon:commons-daemon:jar:1.0.13:test
+[DEBUG]       io.netty:netty:jar:3.10.6.Final:test
+[DEBUG]       io.netty:netty-all:jar:4.1.61.Final:test
+[DEBUG]       org.fusesource.leveldbjni:leveldbjni-all:jar:1.8:test
+[DEBUG]    javax.ws.rs:jsr311-api:jar:1.1.1:test
+[INFO] 
+[INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ commons-vfs2 ---
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for codehaus-snapshots (http://nexus.codehaus.org/snapshots/).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for repository.jboss.org (http://repository.jboss.org/maven2).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for snapshots.jboss.org (http://snapshots.jboss.org/maven2).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for oss.sonatype.org/jboss-snapshots (http://oss.sonatype.org/content/repositories/jboss-snapshots).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for codehaus.snapshots (http://snapshots.repository.codehaus.org).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for snapshots (http://snapshots.maven.codehaus.org/maven2).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for central (http://repo1.maven.org/maven2).
+[DEBUG] Using mirror maven-default-http-blocker (http://0.0.0.0/) for powermock-repo (http://powermock.googlecode.com/svn/repo/).
+[DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=706438, ConflictMarker.markTime=161957, ConflictMarker.nodeCount=362, ConflictIdSorter.graphTime=324984, ConflictIdSorter.topsortTime=78923, ConflictIdSorter.conflictIdCount=108, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=2048743, ConflictResolver.conflictItemCount=219, DfDependencyCollector.collectTime=168243258, DfDependencyCollector.transformTime=3361277}
+[DEBUG] org.pitest:pitest-maven:jar:1.22.0
+[DEBUG]    org.pitest:pitest-entry:jar:1.22.0:compile
+[DEBUG]       org.pitest:pitest:jar:1.22.0:compile
+[DEBUG]          org.ow2.asm:asm-commons:jar:9.9:compile
+[DEBUG]       org.ow2.asm:asm:jar:9.9:compile
+[DEBUG]       org.ow2.asm:asm-util:jar:9.9:compile
+[DEBUG]          org.ow2.asm:asm-tree:jar:9.9:compile
+[DEBUG]          org.ow2.asm:asm-analysis:jar:9.9:compile
+[DEBUG]       org.apache.commons:commons-text:jar:1.14.0:compile
+[DEBUG]          org.apache.commons:commons-lang3:jar:3.18.0:compile
+[DEBUG]    org.pitest:pitest-html-report:jar:1.22.0:compile
+[DEBUG]       org.antlr:stringtemplate:jar:3.2.1:compile
+[DEBUG]          antlr:antlr:jar:2.7.7:compile
+[DEBUG]    org.pitest:pitest-aggregator:jar:1.22.0:compile
+[DEBUG]       com.fasterxml.jackson.dataformat:jackson-dataformat-xml:jar:2.17.0:compile
+[DEBUG]          com.fasterxml.jackson.core:jackson-core:jar:2.17.0:compile
+[DEBUG]          com.fasterxml.jackson.core:jackson-annotations:jar:2.17.0:compile
+[DEBUG]          com.fasterxml.jackson.core:jackson-databind:jar:2.17.0:compile
+[DEBUG]             net.bytebuddy:byte-buddy:jar:1.14.9:compile
+[DEBUG]          org.codehaus.woodstox:stax2-api:jar:4.2.2:compile
+[DEBUG]          com.fasterxml.woodstox:woodstox-core:jar:6.6.1:compile
+[DEBUG]    org.apache.maven.reporting:maven-reporting-api:jar:3.1.0:compile
+[DEBUG]       org.apache.maven.doxia:doxia-sink-api:jar:1.11.1:compile
+[DEBUG]          org.apache.maven.doxia:doxia-logging-api:jar:1.11.1:compile
+[DEBUG]    commons-collections:commons-collections:jar:3.2.2:compile
+[DEBUG]    commons-beanutils:commons-beanutils:jar:1.11.0:compile
+[DEBUG]       commons-logging:commons-logging:jar:1.3.5:compile
+[DEBUG]    org.codehaus.plexus:plexus-utils:jar:3.3.1:compile
+[DEBUG]    org.apache.maven.reporting:maven-reporting-impl:jar:3.1.0:compile
+[DEBUG]       org.apache.maven:maven-core:jar:3.8.6:provided (scope managed from default) (version managed from default)
+[DEBUG]          org.apache.maven:maven-model:jar:3.8.6:compile
+[DEBUG]          org.apache.maven:maven-settings:jar:3.8.6:provided
+[DEBUG]          org.apache.maven:maven-settings-builder:jar:3.8.6:provided
+[DEBUG]             org.codehaus.plexus:plexus-sec-dispatcher:jar:2.0:provided
+[DEBUG]                org.codehaus.plexus:plexus-cipher:jar:2.0:provided
+[DEBUG]          org.apache.maven:maven-builder-support:jar:3.8.6:provided
+[DEBUG]          org.apache.maven:maven-repository-metadata:jar:3.8.6:provided
+[DEBUG]          org.apache.maven:maven-artifact:jar:3.8.6:compile
+[DEBUG]          org.apache.maven:maven-model-builder:jar:3.8.6:provided
+[DEBUG]          org.apache.maven:maven-resolver-provider:jar:3.8.6:provided
+[DEBUG]          org.apache.maven.resolver:maven-resolver-impl:jar:1.6.3:provided
+[DEBUG]          org.apache.maven.resolver:maven-resolver-api:jar:1.6.3:provided
+[DEBUG]          org.apache.maven.resolver:maven-resolver-spi:jar:1.6.3:provided
+[DEBUG]          org.apache.maven.resolver:maven-resolver-util:jar:1.6.3:provided
+[DEBUG]          org.eclipse.sisu:org.eclipse.sisu.plexus:jar:0.3.5:compile
+[DEBUG]             javax.annotation:javax.annotation-api:jar:1.2:compile
+[DEBUG]          org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.5:compile
+[DEBUG]          com.google.inject:guice:jar:no_aop:4.2.2:provided
+[DEBUG]             aopalliance:aopalliance:jar:1.0:provided
+[DEBUG]             com.google.guava:guava:jar:25.1-android:provided
+[DEBUG]                com.google.code.findbugs:jsr305:jar:3.0.2:provided
+[DEBUG]                org.checkerframework:checker-compat-qual:jar:2.0.0:provided
+[DEBUG]                com.google.errorprone:error_prone_annotations:jar:2.1.3:provided
+[DEBUG]                com.google.j2objc:j2objc-annotations:jar:1.1:provided
+[DEBUG]                org.codehaus.mojo:animal-sniffer-annotations:jar:1.14:provided
+[DEBUG]          javax.inject:javax.inject:jar:1:provided
+[DEBUG]          org.codehaus.plexus:plexus-classworlds:jar:2.6.0:compile
+[DEBUG]          org.codehaus.plexus:plexus-interpolation:jar:1.21:provided (version managed from default)
+[DEBUG]          org.codehaus.plexus:plexus-component-annotations:jar:2.1.0:compile
+[DEBUG]       org.apache.maven:maven-plugin-api:jar:3.1.0:compile
+[DEBUG]       org.apache.maven.shared:maven-shared-utils:jar:3.3.3:compile
+[DEBUG]          commons-io:commons-io:jar:2.6:compile
+[DEBUG]       org.apache.maven.doxia:doxia-decoration-model:jar:1.11.1:compile
+[DEBUG]       org.apache.maven.doxia:doxia-core:jar:1.11.1:compile
+[DEBUG]          org.codehaus.plexus:plexus-container-default:jar:2.1.0:compile
+[DEBUG]             org.apache.xbean:xbean-reflect:jar:3.7:compile
+[DEBUG]             com.google.collections:google-collections:jar:1.0:compile
+[DEBUG]          org.apache.httpcomponents:httpclient:jar:4.5.13:compile
+[DEBUG]             commons-codec:commons-codec:jar:1.11:compile
+[DEBUG]          org.apache.httpcomponents:httpcore:jar:4.4.14:compile
+[DEBUG]       org.apache.maven.doxia:doxia-site-renderer:jar:1.11.1:compile
+[DEBUG]          org.apache.maven.doxia:doxia-skin-model:jar:1.11.1:compile
+[DEBUG]          org.apache.maven.doxia:doxia-module-xhtml:jar:1.11.1:compile
+[DEBUG]          org.apache.maven.doxia:doxia-module-xhtml5:jar:1.11.1:compile
+[DEBUG]          org.codehaus.plexus:plexus-i18n:jar:1.0-beta-10:compile
+[DEBUG]          org.codehaus.plexus:plexus-velocity:jar:1.2:compile
+[DEBUG]          org.apache.velocity:velocity:jar:1.7:compile
+[DEBUG]             commons-lang:commons-lang:jar:2.4:compile
+[DEBUG]          org.apache.velocity:velocity-tools:jar:2.0:compile
+[DEBUG]             commons-digester:commons-digester:jar:1.8:compile
+[DEBUG]             commons-chain:commons-chain:jar:1.1:compile
+[DEBUG]             dom4j:dom4j:jar:1.1:compile
+[DEBUG]             oro:oro:jar:2.0.8:compile
+[DEBUG]    org.apache.maven.surefire:surefire-booter:jar:3.2.5:compile
+[DEBUG]       org.apache.maven.surefire:surefire-api:jar:3.2.5:compile
+[DEBUG]          org.apache.maven.surefire:surefire-logger-api:jar:3.2.5:compile
+[DEBUG]       org.apache.maven.surefire:surefire-extensions-spi:jar:3.2.5:compile
+[DEBUG]    org.apache.maven.surefire:maven-surefire-common:jar:3.2.5:compile
+[DEBUG]       org.apache.maven.surefire:surefire-extensions-api:jar:3.2.5:compile
+[DEBUG]       org.eclipse.aether:aether-util:jar:1.0.0.v20140518:compile
+[DEBUG]          org.eclipse.aether:aether-api:jar:1.0.0.v20140518:compile
+[DEBUG]       org.apache.maven.shared:maven-common-artifact-filters:jar:3.1.1:compile
+[DEBUG]       org.codehaus.plexus:plexus-java:jar:1.2.0:compile
+[DEBUG]          com.thoughtworks.qdox:qdox:jar:2.0.3:compile
+[DEBUG]       org.apache.maven.surefire:surefire-shared-utils:jar:3.2.5:compile
+[DEBUG]    org.slf4j:jul-to-slf4j:jar:1.7.12:compile
+[DEBUG]       org.slf4j:slf4j-api:jar:1.7.12:compile
+[DEBUG]    uk.org.lidalia:sysout-over-slf4j:jar:1.0.2:compile
+[DEBUG] Created new class realm plugin>org.pitest:pitest-maven:1.22.0
+[DEBUG] Importing foreign packages into class realm plugin>org.pitest:pitest-maven:1.22.0
+[DEBUG]   Imported:  < maven.api
+[DEBUG] Populating class realm plugin>org.pitest:pitest-maven:1.22.0
+[DEBUG]   Included: org.pitest:pitest-maven:jar:1.22.0
+[DEBUG]   Included: org.pitest:pitest-entry:jar:1.22.0
+[DEBUG]   Included: org.pitest:pitest:jar:1.22.0
+[DEBUG]   Included: org.ow2.asm:asm-commons:jar:9.9
+[DEBUG]   Included: org.ow2.asm:asm:jar:9.9
+[DEBUG]   Included: org.ow2.asm:asm-util:jar:9.9
+[DEBUG]   Included: org.ow2.asm:asm-tree:jar:9.9
+[DEBUG]   Included: org.ow2.asm:asm-analysis:jar:9.9
+[DEBUG]   Included: org.apache.commons:commons-text:jar:1.14.0
+[DEBUG]   Included: org.apache.commons:commons-lang3:jar:3.18.0
+[DEBUG]   Included: org.pitest:pitest-html-report:jar:1.22.0
+[DEBUG]   Included: org.antlr:stringtemplate:jar:3.2.1
+[DEBUG]   Included: antlr:antlr:jar:2.7.7
+[DEBUG]   Included: org.pitest:pitest-aggregator:jar:1.22.0
+[DEBUG]   Included: com.fasterxml.jackson.dataformat:jackson-dataformat-xml:jar:2.17.0
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-core:jar:2.17.0
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-annotations:jar:2.17.0
+[DEBUG]   Included: com.fasterxml.jackson.core:jackson-databind:jar:2.17.0
+[DEBUG]   Included: net.bytebuddy:byte-buddy:jar:1.14.9
+[DEBUG]   Included: org.codehaus.woodstox:stax2-api:jar:4.2.2
+[DEBUG]   Included: com.fasterxml.woodstox:woodstox-core:jar:6.6.1
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-api:jar:3.1.0
+[DEBUG]   Included: org.apache.maven.doxia:doxia-sink-api:jar:1.11.1
+[DEBUG]   Included: org.apache.maven.doxia:doxia-logging-api:jar:1.11.1
+[DEBUG]   Included: commons-collections:commons-collections:jar:3.2.2
+[DEBUG]   Included: commons-beanutils:commons-beanutils:jar:1.11.0
+[DEBUG]   Included: commons-logging:commons-logging:jar:1.3.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:3.3.1
+[DEBUG]   Included: org.apache.maven.reporting:maven-reporting-impl:jar:3.1.0
+[DEBUG]   Included: org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.5
+[DEBUG]   Included: org.codehaus.plexus:plexus-component-annotations:jar:2.1.0
+[DEBUG]   Included: org.apache.maven.shared:maven-shared-utils:jar:3.3.3
+[DEBUG]   Included: commons-io:commons-io:jar:2.6
+[DEBUG]   Included: org.apache.maven.doxia:doxia-decoration-model:jar:1.11.1
+[DEBUG]   Included: org.apache.maven.doxia:doxia-core:jar:1.11.1
+[DEBUG]   Included: org.apache.xbean:xbean-reflect:jar:3.7
+[DEBUG]   Included: com.google.collections:google-collections:jar:1.0
+[DEBUG]   Included: org.apache.httpcomponents:httpclient:jar:4.5.13
+[DEBUG]   Included: commons-codec:commons-codec:jar:1.11
+[DEBUG]   Included: org.apache.httpcomponents:httpcore:jar:4.4.14
+[DEBUG]   Included: org.apache.maven.doxia:doxia-site-renderer:jar:1.11.1
+[DEBUG]   Included: org.apache.maven.doxia:doxia-skin-model:jar:1.11.1
+[DEBUG]   Included: org.apache.maven.doxia:doxia-module-xhtml:jar:1.11.1
+[DEBUG]   Included: org.apache.maven.doxia:doxia-module-xhtml5:jar:1.11.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-i18n:jar:1.0-beta-10
+[DEBUG]   Included: org.codehaus.plexus:plexus-velocity:jar:1.2
+[DEBUG]   Included: org.apache.velocity:velocity:jar:1.7
+[DEBUG]   Included: commons-lang:commons-lang:jar:2.4
+[DEBUG]   Included: org.apache.velocity:velocity-tools:jar:2.0
+[DEBUG]   Included: commons-digester:commons-digester:jar:1.8
+[DEBUG]   Included: commons-chain:commons-chain:jar:1.1
+[DEBUG]   Included: dom4j:dom4j:jar:1.1
+[DEBUG]   Included: oro:oro:jar:2.0.8
+[DEBUG]   Included: org.apache.maven.surefire:surefire-booter:jar:3.2.5
+[DEBUG]   Included: org.apache.maven.surefire:surefire-api:jar:3.2.5
+[DEBUG]   Included: org.apache.maven.surefire:surefire-logger-api:jar:3.2.5
+[DEBUG]   Included: org.apache.maven.surefire:surefire-extensions-spi:jar:3.2.5
+[DEBUG]   Included: org.apache.maven.surefire:maven-surefire-common:jar:3.2.5
+[DEBUG]   Included: org.apache.maven.surefire:surefire-extensions-api:jar:3.2.5
+[DEBUG]   Included: org.apache.maven.shared:maven-common-artifact-filters:jar:3.1.1
+[DEBUG]   Included: org.codehaus.plexus:plexus-java:jar:1.2.0
+[DEBUG]   Included: com.thoughtworks.qdox:qdox:jar:2.0.3
+[DEBUG]   Included: org.apache.maven.surefire:surefire-shared-utils:jar:3.2.5
+[DEBUG]   Included: org.slf4j:jul-to-slf4j:jar:1.7.12
+[DEBUG]   Included: uk.org.lidalia:sysout-over-slf4j:jar:1.0.2
+[DEBUG] Loading mojo org.pitest:pitest-maven:1.22.0:mutationCoverage from plugin realm ClassRealm[plugin>org.pitest:pitest-maven:1.22.0, parent: jdk.internal.loader.ClassLoaders$AppClassLoader@30946e09]
+[DEBUG] Configuring mojo execution 'org.pitest:pitest-maven:1.22.0:mutationCoverage:default-cli' with basic configurator -->
+[DEBUG]   (f) additionalClasspathElements = []
+[DEBUG]   (f) additionalSources = [/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/src/main/kotlin]
+[DEBUG]   (f) additionalTestSources = [/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/src/test/kotlin]
+[DEBUG]   (f) avoidCallsTo = []
+[DEBUG]   (f) classpathDependencyExcludes = []
+[DEBUG]   (f) coverageThreshold = 0
+[DEBUG]   (f) crossModule = false
+[DEBUG]   (f) detectInlinedCode = true
+[DEBUG]   (f) dryRun = false
+[DEBUG]   (f) excludedClasses = []
+[DEBUG]   (f) excludedGroups = []
+[DEBUG]   (f) excludedMethods = []
+[DEBUG]   (f) excludedRunners = []
+[DEBUG]   (f) excludedTestClasses = [**/RunTest, **/*$*, **/*Tests, **/NestedJarTestCase, **/FileSystemManagerFactoryTestCase, **/Hdfs*, **/Ftp*, **/Sftp*, **/WebDav*, **/Webdav*, **/Http*]
+[DEBUG]   (f) exportLineCoverage = false
+[DEBUG]   (f) extraFeatures = []
+[DEBUG]   (f) failWhenNoMutations = true
+[DEBUG]   (f) features = []
+[DEBUG]   (f) fullMutationMatrix = false
+[DEBUG]   (f) includedGroups = []
+[DEBUG]   (f) includedTestMethods = []
+[DEBUG]   (f) inputEncoding = UTF-8
+[DEBUG]   (f) jvmArgs = []
+[DEBUG]   (f) maxMutationsPerClass = -1
+[DEBUG]   (f) maxSurviving = -1
+[DEBUG]   (f) mutationEngine = gregor
+[DEBUG]   (f) mutationThreshold = 0
+[DEBUG]   (f) mutators = []
+[DEBUG]   (f) outputEncoding = UTF-8
+[DEBUG]   (f) outputFormats = [XML, HTML]
+[DEBUG]   (f) parseSurefireArgLine = true
+[DEBUG]   (f) parseSurefireConfig = true
+[DEBUG]   (f) pluginArtifactMap = {org.pitest:pitest-maven=org.pitest:pitest-maven:maven-plugin:1.22.0:, org.pitest:pitest-entry=org.pitest:pitest-entry:jar:1.22.0:compile, org.pitest:pitest=org.pitest:pitest:jar:1.22.0:compile, org.ow2.asm:asm-commons=org.ow2.asm:asm-commons:jar:9.9:compile, org.ow2.asm:asm=org.ow2.asm:asm:jar:9.9:compile, org.ow2.asm:asm-util=org.ow2.asm:asm-util:jar:9.9:compile, org.ow2.asm:asm-tree=org.ow2.asm:asm-tree:jar:9.9:compile, org.ow2.asm:asm-analysis=org.ow2.asm:asm-analysis:jar:9.9:compile, org.apache.commons:commons-text=org.apache.commons:commons-text:jar:1.14.0:compile, org.apache.commons:commons-lang3=org.apache.commons:commons-lang3:jar:3.18.0:compile, org.pitest:pitest-html-report=org.pitest:pitest-html-report:jar:1.22.0:compile, org.antlr:stringtemplate=org.antlr:stringtemplate:jar:3.2.1:compile, antlr:antlr=antlr:antlr:jar:2.7.7:compile, org.pitest:pitest-aggregator=org.pitest:pitest-aggregator:jar:1.22.0:compile, com.fasterxml.jackson.dataformat:jackson-dataformat-xml=com.fasterxml.jackson.dataformat:jackson-dataformat-xml:jar:2.17.0:compile, com.fasterxml.jackson.core:jackson-core=com.fasterxml.jackson.core:jackson-core:jar:2.17.0:compile, com.fasterxml.jackson.core:jackson-annotations=com.fasterxml.jackson.core:jackson-annotations:jar:2.17.0:compile, com.fasterxml.jackson.core:jackson-databind=com.fasterxml.jackson.core:jackson-databind:jar:2.17.0:compile, net.bytebuddy:byte-buddy=net.bytebuddy:byte-buddy:jar:1.14.9:compile, org.codehaus.woodstox:stax2-api=org.codehaus.woodstox:stax2-api:jar:4.2.2:compile, com.fasterxml.woodstox:woodstox-core=com.fasterxml.woodstox:woodstox-core:jar:6.6.1:compile, org.apache.maven.reporting:maven-reporting-api=org.apache.maven.reporting:maven-reporting-api:jar:3.1.0:compile, org.apache.maven.doxia:doxia-sink-api=org.apache.maven.doxia:doxia-sink-api:jar:1.11.1:compile, org.apache.maven.doxia:doxia-logging-api=org.apache.maven.doxia:doxia-logging-api:jar:1.11.1:compile, commons-collections:commons-collections=commons-collections:commons-collections:jar:3.2.2:compile, commons-beanutils:commons-beanutils=commons-beanutils:commons-beanutils:jar:1.11.0:compile, commons-logging:commons-logging=commons-logging:commons-logging:jar:1.3.5:compile, org.codehaus.plexus:plexus-utils=org.codehaus.plexus:plexus-utils:jar:3.3.1:compile, org.apache.maven.reporting:maven-reporting-impl=org.apache.maven.reporting:maven-reporting-impl:jar:3.1.0:compile, org.apache.maven:maven-model=org.apache.maven:maven-model:jar:3.8.6:compile, org.apache.maven:maven-artifact=org.apache.maven:maven-artifact:jar:3.8.6:compile, org.eclipse.sisu:org.eclipse.sisu.plexus=org.eclipse.sisu:org.eclipse.sisu.plexus:jar:0.3.5:compile, javax.annotation:javax.annotation-api=javax.annotation:javax.annotation-api:jar:1.2:compile, org.eclipse.sisu:org.eclipse.sisu.inject=org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.5:compile, org.codehaus.plexus:plexus-classworlds=org.codehaus.plexus:plexus-classworlds:jar:2.6.0:compile, org.codehaus.plexus:plexus-component-annotations=org.codehaus.plexus:plexus-component-annotations:jar:2.1.0:compile, org.apache.maven:maven-plugin-api=org.apache.maven:maven-plugin-api:jar:3.1.0:compile, org.apache.maven.shared:maven-shared-utils=org.apache.maven.shared:maven-shared-utils:jar:3.3.3:compile, commons-io:commons-io=commons-io:commons-io:jar:2.6:compile, org.apache.maven.doxia:doxia-decoration-model=org.apache.maven.doxia:doxia-decoration-model:jar:1.11.1:compile, org.apache.maven.doxia:doxia-core=org.apache.maven.doxia:doxia-core:jar:1.11.1:compile, org.codehaus.plexus:plexus-container-default=org.codehaus.plexus:plexus-container-default:jar:2.1.0:compile, org.apache.xbean:xbean-reflect=org.apache.xbean:xbean-reflect:jar:3.7:compile, com.google.collections:google-collections=com.google.collections:google-collections:jar:1.0:compile, org.apache.httpcomponents:httpclient=org.apache.httpcomponents:httpclient:jar:4.5.13:compile, commons-codec:commons-codec=commons-codec:commons-codec:jar:1.11:compile, org.apache.httpcomponents:httpcore=org.apache.httpcomponents:httpcore:jar:4.4.14:compile, org.apache.maven.doxia:doxia-site-renderer=org.apache.maven.doxia:doxia-site-renderer:jar:1.11.1:compile, org.apache.maven.doxia:doxia-skin-model=org.apache.maven.doxia:doxia-skin-model:jar:1.11.1:compile, org.apache.maven.doxia:doxia-module-xhtml=org.apache.maven.doxia:doxia-module-xhtml:jar:1.11.1:compile, org.apache.maven.doxia:doxia-module-xhtml5=org.apache.maven.doxia:doxia-module-xhtml5:jar:1.11.1:compile, org.codehaus.plexus:plexus-i18n=org.codehaus.plexus:plexus-i18n:jar:1.0-beta-10:compile, org.codehaus.plexus:plexus-velocity=org.codehaus.plexus:plexus-velocity:jar:1.2:compile, org.apache.velocity:velocity=org.apache.velocity:velocity:jar:1.7:compile, commons-lang:commons-lang=commons-lang:commons-lang:jar:2.4:compile, org.apache.velocity:velocity-tools=org.apache.velocity:velocity-tools:jar:2.0:compile, commons-digester:commons-digester=commons-digester:commons-digester:jar:1.8:compile, commons-chain:commons-chain=commons-chain:commons-chain:jar:1.1:compile, dom4j:dom4j=dom4j:dom4j:jar:1.1:compile, oro:oro=oro:oro:jar:2.0.8:compile, org.apache.maven.surefire:surefire-booter=org.apache.maven.surefire:surefire-booter:jar:3.2.5:compile, org.apache.maven.surefire:surefire-api=org.apache.maven.surefire:surefire-api:jar:3.2.5:compile, org.apache.maven.surefire:surefire-logger-api=org.apache.maven.surefire:surefire-logger-api:jar:3.2.5:compile, org.apache.maven.surefire:surefire-extensions-spi=org.apache.maven.surefire:surefire-extensions-spi:jar:3.2.5:compile, org.apache.maven.surefire:maven-surefire-common=org.apache.maven.surefire:maven-surefire-common:jar:3.2.5:compile, org.apache.maven.surefire:surefire-extensions-api=org.apache.maven.surefire:surefire-extensions-api:jar:3.2.5:compile, org.eclipse.aether:aether-util=org.eclipse.aether:aether-util:jar:1.0.0.v20140518:compile, org.eclipse.aether:aether-api=org.eclipse.aether:aether-api:jar:1.0.0.v20140518:compile, org.apache.maven.shared:maven-common-artifact-filters=org.apache.maven.shared:maven-common-artifact-filters:jar:3.1.1:compile, org.codehaus.plexus:plexus-java=org.codehaus.plexus:plexus-java:jar:1.2.0:compile, com.thoughtworks.qdox:qdox=com.thoughtworks.qdox:qdox:jar:2.0.3:compile, org.apache.maven.surefire:surefire-shared-utils=org.apache.maven.surefire:surefire-shared-utils:jar:3.2.5:compile, org.slf4j:jul-to-slf4j=org.slf4j:jul-to-slf4j:jar:1.7.12:compile, org.slf4j:slf4j-api=org.slf4j:slf4j-api:jar:1.7.12:compile, uk.org.lidalia:sysout-over-slf4j=uk.org.lidalia:sysout-over-slf4j:jar:1.0.2:compile}
+[DEBUG]   (f) project = MavenProject: org.apache.commons:commons-vfs2:2.9.0 @ /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/pom.xml
+[DEBUG]   (f) projectBase = /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2
+[DEBUG]   (f) reportsDirectory = /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/target/pit-reports
+[DEBUG]   (f) session = org.apache.maven.execution.MavenSession@3f598450
+[DEBUG]   (f) settings = org.apache.maven.execution.SettingsAdapter@2db2a05f
+[DEBUG]   (f) skip = false
+[DEBUG]   (f) skipFailingTests = true
+[DEBUG]   (f) skipTests = false
+[DEBUG]   (s) targetClasses = [org.apache.commons.vfs2.*]
+[DEBUG]   (s) targetTests = [org.apache.commons.vfs2.*]
+[DEBUG]   (f) testStrengthThreshold = 0
+[DEBUG]   (f) threads = 8
+[DEBUG]   (f) timeoutConstant = 1000
+[DEBUG]   (f) timeoutFactor = 1.25
+[DEBUG]   (s) timestampedReports = false
+[DEBUG]   (f) useClasspathJar = false
+[DEBUG]   (f) useSlf4j = false
+[DEBUG]   (f) verbose = false
+[DEBUG]   (f) verbosity = DEFAULT
+[DEBUG]   (f) withHistory = false
+[DEBUG] -- end configuration --
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2
+[INFO] Found plugin : Default csv report plugin
+[INFO] Found plugin : Default xml report plugin
+[INFO] Found plugin : Default html report plugin
+[INFO] Found plugin : Static initializer code detector plugin
+[INFO] Found plugin : Excluded annotations plugin
+[INFO] Found plugin : Try with resources filter
+[INFO] Found plugin : Inlined finally block filter plugin
+[INFO] Found plugin : Implicit null check filter
+[INFO] Found plugin : Method reference null check filter
+[INFO] Found plugin : For each loop filter
+[INFO] Found plugin : Enum junk filter
+[INFO] Found plugin : Record junk mutation filter
+[INFO] Found plugin : String switch filter
+[INFO] Found plugin : Assertions filter
+[INFO] Found plugin : Enum switch filter
+[INFO] Found plugin : Logging calls filter
+[INFO] Found plugin : Infinite for loop filter
+[INFO] Found plugin : Long running iterator loop filter
+[INFO] Found plugin : For loop counter filter
+[INFO] Found plugin : Kotlin junk mutations filter
+[INFO] Found plugin : Groovy junk mutations filter
+[INFO] Found plugin : Max mutations per class limit
+[INFO] Found plugin : Equals shortcut equivalent mutant filter
+[INFO] Found plugin : Trivial return vals equivalence filter
+[INFO] Found plugin : Filters mutants with line number <= 1
+[INFO] Found plugin : Division by one equivalent mutant filter
+[INFO] Found plugin : Lombok junk mutations filter
+[INFO] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[INFO] Found plugin : Mutant export plugin
+[INFO] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[INFO] Found plugin : Auto set number of threads based on machine
+[INFO] Found plugin : Automatically add -ea to launch args to enable assertions
+[INFO] Found plugin : Default build verifier
+[INFO] Found plugin : Detect missing JUnit5 plugin
+[INFO] Found plugin : Detect missing TestNG plugin
+[INFO] Found plugin : Detect missing kotlin plugin
+[INFO] Found plugin : Detect missing spring plugin
+[INFO] Found plugin : Default coverage exporter
+[INFO] Found plugin : Basic test statistics
+[INFO] Found shared classpath plugin : Default mutation engine
+[INFO] Found shared classpath plugin : JUnit plugin
+[INFO] Found shared classpath plugin : Support for mocking frameworks using javassist
+[INFO] Found shared classpath plugin : Reset environment for javassist
+[INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[INFO] Adding org.pitest:pitest to SUT classpath
+[DEBUG] JUnit 5 not on classpath
+[DEBUG] JUnit 5 not on classpath
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/target/classes
+[INFO] Replacing properties in argLine -Xmx64m -Djdk.tls.client.protocols=TLSv1.2
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
+>> Generated 252 Killed 47 (19%)
+> KILLED 44 SURVIVED 21 TIMED_OUT 3 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 184 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+>> Generated 174 Killed 63 (36%)
+> KILLED 60 SURVIVED 30 TIMED_OUT 3 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 81 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
+>> Generated 29 Killed 17 (59%)
+> KILLED 17 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 9 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 1024 Killed 266 (26%)
+> KILLED 257 SURVIVED 161 TIMED_OUT 9 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 597 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
+>> Generated 303 Killed 78 (26%)
+> KILLED 77 SURVIVED 51 TIMED_OUT 1 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 174 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
+>> Generated 697 Killed 311 (45%)
+> KILLED 305 SURVIVED 65 TIMED_OUT 6 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 321 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
+>> Generated 207 Killed 57 (28%)
+> KILLED 52 SURVIVED 24 TIMED_OUT 5 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 126 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
+>> Generated 244 Killed 65 (27%)
+> KILLED 65 SURVIVED 40 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 139 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
+>> Generated 281 Killed 90 (32%)
+> KILLED 88 SURVIVED 34 TIMED_OUT 2 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 157 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator
+>> Generated 1572 Killed 715 (45%)
+> KILLED 705 SURVIVED 158 TIMED_OUT 10 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 699 
+--------------------------------------------------------------------------------
+================================================================================
+- Timings
+================================================================================
+> pre-scan for mutations : < 1 second
+> scan classpath : < 1 second
+> coverage and dependency analysis : 1 minutes and 46 seconds
+> build mutation tests : < 1 second
+> run mutation analysis : 14 minutes and 4 seconds
+--------------------------------------------------------------------------------
+> Total  : 15 minutes and 52 seconds
+--------------------------------------------------------------------------------
+> 11 tests took longer than 2000 ms
+> Slowest test (testZipFileUseWeakRefFilesCache(org.apache.commons.vfs2.provider.zip.ZipFileSystemTestCase)) took 16333 ms
+> Largest test (testZipParentLayer(org.apache.commons.vfs2.provider.zip.Jira733TestCase)) covered 1469 blocks
+================================================================================
+- Statistics
+================================================================================
+>> Line Coverage (for mutated classes only): 4364/9017 (48%)
+>> 351 tests examined
+>> Generated 4783 mutations Killed 1709 (36%)
+>> Mutations with no coverage 2487. Test strength 74%
+>> Ran 17648 tests (3.69 tests per mutation)
+Enhanced functionality available at https://www.arcmutate.com/
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  15:54 min
+[INFO] Finished at: 2026-01-15T01:00:37-05:00
+[INFO] ------------------------------------------------------------------------
+[DEBUG] Shutting down adapter factory; available factories [file-lock, rwlock-local, semaphore-local, noop]; available name mappers [discriminating, file-gav, file-hgav, gav, static]
+[DEBUG] Shutting down 'file-lock' factory
+[DEBUG] Shutting down 'rwlock-local' factory
+[DEBUG] Shutting down 'semaphore-local' factory
+[DEBUG] Shutting down 'noop' factory

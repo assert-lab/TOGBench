@@ -1,0 +1,818 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] Apache Commons VFS Project                                         [pom]
+[INFO] Apache Commons VFS                                                 [jar]
+[INFO] Apache Commons VFS Jackrabbit 1                                    [jar]
+[INFO] Apache Commons VFS Jackrabbit 2                                    [jar]
+[INFO] Apache Commons VFS Examples                                        [jar]
+[INFO] Apache Commons VFS Distribution                                    [pom]
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-vfs2-project >---------------
+[INFO] Building Apache Commons VFS Project 2.9.0                          [1/6]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-vfs2-project ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-vfs2-project ---
+[INFO] 
+[INFO] --- apache-rat:0.13:check (rat-check) @ commons-vfs2-project ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-vfs2-project ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-vfs2-project ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (vfs-jar-manifest) @ commons-vfs2-project ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-vfs2-project ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-vfs2-project ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0
+[INFO] Storing buildNumber: 40a68b3dc77ccf9691a570ece8f069a7e58d2a48 at timestamp: 1768453771604
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- bundle:5.1.2:manifest (bundle-manifest) @ commons-vfs2-project ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-vfs2-project ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-vfs2 >-------------------
+[INFO] Building Apache Commons VFS 2.9.0                                  [2/6]
+[INFO]   from commons-vfs2/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- apache-rat:0.13:check (rat-check) @ commons-vfs2 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (vfs-jar-manifest) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-vfs2 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-vfs2 ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2
+[INFO] Storing buildNumber: 40a68b3dc77ccf9691a570ece8f069a7e58d2a48 at timestamp: 1768453772492
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ commons-vfs2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-vfs2 ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- bundle:5.1.2:manifest (bundle-manifest) @ commons-vfs2 ---
+[WARNING] Manifest org.apache.commons:commons-vfs2:jar:2.9.0 : Unused Import-Package instructions: [org.apache.jackrabbit.*] 
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-vfs2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 64 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-vfs2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 168 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/target/test-classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/src/test/java/org/apache/commons/vfs2/util/NHttpFileServer.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/src/test/java/org/apache/commons/vfs2/util/NHttpFileServer.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpProviderTestCase.java: Some input files use unchecked or unsafe operations.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpProviderTestCase.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- antrun:1.8:run (default) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+     [move] Moving 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/target/test-classes/test-data/code
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-vfs2 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ commons-vfs2 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[ERROR] Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Running org.apache.commons.vfs2.VFSTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s - in org.apache.commons.vfs2.VFSTest
+[INFO] Running org.apache.commons.vfs2.operations.BasicOperationsTestCase
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.operations.BasicOperationsTestCase
+[INFO] Running org.apache.commons.vfs2.InvertIncludeFileSelectorTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.InvertIncludeFileSelectorTest
+[INFO] Running org.apache.commons.vfs2.FileIteratorTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileIteratorTest
+[INFO] Running org.apache.commons.vfs2.FileTypeSelectorTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileTypeSelectorTest
+[INFO] Running org.apache.commons.vfs2.function.VfsConsumerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.function.VfsConsumerTest
+[INFO] Running org.apache.commons.vfs2.FileObjectEscapeCharacterInPathTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.vfs2.FileObjectEscapeCharacterInPathTest
+[INFO] Running org.apache.commons.vfs2.impl.StandardFileSystemManagerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.vfs2.impl.StandardFileSystemManagerTest
+[INFO] Running org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest
+[WARNING] Tests run: 11, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.334 s - in org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest
+[INFO] Running org.apache.commons.vfs2.impl.DefaultFileMonitorTest
+[WARNING] Tests run: 9, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 10.658 s - in org.apache.commons.vfs2.impl.DefaultFileMonitorTest
+[INFO] Running org.apache.commons.vfs2.FileSystemOptionsTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.FileSystemOptionsTest
+[INFO] Running org.apache.commons.vfs2.auth.StaticUserAuthenticatorTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.auth.StaticUserAuthenticatorTestCase
+[INFO] Running org.apache.commons.vfs2.util.FileObjectUtilsTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.util.FileObjectUtilsTest
+[INFO] Running org.apache.commons.vfs2.util.DelegatingFileSystemOptionsBuilderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.vfs2.util.DelegatingFileSystemOptionsBuilderTest
+[INFO] Running org.apache.commons.vfs2.util.EncryptDecryptTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.vfs2.util.EncryptDecryptTest
+[INFO] Running org.apache.commons.vfs2.PatternFileSelectorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.PatternFileSelectorTest
+[INFO] Running org.apache.commons.vfs2.FileExtensionSelectorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileExtensionSelectorTest
+[INFO] Running org.apache.commons.vfs2.filter.SymbolicLinkFileFilterTest
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.SymbolicLinkFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.PrefixFileFilterTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.PrefixFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.AndFileFilterTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.filter.AndFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.SizeFileFilterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.vfs2.filter.SizeFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.NotFileFilterTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.NotFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.CanReadFileFilterTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.filter.CanReadFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.CanExecuteFileFilterTest
+[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.CanExecuteFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.AgeFileFilterTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.filter.AgeFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.EmptyFileFilterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.vfs2.filter.EmptyFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.NameFileFilterTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.NameFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.SuffixFileFilterTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.SuffixFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.HiddenFileFilterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.filter.HiddenFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.CanWriteFileFilterTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.vfs2.filter.CanWriteFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.WildcardFileFilterTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.filter.WildcardFileFilterTest
+[INFO] Running org.apache.commons.vfs2.filter.RegexFileFilterTestCase
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.RegexFileFilterTestCase
+[INFO] Running org.apache.commons.vfs2.filter.OrFileFilterTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.filter.OrFileFilterTest
+[INFO] Running org.apache.commons.vfs2.FileTypeTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.FileTypeTest
+[INFO] Running org.apache.commons.vfs2.provider.DefaultFileContentTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.vfs2.provider.DefaultFileContentTest
+[INFO] Running org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase
+[WARNING] Tests run: 6, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.013 s - in org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase
+[INFO] Running org.apache.commons.vfs2.provider.zip.ZipProviderWithCharsetTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.102 s - in org.apache.commons.vfs2.provider.zip.ZipProviderWithCharsetTestCase
+[INFO] Running org.apache.commons.vfs2.provider.zip.FileLockTestCase
+[WARNING] Tests run: 10, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.111 s - in org.apache.commons.vfs2.provider.zip.FileLockTestCase
+[INFO] Running org.apache.commons.vfs2.provider.zip.ZipProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.078 s - in org.apache.commons.vfs2.provider.zip.ZipProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.zip.ZipFileSystemTestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.929 s - in org.apache.commons.vfs2.provider.zip.ZipFileSystemTestCase
+[INFO] Running org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s - in org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase
+[INFO] Running org.apache.commons.vfs2.provider.zip.NestedZipTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.087 s - in org.apache.commons.vfs2.provider.zip.NestedZipTestCase
+[INFO] Running org.apache.commons.vfs2.provider.zip.ZipProviderWithCharsetNullTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.069 s - in org.apache.commons.vfs2.provider.zip.ZipProviderWithCharsetNullTestCase
+[INFO] Running org.apache.commons.vfs2.provider.zip.Jira733TestCase
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in org.apache.commons.vfs2.provider.zip.Jira733TestCase
+[INFO] Running org.apache.commons.vfs2.provider.temp.TemporaryProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.319 s - in org.apache.commons.vfs2.provider.temp.TemporaryProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.bzip2.Bzip2TestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.provider.bzip2.Bzip2TestCase
+[INFO] Running org.apache.commons.vfs2.provider.http.HttpFilesCacheTestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.vfs2.provider.http.HttpFilesCacheTestCase
+[INFO] Running org.apache.commons.vfs2.provider.http.HttpProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+Threads still running (2) at 2026-01-15T05:10:23.612036654Z, live threads:
+	Thread[0]  ID 96, Thread[MultiThreadedHttpConnectionManager cleanup,5,main],	WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 98, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.365 s - in org.apache.commons.vfs2.provider.http.HttpProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.http.GetContentInfoFunctionalTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s - in org.apache.commons.vfs2.provider.http.GetContentInfoFunctionalTest
+[INFO] Running org.apache.commons.vfs2.provider.http5.Http5GetContentInfoTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.414 s - in org.apache.commons.vfs2.provider.http5.Http5GetContentInfoTestCase
+[INFO] Running org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 98, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.179 s - in org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.http5.Http5FilesCacheTestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.provider.http5.Http5FilesCacheTestCase
+[INFO] Running org.apache.commons.vfs2.provider.sftp.SftpProviderClosedExecChannelTestCase
+[INFO] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.259 s - in org.apache.commons.vfs2.provider.sftp.SftpProviderClosedExecChannelTestCase
+[INFO] Running org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilderTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.sftp.SftpProviderStreamProxyModeTestCase
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.768 s - in org.apache.commons.vfs2.provider.sftp.SftpProviderStreamProxyModeTestCase
+[INFO] Running org.apache.commons.vfs2.provider.sftp.SftpProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 97, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.309 s - in org.apache.commons.vfs2.provider.sftp.SftpProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.tar.CreateFileSystemTestCase
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.vfs2.provider.tar.CreateFileSystemTestCase
+[INFO] Running org.apache.commons.vfs2.provider.tar.Tbz2ProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.204 s - in org.apache.commons.vfs2.provider.tar.Tbz2ProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.tar.TgzProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.119 s - in org.apache.commons.vfs2.provider.tar.TgzProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.tar.LargeTarTestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.842 s - in org.apache.commons.vfs2.provider.tar.LargeTarTestCase
+[INFO] Running org.apache.commons.vfs2.provider.tar.TarFileObjectTestCase
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.vfs2.provider.tar.TarFileObjectTestCase
+[INFO] Running org.apache.commons.vfs2.provider.tar.NestedTarTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.141 s - in org.apache.commons.vfs2.provider.tar.NestedTarTestCase
+[INFO] Running org.apache.commons.vfs2.provider.tar.TarProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.127 s - in org.apache.commons.vfs2.provider.tar.TarProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.tar.NestedTbz2TestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.181 s - in org.apache.commons.vfs2.provider.tar.NestedTbz2TestCase
+[INFO] Running org.apache.commons.vfs2.provider.tar.NestedTgzTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.115 s - in org.apache.commons.vfs2.provider.tar.NestedTgzTestCase
+[INFO] Running org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 48.706 s - in org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase
+[INFO] Running org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 98, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.178 s - in org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.http4.Http4FilesCacheTestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.provider.http4.Http4FilesCacheTestCase
+[INFO] Running org.apache.commons.vfs2.provider.http4.Http4GetContentInfoTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.apache.commons.vfs2.provider.http4.Http4GetContentInfoTest
+[INFO] Running org.apache.commons.vfs2.provider.http5s.Http5sGetContentInfoTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in org.apache.commons.vfs2.provider.http5s.Http5sGetContentInfoTest
+[INFO] Running org.apache.commons.vfs2.provider.url.UrlProviderHttpTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+Threads still running (1) at 2026-01-15T05:12:21.643681076Z, live threads:
+	Thread[0]  ID 370, Thread[Keep-Alive-Timer,8,InnocuousThreadGroup],	TIMED_WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.151 s - in org.apache.commons.vfs2.provider.url.UrlProviderHttpTestCase
+[INFO] Running org.apache.commons.vfs2.provider.url.UrlFileNameParserTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.url.UrlFileNameParserTest
+[INFO] Running org.apache.commons.vfs2.provider.url.UrlHttpProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.367 s - in org.apache.commons.vfs2.provider.url.UrlHttpProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.url.UrlProviderTestCase
+VfsClassLoaderTests no local file provider, skipping.
+VfsClassLoaderTests no local file provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.132 s - in org.apache.commons.vfs2.provider.url.UrlProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.AbstractFileNameTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.AbstractFileNameTest
+[INFO] Running org.apache.commons.vfs2.provider.test.GenericFileNameTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.test.GenericFileNameTestCase
+[INFO] Running org.apache.commons.vfs2.provider.test.VirtualProviderTestCase
+[INFO] Tests run: 95, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.31 s - in org.apache.commons.vfs2.provider.test.VirtualProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.test.FileObjectSortTestCase
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.provider.test.FileObjectSortTestCase
+[INFO] Running org.apache.commons.vfs2.provider.https.GetContentInfoFunctionalTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.vfs2.provider.https.GetContentInfoFunctionalTest
+[INFO] Running org.apache.commons.vfs2.provider.http4s.Http4sGetContentInfoTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.vfs2.provider.http4s.Http4sGetContentInfoTest
+[INFO] Running org.apache.commons.vfs2.provider.ram.CustomRamProviderTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.provider.ram.CustomRamProviderTest
+[INFO] Running org.apache.commons.vfs2.provider.ram.RamFileRandomAccessContentTestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.ram.RamFileRandomAccessContentTestCase
+[INFO] Running org.apache.commons.vfs2.provider.ram.RamProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.331 s - in org.apache.commons.vfs2.provider.ram.RamProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.UriParserTestCase
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.UriParserTestCase
+[INFO] Running org.apache.commons.vfs2.provider.ftps.MultipleConnectionTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.33 s - in org.apache.commons.vfs2.provider.ftps.MultipleConnectionTestCase
+[INFO] Running org.apache.commons.vfs2.provider.ftps.FtpsProviderImplicitTestCase
+2026-01-15 00:12:54,822 [pool-18-thread-1] ERROR Exception caught, closing session
+java.lang.IllegalMonitorStateException: current thread is not owner
+	at java.lang.Object.notifyAll(Native Method) ~[?:?]
+	at org.apache.mina.filter.ssl.SslHandler.checkStatus(SslHandler.java:544) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:375) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:517) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:650) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:49) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1128) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:122) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:650) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:643) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:539) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$1200(AbstractPollingIoProcessor.java:68) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1224) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1213) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:683) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64) ~[mina-core-2.1.4.jar:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:840) [?:?]
+VfsClassLoaderTests no layered .jar provider, skipping.
+Threads still running (5) at 2026-01-15T05:13:04.558511618Z, live threads:
+	Thread[0]  ID 397, Thread[pool-16-thread-1,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[1]  ID 401, Thread[pool-16-thread-2,5,main],	RUNNABLE,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[2]  ID 402, Thread[pool-16-thread-3,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[3]  ID 403, Thread[pool-16-thread-4,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[4]  ID 404, Thread[NioProcessor-113,5,main],	RUNNABLE,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 25.333 s - in org.apache.commons.vfs2.provider.ftps.FtpsProviderImplicitTestCase
+[INFO] Running org.apache.commons.vfs2.provider.ftps.FtpsProviderExplicitTestCase
+2026-01-15 00:13:23,610 [pool-21-thread-3] ERROR Exception caught, closing session
+java.lang.IllegalMonitorStateException: current thread is not owner
+	at java.lang.Object.notifyAll(Native Method) ~[?:?]
+	at org.apache.mina.filter.ssl.SslHandler.checkStatus(SslHandler.java:544) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:375) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:517) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:650) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:49) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1128) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:122) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:650) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:643) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:539) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$1200(AbstractPollingIoProcessor.java:68) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1224) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1213) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:683) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64) ~[mina-core-2.1.4.jar:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:840) [?:?]
+2026-01-15 00:13:23,740 [pool-21-thread-3] ERROR Exception caught, closing session
+java.lang.IllegalMonitorStateException: current thread is not owner
+	at java.lang.Object.notifyAll(Native Method) ~[?:?]
+	at org.apache.mina.filter.ssl.SslHandler.checkStatus(SslHandler.java:544) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:375) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:517) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:650) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:49) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1128) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:122) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:650) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:643) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:539) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$1200(AbstractPollingIoProcessor.java:68) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1224) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1213) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:683) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64) ~[mina-core-2.1.4.jar:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:840) [?:?]
+2026-01-15 00:13:23,870 [pool-21-thread-3] ERROR Exception caught, closing session
+java.lang.IllegalMonitorStateException: current thread is not owner
+	at java.lang.Object.notifyAll(Native Method) ~[?:?]
+	at org.apache.mina.filter.ssl.SslHandler.checkStatus(SslHandler.java:544) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:375) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:517) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:650) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:49) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1128) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:122) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:650) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:643) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:539) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$1200(AbstractPollingIoProcessor.java:68) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1224) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1213) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:683) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64) ~[mina-core-2.1.4.jar:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:840) [?:?]
+2026-01-15 00:13:24,003 [pool-21-thread-1] ERROR Exception caught, closing session
+java.lang.IllegalMonitorStateException: current thread is not owner
+	at java.lang.Object.notifyAll(Native Method) ~[?:?]
+	at org.apache.mina.filter.ssl.SslHandler.checkStatus(SslHandler.java:544) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.filter.ssl.SslHandler.messageReceived(SslHandler.java:375) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.filter.ssl.SslFilter.messageReceived(SslFilter.java:517) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:650) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.access$1300(DefaultIoFilterChain.java:49) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain$EntryImpl$1.messageReceived(DefaultIoFilterChain.java:1128) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.IoFilterAdapter.messageReceived(IoFilterAdapter.java:122) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.callNextMessageReceived(DefaultIoFilterChain.java:650) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.filterchain.DefaultIoFilterChain.fireMessageReceived(DefaultIoFilterChain.java:643) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.read(AbstractPollingIoProcessor.java:539) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor.access$1200(AbstractPollingIoProcessor.java:68) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1224) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.process(AbstractPollingIoProcessor.java:1213) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.core.polling.AbstractPollingIoProcessor$Processor.run(AbstractPollingIoProcessor.java:683) ~[mina-core-2.1.4.jar:?]
+	at org.apache.mina.util.NamePreservingRunnable.run(NamePreservingRunnable.java:64) ~[mina-core-2.1.4.jar:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:840) [?:?]
+VfsClassLoaderTests no layered .jar provider, skipping.
+Threads still running (6) at 2026-01-15T05:13:34.382026662Z, live threads:
+	Thread[0]  ID 410, Thread[pool-19-thread-1,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[1]  ID 414, Thread[pool-19-thread-2,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[2]  ID 415, Thread[pool-19-thread-3,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[3]  ID 416, Thread[pool-19-thread-4,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[4]  ID 417, Thread[pool-19-thread-5,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 29.821 s - in org.apache.commons.vfs2.provider.ftps.FtpsProviderExplicitTestCase
+[INFO] Running org.apache.commons.vfs2.provider.res.Vfs444TestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 101, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.14 s - in org.apache.commons.vfs2.provider.res.Vfs444TestCase
+[INFO] Running org.apache.commons.vfs2.provider.res.ResSchemeTestCase
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.provider.res.ResSchemeTestCase
+[INFO] Running org.apache.commons.vfs2.provider.res.ResourceProviderTestCase
+VfsClassLoaderTests no local file provider, skipping.
+VfsClassLoaderTests no local file provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.143 s - in org.apache.commons.vfs2.provider.res.ResourceProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.jar.JarProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.121 s - in org.apache.commons.vfs2.provider.jar.JarProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.jar.JarAttributesTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.provider.jar.JarAttributesTestCase
+[INFO] Running org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilderTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.ftp.MultipleConnectionTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.ftp.MultipleConnectionTestCase
+[INFO] Running org.apache.commons.vfs2.provider.ftp.FtpProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+Threads still running (6) at 2026-01-15T05:14:09.810571085Z, live threads:
+	Thread[0]  ID 433, Thread[pool-25-thread-1,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[1]  ID 437, Thread[NioProcessor-193,5,main],	RUNNABLE,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[2]  ID 438, Thread[NioProcessor-194,5,main],	RUNNABLE,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[3]  ID 439, Thread[NioProcessor-195,5,main],	RUNNABLE,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[4]  ID 440, Thread[pool-25-thread-5,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.984 s - in org.apache.commons.vfs2.provider.ftp.FtpProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.ftp.FtpProviderUserDirTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+Threads still running (8) at 2026-01-15T05:14:33.068822655Z, live threads:
+	Thread[0]  ID 448, Thread[pool-28-thread-1,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[3]  ID 452, Thread[NioProcessor-219,5,main],	RUNNABLE,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[4]  ID 453, Thread[pool-28-thread-3,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[5]  ID 454, Thread[pool-28-thread-4,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[6]  ID 455, Thread[pool-28-thread-5,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.255 s - in org.apache.commons.vfs2.provider.ftp.FtpProviderUserDirTestCase
+[INFO] Running org.apache.commons.vfs2.provider.ftp.FtpProviderMdtmOnTestCase
+Threads still running (5) at 2026-01-15T05:14:37.279744504Z, live threads:
+	Thread[0]  ID 462, Thread[pool-31-thread-1,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[3]  ID 466, Thread[pool-31-thread-2,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[4]  ID 467, Thread[pool-31-thread-3,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.206 s - in org.apache.commons.vfs2.provider.ftp.FtpProviderMdtmOnTestCase
+[INFO] Running org.apache.commons.vfs2.provider.ftp.FtpProviderMdtmOffTestCase
+Threads still running (3) at 2026-01-15T05:14:41.489373606Z, live threads:
+	Thread[0]  ID 470, Thread[pool-34-thread-1,5,main],	TIMED_WAITING,	non_daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.207 s - in org.apache.commons.vfs2.provider.ftp.FtpProviderMdtmOffTestCase
+[INFO] Running org.apache.commons.vfs2.provider.local.LocalFileRandomAccessContentTestCase
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.local.LocalFileRandomAccessContentTestCase
+[INFO] Running org.apache.commons.vfs2.provider.local.LocalProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 99, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.375 s - in org.apache.commons.vfs2.provider.local.LocalProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.local.ConversionTestCase
+[WARNING] Tests run: 2, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.local.ConversionTestCase
+[INFO] Running org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+Threads still running (4) at 2026-01-15T05:15:44.790855406Z, live threads:
+	Thread[0]  ID 1074, Thread[org.apache.hadoop.hdfs.PeerCache@452a32f2,5,main],	TIMED_WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[1]  ID 1076, Thread[LeaseRenewer:wxw9rr@localhost:8720,5,main],	TIMED_WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[2]  ID 1104, Thread[Async disk worker #0 for volume /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/target/test/hdfstestcasedata/dfs/data/data1,5,FsDatasetAsyncDiskService],	TIMED_WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+	Thread[3]  ID 1105, Thread[Async disk worker #0 for volume /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/target/test/hdfstestcasedata/dfs/data/data2,5,FsDatasetAsyncDiskService],	TIMED_WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 58.905 s - in org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.604 s - in org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest
+[INFO] Running org.apache.commons.vfs2.cache.DefaultFilesCacheTestCase
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.153 s - in org.apache.commons.vfs2.cache.DefaultFilesCacheTestCase
+[INFO] Running org.apache.commons.vfs2.cache.WeakRefFilesCacheTestCase
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.165 s - in org.apache.commons.vfs2.cache.WeakRefFilesCacheTestCase
+[INFO] Running org.apache.commons.vfs2.cache.NullFilesCacheTestCase
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.155 s - in org.apache.commons.vfs2.cache.NullFilesCacheTestCase
+[INFO] Running org.apache.commons.vfs2.cache.LRUFilesCacheTestCase
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.172 s - in org.apache.commons.vfs2.cache.LRUFilesCacheTestCase
+[INFO] Running org.apache.commons.vfs2.cache.SoftRefFilesCacheTestCase
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.164 s - in org.apache.commons.vfs2.cache.SoftRefFilesCacheTestCase
+[INFO] Running org.apache.commons.vfs2.UserAuthenticationDataTestCase
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.UserAuthenticationDataTestCase
+[INFO] Running org.apache.commons.vfs2.FileChangeEventTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileChangeEventTest
+[INFO] Running org.apache.commons.vfs2.FileSystemExceptionTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileSystemExceptionTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[WARNING] Tests run: 3129, Failures: 0, Errors: 0, Skipped: 9
+[INFO] 
+[INFO] 
+[INFO] ------------< org.apache.commons:commons-vfs2-jackrabbit1 >-------------
+[INFO] Building Apache Commons VFS Jackrabbit 1 2.9.0                     [3/6]
+[INFO]   from commons-vfs2-jackrabbit1/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-vfs2-jackrabbit1 ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-vfs2-jackrabbit1 ---
+[INFO] 
+[INFO] --- apache-rat:0.13:check (rat-check) @ commons-vfs2-jackrabbit1 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-vfs2-jackrabbit1 ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-vfs2-jackrabbit1 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (vfs-jar-manifest) @ commons-vfs2-jackrabbit1 ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1/target/osgi
+    [touch] Creating /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1/target/osgi/MANIFEST.MF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-vfs2-jackrabbit1 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-vfs2-jackrabbit1 ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1
+[INFO] Storing buildNumber: 40a68b3dc77ccf9691a570ece8f069a7e58d2a48 at timestamp: 1768454166800
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ commons-vfs2-jackrabbit1 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-vfs2-jackrabbit1 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 8 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1/target/classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1/src/main/java/org/apache/commons/vfs2/provider/webdav/WebdavFileObject.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1/src/main/java/org/apache/commons/vfs2/provider/webdav/WebdavFileObject.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- bundle:5.1.2:manifest (bundle-manifest) @ commons-vfs2-jackrabbit1 ---
+[WARNING] Manifest org.apache.commons:commons-vfs2-jackrabbit1:jar:2.9.0 : Unused Import-Package instructions: [org.apache.hadoop.*, org.apache.tools.ant.*] 
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-vfs2-jackrabbit1 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 48 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-vfs2-jackrabbit1 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1/target/test-classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1/src/test/java/org/apache/commons/vfs2/provider/webdav/test/WebdavVersioningTests.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1/src/test/java/org/apache/commons/vfs2/provider/webdav/test/WebdavVersioningTests.java uses or overrides a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1/src/test/java/org/apache/commons/vfs2/provider/webdav/test/WebdavVersioningTests.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- antrun:1.8:run (default) @ commons-vfs2-jackrabbit1 ---
+[INFO] Executing tasks
+
+main:
+     [move] Moving 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit1/target/test-classes/test-data/code
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-vfs2-jackrabbit1 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ commons-vfs2-jackrabbit1 ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] ------------< org.apache.commons:commons-vfs2-jackrabbit2 >-------------
+[INFO] Building Apache Commons VFS Jackrabbit 2 2.9.0                     [4/6]
+[INFO]   from commons-vfs2-jackrabbit2/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-vfs2-jackrabbit2 ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-vfs2-jackrabbit2 ---
+[INFO] 
+[INFO] --- apache-rat:0.13:check (rat-check) @ commons-vfs2-jackrabbit2 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-vfs2-jackrabbit2 ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-vfs2-jackrabbit2 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (vfs-jar-manifest) @ commons-vfs2-jackrabbit2 ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/target/osgi
+    [touch] Creating /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/target/osgi/MANIFEST.MF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-vfs2-jackrabbit2 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-vfs2-jackrabbit2 ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2
+[INFO] Storing buildNumber: 40a68b3dc77ccf9691a570ece8f069a7e58d2a48 at timestamp: 1768454171329
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ commons-vfs2-jackrabbit2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-vfs2-jackrabbit2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/target/classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/src/main/java/org/apache/commons/vfs2/provider/webdav4s/Webdav4sFileProvider.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/src/main/java/org/apache/commons/vfs2/provider/webdav4s/Webdav4sFileProvider.java uses or overrides a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/src/main/java/org/apache/commons/vfs2/provider/webdav4s/Webdav4sFileProvider.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- bundle:5.1.2:manifest (bundle-manifest) @ commons-vfs2-jackrabbit2 ---
+[WARNING] Manifest org.apache.commons:commons-vfs2-jackrabbit2:jar:2.9.0 : Unused Import-Package instructions: [org.apache.hadoop.*, org.apache.tools.ant.*, org.apache.commons.httpclient.*] 
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-vfs2-jackrabbit2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 47 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-vfs2-jackrabbit2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/target/test-classes
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/src/test/java/org/apache/commons/vfs2/provider/webdav4/test/JcrUtils.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/src/test/java/org/apache/commons/vfs2/provider/webdav4/test/JcrUtils.java uses or overrides a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/src/test/java/org/apache/commons/vfs2/provider/webdav4/test/JcrUtils.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- antrun:1.8:run (default) @ commons-vfs2-jackrabbit2 ---
+[INFO] Executing tasks
+
+main:
+     [move] Moving 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-jackrabbit2/target/test-classes/test-data/code
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-vfs2-jackrabbit2 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ commons-vfs2-jackrabbit2 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[ERROR] Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Running org.apache.commons.vfs2.provider.webdav4.test.Webdav4ProviderTestCase
+VfsClassLoaderTests no layered .jar provider, skipping.
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.004 s - in org.apache.commons.vfs2.provider.webdav4.test.Webdav4ProviderTestCase
+[INFO] Running org.apache.commons.vfs2.provider.webdav4.Webdav4FileObjectTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.vfs2.provider.webdav4.Webdav4FileObjectTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 95, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-vfs2-examples >--------------
+[INFO] Building Apache Commons VFS Examples 2.9.0                         [5/6]
+[INFO]   from commons-vfs2-examples/pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-vfs2-examples ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-vfs2-examples ---
+[INFO] 
+[INFO] --- apache-rat:0.13:check (rat-check) @ commons-vfs2-examples ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-vfs2-examples ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-vfs2-examples ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-examples/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (vfs-jar-manifest) @ commons-vfs2-examples ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-examples/target/osgi
+    [touch] Creating /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-examples/target/osgi/MANIFEST.MF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-vfs2-examples ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-vfs2-examples ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-examples' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-examples
+[INFO] Storing buildNumber: 40a68b3dc77ccf9691a570ece8f069a7e58d2a48 at timestamp: 1768454194556
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ commons-vfs2-examples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-vfs2-examples ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 18 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-examples/target/classes
+[INFO] 
+[INFO] --- bundle:5.1.2:manifest (bundle-manifest) @ commons-vfs2-examples ---
+[WARNING] Manifest org.apache.commons:commons-vfs2-examples:jar:2.9.0 : Unused Import-Package instructions: [org.apache.hadoop.*, org.apache.jackrabbit.*, org.apache.tools.ant.*, org.apache.commons.httpclient.*] 
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-vfs2-examples ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-examples/src/test/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-vfs2-examples ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-vfs2-examples ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- surefire:3.0.0-M5:test (default-test) @ commons-vfs2-examples ---
+[INFO] 
+[INFO] ------------< org.apache.commons:commons-vfs2-distribution >------------
+[INFO] Building Apache Commons VFS Distribution 2.9.0                     [6/6]
+[INFO]   from commons-vfs2-distribution/pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-vfs2-distribution ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-vfs2-distribution ---
+[INFO] 
+[INFO] --- apache-rat:0.13:check (rat-check) @ commons-vfs2-distribution ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-vfs2-distribution ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-vfs2-distribution ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-distribution/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (vfs-jar-manifest) @ commons-vfs2-distribution ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-distribution/target/osgi
+    [touch] Creating /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-distribution/target/osgi/MANIFEST.MF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-vfs2-distribution ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-vfs2-distribution ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-distribution' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2-distribution
+[INFO] Storing buildNumber: 40a68b3dc77ccf9691a570ece8f069a7e58d2a48 at timestamp: 1768454195457
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- bundle:5.1.2:manifest (bundle-manifest) @ commons-vfs2-distribution ---
+[WARNING] Ignoring project type pom - supportedProjectTypes = [jar, bundle]
+[INFO] 
+[INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-vfs2-distribution ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for Apache Commons VFS Project 2.9.0:
+[INFO] 
+[INFO] Apache Commons VFS Project ......................... SUCCESS [  1.898 s]
+[INFO] Apache Commons VFS ................................. SUCCESS [06:34 min]
+[INFO] Apache Commons VFS Jackrabbit 1 .................... SUCCESS [  2.197 s]
+[INFO] Apache Commons VFS Jackrabbit 2 .................... SUCCESS [ 25.627 s]
+[INFO] Apache Commons VFS Examples ........................ SUCCESS [  0.946 s]
+[INFO] Apache Commons VFS Distribution .................... SUCCESS [  0.261 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  07:05 min
+[INFO] Finished at: 2026-01-15T00:16:35-05:00
+[INFO] ------------------------------------------------------------------------
