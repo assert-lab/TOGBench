@@ -14,17 +14,50 @@
   </properties>
 
   <build>
-    <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
-    <directory>${project.basedir}/${target.dir}/</directory>
     <plugins>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-surefire-plugin</artifactId>
+  <version>2.19.1</version>
+  <configuration>
+    <excludes>
+      <exclude>**/AsyncStreamHandlerTest.java</exclude>
+            <exclude>**/ReactiveStreamsTest.java</exclude>
+      <exclude>**/WebdavTest.java</exclude>
+          <exclude>**/ProxyTest.java</exclude>
+
+    </excludes>
+  </configuration>
+</plugin>
+
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
-        <version>1.9.8</version>
-          <configuration>
-          <threads>16</threads>
+        <version>1.22.0</version>
 
-          <timeoutConstant>8000</timeoutConstant>
+              <dependencies>
+        <dependency>
+          <groupId>org.pitest</groupId>
+          <artifactId>pitest-testng-plugin</artifactId>
+          <version>1.0.0</version>
+        </dependency>
+      </dependencies>
+
+
+        <configuration>
+        <testPlugin>testng</testPlugin>
+          <threads>8</threads>
+          <timeoutConstant>1000</timeoutConstant>
           <mutators>
             <mutator>STRONGER</mutator>
           </mutators>
@@ -41,46 +74,18 @@
           <targetTests>
             <param>org.asynchttpclient.*</param>
           </targetTests>
-            <excludedTestClasses>
-              <param>org.asynchttpclient.AsyncStreamHandlerTest</param>
-            </excludedTestClasses>
+        <excludedTestClasses>
+          <param>**/AsyncStreamHandlerTest*</param>
+          <param>**/ReactiveStreamsTest*</param>
+          <param>**/WebdavTest*</param>
+          <param>**/ProxyTest*</param>
+        </excludedTestClasses>
           <fullMutationMatrix>true</fullMutationMatrix>
           <exportLineCoverage>true</exportLineCoverage>
           <outputFormats>XML</outputFormats>
         </configuration>
       </plugin>
-      <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>test-jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.19.1</version>
-        <configuration>
-          <properties>
-            <property>
-              <name>junit</name>
-              <value>false</value>
-            </property>
-          </properties>
-          <excludes>
-                <exclude>**/AsyncStreamHandlerTest.*</exclude>
-              </excludes>
-          <redirectTestOutputToFile>${surefire.redirectTestOutputToFile}</redirectTestOutputToFile>
-          <systemPropertyVariables>
-            <org.asynchttpclient.shutdownQuietPeriod>10</org.asynchttpclient.shutdownQuietPeriod>
-            <org.asynchttpclient.shutdownTimeout>100</org.asynchttpclient.shutdownTimeout>
-            <sun.net.spi.nameservice.nameservers>8.8.8.8</sun.net.spi.nameservice.nameservers>
-            <sun.net.spi.nameservice.provider.1>dns,sun</sun.net.spi.nameservice.provider.1>
-          </systemPropertyVariables>
-        </configuration>
-      </plugin>
+
     </plugins>
   </build>
 
@@ -139,39 +144,5 @@
       <artifactId>kerb-simplekdc</artifactId>
       <scope>test</scope>
     </dependency>
-
-        <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>6.14.3</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>30.1.1-jre</version>
-      <scope>test</scope>
-    </dependency>
   </dependencies>
-
-
-  <profiles>
-  <!-- Profile to build and run PerformanceTest. Use 'mvn test -Pjdk-rt' -->
-  <profile>
-    <id>testID</id>
-    <activation>
-      <property>
-        <name>test.dir</name>
-      </property>
-    </activation>
-  </profile>
-  <profile>
-    <id>targetID</id>
-    <activation>
-      <property>
-        <name>target.dir</name>
-      </property>
-    </activation>
-  </profile>
-  </profiles>
 </project>

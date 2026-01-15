@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<project name="maven-antrun-" default="main"  >
-<target name="main">
-  <move todir="/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/${target.dir}/test-classes/test-data/code" failonerror="false">
-    <fileset dir="/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-vfs-2.9.0/commons-vfs2/${target.dir}/test-classes/code"/>
-  </move>
-</target>
-</project>

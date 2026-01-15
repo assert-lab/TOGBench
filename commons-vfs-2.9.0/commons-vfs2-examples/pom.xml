@@ -53,18 +53,10 @@
       <artifactId>jsch</artifactId>
       <optional>true</optional>
     </dependency>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-
-      <scope>test</scope>
-    </dependency>
   </dependencies>
 
   <properties>
     <vfs.parent.dir>${basedir}/..</vfs.parent.dir>
-
   </properties>
 
   <build>
@@ -81,56 +73,10 @@
         </includes>
       </resource>
     </resources>
-    <plugins>
-      <plugin>
-        <groupId>org.pitest</groupId>
-        <artifactId>pitest-maven</artifactId>
-        <version>1.22.0</version>
-          <configuration>
-          <threads>16</threads>
-
-          <timeoutConstant>8000</timeoutConstant>
-          <mutators>
-            <mutator>STRONGER</mutator>
-          </mutators>
-          <avoidCallsTo>
-            <avoidCallsTo>java.*</avoidCallsTo>
-            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
-            <avoidCallsTo>org.slf4j.*</avoidCallsTo>
-            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
-          </avoidCallsTo>
-          <verbose>false</verbose>
-          <targetClasses>
-            <param>org.apache.commons.vfs2.example*</param>
-          </targetClasses>
-          <targetTests>
-            <param>org.apache.commons.vfs2.example.*</param>
-          </targetTests>
-          <fullMutationMatrix>true</fullMutationMatrix>
-          <exportLineCoverage>true</exportLineCoverage>
-          <outputFormats>XML</outputFormats>
-        </configuration>
-      </plugin>
-    </plugins>
   </build>
 
   <profiles>
-    <profile>
-      <id>testID</id>
-      <activation>
-        <property>
-          <name>test.dir</name>
-        </property>
-      </activation>
-    </profile>
-    <profile>
-      <id>targetID</id>
-      <activation>
-        <property>
-          <name>target.dir</name>
-        </property>
-      </activation>
-    </profile>
+
     <profile>
       <id>shell</id>
       <build>

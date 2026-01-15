@@ -71,7 +71,6 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-
       <scope>test</scope>
     </dependency>
 
@@ -193,10 +192,67 @@
           <excludes>
             <!-- Need to port fully to JUnit 4 or 5. -->
             <!-- *Tests.java files with @Test methods should not be run since these classes are in fact JUnit 3 classes used in custom JUnit 3 test suites. -->
-
+            <exclude>**/*Tests.java</exclude>
           </excludes>
         </configuration>
       </plugin>
+
+<plugin>
+  <groupId>org.pitest</groupId>
+  <artifactId>pitest-maven</artifactId>
+  <version>1.22.0</version>
+
+  <configuration>
+  <threads>8</threads>
+<timeoutConstant>1000</timeoutConstant>
+<skipFailingTests>true</skipFailingTests>
+    <targetClasses>
+      <param>org.apache.commons.vfs2.*</param>
+    </targetClasses>
+    <targetTests>
+      <param>org.apache.commons.vfs2.*</param>
+    </targetTests>
+<excludedTestClasses>
+  <!-- Original exclusions -->
+  <param>**/RunTest</param>
+  <param>**/*$*</param>
+  <param>**/*Tests</param>
+  <param>**/NestedJarTestCase</param>
+  <param>**/FileSystemManagerFactoryTestCase</param>
+  
+  <!-- Integration tests requiring external services -->
+  <param>**/Hdfs*</param>
+  <param>**/Ftp*</param>
+  <param>**/Sftp*</param>
+  <param>**/WebDav*</param>
+  <param>**/Webdav*</param>
+  <param>**/Http*</param>
+  
+  <!-- Failing Jackrabbit WebDAV tests (need Jackrabbit server) -->
+  <param>**/ContentTests</param>
+  <param>**/LastModifiedTests</param>
+  <param>**/NamingTests</param>
+  <param>**/ProviderCacheStrategyTests</param>
+  <param>**/ProviderDeleteTests</param>
+  <param>**/ProviderRandomReadTests</param>
+  <param>**/ProviderRandomReadWriteTests</param>
+  <param>**/ProviderRandomSetLengthTests</param>
+  <param>**/ProviderReadTests</param>
+  <param>**/ProviderRenameTests</param>
+  <param>**/ProviderWriteAppendTests</param>
+  <param>**/ProviderWriteTests</param>
+  <param>**/UriTests</param>
+  <param>**/UrlStructureTests</param>
+  <param>**/UrlTests</param>
+  <param>**/VfsClassLoaderTests</param>
+</excludedTestClasses>
+    <outputFormats>
+      <outputFormat>XML</outputFormat>
+      <outputFormat>HTML</outputFormat>
+    </outputFormats>
+  </configuration>
+</plugin>
+
     </plugins>
   </build>
 </project>

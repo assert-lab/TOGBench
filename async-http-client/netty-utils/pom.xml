@@ -12,13 +12,58 @@
     <javaModuleName>org.asynchttpclient.utils</javaModuleName>
   </properties>
 
+<build>
+<plugins>
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.22.0</version>
+   <dependencies>
+        <dependency>
+          <groupId>org.pitest</groupId>
+          <artifactId>pitest-testng-plugin</artifactId>
+          <version>1.0.0</version>
+        </dependency>
+      </dependencies>
+
+
+        <configuration>
+        <testPlugin>testng</testPlugin>
+          <threads>8</threads>
+          <timeoutConstant>1000</timeoutConstant>
+          <mutators>
+            <mutator>STRONGER</mutator>
+          </mutators>
+          <avoidCallsTo>
+            <avoidCallsTo>java.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+            <avoidCallsTo>org.slf4j.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+          </avoidCallsTo>
+          <verbose>false</verbose>
+          <targetClasses>
+            <param>org.asynchttpclient*</param>
+          </targetClasses>
+          <targetTests>
+            <param>org.asynchttpclient.*</param>
+          </targetTests>
+<excludedTestClasses>
+  <param>**/AsyncStreamHandlerTest*</param>
+  <param>**/ReactiveStreamsTest*</param>
+  <param>**/WebdavTest*</param>
+  <param>**/ProxyTest*</param>
+</excludedTestClasses>
+          <fullMutationMatrix>true</fullMutationMatrix>
+          <exportLineCoverage>true</exportLineCoverage>
+          <outputFormats>XML</outputFormats>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+
   <dependencies>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-buffer</artifactId>

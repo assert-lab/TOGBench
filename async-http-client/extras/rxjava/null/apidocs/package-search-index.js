@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.asynchttpclient.extras.rxjava"},{"l":"org.asynchttpclient.extras.rxjava.single"}];updateSearchResults();

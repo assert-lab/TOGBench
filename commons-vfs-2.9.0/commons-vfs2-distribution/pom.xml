@@ -37,7 +37,6 @@ limitations under the License.
     <checkstyle.skip>true</checkstyle.skip>
     <vfs.parent.dir>${basedir}/..</vfs.parent.dir>
     <commons.release.isDistModule>true</commons.release.isDistModule>
-
   </properties>
 
   <profiles>
@@ -92,13 +91,6 @@ limitations under the License.
           <artifactId>commons-vfs2-examples</artifactId>
           <version>${project.version}</version>
           <classifier>javadoc</classifier>
-        </dependency>
-
-        <dependency>
-          <groupId>junit</groupId>
-          <artifactId>junit</artifactId>
-
-          <scope>test</scope>
         </dependency>
       </dependencies>
 

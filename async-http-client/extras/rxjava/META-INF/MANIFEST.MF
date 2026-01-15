@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1768170811262
+Bnd-LastModified: 1768453473896
 Build-Jdk: 1.8.0_171
 Built-By: wxw9rr
 Bundle-Description: The Async Http Client RxJava Extras.

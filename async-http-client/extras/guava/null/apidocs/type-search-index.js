@@ -1,1 +1,0 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.asynchttpclient.extras.guava","l":"ListenableFutureAdapter"},{"p":"org.asynchttpclient.extras.guava","l":"RateLimitedThrottleRequestFilter"}];updateSearchResults();

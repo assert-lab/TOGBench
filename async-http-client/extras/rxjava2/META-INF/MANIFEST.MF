@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1768170812255
+Bnd-LastModified: 1768453476795
 Build-Jdk: 1.8.0_171
 Built-By: wxw9rr
 Bundle-Description: The Async Http Client RxJava2 Extras.
@@ -11,11 +11,11 @@ Bundle-SymbolicName: org.asynchttpclient.async-http-client-extras-rxjava
 Bundle-Vendor: The AsyncHttpClient Project
 Bundle-Version: 2.12.3
 Created-By: Apache Maven Bundle Plugin
-Export-Package: org.asynchttpclient.extras.rxjava2.maybe;uses:="io.netty
- .channel,io.netty.handler.codec.http,io.reactivex,javax.net.ssl,org.asy
- nchttpclient,org.asynchttpclient.handler,org.asynchttpclient.netty.requ
- est";version="2.12.3",org.asynchttpclient.extras.rxjava2;uses:="io.reac
- tivex,org.asynchttpclient";version="2.12.3"
+Export-Package: org.asynchttpclient.extras.rxjava2;uses:="io.reactivex,o
+ rg.asynchttpclient";version="2.12.3",org.asynchttpclient.extras.rxjava2
+ .maybe;uses:="io.netty.channel,io.netty.handler.codec.http,io.reactivex
+ ,javax.net.ssl,org.asynchttpclient,org.asynchttpclient.handler,org.asyn
+ chttpclient.netty.request";version="2.12.3"
 Import-Package: io.netty.channel;version="[4.1,5)",io.netty.handler.code
  c.http;version="[4.1,5)",io.reactivex;version="[2.2,3)",io.reactivex.di
  sposables;version="[2.2,3)",io.reactivex.exceptions;version="[2.2,3)",j

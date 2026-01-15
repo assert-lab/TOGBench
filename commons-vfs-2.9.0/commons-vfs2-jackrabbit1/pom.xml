@@ -70,7 +70,6 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-
       <scope>test</scope>
     </dependency>
 
@@ -182,6 +181,29 @@
           </execution>
         </executions>
       </plugin>
+
+<plugin>
+  <groupId>org.pitest</groupId>
+  <artifactId>pitest-maven</artifactId>
+  <version>1.22.0</version>
+  <configuration>
+    <targetClasses>
+      <param>org.apache.commons.vfs2.*</param>
+    </targetClasses>
+    <targetTests>
+      <param>org.apache.commons.vfs2.*</param>
+    </targetTests>
+    <excludedClasses>
+      <param>**.*Tests</param>
+      <param>**.*$*</param>
+    </excludedClasses>
+    <outputFormats>
+      <outputFormat>XML</outputFormat>
+      <outputFormat>HTML</outputFormat>
+    </outputFormats>
+  </configuration>
+</plugin>
+
       <plugin>
         <!-- surfire do not honor suite(), see MSUREFIRE-131 why our tests wont work with maven 2 -->
         <groupId>org.apache.maven.plugins</groupId>
@@ -195,7 +217,7 @@
           <excludes>
             <!-- Need to port fully to JUnit 4 or 5. -->
             <!-- *Tests.java files with @Test methods should not be run since these classes are in fact JUnit 3 classes used in custom JUnit 3 test suites. -->
-
+            <exclude>**/*Tests.java</exclude>
           </excludes>
         </configuration>
       </plugin>

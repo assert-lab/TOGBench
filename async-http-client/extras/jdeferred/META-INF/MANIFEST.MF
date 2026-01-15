@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1768170809031
+Bnd-LastModified: 1768453468505
 Build-Jdk: 1.8.0_171
 Built-By: wxw9rr
 Bundle-Description: The Async Http Client jDeffered Extras.

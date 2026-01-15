@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1768170810123
+Bnd-LastModified: 1768453471113
 Build-Jdk: 1.8.0_171
 Built-By: wxw9rr
 Bundle-Description: The Async Http Client Registry Extras.
