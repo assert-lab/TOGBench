@@ -5,21 +5,27 @@
 [INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ async-http-client-extras-rxjava2 ---
+[INFO] 
 [INFO] --- enforcer:1.4.1:enforce (enforce-versions) @ async-http-client-extras-rxjava2 ---
 [INFO] 
 [INFO] --- resources:3.0.2:resources (default-resources) @ async-http-client-extras-rxjava2 ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/rxjava2/src/main/resources
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/async-http-client/extras/rxjava2/src/main/resources
 [INFO] 
 [INFO] --- compiler:3.6.1:compile (default-compile) @ async-http-client-extras-rxjava2 ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/async-http-client/extras/rxjava2/target/classes
 [INFO] 
 [INFO] --- resources:3.0.2:testResources (default-testResources) @ async-http-client-extras-rxjava2 ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/rxjava2/src/test/resources
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/async-http-client/extras/rxjava2/src/test/resources
 [INFO] 
 [INFO] --- compiler:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-rxjava2 ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/async-http-client/extras/rxjava2/target/test-classes
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/DefaultRxHttpClientTest.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/DefaultRxHttpClientTest.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
 [INFO] --- surefire:2.19.1:test (default-test) @ async-http-client-extras-rxjava2 ---
 
@@ -28,7 +34,7 @@
 -------------------------------------------------------
 Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 Running TestSuite
-Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.073 sec - in TestSuite
+Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.878 sec - in TestSuite
 
 Results :
 
@@ -37,6 +43,6 @@ Tests run: 40, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  5.719 s
-[INFO] Finished at: 2026-01-15T01:24:11-05:00
+[INFO] Total time:  3.015 s
+[INFO] Finished at: 2026-01-15T23:52:41-05:00
 [INFO] ------------------------------------------------------------------------

@@ -7,7 +7,7 @@
 [WARNING] Parameter 'testPlugin' is unknown for plugin 'pitest-maven:1.22.0:mutationCoverage (default-cli)'
 [INFO] 
 [INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ async-http-client-netty-utils ---
-[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/netty-utils
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/async-http-client/netty-utils
 [INFO] Found plugin : Default csv report plugin
 [INFO] Found plugin : Default xml report plugin
 [INFO] Found plugin : Default html report plugin
@@ -55,7 +55,7 @@
 [INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
 [INFO] Adding org.pitest:pitest-testng-plugin to SUT classpath
 [INFO] Adding org.pitest:pitest to SUT classpath
-[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/netty-utils/target/classes
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/async-http-client/netty-utils/target/classes
 /-/-================================================================================
 - Mutators
 ================================================================================
@@ -142,14 +142,14 @@
 ================================================================================
 > pre-scan for mutations : < 1 second
 > scan classpath : < 1 second
-> coverage and dependency analysis : 2 seconds
+> coverage and dependency analysis : < 1 second
 > build mutation tests : < 1 second
-> run mutation analysis : 4 seconds
+> run mutation analysis : 2 seconds
 --------------------------------------------------------------------------------
-> Total  : 7 seconds
+> Total  : 2 seconds
 --------------------------------------------------------------------------------
 > 0 tests took longer than 2000 ms
-> Slowest test (_) took 624 ms
+> Slowest test (_) took 155 ms
 > Largest test (_) covered 269 blocks
 ================================================================================
 - Statistics
@@ -163,6 +163,6 @@ Enhanced functionality available at https://www.arcmutate.com/
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.838 s
-[INFO] Finished at: 2026-01-15T01:15:51-05:00
+[INFO] Total time:  7.398 s
+[INFO] Finished at: 2026-01-15T23:50:28-05:00
 [INFO] ------------------------------------------------------------------------

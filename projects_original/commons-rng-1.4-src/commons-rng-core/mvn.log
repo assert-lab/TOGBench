@@ -1,199 +1,0 @@
-[INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-rng-core:jar:1.4
-[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ org.apache.commons:commons-rng-parent:1.4, /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/pom.xml, line 225, column 15
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-[INFO] 
-[INFO] ----------------< org.apache.commons:commons-rng-core >-----------------
-[INFO] Building Apache Commons RNG Core 1.4
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-Downloading from central: https://repo.maven.apache.org/maven2/org/junit/vintage/junit-vintage-engine/5.9.3/junit-vintage-engine-5.9.3.pom
-Progress (1): 957 BProgress (1): 2.5 kBProgress (1): 3.2 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/vintage/junit-vintage-engine/5.9.3/junit-vintage-engine-5.9.3.pom (3.2 kB at 14 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/junit/vintage/junit-vintage-engine/5.9.3/junit-vintage-engine-5.9.3.jar
-Progress (1): 0.9/67 kBProgress (1): 2.3/67 kBProgress (1): 3.6/67 kBProgress (1): 5.0/67 kBProgress (1): 6.4/67 kBProgress (1): 7.7/67 kBProgress (1): 9.1/67 kBProgress (1): 10/67 kB Progress (1): 12/67 kBProgress (1): 13/67 kBProgress (1): 15/67 kBProgress (1): 16/67 kBProgress (1): 17/67 kBProgress (1): 19/67 kBProgress (1): 20/67 kBProgress (1): 21/67 kBProgress (1): 23/67 kBProgress (1): 24/67 kBProgress (1): 26/67 kBProgress (1): 27/67 kBProgress (1): 28/67 kBProgress (1): 30/67 kBProgress (1): 31/67 kBProgress (1): 32/67 kBProgress (1): 34/67 kBProgress (1): 35/67 kBProgress (1): 36/67 kBProgress (1): 38/67 kBProgress (1): 39/67 kBProgress (1): 41/67 kBProgress (1): 42/67 kBProgress (1): 43/67 kBProgress (1): 45/67 kBProgress (1): 46/67 kBProgress (1): 47/67 kBProgress (1): 49/67 kBProgress (1): 50/67 kBProgress (1): 52/67 kBProgress (1): 53/67 kBProgress (1): 57/67 kBProgress (1): 61/67 kBProgress (1): 66/67 kBProgress (1): 67 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/junit/vintage/junit-vintage-engine/5.9.3/junit-vintage-engine-5.9.3.jar (67 kB at 1.4 MB/s)
-[INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-rng-core ---
-[INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-rng-core ---
-[INFO] 
-[INFO] --- apache-rat:0.13:check (rat-check) @ commons-rng-core ---
-[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
-[INFO] 
-[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-rng-core ---
-[INFO] 
-[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-rng-core ---
-[INFO] Executing tasks
-
-main:
-[INFO] Executed tasks
-[INFO] 
-[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-rng-core ---
-[INFO] Skipping remote resources execution.
-[INFO] 
-[INFO] --- buildnumber:1.4:create (default) @ commons-rng-core ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core
-[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 2026-01-13 13:30:20-0500
-[INFO] Storing buildScmBranch: main
-[INFO] 
-[INFO] --- resources:3.1.0:resources (default-resources) @ commons-rng-core ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/main/resources
-[INFO] Copying 2 resources to META-INF
-[INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-rng-core ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 63 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/target/classes
-[INFO] 
-[INFO] --- bundle:5.1.1:manifest (bundle-manifest) @ commons-rng-core ---
-[INFO] 
-[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-rng-core ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/resources
-[INFO] Copying 2 resources to META-INF
-[INFO] 
-[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-rng-core ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 54 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/target/test-classes
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[43,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[44,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[51,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[52,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[59,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[60,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[61,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[62,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[63,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[64,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[65,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[66,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[INFO] 
-[INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-rng-core ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- jacoco:0.8.5:prepare-agent (prepare-agent) @ commons-rng-core ---
-[INFO] argLine set to -javaagent:/home/wxw9rr/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-core/target/jacoco.exec
-[INFO] 
-[INFO] --- surefire:2.22.0:test (default-test) @ commons-rng-core ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.rng.core.Providers32ParametricTest
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 s - in org.apache.commons.rng.core.Providers32ParametricTest
-[INFO] Running org.apache.commons.rng.core.util.NumberFactoryTest
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.rng.core.util.NumberFactoryTest
-[INFO] Running org.apache.commons.rng.core.RandomProviderDefaultStateTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.RandomProviderDefaultStateTest
-[INFO] Running org.apache.commons.rng.core.JumpableProvidersParametricTest
-[WARNING] Tests run: 102, Failures: 0, Errors: 0, Skipped: 6, Time elapsed: 0.055 s - in org.apache.commons.rng.core.JumpableProvidersParametricTest
-[INFO] Running org.apache.commons.rng.core.source64.XoShiRo256PlusTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source64.XoShiRo256PlusTest
-[INFO] Running org.apache.commons.rng.core.source64.PcgRxsMXs64Test
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.PcgRxsMXs64Test
-[INFO] Running org.apache.commons.rng.core.source64.XoShiRo512PlusPlusTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoShiRo512PlusPlusTest
-[INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo128StarStarTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoRoShiRo128StarStarTest
-[INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo1024StarTest
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoRoShiRo1024StarTest
-[INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo1024StarStarTest
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoRoShiRo1024StarStarTest
-[INFO] Running org.apache.commons.rng.core.source64.DotyHumphreySmallFastCounting64Test
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.DotyHumphreySmallFastCounting64Test
-[INFO] Running org.apache.commons.rng.core.source64.XoShiRo512PlusTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoShiRo512PlusTest
-[INFO] Running org.apache.commons.rng.core.source64.SplitMix64Test
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.SplitMix64Test
-[INFO] Running org.apache.commons.rng.core.source64.JenkinsSmallFast64Test
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.JenkinsSmallFast64Test
-[INFO] Running org.apache.commons.rng.core.source64.XoShiRo256PlusPlusTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.rng.core.source64.XoShiRo256PlusPlusTest
-[INFO] Running org.apache.commons.rng.core.source64.TwoCmresTest
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.rng.core.source64.TwoCmresTest
-[INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo1024PlusPlusTest
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoRoShiRo1024PlusPlusTest
-[INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo128PlusPlusTest
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoRoShiRo128PlusPlusTest
-[INFO] Running org.apache.commons.rng.core.source64.XorShift1024StarTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XorShift1024StarTest
-[INFO] Running org.apache.commons.rng.core.source64.XoRoShiRo128PlusTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoRoShiRo128PlusTest
-[INFO] Running org.apache.commons.rng.core.source64.MersenneTwister64Test
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.MersenneTwister64Test
-[INFO] Running org.apache.commons.rng.core.source64.XorShift1024StarPhiTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XorShift1024StarPhiTest
-[INFO] Running org.apache.commons.rng.core.source64.XoShiRo256StarStarTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoShiRo256StarStarTest
-[INFO] Running org.apache.commons.rng.core.source64.XoShiRo512StarStarTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.XoShiRo512StarStarTest
-[INFO] Running org.apache.commons.rng.core.source64.LongProviderTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source64.LongProviderTest
-[INFO] Running org.apache.commons.rng.core.source32.MiddleSquareWeylSequenceTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.MiddleSquareWeylSequenceTest
-[INFO] Running org.apache.commons.rng.core.source32.DotyHumphreySmallFastCounting32Test
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.DotyHumphreySmallFastCounting32Test
-[INFO] Running org.apache.commons.rng.core.source32.XoShiRo128PlusPlusTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.XoShiRo128PlusPlusTest
-[INFO] Running org.apache.commons.rng.core.source32.ISAACRandomTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.ISAACRandomTest
-[INFO] Running org.apache.commons.rng.core.source32.MersenneTwisterTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.MersenneTwisterTest
-[INFO] Running org.apache.commons.rng.core.source32.XoShiRo128PlusTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.XoShiRo128PlusTest
-[INFO] Running org.apache.commons.rng.core.source32.XoRoShiRo64StarStarTest
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.XoRoShiRo64StarStarTest
-[INFO] Running org.apache.commons.rng.core.source32.PcgMcgXshRr32Test
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.PcgMcgXshRr32Test
-[INFO] Running org.apache.commons.rng.core.source32.Well44497bTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.396 s - in org.apache.commons.rng.core.source32.Well44497bTest
-[INFO] Running org.apache.commons.rng.core.source32.Well512aTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.Well512aTest
-[INFO] Running org.apache.commons.rng.core.source32.MultiplyWithCarry256Test
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.apache.commons.rng.core.source32.MultiplyWithCarry256Test
-[INFO] Running org.apache.commons.rng.core.source32.Well19937cTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.534 s - in org.apache.commons.rng.core.source32.Well19937cTest
-[INFO] Running org.apache.commons.rng.core.source32.Well44497aTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.209 s - in org.apache.commons.rng.core.source32.Well44497aTest
-[INFO] Running org.apache.commons.rng.core.source32.XoRoShiRo64StarTest
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.XoRoShiRo64StarTest
-[INFO] Running org.apache.commons.rng.core.source32.PcgMcgXshRs32Test
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.PcgMcgXshRs32Test
-[INFO] Running org.apache.commons.rng.core.source32.IntProviderTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.IntProviderTest
-[INFO] Running org.apache.commons.rng.core.source32.PcgXshRr32Test
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.PcgXshRr32Test
-[INFO] Running org.apache.commons.rng.core.source32.Well1024aTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.Well1024aTest
-[INFO] Running org.apache.commons.rng.core.source32.JenkinsSmallFast32Test
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.JenkinsSmallFast32Test
-[INFO] Running org.apache.commons.rng.core.source32.JDKRandomTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.JDKRandomTest
-[INFO] Running org.apache.commons.rng.core.source32.PcgXshRs32Test
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.PcgXshRs32Test
-[INFO] Running org.apache.commons.rng.core.source32.XoShiRo128StarStarTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.XoShiRo128StarStarTest
-[INFO] Running org.apache.commons.rng.core.source32.KISSRandomTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.source32.KISSRandomTest
-[INFO] Running org.apache.commons.rng.core.source32.Well19937aTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.46 s - in org.apache.commons.rng.core.source32.Well19937aTest
-[INFO] Running org.apache.commons.rng.core.BaseProviderTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.rng.core.BaseProviderTest
-[INFO] Running org.apache.commons.rng.core.Providers64ParametricTest
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.rng.core.Providers64ParametricTest
-[INFO] 
-[INFO] Results:
-[INFO] 
-[WARNING] Tests run: 352, Failures: 0, Errors: 0, Skipped: 6
-[INFO] 
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  14.610 s
-[INFO] Finished at: 2026-01-13T13:30:32-05:00
-[INFO] ------------------------------------------------------------------------

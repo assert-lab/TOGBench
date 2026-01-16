@@ -1,4 +1,3 @@
-Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] -------< org.asynchttpclient:async-http-client-extras-retrofit2 >-------
@@ -8,7 +7,7 @@ Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [WARNING] Parameter 'testPlugin' is unknown for plugin 'pitest-maven:1.22.0:mutationCoverage (default-cli)'
 [INFO] 
 [INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ async-http-client-extras-retrofit2 ---
-[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/retrofit2
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/async-http-client/extras/retrofit2
 [INFO] Found plugin : Default csv report plugin
 [INFO] Found plugin : Default xml report plugin
 [INFO] Found plugin : Default html report plugin
@@ -56,128 +55,19 @@ Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
 [INFO] Adding org.pitest:pitest-testng-plugin to SUT classpath
 [INFO] Adding org.pitest:pitest to SUT classpath
-[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/retrofit2/target/classes
-1:41:21 AM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
-1:41:21 AM PIT >> INFO : Created 5 mutation test units in pre scan
-1:41:21 AM PIT >> INFO : MINION : Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
-1:41:21 AM PIT >> INFO : Sending 10 test classes to minion
-1:41:21 AM PIT >> INFO : Sent tests to minion
-/-\1:41:23 AM PIT >> INFO : Calculated coverage in 1 seconds.
-1:41:23 AM PIT >> INFO : 0 tests took longer than 2000 ms
-1:41:23 AM PIT >> INFO : Slowest test (_) took 706 ms
-1:41:23 AM PIT >> INFO : Largest test (_) covered 637 blocks
-1:41:23 AM PIT >> INFO : Created 5 mutation test units
-1:41:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:41:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:41:25 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-/-\|/1:41:32 AM PIT >> INFO : Completed in 11 seconds
-================================================================================
-- Mutators
-================================================================================
-> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE
->> Generated 1 Killed 1 (100%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 0 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
->> Generated 24 Killed 11 (46%)
-> KILLED 10 SURVIVED 2 TIMED_OUT 1 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 11 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator
->> Generated 5 Killed 5 (100%)
-> KILLED 5 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 0 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
->> Generated 44 Killed 29 (66%)
-> KILLED 29 SURVIVED 6 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 9 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
->> Generated 90 Killed 34 (38%)
-> KILLED 33 SURVIVED 9 TIMED_OUT 1 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 47 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
->> Generated 1 Killed 0 (0%)
-> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 0 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
->> Generated 18 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 18 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
->> Generated 9 Killed 5 (56%)
-> KILLED 5 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 4 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
->> Generated 1 Killed 0 (0%)
-> KILLED 0 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 0 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
->> Generated 3 Killed 1 (33%)
-> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 2 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
->> Generated 13 Killed 2 (15%)
-> KILLED 2 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 11 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
->> Generated 4 Killed 0 (0%)
-> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 4 
---------------------------------------------------------------------------------
-> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
->> Generated 92 Killed 28 (30%)
-> KILLED 27 SURVIVED 15 TIMED_OUT 1 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
-> NO_COVERAGE 49 
---------------------------------------------------------------------------------
-================================================================================
-- Timings
-================================================================================
-> pre-scan for mutations : < 1 second
-> scan classpath : < 1 second
-> coverage and dependency analysis : 1 seconds
-> build mutation tests : < 1 second
-> run mutation analysis : 9 seconds
---------------------------------------------------------------------------------
-> Total  : 11 seconds
---------------------------------------------------------------------------------
-> 0 tests took longer than 2000 ms
-> Slowest test (_) took 706 ms
-> Largest test (_) covered 637 blocks
-================================================================================
-- Statistics
-================================================================================
->> Line Coverage (for mutated classes only): 109/125 (87%)
->> 10 tests examined
->> Generated 305 mutations Killed 116 (38%)
->> Mutations with no coverage 155. Test strength 77%
->> Ran 6020 tests (19.74 tests per mutation)
-Enhanced functionality available at https://www.arcmutate.com/
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/async-http-client/extras/retrofit2/target/classes
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.137 s
-[INFO] Finished at: 2026-01-15T01:41:32-05:00
+[INFO] Total time:  1.262 s
+[INFO] Finished at: 2026-01-15T23:51:58-05:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.pitest:pitest-maven:1.22.0:mutationCoverage (default-cli) on project async-http-client-extras-retrofit2: Execution default-cli of goal org.pitest:pitest-maven:1.22.0:mutationCoverage failed: No mutations found. This probably means there is an issue with either the supplied classpath or filters.
+[ERROR] See https://pitest.org for more details.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/PluginExecutionException

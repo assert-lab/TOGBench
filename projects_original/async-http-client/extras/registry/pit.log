@@ -1,4 +1,3 @@
-Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] -------< org.asynchttpclient:async-http-client-extras-registry >--------
@@ -8,7 +7,7 @@ Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [WARNING] Parameter 'testPlugin' is unknown for plugin 'pitest-maven:1.22.0:mutationCoverage (default-cli)'
 [INFO] 
 [INFO] --- pitest:1.22.0:mutationCoverage (default-cli) @ async-http-client-extras-registry ---
-[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/registry
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/async-http-client/extras/registry
 [INFO] Found plugin : Default csv report plugin
 [INFO] Found plugin : Default xml report plugin
 [INFO] Found plugin : Default html report plugin
@@ -56,21 +55,8 @@ Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
 [INFO] Adding org.pitest:pitest-testng-plugin to SUT classpath
 [INFO] Adding org.pitest:pitest to SUT classpath
-[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/async-http-client/extras/registry/target/classes
-1:44:02 AM PIT >> INFO : Verbose logging is disabled. If you encounter a problem, please enable it before reporting an issue.
-1:44:02 AM PIT >> INFO : Created 4 mutation test units in pre scan
-1:44:02 AM PIT >> INFO : MINION : Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
-1:44:02 AM PIT >> INFO : Sending 11 test classes to minion
-1:44:02 AM PIT >> INFO : Sent tests to minion
-/1:44:03 AM PIT >> INFO : Calculated coverage in 0 seconds.
-1:44:03 AM PIT >> INFO : 0 tests took longer than 2000 ms
-1:44:03 AM PIT >> INFO : Slowest test (_) took 158 ms
-1:44:03 AM PIT >> INFO : Largest test (_) covered 240 blocks
-1:44:03 AM PIT >> INFO : Created 4 mutation test units
-1:44:04 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-1:44:05 AM PIT >> WARNING : Minion exited abnormally due to TIMED_OUT
-/-\|1:44:05 AM PIT >> INFO : Completed in 3 seconds
-================================================================================
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/async-http-client/extras/registry/target/classes
+//-\|================================================================================
 - Mutators
 ================================================================================
 > org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
@@ -121,8 +107,8 @@ Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 > Total  : 3 seconds
 --------------------------------------------------------------------------------
 > 0 tests took longer than 2000 ms
-> Slowest test (_) took 158 ms
-> Largest test (_) covered 240 blocks
+> Slowest test (_) took 165 ms
+> Largest test (_) covered 233 blocks
 ================================================================================
 - Statistics
 ================================================================================
@@ -135,6 +121,6 @@ Enhanced functionality available at https://www.arcmutate.com/
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.259 s
-[INFO] Finished at: 2026-01-15T01:44:05-05:00
+[INFO] Total time:  4.323 s
+[INFO] Finished at: 2026-01-15T23:52:16-05:00
 [INFO] ------------------------------------------------------------------------
