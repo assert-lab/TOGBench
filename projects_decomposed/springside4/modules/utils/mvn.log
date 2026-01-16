@@ -1,5 +1,3 @@
-began at: 2026-01-12 05:38:17
-Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO] Scanning for projects...
 [INFO] 
 [INFO] -------------------< io.springside:springside-utils >-------------------
@@ -7,587 +5,137 @@ Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 [INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- clean:3.2.0:clean (default-clean) @ springside-utils ---
-[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/target
-[INFO] 
 [INFO] --- resources:3.3.0:resources (default-resources) @ springside-utils ---
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/resources
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/resources
 [INFO] 
 [INFO] --- compiler:3.10.1:compile (default-compile) @ springside-utils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 78 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/target/classes
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[3144,38] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1511,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1535,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1537,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1541,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1542,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1543,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1543,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[712,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[731,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[733,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[737,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[738,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[739,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[739,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6245,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6287,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6289,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6293,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6294,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6295,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6295,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[1032,38] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3230,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3327,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3329,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3333,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3334,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3335,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3335,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[101,38] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[291,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[314,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[316,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[320,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[321,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[322,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[322,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java: Some input files use or override a deprecated API.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java: Recompile with -Xlint:deprecation for details.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java: Some input files use or override a deprecated API that is marked for removal.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java: Recompile with -Xlint:removal for details.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/mapper/JsonMapper.java: Some input files use unchecked or unsafe operations.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/main/java/org/springside/modules/utils/mapper/JsonMapper.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 78 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/target/classes
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[101,38] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[291,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[314,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[316,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[320,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[321,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[322,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[322,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[3144,38] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1511,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1535,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1537,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1541,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1542,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1543,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1543,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[712,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[731,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[733,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[737,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[738,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[739,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[739,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6245,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6287,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6289,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6293,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6294,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6295,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6295,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[1032,38] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3230,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3327,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3329,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3333,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3334,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3335,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3335,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java: Recompile with -Xlint:removal for details.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/collection/QueueUtil.java: Some input files use unchecked or unsafe operations.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/collection/QueueUtil.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- resources:3.3.0:testResources (default-testResources) @ springside-utils ---
 [INFO] Copying 3 resources
 [INFO] 
 [INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ springside-utils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 59 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/target/test-classes
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/type/SortedArrayListTest.java: Some input files use or override a deprecated API.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/type/SortedArrayListTest.java: Recompile with -Xlint:deprecation for details.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/test/java/org/springside/modules/utils/number/NumberUtilTest.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/test/java/org/springside/modules/utils/number/NumberUtilTest.java uses or overrides a deprecated API that is marked for removal.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/test/java/org/springside/modules/utils/number/NumberUtilTest.java: Recompile with -Xlint:removal for details.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/test/java/org/springside/modules/utils/base/ExceptionUtilTest.java: Some input files use unchecked or unsafe operations.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/src/test/java/org/springside/modules/utils/base/ExceptionUtilTest.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- surefire:2.22.0:test (default-test) @ springside-utils ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.springside.modules.utils.net.NetUtilTest
-05:38:34.928 [main] INFO  o.s.modules.utils.net.NetUtil - localhost is 10.153.53.41
-random port:20022
-random port:32549
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.628 s - in org.springside.modules.utils.net.NetUtilTest
-[INFO] Running org.springside.modules.utils.net.IPUtilTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.net.IPUtilTest
-[INFO] Running org.springside.modules.utils.security.CryptoUtilTest
-aes key in hex            :D69733F1226C4DED895E66D6BF30732B
-iv in hex                 :E412F3EB190AEAD3993DE25F8F92D20E
-aes encrypt in hex result :024F54A1A9E025F5A1BD0CB49C1059E5
-aes key in hex            :612F81B1EDF7928F7CC2598D7602957C
-aes encrypt in hex result :2F2BCE6E2CF03C0C3A184AC75FB87028
-hmac-sha1 key in hex      :532C387E741F5D77F9667F70B684C58C3C48F878
-hmac-sha1 in hex result   :8CD156A447DDA3B02ABC4A2C4294F5D31CE431FD
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 s - in org.springside.modules.utils.security.CryptoUtilTest
-[INFO] Running org.springside.modules.utils.time.DateFormatUtilTest
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.springside.modules.utils.time.DateFormatUtilTest
-[INFO] Running org.springside.modules.utils.time.ClockUtilTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.time.ClockUtilTest
-[INFO] Running org.springside.modules.utils.time.CachingDatFormatterTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.springside.modules.utils.time.CachingDatFormatterTest
-[INFO] Running org.springside.modules.utils.time.DateUtilTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.time.DateUtilTest
-[INFO] Running org.springside.modules.utils.mapper.JsonMapperTest
-Bean:TestBean [name=A, defaultValue=hello, nullValue=null, emptyValue=[]]
-Map:
-name A
-age 2
-String List:
-A
-B
-C
-Bean List:
-TestBean [name=A, defaultValue=hello, nullValue=null, emptyValue=[]]
-TestBean [name=B, defaultValue=hello, nullValue=null, emptyValue=[]]
-Bean:{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]}
-Map:{"name":"A","age":2}
-String List:["A","B","C"]
-Bean List:[{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]},{"name":"B","defaultValue":"hello","nullValue":null,"emptyValue":[]}]
-Array List:[{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]},{"name":"B","defaultValue":"hello","nullValue":null,"emptyValue":[]}]
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 s - in org.springside.modules.utils.mapper.JsonMapperTest
-[INFO] Running org.springside.modules.utils.mapper.XmlMapperTest
-Jaxb Object to Xml result:
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<user id="1">
-    <name>calvin</name>
-    <interests>
-        <interest>movie</interest>
-        <interest>sports</interest>
-    </interests>
-</user>
-
-Jaxb Xml to Object result:
-org.springside.modules.utils.mapper.XmlMapperTest$User@293bb8a5[id=1,name=calvin,password=<null>,interests=[movie, sports]]
-Jaxb Object List to Xml result:
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<userList>
-    <user id="1">
-        <name>calvin</name>
-        <interests/>
-    </user>
-    <user id="2">
-        <name>kate</name>
-        <interests/>
-    </user>
-</userList>
-
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.528 s - in org.springside.modules.utils.mapper.XmlMapperTest
-[INFO] Running org.springside.modules.utils.number.NumberUtilTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.number.NumberUtilTest
-[INFO] Running org.springside.modules.utils.number.RandomUtilTest
-oHkDR
-QdB190
-gLOv4
-k1pmZ
-dIZAM
-RTSxobcL
-Vzipo
-AeKptB
-HH1h(
-bQ9;LR
-sIq.K
-Nu"<)
-1966917669
-702495599
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.number.RandomUtilTest
-[INFO] Running org.springside.modules.utils.number.MathUtilTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.number.MathUtilTest
-[INFO] Running org.springside.modules.utils.number.UnitConverterTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.number.UnitConverterTest
-[INFO] Running org.springside.modules.utils.base.ObjectUtilTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.ObjectUtilTest
-[INFO] Running org.springside.modules.utils.base.PropertiesUtilTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.base.PropertiesUtilTest
-[INFO] Running org.springside.modules.utils.base.ExceptionUtilTest
-java.lang.RuntimeException: java.io.IOException: my exception
-Caused by: java.io.IOException: my exception
-
-java.lang.RuntimeException: java.lang.Exception: my exception
-	at org.springside.modules.utils.base.ExceptionUtilTest.getStackTraceAsString(ExceptionUtilTest.java:84)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
-	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78)
-	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57)
-	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290)
-	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71)
-	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288)
-	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58)
-	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268)
-	at org.junit.runners.ParentRunner.run(ParentRunner.java:363)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
-	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
-	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)
-Caused by: java.lang.Exception: my exception
-	at org.springside.modules.utils.base.ExceptionUtilTest.getStackTraceAsString(ExceptionUtilTest.java:83)
-	... 25 more
-
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.ExceptionUtilTest
-[INFO] Running org.springside.modules.utils.base.EnumUtilTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.EnumUtilTest
-[INFO] Running org.springside.modules.utils.base.MoreValidateTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.base.MoreValidateTest
-[INFO] Running org.springside.modules.utils.base.PlatformsTest
-OS_NAME:Linux
-OS_VERSION:4.18.0-553.47.1.el8_10.x86_64
-OS_ARCH:amd64
-JAVA_SPECIFICATION_VERSION:17
-JAVA_VERSION:17.0.15
-JAVA_HOME:/sfs/gpfs/tardis/applications/202512/software/standard/core/java/17
-USER_HOME:/home/wxw9rr
-TMP_DIR:/sfs/weka/scratch/wxw9rr/tmp
-WORKING_DIR:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils
-pid:361964
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.PlatformsTest
-[INFO] Running org.springside.modules.utils.base.SystemPropertiesUtilTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.SystemPropertiesUtilTest
-[INFO] Running org.springside.modules.utils.base.BeanUtilTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.BeanUtilTest
-[INFO] Running org.springside.modules.utils.io.FileTreeWalkerTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.springside.modules.utils.io.FileTreeWalkerTest
-[INFO] Running org.springside.modules.utils.io.URLResourceTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s - in org.springside.modules.utils.io.URLResourceTest
-[INFO] Running org.springside.modules.utils.io.ResourceUtilTest
-jar:file:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/target/surefire/surefirebooter5088764505633744780.jar!/META-INF/MANIFEST.MF
-[jar:file:/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/springside4/modules/utils/target/surefire/surefirebooter5088764505633744780.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/apache/maven/surefire/surefire-booter/2.22.0/surefire-booter-2.22.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/apache/maven/surefire/surefire-api/2.22.0/surefire-api-2.22.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/apache/maven/surefire/surefire-logger-api/2.22.0/surefire-logger-api-2.22.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/slf4j/slf4j-api/1.7.22/slf4j-api-1.7.22.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.6/jackson-databind-2.8.6.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.6/jackson-core-2.8.6.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/ma/glasnost/orika/orika-core/1.5.0/orika-core-1.5.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/javassist/javassist/3.19.0-GA/javassist-3.19.0-GA.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/com/carrotsearch/java-sizeof/0.0.4/java-sizeof-0.0.4.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/codehaus/janino/janino/2.7.5/janino-2.7.5.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/codehaus/janino/commons-compiler/2.7.5/commons-compiler-2.7.5.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/cglib/cglib/3.2.4/cglib-3.2.4.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/ow2/asm/asm/6.0_ALPHA/asm-6.0_ALPHA.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/junit/junit/4.12/junit-4.12.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/net/bytebuddy/byte-buddy/1.12.21/byte-buddy-1.12.21.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/mockito/mockito-core/3.12.4/mockito-core-3.12.4.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/net/bytebuddy/byte-buddy-agent/1.11.13/byte-buddy-agent-1.11.13.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/ch/qos/logback/logback-classic/1.1.8/logback-classic-1.1.8.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/ch/qos/logback/logback-core/1.1.8/logback-core-1.1.8.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/jaxen/jaxen/1.1.6/jaxen-1.1.6.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/com/sun/xml/bind/jaxb-core/2.3.0.1/jaxb-core-2.3.0.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.1/jaxb-impl-2.3.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/javax/activation/activation/1.1.1/activation-1.1.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/wxw9rr/.m2/repository/org/apache/maven/surefire/surefire-junit4/2.22.0/surefire-junit4-2.22.0.jar!/META-INF/MANIFEST.MF]
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.springside.modules.utils.io.ResourceUtilTest
-[INFO] Running org.springside.modules.utils.io.FilePathUtilTest
-the jar file contains Files.class/home/wxw9rr/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.io.FilePathUtilTest
-[INFO] Running org.springside.modules.utils.io.IOUtilTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.io.IOUtilTest
-[INFO] Running org.springside.modules.utils.io.FileUtilTest
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.springside.modules.utils.io.FileUtilTest
-[INFO] Running org.springside.modules.utils.misc.SamplerTest
-sample 10.5% in 10000 hits should close to 1050, actual is 1007
-sample 0.5% in 10000 hits should close to 50, actual is 57
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.misc.SamplerTest
-[INFO] Running org.springside.modules.utils.misc.IdGeneratorTest
-uuid: 42aa62e2-5fa3-4037-8c50-68451e745333
-uuid2:3c6d4a62231c409d8c5d39a4ceb7c3f0
-randomLong:  4181724707931602778
-randomBase64:IyKwiQ4HCQ==
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.misc.IdGeneratorTest
-[INFO] Running org.springside.modules.utils.log.ThrottledSlf4jLoggerTest
-05:38:36.655 [main] WARN  o.s.m.u.log.ThrottledSlf4jLoggerTest - haha
-05:38:36.655 [main] WARN  o.s.m.u.log.ThrottledSlf4jLoggerTest - haha
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.log.ThrottledSlf4jLoggerTest
-[INFO] Running org.springside.modules.utils.text.CsvUtilTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.CsvUtilTest
-[INFO] Running org.springside.modules.utils.text.HashUtilTest
-sha1:sCtJLx2IJNto032AhdkP64t/os4=
-sha1 with salt:RT3DEWEZI7RfW4QUY20GcMWZaUY=
-sha1 with salt with iteration:w+DrA7kYT06Fe9eHVnr1exuR9RU=
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.HashUtilTest
-[INFO] Running org.springside.modules.utils.text.TextValidatorTest
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.TextValidatorTest
-[INFO] Running org.springside.modules.utils.text.WildcardMatcherTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.WildcardMatcherTest
-[INFO] Running org.springside.modules.utils.text.StringBuilderHolderTest
-Thread-9-1
-Thread-9-2
-Thread-9-11
-Thread-9-22
-Thread-0-1
-Thread-0-2
-Thread-1-1
-Thread-2-1
-Thread-0-11
-Thread-2-2
-Thread-0-22
-Thread-2-11
-Thread-2-22
-Thread-5-1
-Thread-5-2
-Thread-4-1
-Thread-3-1
-Thread-3-2
-Thread-1-2
-Thread-3-11
-Thread-1-11
-Thread-3-22
-Thread-1-22
-Thread-4-2
-Thread-4-11
-Thread-4-22
-Thread-5-11
-Thread-5-22
-Thread-6-1
-Thread-7-1
-Thread-7-2
-Thread-7-11
-Thread-7-22
-Thread-6-2
-Thread-6-11
-Thread-6-22
-Thread-8-1
-Thread-8-2
-Thread-8-11
-Thread-8-22
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.StringBuilderHolderTest
-[INFO] Running org.springside.modules.utils.text.EncodeUtilTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.EncodeUtilTest
-[INFO] Running org.springside.modules.utils.text.EscapeUtilTest
-http%3A%2F%2Flocahost%2F%3Fquery%3D%E4%B8%AD%E6%96%87%26t%3D1
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.EscapeUtilTest
-[INFO] Running org.springside.modules.utils.text.MoreStringUtilTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.text.MoreStringUtilTest
-[INFO] Running org.springside.modules.utils.concurrent.ConcurrentToolsTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.concurrent.ConcurrentToolsTest
-[INFO] Running org.springside.modules.utils.concurrent.BasicFutureTest
-onCompleted:haha
-onFailed:wuwu
-onCancelled
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.concurrent.BasicFutureTest
-[INFO] Running org.springside.modules.utils.concurrent.ThreadUtilTest
-[java.base/java.lang.Thread.getStackTrace(Thread.java:1619), org.springside.modules.utils.concurrent.ThreadUtilTest.hello(ThreadUtilTest.java:20), org.springside.modules.utils.concurrent.ThreadUtilTest.testCaller(ThreadUtilTest.java:10), java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method), java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77), java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.base/java.lang.reflect.Method.invoke(Method.java:569), org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50), org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12), org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47), org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17), org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325), org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78), org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57), org.junit.runners.ParentRunner$3.run(ParentRunner.java:290), org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71), org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288), org.junit.runners.ParentRunner.access$000(ParentRunner.java:58), org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268), org.junit.runners.ParentRunner.run(ParentRunner.java:363), org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365), org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273), org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238), org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159), org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383), org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344), org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125), org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)]
-[java.base/java.lang.Thread.getStackTrace(Thread.java:1619), org.springside.modules.utils.concurrent.ThreadUtilTest$MyClass.hello(ThreadUtilTest.java:28), org.springside.modules.utils.concurrent.ThreadUtilTest.testCaller(ThreadUtilTest.java:11), java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method), java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77), java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43), java.base/java.lang.reflect.Method.invoke(Method.java:569), org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50), org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12), org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47), org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17), org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325), org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78), org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57), org.junit.runners.ParentRunner$3.run(ParentRunner.java:290), org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71), org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288), org.junit.runners.ParentRunner.access$000(ParentRunner.java:58), org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268), org.junit.runners.ParentRunner.run(ParentRunner.java:363), org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365), org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273), org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238), org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159), org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:383), org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:344), org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:125), org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:417)]
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.concurrent.ThreadUtilTest
-[INFO] Running org.springside.modules.utils.concurrent.threadpool.QueuableCachedThreadPoolTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.385 s - in org.springside.modules.utils.concurrent.threadpool.QueuableCachedThreadPoolTest
-[INFO] Running org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest
-start task
-start task
-05:38:37.772 [pool-5-thread-1] WARN  test - InterruptedException
-start task
-05:38:37.806 [pool-6-thread-1] WARN  test - InterruptedException
-05:38:38.883 [pool-8-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest$ExceptionTask.run(ThreadPoolUtilTest.java:129)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-05:38:38.969 [pool-8-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest$ExceptionTask.run(ThreadPoolUtilTest.java:129)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-05:38:39.069 [pool-8-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest$ExceptionTask.run(ThreadPoolUtilTest.java:129)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-05:38:39.169 [pool-8-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest$ExceptionTask.run(ThreadPoolUtilTest.java:129)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-05:38:39.269 [pool-8-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest$ExceptionTask.run(ThreadPoolUtilTest.java:129)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
-05:38:39.369 [pool-8-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
-java.lang.RuntimeException: fail
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest$ExceptionTask.run(ThreadPoolUtilTest.java:129)
-	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539)
-	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:305)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base/java.lang.Thread.run(Thread.java:840)
--------actual run:1
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.048 s - in org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest
-[INFO] Running org.springside.modules.utils.concurrent.threadpool.ThreadPoolBuilderTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.springside.modules.utils.concurrent.threadpool.ThreadPoolBuilderTest
-[INFO] Running org.springside.modules.utils.concurrent.ThreadDumpperTest
-05:38:39.430 [main] INFO  o.s.m.utils.concurrent.ThreadDumpper - Thread dump by ThreadDumpper
-05:38:39.430 [main] INFO  o.s.m.utils.concurrent.ThreadDumpper - Finish the threads snapshot
-05:38:39.431 [main] INFO  o.s.m.utils.concurrent.ThreadDumpper - 
-"pool-23-thread-4" Id=63 TIMED_WAITING
-	at java.base@17.0.15/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest$LongRunTask.run(ThreadDumpperTest.java:24)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-
-"pool-23-thread-9" Id=68 TIMED_WAITING
-	at java.base@17.0.15/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest$LongRunTask.run(ThreadDumpperTest.java:24)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-
-"pool-23-thread-1" Id=60 TIMED_WAITING
-	at java.base@17.0.15/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest$LongRunTask.run(ThreadDumpperTest.java:24)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-
-"pool-23-thread-5" Id=64 TIMED_WAITING
-	at java.base@17.0.15/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest$LongRunTask.run(ThreadDumpperTest.java:24)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-
-"pool-23-thread-7" Id=66 TIMED_WAITING
-	at java.base@17.0.15/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest$LongRunTask.run(ThreadDumpperTest.java:24)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-
-"Finalizer" Id=3 WAITING
-	at java.base@17.0.15/java.lang.Object.wait(Native Method)
-	at java.base@17.0.15/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
-	at java.base@17.0.15/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
-	at java.base@17.0.15/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:172)
-
-"surefire-forkedjvm-command-thread" Id=22 RUNNABLE
-	at java.base@17.0.15/java.io.FileInputStream.readBytes(Native Method)
-	at java.base@17.0.15/java.io.FileInputStream.read(FileInputStream.java:276)
-	at java.base@17.0.15/java.io.BufferedInputStream.fill(BufferedInputStream.java:244)
-	at java.base@17.0.15/java.io.BufferedInputStream.read(BufferedInputStream.java:263)
-	at java.base@17.0.15/java.io.DataInputStream.readInt(DataInputStream.java:381)
-	at app//org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
-	at app//org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-
-"main" Id=1 RUNNABLE
-	at java.base@17.0.15/java.lang.Thread.dumpThreads(Native Method)
-	at java.base@17.0.15/java.lang.Thread.getAllStackTraces(Thread.java:1671)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpper.threadDumpIfNeed(ThreadDumpper.java:66)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpper.threadDumpIfNeed(ThreadDumpper.java:43)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest.test(ThreadDumpperTest.java:38)
-	at java.base@17.0.15/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base@17.0.15/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-	at java.base@17.0.15/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	...
-
-"surefire-forkedjvm-ping-30s" Id=23 TIMED_WAITING
-	at java.base@17.0.15/jdk.internal.misc.Unsafe.park(Native Method)
-	at java.base@17.0.15/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
-	at java.base@17.0.15/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679)
-	at java.base@17.0.15/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
-	at java.base@17.0.15/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	...
-
-"pool-23-thread-2" Id=61 TIMED_WAITING
-	at java.base@17.0.15/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest$LongRunTask.run(ThreadDumpperTest.java:24)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-
-"process reaper" Id=24 TIMED_WAITING
-	at java.base@17.0.15/jdk.internal.misc.Unsafe.park(Native Method)
-	at java.base@17.0.15/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
-	at java.base@17.0.15/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:401)
-	at java.base@17.0.15/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:903)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-
-"pool-23-thread-8" Id=67 TIMED_WAITING
-	at java.base@17.0.15/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest$LongRunTask.run(ThreadDumpperTest.java:24)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-
-"Notification Thread" Id=20 RUNNABLE
-
-"Signal Dispatcher" Id=4 RUNNABLE
-
-"Reference Handler" Id=2 RUNNABLE
-	at java.base@17.0.15/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
-	at java.base@17.0.15/java.lang.ref.Reference.processPendingReferences(Reference.java:253)
-	at java.base@17.0.15/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:215)
-
-"Common-Cleaner" Id=21 TIMED_WAITING
-	at java.base@17.0.15/java.lang.Object.wait(Native Method)
-	at java.base@17.0.15/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
-	at java.base@17.0.15/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-	at java.base@17.0.15/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:162)
-
-"pool-23-thread-3" Id=62 TIMED_WAITING
-	at java.base@17.0.15/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest$LongRunTask.run(ThreadDumpperTest.java:24)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-
-"pool-23-thread-10" Id=69 TIMED_WAITING
-	at java.base@17.0.15/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest$LongRunTask.run(ThreadDumpperTest.java:24)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-
-"pool-23-thread-6" Id=65 TIMED_WAITING
-	at java.base@17.0.15/java.lang.Thread.sleep(Native Method)
-	at app//org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
-	at app//org.springside.modules.utils.concurrent.ThreadDumpperTest$LongRunTask.run(ThreadDumpperTest.java:24)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
-	at java.base@17.0.15/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
-	at java.base@17.0.15/java.lang.Thread.run(Thread.java:840)
-
-
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.concurrent.ThreadDumpperTest
-[INFO] Running org.springside.modules.utils.collection.SetUtilTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s - in org.springside.modules.utils.collection.SetUtilTest
-[INFO] Running org.springside.modules.utils.collection.MapUtilTest
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in org.springside.modules.utils.collection.MapUtilTest
-[INFO] Running org.springside.modules.utils.collection.type.SortedArrayListTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.type.SortedArrayListTest
-[INFO] Running org.springside.modules.utils.collection.type.ConcurrentHashSetTest
-a,b,c,[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.type.ConcurrentHashSetTest
-[INFO] Running org.springside.modules.utils.collection.type.PairTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.type.PairTest
-[INFO] Running org.springside.modules.utils.collection.QueueUtilTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.QueueUtilTest
-[INFO] Running org.springside.modules.utils.collection.ArrayUtilTest
-[b, d, g, c, a, e, i]
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.ArrayUtilTest
-[INFO] Running org.springside.modules.utils.reflect.ClassUtilTest
-05:38:39.684 [main] WARN  o.s.modules.utils.reflect.ClassUtil - TestBean2's superclass not ParameterizedType
-05:38:39.684 [main] WARN  o.s.modules.utils.reflect.ClassUtil - TestBean3's superclass not ParameterizedType
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.reflect.ClassUtilTest
-[INFO] Running org.springside.modules.test.log.LogbackListAppenderTest
-05:38:39.711 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-05:38:39.711 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - World
-05:38:39.711 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-05:38:39.711 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-05:38:39.711 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-05:38:39.711 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.test.log.LogbackListAppenderTest
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 145, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
+[INFO] Compiling 114 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/target/test-classes
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/time/CachingDatFormatterTest_OE25Dev.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/time/CachingDatFormatterTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/number/NumberUtilTest_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/number/NumberUtilTest_OE25Dev.java: Recompile with -Xlint:removal for details.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/base/ExceptionUtilTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/base/ExceptionUtilTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[78,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[88,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[101,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[116,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[220,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[229,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[268,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[278,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[292,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[309,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/ListUtilTest_OE25Dev.java:[396,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[462,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[543,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[INFO] 13 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  17.201 s
-[INFO] Finished at: 2026-01-12T05:38:40-05:00
+[INFO] Total time:  10.218 s
+[INFO] Finished at: 2026-01-16T10:24:55-05:00
 [INFO] ------------------------------------------------------------------------
-ended at: 2026-01-12 05:38:40
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project springside-utils: Compilation failure: Compilation failure: 
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[78,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[88,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[101,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[116,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[220,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[229,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[268,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[278,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[292,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[309,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/ListUtilTest_OE25Dev.java:[396,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[462,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[543,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

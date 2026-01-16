@@ -24,9 +24,9 @@ main:
 [INFO] Skipping remote resources execution.
 [INFO] 
 [INFO] --- buildnumber:1.4:create (default) @ commons-rng-examples-stress ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-examples/examples-stress' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-examples/examples-stress
-[INFO] Storing buildNumber: 0d24737a8093f73ed366ece47fa7de093fa7c504 at timestamp: 2026-01-13 23:41:17-0500
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-rng-1.4-src/commons-rng-examples/examples-stress' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-rng-1.4-src/commons-rng-examples/examples-stress
+[INFO] Storing buildNumber: b467cf2e4e818b0489514385e833d64c6545dc91 at timestamp: 2026-01-16 10:10:45-0500
 [INFO] Storing buildScmBranch: main
 [INFO] 
 [INFO] --- resources:3.1.0:resources (default-resources) @ commons-rng-examples-stress ---
@@ -36,41 +36,39 @@ main:
 [INFO] 
 [INFO] --- compiler:3.8.1:compile (default-compile) @ commons-rng-examples-stress ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 20 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-examples/examples-stress/target/classes
-[WARNING] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-examples/examples-stress/src/main/java/org/apache/commons/rng/examples/stress/ExamplesStressApplication.java:[75,16] <R>parseWithHandler(picocli.CommandLine.IParseResultHandler2<R>,java.lang.String[]) in picocli.CommandLine has been deprecated
+[INFO] Compiling 20 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-rng-1.4-src/commons-rng-examples/examples-stress/target/classes
+[WARNING] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-rng-1.4-src/commons-rng-examples/examples-stress/src/main/java/org/apache/commons/rng/examples/stress/ExamplesStressApplication.java:[75,16] <R>parseWithHandler(picocli.CommandLine.IParseResultHandler2<R>,java.lang.String[]) in picocli.CommandLine has been deprecated
 [INFO] 
 [INFO] --- bundle:5.1.1:manifest (bundle-manifest) @ commons-rng-examples-stress ---
 [INFO] 
 [INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-rng-examples-stress ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-examples/examples-stress/src/test/resources
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-rng-1.4-src/commons-rng-examples/examples-stress/src/test/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
 [INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-rng-examples-stress ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 2 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-examples/examples-stress/target/test-classes
+[INFO] Compiling 3 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-rng-1.4-src/commons-rng-examples/examples-stress/target/test-classes
 [INFO] 
 [INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-rng-examples-stress ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-rng-1.4-src/commons-rng-examples/examples-stress/src/main/java/org/apache/commons/rng/examples/stress/BridgeTestCommand.java:117: Covariant return type change detected: java.nio.Buffer java.nio.IntBuffer.flip() has been changed to java.nio.IntBuffer java.nio.IntBuffer.flip()
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-rng-1.4-src/commons-rng-examples/examples-stress/src/main/java/org/apache/commons/rng/examples/stress/BridgeTestCommand.java:117: Covariant return type change detected: java.nio.Buffer java.nio.IntBuffer.flip() has been changed to java.nio.IntBuffer java.nio.IntBuffer.flip()
 [INFO] 
 [INFO] --- surefire:2.22.0:test (default-test) @ commons-rng-examples-stress ---
 [INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.rng.examples.stress.HexTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.rng.examples.stress.HexTest
-[INFO] Running org.apache.commons.rng.examples.stress.RngDataOutputTest
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 s - in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[INFO] Running org.apache.commons.rng.examples.stress.HexTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.rng.examples.stress.HexTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.480 s
-[INFO] Finished at: 2026-01-13T23:41:24-05:00
+[INFO] Total time:  4.961 s
+[INFO] Finished at: 2026-01-16T10:10:48-05:00
 [INFO] ------------------------------------------------------------------------

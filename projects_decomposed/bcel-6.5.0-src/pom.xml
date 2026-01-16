@@ -216,8 +216,6 @@
 
 
   <build>
-    <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
-    <directory>${project.basedir}/${target.dir}/</directory>
     <plugins>
       <plugin>
         <groupId>org.pitest</groupId>
@@ -311,6 +309,11 @@
                 <version>2.22.0</version>
         <configuration>
           <useUnlimitedThreads>true</useUnlimitedThreads>
+
+    <!-- Only run OE25Dev tests -->
+    <includes>
+      <include>**/*_OE25Dev.java</include>
+    </includes>
           <systemProperties>
             <property>
               <!-- Suppress the stats, but keep the test as it exercises the code -->

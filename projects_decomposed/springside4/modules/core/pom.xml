@@ -109,8 +109,6 @@
     </dependencyManagement>
 
     <build>
-        <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
-        <directory>${project.basedir}/${target.dir}/</directory>
         <plugins>
             <!-- source attach plugin -->
             <plugin>
@@ -135,7 +133,7 @@
                         <param>org.springside.modules.web.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>org.springside.modules.web.*</param>
+                        <param>org.springside.modules.web.*_OE25Dev*</param>
                     </targetTests>
                     <excludedTestClasses>
                     </excludedTestClasses>

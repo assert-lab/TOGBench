@@ -7,7 +7,7 @@
 [WARNING] Parameter 'includedTestClasses' is unknown for plugin 'pitest-maven:1.9.8:mutationCoverage (default-cli)'
 [INFO] 
 [INFO] --- pitest:1.9.8:mutationCoverage (default-cli) @ spark-core ---
-[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark
+[INFO] Root dir is : /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark
 [INFO] Found plugin : Default csv report plugin
 [INFO] Found plugin : Default xml report plugin
 [INFO] Found plugin : Default html report plugin
@@ -40,7 +40,7 @@
 [INFO] Found shared classpath plugin : JUnit plugin
 [INFO] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER
 [INFO] Adding org.pitest:pitest to SUT classpath
-[INFO] Mutating from /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/target/classes
+[INFO] Mutating from /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/target/classes
 //-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|================================================================================
 - Mutators
 ================================================================================
@@ -51,8 +51,8 @@
 > NO_COVERAGE 63 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
->> Generated 473 Killed 46 (10%)
-> KILLED 43 SURVIVED 39 TIMED_OUT 1 NON_VIABLE 0 
+>> Generated 473 Killed 47 (10%)
+> KILLED 44 SURVIVED 38 TIMED_OUT 1 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 2 
 > NO_COVERAGE 388 
 --------------------------------------------------------------------------------
@@ -63,8 +63,8 @@
 > NO_COVERAGE 4 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
->> Generated 444 Killed 60 (14%)
-> KILLED 55 SURVIVED 96 TIMED_OUT 1 NON_VIABLE 0 
+>> Generated 444 Killed 65 (15%)
+> KILLED 60 SURVIVED 91 TIMED_OUT 1 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 4 
 > NO_COVERAGE 288 
 --------------------------------------------------------------------------------
@@ -76,7 +76,7 @@
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
 >> Generated 88 Killed 10 (11%)
-> KILLED 7 SURVIVED 15 TIMED_OUT 2 NON_VIABLE 0 
+> KILLED 8 SURVIVED 15 TIMED_OUT 1 NON_VIABLE 0 
 > MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 1 
 > NO_COVERAGE 63 
 --------------------------------------------------------------------------------
@@ -88,8 +88,8 @@
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
 >> Generated 166 Killed 21 (13%)
-> KILLED 19 SURVIVED 11 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 2 
+> KILLED 21 SURVIVED 11 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
 > NO_COVERAGE 134 
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
@@ -124,8 +124,8 @@
 --------------------------------------------------------------------------------
 > org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
 >> Generated 446 Killed 49 (11%)
-> KILLED 46 SURVIVED 107 TIMED_OUT 0 NON_VIABLE 0 
-> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 3 
+> KILLED 47 SURVIVED 107 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 2 
 > NO_COVERAGE 290 
 --------------------------------------------------------------------------------
 ================================================================================
@@ -133,23 +133,23 @@
 ================================================================================
 > pre-scan for mutations : < 1 second
 > scan classpath : < 1 second
-> coverage and dependency analysis : < 1 second
+> coverage and dependency analysis : 12 seconds
 > build mutation tests : < 1 second
-> run mutation analysis : 7 minutes and 0 seconds
+> run mutation analysis : 19 minutes and 29 seconds
 --------------------------------------------------------------------------------
-> Total  : 7 minutes and 1 seconds
+> Total  : 19 minutes and 43 seconds
 --------------------------------------------------------------------------------
 ================================================================================
 - Statistics
 ================================================================================
 >> Line Coverage: 908/3127 (29%)
->> Generated 2305 mutations Killed 283 (12%)
->> Mutations with no coverage 1669. Test strength 44%
->> Ran 956 tests (0.41 tests per mutation)
+>> Generated 2305 mutations Killed 289 (13%)
+>> Mutations with no coverage 1669. Test strength 45%
+>> Ran 942 tests (0.41 tests per mutation)
 Enhanced functionality available at https://www.arcmutate.com/
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  07:04 min
-[INFO] Finished at: 2026-01-15T19:10:24-05:00
+[INFO] Total time:  19:46 min
+[INFO] Finished at: 2026-01-16T11:47:12-05:00
 [INFO] ------------------------------------------------------------------------

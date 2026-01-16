@@ -348,8 +348,6 @@
 
   <!-- ==================================================================== -->
   <build>
-    <testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
-    <directory>${project.basedir}/${target.dir}/</directory>
     <resources>
       <resource>
         <targetPath>META-INF</targetPath>

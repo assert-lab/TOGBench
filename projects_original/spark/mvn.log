@@ -6,24 +6,23 @@
 [INFO] -------------------------------[ bundle ]-------------------------------
 [INFO] 
 [INFO] --- clean:3.2.0:clean (default-clean) @ spark-core ---
-[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/target
 [INFO] 
 [INFO] --- enforcer:1.4.1:enforce (enforce-maven) @ spark-core ---
 [INFO] 
 [INFO] --- enforcer:1.4.1:enforce (enforce-java) @ spark-core ---
 [INFO] 
 [INFO] --- resources:3.3.1:resources (default-resources) @ spark-core ---
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/main/resources
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/main/resources
 [INFO] Copying 0 resource from src/main/java to target/classes
 [INFO] 
 [INFO] --- compiler:3.8.0:compile (default-compile) @ spark-core ---
 [WARNING] Parameter 'optimize' (user property 'maven.compiler.optimize') is deprecated: This property is a no-op in {@code javac}.
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 100 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/target/classes
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/main/java/spark/servlet/SparkFilter.java: Some input files use or override a deprecated API.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/main/java/spark/servlet/SparkFilter.java: Recompile with -Xlint:deprecation for details.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/main/java/spark/staticfiles/MimeType.java: Some input files use unchecked or unsafe operations.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/main/java/spark/staticfiles/MimeType.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 100 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/target/classes
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/main/java/spark/embeddedserver/jetty/websocket/WebSocketServletContextHandlerFactory.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/main/java/spark/embeddedserver/jetty/websocket/WebSocketServletContextHandlerFactory.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/main/java/spark/staticfiles/MimeType.java: Some input files use unchecked or unsafe operations.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/main/java/spark/staticfiles/MimeType.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- resources:3.3.1:testResources (default-testResources) @ spark-core ---
 [INFO] Copying 13 resources from src/test/resources to target/test-classes
@@ -31,252 +30,30 @@
 [INFO] --- compiler:3.8.0:testCompile (default-testCompile) @ spark-core ---
 [WARNING] Parameter 'optimize' (user property 'maven.compiler.optimize') is deprecated: This property is a no-op in {@code javac}.
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 84 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/target/test-classes
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/test/java/spark/embeddedserver/EmbeddedServersTest.java: Some input files use or override a deprecated API.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/test/java/spark/embeddedserver/EmbeddedServersTest.java: Recompile with -Xlint:deprecation for details.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/test/java/spark/QueryParamsMapTest.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/test/java/spark/QueryParamsMapTest.java uses or overrides a deprecated API that is marked for removal.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/test/java/spark/QueryParamsMapTest.java: Recompile with -Xlint:removal for details.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/test/java/spark/StaticFilesMemberTest.java: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/test/java/spark/StaticFilesMemberTest.java uses unchecked or unsafe operations.
-[INFO] /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/src/test/java/spark/StaticFilesMemberTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 84 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/target/test-classes
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/test/java/spark/embeddedserver/EmbeddedServersTest.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/test/java/spark/embeddedserver/EmbeddedServersTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/test/java/spark/QueryParamsMapTest.java: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/test/java/spark/QueryParamsMapTest.java uses or overrides a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/test/java/spark/QueryParamsMapTest.java: Recompile with -Xlint:removal for details.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/test/java/spark/StaticFilesMemberTest.java: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/test/java/spark/StaticFilesMemberTest.java uses unchecked or unsafe operations.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/src/test/java/spark/StaticFilesMemberTest.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- surefire:2.22.0:test (default-test) @ spark-core ---
 [INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running spark.CookiesIntegrationTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.33 s - in spark.CookiesIntegrationTest
-[INFO] Running spark.GzipTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.371 s - in spark.GzipTest
-[INFO] Running spark.servlet.ServletTest
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.983 s - in spark.servlet.ServletTest
-[INFO] Running spark.BodyAvailabilityTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.342 s - in spark.BodyAvailabilityTest
-[INFO] Running spark.RequestTest
-[ERROR] Tests run: 36, Failures: 0, Errors: 36, Skipped: 0, Time elapsed: 0.316 s <<< FAILURE! - in spark.RequestTest
-[ERROR] queryParamOrDefault_shouldReturnDefault_whenQueryParamIsNull(spark.RequestTest)  Time elapsed: 0.247 s  <<< ERROR!
-java.lang.ExceptionInInitializerError
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @563cf05e
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testQueryParams(spark.RequestTest)  Time elapsed: 0.002 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testSession_whenCreateIsFalse_afterSessionInvalidate(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testURI(spark.RequestTest)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testUrl(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testSession_2times(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testRequestMethod(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testHost(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testPort(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testSession_whenCreateIsTrue_afterSessionInvalidate(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testContentType(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testSessionNpParams_afterSessionInvalidate(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] queryParamShouldBeParsedAsHashMap(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testIp(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] shouldBeAbleToGetTheMatchedPath(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testContextPath(spark.RequestTest)  Time elapsed: 0.002 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testQueryParamsValues_whenParamExists(spark.RequestTest)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testProtocol(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testSessionNoParams_whenSessionIsNull(spark.RequestTest)  Time elapsed: 0.002 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] queryParamOrDefault_shouldReturnQueryParam_whenQueryParamExists(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testServletPath(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testCookies_whenCookiesAreNotPresent(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testHeaders(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testSession_whenCreateIsFalse(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testCookies_whenCookiesArePresent(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] queryParamShouldReturnsParametersFromQueryString(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testUserAgent(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] shouldBeAbleToGetTheContextPath(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testContentLength(spark.RequestTest)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testCookie_whenCookiesAreNotPresent(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testSession_whenCreateIsTrue(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testScheme(spark.RequestTest)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testCookie_whenCookiesArePresent(spark.RequestTest)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testQueryParamsValues_whenParamDoesNotExists(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] testPathInfo(spark.RequestTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[ERROR] shouldBeAbleToGetTheServletPath(spark.RequestTest)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.RequestTest.setup(RequestTest.java:60)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.RequestTest.setup(RequestTest.java:60)
-
-[INFO] Running spark.serialization.InputStreamSerializerTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in spark.serialization.InputStreamSerializerTest
-[INFO] Running spark.Base64Test
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in spark.Base64Test
+[INFO] Running spark.GenericSecureIntegrationTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.631 s - in spark.GenericSecureIntegrationTest
+[INFO] Running spark.RouteImplTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.506 s - in spark.RouteImplTest
+[INFO] Running spark.QueryParamsMapTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.013 s - in spark.QueryParamsMapTest
+[INFO] Running spark.ServicePortIntegrationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.333 s - in spark.ServicePortIntegrationTest
 [INFO] Running spark.ResponseTest
-[ERROR] Tests run: 23, Failures: 0, Errors: 23, Skipped: 0, Time elapsed: 0.088 s <<< FAILURE! - in spark.ResponseTest
-[ERROR] testCookie_whenPathNameValueMaxAgeSecuredAndHttpOnlyParameters_shouldAddCookieSuccessfully(spark.ResponseTest)  Time elapsed: 0.044 s  <<< ERROR!
+[ERROR] Tests run: 23, Failures: 0, Errors: 23, Skipped: 0, Time elapsed: 3.07 s <<< FAILURE! - in spark.ResponseTest
+[ERROR] testCookie_whenPathNameValueMaxAgeSecuredAndHttpOnlyParameters_shouldAddCookieSuccessfully(spark.ResponseTest)  Time elapsed: 2.03 s  <<< ERROR!
 java.lang.ExceptionInInitializerError
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @563cf05e
@@ -306,13 +83,13 @@ java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.moc
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 
-[ERROR] testCookie_whenNameValueMaxAgeSecuredAndHttpOnlyParameters_shouldAddCookieSuccessfully(spark.ResponseTest)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testCookie_whenNameValueMaxAgeSecuredAndHttpOnlyParameters_shouldAddCookieSuccessfully(spark.ResponseTest)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 
-[ERROR] testInstantDateHeader(spark.ResponseTest)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testInstantDateHeader(spark.ResponseTest)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
@@ -324,7 +101,7 @@ java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.moc
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 
-[ERROR] testGetType(spark.ResponseTest)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testGetType(spark.ResponseTest)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
@@ -336,7 +113,7 @@ java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.moc
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 
-[ERROR] testCookie_whenPathNameValueMaxAgeAndSecuredParameters_shouldAddCookieSuccessfully(spark.ResponseTest)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testCookie_whenPathNameValueMaxAgeAndSecuredParameters_shouldAddCookieSuccessfully(spark.ResponseTest)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
@@ -348,7 +125,7 @@ java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.moc
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 
-[ERROR] testIntHeader(spark.ResponseTest)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testIntHeader(spark.ResponseTest)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
@@ -360,13 +137,13 @@ java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.moc
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 
-[ERROR] testJavaUtilDateHeader(spark.ResponseTest)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testJavaUtilDateHeader(spark.ResponseTest)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 
-[ERROR] testCookie_whenNameAndValueParameters_shouldAddCookieSuccessfully(spark.ResponseTest)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testCookie_whenNameAndValueParameters_shouldAddCookieSuccessfully(spark.ResponseTest)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
@@ -402,7 +179,7 @@ java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.moc
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 
-[ERROR] testJavaSqlDateHeader(spark.ResponseTest)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testJavaSqlDateHeader(spark.ResponseTest)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
@@ -414,81 +191,11 @@ java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.moc
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.ResponseTest.setup(ResponseTest.java:25)
 
-[INFO] Running spark.MultipleFiltersTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.342 s - in spark.MultipleFiltersTest
-[INFO] Running spark.utils.ObjectUtilsTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in spark.utils.ObjectUtilsTest
-[INFO] Running spark.utils.SparkUtilsTest
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in spark.utils.SparkUtilsTest
-[INFO] Running spark.utils.CollectionUtilsTest
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in spark.utils.CollectionUtilsTest
-[INFO] Running spark.utils.MimeParseTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in spark.utils.MimeParseTest
-[INFO] Running spark.GenericSecureIntegrationTest
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.46 s - in spark.GenericSecureIntegrationTest
-[INFO] Running spark.globalstate.ServletFlagTest
-[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.168 s <<< FAILURE! - in spark.globalstate.ServletFlagTest
-[ERROR] initializationError(spark.globalstate.ServletFlagTest)  Time elapsed: 0.003 s  <<< ERROR!
-org.objenesis.ObjenesisException: java.lang.reflect.InvocationTargetException
-Caused by: java.lang.reflect.InvocationTargetException
-Caused by: java.lang.IllegalAccessError: class jdk.internal.reflect.ConstructorAccessorImpl loaded by org.powermock.core.classloader.MockClassLoader @26be92ad cannot access jdk/internal/reflect superclass jdk.internal.reflect.MagicAccessorImpl
-
-[INFO] Running spark.ServicePortIntegrationTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.341 s - in spark.ServicePortIntegrationTest
 [INFO] Running spark.StaticFilesMemberTest
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.378 s - in spark.StaticFilesMemberTest
-[INFO] Running spark.RedirectTest
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.383 s - in spark.RedirectTest
-[INFO] Running spark.embeddedserver.EmbeddedServersTest
-[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.217 s <<< FAILURE! - in spark.embeddedserver.EmbeddedServersTest
-[ERROR] testAddAndCreate_whenCreate_createsCustomServer(spark.embeddedserver.EmbeddedServersTest)  Time elapsed: 0.085 s  <<< ERROR!
-java.lang.ExceptionInInitializerError
-	at spark.embeddedserver.EmbeddedServersTest.testAddAndCreate_whenCreate_createsCustomServer(EmbeddedServersTest.java:36)
-Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @563cf05e
-	at spark.embeddedserver.EmbeddedServersTest.testAddAndCreate_whenCreate_createsCustomServer(EmbeddedServersTest.java:36)
-
-[INFO] Running spark.embeddedserver.jetty.EmbeddedJettyFactoryTest
-[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 0.094 s <<< FAILURE! - in spark.embeddedserver.jetty.EmbeddedJettyFactoryTest
-[ERROR] create_withThreadPool(spark.embeddedserver.jetty.EmbeddedJettyFactoryTest)  Time elapsed: 0.062 s  <<< ERROR!
-java.lang.ExceptionInInitializerError
-	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withThreadPool(EmbeddedJettyFactoryTest.java:48)
-Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @563cf05e
-	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withThreadPool(EmbeddedJettyFactoryTest.java:48)
-
-[ERROR] create_withoutHttpOnly(spark.embeddedserver.jetty.EmbeddedJettyFactoryTest)  Time elapsed: 0.001 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withoutHttpOnly(EmbeddedJettyFactoryTest.java:84)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withThreadPool(EmbeddedJettyFactoryTest.java:48)
-
-[ERROR] create(spark.embeddedserver.jetty.EmbeddedJettyFactoryTest)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create(EmbeddedJettyFactoryTest.java:27)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withThreadPool(EmbeddedJettyFactoryTest.java:48)
-
-[ERROR] create_withNullThreadPool(spark.embeddedserver.jetty.EmbeddedJettyFactoryTest)  Time elapsed: 0 s  <<< ERROR!
-java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
-	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withNullThreadPool(EmbeddedJettyFactoryTest.java:66)
-Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
-	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withThreadPool(EmbeddedJettyFactoryTest.java:48)
-
-[INFO] Running spark.embeddedserver.jetty.websocket.WebSocketServletContextHandlerFactoryTest
-[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.169 s <<< FAILURE! - in spark.embeddedserver.jetty.websocket.WebSocketServletContextHandlerFactoryTest
-[ERROR] initializationError(spark.embeddedserver.jetty.websocket.WebSocketServletContextHandlerFactoryTest)  Time elapsed: 0.003 s  <<< ERROR!
-org.objenesis.ObjenesisException: java.lang.reflect.InvocationTargetException
-Caused by: java.lang.reflect.InvocationTargetException
-Caused by: java.lang.IllegalAccessError: class jdk.internal.reflect.ConstructorAccessorImpl loaded by org.powermock.core.classloader.MockClassLoader @26be92ad cannot access jdk/internal/reflect superclass jdk.internal.reflect.MagicAccessorImpl
-
-[INFO] Running spark.embeddedserver.jetty.websocket.WebSocketCreatorFactoryTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in spark.embeddedserver.jetty.websocket.WebSocketCreatorFactoryTest
-[INFO] Running spark.embeddedserver.jetty.SocketConnectorFactoryTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.103 s - in spark.embeddedserver.jetty.SocketConnectorFactoryTest
-[INFO] Running spark.embeddedserver.jetty.JettyServerTest
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in spark.embeddedserver.jetty.JettyServerTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.802 s - in spark.StaticFilesMemberTest
 [INFO] Running spark.SessionTest
-[ERROR] Tests run: 15, Failures: 0, Errors: 15, Skipped: 0, Time elapsed: 0.085 s <<< FAILURE! - in spark.SessionTest
-[ERROR] testAttribute_whenAttributeIsSet(spark.SessionTest)  Time elapsed: 0.047 s  <<< ERROR!
+[ERROR] Tests run: 15, Failures: 0, Errors: 15, Skipped: 0, Time elapsed: 2.454 s <<< FAILURE! - in spark.SessionTest
+[ERROR] testAttribute_whenAttributeIsSet(spark.SessionTest)  Time elapsed: 1.471 s  <<< ERROR!
 java.lang.ExceptionInInitializerError
 	at spark.SessionTest.setup(SessionTest.java:26)
 Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @563cf05e
@@ -500,13 +207,13 @@ java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.moc
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.SessionTest.setup(SessionTest.java:26)
 
-[ERROR] testCreationTime(spark.SessionTest)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testCreationTime(spark.SessionTest)  Time elapsed: 0.001 s  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
 	at spark.SessionTest.setup(SessionTest.java:26)
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.SessionTest.setup(SessionTest.java:26)
 
-[ERROR] testRaw(spark.SessionTest)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRaw(spark.SessionTest)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
 	at spark.SessionTest.setup(SessionTest.java:26)
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
@@ -530,7 +237,7 @@ java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.moc
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.SessionTest.setup(SessionTest.java:26)
 
-[ERROR] testAttributes(spark.SessionTest)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testAttributes(spark.SessionTest)  Time elapsed: 0 s  <<< ERROR!
 java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
 	at spark.SessionTest.setup(SessionTest.java:26)
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
@@ -578,57 +285,349 @@ java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.moc
 Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
 	at spark.SessionTest.setup(SessionTest.java:26)
 
-[INFO] Running spark.ResponseWrapperDelegationTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.35 s - in spark.ResponseWrapperDelegationTest
-[INFO] Running spark.resource.UriPathTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in spark.resource.UriPathTest
+[INFO] Running spark.BooksIntegrationTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.615 s - in spark.BooksIntegrationTest
+[INFO] Running spark.staticfiles.DisableMimeGuessingTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.703 s - in spark.staticfiles.DisableMimeGuessingTest
+[INFO] Running spark.staticfiles.StaticFilesTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.989 s - in spark.staticfiles.StaticFilesTest
+[INFO] Running spark.GenericIntegrationTest
+Method Override Worked
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.324 s - in spark.GenericIntegrationTest
+[INFO] Running spark.CookiesIntegrationTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.073 s - in spark.CookiesIntegrationTest
+[INFO] Running spark.MultipleServicesTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.768 s - in spark.MultipleServicesTest
+[INFO] Running spark.FilterImplTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.964 s - in spark.FilterImplTest
+[INFO] Running spark.GzipTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.695 s - in spark.GzipTest
 [INFO] Running spark.FilterTest
 Filter matched
 response.status = 404
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.345 s - in spark.FilterTest
-[INFO] Running spark.staticfiles.StaticFilesTest
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.379 s - in spark.staticfiles.StaticFilesTest
-[INFO] Running spark.staticfiles.DisableMimeGuessingTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.355 s - in spark.staticfiles.DisableMimeGuessingTest
-[INFO] Running spark.UnmapTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.34 s - in spark.UnmapTest
-[INFO] Running spark.BooksIntegrationTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.235 s - in spark.BooksIntegrationTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.43 s - in spark.FilterTest
+[INFO] Running spark.servlet.ServletTest
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.735 s - in spark.servlet.ServletTest
 [INFO] Running spark.util.ResourceUtilsTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in spark.util.ResourceUtilsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.159 s - in spark.util.ResourceUtilsTest
+[INFO] Running spark.RedirectTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.558 s - in spark.RedirectTest
+[INFO] Running spark.embeddedserver.EmbeddedServersTest
+[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 5.143 s <<< FAILURE! - in spark.embeddedserver.EmbeddedServersTest
+[ERROR] testAddAndCreate_whenCreate_createsCustomServer(spark.embeddedserver.EmbeddedServersTest)  Time elapsed: 2.392 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+	at spark.embeddedserver.EmbeddedServersTest.testAddAndCreate_whenCreate_createsCustomServer(EmbeddedServersTest.java:36)
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @563cf05e
+	at spark.embeddedserver.EmbeddedServersTest.testAddAndCreate_whenCreate_createsCustomServer(EmbeddedServersTest.java:36)
+
+[INFO] Running spark.embeddedserver.jetty.JettyServerTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.986 s - in spark.embeddedserver.jetty.JettyServerTest
+[INFO] Running spark.embeddedserver.jetty.SocketConnectorFactoryTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.848 s - in spark.embeddedserver.jetty.SocketConnectorFactoryTest
+[INFO] Running spark.embeddedserver.jetty.EmbeddedJettyFactoryTest
+[ERROR] Tests run: 4, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 3.614 s <<< FAILURE! - in spark.embeddedserver.jetty.EmbeddedJettyFactoryTest
+[ERROR] create_withThreadPool(spark.embeddedserver.jetty.EmbeddedJettyFactoryTest)  Time elapsed: 2.589 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withThreadPool(EmbeddedJettyFactoryTest.java:48)
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @563cf05e
+	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withThreadPool(EmbeddedJettyFactoryTest.java:48)
+
+[ERROR] create_withoutHttpOnly(spark.embeddedserver.jetty.EmbeddedJettyFactoryTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withoutHttpOnly(EmbeddedJettyFactoryTest.java:84)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withThreadPool(EmbeddedJettyFactoryTest.java:48)
+
+[ERROR] create(spark.embeddedserver.jetty.EmbeddedJettyFactoryTest)  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create(EmbeddedJettyFactoryTest.java:27)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withThreadPool(EmbeddedJettyFactoryTest.java:48)
+
+[ERROR] create_withNullThreadPool(spark.embeddedserver.jetty.EmbeddedJettyFactoryTest)  Time elapsed: 0 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withNullThreadPool(EmbeddedJettyFactoryTest.java:66)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.embeddedserver.jetty.EmbeddedJettyFactoryTest.create_withThreadPool(EmbeddedJettyFactoryTest.java:48)
+
+[INFO] Running spark.embeddedserver.jetty.websocket.WebSocketServletContextHandlerFactoryTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.494 s <<< FAILURE! - in spark.embeddedserver.jetty.websocket.WebSocketServletContextHandlerFactoryTest
+[ERROR] initializationError(spark.embeddedserver.jetty.websocket.WebSocketServletContextHandlerFactoryTest)  Time elapsed: 0.066 s  <<< ERROR!
+org.objenesis.ObjenesisException: java.lang.reflect.InvocationTargetException
+Caused by: java.lang.reflect.InvocationTargetException
+Caused by: java.lang.IllegalAccessError: class jdk.internal.reflect.ConstructorAccessorImpl loaded by org.powermock.core.classloader.MockClassLoader @26be92ad cannot access jdk/internal/reflect superclass jdk.internal.reflect.MagicAccessorImpl
+
+[INFO] Running spark.embeddedserver.jetty.websocket.WebSocketCreatorFactoryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.069 s - in spark.embeddedserver.jetty.websocket.WebSocketCreatorFactoryTest
+[INFO] Running spark.ResponseBodyTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.891 s - in spark.ResponseBodyTest
+[INFO] Running spark.InitExceptionHandlerTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.966 s - in spark.InitExceptionHandlerTest
+[INFO] Running spark.BodyAvailabilityTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.21 s - in spark.BodyAvailabilityTest
+[INFO] Running spark.globalstate.ServletFlagTest
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 2.094 s <<< FAILURE! - in spark.globalstate.ServletFlagTest
+[ERROR] initializationError(spark.globalstate.ServletFlagTest)  Time elapsed: 0.066 s  <<< ERROR!
+org.objenesis.ObjenesisException: java.lang.reflect.InvocationTargetException
+Caused by: java.lang.reflect.InvocationTargetException
+Caused by: java.lang.IllegalAccessError: class jdk.internal.reflect.ConstructorAccessorImpl loaded by org.powermock.core.classloader.MockClassLoader @26be92ad cannot access jdk/internal/reflect superclass jdk.internal.reflect.MagicAccessorImpl
+
+[INFO] Running spark.Base64Test
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.007 s - in spark.Base64Test
+[INFO] Running spark.resource.UriPathTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1 s - in spark.resource.UriPathTest
+[INFO] Running spark.route.RouteEntryTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.036 s - in spark.route.RouteEntryTest
+[INFO] Running spark.route.HttpMethodTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.996 s - in spark.route.HttpMethodTest
+[INFO] Running spark.MultipleFiltersTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.529 s - in spark.MultipleFiltersTest
+[INFO] Running spark.serialization.InputStreamSerializerTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.439 s - in spark.serialization.InputStreamSerializerTest
+[INFO] Running spark.ServiceTest
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.765 s - in spark.ServiceTest
+[INFO] Running spark.RequestTest
+[ERROR] Tests run: 36, Failures: 0, Errors: 36, Skipped: 0, Time elapsed: 8.067 s <<< FAILURE! - in spark.RequestTest
+[ERROR] queryParamOrDefault_shouldReturnDefault_whenQueryParamIsNull(spark.RequestTest)  Time elapsed: 6.549 s  <<< ERROR!
+java.lang.ExceptionInInitializerError
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.reflect.InaccessibleObjectException: Unable to make protected final java.lang.Class java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain) throws java.lang.ClassFormatError accessible: module java.base does not "opens java.lang" to unnamed module @563cf05e
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testQueryParams(spark.RequestTest)  Time elapsed: 0.022 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testSession_whenCreateIsFalse_afterSessionInvalidate(spark.RequestTest)  Time elapsed: 0.022 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testURI(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testUrl(spark.RequestTest)  Time elapsed: 0.023 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testSession_2times(spark.RequestTest)  Time elapsed: 0.012 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testRequestMethod(spark.RequestTest)  Time elapsed: 0.012 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testHost(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testPort(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testSession_whenCreateIsTrue_afterSessionInvalidate(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testContentType(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testSessionNpParams_afterSessionInvalidate(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] queryParamShouldBeParsedAsHashMap(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testIp(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] shouldBeAbleToGetTheMatchedPath(spark.RequestTest)  Time elapsed: 0.022 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testContextPath(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testQueryParamsValues_whenParamExists(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testProtocol(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testSessionNoParams_whenSessionIsNull(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] queryParamOrDefault_shouldReturnQueryParam_whenQueryParamExists(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testServletPath(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testCookies_whenCookiesAreNotPresent(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testHeaders(spark.RequestTest)  Time elapsed: 0.012 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testSession_whenCreateIsFalse(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testCookies_whenCookiesArePresent(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] queryParamShouldReturnsParametersFromQueryString(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testUserAgent(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] shouldBeAbleToGetTheContextPath(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testContentLength(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testCookie_whenCookiesAreNotPresent(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testSession_whenCreateIsTrue(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testScheme(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testCookie_whenCookiesArePresent(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testQueryParamsValues_whenParamDoesNotExists(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] testPathInfo(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
+[ERROR] shouldBeAbleToGetTheServletPath(spark.RequestTest)  Time elapsed: 0.011 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.powermock.api.mockito.repackaged.ClassImposterizer$3
+	at spark.RequestTest.setup(RequestTest.java:60)
+Caused by: java.lang.ExceptionInInitializerError: Exception java.lang.ExceptionInInitializerError [in thread "main"]
+	at spark.RequestTest.setup(RequestTest.java:60)
+
 [INFO] Running spark.StaticFilesFromArchiveTest
-[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.034 s <<< FAILURE! - in spark.StaticFilesFromArchiveTest
-[ERROR] spark.StaticFilesFromArchiveTest  Time elapsed: 0.034 s  <<< ERROR!
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.918 s <<< FAILURE! - in spark.StaticFilesFromArchiveTest
+[ERROR] spark.StaticFilesFromArchiveTest  Time elapsed: 0.918 s  <<< ERROR!
 java.lang.ClassCastException: class jdk.internal.loader.ClassLoaders$AppClassLoader cannot be cast to class java.net.URLClassLoader (jdk.internal.loader.ClassLoaders$AppClassLoader and java.net.URLClassLoader are in module java.base of loader 'bootstrap')
 	at spark.StaticFilesFromArchiveTest.createExtendedClassLoader(StaticFilesFromArchiveTest.java:70)
 	at spark.StaticFilesFromArchiveTest.setupClassLoader(StaticFilesFromArchiveTest.java:63)
 	at spark.StaticFilesFromArchiveTest.setup(StaticFilesFromArchiveTest.java:42)
 
-[INFO] Running spark.RouteImplTest
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in spark.RouteImplTest
-[INFO] Running spark.ServiceTest
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.065 s - in spark.ServiceTest
-[INFO] Running spark.QueryParamsMapTest
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in spark.QueryParamsMapTest
-[INFO] Running spark.GenericIntegrationTest
-Method Override Worked
-[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.599 s - in spark.GenericIntegrationTest
-[INFO] Running spark.ResponseBodyTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.347 s - in spark.ResponseBodyTest
-[INFO] Running spark.route.RouteEntryTest
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in spark.route.RouteEntryTest
-[INFO] Running spark.route.HttpMethodTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in spark.route.HttpMethodTest
-[INFO] Running spark.FilterImplTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in spark.FilterImplTest
-[INFO] Running spark.InitExceptionHandlerTest
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.137 s - in spark.InitExceptionHandlerTest
+[INFO] Running spark.UnmapTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.455 s - in spark.UnmapTest
 [INFO] Running spark.ExceptionMapperTest
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in spark.ExceptionMapperTest
-[INFO] Running spark.MultipleServicesTest
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.377 s - in spark.MultipleServicesTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.716 s - in spark.ExceptionMapperTest
+[INFO] Running spark.utils.MimeParseTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.964 s - in spark.utils.MimeParseTest
+[INFO] Running spark.utils.SparkUtilsTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.099 s - in spark.utils.SparkUtilsTest
+[INFO] Running spark.utils.ObjectUtilsTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.313 s - in spark.utils.ObjectUtilsTest
+[INFO] Running spark.utils.CollectionUtilsTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.813 s - in spark.utils.CollectionUtilsTest
+[INFO] Running spark.ResponseWrapperDelegationTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.433 s - in spark.ResponseWrapperDelegationTest
 [INFO] Running spark.customerrorpages.CustomErrorPagesTest
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.36 s - in spark.customerrorpages.CustomErrorPagesTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.655 s - in spark.customerrorpages.CustomErrorPagesTest
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -721,12 +720,12 @@ Method Override Worked
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  36.918 s
-[INFO] Finished at: 2026-01-15T19:03:13-05:00
+[INFO] Total time:  04:21 min
+[INFO] Finished at: 2026-01-16T11:27:13-05:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project spark-core: There are test failures.
 [ERROR] 
-[ERROR] Please refer to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/projects_original/spark/target/surefire-reports for the individual test results.
+[ERROR] Please refer to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/spark/target/surefire-reports for the individual test results.
 [ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
 [ERROR] -> [Help 1]
 [ERROR] 

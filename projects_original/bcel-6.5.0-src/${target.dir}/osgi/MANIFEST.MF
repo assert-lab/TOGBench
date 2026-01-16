@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1767833302598
-Build-Jdk: 1.8.0_442
+Bnd-LastModified: 1768556943213
+Build-Jdk: 17.0.15
 Built-By: wxw9rr
 Bundle-Description: Apache Commons Bytecode Engineering Library
 Bundle-DocURL: https://commons.apache.org/proper/commons-bcel

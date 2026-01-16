@@ -163,8 +163,6 @@
 	</dependencies>
 
 	<build>
-		<testSourceDirectory>${project.basedir}/${test.dir}/test/java</testSourceDirectory>
-		<directory>${project.basedir}/${target.dir}/</directory>
 		<plugins>
 			<!-- source attach plugin -->
 			<plugin>

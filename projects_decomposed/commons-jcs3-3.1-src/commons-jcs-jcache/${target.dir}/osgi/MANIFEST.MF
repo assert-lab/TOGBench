@@ -1,5 +1,5 @@
 Manifest-Version: 1.0
-Bnd-LastModified: 1768505326999
+Bnd-LastModified: 1768551413601
 Build-Jdk-Spec: 17
 Bundle-Description: Apache Commons JCS is a distributed, versatile cachi
  ng system.
@@ -31,9 +31,9 @@ Import-Package: javax.annotation,javax.cache,javax.cache.annotation,java
 Include-Resource: META-INF/services/javax.enterprise.inject.spi.Extensio
  n=src/main/resources/META-INF/services/javax.enterprise.inject.spi.Exte
  nsion,META-INF/services/javax.cache.spi.CachingProvider=src/main/resour
- ces/META-INF/services/javax.cache.spi.CachingProvider,META-INF/NOTICE=n
- ull/maven-shared-archive-resources/META-INF/NOTICE,META-INF/DEPENDENCIE
- S=null/maven-shared-archive-resources/META-INF/DEPENDENCIES,META-INF/LI
+ ces/META-INF/services/javax.cache.spi.CachingProvider,META-INF/DEPENDEN
+ CIES=null/maven-shared-archive-resources/META-INF/DEPENDENCIES,META-INF
+ /NOTICE=null/maven-shared-archive-resources/META-INF/NOTICE,META-INF/LI
  CENSE=null/maven-shared-archive-resources/META-INF/LICENSE
 Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
 Tool: Bnd-5.1.2.202007211702

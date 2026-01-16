@@ -1,0 +1,364 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.lang3;
+
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Modifier;
+
+import org.junit.jupiter.api.Test;
+
+/**
+ * Tests for {@link RandomUtils}
+ */
+public class RandomUtilsTest_OE25Dev {
+
+    /**
+     * For comparing doubles and floats
+     */
+    private static final double DELTA = 1e-5;
+
+    /**
+     * Tests next boolean
+     */
+
+    /**
+     * Tests a zero byte array length.
+     */
+
+    /**
+     * Tests random byte array.
+     */
+
+    /**
+     * Test next int range with minimal range.
+     */
+
+    /**
+     * Tests next int range.
+     */
+
+    /**
+     * Tests next int range, random result.
+     */
+
+    /**
+     * Test next double range with minimal range.
+     */
+
+    /**
+     * Test next float range with minimal range.
+     */
+
+    /**
+     * Tests next double range.
+     */
+
+    /**
+     * Tests next double range, random result.
+     */
+
+    /**
+     * Tests next float range.
+     */
+
+    /**
+     * Tests next float range, random result.
+     */
+
+    /**
+     * Test next long range with minimal range.
+     */
+
+    /**
+     * Tests next long range.
+     */
+
+    /**
+     * Tests next long range, random result.
+     */
+
+    /**
+     * Tests extreme range.
+     */
+
+    /**
+     * Tests extreme range.
+     */
+
+    /**
+     * Tests extreme range.
+     */
+
+    /**
+     * Tests extreme range.
+     */
+
+    /**
+     * Test a large value for long. A previous implementation using
+     * {@link RandomUtils#nextDouble(double, double)} could generate a value equal
+     * to the upper limit.
+     *
+     * <pre>
+     * return (long) nextDouble(startInclusive, endExclusive);
+     * </pre>
+     *
+     * <p>See LANG-1592.</p>
+     */
+
+    @Test
+    public void testConstructor_1_oe() {
+        assertNotNull(new RandomUtils());
+    }
+
+    @Test
+    public void testConstructor_2_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = RandomUtils.class.getDeclaredConstructors();
+        assertEquals(1, cons.length);
+    }
+
+    @Test
+    public void testConstructor_3_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = RandomUtils.class.getDeclaredConstructors();
+        // removed other assertion
+        assertTrue(Modifier.isPublic(cons[0].getModifiers()));
+    }
+
+    @Test
+    public void testConstructor_4_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = RandomUtils.class.getDeclaredConstructors();
+        // removed other assertion
+        // removed other assertion
+        assertTrue(Modifier.isPublic(RandomUtils.class.getModifiers()));
+    }
+
+    @Test
+    public void testConstructor_5_oe() {
+        // removed other assertion
+        final Constructor<?>[] cons = RandomUtils.class.getDeclaredConstructors();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(Modifier.isFinal(RandomUtils.class.getModifiers()));
+    }
+
+    @Test
+    public void testNextBytesNegative_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> RandomUtils.nextBytes(-1));
+    }
+
+    @Test
+    public void testNextIntNegative_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> RandomUtils.nextInt(-1, 1));
+    }
+
+    @Test
+    public void testNextLongNegative_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> RandomUtils.nextLong(-1, 1));
+    }
+
+    @Test
+    public void testNextDoubleNegative_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> RandomUtils.nextDouble(-1, 1));
+    }
+
+    @Test
+    public void testNextFloatNegative_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> RandomUtils.nextFloat(-1, 1));
+    }
+
+    @Test
+    public void testNextIntLowerGreaterUpper_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> RandomUtils.nextInt(2, 1));
+    }
+
+    @Test
+    public void testNextLongLowerGreaterUpper_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> RandomUtils.nextLong(2, 1));
+    }
+
+    @Test
+    public void testNextDoubleLowerGreaterUpper_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> RandomUtils.nextDouble(2, 1));
+    }
+
+    @Test
+    public void testNextFloatLowerGreaterUpper_1_oe() {
+        assertThrows(IllegalArgumentException.class, () -> RandomUtils.nextFloat(2, 1));
+    }
+
+    @Test
+    public void testBoolean_1_oe() {
+        final boolean result = RandomUtils.nextBoolean();
+        assertTrue(result == true || result == false);
+    }
+
+    @Test
+    public void testZeroLengthNextBytes_1_oe() {
+        assertArrayEquals(new byte[0], RandomUtils.nextBytes(0));
+    }
+
+    @Test
+    public void testNextBytes_1_oe() {
+        final byte[] result = RandomUtils.nextBytes(20);
+        assertEquals(20, result.length);
+    }
+
+    @Test
+    public void testNextIntMinimalRange_1_oe() {
+        assertEquals(42, RandomUtils.nextInt(42, 42));
+    }
+
+    @Test
+    public void testNextInt_1_oe() {
+        final int result = RandomUtils.nextInt(33, 42);
+        assertTrue(result >= 33 && result < 42);
+    }
+
+    @Test
+    public void testNextIntRandomResult_1_oe() {
+        final int randomResult = RandomUtils.nextInt();
+        assertTrue(randomResult > 0);
+    }
+
+    @Test
+    public void testNextIntRandomResult_2_oe() {
+        final int randomResult = RandomUtils.nextInt();
+        // removed other assertion
+        assertTrue(randomResult < Integer.MAX_VALUE);
+    }
+
+    @Test
+    public void testNextDoubleMinimalRange_1_oe() {
+        assertEquals(42.1, RandomUtils.nextDouble(42.1, 42.1), DELTA);
+    }
+
+    @Test
+    public void testNextFloatMinimalRange_1_oe() {
+        assertEquals(42.1f, RandomUtils.nextFloat(42.1f, 42.1f), DELTA);
+    }
+
+    @Test
+    public void testNextDouble_1_oe() {
+        final double result = RandomUtils.nextDouble(33d, 42d);
+        assertTrue(result >= 33d && result <= 42d);
+    }
+
+    @Test
+    public void testNextDoubleRandomResult_1_oe() {
+        final double randomResult = RandomUtils.nextDouble();
+        assertTrue(randomResult > 0);
+    }
+
+    @Test
+    public void testNextDoubleRandomResult_2_oe() {
+        final double randomResult = RandomUtils.nextDouble();
+        // removed other assertion
+        assertTrue(randomResult < Double.MAX_VALUE);
+    }
+
+    @Test
+    public void testNextFloat_1_oe() {
+        final double result = RandomUtils.nextFloat(33f, 42f);
+        assertTrue(result >= 33f && result <= 42f);
+    }
+
+    @Test
+    public void testNextFloatRandomResult_1_oe() {
+        final float randomResult = RandomUtils.nextFloat();
+        assertTrue(randomResult > 0);
+    }
+
+    @Test
+    public void testNextFloatRandomResult_2_oe() {
+        final float randomResult = RandomUtils.nextFloat();
+        // removed other assertion
+        assertTrue(randomResult < Float.MAX_VALUE);
+    }
+
+    @Test
+    public void testNextLongMinimalRange_1_oe() {
+        assertEquals(42L, RandomUtils.nextLong(42L, 42L));
+    }
+
+    @Test
+    public void testNextLong_1_oe() {
+        final long result = RandomUtils.nextLong(33L, 42L);
+        assertTrue(result >= 33L && result < 42L);
+    }
+
+    @Test
+    public void testNextLongRandomResult_1_oe() {
+        final long randomResult = RandomUtils.nextLong();
+        assertTrue(randomResult > 0);
+    }
+
+    @Test
+    public void testNextLongRandomResult_2_oe() {
+        final long randomResult = RandomUtils.nextLong();
+        // removed other assertion
+        assertTrue(randomResult < Long.MAX_VALUE);
+    }
+
+    @Test
+    public void testExtremeRangeInt_1_oe() {
+        final int result = RandomUtils.nextInt(0, Integer.MAX_VALUE);
+        assertTrue(result >= 0 && result < Integer.MAX_VALUE);
+    }
+
+    @Test
+    public void testExtremeRangeLong_1_oe() {
+        final long result = RandomUtils.nextLong(0, Long.MAX_VALUE);
+        assertTrue(result >= 0 && result < Long.MAX_VALUE);
+    }
+
+    @Test
+    public void testExtremeRangeFloat_1_oe() {
+        final float result = RandomUtils.nextFloat(0, Float.MAX_VALUE);
+        assertTrue(result >= 0f && result <= Float.MAX_VALUE);
+    }
+
+    @Test
+    public void testExtremeRangeDouble_1_oe() {
+        final double result = RandomUtils.nextDouble(0, Double.MAX_VALUE);
+        assertTrue(result >= 0 && result <= Double.MAX_VALUE);
+    }
+
+    @Test
+    public void testLargeValueRangeLong_1_oe() {
+        final long startInclusive = 12900000000001L;
+        final long endExclusive = 12900000000016L;
+        // Note: The method using 'return (long) nextDouble(startInclusive, endExclusive)'
+        // takes thousands of calls to generate an error. This size loop fails most
+        // of the time with the previous method.
+        final int n = (int) (endExclusive - startInclusive) * 1000;
+        for (int i = 0; i < n; i++) {
+            assertNotEquals(endExclusive, RandomUtils.nextLong(startInclusive, endExclusive));
+    }
+    }
+
+}

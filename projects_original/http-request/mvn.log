@@ -1,0 +1,41 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.github.kevinsawicki:http-request:jar:6.0
+[WARNING] Reporting configuration should be done in <reporting> section, not in maven-site-plugin <configuration> as reportPlugins parameter. @ line 173, column 24
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ----------------< com.github.kevinsawicki:http-request >----------------
+[INFO] Building http-request 6.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ http-request ---
+[INFO] 
+[INFO] --- enforcer:1.0:enforce (enforce-maven) @ http-request ---
+[INFO] 
+[INFO] --- resources:3.3.0:resources (default-resources) @ http-request ---
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/http-request/src/main/resources
+[INFO] 
+[INFO] --- compiler:2.3.2:compile (default-compile) @ http-request ---
+[INFO] Compiling 1 source file to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/http-request/${target.dir}/classes
+[INFO] 
+[INFO] --- bundle:2.3.7:manifest (bundle-manifest) @ http-request ---
+[INFO] 
+[INFO] --- resources:3.3.0:testResources (default-testResources) @ http-request ---
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/http-request/src/test/resources
+[INFO] 
+[INFO] --- compiler:2.3.2:testCompile (default-testCompile) @ http-request ---
+[INFO] No sources to compile
+[INFO] 
+[INFO] --- surefire:3.0.0-M8:test (default-test) @ http-request ---
+[INFO] No tests to run.
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  3.360 s
+[INFO] Finished at: 2026-01-16T04:48:16-05:00
+[INFO] ------------------------------------------------------------------------
