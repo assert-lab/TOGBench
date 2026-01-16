@@ -7,7 +7,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECTS_DIR = ROOT / "projects_decomposed"
-LOGS_ROOT = ROOT / "final_build_logs"
+LOGS_ROOT = ROOT / "logs"
 
 # ---------------- Robust Surefire regexes ----------------
 
@@ -40,11 +40,7 @@ def write_csv(path: Path, rows, fieldnames):
 # ---------------- Log parsing ----------------
 
 def parse_project_logs(project_name: str):
-    """
-    Returns:
-      ran_classes: {"ClassName_OE25Dev", ...}
-      failed_tests: {"ClassName_OE25Dev.method_oe", ...}
-    """
+
     ran_classes = set()
     failed_tests = set()
 
@@ -53,8 +49,8 @@ def parse_project_logs(project_name: str):
         return ran_classes, failed_tests
 
     logs = []
-    if (log_dir / "build.log").exists():
-        logs.append(log_dir / "build.log")
+    if (log_dir / "1.log").exists():
+        logs.append(log_dir / "1.log")
     logs.extend(sorted(log_dir.glob("*.log")))
 
     for log in logs:

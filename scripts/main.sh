@@ -22,7 +22,9 @@ module load java/17
 
 # ./scripts/clean_loop.sh
 
-python3 ./scripts/filter_by_logs.py
+python3 scripts/test_count.py
+
+python3 scripts/filter_by_logs.py
 
 find projects_decomposed -type f -name "*_OE25Dev.java" -delete
 

@@ -1,0 +1,4146 @@
+id,test_prefix,test_name
+jexl_33_1,"    @Test
+    public void testNoSideEffectsGlobal_1_oe() throws Exception {
+        final JexlFeatures f = new JexlFeatures().sideEffectGlobal(false);
+        final String[] scripts = new String[]{
+            ""x = 1"",
+            ""x.y = 1"",
+            ""x().y = 1"",
+            ""x += 1"",
+            ""x.y += 1"",
+            ""x().y += 1"",
+            ""x -= 1"",
+            ""x *= 1"",
+            ""x /= 1"",
+            ""x ^= 1"",
+            ""x &= 1"",
+            ""x |= 1"",
+            ""4 + (x.y = 1)"",
+            ""if (true) x.y.z = 4""
+        };
+        // these should all fail with x undeclared as local, thus x as global
+        checkFeature(f, scripts);
+        // same ones with x as local should work
+        for(final String str : scripts) {
+            try {
+                final JexlScript e = jexl.createScript(""var x = foo(); "" + str);
+            } catch (final JexlException.Feature xfeature) {
+                Assert.fail(str + "" :: should not fail parse: "" + xfeature.getMessage());
+    }
+    }
+    }
+",FeaturesTest::testNoSideEffectsGlobal_1_oe
+jexl_62_1,"    @Test
+    public void testSimpleWhileFalse_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""while (false) ;"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.execute(jc);
+        Assert.assertNull(""Result is not null"", o);
+    }
+",WhileTest::testSimpleWhileFalse_1_oe
+jexl_63_1,"    @Test
+    public void testWhileExecutesExpressionWhenLooping_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""while (x < 10) x = x + 1;"");
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", new Integer(1));
+
+        final Object o = e.execute(jc);
+        Assert.assertEquals(""Result is wrong"", new Integer(10), o);
+    }
+",WhileTest::testWhileExecutesExpressionWhenLooping_1_oe
+jexl_64_1,"    @Test
+    public void testWhileWithBlock_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""while (x < 10) { x = x + 1; y = y * 2; }"");
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", new Integer(1));
+        jc.set(""y"", new Integer(1));
+
+        final Object o = e.execute(jc);
+        Assert.assertEquals(""Result is wrong"", new Integer(512), o);
+    }
+",WhileTest::testWhileWithBlock_1_oe
+jexl_64_2,"    @Test
+    public void testWhileWithBlock_2_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""while (x < 10) { x = x + 1; y = y * 2; }"");
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", new Integer(1));
+        jc.set(""y"", new Integer(1));
+
+        final Object o = e.execute(jc);
+        // removed other assertion
+        Assert.assertEquals(""x is wrong"", new Integer(10), jc.get(""x""));
+    }
+",WhileTest::testWhileWithBlock_2_oe
+jexl_64_3,"    @Test
+    public void testWhileWithBlock_3_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""while (x < 10) { x = x + 1; y = y * 2; }"");
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", new Integer(1));
+        jc.set(""y"", new Integer(1));
+
+        final Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(""y is wrong"", new Integer(512), jc.get(""y""));
+    }
+",WhileTest::testWhileWithBlock_3_oe
+jexl_91_1,"    @Test
+    public void testLiteralWithStrings_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""{ 'foo' : 'bar' }"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        Assert.assertEquals(Collections.singletonMap(""foo"", ""bar""), o);
+    }
+",MapLiteralTest::testLiteralWithStrings_1_oe
+jexl_92_1,"    @Test
+    public void testLiteralWithMultipleEntries_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""{ 'foo' : 'bar', 'eat' : 'food' }"");
+        final JexlContext jc = new MapContext();
+
+        final Map<String, String> expected = new HashMap<String, String>();
+        expected.put(""foo"", ""bar"");
+        expected.put(""eat"", ""food"");
+
+        final Object o = e.evaluate(jc);
+        Assert.assertEquals(expected, o);
+    }
+",MapLiteralTest::testLiteralWithMultipleEntries_1_oe
+jexl_93_1,"    @Test
+    public void testLiteralWithNumbers_1_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{ 5 : 10 }"");
+        final JexlContext jc = new MapContext();
+
+        Object o = e.evaluate(jc);
+        Assert.assertEquals(Collections.singletonMap(new Integer(5), new Integer(10)), o);
+    }
+",MapLiteralTest::testLiteralWithNumbers_1_oe
+jexl_93_2,"    @Test
+    public void testLiteralWithNumbers_2_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{ 5 : 10 }"");
+        final JexlContext jc = new MapContext();
+
+        Object o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }"");
+        e.evaluate(jc);
+
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        Assert.assertEquals(new Integer(30), o);
+    }
+",MapLiteralTest::testLiteralWithNumbers_2_oe
+jexl_93_3,"    @Test
+    public void testLiteralWithNumbers_3_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{ 5 : 10 }"");
+        final JexlContext jc = new MapContext();
+
+        Object o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }"");
+        e.evaluate(jc);
+
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m[4]"");
+        o = e.evaluate(jc);
+        Assert.assertEquals(new Integer(40), o);
+    }
+",MapLiteralTest::testLiteralWithNumbers_3_oe
+jexl_93_4,"    @Test
+    public void testLiteralWithNumbers_4_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{ 5 : 10 }"");
+        final JexlContext jc = new MapContext();
+
+        Object o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }"");
+        e.evaluate(jc);
+
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m[4]"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        jc.set(""i"", Integer.valueOf(5));
+        e = JEXL.createExpression(""m[i]"");
+        o = e.evaluate(jc);
+        Assert.assertEquals(""fifty"", o);
+    }
+",MapLiteralTest::testLiteralWithNumbers_4_oe
+jexl_93_5,"    @Test
+    public void testLiteralWithNumbers_5_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{ 5 : 10 }"");
+        final JexlContext jc = new MapContext();
+
+        Object o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }"");
+        e.evaluate(jc);
+
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m[4]"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        jc.set(""i"", Integer.valueOf(5));
+        e = JEXL.createExpression(""m[i]"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m.3 = 'thirty'"");
+        e.evaluate(jc);
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        Assert.assertEquals(""thirty"", o);
+    }
+",MapLiteralTest::testLiteralWithNumbers_5_oe
+jexl_93_6,"    @Test
+    public void testLiteralWithNumbers_6_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{ 5 : 10 }"");
+        final JexlContext jc = new MapContext();
+
+        Object o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }"");
+        e.evaluate(jc);
+
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m[4]"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        jc.set(""i"", Integer.valueOf(5));
+        e = JEXL.createExpression(""m[i]"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m.3 = 'thirty'"");
+        e.evaluate(jc);
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m['7']"");
+        o = e.evaluate(jc);
+        Assert.assertEquals(""seven"", o);
+    }
+",MapLiteralTest::testLiteralWithNumbers_6_oe
+jexl_93_7,"    @Test
+    public void testLiteralWithNumbers_7_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{ 5 : 10 }"");
+        final JexlContext jc = new MapContext();
+
+        Object o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }"");
+        e.evaluate(jc);
+
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m[4]"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        jc.set(""i"", Integer.valueOf(5));
+        e = JEXL.createExpression(""m[i]"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m.3 = 'thirty'"");
+        e.evaluate(jc);
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m['7']"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m.7"");
+        o = e.evaluate(jc);
+        Assert.assertEquals(""SEVEN"", o);
+    }
+",MapLiteralTest::testLiteralWithNumbers_7_oe
+jexl_93_8,"    @Test
+    public void testLiteralWithNumbers_8_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{ 5 : 10 }"");
+        final JexlContext jc = new MapContext();
+
+        Object o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }"");
+        e.evaluate(jc);
+
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m[4]"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        jc.set(""i"", Integer.valueOf(5));
+        e = JEXL.createExpression(""m[i]"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m.3 = 'thirty'"");
+        e.evaluate(jc);
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m['7']"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m.7"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        jc.set(""k"", Integer.valueOf(7));
+        e = JEXL.createExpression(""m[k]"");
+        o = e.evaluate(jc);
+        Assert.assertEquals(""SEVEN"", o);
+    }
+",MapLiteralTest::testLiteralWithNumbers_8_oe
+jexl_93_9,"    @Test
+    public void testLiteralWithNumbers_9_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{ 5 : 10 }"");
+        final JexlContext jc = new MapContext();
+
+        Object o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m = { 3 : 30, 4 : 40, 5 : 'fifty', '7' : 'seven', 7 : 'SEVEN' }"");
+        e.evaluate(jc);
+
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m[4]"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        jc.set(""i"", Integer.valueOf(5));
+        e = JEXL.createExpression(""m[i]"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m.3 = 'thirty'"");
+        e.evaluate(jc);
+        e = JEXL.createExpression(""m.3"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m['7']"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        e = JEXL.createExpression(""m.7"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        jc.set(""k"", Integer.valueOf(7));
+        e = JEXL.createExpression(""m[k]"");
+        o = e.evaluate(jc);
+        // removed other assertion
+
+        jc.set(""k"", ""7"");
+        e = JEXL.createExpression(""m[k]"");
+        o = e.evaluate(jc);
+        Assert.assertEquals(""seven"", o);
+    }
+",MapLiteralTest::testLiteralWithNumbers_9_oe
+jexl_94_1,"    @Test
+    public void testSizeOfSimpleMapLiteral_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""size({ 'foo' : 'bar' })"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        Assert.assertEquals(new Integer(1), o);
+    }
+",MapLiteralTest::testSizeOfSimpleMapLiteral_1_oe
+jexl_95_1,"    @Test
+    public void testCallingMethodsOnNewMapLiteral_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""size({ 'foo' : 'bar' }.values())"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        Assert.assertEquals(new Integer(1), o);
+    }
+",MapLiteralTest::testCallingMethodsOnNewMapLiteral_1_oe
+jexl_96_1,"    @Test
+    public void testNotEmptySimpleMapLiteral_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""empty({ 'foo' : 'bar' })"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        Assert.assertFalse((Boolean) o);
+    }
+",MapLiteralTest::testNotEmptySimpleMapLiteral_1_oe
+jexl_97_1,"    @Test
+    public void testMapMapLiteral_1_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{'foo' : { 'inner' : 'bar' }}"");
+        final JexlContext jc = new MapContext();
+        Object o = e.evaluate(jc);
+        Assert.assertNotNull(o);
+    }
+",MapLiteralTest::testMapMapLiteral_1_oe
+jexl_97_2,"    @Test
+    public void testMapMapLiteral_2_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{'foo' : { 'inner' : 'bar' }}"");
+        final JexlContext jc = new MapContext();
+        Object o = e.evaluate(jc);
+        // removed other assertion
+
+        jc.set(""outer"", o);
+        e = JEXL.createExpression(""outer.foo.inner"");
+        o = e.evaluate(jc);
+        Assert.assertEquals(""bar"", o);
+    }
+",MapLiteralTest::testMapMapLiteral_2_oe
+jexl_98_1,"    @Test
+    public void testMapArrayLiteral_1_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{'foo' : [ 'inner' , 'bar' ]}"");
+        final JexlContext jc = new MapContext();
+        Object o = e.evaluate(jc);
+        Assert.assertNotNull(o);
+    }
+",MapLiteralTest::testMapArrayLiteral_1_oe
+jexl_98_2,"    @Test
+    public void testMapArrayLiteral_2_oe() throws Exception {
+        JexlExpression e = JEXL.createExpression(""{'foo' : [ 'inner' , 'bar' ]}"");
+        final JexlContext jc = new MapContext();
+        Object o = e.evaluate(jc);
+        // removed other assertion
+
+        jc.set(""outer"", o);
+        e = JEXL.createExpression(""outer.foo.1"");
+        o = e.evaluate(jc);
+        Assert.assertEquals(""bar"", o);
+    }
+",MapLiteralTest::testMapArrayLiteral_2_oe
+jexl_99_1,"    @Test
+    public void testEmptyMap_1_oe() throws Exception {
+        final JexlScript script = JEXL.createScript(""map['']"", ""map"");
+        final Object result = script.execute(null, Collections.singletonMap("""", 42));
+        Assert.assertEquals(42, result);
+    }
+",MapLiteralTest::testEmptyMap_1_oe
+jexl_100_1,"    @Test
+    public void testVariableMap_1_oe() throws Exception {
+        final JexlScript script = JEXL.createScript(""{ ['1', '2'.toString()] : someValue }"", ""someValue"");
+        final Object result = script.execute(null, 42);
+        Assert.assertTrue(result instanceof Map);
+    }
+",MapLiteralTest::testVariableMap_1_oe
+jexl_100_2,"    @Test
+    public void testVariableMap_2_oe() throws Exception {
+        final JexlScript script = JEXL.createScript(""{ ['1', '2'.toString()] : someValue }"", ""someValue"");
+        final Object result = script.execute(null, 42);
+        // removed other assertion
+        Object key = null;
+        Object value = null;
+        for(final Map.Entry<?,?> e : ((Map<?,?>) result).entrySet()) {
+            key = e.getKey();
+            value = e.getValue();
+            break;
+        }
+        final Object gg = ((Map) result).get(key);
+        Assert.assertEquals(42, ((Number) gg).intValue());
+    }
+",MapLiteralTest::testVariableMap_2_oe
+jexl_100_3,"    @Test
+    public void testVariableMap_3_oe() throws Exception {
+        final JexlScript script = JEXL.createScript(""{ ['1', '2'.toString()] : someValue }"", ""someValue"");
+        final Object result = script.execute(null, 42);
+        // removed other assertion
+        Object key = null;
+        Object value = null;
+        for(final Map.Entry<?,?> e : ((Map<?,?>) result).entrySet()) {
+            key = e.getKey();
+            value = e.getValue();
+            break;
+        }
+        final Object gg = ((Map) result).get(key);
+        // removed other assertion
+        Assert.assertEquals(value, ((Number) gg).intValue());
+    }
+",MapLiteralTest::testVariableMap_3_oe
+jexl_138_1,"    @Test
+    @SuppressWarnings(""unchecked"")
+    public void testInterval_1_oe() throws Exception {
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""calc"", Aggregate.class);
+        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
+        JexlScript script;
+        Object result;
+
+        script = jexl.createScript(""1 .. 3"");
+        result = script.execute(null);
+        Assert.assertTrue(result instanceof Iterable<?>);
+    }
+",ArithmeticOperatorTest::testInterval_1_oe
+jexl_138_2,"    @Test
+    @SuppressWarnings(""unchecked"")
+    public void testInterval_2_oe() throws Exception {
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""calc"", Aggregate.class);
+        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
+        JexlScript script;
+        Object result;
+
+        script = jexl.createScript(""1 .. 3"");
+        result = script.execute(null);
+        // removed other assertion
+        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
+        Assert.assertEquals(Integer.valueOf(1), ii.next());
+    }
+",ArithmeticOperatorTest::testInterval_2_oe
+jexl_138_5,"    @Test
+    @SuppressWarnings(""unchecked"")
+    public void testInterval_5_oe() throws Exception {
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""calc"", Aggregate.class);
+        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
+        JexlScript script;
+        Object result;
+
+        script = jexl.createScript(""1 .. 3"");
+        result = script.execute(null);
+        // removed other assertion
+        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        script = jexl.createScript(""(4 - 3) .. (9 / 3)"");
+        result = script.execute(null);
+        Assert.assertTrue(result instanceof Iterable<?>);
+    }
+",ArithmeticOperatorTest::testInterval_5_oe
+jexl_138_6,"    @Test
+    @SuppressWarnings(""unchecked"")
+    public void testInterval_6_oe() throws Exception {
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""calc"", Aggregate.class);
+        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
+        JexlScript script;
+        Object result;
+
+        script = jexl.createScript(""1 .. 3"");
+        result = script.execute(null);
+        // removed other assertion
+        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        script = jexl.createScript(""(4 - 3) .. (9 / 3)"");
+        result = script.execute(null);
+        // removed other assertion
+        ii = ((Iterable<Integer>) result).iterator();
+        Assert.assertEquals(Integer.valueOf(1), ii.next());
+    }
+",ArithmeticOperatorTest::testInterval_6_oe
+jexl_138_9,"    @Test
+    @SuppressWarnings(""unchecked"")
+    public void testInterval_9_oe() throws Exception {
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""calc"", Aggregate.class);
+        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
+        JexlScript script;
+        Object result;
+
+        script = jexl.createScript(""1 .. 3"");
+        result = script.execute(null);
+        // removed other assertion
+        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        script = jexl.createScript(""(4 - 3) .. (9 / 3)"");
+        result = script.execute(null);
+        // removed other assertion
+        ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // sum of 1, 2, 3
+        script = jexl.createScript(""var x = 0; for(var y : ((5 - 4) .. (12 / 4))) { x = x + y }; x"");
+        result = script.execute(null);
+        Assert.assertEquals(Integer.valueOf(6), result);
+    }
+",ArithmeticOperatorTest::testInterval_9_oe
+jexl_138_10,"    @Test
+    @SuppressWarnings(""unchecked"")
+    public void testInterval_10_oe() throws Exception {
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""calc"", Aggregate.class);
+        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
+        JexlScript script;
+        Object result;
+
+        script = jexl.createScript(""1 .. 3"");
+        result = script.execute(null);
+        // removed other assertion
+        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        script = jexl.createScript(""(4 - 3) .. (9 / 3)"");
+        result = script.execute(null);
+        // removed other assertion
+        ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // sum of 1, 2, 3
+        script = jexl.createScript(""var x = 0; for(var y : ((5 - 4) .. (12 / 4))) { x = x + y }; x"");
+        result = script.execute(null);
+        // removed other assertion
+
+        script = jexl.createScript(""calc:sum(1 .. 3)"");
+        result = script.execute(null);
+        Assert.assertEquals(Integer.valueOf(6), result);
+    }
+",ArithmeticOperatorTest::testInterval_10_oe
+jexl_138_11,"    @Test
+    @SuppressWarnings(""unchecked"")
+    public void testInterval_11_oe() throws Exception {
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""calc"", Aggregate.class);
+        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
+        JexlScript script;
+        Object result;
+
+        script = jexl.createScript(""1 .. 3"");
+        result = script.execute(null);
+        // removed other assertion
+        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        script = jexl.createScript(""(4 - 3) .. (9 / 3)"");
+        result = script.execute(null);
+        // removed other assertion
+        ii = ((Iterable<Integer>) result).iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // sum of 1, 2, 3
+        script = jexl.createScript(""var x = 0; for(var y : ((5 - 4) .. (12 / 4))) { x = x + y }; x"");
+        result = script.execute(null);
+        // removed other assertion
+
+        script = jexl.createScript(""calc:sum(1 .. 3)"");
+        result = script.execute(null);
+        // removed other assertion
+
+        script = jexl.createScript(""calc:sum(-3 .. 3)"");
+        result = script.execute(null);
+        Assert.assertEquals(Integer.valueOf(0), result);
+    }
+",ArithmeticOperatorTest::testInterval_11_oe
+jexl_139_1,"    @Test
+    public void testDateArithmetic_1_oe() throws Exception {
+        final Date d = new Date();
+        final JexlContext jc = new MapContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""date.yyyy = 1969; date.MM=7; date.dd=20; "", ""date"");
+        Object value0 = expr0.execute(jc, d);
+        Assert.assertNotNull(value0);
+    }
+",ArithmeticOperatorTest::testDateArithmetic_1_oe
+jexl_139_2,"    @Test
+    public void testDateArithmetic_2_oe() throws Exception {
+        final Date d = new Date();
+        final JexlContext jc = new MapContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""date.yyyy = 1969; date.MM=7; date.dd=20; "", ""date"");
+        Object value0 = expr0.execute(jc, d);
+        // removed other assertion
+        value0 = d;
+        //d = new Date();
+        Assert.assertEquals(1969, jexl.createScript(""date.yyyy"", ""date"").execute(jc, value0));
+    }
+",ArithmeticOperatorTest::testDateArithmetic_2_oe
+jexl_139_3,"    @Test
+    public void testDateArithmetic_3_oe() throws Exception {
+        final Date d = new Date();
+        final JexlContext jc = new MapContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""date.yyyy = 1969; date.MM=7; date.dd=20; "", ""date"");
+        Object value0 = expr0.execute(jc, d);
+        // removed other assertion
+        value0 = d;
+        //d = new Date();
+        // removed other assertion
+        Assert.assertEquals(7, jexl.createScript(""date.MM"", ""date"").execute(jc, value0));
+    }
+",ArithmeticOperatorTest::testDateArithmetic_3_oe
+jexl_139_4,"    @Test
+    public void testDateArithmetic_4_oe() throws Exception {
+        final Date d = new Date();
+        final JexlContext jc = new MapContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""date.yyyy = 1969; date.MM=7; date.dd=20; "", ""date"");
+        Object value0 = expr0.execute(jc, d);
+        // removed other assertion
+        value0 = d;
+        //d = new Date();
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(20, jexl.createScript(""date.dd"", ""date"").execute(jc, value0));
+    }
+",ArithmeticOperatorTest::testDateArithmetic_4_oe
+jexl_140_1,"    @Test
+    public void testFormatArithmetic_1_oe() throws Exception {
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""MM/yy/dd"";
+        final Number x1 = 42.12345;
+        final String y1 = ""##0.##"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""x.format(y)"", ""x"", ""y"");
+        Object value10 = expr0.execute(jc, x0, y0);
+        final Object value20 = expr0.execute(jc, x0, y0);
+        Assert.assertEquals(value10, value20);
+    }
+",ArithmeticOperatorTest::testFormatArithmetic_1_oe
+jexl_140_2,"    @Test
+    public void testFormatArithmetic_2_oe() throws Exception {
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""MM/yy/dd"";
+        final Number x1 = 42.12345;
+        final String y1 = ""##0.##"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""x.format(y)"", ""x"", ""y"");
+        Object value10 = expr0.execute(jc, x0, y0);
+        final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        Object value11 = expr0.execute(jc, x1, y1);
+        final Object value21 = expr0.execute(jc, x1, y1);
+        Assert.assertEquals(value11, value21);
+    }
+",ArithmeticOperatorTest::testFormatArithmetic_2_oe
+jexl_140_3,"    @Test
+    public void testFormatArithmetic_3_oe() throws Exception {
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""MM/yy/dd"";
+        final Number x1 = 42.12345;
+        final String y1 = ""##0.##"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""x.format(y)"", ""x"", ""y"");
+        Object value10 = expr0.execute(jc, x0, y0);
+        final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        Object value11 = expr0.execute(jc, x1, y1);
+        final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        Assert.assertEquals(value10, value20);
+    }
+",ArithmeticOperatorTest::testFormatArithmetic_3_oe
+jexl_140_4,"    @Test
+    public void testFormatArithmetic_4_oe() throws Exception {
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""MM/yy/dd"";
+        final Number x1 = 42.12345;
+        final String y1 = ""##0.##"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""x.format(y)"", ""x"", ""y"");
+        Object value10 = expr0.execute(jc, x0, y0);
+        final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        Object value11 = expr0.execute(jc, x1, y1);
+        final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        Assert.assertEquals(value11, value21);
+    }
+",ArithmeticOperatorTest::testFormatArithmetic_4_oe
+jexl_140_5,"    @Test
+    public void testFormatArithmetic_5_oe() throws Exception {
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""MM/yy/dd"";
+        final Number x1 = 42.12345;
+        final String y1 = ""##0.##"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""x.format(y)"", ""x"", ""y"");
+        Object value10 = expr0.execute(jc, x0, y0);
+        final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        Object value11 = expr0.execute(jc, x1, y1);
+        final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        Assert.assertEquals(value10, value20);
+    }
+",ArithmeticOperatorTest::testFormatArithmetic_5_oe
+jexl_140_6,"    @Test
+    public void testFormatArithmetic_6_oe() throws Exception {
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""MM/yy/dd"";
+        final Number x1 = 42.12345;
+        final String y1 = ""##0.##"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""x.format(y)"", ""x"", ""y"");
+        Object value10 = expr0.execute(jc, x0, y0);
+        final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        Object value11 = expr0.execute(jc, x1, y1);
+        final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        Assert.assertEquals(value11, value21);
+    }
+",ArithmeticOperatorTest::testFormatArithmetic_6_oe
+jexl_140_7,"    @Test
+    public void testFormatArithmetic_7_oe() throws Exception {
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""MM/yy/dd"";
+        final Number x1 = 42.12345;
+        final String y1 = ""##0.##"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""x.format(y)"", ""x"", ""y"");
+        Object value10 = expr0.execute(jc, x0, y0);
+        final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        Object value11 = expr0.execute(jc, x1, y1);
+        final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+
+        JexlScript expr1 = jexl.createScript(""format(x, y)"", ""x"", ""y"");
+        value10 = expr1.execute(jc, x0, y0);
+        Assert.assertEquals(value10, value20);
+    }
+",ArithmeticOperatorTest::testFormatArithmetic_7_oe
+jexl_140_8,"    @Test
+    public void testFormatArithmetic_8_oe() throws Exception {
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""MM/yy/dd"";
+        final Number x1 = 42.12345;
+        final String y1 = ""##0.##"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""x.format(y)"", ""x"", ""y"");
+        Object value10 = expr0.execute(jc, x0, y0);
+        final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        Object value11 = expr0.execute(jc, x1, y1);
+        final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+
+        JexlScript expr1 = jexl.createScript(""format(x, y)"", ""x"", ""y"");
+        value10 = expr1.execute(jc, x0, y0);
+        // removed other assertion
+        Object s0 = expr1.execute(jc, x0, ""EEE dd MMM yyyy"");
+        Assert.assertEquals(""Wed 20 Aug 1969"", s0);
+    }
+",ArithmeticOperatorTest::testFormatArithmetic_8_oe
+jexl_140_9,"    @Test
+    public void testFormatArithmetic_9_oe() throws Exception {
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""MM/yy/dd"";
+        final Number x1 = 42.12345;
+        final String y1 = ""##0.##"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""x.format(y)"", ""x"", ""y"");
+        Object value10 = expr0.execute(jc, x0, y0);
+        final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        Object value11 = expr0.execute(jc, x1, y1);
+        final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+
+        JexlScript expr1 = jexl.createScript(""format(x, y)"", ""x"", ""y"");
+        value10 = expr1.execute(jc, x0, y0);
+        // removed other assertion
+        Object s0 = expr1.execute(jc, x0, ""EEE dd MMM yyyy"");
+        // removed other assertion
+        jc.setLocale(Locale.FRANCE);
+        s0 = expr1.execute(jc, x0, ""EEE dd MMM yyyy"");
+        Assert.assertEquals(""mer. 20 ao\u00fbt 1969"", s0);
+    }
+",ArithmeticOperatorTest::testFormatArithmetic_9_oe
+jexl_140_10,"    @Test
+    public void testFormatArithmetic_10_oe() throws Exception {
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""MM/yy/dd"";
+        final Number x1 = 42.12345;
+        final String y1 = ""##0.##"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""x.format(y)"", ""x"", ""y"");
+        Object value10 = expr0.execute(jc, x0, y0);
+        final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        Object value11 = expr0.execute(jc, x1, y1);
+        final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+
+        JexlScript expr1 = jexl.createScript(""format(x, y)"", ""x"", ""y"");
+        value10 = expr1.execute(jc, x0, y0);
+        // removed other assertion
+        Object s0 = expr1.execute(jc, x0, ""EEE dd MMM yyyy"");
+        // removed other assertion
+        jc.setLocale(Locale.FRANCE);
+        s0 = expr1.execute(jc, x0, ""EEE dd MMM yyyy"");
+        // removed other assertion
+
+        expr1 = jexl.createScript(""format(now(), y)"", ""y"");
+        final Object n0 = expr1.execute(jc, y0);
+        Assert.assertNotNull(n0);
+    }
+",ArithmeticOperatorTest::testFormatArithmetic_10_oe
+jexl_140_11,"    @Test
+    public void testFormatArithmetic_11_oe() throws Exception {
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""MM/yy/dd"";
+        final Number x1 = 42.12345;
+        final String y1 = ""##0.##"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""x.format(y)"", ""x"", ""y"");
+        Object value10 = expr0.execute(jc, x0, y0);
+        final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        Object value11 = expr0.execute(jc, x1, y1);
+        final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+
+        JexlScript expr1 = jexl.createScript(""format(x, y)"", ""x"", ""y"");
+        value10 = expr1.execute(jc, x0, y0);
+        // removed other assertion
+        Object s0 = expr1.execute(jc, x0, ""EEE dd MMM yyyy"");
+        // removed other assertion
+        jc.setLocale(Locale.FRANCE);
+        s0 = expr1.execute(jc, x0, ""EEE dd MMM yyyy"");
+        // removed other assertion
+
+        expr1 = jexl.createScript(""format(now(), y)"", ""y"");
+        final Object n0 = expr1.execute(jc, y0);
+        // removed other assertion
+        expr1 = jexl.createScript(""now().format(y)"", ""y"");
+        final Object n1 = expr1.execute(jc, y0);
+        Assert.assertNotNull(n0);
+    }
+",ArithmeticOperatorTest::testFormatArithmetic_11_oe
+jexl_140_12,"    @Test
+    public void testFormatArithmetic_12_oe() throws Exception {
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""MM/yy/dd"";
+        final Number x1 = 42.12345;
+        final String y1 = ""##0.##"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
+        final JexlScript expr0 = jexl.createScript(""x.format(y)"", ""x"", ""y"");
+        Object value10 = expr0.execute(jc, x0, y0);
+        final Object value20 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        Object value11 = expr0.execute(jc, x1, y1);
+        final Object value21 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+        value10 = expr0.execute(jc, x0, y0);
+        // removed other assertion
+        value11 = expr0.execute(jc, x1, y1);
+        // removed other assertion
+
+        JexlScript expr1 = jexl.createScript(""format(x, y)"", ""x"", ""y"");
+        value10 = expr1.execute(jc, x0, y0);
+        // removed other assertion
+        Object s0 = expr1.execute(jc, x0, ""EEE dd MMM yyyy"");
+        // removed other assertion
+        jc.setLocale(Locale.FRANCE);
+        s0 = expr1.execute(jc, x0, ""EEE dd MMM yyyy"");
+        // removed other assertion
+
+        expr1 = jexl.createScript(""format(now(), y)"", ""y"");
+        final Object n0 = expr1.execute(jc, y0);
+        // removed other assertion
+        expr1 = jexl.createScript(""now().format(y)"", ""y"");
+        final Object n1 = expr1.execute(jc, y0);
+        // removed other assertion
+        Assert.assertEquals(n0, n1);
+    }
+",ArithmeticOperatorTest::testFormatArithmetic_12_oe
+jexl_141_1,"    @Test
+    public void testFormatArithmeticJxlt_1_oe() throws Exception {
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""calc"", Aggregate.class);
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""yyyy-MM-dd"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).namespaces(ns).arithmetic(new DateArithmetic(true)).create();
+        final JxltEngine jxlt = jexl.createJxltEngine();
+
+        JxltEngine.Template expr0 = jxlt.createTemplate(""${x.format(y)}"", ""x"", ""y"");
+        StringWriter strw = new StringWriter();
+        expr0.evaluate(jc, strw, x0, y0);
+        String strws = strw.toString();
+        Assert.assertEquals(""1969-08-20"", strws);
+    }
+",ArithmeticOperatorTest::testFormatArithmeticJxlt_1_oe
+jexl_141_2,"    @Test
+    public void testFormatArithmeticJxlt_2_oe() throws Exception {
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""calc"", Aggregate.class);
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""yyyy-MM-dd"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).namespaces(ns).arithmetic(new DateArithmetic(true)).create();
+        final JxltEngine jxlt = jexl.createJxltEngine();
+
+        JxltEngine.Template expr0 = jxlt.createTemplate(""${x.format(y)}"", ""x"", ""y"");
+        StringWriter strw = new StringWriter();
+        expr0.evaluate(jc, strw, x0, y0);
+        String strws = strw.toString();
+        // removed other assertion
+
+        expr0 = jxlt.createTemplate(""${calc:sum(x .. y)}"", ""x"", ""y"");
+        strw = new StringWriter();
+        expr0.evaluate(jc, strw, 1, 3);
+        strws = strw.toString();
+        Assert.assertEquals(""6"", strws);
+    }
+",ArithmeticOperatorTest::testFormatArithmeticJxlt_2_oe
+jexl_141_3,"    @Test
+    public void testFormatArithmeticJxlt_3_oe() throws Exception {
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""calc"", Aggregate.class);
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""yyyy-MM-dd"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).namespaces(ns).arithmetic(new DateArithmetic(true)).create();
+        final JxltEngine jxlt = jexl.createJxltEngine();
+
+        JxltEngine.Template expr0 = jxlt.createTemplate(""${x.format(y)}"", ""x"", ""y"");
+        StringWriter strw = new StringWriter();
+        expr0.evaluate(jc, strw, x0, y0);
+        String strws = strw.toString();
+        // removed other assertion
+
+        expr0 = jxlt.createTemplate(""${calc:sum(x .. y)}"", ""x"", ""y"");
+        strw = new StringWriter();
+        expr0.evaluate(jc, strw, 1, 3);
+        strws = strw.toString();
+        // removed other assertion
+
+        final JxltEngine.Template expr1 = jxlt.createTemplate(""${jexl:include(s, x, y)}"", ""s"", ""x"", ""y"");
+        strw = new StringWriter();
+        expr1.evaluate(jc, strw, expr0, 1, 3);
+        strws = strw.toString();
+        Assert.assertEquals(""6"", strws);
+    }
+",ArithmeticOperatorTest::testFormatArithmeticJxlt_3_oe
+jexl_141_4,"    @Test
+    public void testFormatArithmeticJxlt_4_oe() throws Exception {
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""calc"", Aggregate.class);
+        final Calendar cal = Calendar.getInstance(UTC);
+        cal.set(1969, Calendar.AUGUST, 20);
+        final Date x0 = cal.getTime();
+        final String y0 =  ""yyyy-MM-dd"";
+        final DateContext jc = new DateContext();
+        final JexlEngine jexl = new JexlBuilder().cache(32).namespaces(ns).arithmetic(new DateArithmetic(true)).create();
+        final JxltEngine jxlt = jexl.createJxltEngine();
+
+        JxltEngine.Template expr0 = jxlt.createTemplate(""${x.format(y)}"", ""x"", ""y"");
+        StringWriter strw = new StringWriter();
+        expr0.evaluate(jc, strw, x0, y0);
+        String strws = strw.toString();
+        // removed other assertion
+
+        expr0 = jxlt.createTemplate(""${calc:sum(x .. y)}"", ""x"", ""y"");
+        strw = new StringWriter();
+        expr0.evaluate(jc, strw, 1, 3);
+        strws = strw.toString();
+        // removed other assertion
+
+        final JxltEngine.Template expr1 = jxlt.createTemplate(""${jexl:include(s, x, y)}"", ""s"", ""x"", ""y"");
+        strw = new StringWriter();
+        expr1.evaluate(jc, strw, expr0, 1, 3);
+        strws = strw.toString();
+        // removed other assertion
+
+        expr0 = jxlt.createTemplate(""${now().format(y)}"", ""y"");
+        strw = new StringWriter();
+        expr0.evaluate(jc, strw, y0);
+        strws = strw.toString();
+        Assert.assertNotNull(strws);
+    }
+",ArithmeticOperatorTest::testFormatArithmeticJxlt_4_oe
+jexl_207_1,"    @Test
+    public void testSetLiteralWithStrings_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""{ 'foo' , 'bar' }"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        final Set<?> check = createSet(""foo"", ""bar"");
+        Assert.assertEquals(check, o);
+    }
+",SetLiteralTest::testSetLiteralWithStrings_1_oe
+jexl_208_1,"    @Test
+    public void testLiteralWithOneEntry_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""{ 'foo' }"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        final Set<?> check = createSet(""foo"");
+        Assert.assertEquals(check, o);
+    }
+",SetLiteralTest::testLiteralWithOneEntry_1_oe
+jexl_209_1,"    @Test
+    public void testSetLiteralWithStringsScript_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""{ 'foo' , 'bar' }"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.execute(jc);
+        final Set<?> check = createSet(""foo"", ""bar"");
+        Assert.assertEquals(check, o);
+    }
+",SetLiteralTest::testSetLiteralWithStringsScript_1_oe
+jexl_210_1,"    @Test
+    public void testSetLiteralWithOneEntryScript_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""{ 'foo' }"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.execute(jc);
+        final Set<?> check = createSet(""foo"");
+        Assert.assertEquals(check, o);
+    }
+",SetLiteralTest::testSetLiteralWithOneEntryScript_1_oe
+jexl_211_1,"    @Test
+    public void testSetLiteralWithOneEntryBlock_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""{ { 'foo' }; }"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.execute(jc);
+        final Set<?> check = createSet(""foo"");
+        Assert.assertEquals(check, o);
+    }
+",SetLiteralTest::testSetLiteralWithOneEntryBlock_1_oe
+jexl_212_1,"    @Test
+    public void testSetLiteralWithOneNestedSet_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""{ { 'foo' } }"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.execute(jc);
+        final Set<?> check = createSet(createSet(""foo""));
+        Assert.assertEquals(check, o);
+    }
+",SetLiteralTest::testSetLiteralWithOneNestedSet_1_oe
+jexl_213_1,"    @Test
+    public void testSetLiteralWithNumbers_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""{ 5.0 , 10 }"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        final Set<?> check = createSet(new Double(5.0), new Integer(10));
+        Assert.assertEquals(check, o);
+    }
+",SetLiteralTest::testSetLiteralWithNumbers_1_oe
+jexl_214_1,"    @Test
+    public void testSetLiteralWithNulls_1_oe() throws Exception {
+        final String[] exprs = {
+            ""{  }"",
+            ""{ 10 }"",
+            ""{ 10 , null }"",
+            ""{ 10 , null , 20}"",
+            ""{ '10' , null }"",
+            ""{ null, '10' , 20 }""
+        };
+        final Set<?>[] checks = {
+            Collections.emptySet(),
+            createSet(new Integer(10)),
+            createSet(new Integer(10), null),
+            createSet(new Integer(10), null, new Integer(20)),
+            createSet(""10"", null),
+            createSet(null, ""10"", new Integer(20))
+        };
+        final JexlContext jc = new MapContext();
+        for (int t = 0; t < exprs.length; ++t) {
+            final JexlScript e = JEXL.createScript(exprs[t]);
+            final Object o = e.execute(jc);
+            Assert.assertEquals(exprs[t], checks[t], o);
+    }
+    }
+",SetLiteralTest::testSetLiteralWithNulls_1_oe
+jexl_215_1,"    @Test
+    public void testSizeOfSimpleSetLiteral_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""size({ 'foo' , 'bar'})"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        Assert.assertEquals(new Integer(2), o);
+    }
+",SetLiteralTest::testSizeOfSimpleSetLiteral_1_oe
+jexl_216_1,"    @Test
+    public void testNotEmptySimpleSetLiteral_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""empty({ 'foo' , 'bar' })"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        Assert.assertFalse((Boolean) o);
+    }
+",SetLiteralTest::testNotEmptySimpleSetLiteral_1_oe
+jexl_217_1,"    @Test
+    public void testBlockSimple_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""if (true) { 'hello'; }"");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(""Result is wrong"", ""hello"", o);
+    }
+",BlockTest::testBlockSimple_1_oe
+jexl_218_1,"    @Test
+    public void testBlockExecutesAll_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""if (true) { x = 'Hello'; y = 'World';}"");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(""First result is wrong"", ""Hello"", jc.get(""x""));
+    }
+",BlockTest::testBlockExecutesAll_1_oe
+jexl_218_2,"    @Test
+    public void testBlockExecutesAll_2_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""if (true) { x = 'Hello'; y = 'World';}"");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        // removed other assertion
+        Assert.assertEquals(""Second result is wrong"", ""World"", jc.get(""y""));
+    }
+",BlockTest::testBlockExecutesAll_2_oe
+jexl_218_3,"    @Test
+    public void testBlockExecutesAll_3_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""if (true) { x = 'Hello'; y = 'World';}"");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(""Block result is wrong"", ""World"", o);
+    }
+",BlockTest::testBlockExecutesAll_3_oe
+jexl_219_1,"    @Test
+    public void testEmptyBlock_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript("""");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertNull(""Result is wrong"", o);
+    }
+",BlockTest::testEmptyBlock_1_oe
+jexl_220_1,"    @Test
+    public void testBlockLastExecuted01_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""if (true) { x = 1; } else { x = 2; }"");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(""Block result is wrong"", new Integer(1), o);
+    }
+",BlockTest::testBlockLastExecuted01_1_oe
+jexl_221_1,"    @Test
+    public void testBlockLastExecuted02_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""if (false) { x = 1; } else { x = 2; }"");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(""Block result is wrong"", new Integer(2), o);
+    }
+",BlockTest::testBlockLastExecuted02_1_oe
+jexl_222_1,"    @Test
+    public void testNestedBlock_1_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""if (true) { x = 'hello'; y = 'world';"" + "" if (true) { x; } y; }"");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(""Block result is wrong"", ""world"", o);
+    }
+",BlockTest::testNestedBlock_1_oe
+jexl_237_1,"    @Test
+    public void testSynchronizer_1_oe() throws Exception {
+        final Map<String, Object> ns = new TreeMap<String, Object>();
+        ns.put(""synchronized"", SynchronizedContext.class);
+        final JexlContext jc = new MapContext();
+        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
+        final JexlScript js0 = jexl.createScript(""synchronized:call(x, (y)->{y.size()})"", ""x"");
+        final Object size = js0.execute(jc, ""foobar"");
+        Assert.assertEquals(6, size);
+    }
+",SynchronizedOverloadsTest::testSynchronizer_1_oe
+jexl_238_1,"    @Test
+    public void testSynchronized_1_oe() throws Exception {
+        final Map<String, Object> ns = new TreeMap<String, Object>();
+        final JexlContext jc = new SynchronizedContext(new MapContext());
+        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
+        final JexlScript js0 = jexl.createScript(""@synchronized(y) {return y.size(); }"", ""y"");
+        final Object size = js0.execute(jc, ""foobar"");
+        Assert.assertEquals(6, size);
+    }
+",SynchronizedOverloadsTest::testSynchronized_1_oe
+jexl_239_1,"    @Test
+    public void testUnsafeMonitor_1_oe() throws Exception {
+        final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
+        final Map<String, Object> foo = new TreeMap<String, Object>();
+        foo.put(""one"", 1);
+        foo.put(""two"", 2);
+        foo.put(""three"", 3);
+        final JexlContext jc = new SynchronizedContext(new MapContext());
+        final JexlEngine jexl = new JexlBuilder().arithmetic(new SynchronizedArithmetic(monitor, true)).create();
+        final JexlScript js0 = jexl.createScript(""x['four'] = 4; var t = 0.0; for(var z: x) { t += z; }; call(t, (y)->{return y});"", ""x"");
+        Object t = js0.execute(jc, foo);
+        Assert.assertEquals(10.0d, t);
+    }
+",SynchronizedOverloadsTest::testUnsafeMonitor_1_oe
+jexl_239_2,"    @Test
+    public void testUnsafeMonitor_2_oe() throws Exception {
+        final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
+        final Map<String, Object> foo = new TreeMap<String, Object>();
+        foo.put(""one"", 1);
+        foo.put(""two"", 2);
+        foo.put(""three"", 3);
+        final JexlContext jc = new SynchronizedContext(new MapContext());
+        final JexlEngine jexl = new JexlBuilder().arithmetic(new SynchronizedArithmetic(monitor, true)).create();
+        final JexlScript js0 = jexl.createScript(""x['four'] = 4; var t = 0.0; for(var z: x) { t += z; }; call(t, (y)->{return y});"", ""x"");
+        Object t = js0.execute(jc, foo);
+        // removed other assertion
+        Assert.assertTrue(monitor.isBalanced());
+    }
+",SynchronizedOverloadsTest::testUnsafeMonitor_2_oe
+jexl_239_3,"    @Test
+    public void testUnsafeMonitor_3_oe() throws Exception {
+        final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
+        final Map<String, Object> foo = new TreeMap<String, Object>();
+        foo.put(""one"", 1);
+        foo.put(""two"", 2);
+        foo.put(""three"", 3);
+        final JexlContext jc = new SynchronizedContext(new MapContext());
+        final JexlEngine jexl = new JexlBuilder().arithmetic(new SynchronizedArithmetic(monitor, true)).create();
+        final JexlScript js0 = jexl.createScript(""x['four'] = 4; var t = 0.0; for(var z: x) { t += z; }; call(t, (y)->{return y});"", ""x"");
+        Object t = js0.execute(jc, foo);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(2, monitor.getCount());
+    }
+",SynchronizedOverloadsTest::testUnsafeMonitor_3_oe
+jexl_239_4,"    @Test
+    public void testUnsafeMonitor_4_oe() throws Exception {
+        final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
+        final Map<String, Object> foo = new TreeMap<String, Object>();
+        foo.put(""one"", 1);
+        foo.put(""two"", 2);
+        foo.put(""three"", 3);
+        final JexlContext jc = new SynchronizedContext(new MapContext());
+        final JexlEngine jexl = new JexlBuilder().arithmetic(new SynchronizedArithmetic(monitor, true)).create();
+        final JexlScript js0 = jexl.createScript(""x['four'] = 4; var t = 0.0; for(var z: x) { t += z; }; call(t, (y)->{return y});"", ""x"");
+        Object t = js0.execute(jc, foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        t = js0.execute(jc, foo);
+        Assert.assertEquals(10.0d, t);
+    }
+",SynchronizedOverloadsTest::testUnsafeMonitor_4_oe
+jexl_239_5,"    @Test
+    public void testUnsafeMonitor_5_oe() throws Exception {
+        final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
+        final Map<String, Object> foo = new TreeMap<String, Object>();
+        foo.put(""one"", 1);
+        foo.put(""two"", 2);
+        foo.put(""three"", 3);
+        final JexlContext jc = new SynchronizedContext(new MapContext());
+        final JexlEngine jexl = new JexlBuilder().arithmetic(new SynchronizedArithmetic(monitor, true)).create();
+        final JexlScript js0 = jexl.createScript(""x['four'] = 4; var t = 0.0; for(var z: x) { t += z; }; call(t, (y)->{return y});"", ""x"");
+        Object t = js0.execute(jc, foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        t = js0.execute(jc, foo);
+        // removed other assertion
+        Assert.assertTrue(monitor.isBalanced());
+    }
+",SynchronizedOverloadsTest::testUnsafeMonitor_5_oe
+jexl_239_6,"    @Test
+    public void testUnsafeMonitor_6_oe() throws Exception {
+        final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
+        final Map<String, Object> foo = new TreeMap<String, Object>();
+        foo.put(""one"", 1);
+        foo.put(""two"", 2);
+        foo.put(""three"", 3);
+        final JexlContext jc = new SynchronizedContext(new MapContext());
+        final JexlEngine jexl = new JexlBuilder().arithmetic(new SynchronizedArithmetic(monitor, true)).create();
+        final JexlScript js0 = jexl.createScript(""x['four'] = 4; var t = 0.0; for(var z: x) { t += z; }; call(t, (y)->{return y});"", ""x"");
+        Object t = js0.execute(jc, foo);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        t = js0.execute(jc, foo);
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(4, monitor.getCount());
+    }
+",SynchronizedOverloadsTest::testUnsafeMonitor_6_oe
+jexl_253_1,"    @Test
+    public void testSpacesScript_1_oe() throws Exception {
+        final String code = "" "";
+        final JexlScript s = JEXL.createScript(code);
+        Assert.assertNotNull(s);
+    }
+",ScriptTest::testSpacesScript_1_oe
+jexl_254_1,"    @Test
+    public void testSimpleScript_1_oe() throws Exception {
+        final String code = ""while (x < 10) x = x + 1;"";
+        final JexlScript s = JEXL.createScript(code);
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", new Integer(1));
+
+        final Object o = s.execute(jc);
+        Assert.assertEquals(""Result is wrong"", new Integer(10), o);
+    }
+",ScriptTest::testSimpleScript_1_oe
+jexl_254_2,"    @Test
+    public void testSimpleScript_2_oe() throws Exception {
+        final String code = ""while (x < 10) x = x + 1;"";
+        final JexlScript s = JEXL.createScript(code);
+        final JexlContext jc = new MapContext();
+        jc.set(""x"", new Integer(1));
+
+        final Object o = s.execute(jc);
+        // removed other assertion
+        Assert.assertEquals(""getText is wrong"", code, s.getSourceText());
+    }
+",ScriptTest::testSimpleScript_2_oe
+jexl_255_1,"    @Test
+    public void testScriptFromFile_1_oe() throws Exception {
+        final File testScript = new File(TEST1);
+        final JexlScript s = JEXL.createScript(testScript);
+        final JexlContext jc = new MapContext();
+        jc.set(""out"", System.out);
+        final Object result = s.execute(jc);
+        Assert.assertNotNull(""No result"", result);
+    }
+",ScriptTest::testScriptFromFile_1_oe
+jexl_255_2,"    @Test
+    public void testScriptFromFile_2_oe() throws Exception {
+        final File testScript = new File(TEST1);
+        final JexlScript s = JEXL.createScript(testScript);
+        final JexlContext jc = new MapContext();
+        jc.set(""out"", System.out);
+        final Object result = s.execute(jc);
+        // removed other assertion
+        Assert.assertEquals(""Wrong result"", new Integer(7), result);
+    }
+",ScriptTest::testScriptFromFile_2_oe
+jexl_256_1,"    @Test
+    public void testArgScriptFromFile_1_oe() throws Exception {
+        final File testScript = new File(TEST_ADD);
+        final JexlScript s = JEXL.createScript(testScript,""x"", ""y"");
+        final JexlContext jc = new MapContext();
+        jc.set(""out"", System.out);
+        final Object result = s.execute(jc, 13, 29);
+        Assert.assertNotNull(""No result"", result);
+    }
+",ScriptTest::testArgScriptFromFile_1_oe
+jexl_256_2,"    @Test
+    public void testArgScriptFromFile_2_oe() throws Exception {
+        final File testScript = new File(TEST_ADD);
+        final JexlScript s = JEXL.createScript(testScript,""x"", ""y"");
+        final JexlContext jc = new MapContext();
+        jc.set(""out"", System.out);
+        final Object result = s.execute(jc, 13, 29);
+        // removed other assertion
+        Assert.assertEquals(""Wrong result"", new Integer(42), result);
+    }
+",ScriptTest::testArgScriptFromFile_2_oe
+jexl_257_1,"    @Test
+    public void testScriptFromURL_1_oe() throws Exception {
+        final URL testUrl = new File(TEST1).toURI().toURL();
+        final JexlScript s = JEXL.createScript(testUrl);
+        final JexlContext jc = new MapContext();
+        jc.set(""out"", System.out);
+        final Object result = s.execute(jc);
+        Assert.assertNotNull(""No result"", result);
+    }
+",ScriptTest::testScriptFromURL_1_oe
+jexl_257_2,"    @Test
+    public void testScriptFromURL_2_oe() throws Exception {
+        final URL testUrl = new File(TEST1).toURI().toURL();
+        final JexlScript s = JEXL.createScript(testUrl);
+        final JexlContext jc = new MapContext();
+        jc.set(""out"", System.out);
+        final Object result = s.execute(jc);
+        // removed other assertion
+        Assert.assertEquals(""Wrong result"", new Integer(7), result);
+    }
+",ScriptTest::testScriptFromURL_2_oe
+jexl_258_1,"    @Test
+    public void testArgScriptFromURL_1_oe() throws Exception {
+        final URL testUrl = new File(TEST_ADD).toURI().toURL();
+        final JexlScript s = JEXL.createScript(testUrl,""x"", ""y"");
+        final JexlContext jc = new MapContext();
+        jc.set(""out"", System.out);
+        final Object result = s.execute(jc, 13, 29);
+        Assert.assertNotNull(""No result"", result);
+    }
+",ScriptTest::testArgScriptFromURL_1_oe
+jexl_258_2,"    @Test
+    public void testArgScriptFromURL_2_oe() throws Exception {
+        final URL testUrl = new File(TEST_ADD).toURI().toURL();
+        final JexlScript s = JEXL.createScript(testUrl,""x"", ""y"");
+        final JexlContext jc = new MapContext();
+        jc.set(""out"", System.out);
+        final Object result = s.execute(jc, 13, 29);
+        // removed other assertion
+        Assert.assertEquals(""Wrong result"", new Integer(42), result);
+    }
+",ScriptTest::testArgScriptFromURL_2_oe
+jexl_259_1,"    @Test
+    public void testScriptUpdatesContext_1_oe() throws Exception {
+        final String jexlCode = ""resultat.setCode('OK')"";
+        final JexlExpression e = JEXL.createExpression(jexlCode);
+        final JexlScript s = JEXL.createScript(jexlCode);
+
+        final Tester resultatJexl = new Tester();
+        final JexlContext jc = new MapContext();
+        jc.set(""resultat"", resultatJexl);
+
+        resultatJexl.setCode("""");
+        e.evaluate(jc);
+        Assert.assertEquals(""OK"", resultatJexl.getCode());
+    }
+",ScriptTest::testScriptUpdatesContext_1_oe
+jexl_259_2,"    @Test
+    public void testScriptUpdatesContext_2_oe() throws Exception {
+        final String jexlCode = ""resultat.setCode('OK')"";
+        final JexlExpression e = JEXL.createExpression(jexlCode);
+        final JexlScript s = JEXL.createScript(jexlCode);
+
+        final Tester resultatJexl = new Tester();
+        final JexlContext jc = new MapContext();
+        jc.set(""resultat"", resultatJexl);
+
+        resultatJexl.setCode("""");
+        e.evaluate(jc);
+        // removed other assertion
+        resultatJexl.setCode("""");
+        s.execute(jc);
+        Assert.assertEquals(""OK"", resultatJexl.getCode());
+    }
+",ScriptTest::testScriptUpdatesContext_2_oe
+jexl_352_1,"    @Test
+    public void testFlags_1_oe() {
+        Assert.assertTrue(builder().antish(true).antish());
+    }
+",BuilderTest::testFlags_1_oe
+jexl_352_2,"    @Test
+    public void testFlags_2_oe() {
+        // removed other assertion
+        Assert.assertFalse(builder().antish(false).antish());
+    }
+",BuilderTest::testFlags_2_oe
+jexl_352_3,"    @Test
+    public void testFlags_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(builder().cancellable(true).cancellable());
+    }
+",BuilderTest::testFlags_3_oe
+jexl_352_4,"    @Test
+    public void testFlags_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(builder().cancellable(false).cancellable());
+    }
+",BuilderTest::testFlags_4_oe
+jexl_352_5,"    @Test
+    public void testFlags_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(builder().safe(true).safe());
+    }
+",BuilderTest::testFlags_5_oe
+jexl_352_6,"    @Test
+    public void testFlags_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(builder().safe(false).safe());
+    }
+",BuilderTest::testFlags_6_oe
+jexl_352_7,"    @Test
+    public void testFlags_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(builder().silent(true).silent());
+    }
+",BuilderTest::testFlags_7_oe
+jexl_352_8,"    @Test
+    public void testFlags_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(builder().silent(false).silent());
+    }
+",BuilderTest::testFlags_8_oe
+jexl_352_9,"    @Test
+    public void testFlags_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(builder().lexical(true).lexical());
+    }
+",BuilderTest::testFlags_9_oe
+jexl_352_10,"    @Test
+    public void testFlags_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(builder().lexical(false).lexical());
+    }
+",BuilderTest::testFlags_10_oe
+jexl_352_11,"    @Test
+    public void testFlags_11_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(builder().lexicalShade(true).lexicalShade());
+    }
+",BuilderTest::testFlags_11_oe
+jexl_352_12,"    @Test
+    public void testFlags_12_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(builder().lexicalShade(false).lexicalShade());
+    }
+",BuilderTest::testFlags_12_oe
+jexl_352_13,"    @Test
+    public void testFlags_13_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(builder().silent(true).silent());
+    }
+",BuilderTest::testFlags_13_oe
+jexl_352_14,"    @Test
+    public void testFlags_14_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(builder().silent(false).silent());
+    }
+",BuilderTest::testFlags_14_oe
+jexl_352_15,"    @Test
+    public void testFlags_15_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertTrue(builder().strict(true).strict());
+    }
+",BuilderTest::testFlags_15_oe
+jexl_352_16,"    @Test
+    public void testFlags_16_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertFalse(builder().strict(false).strict());
+    }
+",BuilderTest::testFlags_16_oe
+jexl_353_1,"    @Test
+    public void testValues_1_oe() {
+        Assert.assertEquals(1, builder().collectMode(1).collectMode());
+    }
+",BuilderTest::testValues_1_oe
+jexl_353_2,"    @Test
+    public void testValues_2_oe() {
+        // removed other assertion
+        Assert.assertEquals(0, builder().collectMode(0).collectMode());
+    }
+",BuilderTest::testValues_2_oe
+jexl_353_3,"    @Test
+    public void testValues_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(32, builder().cacheThreshold(32).cacheThreshold());
+    }
+",BuilderTest::testValues_3_oe
+jexl_353_4,"    @Test
+    public void testValues_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assert.assertEquals(8, builder().stackOverflow(8).stackOverflow());
+    }
+",BuilderTest::testValues_4_oe
+jexl_354_1,"    @Test
+    public void testOther_1_oe() {
+        ClassLoader cls = getClass().getClassLoader().getParent();
+        Assert.assertEquals(cls, builder().loader(cls).loader());
+    }
+",BuilderTest::testOther_1_oe
+jexl_354_2,"    @Test
+    public void testOther_2_oe() {
+        ClassLoader cls = getClass().getClassLoader().getParent();
+        // removed other assertion
+        Charset cs = Charset.forName(""UTF16"");
+        Assert.assertEquals(cs, builder().charset(cs).charset());
+    }
+",BuilderTest::testOther_2_oe
+jexl_354_3,"    @Test
+    public void testOther_3_oe() {
+        ClassLoader cls = getClass().getClassLoader().getParent();
+        // removed other assertion
+        Charset cs = Charset.forName(""UTF16"");
+        // removed other assertion
+        Assert.assertEquals(cs, builder().loader(cs).charset());
+    }
+",BuilderTest::testOther_3_oe
+jexl_354_4,"    @Test
+    public void testOther_4_oe() {
+        ClassLoader cls = getClass().getClassLoader().getParent();
+        // removed other assertion
+        Charset cs = Charset.forName(""UTF16"");
+        // removed other assertion
+        // removed other assertion
+        JexlUberspect u0 = builder().create().getUberspect();
+        JexlSandbox sandbox = new JexlSandbox();
+        JexlUberspect uberspect = new SandboxUberspect(u0, sandbox);
+        Assert.assertEquals(sandbox, builder().sandbox(sandbox).sandbox());
+    }
+",BuilderTest::testOther_4_oe
+jexl_354_5,"    @Test
+    public void testOther_5_oe() {
+        ClassLoader cls = getClass().getClassLoader().getParent();
+        // removed other assertion
+        Charset cs = Charset.forName(""UTF16"");
+        // removed other assertion
+        // removed other assertion
+        JexlUberspect u0 = builder().create().getUberspect();
+        JexlSandbox sandbox = new JexlSandbox();
+        JexlUberspect uberspect = new SandboxUberspect(u0, sandbox);
+        // removed other assertion
+        Assert.assertEquals(uberspect, builder().uberspect(uberspect).uberspect());
+    }
+",BuilderTest::testOther_5_oe
+jexl_389_1,"    @Test
+    public void testEmptyArrayLiteral_1_oe() throws Exception {
+        final JexlContext jc = new MapContext();
+        Object o;
+        o = JEXL.createExpression(""[]"").evaluate(jc);
+        Assert.assertTrue(o instanceof Object[]);
+    }
+",ArrayLiteralTest::testEmptyArrayLiteral_1_oe
+jexl_389_2,"    @Test
+    public void testEmptyArrayLiteral_2_oe() throws Exception {
+        final JexlContext jc = new MapContext();
+        Object o;
+        o = JEXL.createExpression(""[]"").evaluate(jc);
+        // removed other assertion
+        Assert.assertEquals(0, ((Object[]) o).length);
+    }
+",ArrayLiteralTest::testEmptyArrayLiteral_2_oe
+jexl_389_3,"    @Test
+    public void testEmptyArrayLiteral_3_oe() throws Exception {
+        final JexlContext jc = new MapContext();
+        Object o;
+        o = JEXL.createExpression(""[]"").evaluate(jc);
+        // removed other assertion
+        // removed other assertion
+        o = JEXL.createExpression(""[...]"").evaluate(jc);
+        Assert.assertTrue(o instanceof List<?>);
+    }
+",ArrayLiteralTest::testEmptyArrayLiteral_3_oe
+jexl_389_4,"    @Test
+    public void testEmptyArrayLiteral_4_oe() throws Exception {
+        final JexlContext jc = new MapContext();
+        Object o;
+        o = JEXL.createExpression(""[]"").evaluate(jc);
+        // removed other assertion
+        // removed other assertion
+        o = JEXL.createExpression(""[...]"").evaluate(jc);
+        // removed other assertion
+        Assert.assertEquals(0, ((List<?>) o).size());
+    }
+",ArrayLiteralTest::testEmptyArrayLiteral_4_oe
+jexl_390_1,"    @Test
+    public void testLiteralWithStrings_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""[ 'foo' , 'bar' ]"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        final Object[] check = {""foo"", ""bar""};
+        Assert.assertArrayEquals(check, (Object[]) o);
+    }
+",ArrayLiteralTest::testLiteralWithStrings_1_oe
+jexl_391_1,"    @Test
+    public void testLiteralWithElipsis_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""[ 'foo' , 'bar', ... ]"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        final Object[] check = {""foo"", ""bar""};
+        Assert.assertEquals(Arrays.asList(check), o);
+    }
+",ArrayLiteralTest::testLiteralWithElipsis_1_oe
+jexl_391_2,"    @Test
+    public void testLiteralWithElipsis_2_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""[ 'foo' , 'bar', ... ]"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        final Object[] check = {""foo"", ""bar""};
+        // removed other assertion
+        Assert.assertEquals(2, ((List<?>) o).size());
+    }
+",ArrayLiteralTest::testLiteralWithElipsis_2_oe
+jexl_392_1,"    @Test
+    public void testLiteralWithOneEntry_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""[ 'foo' ]"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        final Object[] check = {""foo""};
+        Assert.assertArrayEquals(check, (Object[]) o);
+    }
+",ArrayLiteralTest::testLiteralWithOneEntry_1_oe
+jexl_393_1,"    @Test
+    public void testLiteralWithNumbers_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""[ 5.0 , 10 ]"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        final Object[] check = {new Double(5), new Integer(10)};
+        Assert.assertArrayEquals(check, (Object[]) o);
+    }
+",ArrayLiteralTest::testLiteralWithNumbers_1_oe
+jexl_393_2,"    @Test
+    public void testLiteralWithNumbers_2_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""[ 5.0 , 10 ]"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        final Object[] check = {new Double(5), new Integer(10)};
+        // removed other assertion
+        Assert.assertTrue(o.getClass().isArray() && o.getClass().getComponentType().equals(Number.class));
+    }
+",ArrayLiteralTest::testLiteralWithNumbers_2_oe
+jexl_394_1,"    @Test
+    public void testLiteralWithNulls_1_oe() throws Exception {
+        final String[] exprs = {
+            ""[ null , 10 ]"",
+            ""[ 10 , null ]"",
+            ""[ 10 , null , 10]"",
+            ""[ '10' , null ]"",
+            ""[ null, '10' , null ]""
+        };
+        final Object[][] checks = {
+            {null, new Integer(10)},
+            {new Integer(10), null},
+            {new Integer(10), null, new Integer(10)},
+            {""10"", null},
+            {null, ""10"", null}
+        };
+        final JexlContext jc = new MapContext();
+        for (int t = 0; t < exprs.length; ++t) {
+            final JexlExpression e = JEXL.createExpression(exprs[t]);
+            final Object o = e.evaluate(jc);
+            Assert.assertArrayEquals(exprs[t], checks[t], (Object[]) o);
+    }
+    }
+",ArrayLiteralTest::testLiteralWithNulls_1_oe
+jexl_395_1,"    @Test
+    public void testLiteralWithIntegers_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""[ 5 , 10 ]"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        final int[] check = {5, 10};
+        Assert.assertArrayEquals(check, (int[]) o);
+    }
+",ArrayLiteralTest::testLiteralWithIntegers_1_oe
+jexl_396_1,"    @Test
+    public void testSizeOfSimpleArrayLiteral_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""size([ 'foo' , 'bar' ])"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        Assert.assertEquals(new Integer(2), o);
+    }
+",ArrayLiteralTest::testSizeOfSimpleArrayLiteral_1_oe
+jexl_397_1,"    @Test
+    public void notestCallingMethodsOnNewMapLiteral_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""size({ 'foo' : 'bar' }.values())"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        Assert.assertEquals(new Integer(1), o);
+    }
+",ArrayLiteralTest::notestCallingMethodsOnNewMapLiteral_1_oe
+jexl_398_1,"    @Test
+    public void testNotEmptySimpleArrayLiteral_1_oe() throws Exception {
+        final JexlExpression e = JEXL.createExpression(""empty([ 'foo' , 'bar' ])"");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.evaluate(jc);
+        Assert.assertFalse((Boolean) o);
+    }
+",ArrayLiteralTest::testNotEmptySimpleArrayLiteral_1_oe
+jexl_399_1,"    @Test
+    public void testChangeThroughVariables_1_oe() throws Exception {
+        final JexlContext jc = new MapContext();
+        final JexlExpression e147 = JEXL.createExpression(""quux = [one, two]"");
+
+        jc.set(""one"", 1);
+        jc.set(""two"", 2);
+        final int[] o1 = (int[]) e147.evaluate(jc);
+        Assert.assertEquals(1, o1[0]);
+    }
+",ArrayLiteralTest::testChangeThroughVariables_1_oe
+jexl_399_2,"    @Test
+    public void testChangeThroughVariables_2_oe() throws Exception {
+        final JexlContext jc = new MapContext();
+        final JexlExpression e147 = JEXL.createExpression(""quux = [one, two]"");
+
+        jc.set(""one"", 1);
+        jc.set(""two"", 2);
+        final int[] o1 = (int[]) e147.evaluate(jc);
+        // removed other assertion
+        Assert.assertEquals(2, o1[1]);
+    }
+",ArrayLiteralTest::testChangeThroughVariables_2_oe
+jexl_399_3,"    @Test
+    public void testChangeThroughVariables_3_oe() throws Exception {
+        final JexlContext jc = new MapContext();
+        final JexlExpression e147 = JEXL.createExpression(""quux = [one, two]"");
+
+        jc.set(""one"", 1);
+        jc.set(""two"", 2);
+        final int[] o1 = (int[]) e147.evaluate(jc);
+        // removed other assertion
+        // removed other assertion
+
+        jc.set(""one"", 10);
+        jc.set(""two"", 20);
+        final int[] o2 = (int[]) e147.evaluate(jc);
+        Assert.assertEquals(10, o2[0]);
+    }
+",ArrayLiteralTest::testChangeThroughVariables_3_oe
+jexl_399_4,"    @Test
+    public void testChangeThroughVariables_4_oe() throws Exception {
+        final JexlContext jc = new MapContext();
+        final JexlExpression e147 = JEXL.createExpression(""quux = [one, two]"");
+
+        jc.set(""one"", 1);
+        jc.set(""two"", 2);
+        final int[] o1 = (int[]) e147.evaluate(jc);
+        // removed other assertion
+        // removed other assertion
+
+        jc.set(""one"", 10);
+        jc.set(""two"", 20);
+        final int[] o2 = (int[]) e147.evaluate(jc);
+        // removed other assertion
+        Assert.assertEquals(20, o2[1]);
+    }
+",ArrayLiteralTest::testChangeThroughVariables_4_oe
+jexl_400_1,"    @Test
+    public void testRawResolvers_1_oe() throws Exception {
+        final Object map  = new HashMap<String, Object>();
+        final JexlEngine jexl = new JexlBuilder().create();
+        final JexlUberspect uberspect = jexl.getUberspect();
+        final JexlUberspect.PropertyResolver rfieldp = JexlUberspect.JexlResolver.FIELD;
+        final JexlPropertyGet fget = rfieldp.getPropertyGet(uberspect, map, ""key"");
+        Assert.assertNull(fget);
+    }
+",StrategyTest::testRawResolvers_1_oe
+jexl_400_2,"    @Test
+    public void testRawResolvers_2_oe() throws Exception {
+        final Object map  = new HashMap<String, Object>();
+        final JexlEngine jexl = new JexlBuilder().create();
+        final JexlUberspect uberspect = jexl.getUberspect();
+        final JexlUberspect.PropertyResolver rfieldp = JexlUberspect.JexlResolver.FIELD;
+        final JexlPropertyGet fget = rfieldp.getPropertyGet(uberspect, map, ""key"");
+        // removed other assertion
+        final JexlPropertySet fset = rfieldp.getPropertySet(uberspect, map, ""key"", ""value"");
+        Assert.assertNull(fset);
+    }
+",StrategyTest::testRawResolvers_2_oe
+jexl_400_3,"    @Test
+    public void testRawResolvers_3_oe() throws Exception {
+        final Object map  = new HashMap<String, Object>();
+        final JexlEngine jexl = new JexlBuilder().create();
+        final JexlUberspect uberspect = jexl.getUberspect();
+        final JexlUberspect.PropertyResolver rfieldp = JexlUberspect.JexlResolver.FIELD;
+        final JexlPropertyGet fget = rfieldp.getPropertyGet(uberspect, map, ""key"");
+        // removed other assertion
+        final JexlPropertySet fset = rfieldp.getPropertySet(uberspect, map, ""key"", ""value"");
+        // removed other assertion
+        final JexlUberspect.PropertyResolver rmap = JexlUberspect.JexlResolver.MAP;
+        final JexlPropertyGet mget = rmap.getPropertyGet(uberspect, map, ""key"");
+        Assert.assertNotNull(mget);
+    }
+",StrategyTest::testRawResolvers_3_oe
+jexl_400_4,"    @Test
+    public void testRawResolvers_4_oe() throws Exception {
+        final Object map  = new HashMap<String, Object>();
+        final JexlEngine jexl = new JexlBuilder().create();
+        final JexlUberspect uberspect = jexl.getUberspect();
+        final JexlUberspect.PropertyResolver rfieldp = JexlUberspect.JexlResolver.FIELD;
+        final JexlPropertyGet fget = rfieldp.getPropertyGet(uberspect, map, ""key"");
+        // removed other assertion
+        final JexlPropertySet fset = rfieldp.getPropertySet(uberspect, map, ""key"", ""value"");
+        // removed other assertion
+        final JexlUberspect.PropertyResolver rmap = JexlUberspect.JexlResolver.MAP;
+        final JexlPropertyGet mget = rmap.getPropertyGet(uberspect, map, ""key"");
+        // removed other assertion
+        final JexlPropertySet mset = rmap.getPropertySet(uberspect, map, ""key"", ""value"");
+        Assert.assertNotNull(mset);
+    }
+",StrategyTest::testRawResolvers_4_oe
+jexl_459_1,"    @Test
+    public void testOne_1_oe() throws Exception {
+        // abort test if class creator can not run
+        if (!ClassCreator.canRun) {
+            logger.warn(""unable to create classes"");
+            return;
+        }
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(1);
+        final Class<?> foo1 = cctor.createClass();
+        Assert.assertEquals(""foo1"", foo1.getSimpleName());
+    }
+",ClassCreatorTest::testOne_1_oe
+jexl_460_1,"    @Test
+    public void testFunctorOne_1_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""value"", 1000);
+
+        // create a class foo1 with a ctor whose body gets a value
+        // from the context to initialize its value
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(1);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 10;"");
+        Class<?> foo1 = cctor.createClass(true);
+        Assert.assertSame(foo1.getClassLoader(), cctor.getClassLoader());
+    }
+",ClassCreatorTest::testFunctorOne_1_oe
+jexl_460_2,"    @Test
+    public void testFunctorOne_2_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""value"", 1000);
+
+        // create a class foo1 with a ctor whose body gets a value
+        // from the context to initialize its value
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(1);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 10;"");
+        Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        Assert.assertEquals(""foo1"", foo1.getSimpleName());
+    }
+",ClassCreatorTest::testFunctorOne_2_oe
+jexl_460_3,"    @Test
+    public void testFunctorOne_3_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""value"", 1000);
+
+        // create a class foo1 with a ctor whose body gets a value
+        // from the context to initialize its value
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(1);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 10;"");
+        Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
+        Object result = cctor.newInstance(foo1, ctxt);
+        Assert.assertEquals(foo1, result.getClass());
+    }
+",ClassCreatorTest::testFunctorOne_3_oe
+jexl_460_10,"    @Test
+    public void testFunctorOne_10_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""value"", 1000);
+
+        // create a class foo1 with a ctor whose body gets a value
+        // from the context to initialize its value
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(1);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 10;"");
+        Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
+        Object result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
+        jexl.setClassLoader(cctor.getClassLoader());
+        cctor.clear();
+
+        // check we can invoke that ctor using its name or class
+        final JexlScript script = jexl.createScript(""(c)->{ new(c).value; }"");
+        result = script.execute(ctxt, foo1);
+        // removed other assertion
+        result = script.execute(ctxt, foo1.getName());
+        // removed other assertion
+
+        // re-create foo1 with a different body!
+        cctor.setSeed(1);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 99;"");
+        final Class<?> foo11 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
+        foo1 = foo11;
+        result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
+        // drum rolll....
+        jexl.setClassLoader(foo1.getClassLoader());
+        result = script.execute(ctxt, foo1.getName());
+        // tada!
+        // removed other assertion
+        result = script.execute(ctxt, foo1);
+        Assert.assertEquals(1099, result);
+    }
+",ClassCreatorTest::testFunctorOne_10_oe
+jexl_461_1,"    @Test
+    public void testFunctorThree_1_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""value"", 1000);
+
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(2);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 10;"");
+        Class<?> foo1 = cctor.createClass(true);
+        Assert.assertSame(foo1.getClassLoader(), cctor.getClassLoader());
+    }
+",ClassCreatorTest::testFunctorThree_1_oe
+jexl_461_2,"    @Test
+    public void testFunctorThree_2_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""value"", 1000);
+
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(2);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 10;"");
+        Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        Assert.assertEquals(""foo2"", foo1.getSimpleName());
+    }
+",ClassCreatorTest::testFunctorThree_2_oe
+jexl_461_3,"    @Test
+    public void testFunctorThree_3_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""value"", 1000);
+
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(2);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 10;"");
+        Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
+        Object result = cctor.newInstance(foo1, ctxt);
+        Assert.assertEquals(foo1, result.getClass());
+    }
+",ClassCreatorTest::testFunctorThree_3_oe
+jexl_461_4,"    @Test
+    public void testFunctorThree_4_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""value"", 1000);
+
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(2);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 10;"");
+        Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
+        Object result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
+        jexl.setClassLoader(cctor.getClassLoader());
+        cctor.clear();
+
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""test"", foo1);
+        final JexlEngine jexl2 = new JexlBuilder().namespaces(ns).create();
+
+        final JexlScript script = jexl2.createScript(""test:getValue()"");
+        result = script.execute(ctxt, foo1.getName());
+        Assert.assertEquals(1010, result);
+    }
+",ClassCreatorTest::testFunctorThree_4_oe
+jexl_461_5,"    @Test
+    public void testFunctorThree_5_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""value"", 1000);
+
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(2);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 10;"");
+        Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
+        Object result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
+        jexl.setClassLoader(cctor.getClassLoader());
+        cctor.clear();
+
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""test"", foo1);
+        final JexlEngine jexl2 = new JexlBuilder().namespaces(ns).create();
+
+        final JexlScript script = jexl2.createScript(""test:getValue()"");
+        result = script.execute(ctxt, foo1.getName());
+        // removed other assertion
+
+        cctor.setSeed(2);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 99;"");
+        final Class<?> foo11 = cctor.createClass(true);
+        Assert.assertEquals(""foo2"", foo1.getSimpleName());
+    }
+",ClassCreatorTest::testFunctorThree_5_oe
+jexl_461_6,"    @Test
+    public void testFunctorThree_6_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""value"", 1000);
+
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(2);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 10;"");
+        Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
+        Object result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
+        jexl.setClassLoader(cctor.getClassLoader());
+        cctor.clear();
+
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""test"", foo1);
+        final JexlEngine jexl2 = new JexlBuilder().namespaces(ns).create();
+
+        final JexlScript script = jexl2.createScript(""test:getValue()"");
+        result = script.execute(ctxt, foo1.getName());
+        // removed other assertion
+
+        cctor.setSeed(2);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 99;"");
+        final Class<?> foo11 = cctor.createClass(true);
+        // removed other assertion
+        Assert.assertNotSame(foo11, foo1);
+    }
+",ClassCreatorTest::testFunctorThree_6_oe
+jexl_461_7,"    @Test
+    public void testFunctorThree_7_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""value"", 1000);
+
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(2);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 10;"");
+        Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
+        Object result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
+        jexl.setClassLoader(cctor.getClassLoader());
+        cctor.clear();
+
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""test"", foo1);
+        final JexlEngine jexl2 = new JexlBuilder().namespaces(ns).create();
+
+        final JexlScript script = jexl2.createScript(""test:getValue()"");
+        result = script.execute(ctxt, foo1.getName());
+        // removed other assertion
+
+        cctor.setSeed(2);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 99;"");
+        final Class<?> foo11 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
+        foo1 = foo11;
+        result = cctor.newInstance(foo1, ctxt);
+        Assert.assertEquals(foo1, result.getClass());
+    }
+",ClassCreatorTest::testFunctorThree_7_oe
+jexl_461_8,"    @Test
+    public void testFunctorThree_8_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""value"", 1000);
+
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        cctor.setSeed(2);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 10;"");
+        Class<?> foo1 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
+        Object result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
+        jexl.setClassLoader(cctor.getClassLoader());
+        cctor.clear();
+
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put(""test"", foo1);
+        final JexlEngine jexl2 = new JexlBuilder().namespaces(ns).create();
+
+        final JexlScript script = jexl2.createScript(""test:getValue()"");
+        result = script.execute(ctxt, foo1.getName());
+        // removed other assertion
+
+        cctor.setSeed(2);
+        cctor.setCtorBody(""value = (Integer) ctxt.get(\""value\"") + 99;"");
+        final Class<?> foo11 = cctor.createClass(true);
+        // removed other assertion
+        // removed other assertion
+        foo1 = foo11;
+        result = cctor.newInstance(foo1, ctxt);
+        // removed other assertion
+        // drum rolll....
+        jexl2.setClassLoader(foo1.getClassLoader());
+        result = script.execute(ctxt, foo1.getName());
+        // tada!
+        Assert.assertEquals(1099, result);
+    }
+",ClassCreatorTest::testFunctorThree_8_oe
+jexl_462_1,"    @Test
+    public void testMany_1_oe() throws Exception {
+        // abort test if class creator can not run
+        if (!ClassCreator.canRun) {
+            return;
+        }
+        int pass = 0;
+        int gced = -1;
+        final ReferenceQueue<Object> queue = new ReferenceQueue<Object>();
+        final List<Reference<?>> stuff = new ArrayList<Reference<?>>();
+        // keeping a reference on methods prevent classes from being GCed
+//        List<Object> mm = new ArrayList<Object>();
+        final JexlExpression expr = jexl.createExpression(""foo.value"");
+        final JexlExpression newx = jexl.createExpression(""foo = new(clazz)"");
+        final JexlEvalContext context = new JexlEvalContext();
+        final JexlOptions options = context.getEngineOptions();
+        options.setStrict(false);
+        options.setSilent(true);
+
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        for (int i = 0; i < LOOPS && gced < 0; ++i) {
+            cctor.setSeed(i);
+            Class<?> clazz;
+            if (pass == 0) {
+                clazz = cctor.createClass();
+            } else {
+                clazz = cctor.getClassInstance();
+                if (clazz == null) {
+                    Assert.assertEquals(i, gced);
+    }
+    }
+    }
+    }
+",ClassCreatorTest::testMany_1_oe
+jexl_462_2,"    @Test
+    public void testMany_2_oe() throws Exception {
+        // abort test if class creator can not run
+        if (!ClassCreator.canRun) {
+            return;
+        }
+        int pass = 0;
+        int gced = -1;
+        final ReferenceQueue<Object> queue = new ReferenceQueue<Object>();
+        final List<Reference<?>> stuff = new ArrayList<Reference<?>>();
+        // keeping a reference on methods prevent classes from being GCed
+//        List<Object> mm = new ArrayList<Object>();
+        final JexlExpression expr = jexl.createExpression(""foo.value"");
+        final JexlExpression newx = jexl.createExpression(""foo = new(clazz)"");
+        final JexlEvalContext context = new JexlEvalContext();
+        final JexlOptions options = context.getEngineOptions();
+        options.setStrict(false);
+        options.setSilent(true);
+
+        final ClassCreator cctor = new ClassCreator(jexl, base);
+        for (int i = 0; i < LOOPS && gced < 0; ++i) {
+            cctor.setSeed(i);
+            Class<?> clazz;
+            if (pass == 0) {
+                clazz = cctor.createClass();
+            } else {
+                clazz = cctor.getClassInstance();
+                if (clazz == null) {
+                    // removed other assertion
+                    break;
+                }
+            }
+            // this code verifies the assumption that holding a strong reference to a method prevents
+            // its owning class from being GCed
+//          Method m = clazz.getDeclaredMethod(""getValue"", new Class<?>[0]);
+//          mm.add(m);
+            // we should not be able to create foox since it is unknown to the JEXL classloader
+            context.set(""clazz"", cctor.getClassName());
+            context.set(""foo"", null);
+            Object z = newx.evaluate(context);
+            Assert.assertNull(z);
+    }
+    }
+",ClassCreatorTest::testMany_2_oe
+jexl_463_1,"    @Test
+    public void testBasicCtor_1_oe() throws Exception {
+        final JexlScript s = jexl.createScript(""(c, v)->{ var ct2 = new(c, v); ct2.value; }"");
+        Object r = s.execute(null, TwoCtors.class, 10);
+        Assert.assertEquals(10, r);
+    }
+",ClassCreatorTest::testBasicCtor_1_oe
+jexl_463_2,"    @Test
+    public void testBasicCtor_2_oe() throws Exception {
+        final JexlScript s = jexl.createScript(""(c, v)->{ var ct2 = new(c, v); ct2.value; }"");
+        Object r = s.execute(null, TwoCtors.class, 10);
+        // removed other assertion
+        r = s.execute(null, TwoCtors.class, 5 + 5);
+        Assert.assertEquals(10, r);
+    }
+",ClassCreatorTest::testBasicCtor_2_oe
+jexl_463_3,"    @Test
+    public void testBasicCtor_3_oe() throws Exception {
+        final JexlScript s = jexl.createScript(""(c, v)->{ var ct2 = new(c, v); ct2.value; }"");
+        Object r = s.execute(null, TwoCtors.class, 10);
+        // removed other assertion
+        r = s.execute(null, TwoCtors.class, 5 + 5);
+        // removed other assertion
+        r = s.execute(null, TwoCtors.class, 10d);
+        Assert.assertEquals(-10, r);
+    }
+",ClassCreatorTest::testBasicCtor_3_oe
+jexl_463_4,"    @Test
+    public void testBasicCtor_4_oe() throws Exception {
+        final JexlScript s = jexl.createScript(""(c, v)->{ var ct2 = new(c, v); ct2.value; }"");
+        Object r = s.execute(null, TwoCtors.class, 10);
+        // removed other assertion
+        r = s.execute(null, TwoCtors.class, 5 + 5);
+        // removed other assertion
+        r = s.execute(null, TwoCtors.class, 10d);
+        // removed other assertion
+        r = s.execute(null, TwoCtors.class, 100f);
+        Assert.assertEquals(-100, r);
+    }
+",ClassCreatorTest::testBasicCtor_4_oe
+jexl_464_1,"    @Test
+    public void testContextualCtor_1_oe() throws Exception {
+        final MapContext ctxt = new MapContext();
+        ctxt.set(""value"", 42);
+        JexlScript s = jexl.createScript(""(c)->{ new(c).value }"");
+        Object r = s.execute(ctxt, ContextualCtor.class);
+        Assert.assertEquals(42, r);
+    }
+",ClassCreatorTest::testContextualCtor_1_oe
+jexl_464_2,"    @Test
+    public void testContextualCtor_2_oe() throws Exception {
+        final MapContext ctxt = new MapContext();
+        ctxt.set(""value"", 42);
+        JexlScript s = jexl.createScript(""(c)->{ new(c).value }"");
+        Object r = s.execute(ctxt, ContextualCtor.class);
+        // removed other assertion
+        s = jexl.createScript(""(c, v)->{ new(c, v).value }"");
+        r = s.execute(ctxt, ContextualCtor.class, 100);
+        Assert.assertEquals(142, r);
+    }
+",ClassCreatorTest::testContextualCtor_2_oe
+jexl_466_1,"    @Test
+    public void testDebugString_1_oe() throws Exception {
+        final MethodKey c = KEY_LIST[0];
+        final String str = c.debugString();
+        Assert.assertNotNull(str);
+    }
+",MethodKeyTest::testDebugString_1_oe
+jexl_467_1,"    @Test
+    public void testObjectKey_1_oe() throws Exception {
+        for (final MethodKey ctl : KEY_LIST) {
+            final MethodKey key = makeKey(ctl.getMethod(), ctl.getParameters());
+            final String out = BY_KEY.get(key);
+            Assert.assertNotNull(out);
+    }
+    }
+",MethodKeyTest::testObjectKey_1_oe
+jexl_467_2,"    @Test
+    public void testObjectKey_2_oe() throws Exception {
+        for (final MethodKey ctl : KEY_LIST) {
+            final MethodKey key = makeKey(ctl.getMethod(), ctl.getParameters());
+            final String out = BY_KEY.get(key);
+            // removed other assertion
+            Assert.assertEquals(ctl.toString() + "" != "" + out, ctl.toString(), out);
+    }
+    }
+",MethodKeyTest::testObjectKey_2_oe
+jexl_468_1,"    @Test
+    public void testStringKey_1_oe() throws Exception {
+        for (final MethodKey ctl : KEY_LIST) {
+            final String key = makeStringKey(ctl.getMethod(), ctl.getParameters());
+            final MethodKey out = BY_STRING.get(key);
+            Assert.assertNotNull(out);
+    }
+    }
+",MethodKeyTest::testStringKey_1_oe
+jexl_468_2,"    @Test
+    public void testStringKey_2_oe() throws Exception {
+        for (final MethodKey ctl : KEY_LIST) {
+            final String key = makeStringKey(ctl.getMethod(), ctl.getParameters());
+            final MethodKey out = BY_STRING.get(key);
+            // removed other assertion
+            Assert.assertEquals(ctl.toString() + "" != "" + key, ctl, out);
+    }
+    }
+",MethodKeyTest::testStringKey_2_oe
+jexl_469_1,"    @Test
+    public void testPerfKey_1_oe() throws Exception {
+        for (int l = 0; l < LOOP; ++l) {
+            for (final MethodKey ctl : KEY_LIST) {
+                final MethodKey key = makeKey(ctl.getMethod(), ctl.getParameters());
+                final String out = BY_KEY.get(key);
+                Assert.assertNotNull(out);
+    }
+    }
+    }
+",MethodKeyTest::testPerfKey_1_oe
+jexl_470_1,"    @Test
+    public void testPerfString_1_oe() throws Exception {
+        for (int l = 0; l < LOOP; ++l) {
+            for (final MethodKey ctl : KEY_LIST) {
+                final String key = makeStringKey(ctl.getMethod(), ctl.getParameters());
+                final MethodKey out = BY_STRING.get(key);
+                Assert.assertNotNull(out);
+    }
+    }
+    }
+",MethodKeyTest::testPerfString_1_oe
+jexl_471_1,"    @Test
+    public void testBeanIntrospection_1_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Bean bean = new Bean(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(bean, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(bean, ""value"", ""foo"");
+        Assert.assertTrue(""bean property getter"", get instanceof PropertyGetExecutor);
+    }
+",DiscoveryTest::testBeanIntrospection_1_oe
+jexl_471_2,"    @Test
+    public void testBeanIntrospection_2_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Bean bean = new Bean(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(bean, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(bean, ""value"", ""foo"");
+        // removed other assertion
+        Assert.assertTrue(""bean property setter"", set instanceof PropertySetExecutor);
+    }
+",DiscoveryTest::testBeanIntrospection_2_oe
+jexl_471_3,"    @Test
+    public void testBeanIntrospection_3_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Bean bean = new Bean(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(bean, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(bean, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        Assert.assertEquals(get, uber.getPropertyGet(bean, ""value""));
+    }
+",DiscoveryTest::testBeanIntrospection_3_oe
+jexl_471_4,"    @Test
+    public void testBeanIntrospection_4_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Bean bean = new Bean(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(bean, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(bean, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        Assert.assertEquals(set, uber.getPropertySet(bean, ""value"", ""foo""));
+    }
+",DiscoveryTest::testBeanIntrospection_4_oe
+jexl_471_5,"    @Test
+    public void testBeanIntrospection_5_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Bean bean = new Bean(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(bean, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(bean, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        Assert.assertNotEquals(get, uber.getPropertyGet(bean, ""eulav""));
+    }
+",DiscoveryTest::testBeanIntrospection_5_oe
+jexl_471_6,"    @Test
+    public void testBeanIntrospection_6_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Bean bean = new Bean(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(bean, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(bean, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        Assert.assertNotEquals(set, uber.getPropertySet(bean, ""eulav"", ""foo""));
+    }
+",DiscoveryTest::testBeanIntrospection_6_oe
+jexl_471_7,"    @Test
+    public void testBeanIntrospection_7_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Bean bean = new Bean(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(bean, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(bean, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(bean, ""bar"");
+        Assert.assertEquals(""bar"", bar);
+    }
+",DiscoveryTest::testBeanIntrospection_7_oe
+jexl_471_8,"    @Test
+    public void testBeanIntrospection_8_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Bean bean = new Bean(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(bean, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(bean, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(bean, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        Assert.assertEquals(""bar"", get.invoke(bean));
+    }
+",DiscoveryTest::testBeanIntrospection_8_oe
+jexl_471_9,"    @Test
+    public void testBeanIntrospection_9_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Bean bean = new Bean(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(bean, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(bean, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(bean, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property
+        final Object quux = set.tryInvoke(bean, ""value"", ""quux"");
+        Assert.assertEquals(""quux"", quux);
+    }
+",DiscoveryTest::testBeanIntrospection_9_oe
+jexl_471_10,"    @Test
+    public void testBeanIntrospection_10_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Bean bean = new Bean(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(bean, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(bean, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(bean, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property
+        final Object quux = set.tryInvoke(bean, ""value"", ""quux"");
+        // removed other assertion
+        Assert.assertEquals(""quux"", get.invoke(bean));
+    }
+",DiscoveryTest::testBeanIntrospection_10_oe
+jexl_471_11,"    @Test
+    public void testBeanIntrospection_11_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Bean bean = new Bean(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(bean, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(bean, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(bean, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property
+        final Object quux = set.tryInvoke(bean, ""value"", ""quux"");
+        // removed other assertion
+        // removed other assertion
+        // tryExecute should fail on different property
+        Assert.assertEquals(AbstractExecutor.TRY_FAILED, set.tryInvoke(bean, ""eulav"", ""nope""));
+    }
+",DiscoveryTest::testBeanIntrospection_11_oe
+jexl_472_1,"    @Test
+    public void testDuckIntrospection_1_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Duck duck = new Duck(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(duck, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(duck, ""value"", ""foo"");
+        Assert.assertTrue(""duck property getter"", get instanceof DuckGetExecutor);
+    }
+",DiscoveryTest::testDuckIntrospection_1_oe
+jexl_472_2,"    @Test
+    public void testDuckIntrospection_2_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Duck duck = new Duck(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(duck, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(duck, ""value"", ""foo"");
+        // removed other assertion
+        Assert.assertTrue(""duck property setter"", set instanceof DuckSetExecutor);
+    }
+",DiscoveryTest::testDuckIntrospection_2_oe
+jexl_472_3,"    @Test
+    public void testDuckIntrospection_3_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Duck duck = new Duck(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(duck, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(duck, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        Assert.assertEquals(get, uber.getPropertyGet(duck, ""value""));
+    }
+",DiscoveryTest::testDuckIntrospection_3_oe
+jexl_472_4,"    @Test
+    public void testDuckIntrospection_4_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Duck duck = new Duck(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(duck, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(duck, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        Assert.assertEquals(set, uber.getPropertySet(duck, ""value"", ""foo""));
+    }
+",DiscoveryTest::testDuckIntrospection_4_oe
+jexl_472_5,"    @Test
+    public void testDuckIntrospection_5_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Duck duck = new Duck(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(duck, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(duck, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        Assert.assertNotEquals(get, uber.getPropertyGet(duck, ""eulav""));
+    }
+",DiscoveryTest::testDuckIntrospection_5_oe
+jexl_472_6,"    @Test
+    public void testDuckIntrospection_6_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Duck duck = new Duck(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(duck, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(duck, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        Assert.assertNotEquals(set, uber.getPropertySet(duck, ""eulav"", ""foo""));
+    }
+",DiscoveryTest::testDuckIntrospection_6_oe
+jexl_472_7,"    @Test
+    public void testDuckIntrospection_7_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Duck duck = new Duck(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(duck, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(duck, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(duck, ""bar"");
+        Assert.assertEquals(""bar"", bar);
+    }
+",DiscoveryTest::testDuckIntrospection_7_oe
+jexl_472_8,"    @Test
+    public void testDuckIntrospection_8_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Duck duck = new Duck(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(duck, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(duck, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(duck, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        Assert.assertEquals(""bar"", get.invoke(duck));
+    }
+",DiscoveryTest::testDuckIntrospection_8_oe
+jexl_472_9,"    @Test
+    public void testDuckIntrospection_9_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Duck duck = new Duck(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(duck, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(duck, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(duck, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property
+        final Object quux = set.tryInvoke(duck, ""value"", ""quux"");
+        Assert.assertEquals(""quux"", quux);
+    }
+",DiscoveryTest::testDuckIntrospection_9_oe
+jexl_472_10,"    @Test
+    public void testDuckIntrospection_10_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Duck duck = new Duck(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(duck, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(duck, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(duck, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property
+        final Object quux = set.tryInvoke(duck, ""value"", ""quux"");
+        // removed other assertion
+        Assert.assertEquals(""quux"", get.invoke(duck));
+    }
+",DiscoveryTest::testDuckIntrospection_10_oe
+jexl_472_11,"    @Test
+    public void testDuckIntrospection_11_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Duck duck = new Duck(""JEXL"", ""LXEJ"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(duck, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(duck, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(duck, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property
+        final Object quux = set.tryInvoke(duck, ""value"", ""quux"");
+        // removed other assertion
+        // removed other assertion
+        // tryExecute should fail on different property
+        Assert.assertEquals(AbstractExecutor.TRY_FAILED, set.tryInvoke(duck, ""eulav"", ""nope""));
+    }
+",DiscoveryTest::testDuckIntrospection_11_oe
+jexl_473_1,"    @Test
+    public void testListIntrospection_1_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final List<Object> list = new ArrayList<Object>();
+        list.add(""LIST"");
+        list.add(""TSIL"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(list, 1);
+        final JexlPropertySet set = uber.getPropertySet(list, 1, ""foo"");
+        Assert.assertTrue(""list property getter"", get instanceof ListGetExecutor);
+    }
+",DiscoveryTest::testListIntrospection_1_oe
+jexl_473_2,"    @Test
+    public void testListIntrospection_2_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final List<Object> list = new ArrayList<Object>();
+        list.add(""LIST"");
+        list.add(""TSIL"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(list, 1);
+        final JexlPropertySet set = uber.getPropertySet(list, 1, ""foo"");
+        // removed other assertion
+        Assert.assertTrue(""list property setter"", set instanceof ListSetExecutor);
+    }
+",DiscoveryTest::testListIntrospection_2_oe
+jexl_473_3,"    @Test
+    public void testListIntrospection_3_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final List<Object> list = new ArrayList<Object>();
+        list.add(""LIST"");
+        list.add(""TSIL"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(list, 1);
+        final JexlPropertySet set = uber.getPropertySet(list, 1, ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        Assert.assertEquals(get, uber.getPropertyGet(list, 1));
+    }
+",DiscoveryTest::testListIntrospection_3_oe
+jexl_473_4,"    @Test
+    public void testListIntrospection_4_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final List<Object> list = new ArrayList<Object>();
+        list.add(""LIST"");
+        list.add(""TSIL"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(list, 1);
+        final JexlPropertySet set = uber.getPropertySet(list, 1, ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        Assert.assertEquals(set, uber.getPropertySet(list, 1, ""foo""));
+    }
+",DiscoveryTest::testListIntrospection_4_oe
+jexl_473_5,"    @Test
+    public void testListIntrospection_5_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final List<Object> list = new ArrayList<Object>();
+        list.add(""LIST"");
+        list.add(""TSIL"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(list, 1);
+        final JexlPropertySet set = uber.getPropertySet(list, 1, ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        Assert.assertNotEquals(get, uber.getPropertyGet(list, 0));
+    }
+",DiscoveryTest::testListIntrospection_5_oe
+jexl_473_6,"    @Test
+    public void testListIntrospection_6_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final List<Object> list = new ArrayList<Object>();
+        list.add(""LIST"");
+        list.add(""TSIL"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(list, 1);
+        final JexlPropertySet set = uber.getPropertySet(list, 1, ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        Assert.assertNotEquals(get, uber.getPropertySet(list, 0, ""foo""));
+    }
+",DiscoveryTest::testListIntrospection_6_oe
+jexl_473_7,"    @Test
+    public void testListIntrospection_7_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final List<Object> list = new ArrayList<Object>();
+        list.add(""LIST"");
+        list.add(""TSIL"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(list, 1);
+        final JexlPropertySet set = uber.getPropertySet(list, 1, ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(list, ""bar"");
+        Assert.assertEquals(""bar"", bar);
+    }
+",DiscoveryTest::testListIntrospection_7_oe
+jexl_473_8,"    @Test
+    public void testListIntrospection_8_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final List<Object> list = new ArrayList<Object>();
+        list.add(""LIST"");
+        list.add(""TSIL"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(list, 1);
+        final JexlPropertySet set = uber.getPropertySet(list, 1, ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(list, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        Assert.assertEquals(""bar"", get.invoke(list));
+    }
+",DiscoveryTest::testListIntrospection_8_oe
+jexl_473_9,"    @Test
+    public void testListIntrospection_9_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final List<Object> list = new ArrayList<Object>();
+        list.add(""LIST"");
+        list.add(""TSIL"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(list, 1);
+        final JexlPropertySet set = uber.getPropertySet(list, 1, ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(list, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on integer property
+        final Object quux = set.tryInvoke(list, 1, ""quux"");
+        Assert.assertEquals(""quux"", quux);
+    }
+",DiscoveryTest::testListIntrospection_9_oe
+jexl_473_10,"    @Test
+    public void testListIntrospection_10_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final List<Object> list = new ArrayList<Object>();
+        list.add(""LIST"");
+        list.add(""TSIL"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(list, 1);
+        final JexlPropertySet set = uber.getPropertySet(list, 1, ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(list, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on integer property
+        final Object quux = set.tryInvoke(list, 1, ""quux"");
+        // removed other assertion
+        // getter should return last value
+        Assert.assertEquals(""quux"", get.invoke(list));
+    }
+",DiscoveryTest::testListIntrospection_10_oe
+jexl_473_11,"    @Test
+    public void testListIntrospection_11_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final List<Object> list = new ArrayList<Object>();
+        list.add(""LIST"");
+        list.add(""TSIL"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(list, 1);
+        final JexlPropertySet set = uber.getPropertySet(list, 1, ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(list, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on integer property
+        final Object quux = set.tryInvoke(list, 1, ""quux"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should fail on non-integer property class
+        Assert.assertEquals(AbstractExecutor.TRY_FAILED, set.tryInvoke(list, ""eulav"", ""nope""));
+    }
+",DiscoveryTest::testListIntrospection_11_oe
+jexl_474_1,"    @Test
+    public void testMapIntrospection_1_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Map<String, Object> map = new HashMap<String, Object>();
+        map.put(""value"", ""MAP"");
+        map.put(""eulav"", ""PAM"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(map, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(map, ""value"", ""foo"");
+        Assert.assertTrue(""map property getter"", get instanceof MapGetExecutor);
+    }
+",DiscoveryTest::testMapIntrospection_1_oe
+jexl_474_2,"    @Test
+    public void testMapIntrospection_2_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Map<String, Object> map = new HashMap<String, Object>();
+        map.put(""value"", ""MAP"");
+        map.put(""eulav"", ""PAM"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(map, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(map, ""value"", ""foo"");
+        // removed other assertion
+        Assert.assertTrue(""map property setter"", set instanceof MapSetExecutor);
+    }
+",DiscoveryTest::testMapIntrospection_2_oe
+jexl_474_3,"    @Test
+    public void testMapIntrospection_3_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Map<String, Object> map = new HashMap<String, Object>();
+        map.put(""value"", ""MAP"");
+        map.put(""eulav"", ""PAM"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(map, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(map, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        Assert.assertEquals(get, uber.getPropertyGet(map, ""value""));
+    }
+",DiscoveryTest::testMapIntrospection_3_oe
+jexl_474_4,"    @Test
+    public void testMapIntrospection_4_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Map<String, Object> map = new HashMap<String, Object>();
+        map.put(""value"", ""MAP"");
+        map.put(""eulav"", ""PAM"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(map, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(map, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        Assert.assertEquals(set, uber.getPropertySet(map, ""value"", ""foo""));
+    }
+",DiscoveryTest::testMapIntrospection_4_oe
+jexl_474_5,"    @Test
+    public void testMapIntrospection_5_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Map<String, Object> map = new HashMap<String, Object>();
+        map.put(""value"", ""MAP"");
+        map.put(""eulav"", ""PAM"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(map, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(map, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        Assert.assertNotEquals(get, uber.getPropertyGet(map, ""eulav""));
+    }
+",DiscoveryTest::testMapIntrospection_5_oe
+jexl_474_6,"    @Test
+    public void testMapIntrospection_6_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Map<String, Object> map = new HashMap<String, Object>();
+        map.put(""value"", ""MAP"");
+        map.put(""eulav"", ""PAM"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(map, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(map, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        Assert.assertNotEquals(get, uber.getPropertySet(map, ""eulav"", ""foo""));
+    }
+",DiscoveryTest::testMapIntrospection_6_oe
+jexl_474_7,"    @Test
+    public void testMapIntrospection_7_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Map<String, Object> map = new HashMap<String, Object>();
+        map.put(""value"", ""MAP"");
+        map.put(""eulav"", ""PAM"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(map, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(map, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(map, ""bar"");
+        Assert.assertEquals(""bar"", bar);
+    }
+",DiscoveryTest::testMapIntrospection_7_oe
+jexl_474_8,"    @Test
+    public void testMapIntrospection_8_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Map<String, Object> map = new HashMap<String, Object>();
+        map.put(""value"", ""MAP"");
+        map.put(""eulav"", ""PAM"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(map, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(map, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(map, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        Assert.assertEquals(""bar"", get.invoke(map));
+    }
+",DiscoveryTest::testMapIntrospection_8_oe
+jexl_474_9,"    @Test
+    public void testMapIntrospection_9_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Map<String, Object> map = new HashMap<String, Object>();
+        map.put(""value"", ""MAP"");
+        map.put(""eulav"", ""PAM"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(map, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(map, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(map, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property class
+        final Object quux = set.tryInvoke(map, ""value"", ""quux"");
+        Assert.assertEquals(""quux"", quux);
+    }
+",DiscoveryTest::testMapIntrospection_9_oe
+jexl_474_10,"    @Test
+    public void testMapIntrospection_10_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Map<String, Object> map = new HashMap<String, Object>();
+        map.put(""value"", ""MAP"");
+        map.put(""eulav"", ""PAM"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(map, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(map, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(map, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property class
+        final Object quux = set.tryInvoke(map, ""value"", ""quux"");
+        // removed other assertion
+        // getter should return last value
+        Assert.assertEquals(""quux"", get.invoke(map));
+    }
+",DiscoveryTest::testMapIntrospection_10_oe
+jexl_474_11,"    @Test
+    public void testMapIntrospection_11_oe() throws Exception {
+        final Uberspect uber = Engine.getUberspect(null, null);
+        final Map<String, Object> map = new HashMap<String, Object>();
+        map.put(""value"", ""MAP"");
+        map.put(""eulav"", ""PAM"");
+
+        final JexlPropertyGet get = uber.getPropertyGet(map, ""value"");
+        final JexlPropertySet set = uber.getPropertySet(map, ""value"", ""foo"");
+        // removed other assertion
+        // removed other assertion
+        // introspector and uberspect should return same result
+        // removed other assertion
+        // removed other assertion
+        // different property should return different setter/getter
+        // removed other assertion
+        // removed other assertion
+        // setter returns argument
+        final Object bar = set.invoke(map, ""bar"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should succeed on same property class
+        final Object quux = set.tryInvoke(map, ""value"", ""quux"");
+        // removed other assertion
+        // getter should return last value
+        // removed other assertion
+        // tryExecute should fail on different property class
+        Assert.assertEquals(AbstractExecutor.TRY_FAILED, set.tryInvoke(map, 1, ""nope""));
+    }
+",DiscoveryTest::testMapIntrospection_11_oe
+jexl_475_1,"    @Test
+    public void testMethodIntrospection_1_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        Assert.assertEquals(0, result);
+    }
+",DiscoveryTest::testMethodIntrospection_1_oe
+jexl_475_2,"    @Test
+    public void testMethodIntrospection_2_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        Assert.assertEquals(1, result);
+    }
+",DiscoveryTest::testMethodIntrospection_2_oe
+jexl_475_3,"    @Test
+    public void testMethodIntrospection_3_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        Assert.assertEquals(2, result);
+    }
+",DiscoveryTest::testMethodIntrospection_3_oe
+jexl_475_4,"    @Test
+    public void testMethodIntrospection_4_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        Assert.assertEquals(3, result);
+    }
+",DiscoveryTest::testMethodIntrospection_4_oe
+jexl_475_5,"    @Test
+    public void testMethodIntrospection_5_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        Assert.assertEquals(3, result);
+    }
+",DiscoveryTest::testMethodIntrospection_5_oe
+jexl_475_6,"    @Test
+    public void testMethodIntrospection_6_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, 2);
+        result = jmethod.invoke(bulgroz, 1, 2);
+        Assert.assertEquals(4, result);
+    }
+",DiscoveryTest::testMethodIntrospection_6_oe
+jexl_475_7,"    @Test
+    public void testMethodIntrospection_7_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, 2);
+        result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", bulgroz);
+        result = jmethod.invoke(bulgroz, ""1"", bulgroz);
+        Assert.assertEquals(5, result);
+    }
+",DiscoveryTest::testMethodIntrospection_7_oe
+jexl_475_8,"    @Test
+    public void testMethodIntrospection_8_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, 2);
+        result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", bulgroz);
+        result = jmethod.invoke(bulgroz, ""1"", bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", ""2"");
+        result = jmethod.invoke(bulgroz, ""1"", ""2"");
+        Assert.assertEquals(6, result);
+    }
+",DiscoveryTest::testMethodIntrospection_8_oe
+jexl_475_9,"    @Test
+    public void testMethodIntrospection_9_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, 2);
+        result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", bulgroz);
+        result = jmethod.invoke(bulgroz, ""1"", bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", ""2"");
+        result = jmethod.invoke(bulgroz, ""1"", ""2"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        Assert.assertEquals(8, result);
+    }
+",DiscoveryTest::testMethodIntrospection_9_oe
+jexl_475_10,"    @Test
+    public void testMethodIntrospection_10_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, 2);
+        result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", bulgroz);
+        result = jmethod.invoke(bulgroz, ""1"", bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", ""2"");
+        result = jmethod.invoke(bulgroz, ""1"", ""2"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        Assert.assertEquals(7, result);
+    }
+",DiscoveryTest::testMethodIntrospection_10_oe
+jexl_475_11,"    @Test
+    public void testMethodIntrospection_11_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, 2);
+        result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", bulgroz);
+        result = jmethod.invoke(bulgroz, ""1"", bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", ""2"");
+        result = jmethod.invoke(bulgroz, ""1"", ""2"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, ""1"");
+        result = jmethod.invoke(bulgroz, bulgroz, 1, ""1"");
+        Assert.assertEquals(7, result);
+    }
+",DiscoveryTest::testMethodIntrospection_11_oe
+jexl_475_12,"    @Test
+    public void testMethodIntrospection_12_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, 2);
+        result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", bulgroz);
+        result = jmethod.invoke(bulgroz, ""1"", bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", ""2"");
+        result = jmethod.invoke(bulgroz, ""1"", ""2"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, ""1"");
+        result = jmethod.invoke(bulgroz, bulgroz, 1, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", (Object) null);
+        result = jmethod.invoke(bulgroz,  (Object) null);
+        Assert.assertEquals(2, result);
+    }
+",DiscoveryTest::testMethodIntrospection_12_oe
+jexl_475_13,"    @Test
+    public void testMethodIntrospection_13_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, 2);
+        result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", bulgroz);
+        result = jmethod.invoke(bulgroz, ""1"", bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", ""2"");
+        result = jmethod.invoke(bulgroz, ""1"", ""2"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, ""1"");
+        result = jmethod.invoke(bulgroz, bulgroz, 1, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", (Object) null);
+        result = jmethod.invoke(bulgroz,  (Object) null);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, (Object) null);
+        result = jmethod.invoke(bulgroz, bulgroz, (Object) null);
+        Assert.assertEquals(8, result);
+    }
+",DiscoveryTest::testMethodIntrospection_13_oe
+jexl_475_14,"    @Test
+    public void testMethodIntrospection_14_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, 2);
+        result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", bulgroz);
+        result = jmethod.invoke(bulgroz, ""1"", bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", ""2"");
+        result = jmethod.invoke(bulgroz, ""1"", ""2"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, ""1"");
+        result = jmethod.invoke(bulgroz, bulgroz, 1, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", (Object) null);
+        result = jmethod.invoke(bulgroz,  (Object) null);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, (Object) null);
+        result = jmethod.invoke(bulgroz, bulgroz, (Object) null);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", null, ""1"");
+        result = jmethod.invoke(bulgroz, null, ""1"");
+        Assert.assertEquals(8, result);
+    }
+",DiscoveryTest::testMethodIntrospection_14_oe
+jexl_475_15,"    @Test
+    public void testMethodIntrospection_15_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, 2);
+        result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", bulgroz);
+        result = jmethod.invoke(bulgroz, ""1"", bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", ""2"");
+        result = jmethod.invoke(bulgroz, ""1"", ""2"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, ""1"");
+        result = jmethod.invoke(bulgroz, bulgroz, 1, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", (Object) null);
+        result = jmethod.invoke(bulgroz,  (Object) null);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, (Object) null);
+        result = jmethod.invoke(bulgroz, bulgroz, (Object) null);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", null, ""1"");
+        result = jmethod.invoke(bulgroz, null, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, null, null);
+        result = jmethod.invoke(bulgroz, bulgroz, null, null);
+        Assert.assertEquals(7, result);
+    }
+",DiscoveryTest::testMethodIntrospection_15_oe
+jexl_475_16,"    @Test
+    public void testMethodIntrospection_16_oe() throws Exception {
+        final Uberspect uber = new Uberspect(null, null);
+        final Bulgroz bulgroz = new Bulgroz();
+        JexlMethod jmethod;
+        Object result;
+        jmethod = uber.getMethod(bulgroz, ""list"", 0);
+        result = jmethod.invoke(bulgroz, 0);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"");
+        result = jmethod.invoke(bulgroz, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, 1, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", 1, 2);
+        result = jmethod.invoke(bulgroz, 1, 2);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", bulgroz);
+        result = jmethod.invoke(bulgroz, ""1"", bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", ""1"", ""2"");
+        result = jmethod.invoke(bulgroz, ""1"", ""2"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, bulgroz);
+        result = jmethod.invoke(bulgroz, bulgroz, 1, bulgroz);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, 1, ""1"");
+        result = jmethod.invoke(bulgroz, bulgroz, 1, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", (Object) null);
+        result = jmethod.invoke(bulgroz,  (Object) null);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, (Object) null);
+        result = jmethod.invoke(bulgroz, bulgroz, (Object) null);
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", null, ""1"");
+        result = jmethod.invoke(bulgroz, null, ""1"");
+        // removed other assertion
+        jmethod = uber.getMethod(bulgroz, ""list"", bulgroz, null, null);
+        result = jmethod.invoke(bulgroz, bulgroz, null, null);
+        // removed other assertion
+
+        jmethod = uber.getMethod(bulgroz, ""amb"", 3d);
+        Assert.assertNotNull(null, jmethod);
+    }
+",DiscoveryTest::testMethodIntrospection_16_oe
+jexl_508_1,"    @Test
+    public void testOutput_1_oe() throws Exception {
+        final String output = factory.getOutputStatement(""foo\u00a9bar"");
+        Assert.assertEquals(""JEXL.out.print('foo\\u00a9bar')"", output);
+    }
+",JexlScriptEngineOptionalTest::testOutput_1_oe
+jexl_508_2,"    @Test
+    public void testOutput_2_oe() throws Exception {
+        final String output = factory.getOutputStatement(""foo\u00a9bar"");
+        // removed other assertion
+        // redirect output to capture evaluation result
+        final StringWriter outContent = new StringWriter();
+        engine.getContext().setWriter(outContent);
+        engine.eval(output);
+        Assert.assertEquals(""foo\u00a9bar"", outContent.toString());
+    }
+",JexlScriptEngineOptionalTest::testOutput_2_oe
+jexl_509_1,"    @Test
+    public void testError_1_oe() throws Exception {
+        final String error = ""JEXL.err.print('ERROR')"";
+        // redirect error to capture evaluation result
+        final StringWriter outContent = new StringWriter();
+        engine.getContext().setErrorWriter(outContent);
+        engine.eval(error);
+        Assert.assertEquals(""ERROR"", outContent.toString());
+    }
+",JexlScriptEngineOptionalTest::testError_1_oe
+jexl_510_1,"    @Test
+    public void testCompilable_1_oe() throws Exception {
+        Assert.assertTrue(""Engine should implement Compilable"", engine instanceof Compilable);
+    }
+",JexlScriptEngineOptionalTest::testCompilable_1_oe
+jexl_510_2,"    @Test
+    public void testCompilable_2_oe() throws Exception {
+        // removed other assertion
+        final Compilable cengine = (Compilable) engine;
+        final CompiledScript script = cengine.compile(""40 + 2"");
+        Assert.assertEquals(42, script.eval());
+    }
+",JexlScriptEngineOptionalTest::testCompilable_2_oe
+jexl_510_3,"    @Test
+    public void testCompilable_3_oe() throws Exception {
+        // removed other assertion
+        final Compilable cengine = (Compilable) engine;
+        final CompiledScript script = cengine.compile(""40 + 2"");
+        // removed other assertion
+        Assert.assertEquals(42, script.eval());
+    }
+",JexlScriptEngineOptionalTest::testCompilable_3_oe

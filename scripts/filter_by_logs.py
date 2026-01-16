@@ -1,104 +1,90 @@
 #!/usr/bin/env python3
-import os
-import re
 import csv
+import re
 from pathlib import Path
 
-BASE = Path(__file__).resolve().parent.parent
-LOG_PATH = BASE / "scripts" / "deleted_test_files.log"
-PROJECTS_DIR = BASE / "projects_decomposed"
+ROOT = Path(__file__).resolve().parents[1]
+SCRIPTS_DIR = ROOT / "scripts"
+PROJECTS_ROOT = ROOT / "projects_decomposed" / "projects"
 
-deleted_names = set()
-pattern = re.compile(r"deleting\s+(\S+_OE25Dev\.java)")
+FAIL_LINES_CSV = SCRIPTS_DIR / "test_fail_lines.csv"
 
-with LOG_PATH.open("r", encoding="utf-8", errors="ignore") as f:
-    for line in f:
-        m = pattern.search(line)
+FAIL_TEST_RE = re.compile(r"^([A-Za-z0-9_$.]+)\.([A-Za-z0-9_]+)")
+
+def base_class_name(c):
+    if c.endswith("_OE25Dev"):
+        return c[:-len("_OE25Dev")]
+    return c
+
+failed_by_folder = {}
+
+with FAIL_LINES_CSV.open(encoding="utf-8", newline="") as f:
+    r = csv.DictReader(f)
+    for row in r:
+        folder = row["folder"]
+        line = row["line"].strip()
+        first = line.split()[0] if line else ""
+        m = FAIL_TEST_RE.match(first)
         if not m:
             continue
-        name = m.group(1)
-        orig = re.sub(r"_OE25Dev\.java$", ".java", name)
-        deleted_names.add(orig)
+        clazz = m.group(1)
+        method = m.group(2)
+        failed_by_folder.setdefault(folder, set()).add((clazz, method))
 
-print(f"Loaded {len(deleted_names)} deleted test files from log")
+print("folders with failed tests:", len(failed_by_folder))
 
-for project_dir in PROJECTS_DIR.iterdir():
-    if not project_dir.is_dir():
-        continue
-    dataset_dir = project_dir / "dataset"
+total_meta = 0
+total_inputs = 0
+
+for folder, failed_set in failed_by_folder.items():
+    dataset_dir = PROJECTS_ROOT / folder / "dataset"
     meta_path = dataset_dir / "meta.csv"
     inputs_path = dataset_dir / "inputs.csv"
-    if not meta_path.exists() or not inputs_path.exists():
+
+    if not meta_path.is_file() or not inputs_path.is_file():
         continue
 
-    with meta_path.open(newline="", encoding="utf-8") as f:
-        meta_rows = list(csv.reader(f))
-    if not meta_rows:
-        continue
+    with meta_path.open(encoding="utf-8", newline="") as f:
+        r = csv.DictReader(f)
+        meta_fields = list(r.fieldnames or [])
+        if "base_test_class" not in meta_fields:
+            meta_fields.append("base_test_class")
+        meta_out = []
+        for row in r:
+            tc = row.get("test_class", "")
+            tm = row.get("test_method", "")
+            row["base_test_class"] = base_class_name(tc)
+            if (tc, tm) not in failed_set:
+                meta_out.append(row)
 
-    meta_header = meta_rows[0]
-    if "test_file_path" not in meta_header or "id" not in meta_header:
-        print(f"Skipping {project_dir.name}: required columns missing in meta.csv")
-        continue
+    meta_final_path = dataset_dir / "meta_final.csv"
+    with meta_final_path.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=meta_fields)
+        w.writeheader()
+        w.writerows(meta_out)
 
-    idx_test = meta_header.index("test_file_path")
-    idx_id = meta_header.index("id")
+    with inputs_path.open(encoding="utf-8", newline="") as f:
+        r = csv.DictReader(f)
+        inputs_fields = list(r.fieldnames or [])
+        if "base_test_class" not in inputs_fields:
+            inputs_fields.append("base_test_class")
+        inputs_out = []
+        for row in r:
+            tc = row.get("test_class", "")
+            tm = row.get("test_method", "")
+            row["base_test_class"] = base_class_name(tc)
+            if (tc, tm) not in failed_set:
+                inputs_out.append(row)
 
-    kept_meta = [meta_header]
-    failed_meta = [meta_header]
-    failed_ids = set()
+    inputs_final_path = dataset_dir / "inputs_final.csv"
+    with inputs_final_path.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=inputs_fields)
+        w.writeheader()
+        w.writerows(inputs_out)
 
-    for row in meta_rows[1:]:
-        if idx_test >= len(row):
-            kept_meta.append(row)
-            continue
-        path = row[idx_test]
-        base = os.path.basename(path)
-        if base in deleted_names:
-            failed_meta.append(row)
-            if idx_id < len(row):
-                failed_ids.add(row[idx_id])
-        else:
-            kept_meta.append(row)
+    total_meta += len(meta_out)
+    total_inputs += len(inputs_out)
+    print(folder, "meta_final:", len(meta_out), "inputs_final:", len(inputs_out))
 
-    with inputs_path.open(newline="", encoding="utf-8") as f:
-        inputs_rows = list(csv.reader(f))
-    if not inputs_rows:
-        continue
-
-    inputs_header = inputs_rows[0]
-    if "id" not in inputs_header:
-        print(f"Skipping {project_dir.name}: 'id' column missing in inputs.csv")
-        continue
-
-    idx_in_id = inputs_header.index("id")
-
-    kept_inputs = [inputs_header]
-    failed_inputs = [inputs_header]
-
-    for row in inputs_rows[1:]:
-        if idx_in_id >= len(row):
-            kept_inputs.append(row)
-            continue
-        rid = row[idx_in_id]
-        if rid in failed_ids:
-            failed_inputs.append(row)
-        else:
-            kept_inputs.append(row)
-
-    with meta_path.open("w", newline="", encoding="utf-8") as f:
-        csv.writer(f).writerows(kept_meta)
-    with inputs_path.open("w", newline="", encoding="utf-8") as f:
-        csv.writer(f).writerows(kept_inputs)
-
-    meta_failed_path = dataset_dir / "meta_failed.csv"
-    inputs_failed_path = dataset_dir / "inputs_failed.csv"
-
-    with meta_failed_path.open("w", newline="", encoding="utf-8") as f:
-        csv.writer(f).writerows(failed_meta)
-    with inputs_failed_path.open("w", newline="", encoding="utf-8") as f:
-        csv.writer(f).writerows(failed_inputs)
-
-    print(
-        f"Project {project_dir.name}: moved {len(failed_meta)-1} tests to *_failed.csv, kept {len(kept_meta)-1}"
-    )
+print("total_meta:", total_meta)
+print("total_inputs:", total_inputs)

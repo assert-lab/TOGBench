@@ -1,0 +1,481 @@
+id,test_prefix,test_name
+http_154_1,"  @Test
+  public void encode_1_oe() {
+    assertEquals(""http://google.com"", HttpRequest.encode(""http://google.com""));
+  }
+",EncodeTest::encode_1_oe
+http_154_2,"  @Test
+  public void encode_2_oe() {
+    // removed other assertion
+
+    assertEquals(""https://google.com"", HttpRequest.encode(""https://google.com""));
+  }
+",EncodeTest::encode_2_oe
+http_154_3,"  @Test
+  public void encode_3_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a"", HttpRequest.encode(""http://google.com/a""));
+  }
+",EncodeTest::encode_3_oe
+http_154_4,"  @Test
+  public void encode_4_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a/"", HttpRequest.encode(""http://google.com/a/""));
+  }
+",EncodeTest::encode_4_oe
+http_154_5,"  @Test
+  public void encode_5_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a/b"", HttpRequest.encode(""http://google.com/a/b""));
+  }
+",EncodeTest::encode_5_oe
+http_154_6,"  @Test
+  public void encode_6_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a?"", HttpRequest.encode(""http://google.com/a?""));
+  }
+",EncodeTest::encode_6_oe
+http_154_7,"  @Test
+  public void encode_7_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a?b=c"", HttpRequest.encode(""http://google.com/a?b=c""));
+  }
+",EncodeTest::encode_7_oe
+http_154_8,"  @Test
+  public void encode_8_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a?b=c%20d"", HttpRequest.encode(""http://google.com/a?b=c d""));
+  }
+",EncodeTest::encode_8_oe
+http_154_9,"  @Test
+  public void encode_9_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a%20b"", HttpRequest.encode(""http://google.com/a b""));
+  }
+",EncodeTest::encode_9_oe
+http_154_10,"  @Test
+  public void encode_10_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a.b"", HttpRequest.encode(""http://google.com/a.b""));
+  }
+",EncodeTest::encode_10_oe
+http_154_11,"  @Test
+  public void encode_11_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/%E2%9C%93?a=b"", HttpRequest.encode(""http://google.com/\u2713?a=b""));
+  }
+",EncodeTest::encode_11_oe
+http_154_12,"  @Test
+  public void encode_12_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a%5Eb"", HttpRequest.encode(""http://google.com/a^b""));
+  }
+",EncodeTest::encode_12_oe
+http_154_13,"  @Test
+  public void encode_13_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/%25"", HttpRequest.encode(""http://google.com/%""));
+  }
+",EncodeTest::encode_13_oe
+http_154_14,"  @Test
+  public void encode_14_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a.b?c=d.e"", HttpRequest.encode(""http://google.com/a.b?c=d.e""));
+  }
+",EncodeTest::encode_14_oe
+http_154_15,"  @Test
+  public void encode_15_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a.b?c=d/e"", HttpRequest.encode(""http://google.com/a.b?c=d/e""));
+  }
+",EncodeTest::encode_15_oe
+http_154_16,"  @Test
+  public void encode_16_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a?%E2%98%91"", HttpRequest.encode(""http://google.com/a?\u2611""));
+  }
+",EncodeTest::encode_16_oe
+http_154_17,"  @Test
+  public void encode_17_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a?b=%E2%98%90"", HttpRequest.encode(""http://google.com/a?b=\u2610""));
+  }
+",EncodeTest::encode_17_oe
+http_154_18,"  @Test
+  public void encode_18_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/a?b=c%2Bd&e=f%2Bg"", HttpRequest.encode(""http://google.com/a?b=c+d&e=f+g""));
+  }
+",EncodeTest::encode_18_oe
+http_154_19,"  @Test
+  public void encode_19_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/+"", HttpRequest.encode(""http://google.com/+""));
+  }
+",EncodeTest::encode_19_oe
+http_154_20,"  @Test
+  public void encode_20_oe() {
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    // removed other assertion
+
+    assertEquals(""http://google.com/+?a=b%2Bc"", HttpRequest.encode(""http://google.com/+?a=b+c""));
+  }
+",EncodeTest::encode_20_oe

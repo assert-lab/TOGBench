@@ -1,0 +1,17 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version
+json_7_1,JSON-java,PropertyTest,shouldHandleNullProperties_1_oe,src/test/java/org/json/junit/PropertyTest.java,,,,assert,unknown
+json_8_1,JSON-java,PropertyTest,shouldHandleEmptyProperties_1_oe,src/test/java/org/json/junit/PropertyTest.java,,,,assert,unknown
+json_9_1,JSON-java,PropertyTest,shouldHandleProperties_1_oe,src/test/java/org/json/junit/PropertyTest.java,,,,assert,unknown
+json_9_2,JSON-java,PropertyTest,shouldHandleProperties_2_oe,src/test/java/org/json/junit/PropertyTest.java,,,,assert,unknown
+json_9_3,JSON-java,PropertyTest,shouldHandleProperties_3_oe,src/test/java/org/json/junit/PropertyTest.java,,,,assert,unknown
+json_9_4,JSON-java,PropertyTest,shouldHandleProperties_4_oe,src/test/java/org/json/junit/PropertyTest.java,,,,assert,unknown
+json_9_5,JSON-java,PropertyTest,shouldHandleProperties_5_oe,src/test/java/org/json/junit/PropertyTest.java,,,,assert,unknown
+json_9_6,JSON-java,PropertyTest,shouldHandleProperties_6_oe,src/test/java/org/json/junit/PropertyTest.java,,,,assert,unknown
+json_10_1,JSON-java,PropertyTest,shouldHandleNullJSONProperty_1_oe,src/test/java/org/json/junit/PropertyTest.java,,,,assert,unknown
+json_11_1,JSON-java,PropertyTest,shouldHandleJSONProperty_1_oe,src/test/java/org/json/junit/PropertyTest.java,,,,assert,unknown
+json_12_1,JSON-java,JSONObjectLocaleTest,jsonObjectByLocaleBean_1_oe,src/test/java/org/json/junit/JSONObjectLocaleTest.java,,,,assert,unknown
+json_12_2,JSON-java,JSONObjectLocaleTest,jsonObjectByLocaleBean_2_oe,src/test/java/org/json/junit/JSONObjectLocaleTest.java,,,,assert,unknown
+json_12_3,JSON-java,JSONObjectLocaleTest,jsonObjectByLocaleBean_3_oe,src/test/java/org/json/junit/JSONObjectLocaleTest.java,,,,assert,unknown
+json_12_4,JSON-java,JSONObjectLocaleTest,jsonObjectByLocaleBean_4_oe,src/test/java/org/json/junit/JSONObjectLocaleTest.java,,,,assert,unknown
+json_12_5,JSON-java,JSONObjectLocaleTest,jsonObjectByLocaleBean_5_oe,src/test/java/org/json/junit/JSONObjectLocaleTest.java,,,,assert,unknown
+json_12_6,JSON-java,JSONObjectLocaleTest,jsonObjectByLocaleBean_6_oe,src/test/java/org/json/junit/JSONObjectLocaleTest.java,,,,assert,unknown

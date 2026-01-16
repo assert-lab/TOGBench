@@ -1,0 +1,4185 @@
+id,test_prefix,test_name
+jsoup_25_1,"    @Test
+    public void nodeName_1_oe() {
+        assertEquals(""#comment"", comment.nodeName());
+    }
+",CommentTest::nodeName_1_oe
+jsoup_26_1,"    @Test
+    public void getData_1_oe() {
+        assertEquals("" This is one heck of a comment! "", comment.getData());
+    }
+",CommentTest::getData_1_oe
+jsoup_27_1,"    @Test
+    public void testToString_1_oe() {
+        assertEquals(""<!-- This is one heck of a comment! -->"", comment.toString());
+    }
+",CommentTest::testToString_1_oe
+jsoup_27_2,"    @Test
+    public void testToString_2_oe() {
+        // removed other assertion
+
+        Document doc = Jsoup.parse(""<div><!-- comment--></div>"");
+        assertEquals(""<div>\n <!-- comment-->\n</div>"", doc.body().html());
+    }
+",CommentTest::testToString_2_oe
+jsoup_27_3,"    @Test
+    public void testToString_3_oe() {
+        // removed other assertion
+
+        Document doc = Jsoup.parse(""<div><!-- comment--></div>"");
+        // removed other assertion
+
+        doc = Jsoup.parse(""<p>One<!-- comment -->Two</p>"");
+        assertEquals(""<p>One<!-- comment -->Two</p>"", doc.body().html());
+    }
+",CommentTest::testToString_3_oe
+jsoup_27_4,"    @Test
+    public void testToString_4_oe() {
+        // removed other assertion
+
+        Document doc = Jsoup.parse(""<div><!-- comment--></div>"");
+        // removed other assertion
+
+        doc = Jsoup.parse(""<p>One<!-- comment -->Two</p>"");
+        // removed other assertion
+        assertEquals(""OneTwo"", doc.text());
+    }
+",CommentTest::testToString_4_oe
+jsoup_28_1,"    @Test
+    public void testHtmlNoPretty_1_oe() {
+        Document doc = Jsoup.parse(""<!-- a simple comment -->"");
+        doc.outputSettings().prettyPrint(false);
+        assertEquals(""<!-- a simple comment --><html><head></head><body></body></html>"", doc.html());
+    }
+",CommentTest::testHtmlNoPretty_1_oe
+jsoup_28_2,"    @Test
+    public void testHtmlNoPretty_2_oe() {
+        Document doc = Jsoup.parse(""<!-- a simple comment -->"");
+        doc.outputSettings().prettyPrint(false);
+        // removed other assertion
+        Node node = doc.childNode(0);
+        Comment c1 = (Comment) node;
+        assertEquals(""<!-- a simple comment -->"", c1.outerHtml());
+    }
+",CommentTest::testHtmlNoPretty_2_oe
+jsoup_29_1,"    @Test
+    public void testClone_1_oe() {
+        Comment c1 = comment.clone();
+        assertNotSame(comment, c1);
+    }
+",CommentTest::testClone_1_oe
+jsoup_29_2,"    @Test
+    public void testClone_2_oe() {
+        Comment c1 = comment.clone();
+        // removed other assertion
+        assertEquals(comment.getData(), comment.getData());
+    }
+",CommentTest::testClone_2_oe
+jsoup_29_3,"    @Test
+    public void testClone_3_oe() {
+        Comment c1 = comment.clone();
+        // removed other assertion
+        // removed other assertion
+        c1.setData(""New"");
+        assertEquals(""New"", c1.getData());
+    }
+",CommentTest::testClone_3_oe
+jsoup_29_4,"    @Test
+    public void testClone_4_oe() {
+        Comment c1 = comment.clone();
+        // removed other assertion
+        // removed other assertion
+        c1.setData(""New"");
+        // removed other assertion
+        assertNotEquals(c1.getData(), comment.getData());
+    }
+",CommentTest::testClone_4_oe
+jsoup_30_1,"    @Test
+    public void isXmlDeclaration_1_oe() {
+        assertFalse(comment.isXmlDeclaration());
+    }
+",CommentTest::isXmlDeclaration_1_oe
+jsoup_30_2,"    @Test
+    public void isXmlDeclaration_2_oe() {
+        // removed other assertion
+        assertTrue(decl.isXmlDeclaration());
+    }
+",CommentTest::isXmlDeclaration_2_oe
+jsoup_31_1,"    @Test
+    public void asXmlDeclaration_1_oe() {
+        XmlDeclaration xmlDeclaration = decl.asXmlDeclaration();
+        assertNotNull(xmlDeclaration);
+    }
+",CommentTest::asXmlDeclaration_1_oe
+jsoup_198_1,"    @Test
+    public void doesNotGetAttributesTooEasily_1_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        assertTrue(hasAnyAttributes(doc)); // should have one - the base uri on the doc;
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_1_oe
+jsoup_198_2,"    @Test
+    public void doesNotGetAttributesTooEasily_2_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        assertFalse(hasAnyAttributes(html));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_2_oe
+jsoup_198_3,"    @Test
+    public void doesNotGetAttributesTooEasily_3_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        assertFalse(hasAnyAttributes(html));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_3_oe
+jsoup_198_4,"    @Test
+    public void doesNotGetAttributesTooEasily_4_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        assertEquals(1, els.size());
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_4_oe
+jsoup_198_5,"    @Test
+    public void doesNotGetAttributesTooEasily_5_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        // removed other assertion
+        assertFalse(hasAnyAttributes(html));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_5_oe
+jsoup_198_6,"    @Test
+    public void doesNotGetAttributesTooEasily_6_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        // removed other assertion
+        // removed other assertion
+
+        els = doc.select(""p.none"");
+        assertFalse(hasAnyAttributes(html));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_6_oe
+jsoup_198_7,"    @Test
+    public void doesNotGetAttributesTooEasily_7_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        // removed other assertion
+        // removed other assertion
+
+        els = doc.select(""p.none"");
+        // removed other assertion
+
+        String id = p.id();
+        assertEquals("""", id);
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_7_oe
+jsoup_198_8,"    @Test
+    public void doesNotGetAttributesTooEasily_8_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        // removed other assertion
+        // removed other assertion
+
+        els = doc.select(""p.none"");
+        // removed other assertion
+
+        String id = p.id();
+        // removed other assertion
+        assertFalse(p.hasClass(""Foobs""));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_8_oe
+jsoup_198_9,"    @Test
+    public void doesNotGetAttributesTooEasily_9_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        // removed other assertion
+        // removed other assertion
+
+        els = doc.select(""p.none"");
+        // removed other assertion
+
+        String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        assertFalse(hasAnyAttributes(html));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_9_oe
+jsoup_198_10,"    @Test
+    public void doesNotGetAttributesTooEasily_10_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        // removed other assertion
+        // removed other assertion
+
+        els = doc.select(""p.none"");
+        // removed other assertion
+
+        String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        p.addClass(""Foobs"");
+        assertTrue(p.hasClass(""Foobs""));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_10_oe
+jsoup_198_11,"    @Test
+    public void doesNotGetAttributesTooEasily_11_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        // removed other assertion
+        // removed other assertion
+
+        els = doc.select(""p.none"");
+        // removed other assertion
+
+        String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        p.addClass(""Foobs"");
+        // removed other assertion
+        assertTrue(hasAnyAttributes(html));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_11_oe
+jsoup_198_12,"    @Test
+    public void doesNotGetAttributesTooEasily_12_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        // removed other assertion
+        // removed other assertion
+
+        els = doc.select(""p.none"");
+        // removed other assertion
+
+        String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        p.addClass(""Foobs"");
+        // removed other assertion
+        // removed other assertion
+        assertTrue(hasAnyAttributes(p));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_12_oe
+jsoup_198_13,"    @Test
+    public void doesNotGetAttributesTooEasily_13_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        // removed other assertion
+        // removed other assertion
+
+        els = doc.select(""p.none"");
+        // removed other assertion
+
+        String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        p.addClass(""Foobs"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Attributes attributes = p.attributes();
+        assertTrue(attributes.hasKey(""class""));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_13_oe
+jsoup_198_14,"    @Test
+    public void doesNotGetAttributesTooEasily_14_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        // removed other assertion
+        // removed other assertion
+
+        els = doc.select(""p.none"");
+        // removed other assertion
+
+        String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        p.addClass(""Foobs"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Attributes attributes = p.attributes();
+        // removed other assertion
+        p.clearAttributes();
+        assertFalse(hasAnyAttributes(p));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_14_oe
+jsoup_198_15,"    @Test
+    public void doesNotGetAttributesTooEasily_15_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        // removed other assertion
+        // removed other assertion
+
+        els = doc.select(""p.none"");
+        // removed other assertion
+
+        String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        p.addClass(""Foobs"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Attributes attributes = p.attributes();
+        // removed other assertion
+        p.clearAttributes();
+        // removed other assertion
+        assertFalse(hasAnyAttributes(html));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_15_oe
+jsoup_198_16,"    @Test
+    public void doesNotGetAttributesTooEasily_16_oe() {
+        // test to make sure we're not setting attributes on all nodes right away
+        String body = ""<p>One <!-- Two --> Three<![CDATA[Four]]></p>"";
+        Document doc = Jsoup.parse(body);
+        // removed other assertion
+
+        Element html = doc.child(0);
+        // removed other assertion
+
+        String s = doc.outerHtml();
+        // removed other assertion
+
+        Elements els = doc.select(""p"");
+        Element p = els.first();
+        // removed other assertion
+        // removed other assertion
+
+        els = doc.select(""p.none"");
+        // removed other assertion
+
+        String id = p.id();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        p.addClass(""Foobs"");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Attributes attributes = p.attributes();
+        // removed other assertion
+        p.clearAttributes();
+        // removed other assertion
+        // removed other assertion
+        assertFalse(attributes.hasKey(""class""));
+    }
+",LeafNodeTest::doesNotGetAttributesTooEasily_16_oe
+jsoup_238_1,"    @Test
+    public void testFastReparent_1_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(0, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        assertEquals(rows, wrapper.childNodes.size());
+    }
+",ElementIT::testFastReparent_1_oe
+jsoup_238_2,"    @Test
+    public void testFastReparent_2_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(0, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        assertEquals(rows, childNodes.size()); // child nodes is a wrapper, so still there;
+    }
+",ElementIT::testFastReparent_2_oe
+jsoup_238_3,"    @Test
+    public void testFastReparent_3_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(0, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, doc.body().childNodes().size()); // but on a fresh look, all gone;
+    }
+",ElementIT::testFastReparent_3_oe
+jsoup_238_4,"    @Test
+    public void testFastReparent_4_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(0, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc.body().empty().appendChild(wrapper);
+        Element wrapperAcutal = doc.body().children().get(0);
+        assertEquals(wrapper, wrapperAcutal);
+    }
+",ElementIT::testFastReparent_4_oe
+jsoup_238_5,"    @Test
+    public void testFastReparent_5_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(0, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc.body().empty().appendChild(wrapper);
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        assertEquals(""El-1"", wrapperAcutal.children().get(0).text());
+    }
+",ElementIT::testFastReparent_5_oe
+jsoup_238_6,"    @Test
+    public void testFastReparent_6_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(0, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc.body().empty().appendChild(wrapper);
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""El-"" + rows, wrapperAcutal.children().get(rows - 1).text());
+    }
+",ElementIT::testFastReparent_6_oe
+jsoup_238_7,"    @Test
+    public void testFastReparent_7_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(0, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc.body().empty().appendChild(wrapper);
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(runtime <= 10000);
+    }
+",ElementIT::testFastReparent_7_oe
+jsoup_239_1,"    @Test
+    public void testFastReparentExistingContent_1_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        assertEquals(2, wrapper.childNodes.size());
+    }
+",ElementIT::testFastReparentExistingContent_1_oe
+jsoup_239_2,"    @Test
+    public void testFastReparentExistingContent_2_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        assertEquals(rows + 2, wrapper.childNodes.size());
+    }
+",ElementIT::testFastReparentExistingContent_2_oe
+jsoup_239_3,"    @Test
+    public void testFastReparentExistingContent_3_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        assertEquals(rows, childNodes.size()); // child nodes is a wrapper, so still there;
+    }
+",ElementIT::testFastReparentExistingContent_3_oe
+jsoup_239_4,"    @Test
+    public void testFastReparentExistingContent_4_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, doc.body().childNodes().size()); // but on a fresh look, all gone;
+    }
+",ElementIT::testFastReparentExistingContent_4_oe
+jsoup_239_5,"    @Test
+    public void testFastReparentExistingContent_5_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc.body().empty().appendChild(wrapper);
+        Element wrapperAcutal = doc.body().children().get(0);
+        assertEquals(wrapper, wrapperAcutal);
+    }
+",ElementIT::testFastReparentExistingContent_5_oe
+jsoup_239_6,"    @Test
+    public void testFastReparentExistingContent_6_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc.body().empty().appendChild(wrapper);
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        assertEquals(""Prior Content"", wrapperAcutal.children().get(0).text());
+    }
+",ElementIT::testFastReparentExistingContent_6_oe
+jsoup_239_7,"    @Test
+    public void testFastReparentExistingContent_7_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc.body().empty().appendChild(wrapper);
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""El-1"", wrapperAcutal.children().get(1).text());
+    }
+",ElementIT::testFastReparentExistingContent_7_oe
+jsoup_239_8,"    @Test
+    public void testFastReparentExistingContent_8_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc.body().empty().appendChild(wrapper);
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(""El-"" + rows, wrapperAcutal.children().get(rows).text());
+    }
+",ElementIT::testFastReparentExistingContent_8_oe
+jsoup_239_9,"    @Test
+    public void testFastReparentExistingContent_9_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc.body().empty().appendChild(wrapper);
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(""End Content"", wrapperAcutal.children().get(rows + 1).text());
+    }
+",ElementIT::testFastReparentExistingContent_9_oe
+jsoup_239_10,"    @Test
+    public void testFastReparentExistingContent_10_oe() {
+        StringBuilder htmlBuf = new StringBuilder();
+        int rows = 300000;
+        for (int i = 1; i <= rows; i++) {
+            htmlBuf
+                .append(""<p>El-"")
+                .append(i)
+                .append(""</p>"");
+        }
+        String html = htmlBuf.toString();
+        Document doc = Jsoup.parse(html);
+        long start = System.currentTimeMillis();
+
+        Element wrapper = new Element(""div"");
+        wrapper.append(""<p>Prior Content</p>"");
+        wrapper.append(""<p>End Content</p>"");
+        // removed other assertion
+
+        List<Node> childNodes = doc.body().childNodes();
+        wrapper.insertChildren(1, childNodes);
+
+        long runtime = System.currentTimeMillis() - start;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc.body().empty().appendChild(wrapper);
+        Element wrapperAcutal = doc.body().children().get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue(runtime <= 10000);
+    }
+",ElementIT::testFastReparentExistingContent_10_oe
+jsoup_247_1,"    @Test
+    public void testCopyConstructor_noSideEffectOnTags_1_oe() {
+        Safelist safelist1 = Safelist.none().addTags(TEST_TAG);
+        Safelist safelist2 = new Safelist(safelist1);
+        safelist1.addTags(""invalidTag"");
+
+        assertFalse(safelist2.isSafeTag(""invalidTag""));
+    }
+",SafelistTest::testCopyConstructor_noSideEffectOnTags_1_oe
+jsoup_248_1,"    @Test
+    public void testCopyConstructor_noSideEffectOnAttributes_1_oe() {
+        Safelist safelist1 = Safelist.none().addAttributes(TEST_TAG, TEST_ATTRIBUTE);
+        Safelist safelist2 = new Safelist(safelist1);
+        safelist1.addAttributes(TEST_TAG, ""invalidAttribute"");
+
+        assertFalse(safelist2.isSafeAttribute(TEST_TAG, null, new Attribute(""invalidAttribute"", TEST_VALUE)));
+    }
+",SafelistTest::testCopyConstructor_noSideEffectOnAttributes_1_oe
+jsoup_249_1,"    @Test
+    public void testCopyConstructor_noSideEffectOnEnforcedAttributes_1_oe() {
+        Safelist safelist1 = Safelist.none().addEnforcedAttribute(TEST_TAG, TEST_ATTRIBUTE, TEST_VALUE);
+        Safelist safelist2 = new Safelist(safelist1);
+        safelist1.addEnforcedAttribute(TEST_TAG, TEST_ATTRIBUTE, ""invalidValue"");
+
+        for (Attribute enforcedAttribute : safelist2.getEnforcedAttributes(TEST_TAG)) {
+            assertNotEquals(""invalidValue"", enforcedAttribute.getValue());
+    }
+    }
+",SafelistTest::testCopyConstructor_noSideEffectOnEnforcedAttributes_1_oe
+jsoup_250_1,"    @Test
+    public void testCopyConstructor_noSideEffectOnProtocols_1_oe() {
+        final String invalidScheme = ""invalid-scheme"";
+        Safelist safelist1 = Safelist.none()
+                .addAttributes(TEST_TAG, TEST_ATTRIBUTE)
+                .addProtocols(TEST_TAG, TEST_ATTRIBUTE, TEST_SCHEME);
+        Safelist safelist2 = new Safelist(safelist1);
+        safelist1.addProtocols(TEST_TAG, TEST_ATTRIBUTE, invalidScheme);
+
+        Attributes attributes = new Attributes();
+        Attribute invalidAttribute = new Attribute(TEST_ATTRIBUTE, invalidScheme + ""://someValue"");
+        attributes.put(invalidAttribute);
+        Element invalidElement = new Element(Tag.valueOf(TEST_TAG), """", attributes);
+
+        assertFalse(safelist2.isSafeAttribute(TEST_TAG, invalidElement, invalidAttribute));
+    }
+",SafelistTest::testCopyConstructor_noSideEffectOnProtocols_1_oe
+jsoup_271_1,"    @Test
+    public void blankAbsAttr_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1541
+        String html = ""b<bodY abs: abs:abs: abs:abs:abs>"";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+",FuzzFixesTest::blankAbsAttr_1_oe
+jsoup_272_1,"    @Test
+    public void bookmark_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1576
+        String html = ""<?a<U<P<A "";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+",FuzzFixesTest::bookmark_1_oe
+jsoup_272_2,"    @Test
+    public void bookmark_2_oe() {
+        // https://github.com/jhy/jsoup/issues/1576
+        String html = ""<?a<U<P<A "";
+        Document doc = Jsoup.parse(html);
+        // removed other assertion
+
+        Document xmlDoc = Parser.xmlParser().parseInput(html, """");
+        assertNotNull(xmlDoc);
+    }
+",FuzzFixesTest::bookmark_2_oe
+jsoup_273_1,"    @ParameterizedTest
+    @MethodSource(""testFiles"")
+    void testHtmlParse_1_oe(File file) throws IOException {
+        Document doc = Jsoup.parse(file, ""UTF-8"", ""https://example.com/"");
+        assertNotNull(doc);
+    }
+",FuzzFixesTest::testHtmlParse_1_oe
+jsoup_274_1,"    @ParameterizedTest
+    @MethodSource(""testFiles"")
+    void testXmlParse_1_oe(File file) throws IOException {
+        Document doc = Jsoup.parse(file, ""UTF-8"", ""https://example.com/"", Parser.xmlParser());
+        assertNotNull(doc);
+    }
+",FuzzFixesTest::testXmlParse_1_oe
+jsoup_275_1,"    @Test
+    public void testPathScopedCookies_1_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        assertEquals(0, doc1.select(""table tr"").size()); // none sent to servlet;
+    }
+",SessionTest::testPathScopedCookies_1_oe
+jsoup_275_2,"    @Test
+    public void testPathScopedCookies_2_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+
+        // set the cookies
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, ""1"");
+        Document doc2 = con2.get();
+        assertEquals(0, doc2.select(""table tr"").size());  // none sent to servlet - we just got them!;
+    }
+",SessionTest::testPathScopedCookies_2_oe
+jsoup_275_3,"    @Test
+    public void testPathScopedCookies_3_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+
+        // set the cookies
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, ""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named ""One"", so should be first sent
+        assertEquals(1, cookies.size());
+    }
+",SessionTest::testPathScopedCookies_3_oe
+jsoup_275_4,"    @Test
+    public void testPathScopedCookies_4_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+
+        // set the cookies
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, ""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named ""One"", so should be first sent
+        // removed other assertion
+        assertEquals(""Root"", cookies.get(""One""));
+    }
+",SessionTest::testPathScopedCookies_4_oe
+jsoup_275_5,"    @Test
+    public void testPathScopedCookies_5_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+
+        // set the cookies
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, ""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named ""One"", so should be first sent
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+        assertCookieServlet(doc3);
+
+        Document echo = session.newRequest().url(EchoServlet.Url).get();
+        assertEchoServlet(echo);
+        assertEquals(userAgent, keyText(""User-Agent"", echo)); // check that customer user agent sent on session arrived;
+    }
+",SessionTest::testPathScopedCookies_5_oe
+jsoup_275_6,"    @Test
+    public void testPathScopedCookies_6_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+
+        // set the cookies
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, ""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named ""One"", so should be first sent
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+        assertCookieServlet(doc3);
+
+        Document echo = session.newRequest().url(EchoServlet.Url).get();
+        assertEchoServlet(echo);
+        // removed other assertion
+
+        // check that cookies aren't set out of the session
+        Document doc4 = Jsoup.newSession().url(CookieServlet.Url).get();
+        assertEquals(0, doc4.select(""table tr"").size()); // none sent to servlet;
+    }
+",SessionTest::testPathScopedCookies_6_oe
+jsoup_275_7,"    @Test
+    public void testPathScopedCookies_7_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+
+        // set the cookies
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, ""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named ""One"", so should be first sent
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+        assertCookieServlet(doc3);
+
+        Document echo = session.newRequest().url(EchoServlet.Url).get();
+        assertEchoServlet(echo);
+        // removed other assertion
+
+        // check that cookies aren't set out of the session
+        Document doc4 = Jsoup.newSession().url(CookieServlet.Url).get();
+        // removed other assertion
+
+        // check can add local ones also
+        Document doc5 = session.newRequest().cookie(""Bar"", ""Qux"").get();
+        Elements doc5Bar = keyEls(""Bar"", doc5);
+        assertEquals(""Qux"", doc5Bar.first().text());
+    }
+",SessionTest::testPathScopedCookies_7_oe
+jsoup_276_1,"    @Test
+    public void testPathScopedCookiesOnRedirect_1_oe() throws IOException {
+        Connection session = Jsoup.newSession();
+
+        Document doc1 = session.newRequest()
+            .url(CookieServlet.Url)
+            .data(CookieServlet.LocationParam, EchoServlet.Url)
+            .data(CookieServlet.SetCookiesParam, ""1"")
+            .get();
+
+        // we should be redirected to the echo servlet with cookies
+        assertEquals(EchoServlet.Url, doc1.location());
+    }
+",SessionTest::testPathScopedCookiesOnRedirect_1_oe
+jsoup_277_1,"    @Test
+    public void testCanChangeParsers_1_oe() throws IOException {
+        Connection session = Jsoup.newSession().parser(Parser.xmlParser());
+
+        String xmlUrl = FileServlet.urlTo(""/htmltests/xml-test.xml"");
+        String xmlVal = ""<doc><val>One<val>Two</val>Three</val></doc>\n"";
+
+        Document doc1 = session.newRequest().url(xmlUrl).get();
+        assertEquals(xmlVal, doc1.html()); // not HTML normed, used XML parser;
+    }
+",SessionTest::testCanChangeParsers_1_oe
+jsoup_277_2,"    @Test
+    public void testCanChangeParsers_2_oe() throws IOException {
+        Connection session = Jsoup.newSession().parser(Parser.xmlParser());
+
+        String xmlUrl = FileServlet.urlTo(""/htmltests/xml-test.xml"");
+        String xmlVal = ""<doc><val>One<val>Two</val>Three</val></doc>\n"";
+
+        Document doc1 = session.newRequest().url(xmlUrl).get();
+        // removed other assertion
+
+        Document doc2 = session.newRequest().parser(Parser.htmlParser()).url(xmlUrl).get();
+        assertTrue(doc2.html().startsWith(""<html>""));
+    }
+",SessionTest::testCanChangeParsers_2_oe
+jsoup_277_3,"    @Test
+    public void testCanChangeParsers_3_oe() throws IOException {
+        Connection session = Jsoup.newSession().parser(Parser.xmlParser());
+
+        String xmlUrl = FileServlet.urlTo(""/htmltests/xml-test.xml"");
+        String xmlVal = ""<doc><val>One<val>Two</val>Three</val></doc>\n"";
+
+        Document doc1 = session.newRequest().url(xmlUrl).get();
+        // removed other assertion
+
+        Document doc2 = session.newRequest().parser(Parser.htmlParser()).url(xmlUrl).get();
+        // removed other assertion
+
+        Document doc3 = session.newRequest().url(xmlUrl).get();
+        assertEquals(xmlVal, doc3.html()); // did not blow away xml default;
+    }
+",SessionTest::testCanChangeParsers_3_oe
+jsoup_293_1,"    @Test
+    public void canInterruptBodyStringRead_1_oe() throws InterruptedException {
+        // todo - implement in interruptable channels, so it's immediate
+        final String[] body = new String[1];
+        Thread runner = new Thread(() -> {
+            try {
+                Connection.Response res = Jsoup.connect(SlowRider.Url)
+                    .timeout(15 * 1000)
+                    .execute();
+                body[0] = res.body();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+
+        runner.start();
+        Thread.sleep(1000 * 3);
+        runner.interrupt();
+        assertTrue(runner.isInterrupted());
+    }
+",ConnectIT::canInterruptBodyStringRead_1_oe
+jsoup_293_2,"    @Test
+    public void canInterruptBodyStringRead_2_oe() throws InterruptedException {
+        // todo - implement in interruptable channels, so it's immediate
+        final String[] body = new String[1];
+        Thread runner = new Thread(() -> {
+            try {
+                Connection.Response res = Jsoup.connect(SlowRider.Url)
+                    .timeout(15 * 1000)
+                    .execute();
+                body[0] = res.body();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+
+        runner.start();
+        Thread.sleep(1000 * 3);
+        runner.interrupt();
+        // removed other assertion
+        runner.join();
+
+        assertTrue(body[0].length() > 0);
+    }
+",ConnectIT::canInterruptBodyStringRead_2_oe
+jsoup_293_3,"    @Test
+    public void canInterruptBodyStringRead_3_oe() throws InterruptedException {
+        // todo - implement in interruptable channels, so it's immediate
+        final String[] body = new String[1];
+        Thread runner = new Thread(() -> {
+            try {
+                Connection.Response res = Jsoup.connect(SlowRider.Url)
+                    .timeout(15 * 1000)
+                    .execute();
+                body[0] = res.body();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+
+        runner.start();
+        Thread.sleep(1000 * 3);
+        runner.interrupt();
+        // removed other assertion
+        runner.join();
+
+        // removed other assertion
+        assertTrue(body[0].contains(""<p>Are you still there?""));
+    }
+",ConnectIT::canInterruptBodyStringRead_3_oe
+jsoup_294_1,"    @Test
+    public void canInterruptDocumentRead_1_oe() throws InterruptedException {
+        // todo - implement in interruptable channels, so it's immediate
+        final String[] body = new String[1];
+        Thread runner = new Thread(() -> {
+            try {
+                Connection.Response res = Jsoup.connect(SlowRider.Url)
+                    .timeout(15 * 1000)
+                    .execute();
+                body[0] = res.parse().text();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+
+        runner.start();
+        Thread.sleep(1000 * 3);
+        runner.interrupt();
+        assertTrue(runner.isInterrupted());
+    }
+",ConnectIT::canInterruptDocumentRead_1_oe
+jsoup_294_2,"    @Test
+    public void canInterruptDocumentRead_2_oe() throws InterruptedException {
+        // todo - implement in interruptable channels, so it's immediate
+        final String[] body = new String[1];
+        Thread runner = new Thread(() -> {
+            try {
+                Connection.Response res = Jsoup.connect(SlowRider.Url)
+                    .timeout(15 * 1000)
+                    .execute();
+                body[0] = res.parse().text();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+
+        runner.start();
+        Thread.sleep(1000 * 3);
+        runner.interrupt();
+        // removed other assertion
+        runner.join();
+
+        assertEquals(0, body[0].length()); // doesn't ready a failed doc;
+    }
+",ConnectIT::canInterruptDocumentRead_2_oe
+jsoup_295_1,"    @Test
+    public void totalTimeout_1_oe() throws IOException {
+        int timeout = 3 * 1000;
+        long start = System.currentTimeMillis();
+        boolean threw = false;
+        try {
+            Jsoup.connect(SlowRider.Url).timeout(timeout).get();
+        } catch (SocketTimeoutException e) {
+            long end = System.currentTimeMillis();
+            long took = end - start;
+            assertTrue(took > timeout, (""Time taken was "" + took));
+    }
+    }
+",ConnectIT::totalTimeout_1_oe
+jsoup_295_2,"    @Test
+    public void totalTimeout_2_oe() throws IOException {
+        int timeout = 3 * 1000;
+        long start = System.currentTimeMillis();
+        boolean threw = false;
+        try {
+            Jsoup.connect(SlowRider.Url).timeout(timeout).get();
+        } catch (SocketTimeoutException e) {
+            long end = System.currentTimeMillis();
+            long took = end - start;
+            // removed other assertion
+            assertTrue(took < timeout * 1.8, (""Time taken was "" + took));
+    }
+    }
+",ConnectIT::totalTimeout_2_oe
+jsoup_295_3,"    @Test
+    public void totalTimeout_3_oe() throws IOException {
+        int timeout = 3 * 1000;
+        long start = System.currentTimeMillis();
+        boolean threw = false;
+        try {
+            Jsoup.connect(SlowRider.Url).timeout(timeout).get();
+        } catch (SocketTimeoutException e) {
+            long end = System.currentTimeMillis();
+            long took = end - start;
+            // removed other assertion
+            // removed other assertion
+            threw = true;
+        }
+
+        assertTrue(threw);
+    }
+",ConnectIT::totalTimeout_3_oe
+jsoup_296_1,"    @Test
+    public void slowReadOk_1_oe() throws IOException {
+        // make sure that a slow read that is under the request timeout is still OK
+        Document doc = Jsoup.connect(SlowRider.Url)
+            .data(SlowRider.MaxTimeParam, ""2000"") // the request completes in 2 seconds
+            .get();
+
+        Element h1 = doc.selectFirst(""h1"");
+        assertEquals(""outatime"", h1.text());
+    }
+",ConnectIT::slowReadOk_1_oe
+jsoup_297_1,"    @Test
+    public void infiniteReadSupported_1_oe() throws IOException {
+        Document doc = Jsoup.connect(SlowRider.Url)
+            .timeout(0)
+            .data(SlowRider.MaxTimeParam, ""2000"")
+            .get();
+
+        Element h1 = doc.selectFirst(""h1"");
+        assertEquals(""outatime"", h1.text());
+    }
+",ConnectIT::infiniteReadSupported_1_oe
+jsoup_298_1,"    @Test
+    public void remainingAfterFirstRead_1_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+        int capSize = 100 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
+            .execute().bodyStream()) {
+
+            assertTrue(inputStream instanceof ConstrainableInputStream);
+    }
+    }
+",ConnectIT::remainingAfterFirstRead_1_oe
+jsoup_298_2,"    @Test
+    public void remainingAfterFirstRead_2_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+        int capSize = 100 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
+            .execute().bodyStream()) {
+
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            assertTrue(firstText.startsWith(""<html><head><title>Large""));
+    }
+    }
+",ConnectIT::remainingAfterFirstRead_2_oe
+jsoup_298_3,"    @Test
+    public void remainingAfterFirstRead_3_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+        int capSize = 100 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
+            .execute().bodyStream()) {
+
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            assertEquals(bufferSize, array.length);
+    }
+    }
+",ConnectIT::remainingAfterFirstRead_3_oe
+jsoup_298_4,"    @Test
+    public void remainingAfterFirstRead_4_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+        int capSize = 100 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
+            .execute().bodyStream()) {
+
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
+
+            boolean fullyRead = stream.read() == -1;
+            assertFalse(fullyRead);
+    }
+    }
+",ConnectIT::remainingAfterFirstRead_4_oe
+jsoup_298_5,"    @Test
+    public void remainingAfterFirstRead_5_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+        int capSize = 100 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
+            .execute().bodyStream()) {
+
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
+
+            boolean fullyRead = stream.read() == -1;
+            // removed other assertion
+
+            // reset and read again
+            stream.reset();
+            ByteBuffer fullRead = stream.readToByteBuffer(0);
+            byte[] fullArray = fullRead.array();
+            assertEquals(capSize, fullArray.length);
+    }
+    }
+",ConnectIT::remainingAfterFirstRead_5_oe
+jsoup_298_6,"    @Test
+    public void remainingAfterFirstRead_6_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+        int capSize = 100 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).maxBodySize(capSize)
+            .execute().bodyStream()) {
+
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
+
+            boolean fullyRead = stream.read() == -1;
+            // removed other assertion
+
+            // reset and read again
+            stream.reset();
+            ByteBuffer fullRead = stream.readToByteBuffer(0);
+            byte[] fullArray = fullRead.array();
+            // removed other assertion
+            String fullText = new String(fullArray, StandardCharsets.UTF_8);
+            assertTrue(fullText.startsWith(firstText));
+    }
+    }
+",ConnectIT::remainingAfterFirstRead_6_oe
+jsoup_299_1,"    @Test
+    public void noLimitAfterFirstRead_1_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            assertTrue(inputStream instanceof ConstrainableInputStream);
+    }
+    }
+",ConnectIT::noLimitAfterFirstRead_1_oe
+jsoup_299_2,"    @Test
+    public void noLimitAfterFirstRead_2_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            assertTrue(firstText.startsWith(""<html><head><title>Large""));
+    }
+    }
+",ConnectIT::noLimitAfterFirstRead_2_oe
+jsoup_299_3,"    @Test
+    public void noLimitAfterFirstRead_3_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            assertEquals(bufferSize, array.length);
+    }
+    }
+",ConnectIT::noLimitAfterFirstRead_3_oe
+jsoup_299_4,"    @Test
+    public void noLimitAfterFirstRead_4_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
+
+            // reset and read fully
+            stream.reset();
+            ByteBuffer fullRead = stream.readToByteBuffer(0);
+            byte[] fullArray = fullRead.array();
+            assertEquals(280735, fullArray.length);
+    }
+    }
+",ConnectIT::noLimitAfterFirstRead_4_oe
+jsoup_299_5,"    @Test
+    public void noLimitAfterFirstRead_5_oe() throws IOException {
+        int bufferSize = 5 * 1024;
+
+        String url = FileServlet.urlTo(""/htmltests/large.html""); // 280 K
+        ConstrainableInputStream stream;
+        try (BufferedInputStream inputStream = Jsoup.connect(url).execute().bodyStream()) {
+            // removed other assertion
+            stream = (ConstrainableInputStream) inputStream;
+
+            // simulates parse which does a limited read first
+            stream.mark(bufferSize);
+            ByteBuffer firstBytes = stream.readToByteBuffer(bufferSize);
+            byte[] array = firstBytes.array();
+            String firstText = new String(array, StandardCharsets.UTF_8);
+            // removed other assertion
+            // removed other assertion
+
+            // reset and read fully
+            stream.reset();
+            ByteBuffer fullRead = stream.readToByteBuffer(0);
+            byte[] fullArray = fullRead.array();
+            // removed other assertion
+            String fullText = new String(fullArray, StandardCharsets.UTF_8);
+            assertTrue(fullText.startsWith(firstText));
+    }
+    }
+",ConnectIT::noLimitAfterFirstRead_5_oe
+jsoup_335_1,"    @ParameterizedTest
+    @MethodSource(""testFiles"")
+    void testHtmlParse_1_oe(File file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        long completeBy = startTime + timeout * 1000L;
+
+        for (int i = 0; i < numIters; i++) {
+            Document doc = Jsoup.parse(file, ""UTF-8"", ""https://example.com/"");
+            assertNotNull(doc);
+    }
+    }
+",FuzzFixesIT::testHtmlParse_1_oe
+jsoup_335_2,"    @ParameterizedTest
+    @MethodSource(""testFiles"")
+    void testHtmlParse_2_oe(File file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        long completeBy = startTime + timeout * 1000L;
+
+        for (int i = 0; i < numIters; i++) {
+            Document doc = Jsoup.parse(file, ""UTF-8"", ""https://example.com/"");
+            // removed other assertion
+            if (System.currentTimeMillis() > completeBy)
+                Assertions.fail(String.format(""Timeout: only completed %d iters of [%s] in %d seconds"", i, file.getName(), timeout));
+    }
+    }
+",FuzzFixesIT::testHtmlParse_2_oe
+jsoup_336_1,"    @ParameterizedTest
+    @MethodSource(""testFiles"")
+    void testXmlParse_1_oe(File file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        long completeBy = startTime + timeout * 1000L;
+
+        for (int i = 0; i < numIters; i++) {
+            Document doc = Jsoup.parse(file, ""UTF-8"", ""https://example.com/"", Parser.xmlParser());
+            assertNotNull(doc);
+    }
+    }
+",FuzzFixesIT::testXmlParse_1_oe
+jsoup_336_2,"    @ParameterizedTest
+    @MethodSource(""testFiles"")
+    void testXmlParse_2_oe(File file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        long completeBy = startTime + timeout * 1000L;
+
+        for (int i = 0; i < numIters; i++) {
+            Document doc = Jsoup.parse(file, ""UTF-8"", ""https://example.com/"", Parser.xmlParser());
+            // removed other assertion
+            if (System.currentTimeMillis() > completeBy)
+                Assertions.fail(String.format(""Timeout: only completed %d iters of [%s] in %d seconds"", i, file.getName(), timeout));
+    }
+    }
+",FuzzFixesIT::testXmlParse_2_oe
+jsoup_342_1,"	@Test
+	public void empty_1_oe() {
+		final Elements sel = html.select("":empty"");
+		assertEquals(3, sel.size());
+	}
+",CssTest::empty_1_oe
+jsoup_342_2,"	@Test
+	public void empty_2_oe() {
+		final Elements sel = html.select("":empty"");
+		// removed other assertion
+		assertEquals(""head"", sel.get(0).tagName());
+	}
+",CssTest::empty_2_oe
+jsoup_342_3,"	@Test
+	public void empty_3_oe() {
+		final Elements sel = html.select("":empty"");
+		// removed other assertion
+		// removed other assertion
+		assertEquals(""br"", sel.get(1).tagName());
+	}
+",CssTest::empty_3_oe
+jsoup_342_4,"	@Test
+	public void empty_4_oe() {
+		final Elements sel = html.select("":empty"");
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		assertEquals(""p"", sel.get(2).tagName());
+	}
+",CssTest::empty_4_oe
+jsoup_343_1,"	@Test
+	public void onlyChild_1_oe() {
+		final Elements sel = html.select(""span :only-child"");
+		assertEquals(1, sel.size());
+	}
+",CssTest::onlyChild_1_oe
+jsoup_343_2,"	@Test
+	public void onlyChild_2_oe() {
+		final Elements sel = html.select(""span :only-child"");
+		// removed other assertion
+		assertEquals(""br"", sel.get(0).tagName());
+	}
+",CssTest::onlyChild_2_oe
+jsoup_344_1,"	@Test
+	public void onlyOfType_1_oe() {
+		final Elements sel = html.select("":only-of-type"");
+		assertEquals(6, sel.size());
+	}
+",CssTest::onlyOfType_1_oe
+jsoup_344_2,"	@Test
+	public void onlyOfType_2_oe() {
+		final Elements sel = html.select("":only-of-type"");
+		// removed other assertion
+		assertEquals(""head"", sel.get(0).tagName());
+	}
+",CssTest::onlyOfType_2_oe
+jsoup_344_3,"	@Test
+	public void onlyOfType_3_oe() {
+		final Elements sel = html.select("":only-of-type"");
+		// removed other assertion
+		// removed other assertion
+		assertEquals(""body"", sel.get(1).tagName());
+	}
+",CssTest::onlyOfType_3_oe
+jsoup_344_4,"	@Test
+	public void onlyOfType_4_oe() {
+		final Elements sel = html.select("":only-of-type"");
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		assertEquals(""span"", sel.get(2).tagName());
+	}
+",CssTest::onlyOfType_4_oe
+jsoup_344_5,"	@Test
+	public void onlyOfType_5_oe() {
+		final Elements sel = html.select("":only-of-type"");
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		assertEquals(""br"", sel.get(3).tagName());
+	}
+",CssTest::onlyOfType_5_oe
+jsoup_344_6,"	@Test
+	public void onlyOfType_6_oe() {
+		final Elements sel = html.select("":only-of-type"");
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		assertEquals(""p"", sel.get(4).tagName());
+	}
+",CssTest::onlyOfType_6_oe
+jsoup_344_7,"	@Test
+	public void onlyOfType_7_oe() {
+		final Elements sel = html.select("":only-of-type"");
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		assertTrue(sel.get(4).hasClass(""empty""));
+	}
+",CssTest::onlyOfType_7_oe
+jsoup_344_8,"	@Test
+	public void onlyOfType_8_oe() {
+		final Elements sel = html.select("":only-of-type"");
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		assertEquals(""em"", sel.get(5).tagName());
+	}
+",CssTest::onlyOfType_8_oe
+jsoup_345_1,"	@Test
+	public void root_1_oe() {
+		Elements sel = html.select("":root"");
+		assertEquals(1, sel.size());
+	}
+",CssTest::root_1_oe
+jsoup_345_2,"	@Test
+	public void root_2_oe() {
+		Elements sel = html.select("":root"");
+		// removed other assertion
+		assertNotNull(sel.get(0));
+	}
+",CssTest::root_2_oe
+jsoup_345_3,"	@Test
+	public void root_3_oe() {
+		Elements sel = html.select("":root"");
+		// removed other assertion
+		// removed other assertion
+		assertEquals(Tag.valueOf(""html""), sel.get(0).tag());
+	}
+",CssTest::root_3_oe
+jsoup_345_4,"	@Test
+	public void root_4_oe() {
+		Elements sel = html.select("":root"");
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		Elements sel2 = html.select(""body"").select("":root"");
+		assertEquals(1, sel2.size());
+	}
+",CssTest::root_4_oe
+jsoup_345_5,"	@Test
+	public void root_5_oe() {
+		Elements sel = html.select("":root"");
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		Elements sel2 = html.select(""body"").select("":root"");
+		// removed other assertion
+		assertNotNull(sel2.get(0));
+	}
+",CssTest::root_5_oe
+jsoup_345_6,"	@Test
+	public void root_6_oe() {
+		Elements sel = html.select("":root"");
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		Elements sel2 = html.select(""body"").select("":root"");
+		// removed other assertion
+		// removed other assertion
+		assertEquals(Tag.valueOf(""body""), sel2.get(0).tag());
+	}
+",CssTest::root_6_oe
+jsoup_415_1,"    @Test
+    public void filterVisit_1_oe() {
+        Document doc = Jsoup.parse(""<div><p>Hello</p></div><div>There</div>"");
+        final StringBuilder accum = new StringBuilder();
+        NodeTraversor.filter(new NodeFilter() {
+            @Override
+            public FilterResult head(Node node, int depth) {
+                accum.append(""<"").append(node.nodeName()).append("">"");
+                return FilterResult.CONTINUE;
+            }
+
+            @Override
+            public FilterResult tail(Node node, int depth) {
+                accum.append(""</"").append(node.nodeName()).append("">"");
+                return FilterResult.CONTINUE;
+            }
+        }, doc.select(""div""));
+        assertEquals(""<div><p><#text></#text></p></div><div><#text></#text></div>"", accum.toString());
+    }
+",TraversorTest::filterVisit_1_oe
+jsoup_416_1,"    @Test
+    public void filterSkipChildren_1_oe() {
+        Document doc = Jsoup.parse(""<div><p>Hello</p></div><div>There</div>"");
+        final StringBuilder accum = new StringBuilder();
+        NodeTraversor.filter(new NodeFilter() {
+            @Override
+            public FilterResult head(Node node, int depth) {
+                accum.append(""<"").append(node.nodeName()).append("">"");
+                // OMIT contents of p:
+                return (""p"".equals(node.nodeName())) ? FilterResult.SKIP_CHILDREN : FilterResult.CONTINUE;
+            }
+
+            @Override
+            public FilterResult tail(Node node, int depth) {
+                accum.append(""</"").append(node.nodeName()).append("">"");
+                return FilterResult.CONTINUE;
+            }
+        }, doc.select(""div""));
+        assertEquals(""<div><p></p></div><div><#text></#text></div>"", accum.toString());
+    }
+",TraversorTest::filterSkipChildren_1_oe
+jsoup_417_1,"    @Test
+    public void filterSkipEntirely_1_oe() {
+        Document doc = Jsoup.parse(""<div><p>Hello</p></div><div>There</div>"");
+        final StringBuilder accum = new StringBuilder();
+        NodeTraversor.filter(new NodeFilter() {
+            @Override
+            public FilterResult head(Node node, int depth) {
+                // OMIT p:
+                if (""p"".equals(node.nodeName()))
+                    return FilterResult.SKIP_ENTIRELY;
+                accum.append(""<"").append(node.nodeName()).append("">"");
+                return FilterResult.CONTINUE;
+            }
+
+            @Override
+            public FilterResult tail(Node node, int depth) {
+                accum.append(""</"").append(node.nodeName()).append("">"");
+                return FilterResult.CONTINUE;
+            }
+        }, doc.select(""div""));
+        assertEquals(""<div></div><div><#text></#text></div>"", accum.toString());
+    }
+",TraversorTest::filterSkipEntirely_1_oe
+jsoup_418_1,"    @Test
+    public void filterRemove_1_oe() {
+        Document doc = Jsoup.parse(""<div><p>Hello</p></div><div>There be <b>bold</b></div>"");
+        NodeTraversor.filter(new NodeFilter() {
+            @Override
+            public FilterResult head(Node node, int depth) {
+                // Delete ""p"" in head:
+                return (""p"".equals(node.nodeName())) ? FilterResult.REMOVE : FilterResult.CONTINUE;
+            }
+
+            @Override
+            public FilterResult tail(Node node, int depth) {
+                // Delete ""b"" in tail:
+                return (""b"".equals(node.nodeName())) ? FilterResult.REMOVE : FilterResult.CONTINUE;
+            }
+        }, doc.select(""div""));
+        assertEquals(""<div></div>\n<div>\n There be\n</div>"", doc.select(""body"").html());
+    }
+",TraversorTest::filterRemove_1_oe
+jsoup_419_1,"    @Test
+    public void filterStop_1_oe() {
+        Document doc = Jsoup.parse(""<div><p>Hello</p></div><div>There</div>"");
+        final StringBuilder accum = new StringBuilder();
+        NodeTraversor.filter(new NodeFilter() {
+            @Override
+            public FilterResult head(Node node, int depth) {
+                accum.append(""<"").append(node.nodeName()).append("">"");
+                return FilterResult.CONTINUE;
+            }
+
+            @Override
+            public FilterResult tail(Node node, int depth) {
+                accum.append(""</"").append(node.nodeName()).append("">"");
+                // Stop after p.
+                return (""p"".equals(node.nodeName())) ? FilterResult.STOP : FilterResult.CONTINUE;
+            }
+        }, doc.select(""div""));
+        assertEquals(""<div><p><#text></#text></p>"", accum.toString());
+    }
+",TraversorTest::filterStop_1_oe
+jsoup_423_1,"    @Test
+    public void unescapeEntities_1_oe() {
+        String s = Parser.unescapeEntities(""One &amp; Two"", false);
+        assertEquals(""One & Two"", s);
+    }
+",ParserTest::unescapeEntities_1_oe
+jsoup_424_1,"    @Test
+    public void unescapeEntitiesHandlesLargeInput_1_oe() {
+        StringBuilder longBody = new StringBuilder(500000);
+        do {
+            longBody.append(""SomeNonEncodedInput"");
+        } while (longBody.length() < 64 * 1024);
+
+        String body = longBody.toString();
+        assertEquals(body, Parser.unescapeEntities(body, false));
+    }
+",ParserTest::unescapeEntitiesHandlesLargeInput_1_oe
+jsoup_425_1,"    @Test
+    public void testUtf8_1_oe() throws IOException {
+        // testcase for https://github.com/jhy/jsoup/issues/1557. no repro.
+        Document parsed = Jsoup.parse(new ByteArrayInputStream(""<p>H\u00E9llo, w\u00F6rld!"".getBytes(StandardCharsets.UTF_8)), null, """");
+        String text = parsed.selectFirst(""p"").wholeText();
+        assertEquals(text, ""H\u00E9llo, w\u00F6rld!"");
+    }
+",ParserTest::testUtf8_1_oe
+jsoup_572_1,"    @Test
+    public void handlesDeepStack_1_oe() {
+        // inspired by http://sv.stargate.wikia.com/wiki/M2J and https://github.com/jhy/jsoup/issues/955
+        // I didn't put it in the integration tests, because explorer and intellij kept dieing trying to preview/index it
+
+        // Arrange
+        StringBuilder longBody = new StringBuilder(500000);
+        for (int i = 0; i < 25000; i++) {
+            longBody.append(i).append(""<dl><dd>"");
+        }
+        for (int i = 0; i < 25000; i++) {
+            longBody.append(i).append(""</dd></dl>"");
+        }
+
+        // Act
+        long start = System.currentTimeMillis();
+        Document doc = Parser.parseBodyFragment(longBody.toString(), """");
+
+        // Assert
+        assertEquals(2, doc.body().childNodeSize());
+    }
+",ParserIT::handlesDeepStack_1_oe
+jsoup_572_2,"    @Test
+    public void handlesDeepStack_2_oe() {
+        // inspired by http://sv.stargate.wikia.com/wiki/M2J and https://github.com/jhy/jsoup/issues/955
+        // I didn't put it in the integration tests, because explorer and intellij kept dieing trying to preview/index it
+
+        // Arrange
+        StringBuilder longBody = new StringBuilder(500000);
+        for (int i = 0; i < 25000; i++) {
+            longBody.append(i).append(""<dl><dd>"");
+        }
+        for (int i = 0; i < 25000; i++) {
+            longBody.append(i).append(""</dd></dl>"");
+        }
+
+        // Act
+        long start = System.currentTimeMillis();
+        Document doc = Parser.parseBodyFragment(longBody.toString(), """");
+
+        // Assert
+        // removed other assertion
+        assertEquals(25000, doc.select(""dd"").size());
+    }
+",ParserIT::handlesDeepStack_2_oe
+jsoup_572_3,"    @Test
+    public void handlesDeepStack_3_oe() {
+        // inspired by http://sv.stargate.wikia.com/wiki/M2J and https://github.com/jhy/jsoup/issues/955
+        // I didn't put it in the integration tests, because explorer and intellij kept dieing trying to preview/index it
+
+        // Arrange
+        StringBuilder longBody = new StringBuilder(500000);
+        for (int i = 0; i < 25000; i++) {
+            longBody.append(i).append(""<dl><dd>"");
+        }
+        for (int i = 0; i < 25000; i++) {
+            longBody.append(i).append(""</dd></dl>"");
+        }
+
+        // Act
+        long start = System.currentTimeMillis();
+        Document doc = Parser.parseBodyFragment(longBody.toString(), """");
+
+        // Assert
+        // removed other assertion
+        // removed other assertion
+        assertTrue(System.currentTimeMillis() - start < 20000); // I get ~ 1.5 seconds, but others have reported slower;
+    }
+",ParserIT::handlesDeepStack_3_oe
+jsoup_598_1,"    @Test
+    public void testCharset_1_oe() {
+        assertEquals(""utf-8"", DataUtil.getCharsetFromContentType(""text/html;charset=utf-8 ""));
+    }
+",DataUtilTest::testCharset_1_oe
+jsoup_598_2,"    @Test
+    public void testCharset_2_oe() {
+        // removed other assertion
+        assertEquals(""UTF-8"", DataUtil.getCharsetFromContentType(""text/html; charset=UTF-8""));
+    }
+",DataUtilTest::testCharset_2_oe
+jsoup_598_3,"    @Test
+    public void testCharset_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""ISO-8859-1"", DataUtil.getCharsetFromContentType(""text/html; charset=ISO-8859-1""));
+    }
+",DataUtilTest::testCharset_3_oe
+jsoup_598_4,"    @Test
+    public void testCharset_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNull(DataUtil.getCharsetFromContentType(""text/html""));
+    }
+",DataUtilTest::testCharset_4_oe
+jsoup_598_5,"    @Test
+    public void testCharset_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNull(DataUtil.getCharsetFromContentType(null));
+    }
+",DataUtilTest::testCharset_5_oe
+jsoup_598_6,"    @Test
+    public void testCharset_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNull(DataUtil.getCharsetFromContentType(""text/html;charset=Unknown""));
+    }
+",DataUtilTest::testCharset_6_oe
+jsoup_599_1,"    @Test
+    public void testQuotedCharset_1_oe() {
+        assertEquals(""utf-8"", DataUtil.getCharsetFromContentType(""text/html; charset=\""utf-8\""""));
+    }
+",DataUtilTest::testQuotedCharset_1_oe
+jsoup_599_2,"    @Test
+    public void testQuotedCharset_2_oe() {
+        // removed other assertion
+        assertEquals(""UTF-8"", DataUtil.getCharsetFromContentType(""text/html;charset=\""UTF-8\""""));
+    }
+",DataUtilTest::testQuotedCharset_2_oe
+jsoup_599_3,"    @Test
+    public void testQuotedCharset_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""ISO-8859-1"", DataUtil.getCharsetFromContentType(""text/html; charset=\""ISO-8859-1\""""));
+    }
+",DataUtilTest::testQuotedCharset_3_oe
+jsoup_599_4,"    @Test
+    public void testQuotedCharset_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNull(DataUtil.getCharsetFromContentType(""text/html; charset=\""Unsupported\""""));
+    }
+",DataUtilTest::testQuotedCharset_4_oe
+jsoup_599_5,"    @Test
+    public void testQuotedCharset_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""UTF-8"", DataUtil.getCharsetFromContentType(""text/html; charset='UTF-8'""));
+    }
+",DataUtilTest::testQuotedCharset_5_oe
+jsoup_600_1,"    @Test
+    public void discardsSpuriousByteOrderMark_1_oe() throws IOException {
+        String html = ""\uFEFF<html><head><title>One</title></head><body>Two</body></html>"";
+        Document doc = DataUtil.parseInputStream(stream(html), ""UTF-8"", ""http://foo.com/"", Parser.htmlParser());
+        assertEquals(""One"", doc.head().text());
+    }
+",DataUtilTest::discardsSpuriousByteOrderMark_1_oe
+jsoup_601_1,"    @Test
+    public void discardsSpuriousByteOrderMarkWhenNoCharsetSet_1_oe() throws IOException {
+        String html = ""\uFEFF<html><head><title>One</title></head><body>Two</body></html>"";
+        Document doc = DataUtil.parseInputStream(stream(html), null, ""http://foo.com/"", Parser.htmlParser());
+        assertEquals(""One"", doc.head().text());
+    }
+",DataUtilTest::discardsSpuriousByteOrderMarkWhenNoCharsetSet_1_oe
+jsoup_601_2,"    @Test
+    public void discardsSpuriousByteOrderMarkWhenNoCharsetSet_2_oe() throws IOException {
+        String html = ""\uFEFF<html><head><title>One</title></head><body>Two</body></html>"";
+        Document doc = DataUtil.parseInputStream(stream(html), null, ""http://foo.com/"", Parser.htmlParser());
+        // removed other assertion
+        assertEquals(""UTF-8"", doc.outputSettings().charset().displayName());
+    }
+",DataUtilTest::discardsSpuriousByteOrderMarkWhenNoCharsetSet_2_oe
+jsoup_602_1,"    @Test
+    public void shouldNotThrowExceptionOnEmptyCharset_1_oe() {
+        assertNull(DataUtil.getCharsetFromContentType(""text/html; charset=""));
+    }
+",DataUtilTest::shouldNotThrowExceptionOnEmptyCharset_1_oe
+jsoup_602_2,"    @Test
+    public void shouldNotThrowExceptionOnEmptyCharset_2_oe() {
+        // removed other assertion
+        assertNull(DataUtil.getCharsetFromContentType(""text/html; charset=;""));
+    }
+",DataUtilTest::shouldNotThrowExceptionOnEmptyCharset_2_oe
+jsoup_603_1,"    @Test
+    public void shouldSelectFirstCharsetOnWeirdMultileCharsetsInMetaTags_1_oe() {
+        assertEquals(""ISO-8859-1"", DataUtil.getCharsetFromContentType(""text/html; charset=ISO-8859-1, charset=1251""));
+    }
+",DataUtilTest::shouldSelectFirstCharsetOnWeirdMultileCharsetsInMetaTags_1_oe
+jsoup_604_1,"    @Test
+    public void shouldCorrectCharsetForDuplicateCharsetString_1_oe() {
+        assertEquals(""iso-8859-1"", DataUtil.getCharsetFromContentType(""text/html; charset=charset=iso-8859-1""));
+    }
+",DataUtilTest::shouldCorrectCharsetForDuplicateCharsetString_1_oe
+jsoup_605_1,"    @Test
+    public void shouldReturnNullForIllegalCharsetNames_1_oe() {
+        assertNull(DataUtil.getCharsetFromContentType(""text/html; charset=$HJKDF§$/(""));
+    }
+",DataUtilTest::shouldReturnNullForIllegalCharsetNames_1_oe
+jsoup_606_1,"    @Test
+    public void generatesMimeBoundaries_1_oe() {
+        String m1 = DataUtil.mimeBoundary();
+        String m2 = DataUtil.mimeBoundary();
+
+        assertEquals(DataUtil.boundaryLength, m1.length());
+    }
+",DataUtilTest::generatesMimeBoundaries_1_oe
+jsoup_606_2,"    @Test
+    public void generatesMimeBoundaries_2_oe() {
+        String m1 = DataUtil.mimeBoundary();
+        String m2 = DataUtil.mimeBoundary();
+
+        // removed other assertion
+        assertEquals(DataUtil.boundaryLength, m2.length());
+    }
+",DataUtilTest::generatesMimeBoundaries_2_oe
+jsoup_606_3,"    @Test
+    public void generatesMimeBoundaries_3_oe() {
+        String m1 = DataUtil.mimeBoundary();
+        String m2 = DataUtil.mimeBoundary();
+
+        // removed other assertion
+        // removed other assertion
+        assertNotSame(m1, m2);
+    }
+",DataUtilTest::generatesMimeBoundaries_3_oe
+jsoup_607_1,"    @Test
+    public void wrongMetaCharsetFallback_1_oe() throws IOException {
+        String html = ""<html><head><meta charset=iso-8></head><body></body></html>"";
+
+        Document doc = DataUtil.parseInputStream(stream(html), null, ""http://example.com"", Parser.htmlParser());
+
+        final String expected = ""<html>\n"" +
+                "" <head>\n"" +
+                ""  <meta charset=\""iso-8\"">\n"" +
+                "" </head>\n"" +
+                "" <body></body>\n"" +
+                ""</html>"";
+
+        assertEquals(expected, doc.toString());
+    }
+",DataUtilTest::wrongMetaCharsetFallback_1_oe
+jsoup_608_1,"    @Test
+    public void secondMetaElementWithContentTypeContainsCharsetParameter_1_oe() throws Exception {
+        String html = ""<html><head>"" +
+                ""<meta http-equiv=\""Content-Type\"" content=\""text/html\"">"" +
+                ""<meta http-equiv=\""Content-Type\"" content=\""text/html; charset=euc-kr\"">"" +
+                ""</head><body>한국어</body></html>"";
+
+        Document doc = DataUtil.parseInputStream(stream(html, ""euc-kr""), null, ""http://example.com"", Parser.htmlParser());
+
+        assertEquals(""한국어"", doc.body().text());
+    }
+",DataUtilTest::secondMetaElementWithContentTypeContainsCharsetParameter_1_oe
+jsoup_609_1,"    @Test
+    public void firstMetaElementWithCharsetShouldBeUsedForDecoding_1_oe() throws Exception {
+        String html = ""<html><head>"" +
+                ""<meta http-equiv=\""Content-Type\"" content=\""text/html; charset=iso-8859-1\"">"" +
+                ""<meta http-equiv=\""Content-Type\"" content=\""text/html; charset=koi8-u\"">"" +
+                ""</head><body>Übergrößenträger</body></html>"";
+
+        Document doc = DataUtil.parseInputStream(stream(html, ""iso-8859-1""), null, ""http://example.com"", Parser.htmlParser());
+
+        assertEquals(""Übergrößenträger"", doc.body().text());
+    }
+",DataUtilTest::firstMetaElementWithCharsetShouldBeUsedForDecoding_1_oe
+jsoup_610_1,"    @Test
+    public void parseSequenceInputStream_1_oe() throws IOException {
+        // https://github.com/jhy/jsoup/pull/1671
+        File in = getFile(""/htmltests/medium.html"");
+        String fileContent = new String(Files.readAllBytes(in.toPath()));
+        int halfLength = fileContent.length() / 2;
+        String firstPart = fileContent.substring(0, halfLength);
+        String secondPart = fileContent.substring(halfLength);
+        SequenceInputStream sequenceStream = new SequenceInputStream(
+                stream(firstPart),
+                stream(secondPart)
+        );
+        Document doc = DataUtil.parseInputStream(sequenceStream, null, """", Parser.htmlParser());
+        assertEquals(fileContent, doc.outerHtml());
+    }
+",DataUtilTest::parseSequenceInputStream_1_oe
+jsoup_611_1,"    @Test
+    public void supportsBOMinFiles_1_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
+        File in = getFile(""/bomtests/bom_utf16be.html"");
+        Document doc = Jsoup.parse(in, null, ""http://example.com"");
+        assertTrue(doc.title().contains(""UTF-16BE""));
+    }
+",DataUtilTest::supportsBOMinFiles_1_oe
+jsoup_611_2,"    @Test
+    public void supportsBOMinFiles_2_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
+        File in = getFile(""/bomtests/bom_utf16be.html"");
+        Document doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        assertTrue(doc.text().contains(""가각갂갃간갅""));
+    }
+",DataUtilTest::supportsBOMinFiles_2_oe
+jsoup_611_3,"    @Test
+    public void supportsBOMinFiles_3_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
+        File in = getFile(""/bomtests/bom_utf16be.html"");
+        Document doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        // removed other assertion
+
+        in = getFile(""/bomtests/bom_utf16le.html"");
+        doc = Jsoup.parse(in, null, ""http://example.com"");
+        assertTrue(doc.title().contains(""UTF-16LE""));
+    }
+",DataUtilTest::supportsBOMinFiles_3_oe
+jsoup_611_4,"    @Test
+    public void supportsBOMinFiles_4_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
+        File in = getFile(""/bomtests/bom_utf16be.html"");
+        Document doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        // removed other assertion
+
+        in = getFile(""/bomtests/bom_utf16le.html"");
+        doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        assertTrue(doc.text().contains(""가각갂갃간갅""));
+    }
+",DataUtilTest::supportsBOMinFiles_4_oe
+jsoup_611_5,"    @Test
+    public void supportsBOMinFiles_5_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
+        File in = getFile(""/bomtests/bom_utf16be.html"");
+        Document doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        // removed other assertion
+
+        in = getFile(""/bomtests/bom_utf16le.html"");
+        doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        // removed other assertion
+
+        in = getFile(""/bomtests/bom_utf32be.html"");
+        doc = Jsoup.parse(in, null, ""http://example.com"");
+        assertTrue(doc.title().contains(""UTF-32BE""));
+    }
+",DataUtilTest::supportsBOMinFiles_5_oe
+jsoup_611_6,"    @Test
+    public void supportsBOMinFiles_6_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
+        File in = getFile(""/bomtests/bom_utf16be.html"");
+        Document doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        // removed other assertion
+
+        in = getFile(""/bomtests/bom_utf16le.html"");
+        doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        // removed other assertion
+
+        in = getFile(""/bomtests/bom_utf32be.html"");
+        doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        assertTrue(doc.text().contains(""가각갂갃간갅""));
+    }
+",DataUtilTest::supportsBOMinFiles_6_oe
+jsoup_611_7,"    @Test
+    public void supportsBOMinFiles_7_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
+        File in = getFile(""/bomtests/bom_utf16be.html"");
+        Document doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        // removed other assertion
+
+        in = getFile(""/bomtests/bom_utf16le.html"");
+        doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        // removed other assertion
+
+        in = getFile(""/bomtests/bom_utf32be.html"");
+        doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        // removed other assertion
+
+        in = getFile(""/bomtests/bom_utf32le.html"");
+        doc = Jsoup.parse(in, null, ""http://example.com"");
+        assertTrue(doc.title().contains(""UTF-32LE""));
+    }
+",DataUtilTest::supportsBOMinFiles_7_oe
+jsoup_611_8,"    @Test
+    public void supportsBOMinFiles_8_oe() throws IOException {
+        // test files from http://www.i18nl10n.com/korean/utftest/
+        File in = getFile(""/bomtests/bom_utf16be.html"");
+        Document doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        // removed other assertion
+
+        in = getFile(""/bomtests/bom_utf16le.html"");
+        doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        // removed other assertion
+
+        in = getFile(""/bomtests/bom_utf32be.html"");
+        doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        // removed other assertion
+
+        in = getFile(""/bomtests/bom_utf32le.html"");
+        doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        assertTrue(doc.text().contains(""가각갂갃간갅""));
+    }
+",DataUtilTest::supportsBOMinFiles_8_oe
+jsoup_612_1,"    @Test
+    public void supportsUTF8BOM_1_oe() throws IOException {
+        File in = getFile(""/bomtests/bom_utf8.html"");
+        Document doc = Jsoup.parse(in, null, ""http://example.com"");
+        assertEquals(""OK"", doc.head().select(""title"").text());
+    }
+",DataUtilTest::supportsUTF8BOM_1_oe
+jsoup_613_1,"    @Test
+    public void noExtraNULLBytes_1_oe() throws IOException {
+    	final byte[] b = ""<html><head><meta charset=\""UTF-8\""></head><body><div><u>ü</u>ü</div></body></html>"".getBytes(StandardCharsets.UTF_8);
+    	
+    	Document doc = Jsoup.parse(new ByteArrayInputStream(b), null, """");
+    	assertFalse( doc.outerHtml().contains(""\u0000"") );
+    }
+",DataUtilTest::noExtraNULLBytes_1_oe
+jsoup_614_1,"    @Test
+    public void supportsZippedUTF8BOM_1_oe() throws IOException {
+        File in = getFile(""/bomtests/bom_utf8.html.gz"");
+        Document doc = Jsoup.parse(in, null, ""http://example.com"");
+        assertEquals(""OK"", doc.head().select(""title"").text());
+    }
+",DataUtilTest::supportsZippedUTF8BOM_1_oe
+jsoup_614_2,"    @Test
+    public void supportsZippedUTF8BOM_2_oe() throws IOException {
+        File in = getFile(""/bomtests/bom_utf8.html.gz"");
+        Document doc = Jsoup.parse(in, null, ""http://example.com"");
+        // removed other assertion
+        assertEquals(""There is a UTF8 BOM at the top (before the XML decl). If not read correctly, will look like a non-joining space."", doc.body().text());
+    }
+",DataUtilTest::supportsZippedUTF8BOM_2_oe
+jsoup_615_1,"    @Test
+    public void supportsXmlCharsetDeclaration_1_oe() throws IOException {
+        String encoding = ""iso-8859-1"";
+        InputStream soup = new ByteArrayInputStream((
+                ""<?xml version=\""1.0\"" encoding=\""iso-8859-1\""?>"" +
+                        ""<!DOCTYPE html PUBLIC \""-//W3C//DTD XHTML 1.0 Strict//EN\"" \""http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\"">"" +
+                        ""<html xmlns=\""http://www.w3.org/1999/xhtml\"" lang=\""en\"" xml:lang=\""en\"">Hellö Wörld!</html>""
+        ).getBytes(Charset.forName(encoding)));
+
+        Document doc = Jsoup.parse(soup, null, """");
+        assertEquals(""Hellö Wörld!"", doc.body().text());
+    }
+",DataUtilTest::supportsXmlCharsetDeclaration_1_oe
+jsoup_616_1,"    @Test
+    public void lLoadsGzipFile_1_oe() throws IOException {
+        File in = getFile(""/htmltests/gzip.html.gz"");
+        Document doc = Jsoup.parse(in, null);
+        assertEquals(""Gzip test"", doc.title());
+    }
+",DataUtilTest::lLoadsGzipFile_1_oe
+jsoup_616_2,"    @Test
+    public void lLoadsGzipFile_2_oe() throws IOException {
+        File in = getFile(""/htmltests/gzip.html.gz"");
+        Document doc = Jsoup.parse(in, null);
+        // removed other assertion
+        assertEquals(""This is a gzipped HTML file."", doc.selectFirst(""p"").text());
+    }
+",DataUtilTest::lLoadsGzipFile_2_oe
+jsoup_617_1,"    @Test
+    public void loadsZGzipFile_1_oe() throws IOException {
+        // compressed on win, with z suffix
+        File in = getFile(""/htmltests/gzip.html.z"");
+        Document doc = Jsoup.parse(in, null);
+        assertEquals(""Gzip test"", doc.title());
+    }
+",DataUtilTest::loadsZGzipFile_1_oe
+jsoup_617_2,"    @Test
+    public void loadsZGzipFile_2_oe() throws IOException {
+        // compressed on win, with z suffix
+        File in = getFile(""/htmltests/gzip.html.z"");
+        Document doc = Jsoup.parse(in, null);
+        // removed other assertion
+        assertEquals(""This is a gzipped HTML file."", doc.selectFirst(""p"").text());
+    }
+",DataUtilTest::loadsZGzipFile_2_oe
+jsoup_618_1,"    @Test
+    public void handlesFakeGzipFile_1_oe() throws IOException {
+        File in = getFile(""/htmltests/fake-gzip.html.gz"");
+        Document doc = Jsoup.parse(in, null);
+        assertEquals(""This is not gzipped"", doc.title());
+    }
+",DataUtilTest::handlesFakeGzipFile_1_oe
+jsoup_618_2,"    @Test
+    public void handlesFakeGzipFile_2_oe() throws IOException {
+        File in = getFile(""/htmltests/fake-gzip.html.gz"");
+        Document doc = Jsoup.parse(in, null);
+        // removed other assertion
+        assertEquals(""And should still be readable."", doc.selectFirst(""p"").text());
+    }
+",DataUtilTest::handlesFakeGzipFile_2_oe
+jsoup_619_1,"    @Test
+    void handlesChunkedInputStream_1_oe() throws IOException {
+        File inputFile = ParseTest.getFile(""/htmltests/large.html"");
+        String input = ParseTest.getFileAsString(inputFile);
+        VaryingReadInputStream stream = new VaryingReadInputStream(ParseTest.inputStreamFrom(input));
+
+        Document expected = Jsoup.parse(input, ""https://example.com"");
+        Document doc = Jsoup.parse(stream, null, ""https://example.com"");
+        assertTrue(doc.hasSameValue(expected));
+    }
+",DataUtilTest::handlesChunkedInputStream_1_oe
+jsoup_620_1,"    @Test
+    void handlesUnlimitedRead_1_oe() throws IOException {
+        File inputFile = ParseTest.getFile(""/htmltests/large.html"");
+        String input = ParseTest.getFileAsString(inputFile);
+        VaryingReadInputStream stream = new VaryingReadInputStream(ParseTest.inputStreamFrom(input));
+
+        ByteBuffer byteBuffer = DataUtil.readToByteBuffer(stream, 0);
+        String read = new String(byteBuffer.array());
+
+        assertEquals(input, read);
+    }
+",DataUtilTest::handlesUnlimitedRead_1_oe
+jsoup_639_1,"    @Test
+    public void simpleConversion_1_oe() {
+        String html = ""<html><head><title>W3c</title></head><body><p class='one' id=12>Text</p><!-- comment --><invalid>What<script>alert('!')"";
+        org.jsoup.nodes.Document doc = Jsoup.parse(html);
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+        NodeList meta = wDoc.getElementsByTagName(""META"");
+        assertEquals(0, meta.getLength());
+    }
+",W3CDomTest::simpleConversion_1_oe
+jsoup_639_2,"    @Test
+    public void simpleConversion_2_oe() {
+        String html = ""<html><head><title>W3c</title></head><body><p class='one' id=12>Text</p><!-- comment --><invalid>What<script>alert('!')"";
+        org.jsoup.nodes.Document doc = Jsoup.parse(html);
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+        NodeList meta = wDoc.getElementsByTagName(""META"");
+        // removed other assertion
+
+        String out = W3CDom.asString(wDoc, W3CDom.OutputXml());
+        String expected = ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?><html><head><title>W3c</title></head><body><p class=\""one\"" id=\""12\"">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>"";
+        assertEquals(expected, TextUtil.stripNewlines(out));
+    }
+",W3CDomTest::simpleConversion_2_oe
+jsoup_639_3,"    @Test
+    public void simpleConversion_3_oe() {
+        String html = ""<html><head><title>W3c</title></head><body><p class='one' id=12>Text</p><!-- comment --><invalid>What<script>alert('!')"";
+        org.jsoup.nodes.Document doc = Jsoup.parse(html);
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+        NodeList meta = wDoc.getElementsByTagName(""META"");
+        // removed other assertion
+
+        String out = W3CDom.asString(wDoc, W3CDom.OutputXml());
+        String expected = ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?><html><head><title>W3c</title></head><body><p class=\""one\"" id=\""12\"">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>"";
+        // removed other assertion
+
+        Document roundTrip = parseXml(out, true);
+        assertEquals(""Text"", roundTrip.getElementsByTagName(""p"").item(0).getTextContent());
+    }
+",W3CDomTest::simpleConversion_3_oe
+jsoup_639_4,"    @Test
+    public void simpleConversion_4_oe() {
+        String html = ""<html><head><title>W3c</title></head><body><p class='one' id=12>Text</p><!-- comment --><invalid>What<script>alert('!')"";
+        org.jsoup.nodes.Document doc = Jsoup.parse(html);
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+        NodeList meta = wDoc.getElementsByTagName(""META"");
+        // removed other assertion
+
+        String out = W3CDom.asString(wDoc, W3CDom.OutputXml());
+        String expected = ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?><html><head><title>W3c</title></head><body><p class=\""one\"" id=\""12\"">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>"";
+        // removed other assertion
+
+        Document roundTrip = parseXml(out, true);
+        // removed other assertion
+
+        // check we can set properties
+        Map<String, String> properties = W3CDom.OutputXml();
+        properties.put(OutputKeys.INDENT, ""yes"");
+        String furtherOut = W3CDom.asString(wDoc, properties);
+        assertTrue(furtherOut.length() > out.length()); // wanted to assert formatting, but actual indentation is platform specific so breaks in CI;
+    }
+",W3CDomTest::simpleConversion_4_oe
+jsoup_639_5,"    @Test
+    public void simpleConversion_5_oe() {
+        String html = ""<html><head><title>W3c</title></head><body><p class='one' id=12>Text</p><!-- comment --><invalid>What<script>alert('!')"";
+        org.jsoup.nodes.Document doc = Jsoup.parse(html);
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+        NodeList meta = wDoc.getElementsByTagName(""META"");
+        // removed other assertion
+
+        String out = W3CDom.asString(wDoc, W3CDom.OutputXml());
+        String expected = ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?><html><head><title>W3c</title></head><body><p class=\""one\"" id=\""12\"">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>"";
+        // removed other assertion
+
+        Document roundTrip = parseXml(out, true);
+        // removed other assertion
+
+        // check we can set properties
+        Map<String, String> properties = W3CDom.OutputXml();
+        properties.put(OutputKeys.INDENT, ""yes"");
+        String furtherOut = W3CDom.asString(wDoc, properties);
+        // removed other assertion
+        String furtherExpected =
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?><html><head><title>W3c</title></head><body><p class=\""one\"" id=\""12\"">Text</p><!-- comment --><invalid>What<script>alert('!')</script></invalid></body></html>"";
+        assertEquals(furtherExpected, TextUtil.stripNewlines(furtherOut)); // on windows, DOM will write newlines as \r\n;
+    }
+",W3CDomTest::simpleConversion_5_oe
+jsoup_640_1,"    @Test
+    public void convertsGoogle_1_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+        org.jsoup.nodes.Document doc = Jsoup.parse(in, ""UTF8"");
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+        Node htmlEl = wDoc.getChildNodes().item(1);
+        assertNull(htmlEl.getNamespaceURI());
+    }
+",W3CDomTest::convertsGoogle_1_oe
+jsoup_640_2,"    @Test
+    public void convertsGoogle_2_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+        org.jsoup.nodes.Document doc = Jsoup.parse(in, ""UTF8"");
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+        Node htmlEl = wDoc.getChildNodes().item(1);
+        // removed other assertion
+        assertEquals(""html"", htmlEl.getLocalName());
+    }
+",W3CDomTest::convertsGoogle_2_oe
+jsoup_640_3,"    @Test
+    public void convertsGoogle_3_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+        org.jsoup.nodes.Document doc = Jsoup.parse(in, ""UTF8"");
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+        Node htmlEl = wDoc.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""html"", htmlEl.getNodeName());
+    }
+",W3CDomTest::convertsGoogle_3_oe
+jsoup_640_4,"    @Test
+    public void convertsGoogle_4_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+        org.jsoup.nodes.Document doc = Jsoup.parse(in, ""UTF8"");
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+        Node htmlEl = wDoc.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        DocumentType doctype = wDoc.getDoctype();
+        Node doctypeNode = wDoc.getChildNodes().item(0);
+        assertSame(doctype, doctypeNode);
+    }
+",W3CDomTest::convertsGoogle_4_oe
+jsoup_640_5,"    @Test
+    public void convertsGoogle_5_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+        org.jsoup.nodes.Document doc = Jsoup.parse(in, ""UTF8"");
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+        Node htmlEl = wDoc.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        DocumentType doctype = wDoc.getDoctype();
+        Node doctypeNode = wDoc.getChildNodes().item(0);
+        // removed other assertion
+        assertEquals(""html"", doctype.getName());
+    }
+",W3CDomTest::convertsGoogle_5_oe
+jsoup_640_6,"    @Test
+    public void convertsGoogle_6_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+        org.jsoup.nodes.Document doc = Jsoup.parse(in, ""UTF8"");
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+        Node htmlEl = wDoc.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        DocumentType doctype = wDoc.getDoctype();
+        Node doctypeNode = wDoc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+
+        String xml = W3CDom.asString(wDoc, W3CDom.OutputXml());
+        assertTrue(xml.contains(""ipod""));
+    }
+",W3CDomTest::convertsGoogle_6_oe
+jsoup_640_7,"    @Test
+    public void convertsGoogle_7_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+        org.jsoup.nodes.Document doc = Jsoup.parse(in, ""UTF8"");
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+        Node htmlEl = wDoc.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        DocumentType doctype = wDoc.getDoctype();
+        Node doctypeNode = wDoc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+
+        String xml = W3CDom.asString(wDoc, W3CDom.OutputXml());
+        // removed other assertion
+
+        Document roundTrip = parseXml(xml, true);
+        assertEquals(""Images"", roundTrip.getElementsByTagName(""a"").item(0).getTextContent());
+    }
+",W3CDomTest::convertsGoogle_7_oe
+jsoup_641_1,"    @Test
+    public void convertsGoogleLocation_1_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/google-ipod.html.gz"");
+        org.jsoup.nodes.Document doc = Jsoup.parse(in, ""UTF8"");
+
+        W3CDom w3c = new W3CDom();
+        Document wDoc = w3c.fromJsoup(doc);
+
+        String out = w3c.asString(wDoc);
+        assertEquals(doc.location(), wDoc.getDocumentURI());
+    }
+",W3CDomTest::convertsGoogleLocation_1_oe
+jsoup_642_1,"    @Test
+    public void namespacePreservation_1_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        assertEquals(""http://www.w3.org/1999/xhtml"", htmlEl.getNamespaceURI());
+    }
+",W3CDomTest::namespacePreservation_1_oe
+jsoup_642_2,"    @Test
+    public void namespacePreservation_2_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        assertEquals(""html"", htmlEl.getLocalName());
+    }
+",W3CDomTest::namespacePreservation_2_oe
+jsoup_642_3,"    @Test
+    public void namespacePreservation_3_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""html"", htmlEl.getNodeName());
+    }
+",W3CDomTest::namespacePreservation_3_oe
+jsoup_642_4,"    @Test
+    public void namespacePreservation_4_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        assertEquals(""http://www.w3.org/1999/xhtml"", head.getNamespaceURI());
+    }
+",W3CDomTest::namespacePreservation_4_oe
+jsoup_642_5,"    @Test
+    public void namespacePreservation_5_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        assertEquals(""head"", head.getLocalName());
+    }
+",W3CDomTest::namespacePreservation_5_oe
+jsoup_642_6,"    @Test
+    public void namespacePreservation_6_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""head"", head.getNodeName());
+    }
+",W3CDomTest::namespacePreservation_6_oe
+jsoup_642_7,"    @Test
+    public void namespacePreservation_7_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        assertEquals(""Check"", epubTitle.getTextContent());
+    }
+",W3CDomTest::namespacePreservation_7_oe
+jsoup_642_8,"    @Test
+    public void namespacePreservation_8_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        assertEquals(""http://www.idpf.org/2007/ops"", epubTitle.getNamespaceURI());
+    }
+",W3CDomTest::namespacePreservation_8_oe
+jsoup_642_9,"    @Test
+    public void namespacePreservation_9_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""title"", epubTitle.getLocalName());
+    }
+",W3CDomTest::namespacePreservation_9_oe
+jsoup_642_10,"    @Test
+    public void namespacePreservation_10_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""epub:title"", epubTitle.getNodeName());
+    }
+",W3CDomTest::namespacePreservation_10_oe
+jsoup_642_11,"    @Test
+    public void namespacePreservation_11_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        assertEquals(""urn:test"", xSection.getNamespaceURI());
+    }
+",W3CDomTest::namespacePreservation_11_oe
+jsoup_642_12,"    @Test
+    public void namespacePreservation_12_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        assertEquals(""section"", xSection.getLocalName());
+    }
+",W3CDomTest::namespacePreservation_12_oe
+jsoup_642_13,"    @Test
+    public void namespacePreservation_13_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""x:section"", xSection.getNodeName());
+    }
+",W3CDomTest::namespacePreservation_13_oe
+jsoup_642_14,"    @Test
+    public void namespacePreservation_14_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        assertEquals(""http://www.w3.org/2000/svg"", svg.getNamespaceURI());
+    }
+",W3CDomTest::namespacePreservation_14_oe
+jsoup_642_15,"    @Test
+    public void namespacePreservation_15_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        assertEquals(""svg"", svg.getLocalName());
+    }
+",W3CDomTest::namespacePreservation_15_oe
+jsoup_642_16,"    @Test
+    public void namespacePreservation_16_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""svg"", svg.getNodeName());
+    }
+",W3CDomTest::namespacePreservation_16_oe
+jsoup_642_17,"    @Test
+    public void namespacePreservation_17_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        assertEquals(""http://www.w3.org/2000/svg"", path.getNamespaceURI());
+    }
+",W3CDomTest::namespacePreservation_17_oe
+jsoup_642_18,"    @Test
+    public void namespacePreservation_18_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        assertEquals(""path"", path.getLocalName());
+    }
+",W3CDomTest::namespacePreservation_18_oe
+jsoup_642_19,"    @Test
+    public void namespacePreservation_19_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""path"", path.getNodeName());
+    }
+",W3CDomTest::namespacePreservation_19_oe
+jsoup_642_20,"    @Test
+    public void namespacePreservation_20_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node clip = path.getChildNodes().item(1);
+        assertEquals(""http://example.com/clip"", clip.getNamespaceURI());
+    }
+",W3CDomTest::namespacePreservation_20_oe
+jsoup_642_21,"    @Test
+    public void namespacePreservation_21_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        assertEquals(""clip"", clip.getLocalName());
+    }
+",W3CDomTest::namespacePreservation_21_oe
+jsoup_642_22,"    @Test
+    public void namespacePreservation_22_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""clip"", clip.getNodeName());
+    }
+",W3CDomTest::namespacePreservation_22_oe
+jsoup_642_23,"    @Test
+    public void namespacePreservation_23_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""456"", clip.getTextContent());
+    }
+",W3CDomTest::namespacePreservation_23_oe
+jsoup_642_24,"    @Test
+    public void namespacePreservation_24_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node picture = svg.getNextSibling().getNextSibling();
+        assertEquals(""http://www.w3.org/1999/xhtml"", picture.getNamespaceURI());
+    }
+",W3CDomTest::namespacePreservation_24_oe
+jsoup_642_25,"    @Test
+    public void namespacePreservation_25_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node picture = svg.getNextSibling().getNextSibling();
+        // removed other assertion
+        assertEquals(""picture"", picture.getLocalName());
+    }
+",W3CDomTest::namespacePreservation_25_oe
+jsoup_642_26,"    @Test
+    public void namespacePreservation_26_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node picture = svg.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""picture"", picture.getNodeName());
+    }
+",W3CDomTest::namespacePreservation_26_oe
+jsoup_642_27,"    @Test
+    public void namespacePreservation_27_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node picture = svg.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node img = picture.getFirstChild();
+        assertEquals(""http://www.w3.org/1999/xhtml"", img.getNamespaceURI());
+    }
+",W3CDomTest::namespacePreservation_27_oe
+jsoup_642_28,"    @Test
+    public void namespacePreservation_28_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node picture = svg.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node img = picture.getFirstChild();
+        // removed other assertion
+        assertEquals(""img"", img.getLocalName());
+    }
+",W3CDomTest::namespacePreservation_28_oe
+jsoup_642_29,"    @Test
+    public void namespacePreservation_29_oe() throws IOException {
+        File in = ParseTest.getFile(""/htmltests/namespaces.xhtml"");
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(in, ""UTF-8"");
+
+        Document doc;
+        org.jsoup.helper.W3CDom jDom = new org.jsoup.helper.W3CDom();
+        doc = jDom.fromJsoup(jsoupDoc);
+
+        Node htmlEl = doc.getChildNodes().item(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // inherits default namespace
+        Node head = htmlEl.getFirstChild().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node epubTitle = htmlEl.getChildNodes().item(3).getChildNodes().item(3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node xSection = epubTitle.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // https://github.com/jhy/jsoup/issues/977
+        // does not keep last set namespace
+        Node svg = xSection.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node path = svg.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node clip = path.getChildNodes().item(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node picture = svg.getNextSibling().getNextSibling();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node img = picture.getFirstChild();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""img"", img.getNodeName());
+    }
+",W3CDomTest::namespacePreservation_29_oe
+jsoup_643_1,"    @Test
+    public void handlesInvalidAttributeNames_1_oe() {
+        String html = ""<html><head></head><body style=\""color: red\"" \"" name\""></body></html>"";
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(html);
+        Element body = jsoupDoc.select(""body"").first();
+        assertTrue(body.hasAttr(""\"""")); // actually an attribute with key '""'. Correct per HTML5 spec, but w3c xml dom doesn't dig it;
+    }
+",W3CDomTest::handlesInvalidAttributeNames_1_oe
+jsoup_643_2,"    @Test
+    public void handlesInvalidAttributeNames_2_oe() {
+        String html = ""<html><head></head><body style=\""color: red\"" \"" name\""></body></html>"";
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(html);
+        Element body = jsoupDoc.select(""body"").first();
+        // removed other assertion
+        assertTrue(body.hasAttr(""name\""""));
+    }
+",W3CDomTest::handlesInvalidAttributeNames_2_oe
+jsoup_643_3,"    @Test
+    public void handlesInvalidAttributeNames_3_oe() {
+        String html = ""<html><head></head><body style=\""color: red\"" \"" name\""></body></html>"";
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(html);
+        Element body = jsoupDoc.select(""body"").first();
+        // removed other assertion
+        // removed other assertion
+
+        Document w3Doc = W3CDom.convert(jsoupDoc);
+        String xml = W3CDom.asString(w3Doc, W3CDom.OutputXml());
+        assertEquals(""<?xml version=\""1.0\"" encoding=\""UTF-8\""?><html><head/><body name=\""\"" style=\""color: red\""/></html>"", xml);
+    }
+",W3CDomTest::handlesInvalidAttributeNames_3_oe
+jsoup_644_1,"    @Test
+    public void htmlInputDocMaintainsHtmlAttributeNames_1_oe() {
+        String html = ""<!DOCTYPE html><html><head></head><body><p hành=\""1\"" hình=\""2\"">unicode attr names</p></body></html>"";
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(html);
+
+        Document w3Doc = W3CDom.convert(jsoupDoc);
+        String out = W3CDom.asString(w3Doc, W3CDom.OutputHtml());
+        String expected = ""<!DOCTYPE html SYSTEM \""about:legacy-compat\""><html><head><META http-equiv=\""Content-Type\"" content=\""text/html; charset=UTF-8\""></head><body><p hành=\""1\"" hình=\""2\"">unicode attr names</p></body></html>"";
+        assertEquals(expected, TextUtil.stripNewlines(out));
+    }
+",W3CDomTest::htmlInputDocMaintainsHtmlAttributeNames_1_oe
+jsoup_645_1,"    @Test
+    public void xmlInputDocMaintainsHtmlAttributeNames_1_oe() {
+        String html = ""<!DOCTYPE html><html><head></head><body><p hành=\""1\"" hình=\""2\"">unicode attr names coerced</p></body></html>"";
+        org.jsoup.nodes.Document jsoupDoc;
+        jsoupDoc = Jsoup.parse(html);
+        jsoupDoc.outputSettings().syntax(org.jsoup.nodes.Document.OutputSettings.Syntax.xml);
+
+        Document w3Doc = W3CDom.convert(jsoupDoc);
+        String out = W3CDom.asString(w3Doc, W3CDom.OutputHtml());
+        String expected = ""<!DOCTYPE html SYSTEM \""about:legacy-compat\""><html><head><META http-equiv=\""Content-Type\"" content=\""text/html; charset=UTF-8\""></head><body><p hnh=\""2\"">unicode attr names coerced</p></body></html>"";
+        assertEquals(expected, TextUtil.stripNewlines(out));
+    }
+",W3CDomTest::xmlInputDocMaintainsHtmlAttributeNames_1_oe
+jsoup_646_1,"    @Test
+    public void handlesInvalidTagAsText_1_oe() {
+        org.jsoup.nodes.Document jsoup = Jsoup.parse(""<インセンティブで高収入！>Text <p>More</p>"");
+
+        Document w3Doc = W3CDom.convert(jsoup);
+        String xml = W3CDom.asString(w3Doc, W3CDom.OutputXml());
+        assertEquals(""<?xml version=\""1.0\"" encoding=\""UTF-8\""?><html><head/><body>&lt;インセンティブで高収入！&gt;Text <p>More</p></body></html>"", xml);
+    }
+",W3CDomTest::handlesInvalidTagAsText_1_oe
+jsoup_647_1,"    @Test
+    public void treatsUndeclaredNamespaceAsLocalName_1_oe() {
+        String html = ""<fb:like>One</fb:like>"";
+        org.jsoup.nodes.Document doc = Jsoup.parse(html);
+
+        Document w3Doc = new W3CDom().fromJsoup(doc);
+        Node htmlEl = w3Doc.getFirstChild();
+
+        assertNull(htmlEl.getNamespaceURI());
+    }
+",W3CDomTest::treatsUndeclaredNamespaceAsLocalName_1_oe
+jsoup_647_2,"    @Test
+    public void treatsUndeclaredNamespaceAsLocalName_2_oe() {
+        String html = ""<fb:like>One</fb:like>"";
+        org.jsoup.nodes.Document doc = Jsoup.parse(html);
+
+        Document w3Doc = new W3CDom().fromJsoup(doc);
+        Node htmlEl = w3Doc.getFirstChild();
+
+        // removed other assertion
+        assertEquals(""html"", htmlEl.getLocalName());
+    }
+",W3CDomTest::treatsUndeclaredNamespaceAsLocalName_2_oe
+jsoup_647_3,"    @Test
+    public void treatsUndeclaredNamespaceAsLocalName_3_oe() {
+        String html = ""<fb:like>One</fb:like>"";
+        org.jsoup.nodes.Document doc = Jsoup.parse(html);
+
+        Document w3Doc = new W3CDom().fromJsoup(doc);
+        Node htmlEl = w3Doc.getFirstChild();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""html"", htmlEl.getNodeName());
+    }
+",W3CDomTest::treatsUndeclaredNamespaceAsLocalName_3_oe
+jsoup_647_4,"    @Test
+    public void treatsUndeclaredNamespaceAsLocalName_4_oe() {
+        String html = ""<fb:like>One</fb:like>"";
+        org.jsoup.nodes.Document doc = Jsoup.parse(html);
+
+        Document w3Doc = new W3CDom().fromJsoup(doc);
+        Node htmlEl = w3Doc.getFirstChild();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node fb = htmlEl.getFirstChild().getNextSibling().getFirstChild();
+        assertNull(fb.getNamespaceURI());
+    }
+",W3CDomTest::treatsUndeclaredNamespaceAsLocalName_4_oe
+jsoup_647_5,"    @Test
+    public void treatsUndeclaredNamespaceAsLocalName_5_oe() {
+        String html = ""<fb:like>One</fb:like>"";
+        org.jsoup.nodes.Document doc = Jsoup.parse(html);
+
+        Document w3Doc = new W3CDom().fromJsoup(doc);
+        Node htmlEl = w3Doc.getFirstChild();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node fb = htmlEl.getFirstChild().getNextSibling().getFirstChild();
+        // removed other assertion
+        assertEquals(""like"", fb.getLocalName());
+    }
+",W3CDomTest::treatsUndeclaredNamespaceAsLocalName_5_oe
+jsoup_647_6,"    @Test
+    public void treatsUndeclaredNamespaceAsLocalName_6_oe() {
+        String html = ""<fb:like>One</fb:like>"";
+        org.jsoup.nodes.Document doc = Jsoup.parse(html);
+
+        Document w3Doc = new W3CDom().fromJsoup(doc);
+        Node htmlEl = w3Doc.getFirstChild();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Node fb = htmlEl.getFirstChild().getNextSibling().getFirstChild();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""fb:like"", fb.getNodeName());
+    }
+",W3CDomTest::treatsUndeclaredNamespaceAsLocalName_6_oe
+jsoup_648_1,"    @Test
+    public void xmlnsXpathTest_1_oe() throws XPathExpressionException {
+        W3CDom w3c = new W3CDom();
+        String html = ""<html><body><div>hello</div></body></html>"";
+        Document dom = w3c.fromJsoup(Jsoup.parse(html));
+        NodeList nodeList = xpath(dom, ""//body"");// no ns, so needs no prefix
+        assertEquals(""div"", nodeList.item(0).getLocalName());
+    }
+",W3CDomTest::xmlnsXpathTest_1_oe
+jsoup_648_2,"    @Test
+    public void xmlnsXpathTest_2_oe() throws XPathExpressionException {
+        W3CDom w3c = new W3CDom();
+        String html = ""<html><body><div>hello</div></body></html>"";
+        Document dom = w3c.fromJsoup(Jsoup.parse(html));
+        NodeList nodeList = xpath(dom, ""//body"");// no ns, so needs no prefix
+        // removed other assertion
+
+        // default output is namespace aware, so query needs to be as well
+        html = ""<html xmlns='http://www.w3.org/1999/xhtml'><body id='One'><div>hello</div></body></html>"";
+        dom = w3c.fromJsoup(Jsoup.parse(html));
+        nodeList = xpath(dom, ""//body"");
+        assertNull(nodeList); // no matches;
+    }
+",W3CDomTest::xmlnsXpathTest_2_oe
