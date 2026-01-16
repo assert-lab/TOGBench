@@ -503,6 +503,7 @@ rng-_241_2,commons-rng-1.4-src,ProvidersCommonParametricTest,testStateSettable_2
 rng-_241_3,commons-rng-1.4-src,ProvidersCommonParametricTest,testStateSettable_3_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown
 rng-_241_4,commons-rng-1.4-src,ProvidersCommonParametricTest,testStateSettable_4_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown
 rng-_242_1,commons-rng-1.4-src,ProvidersCommonParametricTest,testStateWrongSize_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown
+rng-_243_1,commons-rng-1.4-src,ProvidersCommonParametricTest,testRestoreForeignState_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest.java,,,,assert,unknown
 rng-_244_1,commons-rng-1.4-src,BaseProviderTest,testStateSizeTooSmall_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/BaseProviderTest.java,,,,assert,unknown
 rng-_245_1,commons-rng-1.4-src,BaseProviderTest,testStateSizeTooLarge_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/BaseProviderTest.java,,,,assert,unknown
 rng-_246_1,commons-rng-1.4-src,BaseProviderTest,testFillStateInt_1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/BaseProviderTest.java,,,,assert,unknown

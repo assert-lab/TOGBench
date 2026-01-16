@@ -11,6 +11,8 @@
 [INFO] --- compiler:3.10.1:compile (default-compile) @ springside-metrics ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 18 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/target/classes
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java uses or overrides a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java: Recompile with -Xlint:removal for details.
 [INFO] 
 [INFO] --- resources:3.3.0:testResources (default-testResources) @ springside-metrics ---
 [INFO] Copying 1 resource
@@ -24,14 +26,14 @@
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running org.springside.modules.metrics.CounterTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s - in org.springside.modules.metrics.CounterTest_OE25Dev
-[INFO] Running org.springside.modules.metrics.MetricRegistryTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.MetricRegistryTest_OE25Dev
-[INFO] Running org.springside.modules.metrics.TimerTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.TimerTest_OE25Dev
 [INFO] Running org.springside.modules.metrics.HistogramTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.metrics.HistogramTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 s - in org.springside.modules.metrics.HistogramTest_OE25Dev
+[INFO] Running org.springside.modules.metrics.CounterTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.springside.modules.metrics.CounterTest_OE25Dev
+[INFO] Running org.springside.modules.metrics.MetricRegistryTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.springside.modules.metrics.MetricRegistryTest_OE25Dev
+[INFO] Running org.springside.modules.metrics.TimerTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.springside.modules.metrics.TimerTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -40,6 +42,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  3.188 s
-[INFO] Finished at: 2026-01-16T13:18:05-05:00
+[INFO] Total time:  4.187 s
+[INFO] Finished at: 2026-01-16T15:50:16-05:00
 [INFO] ------------------------------------------------------------------------

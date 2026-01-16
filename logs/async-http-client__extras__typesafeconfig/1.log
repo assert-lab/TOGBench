@@ -27,8 +27,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.206 s
-[INFO] Finished at: 2026-01-16T13:18:53-05:00
+[INFO] Total time:  2.345 s
+[INFO] Finished at: 2026-01-16T15:50:52-05:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-typesafe-config: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 

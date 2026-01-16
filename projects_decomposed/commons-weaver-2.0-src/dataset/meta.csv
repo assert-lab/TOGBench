@@ -55,6 +55,7 @@ weav_26_1,commons-weaver-2.0-src,OverloadingTest,testCharishArgs_1_oe,modules/pr
 weav_27_1,commons-weaver-2.0-src,NoArgsTest,testGetFoo_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/NoArgsTest.java,,,,assert,unknown
 weav_28_1,commons-weaver-2.0-src,NoArgsTest,testGetTrue_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/NoArgsTest.java,,,,assert,unknown
 weav_29_1,commons-weaver-2.0-src,NoArgsTest,testGetFalse_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/NoArgsTest.java,,,,assert,unknown
+weav_30_1,commons-weaver-2.0-src,NoArgsTest,testThrowingCheckedException1_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/NoArgsTest.java,,,,assert,unknown
 weav_31_1,commons-weaver-2.0-src,NoArgsTest,testThrowingCheckedException2_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/NoArgsTest.java,,,,assert,unknown
 weav_32_1,commons-weaver-2.0-src,UsingArgsTest,testGetProperty_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/UsingArgsTest.java,,,,assert,unknown
 weav_32_2,commons-weaver-2.0-src,UsingArgsTest,testGetProperty_2_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/UsingArgsTest.java,,,,assert,unknown
@@ -69,6 +70,7 @@ weav_35_1,commons-weaver-2.0-src,UsingArgsTest,testThrowingCheckedException_1_oe
 weav_36_1,commons-weaver-2.0-src,StaticNoArgsTest,testGetFoo_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/StaticNoArgsTest.java,,,,assert,unknown
 weav_37_1,commons-weaver-2.0-src,StaticNoArgsTest,testGetTrue_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/StaticNoArgsTest.java,,,,assert,unknown
 weav_38_1,commons-weaver-2.0-src,StaticNoArgsTest,testGetFalse_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/StaticNoArgsTest.java,,,,assert,unknown
+weav_39_1,commons-weaver-2.0-src,StaticNoArgsTest,testThrowingCheckedException1_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/StaticNoArgsTest.java,,,,assert,unknown
 weav_40_1,commons-weaver-2.0-src,StaticNoArgsTest,testThrowingCheckedException2_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/StaticNoArgsTest.java,,,,assert,unknown
 weav_41_1,commons-weaver-2.0-src,StaticPrivateMethodsTest,testGet_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/StaticPrivateMethodsTest.java,,,,assert,unknown
 weav_41_2,commons-weaver-2.0-src,StaticPrivateMethodsTest,testGet_2_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/StaticPrivateMethodsTest.java,,,,assert,unknown

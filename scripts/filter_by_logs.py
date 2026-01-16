@@ -1,121 +1,104 @@
+#!/usr/bin/env python3
 import os
 import re
 import csv
+from pathlib import Path
 
-LOG_ROOT = "logs"
-PROJECTS_DIR = "projects_decomposed"
+BASE = Path(__file__).resolve().parent.parent
+LOG_PATH = BASE / "scripts" / "deleted_test_files.log"
+PROJECTS_DIR = BASE / "projects_decomposed"
 
-running_re = re.compile(r"\[INFO\]\s+Running\s+([^\s]+)")
-in_re = re.compile(r"- in\s+([^\s]+)\s*$")
-error_class_re = re.compile(r"\(([^()]+)\)")
+deleted_names = set()
+pattern = re.compile(r"deleting\s+(\S+_OE25Dev\.java)")
 
-def collect_project_classes():
-    project_classes = {}
-    for dirpath, dirnames, filenames in os.walk(LOG_ROOT):
-        rel = os.path.relpath(dirpath, LOG_ROOT)
-        if rel == ".":
+with LOG_PATH.open("r", encoding="utf-8", errors="ignore") as f:
+    for line in f:
+        m = pattern.search(line)
+        if not m:
             continue
-        base = rel.split(os.sep)[0]
-        project = base.split("__")[0]
-        cls_set = project_classes.setdefault(project, set())
-        for fn in filenames:
-            if not fn.endswith(".log"):
-                continue
-            log_path = os.path.join(dirpath, fn)
-            try:
-                with open(log_path, "r", errors="ignore") as f:
-                    for line in f:
-                        if "_OE25Dev" not in line:
-                            continue
-                        if "[INFO]" in line:
-                            m = running_re.search(line)
-                            if m:
-                                cls = m.group(1)
-                                if cls.endswith("_OE25Dev"):
-                                    cls_set.add(cls)
-                            m2 = in_re.search(line)
-                            if m2:
-                                cls = m2.group(1)
-                                if cls.endswith("_OE25Dev"):
-                                    cls_set.add(cls)
-                        if "[ERROR]" in line:
-                            m3 = error_class_re.search(line)
-                            if m3:
-                                cls = m3.group(1)
-                                if cls.endswith("_OE25Dev"):
-                                    cls_set.add(cls)
-            except FileNotFoundError:
-                continue
-    return project_classes
+        name = m.group(1)
+        orig = re.sub(r"_OE25Dev\.java$", ".java", name)
+        deleted_names.add(orig)
 
-def filter_project(project, test_paths):
-    dataset_dir = os.path.join(PROJECTS_DIR, project, "dataset")
-    meta_path = os.path.join(dataset_dir, "meta.csv")
-    inputs_path = os.path.join(dataset_dir, "inputs.csv")
-    if not os.path.exists(meta_path):
-        print(f"Skipping {project}: no meta.csv")
-        return
-    if not os.path.exists(inputs_path):
-        print(f"Skipping {project}: no inputs.csv")
-        return
-    with open(meta_path, newline="") as f:
-        reader = csv.reader(f)
-        meta_rows = list(reader)
+print(f"Loaded {len(deleted_names)} deleted test files from log")
+
+for project_dir in PROJECTS_DIR.iterdir():
+    if not project_dir.is_dir():
+        continue
+    dataset_dir = project_dir / "dataset"
+    meta_path = dataset_dir / "meta.csv"
+    inputs_path = dataset_dir / "inputs.csv"
+    if not meta_path.exists() or not inputs_path.exists():
+        continue
+
+    with meta_path.open(newline="", encoding="utf-8") as f:
+        meta_rows = list(csv.reader(f))
     if not meta_rows:
-        print(f"Skipping {project}: empty meta.csv")
-        return
+        continue
+
     meta_header = meta_rows[0]
-    try:
-        meta_test_idx = meta_header.index("test_file_path")
-        meta_id_idx = meta_header.index("id")
-    except ValueError:
-        print(f"Skipping {project}: required columns missing in meta.csv")
-        return
+    if "test_file_path" not in meta_header or "id" not in meta_header:
+        print(f"Skipping {project_dir.name}: required columns missing in meta.csv")
+        continue
+
+    idx_test = meta_header.index("test_file_path")
+    idx_id = meta_header.index("id")
+
     kept_meta = [meta_header]
-    kept_ids = set()
+    failed_meta = [meta_header]
+    failed_ids = set()
+
     for row in meta_rows[1:]:
-        if meta_test_idx < len(row) and row[meta_test_idx] in test_paths:
+        if idx_test >= len(row):
             kept_meta.append(row)
-            if meta_id_idx < len(row):
-                kept_ids.add(row[meta_id_idx])
-    with open(meta_path, "w", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerows(kept_meta)
-    with open(inputs_path, newline="") as f:
-        reader = csv.reader(f)
-        inputs_rows = list(reader)
-    if not inputs_rows:
-        print(f"Skipping {project}: empty inputs.csv")
-        return
-    inputs_header = inputs_rows[0]
-    try:
-        inputs_id_idx = inputs_header.index("id")
-    except ValueError:
-        print(f"Skipping {project}: 'id' column missing in inputs.csv")
-        return
-    kept_inputs = [inputs_header]
-    for row in inputs_rows[1:]:
-        if inputs_id_idx < len(row) and row[inputs_id_idx] in kept_ids:
-            kept_inputs.append(row)
-    with open(inputs_path, "w", newline="") as f:
-        writer = csv.writer(f)
-        writer.writerows(kept_inputs)
-    print(f"Project {project}: kept {len(kept_meta)-1} tests")
-
-def main():
-    project_classes = collect_project_classes()
-    if not project_classes:
-        print("No projects found in logs")
-        return
-    for project, classes in project_classes.items():
-        if not classes:
-            print(f"Project {project}: no OE25Dev classes found in logs")
             continue
-        test_paths = set()
-        for cls in classes:
-            path = "src/test/java/" + cls.replace(".", "/") + ".java"
-            test_paths.add(path)
-        filter_project(project, test_paths)
+        path = row[idx_test]
+        base = os.path.basename(path)
+        if base in deleted_names:
+            failed_meta.append(row)
+            if idx_id < len(row):
+                failed_ids.add(row[idx_id])
+        else:
+            kept_meta.append(row)
 
-if __name__ == "__main__":
-    main()
+    with inputs_path.open(newline="", encoding="utf-8") as f:
+        inputs_rows = list(csv.reader(f))
+    if not inputs_rows:
+        continue
+
+    inputs_header = inputs_rows[0]
+    if "id" not in inputs_header:
+        print(f"Skipping {project_dir.name}: 'id' column missing in inputs.csv")
+        continue
+
+    idx_in_id = inputs_header.index("id")
+
+    kept_inputs = [inputs_header]
+    failed_inputs = [inputs_header]
+
+    for row in inputs_rows[1:]:
+        if idx_in_id >= len(row):
+            kept_inputs.append(row)
+            continue
+        rid = row[idx_in_id]
+        if rid in failed_ids:
+            failed_inputs.append(row)
+        else:
+            kept_inputs.append(row)
+
+    with meta_path.open("w", newline="", encoding="utf-8") as f:
+        csv.writer(f).writerows(kept_meta)
+    with inputs_path.open("w", newline="", encoding="utf-8") as f:
+        csv.writer(f).writerows(kept_inputs)
+
+    meta_failed_path = dataset_dir / "meta_failed.csv"
+    inputs_failed_path = dataset_dir / "inputs_failed.csv"
+
+    with meta_failed_path.open("w", newline="", encoding="utf-8") as f:
+        csv.writer(f).writerows(failed_meta)
+    with inputs_failed_path.open("w", newline="", encoding="utf-8") as f:
+        csv.writer(f).writerows(failed_inputs)
+
+    print(
+        f"Project {project_dir.name}: moved {len(failed_meta)-1} tests to *_failed.csv, kept {len(kept_meta)-1}"
+    )

@@ -13260,6 +13260,17 @@ geom_282_1,"    @Test
         Assertions.assertEquals(""|"", formatter.getSeparator());
     }
 ",SimpleTupleFormatTest::testConstructor_1_oe
+geom_282_2,"    @Test
+    void testConstructor_2_oe() {
+        // act
+        final SimpleTupleFormat formatter = new SimpleTupleFormat(""|"", ""{"", ""}"");
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(""{"", formatter.getPrefix());
+    }
+
+    }",SimpleTupleFormatTest::testConstructor_2_oe
 geom_282_3,"    @Test
     void testConstructor_3_oe() {
         // act
@@ -13280,6 +13291,17 @@ geom_283_1,"    @Test
         Assertions.assertEquals("","", formatter.getSeparator());
     }
 ",SimpleTupleFormatTest::testConstructor_defaultSeparator_1_oe
+geom_283_2,"    @Test
+    void testConstructor_defaultSeparator_2_oe() {
+        // act
+        final SimpleTupleFormat formatter = new SimpleTupleFormat(""{"", ""}"");
+
+        // assert
+        // removed other assertion
+        Assertions.assertEquals(""{"", formatter.getPrefix());
+    }
+
+    }",SimpleTupleFormatTest::testConstructor_defaultSeparator_2_oe
 geom_283_3,"    @Test
     void testConstructor_defaultSeparator_3_oe() {
         // act
@@ -29520,6 +29542,21 @@ geom_473_8,"    @Test
         Assertions.assertSame(root.getPlus().getPlus(), nodes.get(6));
     }
 ",AbstractBSPTreeTest::testNodesIterable_multipleNodes_8_oe
+geom_474_1,"    @Test
+    void testNodesIterable_iteratorThrowsNoSuchElementExceptionAtEnd_1_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+
+        final Iterator<TestNode> it = tree.nodes().iterator();
+        it.next();
+
+        // act
+        try {
+            it.next();
+            Assertions.fail(""Operation should have thrown an exception"");
+    }
+    }
+",AbstractBSPTreeTest::testNodesIterable_iteratorThrowsNoSuchElementExceptionAtEnd_1_oe
 geom_475_1,"    @Test
     void testSubtreeNodesIterable_singleNodeSubtree_1_oe() {
         // arrange
@@ -36764,6 +36801,49 @@ geom_584_2,"    @Test
         Assertions.assertTrue(b.contains(seg.getEndPoint()));
     }
 ",BoundarySourceBoundsBuilder2DTest::testGetBounds_singleFiniteBoundary_2_oe
+geom_585_1,"    @Test
+    void testGetBounds_multipleFiniteBoundaries_1_oe() {
+        // arrange
+        final Segment seg1 = Lines.segmentFromPoints(Vector2D.of(1, -2), Vector2D.of(-3, 4), TEST_PRECISION);
+        final Segment seg2 = Lines.segmentFromPoints(Vector2D.of(0, 1), Vector2D.of(7, 0), TEST_PRECISION);
+        final Segment seg3 = Lines.segmentFromPoints(Vector2D.of(4, 6), Vector2D.of(-3, 9), TEST_PRECISION);
+
+        final BoundarySource2D src = BoundarySource2D.of(seg1, seg2, seg3);
+        final BoundarySourceBoundsBuilder2D builder = new BoundarySourceBoundsBuilder2D();
+
+        // act
+        final Bounds2D b = builder.getBounds(src);
+
+        // assert
+        checkBounds(b, Vector2D.of(-3, -2), Vector2D.of(7, 9));
+
+        src.boundaryStream().forEach(boundary -> {
+            Assertions.assertTrue(b.contains(boundary.getStartPoint()));
+    }
+    }
+",BoundarySourceBoundsBuilder2DTest::testGetBounds_multipleFiniteBoundaries_1_oe
+geom_585_2,"    @Test
+    void testGetBounds_multipleFiniteBoundaries_2_oe() {
+        // arrange
+        final Segment seg1 = Lines.segmentFromPoints(Vector2D.of(1, -2), Vector2D.of(-3, 4), TEST_PRECISION);
+        final Segment seg2 = Lines.segmentFromPoints(Vector2D.of(0, 1), Vector2D.of(7, 0), TEST_PRECISION);
+        final Segment seg3 = Lines.segmentFromPoints(Vector2D.of(4, 6), Vector2D.of(-3, 9), TEST_PRECISION);
+
+        final BoundarySource2D src = BoundarySource2D.of(seg1, seg2, seg3);
+        final BoundarySourceBoundsBuilder2D builder = new BoundarySourceBoundsBuilder2D();
+
+        // act
+        final Bounds2D b = builder.getBounds(src);
+
+        // assert
+        checkBounds(b, Vector2D.of(-3, -2), Vector2D.of(7, 9));
+
+        src.boundaryStream().forEach(boundary -> {
+            // removed other assertion
+            Assertions.assertTrue(b.contains(boundary.getEndPoint()));
+    }
+    }
+",BoundarySourceBoundsBuilder2DTest::testGetBounds_multipleFiniteBoundaries_2_oe
 geom_586_1,"    @Test
     void testGetBounds_singleInfiniteBoundary_1_oe() {
         // arrange
@@ -40445,6 +40525,106 @@ geom_672_1,"    @Test
         Assertions.assertArrayEquals(expected, result.toArray(), EPS);
     }
 ",AffineTransformMatrix2DTest::testShear_noShear_1_oe
+geom_673_1,"    @Test
+    void testApplyXY_1_oe() {
+        // arrange
+        final Vector2D scale = Vector2D.of(5.0, 6.0);
+        final Vector2D translation = Vector2D.of(-2.0, -3.0);
+        final Vector2D shear = Vector2D.of(7, 8);
+
+        final AffineTransformMatrix2D transform = AffineTransformMatrix2D.identity()
+                .scale(scale)
+                .translate(translation)
+                .rotate(-Angle.PI_OVER_TWO)
+                .shear(shear.getX(), shear.getY());
+
+        // act/assert
+        runWithCoordinates((x, y) -> {
+            final Vector2D scaledAndTranslated = Vector2D.of(
+                        (x * scale.getX()) + translation.getX(),
+                        (y * scale.getY()) + translation.getY()
+                    );
+            final Vector2D rotated = Vector2D.of(scaledAndTranslated.getY(), -scaledAndTranslated.getX());
+            final Vector2D expected = Vector2D.of(
+                        rotated.getX() + (rotated.getY() * shear.getX()),
+                        rotated.getY() + (rotated.getX() * shear.getY())
+                    );
+
+            Assertions.assertEquals(expected.getX(), transform.applyX(x, y), EPS);
+    }
+    }
+",AffineTransformMatrix2DTest::testApplyXY_1_oe
+geom_673_2,"    @Test
+    void testApplyXY_2_oe() {
+        // arrange
+        final Vector2D scale = Vector2D.of(5.0, 6.0);
+        final Vector2D translation = Vector2D.of(-2.0, -3.0);
+        final Vector2D shear = Vector2D.of(7, 8);
+
+        final AffineTransformMatrix2D transform = AffineTransformMatrix2D.identity()
+                .scale(scale)
+                .translate(translation)
+                .rotate(-Angle.PI_OVER_TWO)
+                .shear(shear.getX(), shear.getY());
+
+        // act/assert
+        runWithCoordinates((x, y) -> {
+            final Vector2D scaledAndTranslated = Vector2D.of(
+                        (x * scale.getX()) + translation.getX(),
+                        (y * scale.getY()) + translation.getY()
+                    );
+            final Vector2D rotated = Vector2D.of(scaledAndTranslated.getY(), -scaledAndTranslated.getX());
+            final Vector2D expected = Vector2D.of(
+                        rotated.getX() + (rotated.getY() * shear.getX()),
+                        rotated.getY() + (rotated.getX() * shear.getY())
+                    );
+
+            // removed other assertion
+            Assertions.assertEquals(expected.getY(), transform.applyY(x, y), EPS);
+    }
+    }
+",AffineTransformMatrix2DTest::testApplyXY_2_oe
+geom_674_1,"    @Test
+    void testApplyVectorXY_1_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(2, 3);
+
+        final AffineTransformMatrix2D transform = AffineTransformMatrix2D.identity()
+                .scale(1.5)
+                .translate(4, 6)
+                .rotate(0.3 * Math.PI);
+
+        // act/assert
+        runWithCoordinates((x, y) -> {
+            final Vector2D p2 = p1.add(Vector2D.of(x, y));
+
+            final Vector2D expected = transform.apply(p1).vectorTo(transform.apply(p2));
+
+            Assertions.assertEquals(expected.getX(), transform.applyVectorX(x, y), EPS);
+    }
+    }
+",AffineTransformMatrix2DTest::testApplyVectorXY_1_oe
+geom_674_2,"    @Test
+    void testApplyVectorXY_2_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.of(2, 3);
+
+        final AffineTransformMatrix2D transform = AffineTransformMatrix2D.identity()
+                .scale(1.5)
+                .translate(4, 6)
+                .rotate(0.3 * Math.PI);
+
+        // act/assert
+        runWithCoordinates((x, y) -> {
+            final Vector2D p2 = p1.add(Vector2D.of(x, y));
+
+            final Vector2D expected = transform.apply(p1).vectorTo(transform.apply(p2));
+
+            // removed other assertion
+            Assertions.assertEquals(expected.getY(), transform.applyVectorY(x, y), EPS);
+    }
+    }
+",AffineTransformMatrix2DTest::testApplyVectorXY_2_oe
 geom_675_1,"    @Test
     void testApplyDirection_illegalNorm_1_oe() {
         // act/assert
@@ -41429,6 +41609,25 @@ geom_695_8,"    @Test
         Assertions.assertNull(ray.getBounds());
     }
 ",RayTest::testFromLocation_8_oe
+geom_696_1,"    @Test
+    void testReverse_1_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 2);
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y) -> {
+            final Vector2D dir = Vector2D.of(x, y);
+
+            final Ray ray = Lines.rayFromPointAndDirection(start, dir, TEST_PRECISION);
+
+            // act
+            final ReverseRay rev = ray.reverse();
+
+            // assert
+            EuclideanTestUtils.assertCoordinatesEqual(ray.getLine().getOrigin(), rev.getLine().getOrigin(), TEST_EPS);
+            Assertions.assertEquals(-1, ray.getLine().getDirection().dot(rev.getLine().getDirection()), TEST_EPS);
+    }
+    }
+",RayTest::testReverse_1_oe
 geom_697_1,"    @Test
     void testSplit_smallAngle_pointOnSplitter_1_oe() {
         // arrange
@@ -43591,6 +43790,77 @@ geom_730_9,"    @Test
         Assertions.assertEquals(0.75 * Math.PI, c.angle(b), TEST_EPS);
     }
 ",LineTest::testAngle_9_oe
+geom_731_1,"    @Test
+    void testProject_1_oe() {
+        // --- arrange
+        final Line xAxis = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
+        final Line yAxis = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION);
+
+        final double diagonalYIntercept = 1;
+        final Vector2D diagonalDir = Vector2D.of(1, 2);
+        final Line diagonal = Lines.fromPointAndDirection(Vector2D.of(0, diagonalYIntercept), diagonalDir, TEST_PRECISION);
+
+        EuclideanTestUtils.permute(-5, 5, 0.5, (x, y) -> {
+            final Vector2D pt = Vector2D.of(x, y);
+
+            // --- act/assert
+            EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(x, 0), xAxis.project(pt), TEST_EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0, y), yAxis.project(pt), TEST_EPS);
+
+            final Vector2D diagonalPt = diagonal.project(pt);
+            Assertions.assertTrue(diagonal.contains(diagonalPt));
+    }
+    }
+",LineTest::testProject_1_oe
+geom_731_2,"    @Test
+    void testProject_2_oe() {
+        // --- arrange
+        final Line xAxis = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
+        final Line yAxis = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION);
+
+        final double diagonalYIntercept = 1;
+        final Vector2D diagonalDir = Vector2D.of(1, 2);
+        final Line diagonal = Lines.fromPointAndDirection(Vector2D.of(0, diagonalYIntercept), diagonalDir, TEST_PRECISION);
+
+        EuclideanTestUtils.permute(-5, 5, 0.5, (x, y) -> {
+            final Vector2D pt = Vector2D.of(x, y);
+
+            // --- act/assert
+            EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(x, 0), xAxis.project(pt), TEST_EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0, y), yAxis.project(pt), TEST_EPS);
+
+            final Vector2D diagonalPt = diagonal.project(pt);
+            // removed other assertion
+            Assertions.assertEquals(diagonal.distance(pt), pt.distance(diagonalPt), TEST_EPS);
+    }
+    }
+",LineTest::testProject_2_oe
+geom_731_3,"    @Test
+    void testProject_3_oe() {
+        // --- arrange
+        final Line xAxis = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
+        final Line yAxis = Lines.fromPointAndDirection(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION);
+
+        final double diagonalYIntercept = 1;
+        final Vector2D diagonalDir = Vector2D.of(1, 2);
+        final Line diagonal = Lines.fromPointAndDirection(Vector2D.of(0, diagonalYIntercept), diagonalDir, TEST_PRECISION);
+
+        EuclideanTestUtils.permute(-5, 5, 0.5, (x, y) -> {
+            final Vector2D pt = Vector2D.of(x, y);
+
+            // --- act/assert
+            EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(x, 0), xAxis.project(pt), TEST_EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0, y), yAxis.project(pt), TEST_EPS);
+
+            final Vector2D diagonalPt = diagonal.project(pt);
+            // removed other assertion
+            // removed other assertion
+
+            // check that y = mx + b is true
+            Assertions.assertEquals(diagonalPt.getY(), (diagonalDir.getY() * diagonalPt.getX() / diagonalDir.getX()) + diagonalYIntercept, TEST_EPS);
+    }
+    }
+",LineTest::testProject_3_oe
 geom_732_1,"    @Test
     void testSpan_1_oe() {
         // arrange
@@ -44473,6 +44743,27 @@ geom_745_7,"    @Test
         Assertions.assertEquals(d, reversed.offset(Vector2D.of(-1, 2)), TEST_EPS);
     }
 ",LineTest::testOffset_point_7_oe
+geom_746_1,"    @Test
+    void testOffset_point_permute_1_oe() {
+        // arrange
+        final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
+        final Vector2D lineOrigin = line.getOrigin();
+
+        EuclideanTestUtils.permute(-5, 5, 0.5, (x, y) -> {
+            final Vector2D pt = Vector2D.of(x, y);
+
+            // act
+            final double offset = line.offset(pt);
+
+            // arrange
+            final Vector2D vec = lineOrigin.vectorTo(pt).reject(line.getDirection());
+            final double dot = vec.dot(line.getOffsetDirection());
+            final double expected = Math.signum(dot) * vec.norm();
+
+            Assertions.assertEquals(expected, offset, TEST_EPS);
+    }
+    }
+",LineTest::testOffset_point_permute_1_oe
 geom_747_1,"    @Test
     void testSimilarOrientation_1_oe() {
         // arrange
@@ -45830,6 +46121,24 @@ geom_758_7,"    @Test
         Assertions.assertEquals(d, reversed.distance(Vector2D.of(-1, 2)), TEST_EPS);
     }
 ",LineTest::testDistance_point_7_oe
+geom_759_1,"    @Test
+    void testDistance_point_permute_1_oe() {
+        // arrange
+        final Line line = Lines.fromPoints(Vector2D.of(-1, 0), Vector2D.of(0, 2), TEST_PRECISION);
+        final Vector2D lineOrigin = line.getOrigin();
+
+        EuclideanTestUtils.permute(-5, 5, 0.5, (x, y) -> {
+            final Vector2D pt = Vector2D.of(x, y);
+
+            // act
+            final double dist = line.distance(pt);
+
+            // arrange
+            final Vector2D vec = lineOrigin.vectorTo(pt).reject(line.getDirection());
+            Assertions.assertEquals(vec.norm(), dist, TEST_EPS);
+    }
+    }
+",LineTest::testDistance_point_permute_1_oe
 geom_760_1,"    @Test
     void testIsParallel_1_oe() {
         // arrange
@@ -47784,6 +48093,25 @@ geom_777_8,"    @Test
         Assertions.assertNull(revRay.getBounds());
     }
 ",ReverseRayTest::testFromLocation_8_oe
+geom_778_1,"    @Test
+    void testReverse_1_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 2);
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y) -> {
+            final Vector2D dir = Vector2D.of(x, y);
+
+            final ReverseRay revRay = Lines.reverseRayFromPointAndDirection(start, dir, TEST_PRECISION);
+
+            // act
+            final Ray rev = revRay.reverse();
+
+            // assert
+            EuclideanTestUtils.assertCoordinatesEqual(revRay.getLine().getOrigin(), rev.getLine().getOrigin(), TEST_EPS);
+            Assertions.assertEquals(-1, revRay.getLine().getDirection().dot(rev.getLine().getDirection()), TEST_EPS);
+    }
+    }
+",ReverseRayTest::testReverse_1_oe
 geom_779_1,"    @Test
     void testSplit_smallAngle_pointOnSplitter_1_oe() {
         // arrange
@@ -53129,6 +53457,45 @@ geom_845_7,"    @Test
         Assertions.assertEquals(0, seg.getSize(), TEST_EPS);
     }
 ",SegmentTest::testFromLocations_singlePoint_7_oe
+geom_846_1,"    @Test
+    void testReverse_1_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 2);
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y) -> {
+            final Vector2D end = Vector2D.of(x, y).add(start);
+
+            final Segment seg = Lines.segmentFromPoints(start, end, TEST_PRECISION);
+
+            // act
+            final Segment rev = seg.reverse();
+
+            // assert
+            Assertions.assertEquals(seg.getSize(), rev.getSize(), TEST_EPS);
+    }
+    }
+",SegmentTest::testReverse_1_oe
+geom_846_2,"    @Test
+    void testReverse_2_oe() {
+        // arrange
+        final Vector2D start = Vector2D.of(1, 2);
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y) -> {
+            final Vector2D end = Vector2D.of(x, y).add(start);
+
+            final Segment seg = Lines.segmentFromPoints(start, end, TEST_PRECISION);
+
+            // act
+            final Segment rev = seg.reverse();
+
+            // assert
+            // removed other assertion
+
+            EuclideanTestUtils.assertCoordinatesEqual(seg.getLine().getOrigin(), rev.getLine().getOrigin(), TEST_EPS);
+            Assertions.assertEquals(-1, seg.getLine().getDirection().dot(rev.getLine().getDirection()), TEST_EPS);
+    }
+    }
+",SegmentTest::testReverse_2_oe
 geom_847_1,"    @Test
     void testSplit_pointsOnSplitterWithLineIntersection_1_oe() {
         // arrange
@@ -54066,6 +54433,24 @@ geom_860_2,"    @Test
         Assertions.assertEquals(Math.PI * r * r, c.getSize(), TEST_EPS);
     }
 ",CircleTest::testGeometricProperties_2_oe
+geom_861_1,"    @Test
+    void testProject_1_oe() {
+        // arrange
+        final Vector2D center = Vector2D.of(1.5, 2.5);
+        final double radius = 3;
+        final Circle c = Circle.from(center, radius, TEST_PRECISION);
+
+        EuclideanTestUtils.permute(-4, 4, 1, (x, y) -> {
+            final Vector2D pt = Vector2D.of(x, y);
+
+            // act
+            final Vector2D projection = c.project(pt);
+
+            // assert
+            Assertions.assertEquals(radius, center.distance(projection), TEST_EPS);
+    }
+    }
+",CircleTest::testProject_1_oe
 geom_862_1,"    @Test
     void testToTree_threeSegments_1_oe() {
         // arrange
@@ -54816,6 +55201,109 @@ geom_880_3,"    @Test
         Assertions.assertEquals(4, tree.getSize(), TEST_EPS);
     }
 ",ParallelogramTest::testToTree_3_oe
+geom_881_1,"    @Test
+    void testConnectAll_noSegments_1_oe() {
+        runWithMaxAndMin(connector -> {
+            // arrange
+            final List<LineConvexSubset> segments = new ArrayList<>();
+
+            // act
+            final List<LinePath> paths = connector.connectAll(segments);
+
+            // assert
+            Assertions.assertEquals(0, paths.size());
+    }
+    }
+",InteriorAngleLinePathConnectorTest::testConnectAll_noSegments_1_oe
+geom_882_1,"    @Test
+    void testConnectAll_singleFiniteSegment_1_oe() {
+        runWithMaxAndMin(connector -> {
+            // arrange
+            final List<LineConvexSubset> segments = Collections.singletonList(
+                    Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION)
+            );
+
+            // act
+            final List<LinePath> paths = connector.connectAll(segments);
+
+            // assert
+            Assertions.assertEquals(1, paths.size());
+    }
+    }
+",InteriorAngleLinePathConnectorTest::testConnectAll_singleFiniteSegment_1_oe
+geom_883_1,"    @Test
+    void testConnectAll_dualConnectedSegments_1_oe() {
+        runWithMaxAndMin(connector -> {
+            // arrange
+            final List<LineConvexSubset> segments = Arrays.asList(
+                        Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION),
+                        Lines.segmentFromPoints(Vector2D.Unit.PLUS_X, Vector2D.ZERO, TEST_PRECISION)
+                    );
+
+            // act
+            final List<LinePath> paths = connector.connectAll(segments);
+
+            // assert
+            Assertions.assertEquals(1, paths.size());
+    }
+    }
+",InteriorAngleLinePathConnectorTest::testConnectAll_dualConnectedSegments_1_oe
+geom_883_2,"    @Test
+    void testConnectAll_dualConnectedSegments_2_oe() {
+        runWithMaxAndMin(connector -> {
+            // arrange
+            final List<LineConvexSubset> segments = Arrays.asList(
+                        Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION),
+                        Lines.segmentFromPoints(Vector2D.Unit.PLUS_X, Vector2D.ZERO, TEST_PRECISION)
+                    );
+
+            // act
+            final List<LinePath> paths = connector.connectAll(segments);
+
+            // assert
+            // removed other assertion
+
+            Assertions.assertTrue(paths.get(0).isClosed());
+    }
+    }
+",InteriorAngleLinePathConnectorTest::testConnectAll_dualConnectedSegments_2_oe
+geom_884_1,"    @Test
+    void testConnectAll_singleFiniteSegmentLoop_1_oe() {
+        runWithMaxAndMin(connector -> {
+            // arrange
+            final List<LineConvexSubset> segments = shuffle(createSquare(Vector2D.ZERO, 1, 1));
+
+            // act
+            final List<LinePath> paths = connector.connectAll(segments);
+
+            // assert
+            Assertions.assertEquals(1, paths.size());
+    }
+    }
+",InteriorAngleLinePathConnectorTest::testConnectAll_singleFiniteSegmentLoop_1_oe
+geom_885_1,"    @Test
+    void testConnectAll_disjointPaths_1_oe() {
+        runWithMaxAndMin(connector -> {
+            // arrange
+            final List<LineConvexSubset> segments = new ArrayList<>(createSquare(Vector2D.ZERO, 1, 1));
+
+            final Vector2D pt = Vector2D.of(0, 2);
+            final ReverseRay a = Lines.fromPointAndAngle(pt, 0.0, TEST_PRECISION).reverseRayTo(pt);
+            final Ray b = Lines.fromPointAndAngle(pt, Angle.PI_OVER_TWO, TEST_PRECISION).rayFrom(pt);
+
+            segments.add(a);
+            segments.add(b);
+
+            shuffle(segments);
+
+            // act
+            final List<LinePath> paths = connector.connectAll(segments);
+
+            // assert
+            Assertions.assertEquals(2, paths.size());
+    }
+    }
+",InteriorAngleLinePathConnectorTest::testConnectAll_disjointPaths_1_oe
 geom_886_1,"    @Test
     void testConnectAll_squaresJoinedAtVertex_maximize_1_oe() {
         // arrange
@@ -60702,6 +61190,29 @@ geom_965_1,"    @Test
         Assertions.assertArrayEquals(expected, m.toArray(), 0.0);
     }
 ",Rotation2DTest::testToMatrix_1_oe
+geom_966_1,"    @Test
+    void testCreateRotationVector_1_oe() {
+        // arrange
+        final double min = -8;
+        final double max = 8;
+        final double step = 1;
+
+        EuclideanTestUtils.permuteSkipZero(min, max, step, (ux, uy) -> {
+            EuclideanTestUtils.permuteSkipZero(min, max, step, (vx, vy) -> {
+
+                final Vector2D u = Vector2D.of(ux, uy);
+                final Vector2D v = Vector2D.of(vx, vy);
+
+                // act
+                final Rotation2D r = Rotation2D.createVectorRotation(u, v);
+
+                // assert
+                EuclideanTestUtils.assertCoordinatesEqual(v.normalize(), r.apply(u).normalize(), TEST_EPS); // u -> v
+                Assertions.assertEquals(0.0, v.dot(r.apply(u.orthogonal())), TEST_EPS); // preserves orthogonality;
+    }
+    }
+    }
+",Rotation2DTest::testCreateRotationVector_1_oe
 geom_967_1,"    @Test
     void testCreateRotationVector_invalidVectors_1_oe() {
         // arrange
@@ -62075,6 +62586,46 @@ geom_1000_2,"    @Test
         Assertions.assertArrayEquals(expected, result.toArray(), 0.0);
     }
 ",AffineTransformMatrix1DTest::testScale_vector_2_oe
+geom_1001_1,"    @Test
+    void testApplyX_1_oe() {
+        // arrange
+        final Vector1D translation = Vector1D.of(-2.0);
+        final Vector1D scale = Vector1D.of(5.0);
+
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.identity()
+                .translate(translation)
+                .scale(scale);
+
+        // act/assert
+        runWithCoordinates(x -> {
+            final double expected = (x + translation.getX()) * scale.getX();
+
+            Assertions.assertEquals(expected, transform.applyX(x), EPS);
+    }
+    }
+",AffineTransformMatrix1DTest::testApplyX_1_oe
+geom_1002_1,"    @Test
+    void testApplyVectorX_1_oe() {
+        // arrange
+        final Vector1D p1 = Vector1D.of(Math.PI);
+
+        final Vector1D translation = Vector1D.of(-2.0);
+        final Vector1D scale = Vector1D.of(5.0);
+
+        final AffineTransformMatrix1D transform = AffineTransformMatrix1D.identity()
+                .translate(translation)
+                .scale(scale);
+
+        // act/assert
+        runWithCoordinates(x -> {
+            final Vector1D p2 = p1.add(Vector1D.of(x));
+
+            final double expected = transform.apply(p1).vectorTo(transform.apply(p2)).getX();
+
+            Assertions.assertEquals(expected, transform.applyVectorX(x), EPS);
+    }
+    }
+",AffineTransformMatrix1DTest::testApplyVectorX_1_oe
 geom_1003_1,"    @Test
     void testApplyDirection_illegalNorm_1_oe() {
         // act/assert
@@ -67970,6 +68521,132 @@ geom_1164_1,"    @Test
         Assertions.assertArrayEquals(expected, result.toArray(), EPS);
     }
 ",AffineTransformMatrix3DTest::testRotate_aroundCenter_1_oe
+geom_1165_1,"    @Test
+    void testApplyXYZ_1_oe() {
+        // arrange
+        final double scaleFactor = 2;
+        final Vector3D center = Vector3D.of(3, -4, 5);
+        final QuaternionRotation rotation = QuaternionRotation.fromAxisAngle(Vector3D.of(0.5, 1, 1), 2 * Math.PI / 3);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.identity()
+                .scale(scaleFactor)
+                .rotate(center, rotation);
+
+        // act/assert
+        runWithCoordinates((x, y, z) -> {
+            final Vector3D vec = Vector3D.of(x, y, z);
+            final Vector3D expectedVec = rotation.apply(vec.multiply(scaleFactor).subtract(center)).add(center);
+
+            Assertions.assertEquals(expectedVec.getX(), transform.applyX(x, y, z), EPS);
+    }
+    }
+",AffineTransformMatrix3DTest::testApplyXYZ_1_oe
+geom_1165_2,"    @Test
+    void testApplyXYZ_2_oe() {
+        // arrange
+        final double scaleFactor = 2;
+        final Vector3D center = Vector3D.of(3, -4, 5);
+        final QuaternionRotation rotation = QuaternionRotation.fromAxisAngle(Vector3D.of(0.5, 1, 1), 2 * Math.PI / 3);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.identity()
+                .scale(scaleFactor)
+                .rotate(center, rotation);
+
+        // act/assert
+        runWithCoordinates((x, y, z) -> {
+            final Vector3D vec = Vector3D.of(x, y, z);
+            final Vector3D expectedVec = rotation.apply(vec.multiply(scaleFactor).subtract(center)).add(center);
+
+            // removed other assertion
+            Assertions.assertEquals(expectedVec.getY(), transform.applyY(x, y, z), EPS);
+    }
+    }
+",AffineTransformMatrix3DTest::testApplyXYZ_2_oe
+geom_1165_3,"    @Test
+    void testApplyXYZ_3_oe() {
+        // arrange
+        final double scaleFactor = 2;
+        final Vector3D center = Vector3D.of(3, -4, 5);
+        final QuaternionRotation rotation = QuaternionRotation.fromAxisAngle(Vector3D.of(0.5, 1, 1), 2 * Math.PI / 3);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.identity()
+                .scale(scaleFactor)
+                .rotate(center, rotation);
+
+        // act/assert
+        runWithCoordinates((x, y, z) -> {
+            final Vector3D vec = Vector3D.of(x, y, z);
+            final Vector3D expectedVec = rotation.apply(vec.multiply(scaleFactor).subtract(center)).add(center);
+
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertEquals(expectedVec.getZ(), transform.applyZ(x, y, z), EPS);
+    }
+    }
+",AffineTransformMatrix3DTest::testApplyXYZ_3_oe
+geom_1166_1,"    @Test
+    void testApplyVectorXYZ_1_oe() {
+        // arrange
+        final Vector3D p1 = Vector3D.of(1, 2, 3);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.identity()
+                .scale(1.5)
+                .translate(4, 6, 5)
+                .rotate(QuaternionRotation.fromAxisAngle(Vector3D.of(0.5, 1, 1), Angle.PI_OVER_TWO));
+
+        // act/assert
+        runWithCoordinates((x, y, z) -> {
+            final Vector3D p2 = p1.add(Vector3D.of(x, y, z));
+
+            final Vector3D expected = transform.apply(p1).vectorTo(transform.apply(p2));
+
+            Assertions.assertEquals(expected.getX(), transform.applyVectorX(x, y, z), EPS);
+    }
+    }
+",AffineTransformMatrix3DTest::testApplyVectorXYZ_1_oe
+geom_1166_2,"    @Test
+    void testApplyVectorXYZ_2_oe() {
+        // arrange
+        final Vector3D p1 = Vector3D.of(1, 2, 3);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.identity()
+                .scale(1.5)
+                .translate(4, 6, 5)
+                .rotate(QuaternionRotation.fromAxisAngle(Vector3D.of(0.5, 1, 1), Angle.PI_OVER_TWO));
+
+        // act/assert
+        runWithCoordinates((x, y, z) -> {
+            final Vector3D p2 = p1.add(Vector3D.of(x, y, z));
+
+            final Vector3D expected = transform.apply(p1).vectorTo(transform.apply(p2));
+
+            // removed other assertion
+            Assertions.assertEquals(expected.getY(), transform.applyVectorY(x, y, z), EPS);
+    }
+    }
+",AffineTransformMatrix3DTest::testApplyVectorXYZ_2_oe
+geom_1166_3,"    @Test
+    void testApplyVectorXYZ_3_oe() {
+        // arrange
+        final Vector3D p1 = Vector3D.of(1, 2, 3);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.identity()
+                .scale(1.5)
+                .translate(4, 6, 5)
+                .rotate(QuaternionRotation.fromAxisAngle(Vector3D.of(0.5, 1, 1), Angle.PI_OVER_TWO));
+
+        // act/assert
+        runWithCoordinates((x, y, z) -> {
+            final Vector3D p2 = p1.add(Vector3D.of(x, y, z));
+
+            final Vector3D expected = transform.apply(p1).vectorTo(transform.apply(p2));
+
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertEquals(expected.getZ(), transform.applyVectorZ(x, y, z), EPS);
+    }
+    }
+",AffineTransformMatrix3DTest::testApplyVectorXYZ_3_oe
 geom_1167_1,"    @Test
     void testApplyDirection_illegalNorm_1_oe() {
         // act/assert
@@ -75191,6 +75868,299 @@ geom_1310_1,"    @Test
         Assertions.assertThrows(IllegalArgumentException.class, () -> Planes.fromPoints(Arrays.asList( Vector3D.ZERO, Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, Vector3D.Unit.PLUS_Z ), TEST_PRECISION));
     }
 ",PlaneTest::testFromPoints_collection_pointsNotOnSamePlane_1_oe
+geom_1311_1,"    @Test
+    void testGetEmbedding_1_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y, z) -> {
+
+            final Plane plane = Planes.fromPointAndNormal(pt, Vector3D.of(x, y, z), TEST_PRECISION);
+
+            // act
+            final EmbeddingPlane embeddingPlane = plane.getEmbedding();
+            final EmbeddingPlane nextEmbeddingPlane = plane.getEmbedding();
+
+            // assert
+            Assertions.assertSame(plane.getNormal(), embeddingPlane.getNormal());
+    }
+    }
+",PlaneTest::testGetEmbedding_1_oe
+geom_1311_2,"    @Test
+    void testGetEmbedding_2_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y, z) -> {
+
+            final Plane plane = Planes.fromPointAndNormal(pt, Vector3D.of(x, y, z), TEST_PRECISION);
+
+            // act
+            final EmbeddingPlane embeddingPlane = plane.getEmbedding();
+            final EmbeddingPlane nextEmbeddingPlane = plane.getEmbedding();
+
+            // assert
+            // removed other assertion
+            Assertions.assertSame(plane.getNormal(), embeddingPlane.getW());
+    }
+    }
+",PlaneTest::testGetEmbedding_2_oe
+geom_1311_3,"    @Test
+    void testGetEmbedding_3_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y, z) -> {
+
+            final Plane plane = Planes.fromPointAndNormal(pt, Vector3D.of(x, y, z), TEST_PRECISION);
+
+            // act
+            final EmbeddingPlane embeddingPlane = plane.getEmbedding();
+            final EmbeddingPlane nextEmbeddingPlane = plane.getEmbedding();
+
+            // assert
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertEquals(plane.getOriginOffset(), embeddingPlane.getOriginOffset(), TEST_EPS);
+    }
+    }
+",PlaneTest::testGetEmbedding_3_oe
+geom_1311_4,"    @Test
+    void testGetEmbedding_4_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y, z) -> {
+
+            final Plane plane = Planes.fromPointAndNormal(pt, Vector3D.of(x, y, z), TEST_PRECISION);
+
+            // act
+            final EmbeddingPlane embeddingPlane = plane.getEmbedding();
+            final EmbeddingPlane nextEmbeddingPlane = plane.getEmbedding();
+
+            // assert
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertSame(plane.getPrecision(), embeddingPlane.getPrecision());
+    }
+    }
+",PlaneTest::testGetEmbedding_4_oe
+geom_1311_5,"    @Test
+    void testGetEmbedding_5_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y, z) -> {
+
+            final Plane plane = Planes.fromPointAndNormal(pt, Vector3D.of(x, y, z), TEST_PRECISION);
+
+            // act
+            final EmbeddingPlane embeddingPlane = plane.getEmbedding();
+            final EmbeddingPlane nextEmbeddingPlane = plane.getEmbedding();
+
+            // assert
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            final Vector3D.Unit u = embeddingPlane.getU();
+            final Vector3D.Unit v = embeddingPlane.getV();
+            final Vector3D.Unit w = embeddingPlane.getW();
+
+            Assertions.assertEquals(0, u.dot(v), TEST_EPS);
+    }
+    }
+",PlaneTest::testGetEmbedding_5_oe
+geom_1311_6,"    @Test
+    void testGetEmbedding_6_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y, z) -> {
+
+            final Plane plane = Planes.fromPointAndNormal(pt, Vector3D.of(x, y, z), TEST_PRECISION);
+
+            // act
+            final EmbeddingPlane embeddingPlane = plane.getEmbedding();
+            final EmbeddingPlane nextEmbeddingPlane = plane.getEmbedding();
+
+            // assert
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            final Vector3D.Unit u = embeddingPlane.getU();
+            final Vector3D.Unit v = embeddingPlane.getV();
+            final Vector3D.Unit w = embeddingPlane.getW();
+
+            // removed other assertion
+            Assertions.assertEquals(0, u.dot(w), TEST_EPS);
+    }
+    }
+",PlaneTest::testGetEmbedding_6_oe
+geom_1311_7,"    @Test
+    void testGetEmbedding_7_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y, z) -> {
+
+            final Plane plane = Planes.fromPointAndNormal(pt, Vector3D.of(x, y, z), TEST_PRECISION);
+
+            // act
+            final EmbeddingPlane embeddingPlane = plane.getEmbedding();
+            final EmbeddingPlane nextEmbeddingPlane = plane.getEmbedding();
+
+            // assert
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            final Vector3D.Unit u = embeddingPlane.getU();
+            final Vector3D.Unit v = embeddingPlane.getV();
+            final Vector3D.Unit w = embeddingPlane.getW();
+
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertEquals(0, v.dot(w), TEST_EPS);
+    }
+    }
+",PlaneTest::testGetEmbedding_7_oe
+geom_1311_8,"    @Test
+    void testGetEmbedding_8_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y, z) -> {
+
+            final Plane plane = Planes.fromPointAndNormal(pt, Vector3D.of(x, y, z), TEST_PRECISION);
+
+            // act
+            final EmbeddingPlane embeddingPlane = plane.getEmbedding();
+            final EmbeddingPlane nextEmbeddingPlane = plane.getEmbedding();
+
+            // assert
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            final Vector3D.Unit u = embeddingPlane.getU();
+            final Vector3D.Unit v = embeddingPlane.getV();
+            final Vector3D.Unit w = embeddingPlane.getW();
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            Assertions.assertNotSame(embeddingPlane, nextEmbeddingPlane);
+    }
+    }
+",PlaneTest::testGetEmbedding_8_oe
+geom_1311_9,"    @Test
+    void testGetEmbedding_9_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (x, y, z) -> {
+
+            final Plane plane = Planes.fromPointAndNormal(pt, Vector3D.of(x, y, z), TEST_PRECISION);
+
+            // act
+            final EmbeddingPlane embeddingPlane = plane.getEmbedding();
+            final EmbeddingPlane nextEmbeddingPlane = plane.getEmbedding();
+
+            // assert
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            final Vector3D.Unit u = embeddingPlane.getU();
+            final Vector3D.Unit v = embeddingPlane.getV();
+            final Vector3D.Unit w = embeddingPlane.getW();
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            // removed other assertion
+            Assertions.assertEquals(embeddingPlane, nextEmbeddingPlane);
+    }
+    }
+",PlaneTest::testGetEmbedding_9_oe
+geom_1312_1,"    @Test
+    void testContains_point_1_oe() {
+        // arrange
+        final Plane plane = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0, 0, 1), TEST_PRECISION);
+        final double halfEps = 0.5 * TEST_EPS;
+
+        // act/assert
+        EuclideanTestUtils.permute(-100, 100, 5, (x, y) -> {
+
+            Assertions.assertTrue(plane.contains(Vector3D.of(x, y, 1)));
+    }
+    }
+",PlaneTest::testContains_point_1_oe
+geom_1312_2,"    @Test
+    void testContains_point_2_oe() {
+        // arrange
+        final Plane plane = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0, 0, 1), TEST_PRECISION);
+        final double halfEps = 0.5 * TEST_EPS;
+
+        // act/assert
+        EuclideanTestUtils.permute(-100, 100, 5, (x, y) -> {
+
+            // removed other assertion
+            Assertions.assertTrue(plane.contains(Vector3D.of(x, y, 1 + halfEps)));
+    }
+    }
+",PlaneTest::testContains_point_2_oe
+geom_1312_3,"    @Test
+    void testContains_point_3_oe() {
+        // arrange
+        final Plane plane = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0, 0, 1), TEST_PRECISION);
+        final double halfEps = 0.5 * TEST_EPS;
+
+        // act/assert
+        EuclideanTestUtils.permute(-100, 100, 5, (x, y) -> {
+
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertTrue(plane.contains(Vector3D.of(x, y, 1 - halfEps)));
+    }
+    }
+",PlaneTest::testContains_point_3_oe
+geom_1312_4,"    @Test
+    void testContains_point_4_oe() {
+        // arrange
+        final Plane plane = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0, 0, 1), TEST_PRECISION);
+        final double halfEps = 0.5 * TEST_EPS;
+
+        // act/assert
+        EuclideanTestUtils.permute(-100, 100, 5, (x, y) -> {
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            Assertions.assertFalse(plane.contains(Vector3D.of(x, y, 0.5)));
+    }
+    }
+",PlaneTest::testContains_point_4_oe
+geom_1312_5,"    @Test
+    void testContains_point_5_oe() {
+        // arrange
+        final Plane plane = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0, 0, 1), TEST_PRECISION);
+        final double halfEps = 0.5 * TEST_EPS;
+
+        // act/assert
+        EuclideanTestUtils.permute(-100, 100, 5, (x, y) -> {
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            // removed other assertion
+            Assertions.assertFalse(plane.contains(Vector3D.of(x, y, 1.5)));
+    }
+    }
+",PlaneTest::testContains_point_5_oe
 geom_1313_1,"    @Test
     void testContains_line_1_oe() {
         // arrange
@@ -75820,6 +76790,47 @@ geom_1318_4,"    @Test
         Assertions.assertEquals(-0.3, plane.offset(Vector3D.Sum.of(p1).addScaled(-0.3, plane.getNormal()).get()), TEST_EPS);
     }
 ",PlaneTest::testOffset_point_4_oe
+geom_1319_1,"    @Test
+    void testProject_point_1_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(-3, -2, -1);
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (nx, ny, nz) -> {
+
+            final Plane plane = Planes.fromPointAndNormal(pt, Vector3D.of(nx, ny, nz), TEST_PRECISION);
+            EuclideanTestUtils.permute(-4, 4, 1, (x, y, z) -> {
+
+                final Vector3D p = Vector3D.of(x, y, z);
+
+                // act
+                final Vector3D proj = plane.project(p);
+
+                // assert
+                Assertions.assertTrue(plane.contains(proj));
+    }
+    }
+    }
+",PlaneTest::testProject_point_1_oe
+geom_1319_2,"    @Test
+    void testProject_point_2_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(-3, -2, -1);
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (nx, ny, nz) -> {
+
+            final Plane plane = Planes.fromPointAndNormal(pt, Vector3D.of(nx, ny, nz), TEST_PRECISION);
+            EuclideanTestUtils.permute(-4, 4, 1, (x, y, z) -> {
+
+                final Vector3D p = Vector3D.of(x, y, z);
+
+                // act
+                final Vector3D proj = plane.project(p);
+
+                // assert
+                // removed other assertion
+                Assertions.assertEquals(0, plane.getOrigin().vectorTo(proj).dot(plane.getNormal()), TEST_EPS);
+    }
+    }
+    }
+",PlaneTest::testProject_point_2_oe
 geom_1320_1,"    @Test
     void testProject_line_1_oe() {
         // arrange
@@ -75947,6 +76958,203 @@ geom_1322_1,"    @Test
         Assertions.assertFalse(transform.preservesOrientation());
     }
 ",PlaneTest::testTransform_negateOneComponent_1_oe
+geom_1323_1,"    @Test
+    void testTransform_consistency_1_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        final Vector3D normal = Vector3D.Unit.of(1, 1, 1);
+
+        final Plane plane = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
+
+        final Vector3D p1 = plane.project(Vector3D.of(4, 5, 6));
+        final Vector3D p2 = plane.project(Vector3D.of(-7, -8, -9));
+        final Vector3D p3 = plane.project(Vector3D.of(10, -11, 12));
+
+        final Vector3D notOnPlane1 = plane.getOrigin().add(plane.getNormal());
+        final Vector3D notOnPlane2 = plane.getOrigin().subtract(plane.getNormal());
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (a, b, c) -> {
+            final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
+                    .rotate(Vector3D.of(-1, 2, 3),
+                            QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.3 * a))
+                    .scale(Math.max(a, 1), Math.max(b, 1), Math.max(c, 1))
+                    .translate(c, b, a);
+
+            // act
+            final Plane result = plane.transform(t);
+
+            // assert
+            Vector3D expectedNormal = t.normalTransform().apply(plane.getNormal()).normalize();
+            if (!t.preservesOrientation()) {
+                expectedNormal = expectedNormal.negate();
+            }
+
+            EuclideanTestUtils.assertCoordinatesEqual(expectedNormal, result.getNormal(), TEST_EPS);
+
+            Assertions.assertTrue(result.contains(t.apply(p1)));
+    }
+    }
+",PlaneTest::testTransform_consistency_1_oe
+geom_1323_2,"    @Test
+    void testTransform_consistency_2_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        final Vector3D normal = Vector3D.Unit.of(1, 1, 1);
+
+        final Plane plane = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
+
+        final Vector3D p1 = plane.project(Vector3D.of(4, 5, 6));
+        final Vector3D p2 = plane.project(Vector3D.of(-7, -8, -9));
+        final Vector3D p3 = plane.project(Vector3D.of(10, -11, 12));
+
+        final Vector3D notOnPlane1 = plane.getOrigin().add(plane.getNormal());
+        final Vector3D notOnPlane2 = plane.getOrigin().subtract(plane.getNormal());
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (a, b, c) -> {
+            final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
+                    .rotate(Vector3D.of(-1, 2, 3),
+                            QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.3 * a))
+                    .scale(Math.max(a, 1), Math.max(b, 1), Math.max(c, 1))
+                    .translate(c, b, a);
+
+            // act
+            final Plane result = plane.transform(t);
+
+            // assert
+            Vector3D expectedNormal = t.normalTransform().apply(plane.getNormal()).normalize();
+            if (!t.preservesOrientation()) {
+                expectedNormal = expectedNormal.negate();
+            }
+
+            EuclideanTestUtils.assertCoordinatesEqual(expectedNormal, result.getNormal(), TEST_EPS);
+
+            // removed other assertion
+            Assertions.assertTrue(result.contains(t.apply(p2)));
+    }
+    }
+",PlaneTest::testTransform_consistency_2_oe
+geom_1323_3,"    @Test
+    void testTransform_consistency_3_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        final Vector3D normal = Vector3D.Unit.of(1, 1, 1);
+
+        final Plane plane = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
+
+        final Vector3D p1 = plane.project(Vector3D.of(4, 5, 6));
+        final Vector3D p2 = plane.project(Vector3D.of(-7, -8, -9));
+        final Vector3D p3 = plane.project(Vector3D.of(10, -11, 12));
+
+        final Vector3D notOnPlane1 = plane.getOrigin().add(plane.getNormal());
+        final Vector3D notOnPlane2 = plane.getOrigin().subtract(plane.getNormal());
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (a, b, c) -> {
+            final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
+                    .rotate(Vector3D.of(-1, 2, 3),
+                            QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.3 * a))
+                    .scale(Math.max(a, 1), Math.max(b, 1), Math.max(c, 1))
+                    .translate(c, b, a);
+
+            // act
+            final Plane result = plane.transform(t);
+
+            // assert
+            Vector3D expectedNormal = t.normalTransform().apply(plane.getNormal()).normalize();
+            if (!t.preservesOrientation()) {
+                expectedNormal = expectedNormal.negate();
+            }
+
+            EuclideanTestUtils.assertCoordinatesEqual(expectedNormal, result.getNormal(), TEST_EPS);
+
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertTrue(result.contains(t.apply(p3)));
+    }
+    }
+",PlaneTest::testTransform_consistency_3_oe
+geom_1323_4,"    @Test
+    void testTransform_consistency_4_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        final Vector3D normal = Vector3D.Unit.of(1, 1, 1);
+
+        final Plane plane = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
+
+        final Vector3D p1 = plane.project(Vector3D.of(4, 5, 6));
+        final Vector3D p2 = plane.project(Vector3D.of(-7, -8, -9));
+        final Vector3D p3 = plane.project(Vector3D.of(10, -11, 12));
+
+        final Vector3D notOnPlane1 = plane.getOrigin().add(plane.getNormal());
+        final Vector3D notOnPlane2 = plane.getOrigin().subtract(plane.getNormal());
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (a, b, c) -> {
+            final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
+                    .rotate(Vector3D.of(-1, 2, 3),
+                            QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.3 * a))
+                    .scale(Math.max(a, 1), Math.max(b, 1), Math.max(c, 1))
+                    .translate(c, b, a);
+
+            // act
+            final Plane result = plane.transform(t);
+
+            // assert
+            Vector3D expectedNormal = t.normalTransform().apply(plane.getNormal()).normalize();
+            if (!t.preservesOrientation()) {
+                expectedNormal = expectedNormal.negate();
+            }
+
+            EuclideanTestUtils.assertCoordinatesEqual(expectedNormal, result.getNormal(), TEST_EPS);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            Assertions.assertFalse(result.contains(t.apply(notOnPlane1)));
+    }
+    }
+",PlaneTest::testTransform_consistency_4_oe
+geom_1323_5,"    @Test
+    void testTransform_consistency_5_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        final Vector3D normal = Vector3D.Unit.of(1, 1, 1);
+
+        final Plane plane = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
+
+        final Vector3D p1 = plane.project(Vector3D.of(4, 5, 6));
+        final Vector3D p2 = plane.project(Vector3D.of(-7, -8, -9));
+        final Vector3D p3 = plane.project(Vector3D.of(10, -11, 12));
+
+        final Vector3D notOnPlane1 = plane.getOrigin().add(plane.getNormal());
+        final Vector3D notOnPlane2 = plane.getOrigin().subtract(plane.getNormal());
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (a, b, c) -> {
+            final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
+                    .rotate(Vector3D.of(-1, 2, 3),
+                            QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.3 * a))
+                    .scale(Math.max(a, 1), Math.max(b, 1), Math.max(c, 1))
+                    .translate(c, b, a);
+
+            // act
+            final Plane result = plane.transform(t);
+
+            // assert
+            Vector3D expectedNormal = t.normalTransform().apply(plane.getNormal()).normalize();
+            if (!t.preservesOrientation()) {
+                expectedNormal = expectedNormal.negate();
+            }
+
+            EuclideanTestUtils.assertCoordinatesEqual(expectedNormal, result.getNormal(), TEST_EPS);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            // removed other assertion
+            Assertions.assertFalse(result.contains(t.apply(notOnPlane2)));
+    }
+    }
+",PlaneTest::testTransform_consistency_5_oe
 geom_1324_1,"    @Test
     void testRotate_1_oe() {
         // arrange
@@ -77143,6 +78351,40 @@ geom_1341_1,"    @Test
     }
     }
 ",BoundarySourceBoundsBuilder3DTest::testGetBounds_singleFiniteBoundary_1_oe
+geom_1342_1,"    @Test
+    void testGetBounds_multipleFiniteBoundaries_1_oe() {
+        // arrange
+        final ConvexPolygon3D poly1 = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.of(1, 1, 1),
+                Vector3D.of(1, 0, 2),
+                Vector3D.of(3, 4, 5)), TEST_PRECISION);
+
+        final ConvexPolygon3D poly2 = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.of(-1, 1, 1),
+                Vector3D.of(1, 4, 4),
+                Vector3D.of(7, 4, 5)), TEST_PRECISION);
+
+        final ConvexPolygon3D poly3 = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.of(-2, 1, 1),
+                Vector3D.of(1, 7, 2),
+                Vector3D.of(5, 4, 10)), TEST_PRECISION);
+
+        final BoundarySource3D src = BoundarySource3D.of(poly1, poly2, poly3);
+        final BoundarySourceBoundsBuilder3D builder = new BoundarySourceBoundsBuilder3D();
+
+        // act
+        final Bounds3D b = builder.getBounds(src);
+
+        // assert
+        checkBounds(b, Vector3D.of(-2, 0, 1), Vector3D.of(7, 7, 10));
+
+        src.boundaryStream().forEach(boundary -> {
+            for (final Vector3D pt : boundary.getVertices()) {
+                Assertions.assertTrue(b.contains(pt));
+    }
+    }
+    }
+",BoundarySourceBoundsBuilder3DTest::testGetBounds_multipleFiniteBoundaries_1_oe
 geom_1343_1,"    @Test
     void testGetBounds_singleInfiniteBoundary_1_oe() {
         // arrange
@@ -78307,6 +79549,213 @@ geom_1363_2,"    @Test
         Assertions.assertFalse(plane.contains(transformedPt));
     }
 ",EmbeddingPlaneTest::testTransform_asymmetricScaling_2_oe
+geom_1364_1,"    @Test
+    void testTransform_consistency_1_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        final Vector3D normal = Vector3D.Unit.from(1, 1, 1);
+        final Vector3D u = normal.orthogonal(Vector3D.Unit.PLUS_X);
+        final Vector3D v = normal.cross(u).normalize();
+
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(pt, u, v, TEST_PRECISION);
+
+        final Vector3D p1 = plane.project(Vector3D.of(4, 5, 6));
+        final Vector3D p2 = plane.project(Vector3D.of(-7, -8, -9));
+        final Vector3D p3 = plane.project(Vector3D.of(10, -11, 12));
+
+        final Vector3D notOnPlane1 = plane.getOrigin().add(plane.getNormal());
+        final Vector3D notOnPlane2 = plane.getOrigin().subtract(plane.getNormal());
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (a, b, c) -> {
+            final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
+                    .rotate(Vector3D.of(-1, 2, 3),
+                            QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.3 * a))
+                    .scale(Math.max(a, 1), Math.max(b, 1), Math.max(c, 1))
+                    .translate(c, b, a);
+
+            // act
+            final EmbeddingPlane result = plane.transform(t);
+
+            // assert
+            Vector3D expectedNormal = t.normalTransform().apply(plane.getNormal()).normalize();
+            if (!t.preservesOrientation()) {
+                expectedNormal = expectedNormal.negate();
+            }
+
+            EuclideanTestUtils.assertCoordinatesEqual(expectedNormal, result.getNormal(), TEST_EPS);
+
+            Assertions.assertTrue(result.contains(t.apply(p1)));
+    }
+    }
+",EmbeddingPlaneTest::testTransform_consistency_1_oe
+geom_1364_2,"    @Test
+    void testTransform_consistency_2_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        final Vector3D normal = Vector3D.Unit.from(1, 1, 1);
+        final Vector3D u = normal.orthogonal(Vector3D.Unit.PLUS_X);
+        final Vector3D v = normal.cross(u).normalize();
+
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(pt, u, v, TEST_PRECISION);
+
+        final Vector3D p1 = plane.project(Vector3D.of(4, 5, 6));
+        final Vector3D p2 = plane.project(Vector3D.of(-7, -8, -9));
+        final Vector3D p3 = plane.project(Vector3D.of(10, -11, 12));
+
+        final Vector3D notOnPlane1 = plane.getOrigin().add(plane.getNormal());
+        final Vector3D notOnPlane2 = plane.getOrigin().subtract(plane.getNormal());
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (a, b, c) -> {
+            final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
+                    .rotate(Vector3D.of(-1, 2, 3),
+                            QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.3 * a))
+                    .scale(Math.max(a, 1), Math.max(b, 1), Math.max(c, 1))
+                    .translate(c, b, a);
+
+            // act
+            final EmbeddingPlane result = plane.transform(t);
+
+            // assert
+            Vector3D expectedNormal = t.normalTransform().apply(plane.getNormal()).normalize();
+            if (!t.preservesOrientation()) {
+                expectedNormal = expectedNormal.negate();
+            }
+
+            EuclideanTestUtils.assertCoordinatesEqual(expectedNormal, result.getNormal(), TEST_EPS);
+
+            // removed other assertion
+            Assertions.assertTrue(result.contains(t.apply(p2)));
+    }
+    }
+",EmbeddingPlaneTest::testTransform_consistency_2_oe
+geom_1364_3,"    @Test
+    void testTransform_consistency_3_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        final Vector3D normal = Vector3D.Unit.from(1, 1, 1);
+        final Vector3D u = normal.orthogonal(Vector3D.Unit.PLUS_X);
+        final Vector3D v = normal.cross(u).normalize();
+
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(pt, u, v, TEST_PRECISION);
+
+        final Vector3D p1 = plane.project(Vector3D.of(4, 5, 6));
+        final Vector3D p2 = plane.project(Vector3D.of(-7, -8, -9));
+        final Vector3D p3 = plane.project(Vector3D.of(10, -11, 12));
+
+        final Vector3D notOnPlane1 = plane.getOrigin().add(plane.getNormal());
+        final Vector3D notOnPlane2 = plane.getOrigin().subtract(plane.getNormal());
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (a, b, c) -> {
+            final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
+                    .rotate(Vector3D.of(-1, 2, 3),
+                            QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.3 * a))
+                    .scale(Math.max(a, 1), Math.max(b, 1), Math.max(c, 1))
+                    .translate(c, b, a);
+
+            // act
+            final EmbeddingPlane result = plane.transform(t);
+
+            // assert
+            Vector3D expectedNormal = t.normalTransform().apply(plane.getNormal()).normalize();
+            if (!t.preservesOrientation()) {
+                expectedNormal = expectedNormal.negate();
+            }
+
+            EuclideanTestUtils.assertCoordinatesEqual(expectedNormal, result.getNormal(), TEST_EPS);
+
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertTrue(result.contains(t.apply(p3)));
+    }
+    }
+",EmbeddingPlaneTest::testTransform_consistency_3_oe
+geom_1364_4,"    @Test
+    void testTransform_consistency_4_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        final Vector3D normal = Vector3D.Unit.from(1, 1, 1);
+        final Vector3D u = normal.orthogonal(Vector3D.Unit.PLUS_X);
+        final Vector3D v = normal.cross(u).normalize();
+
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(pt, u, v, TEST_PRECISION);
+
+        final Vector3D p1 = plane.project(Vector3D.of(4, 5, 6));
+        final Vector3D p2 = plane.project(Vector3D.of(-7, -8, -9));
+        final Vector3D p3 = plane.project(Vector3D.of(10, -11, 12));
+
+        final Vector3D notOnPlane1 = plane.getOrigin().add(plane.getNormal());
+        final Vector3D notOnPlane2 = plane.getOrigin().subtract(plane.getNormal());
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (a, b, c) -> {
+            final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
+                    .rotate(Vector3D.of(-1, 2, 3),
+                            QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.3 * a))
+                    .scale(Math.max(a, 1), Math.max(b, 1), Math.max(c, 1))
+                    .translate(c, b, a);
+
+            // act
+            final EmbeddingPlane result = plane.transform(t);
+
+            // assert
+            Vector3D expectedNormal = t.normalTransform().apply(plane.getNormal()).normalize();
+            if (!t.preservesOrientation()) {
+                expectedNormal = expectedNormal.negate();
+            }
+
+            EuclideanTestUtils.assertCoordinatesEqual(expectedNormal, result.getNormal(), TEST_EPS);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            Assertions.assertFalse(result.contains(t.apply(notOnPlane1)));
+    }
+    }
+",EmbeddingPlaneTest::testTransform_consistency_4_oe
+geom_1364_5,"    @Test
+    void testTransform_consistency_5_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        final Vector3D normal = Vector3D.Unit.from(1, 1, 1);
+        final Vector3D u = normal.orthogonal(Vector3D.Unit.PLUS_X);
+        final Vector3D v = normal.cross(u).normalize();
+
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(pt, u, v, TEST_PRECISION);
+
+        final Vector3D p1 = plane.project(Vector3D.of(4, 5, 6));
+        final Vector3D p2 = plane.project(Vector3D.of(-7, -8, -9));
+        final Vector3D p3 = plane.project(Vector3D.of(10, -11, 12));
+
+        final Vector3D notOnPlane1 = plane.getOrigin().add(plane.getNormal());
+        final Vector3D notOnPlane2 = plane.getOrigin().subtract(plane.getNormal());
+
+        EuclideanTestUtils.permuteSkipZero(-4, 4, 1, (a, b, c) -> {
+            final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
+                    .rotate(Vector3D.of(-1, 2, 3),
+                            QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.3 * a))
+                    .scale(Math.max(a, 1), Math.max(b, 1), Math.max(c, 1))
+                    .translate(c, b, a);
+
+            // act
+            final EmbeddingPlane result = plane.transform(t);
+
+            // assert
+            Vector3D expectedNormal = t.normalTransform().apply(plane.getNormal()).normalize();
+            if (!t.preservesOrientation()) {
+                expectedNormal = expectedNormal.negate();
+            }
+
+            EuclideanTestUtils.assertCoordinatesEqual(expectedNormal, result.getNormal(), TEST_EPS);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            // removed other assertion
+            Assertions.assertFalse(result.contains(t.apply(notOnPlane2)));
+    }
+    }
+",EmbeddingPlaneTest::testTransform_consistency_5_oe
 geom_1365_1,"    @Test
     void testRotate_1_oe() {
         // arrange
@@ -85527,6 +86976,100 @@ geom_1481_2,"    @Test
         Assertions.assertThrows(IllegalStateException.class, () -> Planes.extrudeVertexLoop(Arrays.asList(Vector2D.ZERO, Vector2D.of(0, 1e-16)), plane, extrusionVector, TEST_PRECISION));
     }
 ",PlanesTest::testExtrudeVertexLoop_invalidVertexList_2_oe
+geom_1482_1,"    @Test
+    void testExtrudeVertexLoop_regionsConsistentBetweenExtrusionPlanes_1_oe() {
+        // arrange
+        final List<Vector2D> vertices = Arrays.asList(
+                Vector2D.of(1, 2),
+                Vector2D.of(1, -2),
+                Vector2D.of(4, -2),
+                Vector2D.of(4, -1),
+                Vector2D.of(2, -1),
+                Vector2D.of(2, 1),
+                Vector2D.of(4, 1),
+                Vector2D.of(4, 2),
+                Vector2D.of(1, 2)
+            );
+
+        final RegionBSPTree2D subspaceTree = LinePath.fromVertexLoop(vertices, TEST_PRECISION).toTree();
+
+        final double subspaceSize = subspaceTree.getSize();
+        final Vector2D subspaceCentroid = subspaceTree.getCentroid();
+
+        final double extrusionLength = 2;
+        final double expectedSize = subspaceSize * extrusionLength;
+
+        final Vector3D planePt = Vector3D.of(-1, 2, -3);
+
+        EuclideanTestUtils.permuteSkipZero(-2, 2, 1, (x, y, z) -> {
+            final Vector3D normal = Vector3D.of(x, y, z);
+            final EmbeddingPlane plane = Planes.fromPointAndNormal(planePt, normal, TEST_PRECISION).getEmbedding();
+
+            final Vector3D baseCentroid = plane.toSpace(subspaceCentroid);
+
+            final Vector3D plusExtrusionVector = normal.withNorm(extrusionLength);
+            final Vector3D minusExtrusionVector = plusExtrusionVector.negate();
+
+            // act
+            final RegionBSPTree3D extrudePlus = RegionBSPTree3D.from(
+                    Planes.extrudeVertexLoop(vertices, plane, plusExtrusionVector, TEST_PRECISION));
+            final RegionBSPTree3D extrudeMinus = RegionBSPTree3D.from(
+                    Planes.extrudeVertexLoop(vertices, plane, minusExtrusionVector, TEST_PRECISION));
+
+            // assert
+            Assertions.assertEquals(expectedSize, extrudePlus.getSize(), TEST_EPS);
+    }
+    }
+",PlanesTest::testExtrudeVertexLoop_regionsConsistentBetweenExtrusionPlanes_1_oe
+geom_1482_2,"    @Test
+    void testExtrudeVertexLoop_regionsConsistentBetweenExtrusionPlanes_2_oe() {
+        // arrange
+        final List<Vector2D> vertices = Arrays.asList(
+                Vector2D.of(1, 2),
+                Vector2D.of(1, -2),
+                Vector2D.of(4, -2),
+                Vector2D.of(4, -1),
+                Vector2D.of(2, -1),
+                Vector2D.of(2, 1),
+                Vector2D.of(4, 1),
+                Vector2D.of(4, 2),
+                Vector2D.of(1, 2)
+            );
+
+        final RegionBSPTree2D subspaceTree = LinePath.fromVertexLoop(vertices, TEST_PRECISION).toTree();
+
+        final double subspaceSize = subspaceTree.getSize();
+        final Vector2D subspaceCentroid = subspaceTree.getCentroid();
+
+        final double extrusionLength = 2;
+        final double expectedSize = subspaceSize * extrusionLength;
+
+        final Vector3D planePt = Vector3D.of(-1, 2, -3);
+
+        EuclideanTestUtils.permuteSkipZero(-2, 2, 1, (x, y, z) -> {
+            final Vector3D normal = Vector3D.of(x, y, z);
+            final EmbeddingPlane plane = Planes.fromPointAndNormal(planePt, normal, TEST_PRECISION).getEmbedding();
+
+            final Vector3D baseCentroid = plane.toSpace(subspaceCentroid);
+
+            final Vector3D plusExtrusionVector = normal.withNorm(extrusionLength);
+            final Vector3D minusExtrusionVector = plusExtrusionVector.negate();
+
+            // act
+            final RegionBSPTree3D extrudePlus = RegionBSPTree3D.from(
+                    Planes.extrudeVertexLoop(vertices, plane, plusExtrusionVector, TEST_PRECISION));
+            final RegionBSPTree3D extrudeMinus = RegionBSPTree3D.from(
+                    Planes.extrudeVertexLoop(vertices, plane, minusExtrusionVector, TEST_PRECISION));
+
+            // assert
+            // removed other assertion
+            EuclideanTestUtils.assertCoordinatesEqual(baseCentroid.add(plusExtrusionVector.multiply(0.5)),
+                    extrudePlus.getCentroid(), TEST_EPS);
+
+            Assertions.assertEquals(expectedSize, extrudeMinus.getSize(), TEST_EPS);
+    }
+    }
+",PlanesTest::testExtrudeVertexLoop_regionsConsistentBetweenExtrusionPlanes_2_oe
 geom_1483_1,"    @Test
     void testExtrude_vertexLoop_clockwiseWinding_1_oe() {
         // arrange
@@ -88114,6 +89657,24 @@ geom_1523_2,"    @Test
         Assertions.assertEquals((4.0 * Math.PI * r * r * r) / 3.0, s.getSize(), TEST_EPS);
     }
 ",SphereTest::testGeometricProperties_2_oe
+geom_1524_1,"    @Test
+    void testProject_1_oe() {
+        // arrange
+        final Vector3D center = Vector3D.of(1.5, 2.5, 3.5);
+        final double radius = 3;
+        final Sphere s = Sphere.from(center, radius, TEST_PRECISION);
+
+        EuclideanTestUtils.permute(-4, 4, 1, (x, y, z) -> {
+            final Vector3D pt = Vector3D.of(x, y, z);
+
+            // act
+            final Vector3D projection = s.project(pt);
+
+            // assert
+            Assertions.assertEquals(radius, center.distance(projection), TEST_EPS);
+    }
+    }
+",SphereTest::testProject_1_oe
 geom_1525_1,"    @Test
     void testToTree_zeroSubdivisions_1_oe() throws IOException {
         // arrange
@@ -97647,6 +99208,76 @@ geom_1657_3,"    @Test
         Assertions.assertEquals(Math.PI, q.getAngle(), EPS);
     }
 ",QuaternionRotationTest::testCreateVectorRotation_antiparallel_3_oe
+geom_1658_1,"    @Test
+    void testCreateVectorRotation_permute_1_oe() {
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.1, (x, y, z) -> {
+            // arrange
+            final Vector3D u1 = Vector3D.of(x, y, z);
+            final Vector3D u2 = PLUS_DIAGONAL;
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createVectorRotation(u1, u2);
+
+            // assert
+            Assertions.assertEquals(0.0, q.apply(u1).angle(u2), EPS);
+    }
+    }
+",QuaternionRotationTest::testCreateVectorRotation_permute_1_oe
+geom_1658_2,"    @Test
+    void testCreateVectorRotation_permute_2_oe() {
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.1, (x, y, z) -> {
+            // arrange
+            final Vector3D u1 = Vector3D.of(x, y, z);
+            final Vector3D u2 = PLUS_DIAGONAL;
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createVectorRotation(u1, u2);
+
+            // assert
+            // removed other assertion
+            Assertions.assertEquals(0.0, q.inverse().apply(u2).angle(u1), EPS);
+    }
+    }
+",QuaternionRotationTest::testCreateVectorRotation_permute_2_oe
+geom_1658_3,"    @Test
+    void testCreateVectorRotation_permute_3_oe() {
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.1, (x, y, z) -> {
+            // arrange
+            final Vector3D u1 = Vector3D.of(x, y, z);
+            final Vector3D u2 = PLUS_DIAGONAL;
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createVectorRotation(u1, u2);
+
+            // assert
+            // removed other assertion
+            // removed other assertion
+
+            final double angle = q.getAngle();
+            Assertions.assertTrue(angle >= 0.0);
+    }
+    }
+",QuaternionRotationTest::testCreateVectorRotation_permute_3_oe
+geom_1658_4,"    @Test
+    void testCreateVectorRotation_permute_4_oe() {
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.1, (x, y, z) -> {
+            // arrange
+            final Vector3D u1 = Vector3D.of(x, y, z);
+            final Vector3D u2 = PLUS_DIAGONAL;
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createVectorRotation(u1, u2);
+
+            // assert
+            // removed other assertion
+            // removed other assertion
+
+            final double angle = q.getAngle();
+            // removed other assertion
+            Assertions.assertTrue(angle <= Math.PI);
+    }
+    }
+",QuaternionRotationTest::testCreateVectorRotation_permute_4_oe
 geom_1659_1,"    @Test
     void testCreateVectorRotation_invalidArgs_1_oe() {
         // act/assert
@@ -97687,6 +99318,373 @@ geom_1659_5,"    @Test
         Assertions.assertThrows(IllegalArgumentException.class, () -> QuaternionRotation.createVectorRotation(Vector3D.Unit.PLUS_X, Vector3D.NEGATIVE_INFINITY));
     }
 ",QuaternionRotationTest::testCreateVectorRotation_invalidArgs_5_oe
+geom_1660_1,"    @Test
+    void testCreateBasisRotation_permute_1_oe() {
+        // arrange
+        final Vector3D u1 = Vector3D.of(1, 2, 3);
+        final Vector3D u2 = Vector3D.of(0, 4, 0);
+
+        final Vector3D u1Dir = u1.normalize();
+        final Vector3D u2Dir = u1Dir.orthogonal(u2);
+
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.2, (x, y, z) -> {
+            final Vector3D v1 = Vector3D.of(x, y, z);
+            final Vector3D v2 = v1.orthogonal();
+
+            final Vector3D v1Dir = v1.normalize();
+            final Vector3D v2Dir = v2.normalize();
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
+            final QuaternionRotation qInv = q.inverse();
+
+            // assert
+            EuclideanTestUtils.assertCoordinatesEqual(v1Dir, q.apply(u1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(v2Dir, q.apply(u2Dir), EPS);
+
+            EuclideanTestUtils.assertCoordinatesEqual(u1Dir, qInv.apply(v1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(u2Dir, qInv.apply(v2Dir), EPS);
+
+            final double angle = q.getAngle();
+            Assertions.assertTrue(angle >= 0.0);
+    }
+    }
+",QuaternionRotationTest::testCreateBasisRotation_permute_1_oe
+geom_1660_2,"    @Test
+    void testCreateBasisRotation_permute_2_oe() {
+        // arrange
+        final Vector3D u1 = Vector3D.of(1, 2, 3);
+        final Vector3D u2 = Vector3D.of(0, 4, 0);
+
+        final Vector3D u1Dir = u1.normalize();
+        final Vector3D u2Dir = u1Dir.orthogonal(u2);
+
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.2, (x, y, z) -> {
+            final Vector3D v1 = Vector3D.of(x, y, z);
+            final Vector3D v2 = v1.orthogonal();
+
+            final Vector3D v1Dir = v1.normalize();
+            final Vector3D v2Dir = v2.normalize();
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
+            final QuaternionRotation qInv = q.inverse();
+
+            // assert
+            EuclideanTestUtils.assertCoordinatesEqual(v1Dir, q.apply(u1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(v2Dir, q.apply(u2Dir), EPS);
+
+            EuclideanTestUtils.assertCoordinatesEqual(u1Dir, qInv.apply(v1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(u2Dir, qInv.apply(v2Dir), EPS);
+
+            final double angle = q.getAngle();
+            // removed other assertion
+            Assertions.assertTrue(angle <= Math.PI);
+    }
+    }
+",QuaternionRotationTest::testCreateBasisRotation_permute_2_oe
+geom_1660_3,"    @Test
+    void testCreateBasisRotation_permute_3_oe() {
+        // arrange
+        final Vector3D u1 = Vector3D.of(1, 2, 3);
+        final Vector3D u2 = Vector3D.of(0, 4, 0);
+
+        final Vector3D u1Dir = u1.normalize();
+        final Vector3D u2Dir = u1Dir.orthogonal(u2);
+
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.2, (x, y, z) -> {
+            final Vector3D v1 = Vector3D.of(x, y, z);
+            final Vector3D v2 = v1.orthogonal();
+
+            final Vector3D v1Dir = v1.normalize();
+            final Vector3D v2Dir = v2.normalize();
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
+            final QuaternionRotation qInv = q.inverse();
+
+            // assert
+            EuclideanTestUtils.assertCoordinatesEqual(v1Dir, q.apply(u1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(v2Dir, q.apply(u2Dir), EPS);
+
+            EuclideanTestUtils.assertCoordinatesEqual(u1Dir, qInv.apply(v1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(u2Dir, qInv.apply(v2Dir), EPS);
+
+            final double angle = q.getAngle();
+            // removed other assertion
+            // removed other assertion
+
+            final Vector3D transformedX = q.apply(Vector3D.Unit.PLUS_X);
+            final Vector3D transformedY = q.apply(Vector3D.Unit.PLUS_Y);
+            final Vector3D transformedZ = q.apply(Vector3D.Unit.PLUS_Z);
+
+            Assertions.assertEquals(1.0, transformedX.norm(), EPS);
+    }
+    }
+",QuaternionRotationTest::testCreateBasisRotation_permute_3_oe
+geom_1660_4,"    @Test
+    void testCreateBasisRotation_permute_4_oe() {
+        // arrange
+        final Vector3D u1 = Vector3D.of(1, 2, 3);
+        final Vector3D u2 = Vector3D.of(0, 4, 0);
+
+        final Vector3D u1Dir = u1.normalize();
+        final Vector3D u2Dir = u1Dir.orthogonal(u2);
+
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.2, (x, y, z) -> {
+            final Vector3D v1 = Vector3D.of(x, y, z);
+            final Vector3D v2 = v1.orthogonal();
+
+            final Vector3D v1Dir = v1.normalize();
+            final Vector3D v2Dir = v2.normalize();
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
+            final QuaternionRotation qInv = q.inverse();
+
+            // assert
+            EuclideanTestUtils.assertCoordinatesEqual(v1Dir, q.apply(u1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(v2Dir, q.apply(u2Dir), EPS);
+
+            EuclideanTestUtils.assertCoordinatesEqual(u1Dir, qInv.apply(v1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(u2Dir, qInv.apply(v2Dir), EPS);
+
+            final double angle = q.getAngle();
+            // removed other assertion
+            // removed other assertion
+
+            final Vector3D transformedX = q.apply(Vector3D.Unit.PLUS_X);
+            final Vector3D transformedY = q.apply(Vector3D.Unit.PLUS_Y);
+            final Vector3D transformedZ = q.apply(Vector3D.Unit.PLUS_Z);
+
+            // removed other assertion
+            Assertions.assertEquals(1.0, transformedY.norm(), EPS);
+    }
+    }
+",QuaternionRotationTest::testCreateBasisRotation_permute_4_oe
+geom_1660_5,"    @Test
+    void testCreateBasisRotation_permute_5_oe() {
+        // arrange
+        final Vector3D u1 = Vector3D.of(1, 2, 3);
+        final Vector3D u2 = Vector3D.of(0, 4, 0);
+
+        final Vector3D u1Dir = u1.normalize();
+        final Vector3D u2Dir = u1Dir.orthogonal(u2);
+
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.2, (x, y, z) -> {
+            final Vector3D v1 = Vector3D.of(x, y, z);
+            final Vector3D v2 = v1.orthogonal();
+
+            final Vector3D v1Dir = v1.normalize();
+            final Vector3D v2Dir = v2.normalize();
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
+            final QuaternionRotation qInv = q.inverse();
+
+            // assert
+            EuclideanTestUtils.assertCoordinatesEqual(v1Dir, q.apply(u1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(v2Dir, q.apply(u2Dir), EPS);
+
+            EuclideanTestUtils.assertCoordinatesEqual(u1Dir, qInv.apply(v1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(u2Dir, qInv.apply(v2Dir), EPS);
+
+            final double angle = q.getAngle();
+            // removed other assertion
+            // removed other assertion
+
+            final Vector3D transformedX = q.apply(Vector3D.Unit.PLUS_X);
+            final Vector3D transformedY = q.apply(Vector3D.Unit.PLUS_Y);
+            final Vector3D transformedZ = q.apply(Vector3D.Unit.PLUS_Z);
+
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertEquals(1.0, transformedZ.norm(), EPS);
+    }
+    }
+",QuaternionRotationTest::testCreateBasisRotation_permute_5_oe
+geom_1660_6,"    @Test
+    void testCreateBasisRotation_permute_6_oe() {
+        // arrange
+        final Vector3D u1 = Vector3D.of(1, 2, 3);
+        final Vector3D u2 = Vector3D.of(0, 4, 0);
+
+        final Vector3D u1Dir = u1.normalize();
+        final Vector3D u2Dir = u1Dir.orthogonal(u2);
+
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.2, (x, y, z) -> {
+            final Vector3D v1 = Vector3D.of(x, y, z);
+            final Vector3D v2 = v1.orthogonal();
+
+            final Vector3D v1Dir = v1.normalize();
+            final Vector3D v2Dir = v2.normalize();
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
+            final QuaternionRotation qInv = q.inverse();
+
+            // assert
+            EuclideanTestUtils.assertCoordinatesEqual(v1Dir, q.apply(u1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(v2Dir, q.apply(u2Dir), EPS);
+
+            EuclideanTestUtils.assertCoordinatesEqual(u1Dir, qInv.apply(v1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(u2Dir, qInv.apply(v2Dir), EPS);
+
+            final double angle = q.getAngle();
+            // removed other assertion
+            // removed other assertion
+
+            final Vector3D transformedX = q.apply(Vector3D.Unit.PLUS_X);
+            final Vector3D transformedY = q.apply(Vector3D.Unit.PLUS_Y);
+            final Vector3D transformedZ = q.apply(Vector3D.Unit.PLUS_Z);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            Assertions.assertEquals(0.0, transformedX.dot(transformedY), EPS);
+    }
+    }
+",QuaternionRotationTest::testCreateBasisRotation_permute_6_oe
+geom_1660_7,"    @Test
+    void testCreateBasisRotation_permute_7_oe() {
+        // arrange
+        final Vector3D u1 = Vector3D.of(1, 2, 3);
+        final Vector3D u2 = Vector3D.of(0, 4, 0);
+
+        final Vector3D u1Dir = u1.normalize();
+        final Vector3D u2Dir = u1Dir.orthogonal(u2);
+
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.2, (x, y, z) -> {
+            final Vector3D v1 = Vector3D.of(x, y, z);
+            final Vector3D v2 = v1.orthogonal();
+
+            final Vector3D v1Dir = v1.normalize();
+            final Vector3D v2Dir = v2.normalize();
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
+            final QuaternionRotation qInv = q.inverse();
+
+            // assert
+            EuclideanTestUtils.assertCoordinatesEqual(v1Dir, q.apply(u1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(v2Dir, q.apply(u2Dir), EPS);
+
+            EuclideanTestUtils.assertCoordinatesEqual(u1Dir, qInv.apply(v1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(u2Dir, qInv.apply(v2Dir), EPS);
+
+            final double angle = q.getAngle();
+            // removed other assertion
+            // removed other assertion
+
+            final Vector3D transformedX = q.apply(Vector3D.Unit.PLUS_X);
+            final Vector3D transformedY = q.apply(Vector3D.Unit.PLUS_Y);
+            final Vector3D transformedZ = q.apply(Vector3D.Unit.PLUS_Z);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            // removed other assertion
+            Assertions.assertEquals(0.0, transformedX.dot(transformedZ), EPS);
+    }
+    }
+",QuaternionRotationTest::testCreateBasisRotation_permute_7_oe
+geom_1660_8,"    @Test
+    void testCreateBasisRotation_permute_8_oe() {
+        // arrange
+        final Vector3D u1 = Vector3D.of(1, 2, 3);
+        final Vector3D u2 = Vector3D.of(0, 4, 0);
+
+        final Vector3D u1Dir = u1.normalize();
+        final Vector3D u2Dir = u1Dir.orthogonal(u2);
+
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.2, (x, y, z) -> {
+            final Vector3D v1 = Vector3D.of(x, y, z);
+            final Vector3D v2 = v1.orthogonal();
+
+            final Vector3D v1Dir = v1.normalize();
+            final Vector3D v2Dir = v2.normalize();
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
+            final QuaternionRotation qInv = q.inverse();
+
+            // assert
+            EuclideanTestUtils.assertCoordinatesEqual(v1Dir, q.apply(u1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(v2Dir, q.apply(u2Dir), EPS);
+
+            EuclideanTestUtils.assertCoordinatesEqual(u1Dir, qInv.apply(v1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(u2Dir, qInv.apply(v2Dir), EPS);
+
+            final double angle = q.getAngle();
+            // removed other assertion
+            // removed other assertion
+
+            final Vector3D transformedX = q.apply(Vector3D.Unit.PLUS_X);
+            final Vector3D transformedY = q.apply(Vector3D.Unit.PLUS_Y);
+            final Vector3D transformedZ = q.apply(Vector3D.Unit.PLUS_Z);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            // removed other assertion
+            // removed other assertion
+            Assertions.assertEquals(0.0, transformedY.dot(transformedZ), EPS);
+    }
+    }
+",QuaternionRotationTest::testCreateBasisRotation_permute_8_oe
+geom_1660_9,"    @Test
+    void testCreateBasisRotation_permute_9_oe() {
+        // arrange
+        final Vector3D u1 = Vector3D.of(1, 2, 3);
+        final Vector3D u2 = Vector3D.of(0, 4, 0);
+
+        final Vector3D u1Dir = u1.normalize();
+        final Vector3D u2Dir = u1Dir.orthogonal(u2);
+
+        EuclideanTestUtils.permuteSkipZero(-5, 5, 0.2, (x, y, z) -> {
+            final Vector3D v1 = Vector3D.of(x, y, z);
+            final Vector3D v2 = v1.orthogonal();
+
+            final Vector3D v1Dir = v1.normalize();
+            final Vector3D v2Dir = v2.normalize();
+
+            // act
+            final QuaternionRotation q = QuaternionRotation.createBasisRotation(u1, u2, v1, v2);
+            final QuaternionRotation qInv = q.inverse();
+
+            // assert
+            EuclideanTestUtils.assertCoordinatesEqual(v1Dir, q.apply(u1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(v2Dir, q.apply(u2Dir), EPS);
+
+            EuclideanTestUtils.assertCoordinatesEqual(u1Dir, qInv.apply(v1Dir), EPS);
+            EuclideanTestUtils.assertCoordinatesEqual(u2Dir, qInv.apply(v2Dir), EPS);
+
+            final double angle = q.getAngle();
+            // removed other assertion
+            // removed other assertion
+
+            final Vector3D transformedX = q.apply(Vector3D.Unit.PLUS_X);
+            final Vector3D transformedY = q.apply(Vector3D.Unit.PLUS_Y);
+            final Vector3D transformedZ = q.apply(Vector3D.Unit.PLUS_Z);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            EuclideanTestUtils.assertCoordinatesEqual(transformedZ.normalize(),
+                    transformedX.normalize().cross(transformedY.normalize()), EPS);
+
+            Assertions.assertEquals(1.0, q.getQuaternion().norm(), EPS);
+    }
+    }
+",QuaternionRotationTest::testCreateBasisRotation_permute_9_oe
 geom_1661_1,"    @Test
     void testCreateBasisRotation_invalidArgs_1_oe() {
         // act/assert
@@ -107893,6 +109891,58 @@ geom_1820_1,"    @Test
         Assertions.assertThrows(IllegalArgumentException.class, () ->  sub.add(new EmbeddedTreeGreatCircleSubset(otherCircle, RegionBSPTree1S.full())));
     }
 ",EmbeddedTreeSubGreatCircleTest::testAdd_subGreatCircle_otherCircle_1_oe
+geom_1821_1,"    @Test
+    void testConnectAll_empty_1_oe() {
+        runWithMaxAndMin(connector -> {
+            // arrange
+            final List<GreatArc> arcs = new ArrayList<>();
+            connector.add(arcs);
+
+            // act
+            final List<GreatArcPath> paths = connector.connectAll();
+
+            // assert
+            Assertions.assertEquals(0, paths.size());
+    }
+    }
+",InteriorAngleGreatArcConnectorTest::testConnectAll_empty_1_oe
+geom_1822_1,"    @Test
+    void testConnectAll_singlePath_1_oe() {
+        runWithMaxAndMin(connector -> {
+            // arrange
+            final List<GreatArc> arcs = Collections.singletonList(
+                    GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION)
+            );
+            connector.add(arcs);
+
+            // act
+            final List<GreatArcPath> paths = connector.connectAll();
+
+            // assert
+            Assertions.assertEquals(1, paths.size());
+    }
+    }
+",InteriorAngleGreatArcConnectorTest::testConnectAll_singlePath_1_oe
+geom_1822_2,"    @Test
+    void testConnectAll_singlePath_2_oe() {
+        runWithMaxAndMin(connector -> {
+            // arrange
+            final List<GreatArc> arcs = Collections.singletonList(
+                    GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION)
+            );
+            connector.add(arcs);
+
+            // act
+            final List<GreatArcPath> paths = connector.connectAll();
+
+            // assert
+            // removed other assertion
+
+            final GreatArcPath a = paths.get(0);
+            Assertions.assertEquals(1, a.getArcs().size());
+    }
+    }
+",InteriorAngleGreatArcConnectorTest::testConnectAll_singlePath_2_oe
 geom_1823_1,"    @Test
     void testConnectAll_maximize_instance_1_oe() {
         // arrange

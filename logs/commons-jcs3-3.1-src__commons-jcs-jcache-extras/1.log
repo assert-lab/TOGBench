@@ -32,7 +32,7 @@
 [INFO] --- buildnumber:1.4:create (default) @ commons-jcs3-jcache-extras ---
 [INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras
-[INFO] Storing buildNumber: 74773d2acb91b0a98a0c2844a2b8369f83706543 at timestamp: 1768587590627
+[INFO] Storing buildNumber: ba422cbeaa32efdad405fd5df283f67519011b01 at timestamp: 1768596708640
 [INFO] Storing buildScmBranch: main
 [INFO] 
 [INFO] --- resources:3.1.0:resources (default-resources) @ commons-jcs3-jcache-extras ---
@@ -73,24 +73,24 @@
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.541 s - in org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
-[INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.479 s - in org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.922 s - in org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.154 s - in org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 8.416 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
-[ERROR] checkLoadAll_3_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.096 s  <<< FAILURE!
+[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 8.625 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
+[ERROR] checkLoadAll_3_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.19 s  <<< FAILURE!
 java.lang.AssertionError: expected:<2> but was:<1>
 	at org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev.checkLoadAll_3_oe(CacheLoaderAdapterTest_OE25Dev.java:87)
 
-[ERROR] checkLoadAll_6_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.169 s  <<< FAILURE!
+[ERROR] checkLoadAll_6_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.252 s  <<< FAILURE!
 java.lang.AssertionError: expected:<2> but was:<1>
 	at org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev.checkLoadAll_6_oe(CacheLoaderAdapterTest_OE25Dev.java:162)
 
-[INFO] Running org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -103,8 +103,8 @@ java.lang.AssertionError: expected:<2> but was:<1>
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  18.417 s
-[INFO] Finished at: 2026-01-16T13:20:07-05:00
+[INFO] Total time:  23.045 s
+[INFO] Finished at: 2026-01-16T15:52:09-05:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project commons-jcs3-jcache-extras: There are test failures.
 [ERROR] 

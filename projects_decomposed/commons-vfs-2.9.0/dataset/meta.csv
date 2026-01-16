@@ -108,8 +108,10 @@ vfs-_24_2,commons-vfs-2.9.0,ContentTests,testByteArrayReadAll_2_oe,commons-vfs2/
 vfs-_24_3,commons-vfs-2.9.0,ContentTests,testByteArrayReadAll_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
 vfs-_25_1,commons-vfs-2.9.0,ContentTests,testChildren_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
 vfs-_25_2,commons-vfs-2.9.0,ContentTests,testChildren_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
+vfs-_25_3,commons-vfs-2.9.0,ContentTests,testChildren_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
 vfs-_25_4,commons-vfs-2.9.0,ContentTests,testChildren_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
 vfs-_25_5,commons-vfs-2.9.0,ContentTests,testChildren_5_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
+vfs-_25_6,commons-vfs-2.9.0,ContentTests,testChildren_6_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
 vfs-_25_7,commons-vfs-2.9.0,ContentTests,testChildren_7_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
 vfs-_26_1,commons-vfs-2.9.0,ContentTests,testExists_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
 vfs-_26_2,commons-vfs-2.9.0,ContentTests,testExists_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
@@ -155,6 +157,8 @@ vfs-_34_1,commons-vfs-2.9.0,ContentTests,testReadSingleConcurrent_1_oe,commons-v
 vfs-_35_1,commons-vfs-2.9.0,ContentTests,testReadSingleSequencial_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
 vfs-_36_1,commons-vfs-2.9.0,ContentTests,testReuse_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
 vfs-_36_2,commons-vfs-2.9.0,ContentTests,testReuse_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
+vfs-_37_1,commons-vfs-2.9.0,ContentTests,testUnknownContent_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
+vfs-_37_2,commons-vfs-2.9.0,ContentTests,testUnknownContent_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests.java,,,,assert,unknown
 vfs-_38_1,commons-vfs-2.9.0,InvertIncludeFileSelectorTest,testInvertMatchAll_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/InvertIncludeFileSelectorTest.java,,,,assert,unknown
 vfs-_39_1,commons-vfs-2.9.0,InvertIncludeFileSelectorTest,testInvertMatchSome_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/InvertIncludeFileSelectorTest.java,,,,assert,unknown
 vfs-_40_1,commons-vfs-2.9.0,ProviderRandomReadTests,testRandomRead_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderRandomReadTests.java,,,,assert,unknown
@@ -190,6 +194,7 @@ vfs-_50_4,commons-vfs-2.9.0,FileExtensionSelectorTest,testOneExtension_4_oe,comm
 vfs-_51_1,commons-vfs-2.9.0,UrlTests,testReservedCharacter_Space_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/UrlTests.java,,,,assert,unknown
 vfs-_51_2,commons-vfs-2.9.0,UrlTests,testReservedCharacter_Space_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/UrlTests.java,,,,assert,unknown
 vfs-_52_1,commons-vfs-2.9.0,UrlTests,testUnknownURL_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/UrlTests.java,,,,assert,unknown
+vfs-_52_2,commons-vfs-2.9.0,UrlTests,testUnknownURL_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/UrlTests.java,,,,assert,unknown
 vfs-_52_3,commons-vfs-2.9.0,UrlTests,testUnknownURL_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/UrlTests.java,,,,assert,unknown
 vfs-_53_1,commons-vfs-2.9.0,UrlTests,testURL_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/UrlTests.java,,,,assert,unknown
 vfs-_53_2,commons-vfs-2.9.0,UrlTests,testURL_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/UrlTests.java,,,,assert,unknown
@@ -203,9 +208,11 @@ vfs-_56_1,commons-vfs-2.9.0,ProviderReadTests,testDotJarFolderName_1_oe,commons-
 vfs-_56_2,commons-vfs-2.9.0,ProviderReadTests,testDotJarFolderName_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown
 vfs-_57_1,commons-vfs-2.9.0,ProviderReadTests,testDotJarFolderNameLayer_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown
 vfs-_57_2,commons-vfs-2.9.0,ProviderReadTests,testDotJarFolderNameLayer_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown
+vfs-_57_3,commons-vfs-2.9.0,ProviderReadTests,testDotJarFolderNameLayer_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown
 vfs-_57_4,commons-vfs-2.9.0,ProviderReadTests,testDotJarFolderNameLayer_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown
 vfs-_58_1,commons-vfs-2.9.0,ProviderReadTests,testFindFiles_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown
 vfs-_58_2,commons-vfs-2.9.0,ProviderReadTests,testFindFiles_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown
+vfs-_59_1,commons-vfs-2.9.0,ProviderReadTests,testFolderContent_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown
 vfs-_60_1,commons-vfs-2.9.0,ProviderReadTests,testFolderIsHidden_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown
 vfs-_61_1,commons-vfs-2.9.0,ProviderReadTests,testFolderIsReadable_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown
 vfs-_62_1,commons-vfs-2.9.0,ProviderReadTests,testFolderIsSymbolicLink_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderReadTests.java,,,,assert,unknown
@@ -300,6 +307,9 @@ vfs-_75_1,commons-vfs-2.9.0,ProviderWriteTests,testFileCreateMismatched_1_oe,com
 vfs-_75_2,commons-vfs-2.9.0,ProviderWriteTests,testFileCreateMismatched_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown
 vfs-_75_3,commons-vfs-2.9.0,ProviderWriteTests,testFileCreateMismatched_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown
 vfs-_75_4,commons-vfs-2.9.0,ProviderWriteTests,testFileCreateMismatched_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown
+vfs-_75_5,commons-vfs-2.9.0,ProviderWriteTests,testFileCreateMismatched_5_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown
+vfs-_75_6,commons-vfs-2.9.0,ProviderWriteTests,testFileCreateMismatched_6_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown
+vfs-_75_7,commons-vfs-2.9.0,ProviderWriteTests,testFileCreateMismatched_7_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown
 vfs-_76_1,commons-vfs-2.9.0,ProviderWriteTests,testFolderCreate_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown
 vfs-_76_2,commons-vfs-2.9.0,ProviderWriteTests,testFolderCreate_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown
 vfs-_76_3,commons-vfs-2.9.0,ProviderWriteTests,testFolderCreate_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderWriteTests.java,,,,assert,unknown
@@ -332,6 +342,7 @@ vfs-_83_2,commons-vfs-2.9.0,ProviderWriteTests,testWriteSameFileSystem_2_oe,comm
 vfs-_84_1,commons-vfs-2.9.0,ProviderRandomSetLengthTests,testRandomSetLength_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderRandomSetLengthTests.java,,,,assert,unknown
 vfs-_84_2,commons-vfs-2.9.0,ProviderRandomSetLengthTests,testRandomSetLength_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderRandomSetLengthTests.java,,,,assert,unknown
 vfs-_84_3,commons-vfs-2.9.0,ProviderRandomSetLengthTests,testRandomSetLength_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderRandomSetLengthTests.java,,,,assert,unknown
+vfs-_84_4,commons-vfs-2.9.0,ProviderRandomSetLengthTests,testRandomSetLength_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderRandomSetLengthTests.java,,,,assert,unknown
 vfs-_84_5,commons-vfs-2.9.0,ProviderRandomSetLengthTests,testRandomSetLength_5_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/ProviderRandomSetLengthTests.java,,,,assert,unknown
 vfs-_85_1,commons-vfs-2.9.0,PatternFileSelectorTest,testFileExtensions_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/PatternFileSelectorTest.java,,,,assert,unknown
 vfs-_85_2,commons-vfs-2.9.0,PatternFileSelectorTest,testFileExtensions_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/PatternFileSelectorTest.java,,,,assert,unknown
@@ -381,6 +392,9 @@ vfs-_102_2,commons-vfs-2.9.0,NamingTests,testRelativeUriEncoding_2_oe,commons-vf
 vfs-_102_3,commons-vfs-2.9.0,NamingTests,testRelativeUriEncoding_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests.java,,,,assert,unknown
 vfs-_102_4,commons-vfs-2.9.0,NamingTests,testRelativeUriEncoding_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests.java,,,,assert,unknown
 vfs-_102_5,commons-vfs-2.9.0,NamingTests,testRelativeUriEncoding_5_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests.java,,,,assert,unknown
+vfs-_102_6,commons-vfs-2.9.0,NamingTests,testRelativeUriEncoding_6_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests.java,,,,assert,unknown
+vfs-_102_7,commons-vfs-2.9.0,NamingTests,testRelativeUriEncoding_7_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests.java,,,,assert,unknown
+vfs-_102_8,commons-vfs-2.9.0,NamingTests,testRelativeUriEncoding_8_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests.java,,,,assert,unknown
 vfs-_103_1,commons-vfs-2.9.0,NamingTests,testRootFileName_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests.java,,,,assert,unknown
 vfs-_103_2,commons-vfs-2.9.0,NamingTests,testRootFileName_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests.java,,,,assert,unknown
 vfs-_103_3,commons-vfs-2.9.0,NamingTests,testRootFileName_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests.java,,,,assert,unknown
@@ -411,8 +425,10 @@ vfs-_109_1,commons-vfs-2.9.0,FileSystemExceptionTest,testProperDetectionOfUrl_1_
 vfs-_110_1,commons-vfs-2.9.0,EncryptDecryptTest,testEncryptDecrypt_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/util/EncryptDecryptTest.java,,,,assert,unknown
 vfs-_110_2,commons-vfs-2.9.0,EncryptDecryptTest,testEncryptDecrypt_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/util/EncryptDecryptTest.java,,,,assert,unknown
 vfs-_111_1,commons-vfs-2.9.0,DelegatingFileSystemOptionsBuilderTest,testConfiguration_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/util/DelegatingFileSystemOptionsBuilderTest.java,,,,assert,unknown
+vfs-_112_1,commons-vfs-2.9.0,DelegatingFileSystemOptionsBuilderTest,testDelegatingBad_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/util/DelegatingFileSystemOptionsBuilderTest.java,,,,assert,unknown
 vfs-_112_2,commons-vfs-2.9.0,DelegatingFileSystemOptionsBuilderTest,testDelegatingBad_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/util/DelegatingFileSystemOptionsBuilderTest.java,,,,assert,unknown
 vfs-_112_3,commons-vfs-2.9.0,DelegatingFileSystemOptionsBuilderTest,testDelegatingBad_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/util/DelegatingFileSystemOptionsBuilderTest.java,,,,assert,unknown
+vfs-_112_4,commons-vfs-2.9.0,DelegatingFileSystemOptionsBuilderTest,testDelegatingBad_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/util/DelegatingFileSystemOptionsBuilderTest.java,,,,assert,unknown
 vfs-_112_5,commons-vfs-2.9.0,DelegatingFileSystemOptionsBuilderTest,testDelegatingBad_5_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/util/DelegatingFileSystemOptionsBuilderTest.java,,,,assert,unknown
 vfs-_113_1,commons-vfs-2.9.0,DelegatingFileSystemOptionsBuilderTest,testDelegatingGood_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/util/DelegatingFileSystemOptionsBuilderTest.java,,,,assert,unknown
 vfs-_113_2,commons-vfs-2.9.0,DelegatingFileSystemOptionsBuilderTest,testDelegatingGood_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/util/DelegatingFileSystemOptionsBuilderTest.java,,,,assert,unknown
@@ -457,6 +473,11 @@ vfs-_132_1,commons-vfs-2.9.0,NullFilesCacheTests,testClass_1_oe,commons-vfs2/src
 vfs-_132_2,commons-vfs-2.9.0,NullFilesCacheTests,testClass_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/cache/NullFilesCacheTests.java,,,,assert,unknown
 vfs-_133_1,commons-vfs-2.9.0,NullFilesCacheTests,testFilesCache_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/cache/NullFilesCacheTests.java,,,,assert,unknown
 vfs-_133_2,commons-vfs-2.9.0,NullFilesCacheTests,testFilesCache_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/cache/NullFilesCacheTests.java,,,,assert,unknown
+vfs-_134_1,commons-vfs-2.9.0,DefaultFileMonitorTest,ignore_testAddRemove_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest.java,,,,assert,unknown
+vfs-_135_1,commons-vfs-2.9.0,DefaultFileMonitorTest,ignore_testStartStop_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest.java,,,,assert,unknown
+vfs-_135_2,commons-vfs-2.9.0,DefaultFileMonitorTest,ignore_testStartStop_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest.java,,,,assert,unknown
+vfs-_136_1,commons-vfs-2.9.0,DefaultFileMonitorTest,testChildFileDeletedWithoutRecursiveChecking_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest.java,,,,assert,unknown
+vfs-_137_1,commons-vfs-2.9.0,DefaultFileMonitorTest,testFileModified_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest.java,,,,assert,unknown
 vfs-_138_1,commons-vfs-2.9.0,DefaultFileSystemManagerTest,test_close_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileSystemManagerTest.java,,,,assert,unknown
 vfs-_138_2,commons-vfs-2.9.0,DefaultFileSystemManagerTest,test_close_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileSystemManagerTest.java,,,,assert,unknown
 vfs-_139_1,commons-vfs-2.9.0,DefaultFileSystemManagerTest,testAddAndRemoveProvider_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileSystemManagerTest.java,,,,assert,unknown
@@ -564,6 +585,7 @@ vfs-_165_2,commons-vfs-2.9.0,CanWriteFileFilterTest,testAcceptCanWrite_2_oe,comm
 vfs-_165_3,commons-vfs-2.9.0,CanWriteFileFilterTest,testAcceptCanWrite_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/CanWriteFileFilterTest.java,,,,assert,unknown
 vfs-_166_1,commons-vfs-2.9.0,CanWriteFileFilterTest,testAcceptZipFile_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/CanWriteFileFilterTest.java,,,,assert,unknown
 vfs-_166_2,commons-vfs-2.9.0,CanWriteFileFilterTest,testAcceptZipFile_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/CanWriteFileFilterTest.java,,,,assert,unknown
+vfs-_167_1,commons-vfs-2.9.0,RegexFileFilterTestCase,testPatternNullArgConstruction_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
 vfs-_167_2,commons-vfs-2.9.0,RegexFileFilterTestCase,testPatternNullArgConstruction_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
 vfs-_168_1,commons-vfs-2.9.0,RegexFileFilterTestCase,testRegex_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
 vfs-_168_2,commons-vfs-2.9.0,RegexFileFilterTestCase,testRegex_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
@@ -580,8 +602,11 @@ vfs-_168_12,commons-vfs-2.9.0,RegexFileFilterTestCase,testRegex_12_oe,commons-vf
 vfs-_168_13,commons-vfs-2.9.0,RegexFileFilterTestCase,testRegex_13_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
 vfs-_168_14,commons-vfs-2.9.0,RegexFileFilterTestCase,testRegex_14_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
 vfs-_168_15,commons-vfs-2.9.0,RegexFileFilterTestCase,testRegex_15_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
+vfs-_169_1,commons-vfs-2.9.0,RegexFileFilterTestCase,testStringIOCaseNullArgConstruction_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
 vfs-_169_2,commons-vfs-2.9.0,RegexFileFilterTestCase,testStringIOCaseNullArgConstruction_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
+vfs-_170_1,commons-vfs-2.9.0,RegexFileFilterTestCase,testStringNullArgConstruction_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
 vfs-_170_2,commons-vfs-2.9.0,RegexFileFilterTestCase,testStringNullArgConstruction_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
+vfs-_171_1,commons-vfs-2.9.0,RegexFileFilterTestCase,testStringPatternNullArgConstruction_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
 vfs-_171_2,commons-vfs-2.9.0,RegexFileFilterTestCase,testStringPatternNullArgConstruction_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/RegexFileFilterTestCase.java,,,,assert,unknown
 vfs-_172_1,commons-vfs-2.9.0,PrefixFileFilterTest,testAcceptList_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/PrefixFileFilterTest.java,,,,assert,unknown
 vfs-_172_2,commons-vfs-2.9.0,PrefixFileFilterTest,testAcceptList_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/PrefixFileFilterTest.java,,,,assert,unknown
@@ -872,6 +897,7 @@ vfs-_246_2,commons-vfs-2.9.0,CustomRamProviderTest,testReadNonEmptyFileIntoBuffe
 vfs-_246_3,commons-vfs-2.9.0,CustomRamProviderTest,testReadNonEmptyFileIntoBufferWithOffsetAndLength_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
 vfs-_246_4,commons-vfs-2.9.0,CustomRamProviderTest,testReadNonEmptyFileIntoBufferWithOffsetAndLength_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
 vfs-_247_1,commons-vfs-2.9.0,CustomRamProviderTest,testRootFolderExists_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
+vfs-_247_2,commons-vfs-2.9.0,CustomRamProviderTest,testRootFolderExists_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
 vfs-_248_1,commons-vfs-2.9.0,CustomRamProviderTest,testSchemePrefix_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
 vfs-_248_2,commons-vfs-2.9.0,CustomRamProviderTest,testSchemePrefix_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
 vfs-_248_3,commons-vfs-2.9.0,CustomRamProviderTest,testSchemePrefix_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
@@ -882,6 +908,7 @@ vfs-_248_7,commons-vfs-2.9.0,CustomRamProviderTest,testSchemePrefix_7_oe,commons
 vfs-_248_8,commons-vfs-2.9.0,CustomRamProviderTest,testSchemePrefix_8_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
 vfs-_248_9,commons-vfs-2.9.0,CustomRamProviderTest,testSchemePrefix_9_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
 vfs-_249_1,commons-vfs-2.9.0,CustomRamProviderTest,testSmallFS_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
+vfs-_249_2,commons-vfs-2.9.0,CustomRamProviderTest,testSmallFS_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
 vfs-_250_1,commons-vfs-2.9.0,CustomRamProviderTest,testSpecialName_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
 vfs-_250_2,commons-vfs-2.9.0,CustomRamProviderTest,testSpecialName_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
 vfs-_250_3,commons-vfs-2.9.0,CustomRamProviderTest,testSpecialName_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ram/CustomRamProviderTest.java,,,,assert,unknown
@@ -915,6 +942,7 @@ vfs-_257_1,commons-vfs-2.9.0,ParseXmlInZipTestCase,testResolveAndParseInvalidXml
 vfs-_258_1,commons-vfs-2.9.0,ParseXmlInZipTestCase,testResolveAndParseNotWellFormedXml_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ParseXmlInZipTestCase.java,,,,assert,unknown
 vfs-_259_1,commons-vfs-2.9.0,Jira733TestCase,testZipParentLayer_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase.java,,,,assert,unknown
 vfs-_259_2,commons-vfs-2.9.0,Jira733TestCase,testZipParentLayer_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase.java,,,,assert,unknown
+vfs-_260_1,commons-vfs-2.9.0,ZipFileSystemTestCase,testZipFileUseWeakRefFilesCache_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ZipFileSystemTestCase.java,,,,assert,unknown
 vfs-_261_1,commons-vfs-2.9.0,ZipFileObjectTestCase,testReadSpecialNameFileInZipFile_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ZipFileObjectTestCase.java,,,,assert,unknown
 vfs-_261_2,commons-vfs-2.9.0,ZipFileObjectTestCase,testReadSpecialNameFileInZipFile_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ZipFileObjectTestCase.java,,,,assert,unknown
 vfs-_262_1,commons-vfs-2.9.0,FileLockTestCase,testCannotDeleteWhileStreaming_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/FileLockTestCase.java,,,,assert,unknown
@@ -949,6 +977,8 @@ vfs-_274_3,commons-vfs-2.9.0,JunctionTests,testAncestors_3_oe,commons-vfs2/src/t
 vfs-_274_4,commons-vfs-2.9.0,JunctionTests,testAncestors_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/test/JunctionTests.java,,,,assert,unknown
 vfs-_274_5,commons-vfs-2.9.0,JunctionTests,testAncestors_5_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/test/JunctionTests.java,,,,assert,unknown
 vfs-_274_6,commons-vfs-2.9.0,JunctionTests,testAncestors_6_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/test/JunctionTests.java,,,,assert,unknown
+vfs-_275_1,commons-vfs-2.9.0,JunctionTests,testNestedJunction_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/test/JunctionTests.java,,,,assert,unknown
+vfs-_275_2,commons-vfs-2.9.0,JunctionTests,testNestedJunction_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/test/JunctionTests.java,,,,assert,unknown
 vfs-_276_1,commons-vfs-2.9.0,GenericFileNameTestCase,testParseUri_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/test/GenericFileNameTestCase.java,,,,assert,unknown
 vfs-_276_2,commons-vfs-2.9.0,GenericFileNameTestCase,testParseUri_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/test/GenericFileNameTestCase.java,,,,assert,unknown
 vfs-_276_3,commons-vfs-2.9.0,GenericFileNameTestCase,testParseUri_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/test/GenericFileNameTestCase.java,,,,assert,unknown
@@ -1005,8 +1035,12 @@ vfs-_278_2,commons-vfs-2.9.0,FileNameTests,testAbsoluteFileName_2_oe,commons-vfs
 vfs-_279_1,commons-vfs-2.9.0,UrlTests,testHashFindFiles_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/UrlTests.java,,,,assert,unknown
 vfs-_279_2,commons-vfs-2.9.0,UrlTests,testHashFindFiles_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/UrlTests.java,,,,assert,unknown
 vfs-_280_1,commons-vfs-2.9.0,UrlTests,testHashURL_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/UrlTests.java,,,,assert,unknown
+vfs-_281_1,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsFilenameParserError_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
+vfs-_281_2,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsFilenameParserError_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
 vfs-_281_3,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsFilenameParserError_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
 vfs-_281_4,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsFilenameParserError_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
+vfs-_282_1,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsFilenameUNCStartError_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
+vfs-_282_2,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsFilenameUNCStartError_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
 vfs-_282_3,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsFilenameUNCStartError_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
 vfs-_282_4,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsFilenameUNCStartError_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
 vfs-_283_1,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsRoots_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
@@ -1019,6 +1053,8 @@ vfs-_283_7,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsRoots_7_oe,commons-
 vfs-_283_8,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsRoots_8_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
 vfs-_283_9,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsRoots_9_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
 vfs-_283_10,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsRoots_10_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
+vfs-_284_1,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsWrongRoots_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
+vfs-_284_2,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsWrongRoots_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
 vfs-_284_3,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsWrongRoots_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
 vfs-_284_4,commons-vfs-2.9.0,WindowsFileNameTests,testWindowsWrongRoots_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/WindowsFileNameTests.java,,,,assert,unknown
 vfs-_285_1,commons-vfs-2.9.0,LocalFileRandomAccessContentTestCase,testInputStreamRead0xff_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/LocalFileRandomAccessContentTestCase.java,,,,assert,unknown
@@ -1026,6 +1062,9 @@ vfs-_285_2,commons-vfs-2.9.0,LocalFileRandomAccessContentTestCase,testInputStrea
 vfs-_285_3,commons-vfs-2.9.0,LocalFileRandomAccessContentTestCase,testInputStreamRead0xff_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/LocalFileRandomAccessContentTestCase.java,,,,assert,unknown
 vfs-_286_1,commons-vfs-2.9.0,ConversionTestCase,testFileNameWithCharacters_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/ConversionTestCase.java,,,,assert,unknown
 vfs-_286_2,commons-vfs-2.9.0,ConversionTestCase,testFileNameWithCharacters_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/ConversionTestCase.java,,,,assert,unknown
+vfs-_286_3,commons-vfs-2.9.0,ConversionTestCase,testFileNameWithCharacters_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/ConversionTestCase.java,,,,assert,unknown
+vfs-_286_4,commons-vfs-2.9.0,ConversionTestCase,testFileNameWithCharacters_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/ConversionTestCase.java,,,,assert,unknown
+vfs-_286_5,commons-vfs-2.9.0,ConversionTestCase,testFileNameWithCharacters_5_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/ConversionTestCase.java,,,,assert,unknown
 vfs-_287_1,commons-vfs-2.9.0,ConversionTestCase,testFileNameWithSpaces_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/ConversionTestCase.java,,,,assert,unknown
 vfs-_287_2,commons-vfs-2.9.0,ConversionTestCase,testFileNameWithSpaces_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/ConversionTestCase.java,,,,assert,unknown
 vfs-_287_3,commons-vfs-2.9.0,ConversionTestCase,testFileNameWithSpaces_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/local/ConversionTestCase.java,,,,assert,unknown
@@ -1084,6 +1123,8 @@ vfs-_299_3,commons-vfs-2.9.0,HdfsFileProviderTest,testRandomAccessContent_3_oe,c
 vfs-_300_1,commons-vfs-2.9.0,HdfsFileProviderTest,testRandomAccessContent2_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/hdfs/HdfsFileProviderTest.java,,,,assert,unknown
 vfs-_300_2,commons-vfs-2.9.0,HdfsFileProviderTest,testRandomAccessContent2_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/hdfs/HdfsFileProviderTest.java,,,,assert,unknown
 vfs-_300_3,commons-vfs-2.9.0,HdfsFileProviderTest,testRandomAccessContent2_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/hdfs/HdfsFileProviderTest.java,,,,assert,unknown
+vfs-_301_1,commons-vfs-2.9.0,SftpMultiThreadWriteTests,testParallelCopyFromLocalFileSystem_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/sftp/SftpMultiThreadWriteTests.java,,,,assert,unknown
+vfs-_301_2,commons-vfs-2.9.0,SftpMultiThreadWriteTests,testParallelCopyFromLocalFileSystem_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/sftp/SftpMultiThreadWriteTests.java,,,,assert,unknown
 vfs-_302_1,commons-vfs-2.9.0,SftpFileSystemConfigBuilderTestCase,testConnectTimeout_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/sftp/SftpFileSystemConfigBuilderTestCase.java,,,,assert,unknown
 vfs-_302_2,commons-vfs-2.9.0,SftpFileSystemConfigBuilderTestCase,testConnectTimeout_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/sftp/SftpFileSystemConfigBuilderTestCase.java,,,,assert,unknown
 vfs-_302_3,commons-vfs-2.9.0,SftpFileSystemConfigBuilderTestCase,testConnectTimeout_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/sftp/SftpFileSystemConfigBuilderTestCase.java,,,,assert,unknown
@@ -1125,6 +1166,7 @@ vfs-_328_1,commons-vfs-2.9.0,BasicOperationsTestCase,testNotFoundAny_1_oe,common
 vfs-_328_2,commons-vfs-2.9.0,BasicOperationsTestCase,testNotFoundAny_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/operations/BasicOperationsTestCase.java,,,,assert,unknown
 vfs-_328_3,commons-vfs-2.9.0,BasicOperationsTestCase,testNotFoundAny_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/operations/BasicOperationsTestCase.java,,,,assert,unknown
 vfs-_329_1,commons-vfs-2.9.0,BasicOperationsTestCase,testNotFoundOperation_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/operations/BasicOperationsTestCase.java,,,,assert,unknown
+vfs-_329_2,commons-vfs-2.9.0,BasicOperationsTestCase,testNotFoundOperation_2_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/operations/BasicOperationsTestCase.java,,,,assert,unknown
 vfs-_329_3,commons-vfs-2.9.0,BasicOperationsTestCase,testNotFoundOperation_3_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/operations/BasicOperationsTestCase.java,,,,assert,unknown
 vfs-_329_4,commons-vfs-2.9.0,BasicOperationsTestCase,testNotFoundOperation_4_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/operations/BasicOperationsTestCase.java,,,,assert,unknown
 vfs-_330_1,commons-vfs-2.9.0,StaticUserAuthenticatorTestCase,testAuthenticationRequest_1_oe,commons-vfs2/src/test/java/org/apache/commons/vfs2/auth/StaticUserAuthenticatorTestCase.java,,,,assert,unknown

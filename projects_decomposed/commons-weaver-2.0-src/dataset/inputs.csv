@@ -371,6 +371,14 @@ weav_29_1,"    @Test
         assertFalse(noArgs.getFalse());
     }
 ",NoArgsTest::testGetFalse_1_oe
+weav_30_1,"    @Test
+    public void testThrowingCheckedException1_1_oe() {
+        try {
+            noArgs.throwingCheckedException1();
+            fail();
+    }
+    }
+",NoArgsTest::testThrowingCheckedException1_1_oe
 weav_31_1,"    @Test
     public void testThrowingCheckedException2_1_oe() {
         try {
@@ -456,6 +464,14 @@ weav_38_1,"    @Test
         assertFalse(StaticNoArgs.getFalse());
     }
 ",StaticNoArgsTest::testGetFalse_1_oe
+weav_39_1,"    @Test
+    public void testThrowingCheckedException1_1_oe() {
+        try {
+            StaticNoArgs.throwingCheckedException1();
+            fail();
+    }
+    }
+",StaticNoArgsTest::testThrowingCheckedException1_1_oe
 weav_40_1,"    @Test
     public void testThrowingCheckedException2_1_oe() {
         try {

@@ -27,7 +27,7 @@ main:
 [INFO] --- buildnumber:1.4:create (default) @ commons-imaging ---
 [INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-imaging-1.0-alpha3-src' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-imaging-1.0-alpha3-src
-[INFO] Storing buildNumber: 74773d2acb91b0a98a0c2844a2b8369f83706543 at timestamp: 1768587582395
+[INFO] Storing buildNumber: ba422cbeaa32efdad405fd5df283f67519011b01 at timestamp: 1768596706595
 [INFO] Storing buildScmBranch: main
 [INFO] 
 [INFO] --- resources:3.1.0:resources (default-resources) @ commons-imaging ---
@@ -48,7 +48,7 @@ main:
 [INFO] 
 [INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-imaging ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 325 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-imaging-1.0-alpha3-src/target/test-classes
+[INFO] Compiling 305 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-imaging-1.0-alpha3-src/target/test-classes
 [INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-imaging-1.0-alpha3-src/src/test/java/org/apache/commons/imaging/common/bytesource/ByteSourceImageTest.java: Some input files use unchecked or unsafe operations.
 [INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-imaging-1.0-alpha3-src/src/test/java/org/apache/commons/imaging/common/bytesource/ByteSourceImageTest.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
@@ -64,282 +64,144 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.imaging.TestImageWriteException_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s - in org.apache.commons.imaging.TestImageWriteException_OE25Dev
-[INFO] Running org.apache.commons.imaging.ImagingGuessFormatTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.418 s - in org.apache.commons.imaging.ImagingGuessFormatTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.color.ColorHsvTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.imaging.color.ColorHsvTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.color.ColorHunterLabTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorHunterLabTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.color.ColorCieLuvTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorCieLuvTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.color.ColorCieLchTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorCieLchTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.color.ColorCmykTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorCmykTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.color.ColorCieLabTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorCieLabTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.color.ColorCmyTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorCmyTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.color.ColorHslTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorHslTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.color.ColorXyzTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorXyzTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.color.ColorConversionsTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorConversionsTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.pcx.RleReaderTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.pcx.RleReaderTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.pcx.PcxReadTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in org.apache.commons.imaging.formats.pcx.PcxReadTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.pnm.PbmFileInfoTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.pnm.PbmFileInfoTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.pnm.PgmFileInfoTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.pnm.PgmFileInfoTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.pnm.PpmFileInfoTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.pnm.PpmFileInfoTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.pnm.PnmImageParserTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.imaging.formats.pnm.PnmImageParserTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.pnm.WhiteSpaceReaderTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.pnm.WhiteSpaceReaderTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.xpm.XpmReadTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.289 s - in org.apache.commons.imaging.formats.xpm.XpmReadTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.768 s - in org.apache.commons.imaging.TestImageWriteException_OE25Dev
+[INFO] Running org.apache.commons.imaging.TestImageInfo_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.imaging.TestImageInfo_OE25Dev
+[INFO] Running org.apache.commons.imaging.ImageDumpTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s - in org.apache.commons.imaging.ImageDumpTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.roundtrip.NullParametersRoundtripTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.058 s - in org.apache.commons.imaging.roundtrip.NullParametersRoundtripTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.roundtrip.PixelDensityRoundtrip_OE25Dev
+[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0.009 s <<< FAILURE! - in org.apache.commons.imaging.roundtrip.PixelDensityRoundtrip_OE25Dev
+[ERROR] testPixelDensityRoundtrip_1_oe{FormatInfo}  Time elapsed: 0.008 s  <<< ERROR!
+org.junit.platform.commons.JUnitException: Could not find method [testPixelDensityRoundtrip_1_oe] in class [org.apache.commons.imaging.roundtrip.PixelDensityRoundtrip_OE25Dev]
+
+[ERROR] testPixelDensityRoundtrip_2_oe{FormatInfo}  Time elapsed: 0.009 s  <<< ERROR!
+org.junit.platform.commons.JUnitException: Could not find method [testPixelDensityRoundtrip_2_oe] in class [org.apache.commons.imaging.roundtrip.PixelDensityRoundtrip_OE25Dev]
+
+[INFO] Running org.apache.commons.imaging.formats.dcx.DcxReadTest_OE25Dev
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.611 s <<< FAILURE! - in org.apache.commons.imaging.formats.dcx.DcxReadTest_OE25Dev
+[ERROR] testImageMetadata_1_oe{File}[1]  Time elapsed: 0.023 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
+	at org.apache.commons.imaging.formats.dcx.DcxReadTest_OE25Dev.testImageMetadata_1_oe(DcxReadTest_OE25Dev.java:48)
+
+[INFO] Running org.apache.commons.imaging.formats.tiff.datareaders.DataReaderStripsTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.datareaders.DataReaderStripsTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffRasterStatisticsTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.imaging.formats.tiff.TiffRasterStatisticsTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.write.TiffOutputSetTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.write.TiffOutputSetTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectoryTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectoryTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffReadWriteTagsTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.TiffReadWriteTagsTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeAsciiTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeAsciiTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeRationalTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeRationalTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeByteTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeByteTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffFloatingPointRoundTripTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 s - in org.apache.commons.imaging.formats.tiff.TiffFloatingPointRoundTripTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffRasterDataTest_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.imaging.formats.tiff.TiffRasterDataTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffShortIntRoundTripTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s - in org.apache.commons.imaging.formats.tiff.TiffShortIntRoundTripTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffReadTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.965 s - in org.apache.commons.imaging.formats.tiff.TiffReadTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffFloatingPointMultivariableTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.233 s - in org.apache.commons.imaging.formats.tiff.TiffFloatingPointMultivariableTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterRgbTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterRgbTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuvTest_OE25Dev
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuvTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffRoundTripInt32Test_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in org.apache.commons.imaging.formats.tiff.TiffRoundTripInt32Test_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoUnknownTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoUnknownTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSShortTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSShortTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSShortsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSShortsTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoByteTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoByteTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSBytesTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSBytesTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSByteTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSByteTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoByteOrShortTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoByteOrShortTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffAlphaRoundTripTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.TiffAlphaRoundTripTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.JpegImageDataTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.JpegImageDataTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffSubImageTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.764 s - in org.apache.commons.imaging.formats.tiff.TiffSubImageTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffTagsTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.TiffTagsTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.tiff.TiffRoundtripTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.958 s - in org.apache.commons.imaging.formats.tiff.TiffRoundtripTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.icns.IcnsRoundTripTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in org.apache.commons.imaging.formats.icns.IcnsRoundTripTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.icns.IcnsReadTest_OE25Dev
+[ERROR] Tests run: 11, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.666 s <<< FAILURE! - in org.apache.commons.imaging.formats.icns.IcnsReadTest_OE25Dev
+[ERROR] testImageMetadata_1_oe{File}[1]  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
+	at org.apache.commons.imaging.formats.icns.IcnsReadTest_OE25Dev.testImageMetadata_1_oe(IcnsReadTest_OE25Dev.java:72)
+
+[ERROR] testImageMetadata_1_oe{File}[2]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
+	at org.apache.commons.imaging.formats.icns.IcnsReadTest_OE25Dev.testImageMetadata_1_oe(IcnsReadTest_OE25Dev.java:72)
+
+[ERROR] testImageMetadata_1_oe{File}[3]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
+	at org.apache.commons.imaging.formats.icns.IcnsReadTest_OE25Dev.testImageMetadata_1_oe(IcnsReadTest_OE25Dev.java:72)
+
+[INFO] Running org.apache.commons.imaging.formats.xmp.XmpDumpTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.212 s - in org.apache.commons.imaging.formats.xmp.XmpDumpTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.xmp.XmpUpdateTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.278 s - in org.apache.commons.imaging.formats.xmp.XmpUpdateTest_OE25Dev
 [INFO] Running org.apache.commons.imaging.formats.gif.GifReadTest_OE25Dev
 [ERROR] Tests run: 45, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 1.924 s <<< FAILURE! - in org.apache.commons.imaging.formats.gif.GifReadTest_OE25Dev
-[ERROR] testMetadata_1_oe{File}[1]  Time elapsed: 0.018 s  <<< FAILURE!
+[ERROR] testMetadata_1_oe{File}[1]  Time elapsed: 0.003 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
 	at org.apache.commons.imaging.formats.gif.GifReadTest_OE25Dev.testMetadata_1_oe(GifReadTest_OE25Dev.java:88)
 
-[ERROR] testMetadata_1_oe{File}[2]  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] testMetadata_1_oe{File}[2]  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
 	at org.apache.commons.imaging.formats.gif.GifReadTest_OE25Dev.testMetadata_1_oe(GifReadTest_OE25Dev.java:88)
 
-[ERROR] testMetadata_1_oe{File}[3]  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] testMetadata_1_oe{File}[3]  Time elapsed: 0 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
 	at org.apache.commons.imaging.formats.gif.GifReadTest_OE25Dev.testMetadata_1_oe(GifReadTest_OE25Dev.java:88)
 
-[ERROR] testMetadata_1_oe{File}[4]  Time elapsed: 0.052 s  <<< FAILURE!
+[ERROR] testMetadata_1_oe{File}[4]  Time elapsed: 0.041 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
 	at org.apache.commons.imaging.formats.gif.GifReadTest_OE25Dev.testMetadata_1_oe(GifReadTest_OE25Dev.java:88)
 
-[INFO] Running org.apache.commons.imaging.formats.xbm.XbmReadTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.imaging.formats.xbm.XbmReadTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s - in org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.ico.IcoReadTest_OE25Dev
-[ERROR] Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.05 s <<< FAILURE! - in org.apache.commons.imaging.formats.ico.IcoReadTest_OE25Dev
-[ERROR] testImageInfo_1_oe{File}[1]  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
-	at org.apache.commons.imaging.formats.ico.IcoReadTest_OE25Dev.testImageInfo_1_oe(IcoReadTest_OE25Dev.java:47)
-
-[ERROR] testMetadata_1_oe{File}[1]  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
-	at org.apache.commons.imaging.formats.ico.IcoReadTest_OE25Dev.testMetadata_1_oe(IcoReadTest_OE25Dev.java:41)
-
-[INFO] Running org.apache.commons.imaging.formats.rgbe.RgbeReadTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.396 s - in org.apache.commons.imaging.formats.rgbe.RgbeReadTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.psd.dataparsers.DataParserLabTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.psd.dataparsers.DataParserLabTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.psd.dataparsers.DataParserCmykTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.psd.dataparsers.DataParserCmykTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.psd.dataparsers.DataParserGrayscaleTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.psd.dataparsers.DataParserGrayscaleTest_OE25Dev
 [INFO] Running org.apache.commons.imaging.formats.psd.ImageResourceTypeTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.psd.ImageResourceTypeTest_OE25Dev
 [INFO] Running org.apache.commons.imaging.formats.psd.ImageResourceBlockTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.psd.ImageResourceBlockTest_OE25Dev
 [INFO] Running org.apache.commons.imaging.formats.psd.PsdReadTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.029 s - in org.apache.commons.imaging.formats.psd.PsdReadTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.psd.dataparsers.DataParserLabTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.psd.dataparsers.DataParserLabTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.psd.dataparsers.DataParserGrayscaleTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.psd.dataparsers.DataParserGrayscaleTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.psd.dataparsers.DataParserCmykTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.imaging.formats.psd.dataparsers.DataParserCmykTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.psd.dataparsers.DataParserIndexedTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.psd.dataparsers.DataParserIndexedTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.201 s - in org.apache.commons.imaging.formats.psd.PsdReadTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.xpm.XpmReadTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.41 s - in org.apache.commons.imaging.formats.xpm.XpmReadTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.pcx.PcxReadTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in org.apache.commons.imaging.formats.pcx.PcxReadTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.xbm.XbmReadTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.xbm.XbmReadTest_OE25Dev
 [INFO] Running org.apache.commons.imaging.formats.wbmp.WbmpReadTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.wbmp.WbmpReadTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeAsciiTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 s - in org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeAsciiTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeByteTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeByteTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeLongTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeLongTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeRationalTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeRationalTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeShortTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.fieldtypes.FieldTypeShortTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffReadAlphaTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in org.apache.commons.imaging.formats.tiff.TiffReadAlphaTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffFloatingPointReadTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.446 s - in org.apache.commons.imaging.formats.tiff.TiffFloatingPointReadTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffFloatingPointRoundTripTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.239 s - in org.apache.commons.imaging.formats.tiff.TiffFloatingPointRoundTripTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffReadWriteTagsTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.imaging.formats.tiff.TiffReadWriteTagsTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffRasterStatisticsTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.TiffRasterStatisticsTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffRoundtripTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.446 s - in org.apache.commons.imaging.formats.tiff.TiffRoundtripTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffTagsTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.TiffTagsTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffRoundTripInt32Test_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 s - in org.apache.commons.imaging.formats.tiff.TiffRoundTripInt32Test_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffRasterDataIntTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.imaging.formats.tiff.TiffRasterDataIntTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffAlphaRoundTripTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.imaging.formats.tiff.TiffAlphaRoundTripTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffRasterDataTest_OE25Dev
-[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.imaging.formats.tiff.TiffRasterDataTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.JpegImageDataTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.JpegImageDataTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffShortIntRoundTripTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s - in org.apache.commons.imaging.formats.tiff.TiffShortIntRoundTripTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSShortsTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSShortsTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSByteTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSByteTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoUnknownTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoUnknownTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoByteTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoByteTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSBytesTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSBytesTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSShortTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoSShortTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.taginfos.TagInfoByteOrShortTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.taginfos.TagInfoByteOrShortTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.write.TiffOutputSetTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.write.TiffOutputSetTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectoryTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.write.TiffOutputDirectoryTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffReadTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.607 s - in org.apache.commons.imaging.formats.tiff.TiffReadTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.datareaders.DataReaderStripsTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.datareaders.DataReaderStripsTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffFloatingPointMultivariableTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.108 s - in org.apache.commons.imaging.formats.tiff.TiffFloatingPointMultivariableTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.TiffSubImageTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.494 s - in org.apache.commons.imaging.formats.tiff.TiffSubImageTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuvTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterLogLuvTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterRgbTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.photometricinterpreters.PhotometricInterpreterRgbTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.photometricinterpreters.floatingpoint.PaletteEntryForValueTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.photometricinterpreters.floatingpoint.PaletteEntryForValueTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.photometricinterpreters.floatingpoint.PaletteEntryForRangeTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.photometricinterpreters.floatingpoint.PaletteEntryForRangeTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.tiff.photometricinterpreters.floatingpoint.PhotometricInterpreterFloatTest_OE25Dev
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.tiff.photometricinterpreters.floatingpoint.PhotometricInterpreterFloatTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.056 s - in org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.decoder.DctTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.decoder.DctTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStreamTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStreamTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.specific.JpegImageParserTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.156 s - in org.apache.commons.imaging.formats.jpeg.specific.JpegImageParserTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.JpegWithJpegThumbnailTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.imaging.formats.jpeg.JpegWithJpegThumbnailTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.segments.App2SegmentTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.segments.App2SegmentTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.segments.SosSegmentTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.imaging.formats.jpeg.segments.SosSegmentTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.segments.JfifSegmentTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.segments.JfifSegmentTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.segments.NegSizeSegmentTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.imaging.formats.jpeg.segments.NegSizeSegmentTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.segments.AppnSegmentTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.segments.AppnSegmentTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.JpegWithInvalidDhtSegmentTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.imaging.formats.jpeg.JpegWithInvalidDhtSegmentTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpRewriteTest_OE25Dev
-[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.591 s - in org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpRewriteTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpDumpTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpDumpTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpParserTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpParserTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.iptc.IptcParserTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.121 s - in org.apache.commons.imaging.formats.jpeg.iptc.IptcParserTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.iptc.IptcAddTest_OE25Dev
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 s - in org.apache.commons.imaging.formats.jpeg.iptc.IptcAddTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.iptc.IptcUpdateTest_OE25Dev
-[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.535 s - in org.apache.commons.imaging.formats.jpeg.iptc.IptcUpdateTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.iptc.IptcDumpTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 s - in org.apache.commons.imaging.formats.jpeg.iptc.IptcDumpTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.iptc.IptcTypeLookupTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.iptc.IptcTypeLookupTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.iptc.IptcFullDiscardTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.341 s - in org.apache.commons.imaging.formats.jpeg.iptc.IptcFullDiscardTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.JpegReadTest_OE25Dev
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.099 s - in org.apache.commons.imaging.formats.jpeg.JpegReadTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.exif.ExifDumpTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.103 s - in org.apache.commons.imaging.formats.jpeg.exif.ExifDumpTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.exif.ExifRewriteTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.603 s - in org.apache.commons.imaging.formats.jpeg.exif.ExifRewriteTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.jpeg.exif.AsciiFieldTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.imaging.formats.jpeg.exif.AsciiFieldTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.pam.PamReadTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 s - in org.apache.commons.imaging.formats.pam.PamReadTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.icns.IcnsRoundTripTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.imaging.formats.icns.IcnsRoundTripTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.icns.IcnsReadTest_OE25Dev
-[ERROR] Tests run: 11, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.386 s <<< FAILURE! - in org.apache.commons.imaging.formats.icns.IcnsReadTest_OE25Dev
-[ERROR] testImageMetadata_1_oe{File}[1]  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
-	at org.apache.commons.imaging.formats.icns.IcnsReadTest_OE25Dev.testImageMetadata_1_oe(IcnsReadTest_OE25Dev.java:72)
-
-[ERROR] testImageMetadata_1_oe{File}[2]  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
-	at org.apache.commons.imaging.formats.icns.IcnsReadTest_OE25Dev.testImageMetadata_1_oe(IcnsReadTest_OE25Dev.java:72)
-
-[ERROR] testImageMetadata_1_oe{File}[3]  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
-	at org.apache.commons.imaging.formats.icns.IcnsReadTest_OE25Dev.testImageMetadata_1_oe(IcnsReadTest_OE25Dev.java:72)
-
-[INFO] Running org.apache.commons.imaging.formats.dcx.DcxReadTest_OE25Dev
-[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.141 s <<< FAILURE! - in org.apache.commons.imaging.formats.dcx.DcxReadTest_OE25Dev
-[ERROR] testImageMetadata_1_oe{File}[1]  Time elapsed: 0.001 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
-	at org.apache.commons.imaging.formats.dcx.DcxReadTest_OE25Dev.testImageMetadata_1_oe(DcxReadTest_OE25Dev.java:48)
-
-[INFO] Running org.apache.commons.imaging.formats.png.PngWritePredictorTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in org.apache.commons.imaging.formats.png.PngWritePredictorTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.ConvertPngToGifTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 s - in org.apache.commons.imaging.formats.png.ConvertPngToGifTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.PngTextTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s - in org.apache.commons.imaging.formats.png.PngTextTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.PngCrcTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.PngCrcTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.transparencyfilters.TransparencyFilterIndexedColorTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.transparencyfilters.TransparencyFilterIndexedColorTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.PngMultipleRoundtripTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.imaging.formats.png.PngMultipleRoundtripTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterUpTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterUpTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterAverageTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterAverageTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterPaethTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterPaethTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.PngWithInvalidPngChunkSizeTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.imaging.formats.png.PngWithInvalidPngChunkSizeTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.PngWriteReadTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.apache.commons.imaging.formats.png.PngWriteReadTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.PngReadTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.573 s - in org.apache.commons.imaging.formats.png.PngReadTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.PhysicalScaleTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.PhysicalScaleTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.chunks.PngChunkTextTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.chunks.PngChunkTextTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.chunks.PngChunkIccpTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.chunks.PngChunkIccpTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.png.chunks.PngChunkScalTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.chunks.PngChunkScalTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.xmp.XmpDumpTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in org.apache.commons.imaging.formats.xmp.XmpDumpTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.xmp.XmpUpdateTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.126 s - in org.apache.commons.imaging.formats.xmp.XmpUpdateTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.formats.bmp.BmpImageParserTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.imaging.formats.bmp.BmpImageParserTest_OE25Dev
 [INFO] Running org.apache.commons.imaging.formats.bmp.BmpReadTest_OE25Dev
-[ERROR] Tests run: 16, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.26 s <<< FAILURE! - in org.apache.commons.imaging.formats.bmp.BmpReadTest_OE25Dev
-[ERROR] testMetaData_1_oe{File}[1]  Time elapsed: 0.011 s  <<< FAILURE!
+[ERROR] Tests run: 16, Failures: 5, Errors: 0, Skipped: 0, Time elapsed: 0.182 s <<< FAILURE! - in org.apache.commons.imaging.formats.bmp.BmpReadTest_OE25Dev
+[ERROR] testMetaData_1_oe{File}[1]  Time elapsed: 0.007 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
 	at org.apache.commons.imaging.formats.bmp.BmpReadTest_OE25Dev.testMetaData_1_oe(BmpReadTest_OE25Dev.java:68)
 
@@ -347,56 +209,154 @@ org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationExce
 org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
 	at org.apache.commons.imaging.formats.bmp.BmpReadTest_OE25Dev.testMetaData_1_oe(BmpReadTest_OE25Dev.java:68)
 
-[ERROR] testMetaData_1_oe{File}[3]  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testMetaData_1_oe{File}[3]  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
 	at org.apache.commons.imaging.formats.bmp.BmpReadTest_OE25Dev.testMetaData_1_oe(BmpReadTest_OE25Dev.java:68)
 
-[ERROR] testMetaData_1_oe{File}[4]  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testMetaData_1_oe{File}[4]  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
 	at org.apache.commons.imaging.formats.bmp.BmpReadTest_OE25Dev.testMetaData_1_oe(BmpReadTest_OE25Dev.java:68)
 
-[ERROR] testMetaData_1_oe{File}[5]  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] testMetaData_1_oe{File}[5]  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
 	at org.apache.commons.imaging.formats.bmp.BmpReadTest_OE25Dev.testMetaData_1_oe(BmpReadTest_OE25Dev.java:68)
 
 [INFO] Running org.apache.commons.imaging.formats.bmp.BmpWriterRgbTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.imaging.formats.bmp.BmpWriterRgbTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.common.bytesource.ByteSourceInputStreamTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.imaging.common.bytesource.ByteSourceInputStreamTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.common.bytesource.ByteSourceImageTest_OE25Dev
-[INFO] Tests run: 291, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.379 s - in org.apache.commons.imaging.common.bytesource.ByteSourceImageTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.bmp.BmpWriterRgbTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.bmp.BmpImageParserTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.bmp.BmpImageParserTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.rgbe.RgbeReadTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.249 s - in org.apache.commons.imaging.formats.rgbe.RgbeReadTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.chunks.PngChunkScalTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.chunks.PngChunkScalTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.chunks.PngChunkIccpTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.imaging.formats.png.chunks.PngChunkIccpTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.ConvertPngToGifTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.182 s - in org.apache.commons.imaging.formats.png.ConvertPngToGifTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.PngMultipleRoundtripTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.imaging.formats.png.PngMultipleRoundtripTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.PngTextTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.imaging.formats.png.PngTextTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.PhysicalScaleTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.PhysicalScaleTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.PngReadTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.64 s - in org.apache.commons.imaging.formats.png.PngReadTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterAverageTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterAverageTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterPaethTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterPaethTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterUpTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.scanlinefilters.ScanlineFilterUpTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.PngCrcTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.PngCrcTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.PngWithInvalidPngChunkSizeTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.PngWithInvalidPngChunkSizeTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.png.PngWriteReadTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.png.PngWriteReadTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.pnm.PpmFileInfoTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.pnm.PpmFileInfoTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.pnm.PnmImageParserTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.pnm.PnmImageParserTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.pnm.PgmFileInfoTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.pnm.PgmFileInfoTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.pnm.WhiteSpaceReaderTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.pnm.WhiteSpaceReaderTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.JpegWithJpegThumbnailTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s - in org.apache.commons.imaging.formats.jpeg.JpegWithJpegThumbnailTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.iptc.IptcTypeLookupTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.iptc.IptcTypeLookupTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.iptc.IptcParserTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 s - in org.apache.commons.imaging.formats.jpeg.iptc.IptcParserTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.iptc.IptcFullDiscardTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.277 s - in org.apache.commons.imaging.formats.jpeg.iptc.IptcFullDiscardTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.iptc.IptcUpdateTest_OE25Dev
+[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.244 s - in org.apache.commons.imaging.formats.jpeg.iptc.IptcUpdateTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.iptc.IptcDumpTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.126 s - in org.apache.commons.imaging.formats.jpeg.iptc.IptcDumpTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.iptc.IptcAddTest_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.imaging.formats.jpeg.iptc.IptcAddTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpRewriteTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.484 s - in org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpRewriteTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpDumpTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.imaging.formats.jpeg.xmp.JpegXmpDumpTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.exif.ExifRewriteTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.662 s - in org.apache.commons.imaging.formats.jpeg.exif.ExifRewriteTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.exif.ExifDumpTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.imaging.formats.jpeg.exif.ExifDumpTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.exif.AsciiFieldTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.exif.AsciiFieldTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.segments.App2SegmentTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.segments.App2SegmentTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.segments.SosSegmentTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.segments.SosSegmentTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.segments.AppnSegmentTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.segments.AppnSegmentTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.decoder.DctTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.decoder.DctTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStreamTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.decoder.JpegInputStreamTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.decoder.JpegDecoderTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.specific.JpegImageParserTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.specific.JpegImageParserTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.jpeg.JpegWithInvalidDhtSegmentTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.jpeg.JpegWithInvalidDhtSegmentTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.ico.IcoReadTest_OE25Dev
+[ERROR] Tests run: 3, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.imaging.formats.ico.IcoReadTest_OE25Dev
+[ERROR] testImageInfo_1_oe{File}[1]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
+	at org.apache.commons.imaging.formats.ico.IcoReadTest_OE25Dev.testImageInfo_1_oe(IcoReadTest_OE25Dev.java:47)
+
+[ERROR] testMetadata_1_oe{File}[1]  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
+	at org.apache.commons.imaging.formats.ico.IcoReadTest_OE25Dev.testMetadata_1_oe(IcoReadTest_OE25Dev.java:41)
+
+[INFO] Running org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.formats.ico.IcoRoundtripTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.formats.pam.PamReadTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 s - in org.apache.commons.imaging.formats.pam.PamReadTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.ImagingGuessFormatTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.ImagingGuessFormatTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.TestImageReadException_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.TestImageReadException_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorCieLchTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorCieLchTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorHslTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorHslTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorCmykTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorCmykTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorCieLuvTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorCieLuvTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorCmyTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorCmyTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorCieLabTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorCieLabTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorXyzTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorXyzTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorHsvTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorHsvTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorConversionsTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.color.ColorConversionsTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.color.ColorHunterLabTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.imaging.color.ColorHunterLabTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.palette.DitheringTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.palette.DitheringTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.palette.SimplePaletteTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.palette.SimplePaletteTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.common.BinaryFileFunctionsTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.common.BinaryFileFunctionsTest_OE25Dev
 [INFO] Running org.apache.commons.imaging.common.itu_t4.HuffmanTreeExceptionTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.common.itu_t4.HuffmanTreeExceptionTest_OE25Dev
 [INFO] Running org.apache.commons.imaging.common.itu_t4.T4_T6_TablesTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.common.itu_t4.T4_T6_TablesTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.common.ImageBuilderTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.common.ImageBuilderTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.common.BinaryFileFunctionsTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.common.BinaryFileFunctionsTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.common.RgbBufferedImageFactoryTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.common.RgbBufferedImageFactoryTest_OE25Dev
 [INFO] Running org.apache.commons.imaging.common.RationalNumberTest_OE25Dev
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.common.RationalNumberTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.roundtrip.PixelDensityRoundtrip_OE25Dev
-[ERROR] Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.imaging.roundtrip.PixelDensityRoundtrip_OE25Dev
-[ERROR] testPixelDensityRoundtrip_1_oe{FormatInfo}  Time elapsed: 0 s  <<< ERROR!
-org.junit.platform.commons.JUnitException: Could not find method [testPixelDensityRoundtrip_1_oe] in class [org.apache.commons.imaging.roundtrip.PixelDensityRoundtrip_OE25Dev]
-
-[ERROR] testPixelDensityRoundtrip_2_oe{FormatInfo}  Time elapsed: 0 s  <<< ERROR!
-org.junit.platform.commons.JUnitException: Could not find method [testPixelDensityRoundtrip_2_oe] in class [org.apache.commons.imaging.roundtrip.PixelDensityRoundtrip_OE25Dev]
-
-[INFO] Running org.apache.commons.imaging.roundtrip.NullParametersRoundtripTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 s - in org.apache.commons.imaging.roundtrip.NullParametersRoundtripTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.TestImageInfo_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.TestImageInfo_OE25Dev
-[INFO] Running org.apache.commons.imaging.ImageDumpTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.ImageDumpTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.TestImageReadException_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.TestImageReadException_OE25Dev
-[INFO] Running org.apache.commons.imaging.palette.SimplePaletteTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.palette.SimplePaletteTest_OE25Dev
-[INFO] Running org.apache.commons.imaging.palette.DitheringTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.apache.commons.imaging.palette.DitheringTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.common.bytesource.ByteSourceImageTest_OE25Dev
+[INFO] Tests run: 291, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s - in org.apache.commons.imaging.common.bytesource.ByteSourceImageTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.common.bytesource.ByteSourceInputStreamTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.common.bytesource.ByteSourceInputStreamTest_OE25Dev
+[INFO] Running org.apache.commons.imaging.common.ImageBuilderTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.imaging.common.ImageBuilderTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -420,13 +380,13 @@ org.junit.platform.commons.JUnitException: Could not find method [testPixelDensi
 [ERROR]   PixelDensityRoundtrip_OE25Dev.testPixelDensityRoundtrip_1_oe » JUnit Could not...
 [ERROR]   PixelDensityRoundtrip_OE25Dev.testPixelDensityRoundtrip_2_oe » JUnit Could not...
 [INFO] 
-[ERROR] Tests run: 1096, Failures: 15, Errors: 2, Skipped: 0
+[ERROR] Tests run: 975, Failures: 15, Errors: 2, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:00 min
-[INFO] Finished at: 2026-01-16T13:20:41-05:00
+[INFO] Total time:  01:15 min
+[INFO] Finished at: 2026-01-16T15:53:00-05:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project commons-imaging: There are test failures.
 [ERROR] 

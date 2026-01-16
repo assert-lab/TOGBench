@@ -27,7 +27,7 @@ main:
 [INFO] --- buildnumber:1.4:create (default) @ commons-lang3 ---
 [INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src
-[INFO] Storing buildNumber: 74773d2acb91b0a98a0c2844a2b8369f83706543 at timestamp: 1768587459936
+[INFO] Storing buildNumber: ba422cbeaa32efdad405fd5df283f67519011b01 at timestamp: 1768596590423
 [INFO] Storing buildScmBranch: main
 [INFO] 
 [INFO] --- resources:3.1.0:resources (default-resources) @ commons-lang3 ---
@@ -52,17 +52,24 @@ main:
 [INFO] 
 [INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-lang3 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 318 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/target/test-classes
+[INFO] Compiling 308 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/target/test-classes
 [INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/src/test/java/org/apache/commons/lang3/StringUtilsTest.java: Some input files use or override a deprecated API.
 [INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/src/test/java/org/apache/commons/lang3/StringUtilsTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/src/test/java/org/apache/commons/lang3/builder/DiffBuilderTest_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/src/test/java/org/apache/commons/lang3/builder/DiffBuilderTest_OE25Dev.java: Recompile with -Xlint:removal for details.
 [INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/src/test/java/org/apache/commons/lang3/RangeTest_OE25Dev.java: Some input files use unchecked or unsafe operations.
 [INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/src/test/java/org/apache/commons/lang3/RangeTest_OE25Dev.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-lang3 ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/src/test/java/org/apache/commons/lang3/text/StrBuilderTest.java:1843: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/src/test/java/org/apache/commons/lang3/text/StrBuilderTest.java:1893: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/src/test/java/org/apache/commons/lang3/text/StrBuilderTest_OE25Dev.java:12775: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/src/test/java/org/apache/commons/lang3/text/StrBuilderTest_OE25Dev.java:12785: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/src/test/java/org/apache/commons/lang3/text/StrBuilderTest_OE25Dev.java:12834: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
 [INFO] 
 [INFO] --- jacoco:0.8.6:prepare-agent (prepare-agent) @ commons-lang3 ---
-[INFO] argLine set to -javaagent:/home/wxw9rr/.m2/repository/org/jacoco/org.jacoco.agent/0.8.6/org.jacoco.agent-0.8.6-runtime.jar=destfile=/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-lang3-3.12.0-src/target/jacoco.exec -Xmx512m
+[INFO] Skipping JaCoCo execution because property jacoco.skip is set.
 [INFO] 
 [INFO] --- surefire:3.0.0-M5:test (default-test) @ commons-lang3 ---
 [INFO] 
@@ -70,5 +77,739 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [ERROR] Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+[INFO] Running org.apache.commons.lang3.RegExUtilsTest_OE25Dev
+[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.344 s - in org.apache.commons.lang3.RegExUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.JsonToStringStyleTest_OE25Dev
+[INFO] Tests run: 102, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.212 s - in org.apache.commons.lang3.builder.JsonToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.mutable.MutableIntTest_OE25Dev
+[INFO] Tests run: 65, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.lang3.mutable.MutableIntTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.reflect.MethodUtilsTest_OE25Dev
+[INFO] Tests run: 200, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.297 s - in org.apache.commons.lang3.reflect.MethodUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.concurrent.MemoizerTest_OE25Dev
+[ERROR] Tests run: 10, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.103 s <<< FAILURE! - in org.apache.commons.lang3.concurrent.MemoizerTest_OE25Dev
+[ERROR] org.apache.commons.lang3.concurrent.MemoizerTest_OE25Dev.testDoesRecalculateWhenSetToTrue_2_oe  Time elapsed: 0.018 s  <<< ERROR!
+java.lang.IllegalStateException: Unchecked exception
+	at org.apache.commons.lang3.concurrent.MemoizerTest_OE25Dev.testDoesRecalculateWhenSetToTrue_2_oe(MemoizerTest_OE25Dev.java:126)
+Caused by: java.lang.InterruptedException
+	at org.apache.commons.lang3.concurrent.MemoizerTest_OE25Dev.testDoesRecalculateWhenSetToTrue_2_oe(MemoizerTest_OE25Dev.java:126)
+
+[INFO] Running org.apache.commons.lang3.ArrayUtilsInsertTest_OE25Dev
+[INFO] Tests run: 117, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.lang3.ArrayUtilsInsertTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.JavaVersionTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.lang3.JavaVersionTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharSequenceUtilsTest_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.388 s - in org.apache.commons.lang3.CharSequenceUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.reflect.InheritanceUtilsTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in org.apache.commons.lang3.reflect.InheritanceUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharEncodingTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s - in org.apache.commons.lang3.CharEncodingTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.concurrent.ConstantInitializerTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.concurrent.ConstantInitializerTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.FastDatePrinterTest_OE25Dev
+[ERROR] Tests run: 74, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.675 s <<< FAILURE! - in org.apache.commons.lang3.time.FastDatePrinterTest_OE25Dev
+[ERROR] org.apache.commons.lang3.time.FastDatePrinterTest_OE25Dev.testTimeZoneAsZ_1_oe  Time elapsed: 0.409 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <+0000> but was: <-0500>
+	at org.apache.commons.lang3.time.FastDatePrinterTest_OE25Dev.testTimeZoneAsZ_1_oe(FastDatePrinterTest_OE25Dev.java:1247)
+
+[ERROR] org.apache.commons.lang3.time.FastDatePrinterTest_OE25Dev.testTimeZoneAsZ_2_oe  Time elapsed: 0.069 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <Z> but was: <-05:00>
+	at org.apache.commons.lang3.time.FastDatePrinterTest_OE25Dev.testTimeZoneAsZ_2_oe(FastDatePrinterTest_OE25Dev.java:1257)
+
+[ERROR] org.apache.commons.lang3.time.FastDatePrinterTest_OE25Dev.testTimeZoneAsZ_3_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <+00:00> but was: <-05:00>
+	at org.apache.commons.lang3.time.FastDatePrinterTest_OE25Dev.testTimeZoneAsZ_3_oe(FastDatePrinterTest_OE25Dev.java:1270)
+
+[ERROR] org.apache.commons.lang3.time.FastDatePrinterTest_OE25Dev.testLang538_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: dateTime ==> expected: <2009-10-16T16:42:16.000Z> but was: <2009-10-16T08:42:16.000Z>
+	at org.apache.commons.lang3.time.FastDatePrinterTest_OE25Dev.testLang538_2_oe(FastDatePrinterTest_OE25Dev.java:966)
+
+[INFO] Running org.apache.commons.lang3.builder.DefaultToStringStyleTest_OE25Dev
+[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.lang3.builder.DefaultToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.translate.UnicodeEscaperTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.text.translate.UnicodeEscaperTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.concurrent.locks.LockingVisitorsTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 33.382 s - in org.apache.commons.lang3.concurrent.locks.LockingVisitorsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.SystemUtilsTest_OE25Dev
+[INFO] Tests run: 533, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.093 s - in org.apache.commons.lang3.SystemUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.ToStringStyleTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.lang3.builder.ToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.ClassPathUtilsTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.lang3.ClassPathUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.translate.OctalUnescaperTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.text.translate.OctalUnescaperTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.FastDateParserTest_OE25Dev
+[INFO] Tests run: 105, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.842 s - in org.apache.commons.lang3.time.FastDateParserTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.ClassLoaderUtilsTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in org.apache.commons.lang3.ClassLoaderUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.reflect.FieldUtilsTest_OE25Dev
+[INFO] Tests run: 348, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.224 s - in org.apache.commons.lang3.reflect.FieldUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.math.NumberUtilsTest_OE25Dev
+[INFO] Tests run: 638, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in org.apache.commons.lang3.math.NumberUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharSetTest_OE25Dev
+[INFO] Tests run: 204, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s - in org.apache.commons.lang3.CharSetTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.ConversionTest_OE25Dev
+[INFO] Tests run: 539, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in org.apache.commons.lang3.ConversionTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.StrBuilderAppendInsertTest_OE25Dev
+[INFO] Tests run: 299, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.092 s - in org.apache.commons.lang3.text.StrBuilderAppendInsertTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeNullValuesTest_OE25Dev
+[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeNullValuesTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.RecursiveToStringStyleTest_OE25Dev
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.lang3.builder.RecursiveToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.reflect.TypeLiteralTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.157 s - in org.apache.commons.lang3.reflect.TypeLiteralTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.compare.ObjectToStringComparatorTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.compare.ObjectToStringComparatorTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.exception.ContextedExceptionTest_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.lang3.exception.ContextedExceptionTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.DiffBuilderTest_OE25Dev
+[INFO] Tests run: 79, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 s - in org.apache.commons.lang3.builder.DiffBuilderTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.FormattableUtilsTest_OE25Dev
+[INFO] Tests run: 61, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.lang3.text.FormattableUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.mutable.MutableBooleanTest_OE25Dev
+[INFO] Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.mutable.MutableBooleanTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharUtilsTest_OE25Dev
+[INFO] Tests run: 143, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.lang3.CharUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.exception.ContextedRuntimeExceptionTest_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.lang3.exception.ContextedRuntimeExceptionTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.tuple.MutableTripleTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.lang3.tuple.MutableTripleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.translate.UnicodeUnpairedSurrogateRemoverTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.text.translate.UnicodeUnpairedSurrogateRemoverTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.StrMatcherTest_OE25Dev
+[INFO] Tests run: 92, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.lang3.text.StrMatcherTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeWithAnnotationTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeWithAnnotationTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev
+[ERROR] Tests run: 53, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev
+[ERROR] org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_changeDefault_Locale_DateInstance_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <en_US> but was: <de_DE>
+	at org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_changeDefault_Locale_DateInstance_2_oe(FastDateFormatTest_OE25Dev.java:176)
+
+[ERROR] org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_changeDefault_Locale_DateInstance_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not same but was: <FastDateFormat[EEEE, d. MMMM y,de_DE,America/New_York]>
+	at org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_changeDefault_Locale_DateInstance_4_oe(FastDateFormatTest_OE25Dev.java:201)
+
+[ERROR] org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_changeDefault_Locale_DateInstance_5_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not same but was: <FastDateFormat[EEEE, d. MMMM y,de_DE,America/New_York]>
+	at org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_changeDefault_Locale_DateInstance_5_oe(FastDateFormatTest_OE25Dev.java:215)
+
+[ERROR] org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_getInstance_String_Locale_1_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not same but was: <FastDateFormat[MM/DD/yyyy,de_DE,America/New_York]>
+	at org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_getInstance_String_Locale_1_oe(FastDateFormatTest_OE25Dev.java:346)
+
+[ERROR] org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_changeDefault_Locale_DateTimeInstance_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <en_US> but was: <de_DE>
+	at org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_changeDefault_Locale_DateTimeInstance_2_oe(FastDateFormatTest_OE25Dev.java:236)
+
+[ERROR] org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_changeDefault_Locale_DateTimeInstance_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not same but was: <FastDateFormat[EEEE, d. MMMM y 'um' HH:mm:ss zzzz,de_DE,America/New_York]>
+	at org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_changeDefault_Locale_DateTimeInstance_4_oe(FastDateFormatTest_OE25Dev.java:261)
+
+[ERROR] org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_changeDefault_Locale_DateTimeInstance_5_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: not same but was: <FastDateFormat[EEEE, d. MMMM y 'um' HH:mm:ss zzzz,de_DE,America/New_York]>
+	at org.apache.commons.lang3.time.FastDateFormatTest_OE25Dev.test_changeDefault_Locale_DateTimeInstance_5_oe(FastDateFormatTest_OE25Dev.java:275)
+
+[INFO] Running org.apache.commons.lang3.tuple.TripleTest_OE25Dev
+[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.tuple.TripleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.DiffTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.builder.DiffTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.DateUtilsFragmentTest_OE25Dev
+[INFO] Tests run: 103, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.lang3.time.DateUtilsFragmentTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.NoFieldNamesToStringStyleTest_OE25Dev
+[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.lang3.builder.NoFieldNamesToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.DurationFormatUtilsTest_OE25Dev
+[INFO] Tests run: 142, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.lang3.time.DurationFormatUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.FastDateParser_TimeZoneStrategyTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.time.FastDateParser_TimeZoneStrategyTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.RangeTest_OE25Dev
+[INFO] Tests run: 145, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.lang3.RangeTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.translate.EntityArraysTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.text.translate.EntityArraysTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.concurrent.ThresholdCircuitBreakerTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in org.apache.commons.lang3.concurrent.ThresholdCircuitBreakerTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.RandomUtilsTest_OE25Dev
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.lang3.RandomUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.WordUtilsTest_OE25Dev
+[INFO] Tests run: 212, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.lang3.text.WordUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.tuple.ImmutablePairTest_OE25Dev
+[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.lang3.tuple.ImmutablePairTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.BitFieldTest_OE25Dev
+[INFO] Tests run: 95, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.lang3.BitFieldTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.translate.LookupTranslatorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.text.translate.LookupTranslatorTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.EnumUtilsTest_OE25Dev
+[INFO] Tests run: 209, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.apache.commons.lang3.EnumUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.translate.NumericEntityEscaperTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.text.translate.NumericEntityEscaperTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.tuple.MutablePairTest_OE25Dev
+[INFO] Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.tuple.MutablePairTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharsetsTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.lang3.CharsetsTestCase_OE25Dev
+[INFO] Running org.apache.commons.lang3.LocaleUtilsTest_OE25Dev
+[INFO] Tests run: 3097, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.539 s - in org.apache.commons.lang3.LocaleUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.StopWatchTest_OE25Dev
+[INFO] Tests run: 68, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 23.12 s - in org.apache.commons.lang3.time.StopWatchTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.tuple.ImmutableTripleTest_OE25Dev
+[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.tuple.ImmutableTripleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharSetUtilsTest_OE25Dev
+[INFO] Tests run: 142, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.lang3.CharSetUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.FastDatePrinterTimeZonesTest_OE25Dev
+[INFO] Tests run: 631, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.238 s - in org.apache.commons.lang3.time.FastDatePrinterTimeZonesTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.reflect.ConstructorUtilsTest_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.lang3.reflect.ConstructorUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev
+[ERROR] Tests run: 210, Failures: 100, Errors: 0, Skipped: 0, Time elapsed: 0.069 s <<< FAILURE! - in org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_charArray_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_charArray_2_oe(StrTokenizerTest_OE25Dev.java:1909)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_charArray_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_charArray_3_oe(StrTokenizerTest_OE25Dev.java:1917)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted1_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted1_2_oe(StrTokenizerTest_OE25Dev.java:832)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted1_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted1_3_oe(StrTokenizerTest_OE25Dev.java:841)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted1_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted1_4_oe(StrTokenizerTest_OE25Dev.java:851)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted2_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted2_2_oe(StrTokenizerTest_OE25Dev.java:870)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted2_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted2_3_oe(StrTokenizerTest_OE25Dev.java:881)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted2_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted2_4_oe(StrTokenizerTest_OE25Dev.java:893)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted3_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b'c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted3_2_oe(StrTokenizerTest_OE25Dev.java:912)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted3_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted3_3_oe(StrTokenizerTest_OE25Dev.java:923)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted4_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted4_2_oe(StrTokenizerTest_OE25Dev.java:944)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted4_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <d> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted4_3_oe(StrTokenizerTest_OE25Dev.java:956)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted4_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted4_4_oe(StrTokenizerTest_OE25Dev.java:969)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted5_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <bxc> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted5_2_oe(StrTokenizerTest_OE25Dev.java:990)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted5_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <d> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted5_3_oe(StrTokenizerTest_OE25Dev.java:1002)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted5_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted5_4_oe(StrTokenizerTest_OE25Dev.java:1015)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted6_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b"c:d> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted6_2_oe(StrTokenizerTest_OE25Dev.java:1032)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted6_3_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted6_3_oe(StrTokenizerTest_OE25Dev.java:1042)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted7_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <There's a reason here> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted7_2_oe(StrTokenizerTest_OE25Dev.java:1059)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted7_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted7_3_oe(StrTokenizerTest_OE25Dev.java:1069)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted7_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuoted7_4_oe(StrTokenizerTest_OE25Dev.java:1080)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_String_char_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_String_char_3_oe(StrTokenizerTest_OE25Dev.java:1791)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_String_char_4_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_String_char_4_oe(StrTokenizerTest_OE25Dev.java:1800)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_8_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_8_oe(StrTokenizerTest_OE25Dev.java:2301)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testTokenizeSubclassOutputChange_2_oe  Time elapsed: 0.024 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <c>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testTokenizeSubclassOutputChange_2_oe(StrTokenizerTest_OE25Dev.java:2564)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testTokenizeSubclassOutputChange_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <a> but was: <c>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testTokenizeSubclassOutputChange_3_oe(StrTokenizerTest_OE25Dev.java:2579)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_String_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <e> but was: <d>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_String_2_oe(StrTokenizerTest_OE25Dev.java:2167)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_String_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_String_3_oe(StrTokenizerTest_OE25Dev.java:2176)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicTrimmed1_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicTrimmed1_2_oe(StrTokenizerTest_OE25Dev.java:1147)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicTrimmed1_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicTrimmed1_3_oe(StrTokenizerTest_OE25Dev.java:1159)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicTrimmed1_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicTrimmed1_4_oe(StrTokenizerTest_OE25Dev.java:1172)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicTrimmed2_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicTrimmed2_2_oe(StrTokenizerTest_OE25Dev.java:1193)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicTrimmed2_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicTrimmed2_3_oe(StrTokenizerTest_OE25Dev.java:1205)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicTrimmed2_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicTrimmed2_4_oe(StrTokenizerTest_OE25Dev.java:1218)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty1_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty1_2_oe(StrTokenizerTest_OE25Dev.java:729)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty1_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty1_3_oe(StrTokenizerTest_OE25Dev.java:739)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty1_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty1_4_oe(StrTokenizerTest_OE25Dev.java:750)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty1_5_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty1_5_oe(StrTokenizerTest_OE25Dev.java:762)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty2_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty2_2_oe(StrTokenizerTest_OE25Dev.java:781)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty2_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty2_3_oe(StrTokenizerTest_OE25Dev.java:792)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty2_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty2_4_oe(StrTokenizerTest_OE25Dev.java:804)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty2_5_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicEmpty2_5_oe(StrTokenizerTest_OE25Dev.java:817)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed1_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <bc> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed1_2_oe(StrTokenizerTest_OE25Dev.java:1241)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed1_3_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed1_3_oe(StrTokenizerTest_OE25Dev.java:1254)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed1_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed1_4_oe(StrTokenizerTest_OE25Dev.java:1268)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed2_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <bc> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed2_2_oe(StrTokenizerTest_OE25Dev.java:1291)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed2_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed2_3_oe(StrTokenizerTest_OE25Dev.java:1304)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed2_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed2_4_oe(StrTokenizerTest_OE25Dev.java:1318)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed3_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <  bc  > but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed3_2_oe(StrTokenizerTest_OE25Dev.java:1339)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed3_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <  > but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed3_3_oe(StrTokenizerTest_OE25Dev.java:1351)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed3_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed3_4_oe(StrTokenizerTest_OE25Dev.java:1364)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed4_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <bIGNOREcd> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed4_2_oe(StrTokenizerTest_OE25Dev.java:1387)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed4_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed4_3_oe(StrTokenizerTest_OE25Dev.java:1400)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed4_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicIgnoreTrimmed4_4_oe(StrTokenizerTest_OE25Dev.java:1414)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_10_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_10_oe(StrTokenizerTest_OE25Dev.java:2333)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_11_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_11_oe(StrTokenizerTest_OE25Dev.java:2351)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_13_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_13_oe(StrTokenizerTest_OE25Dev.java:2391)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_14_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_14_oe(StrTokenizerTest_OE25Dev.java:2413)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_15_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_15_oe(StrTokenizerTest_OE25Dev.java:2436)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_16_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.util.NoSuchElementException to be thrown, but nothing was thrown.
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_16_oe(StrTokenizerTest_OE25Dev.java:2461)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_17_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <false>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_17_oe(StrTokenizerTest_OE25Dev.java:2487)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_18_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testIteration_18_oe(StrTokenizerTest_OE25Dev.java:2514)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_String_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_String_2_oe(StrTokenizerTest_OE25Dev.java:1737)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_String_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_String_3_oe(StrTokenizerTest_OE25Dev.java:1745)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_charArray_char_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_charArray_char_3_oe(StrTokenizerTest_OE25Dev.java:1963)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_charArray_char_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_charArray_char_4_oe(StrTokenizerTest_OE25Dev.java:1972)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_charArray_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_charArray_2_oe(StrTokenizerTest_OE25Dev.java:2207)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicDelim1_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicDelim1_2_oe(StrTokenizerTest_OE25Dev.java:678)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicDelim1_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicDelim1_3_oe(StrTokenizerTest_OE25Dev.java:687)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicDelim1_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicDelim1_4_oe(StrTokenizerTest_OE25Dev.java:697)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicDelim2_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicDelim2_2_oe(StrTokenizerTest_OE25Dev.java:712)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuotedTrimmed1_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuotedTrimmed1_2_oe(StrTokenizerTest_OE25Dev.java:1101)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuotedTrimmed1_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuotedTrimmed1_3_oe(StrTokenizerTest_OE25Dev.java:1113)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuotedTrimmed1_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasicQuotedTrimmed1_4_oe(StrTokenizerTest_OE25Dev.java:1126)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic1_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic1_2_oe(StrTokenizerTest_OE25Dev.java:508)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic1_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic1_3_oe(StrTokenizerTest_OE25Dev.java:517)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic1_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic1_4_oe(StrTokenizerTest_OE25Dev.java:527)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_String_char_char_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_String_char_char_4_oe(StrTokenizerTest_OE25Dev.java:1857)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_String_char_char_5_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_String_char_char_5_oe(StrTokenizerTest_OE25Dev.java:1867)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic2_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic2_2_oe(StrTokenizerTest_OE25Dev.java:542)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic2_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic2_3_oe(StrTokenizerTest_OE25Dev.java:551)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic2_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic2_4_oe(StrTokenizerTest_OE25Dev.java:561)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic3_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic3_2_oe(StrTokenizerTest_OE25Dev.java:576)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic3_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic3_3_oe(StrTokenizerTest_OE25Dev.java:585)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic3_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic3_4_oe(StrTokenizerTest_OE25Dev.java:595)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic4_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <"b"> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic4_2_oe(StrTokenizerTest_OE25Dev.java:610)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic4_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic4_3_oe(StrTokenizerTest_OE25Dev.java:619)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic4_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic4_4_oe(StrTokenizerTest_OE25Dev.java:629)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_2_oe(StrTokenizerTest_OE25Dev.java:2081)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_3_oe(StrTokenizerTest_OE25Dev.java:2089)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_4_oe(StrTokenizerTest_OE25Dev.java:2098)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_6_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_6_oe(StrTokenizerTest_OE25Dev.java:2123)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_7_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_7_oe(StrTokenizerTest_OE25Dev.java:2137)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_8_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testReset_8_oe(StrTokenizerTest_OE25Dev.java:2152)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic5_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b'> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic5_2_oe(StrTokenizerTest_OE25Dev.java:644)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic5_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic5_3_oe(StrTokenizerTest_OE25Dev.java:653)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic5_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testBasic5_4_oe(StrTokenizerTest_OE25Dev.java:663)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_charArray_char_char_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_charArray_char_char_4_oe(StrTokenizerTest_OE25Dev.java:2029)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_charArray_char_char_5_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testConstructor_charArray_char_char_5_oe(StrTokenizerTest_OE25Dev.java:2039)
+
+[ERROR] org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testTokenizeSubclassInputChange_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <y> but was: <x>
+	at org.apache.commons.lang3.text.StrTokenizerTest_OE25Dev.testTokenizeSubclassInputChange_2_oe(StrTokenizerTest_OE25Dev.java:2537)
+
+[INFO] Running org.apache.commons.lang3.mutable.MutableLongTest_OE25Dev
+[INFO] Tests run: 76, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.lang3.mutable.MutableLongTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.concurrent.BasicThreadFactoryTest_OE25Dev
+[ERROR] Tests run: 20, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.03 s <<< FAILURE! - in org.apache.commons.lang3.concurrent.BasicThreadFactoryTest_OE25Dev
+[ERROR] org.apache.commons.lang3.concurrent.BasicThreadFactoryTest_OE25Dev.testNewThreadExHandler_2_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Wrong exception handler ==> expected: <EasyMock for interface java.lang.Thread$UncaughtExceptionHandler> but was: <java.lang.ThreadGroup[name=main,maxpri=10]>
+	at org.apache.commons.lang3.concurrent.BasicThreadFactoryTest_OE25Dev.testNewThreadExHandler_2_oe(BasicThreadFactoryTest_OE25Dev.java:399)
+
+[ERROR] org.apache.commons.lang3.concurrent.BasicThreadFactoryTest_OE25Dev.testNewThreadPriority_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Wrong priority ==> expected: <6> but was: <5>
+	at org.apache.commons.lang3.concurrent.BasicThreadFactoryTest_OE25Dev.testNewThreadPriority_2_oe(BasicThreadFactoryTest_OE25Dev.java:343)
+
+[INFO] Running org.apache.commons.lang3.mutable.MutableShortTest_OE25Dev
+[INFO] Tests run: 72, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.mutable.MutableShortTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.SimpleToStringStyleTest_OE25Dev
+[INFO] Tests run: 44, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.lang3.builder.SimpleToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.DateFormatUtilsTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.time.DateFormatUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringUtilsSubstringTest_OE25Dev
+[INFO] Tests run: 223, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.lang3.StringUtilsSubstringTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.exception.CloneFailedExceptionTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.exception.CloneFailedExceptionTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.WeekYearTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.091 s - in org.apache.commons.lang3.time.WeekYearTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringUtilsTrimStripTest_OE25Dev
+[INFO] Tests run: 119, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s - in org.apache.commons.lang3.StringUtilsTrimStripTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringUtilsStartsEndsWithTest_OE25Dev
+[INFO] Tests run: 90, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in org.apache.commons.lang3.StringUtilsStartsEndsWithTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.StrBuilderTest_OE25Dev
+[ERROR] Tests run: 665, Failures: 16, Errors: 1, Skipped: 0, Time elapsed: 0.042 s <<< FAILURE! - in org.apache.commons.lang3.text.StrBuilderTest_OE25Dev
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_10_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_10_oe(StrBuilderTest_OE25Dev.java:10802)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_18_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_18_oe(StrBuilderTest_OE25Dev.java:11046)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_19_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_19_oe(StrBuilderTest_OE25Dev.java:11081)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_20_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <d> but was: <a>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_20_oe(StrBuilderTest_OE25Dev.java:11117)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <some text> but was: <         >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_3_oe(StrBuilderTest_OE25Dev.java:11181)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <-1> but was: <115>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_4_oe(StrBuilderTest_OE25Dev.java:11193)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_5_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_5_oe(StrBuilderTest_OE25Dev.java:11206)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_6_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <2>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_6_oe(StrBuilderTest_OE25Dev.java:11220)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testChaining_4_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.StringIndexOutOfBoundsException: String index out of range: 0
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testChaining_4_oe(StrBuilderTest_OE25Dev.java:781)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testReverse_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <eurt>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testReverse_3_oe(StrBuilderTest_OE25Dev.java:6805)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_11_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <o> but was: < >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_11_oe(StrBuilderTest_OE25Dev.java:11316)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_12_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <m> but was: < >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_12_oe(StrBuilderTest_OE25Dev.java:11340)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_13_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <e> but was: < >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_13_oe(StrBuilderTest_OE25Dev.java:11365)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_15_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <o> but was: < >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_15_oe(StrBuilderTest_OE25Dev.java:11420)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_16_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <o> but was: < >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_16_oe(StrBuilderTest_OE25Dev.java:11449)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_17_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <e> but was: < >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_17_oe(StrBuilderTest_OE25Dev.java:11479)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_19_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <32> but was: <115>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_19_oe(StrBuilderTest_OE25Dev.java:11542)
+
+[INFO] Running org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.text.translate.NumericEntityUnescaperTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.GmtTimeZoneTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.time.GmtTimeZoneTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.math.IEEE754rUtilsTest_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.lang3.math.IEEE754rUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringUtilsValueOfTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.StringUtilsValueOfTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in org.apache.commons.lang3.concurrent.AtomicSafeInitializerTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.translate.UnicodeUnescaperTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.text.translate.UnicodeUnescaperTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.mutable.MutableByteTest_OE25Dev
+[INFO] Tests run: 72, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.mutable.MutableByteTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.ExtendedMessageFormatTest_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.261 s - in org.apache.commons.lang3.text.ExtendedMessageFormatTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.CompositeFormatTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in org.apache.commons.lang3.text.CompositeFormatTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.CompareToBuilderTest_OE25Dev
+[INFO] Tests run: 308, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.lang3.builder.CompareToBuilderTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.event.EventListenerSupportTest_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.lang3.event.EventListenerSupportTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev
+[ERROR] Tests run: 22, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev
+[ERROR] org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongCharacters_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <2> but was: <-1>
+	at org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongCharacters_2_oe(FastDateParser_MoreOrLessTest_OE25Dev.java:173)
+
+[ERROR] org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongTimeZone_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <27> but was: <0>
+	at org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongTimeZone_2_oe(FastDateParser_MoreOrLessTest_OE25Dev.java:234)
+
+[ERROR] org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongTimeZone_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <6> but was: <-1>
+	at org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongTimeZone_4_oe(FastDateParser_MoreOrLessTest_OE25Dev.java:261)
+
+[ERROR] org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongDay_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <18> but was: <0>
+	at org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongDay_2_oe(FastDateParser_MoreOrLessTest_OE25Dev.java:190)
+
+[ERROR] org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongDay_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <-1>
+	at org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongDay_4_oe(FastDateParser_MoreOrLessTest_OE25Dev.java:215)
+
+[ERROR] org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasLessCharacters_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <5> but was: <-1>
+	at org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasLessCharacters_2_oe(FastDateParser_MoreOrLessTest_OE25Dev.java:47)
+
+[INFO] Running org.apache.commons.lang3.StringUtilsEmptyBlankTest_OE25Dev
+[INFO] Tests run: 93, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.StringUtilsEmptyBlankTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.math.FractionTest_OE25Dev
+[INFO] Tests run: 403, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.103 s - in org.apache.commons.lang3.math.FractionTest_OE25Dev
 [INFO] Running org.apache.commons.lang3.builder.DiffResultTest_OE25Dev
 TIMEOUT

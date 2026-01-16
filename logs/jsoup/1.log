@@ -22,7 +22,7 @@
 [INFO] Copying 70 resources
 [INFO] 
 [INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ jsoup ---
-[INFO] Compiling 78 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/jsoup/target/test-classes
+[INFO] Compiling 76 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/jsoup/target/test-classes
 [INFO] 
 [INFO] --- surefire:3.0.0-M7:test (default-test) @ jsoup ---
 [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
@@ -30,44 +30,42 @@
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running org.jsoup.nodes.LeafNodeTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.762 s - in org.jsoup.nodes.LeafNodeTest_OE25Dev
-[INFO] Running org.jsoup.nodes.CommentTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.jsoup.nodes.CommentTest_OE25Dev
-[INFO] Running org.jsoup.nodes.ElementIT_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.742 s - in org.jsoup.nodes.ElementIT_OE25Dev
-[INFO] Running org.jsoup.safety.SafelistTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.jsoup.safety.SafelistTest_OE25Dev
-[INFO] Running org.jsoup.helper.W3CDomTest_OE25Dev
-[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.362 s - in org.jsoup.helper.W3CDomTest_OE25Dev
-[INFO] Running org.jsoup.helper.DataUtilTest_OE25Dev
-[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.151 s - in org.jsoup.helper.DataUtilTest_OE25Dev
-[INFO] Running org.jsoup.select.CssTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.jsoup.select.CssTest_OE25Dev
-[INFO] Running org.jsoup.select.TraversorTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.jsoup.select.TraversorTest_OE25Dev
-[INFO] Running org.jsoup.integration.ConnectIT_OE25Dev
-[WARNING] Tests run: 22, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 34.451 s - in org.jsoup.integration.ConnectIT_OE25Dev
-[INFO] Running org.jsoup.integration.FuzzFixesTest_OE25Dev
-[INFO] Tests run: 65, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.325 s - in org.jsoup.integration.FuzzFixesTest_OE25Dev
-[INFO] Running org.jsoup.integration.SessionIT_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.647 s - in org.jsoup.integration.SessionIT_OE25Dev
-[INFO] Running org.jsoup.integration.SessionTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in org.jsoup.integration.SessionTest_OE25Dev
 [INFO] Running org.jsoup.integration.FuzzFixesIT_OE25Dev
-[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 62.994 s - in org.jsoup.integration.FuzzFixesIT_OE25Dev
+[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 75.523 s - in org.jsoup.integration.FuzzFixesIT_OE25Dev
+[INFO] Running org.jsoup.integration.ConnectIT_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 34.737 s - in org.jsoup.integration.ConnectIT_OE25Dev
+[INFO] Running org.jsoup.integration.SessionTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.367 s - in org.jsoup.integration.SessionTest_OE25Dev
+[INFO] Running org.jsoup.integration.FuzzFixesTest_OE25Dev
+[INFO] Tests run: 65, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.011 s - in org.jsoup.integration.FuzzFixesTest_OE25Dev
+[INFO] Running org.jsoup.helper.DataUtilTest_OE25Dev
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.169 s - in org.jsoup.helper.DataUtilTest_OE25Dev
+[INFO] Running org.jsoup.helper.W3CDomTest_OE25Dev
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.344 s - in org.jsoup.helper.W3CDomTest_OE25Dev
+[INFO] Running org.jsoup.select.TraversorTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.jsoup.select.TraversorTest_OE25Dev
+[INFO] Running org.jsoup.select.CssTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.jsoup.select.CssTest_OE25Dev
+[INFO] Running org.jsoup.nodes.ElementIT_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.772 s - in org.jsoup.nodes.ElementIT_OE25Dev
+[INFO] Running org.jsoup.nodes.LeafNodeTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.jsoup.nodes.LeafNodeTest_OE25Dev
+[INFO] Running org.jsoup.nodes.CommentTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.jsoup.nodes.CommentTest_OE25Dev
+[INFO] Running org.jsoup.parser.ParserIT_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.296 s - in org.jsoup.parser.ParserIT_OE25Dev
 [INFO] Running org.jsoup.parser.ParserTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.jsoup.parser.ParserTest_OE25Dev
-[INFO] Running org.jsoup.parser.ParserIT_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.255 s - in org.jsoup.parser.ParserIT_OE25Dev
+[INFO] Running org.jsoup.safety.SafelistTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.jsoup.safety.SafelistTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[WARNING] Tests run: 411, Failures: 0, Errors: 0, Skipped: 1
+[INFO] Tests run: 407, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  02:23 min
-[INFO] Finished at: 2026-01-16T13:18:57-05:00
+[INFO] Total time:  02:12 min
+[INFO] Finished at: 2026-01-16T15:50:47-05:00
 [INFO] ------------------------------------------------------------------------

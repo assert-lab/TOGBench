@@ -33,263 +33,63 @@ Writing ZoneInfoMap
 [INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ joda-time ---
 [WARNING] Parameter 'optimize' (user property 'maven.compiler.optimize') is deprecated: This property is a no-op in {@code javac}.
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 284 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/joda-time/target/test-classes
+[INFO] Compiling 184 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/joda-time/target/test-classes
 [INFO] 
 [INFO] --- surefire:2.21.0:test (default-test) @ joda-time ---
 [INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running org.joda.time.TestLocalDate_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.332 s - in org.joda.time.TestLocalDate_Basics_OE25Dev
-[INFO] Running org.joda.time.TestLocalDateTime_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestLocalDateTime_Basics_OE25Dev
-[INFO] Running org.joda.time.TestMinMaxLong_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMinMaxLong_OE25Dev
-[INFO] Running org.joda.time.TestDateTimeUtils_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDateTimeUtils_OE25Dev
-[INFO] Running org.joda.time.TestDuration_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.TestDuration_Basics_OE25Dev
-[INFO] Running org.joda.time.TestHours_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.joda.time.TestHours_OE25Dev
-[INFO] Running org.joda.time.TestMutableDateTime_Properties_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMutableDateTime_Properties_OE25Dev
-[INFO] Running org.joda.time.TestPeriod_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestPeriod_Basics_OE25Dev
-[INFO] Running org.joda.time.TestPeriodType_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.joda.time.TestPeriodType_OE25Dev
-[INFO] Running org.joda.time.TestIllegalFieldValueException_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.joda.time.TestIllegalFieldValueException_OE25Dev
-[INFO] Running org.joda.time.TestMonthDay_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMonthDay_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestDurationField_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDurationField_OE25Dev
-[INFO] Running org.joda.time.TestLocalDateTime_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestLocalDateTime_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestDateTimeZoneCutover_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.joda.time.TestDateTimeZoneCutover_OE25Dev
-[INFO] Running org.joda.time.TestYearMonth_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.joda.time.TestYearMonth_Basics_OE25Dev
-[INFO] Running org.joda.time.tz.TestFixedDateTimeZone_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.tz.TestFixedDateTimeZone_OE25Dev
+[INFO] Running org.joda.time.format.TestPeriodFormatParsing_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.347 s - in org.joda.time.format.TestPeriodFormatParsing_OE25Dev
+[INFO] Running org.joda.time.format.TestISOPeriodFormat_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.format.TestISOPeriodFormat_OE25Dev
+[INFO] Running org.joda.time.format.TestTextFields_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.joda.time.format.TestTextFields_OE25Dev
+[INFO] Running org.joda.time.format.TestISODateTimeFormat_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.format.TestISODateTimeFormat_OE25Dev
+[INFO] Running org.joda.time.format.TestISODateTimeFormatParsing_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.joda.time.format.TestISODateTimeFormatParsing_OE25Dev
+[INFO] Running org.joda.time.format.TestDateTimeParserBucket_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s - in org.joda.time.format.TestDateTimeParserBucket_OE25Dev
+[INFO] Running org.joda.time.TestChronology_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.joda.time.TestChronology_OE25Dev
+[INFO] Running org.joda.time.TestStringConvert_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.joda.time.TestStringConvert_OE25Dev
+[INFO] Running org.joda.time.TestMutableInterval_Basics_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.joda.time.TestMutableInterval_Basics_OE25Dev
 [INFO] Running org.joda.time.tz.TestUTCProvider_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.tz.TestUTCProvider_OE25Dev
+[INFO] Running org.joda.time.tz.TestFixedDateTimeZone_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.tz.TestFixedDateTimeZone_OE25Dev
 [INFO] Running org.joda.time.tz.TestCachedDateTimeZone_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.tz.TestCachedDateTimeZone_OE25Dev
-[INFO] Running org.joda.time.tz.TestCompiler_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.tz.TestCompiler_OE25Dev
 [INFO] Running org.joda.time.tz.TestBuilder_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.tz.TestBuilder_OE25Dev
-[INFO] Running org.joda.time.TestInstant_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestInstant_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestYearMonthDay_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestYearMonthDay_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestPartial_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestPartial_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestDateTime_Properties_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDateTime_Properties_OE25Dev
-[INFO] Running org.joda.time.TestMutableInterval_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.joda.time.TestMutableInterval_Basics_OE25Dev
-[INFO] Running org.joda.time.TestLocalDateTime_Properties_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestLocalDateTime_Properties_OE25Dev
-[INFO] Running org.joda.time.TestMutableDateTime_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMutableDateTime_Basics_OE25Dev
-[INFO] Running org.joda.time.TestTimeOfDay_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestTimeOfDay_Basics_OE25Dev
-[INFO] Running org.joda.time.TestDateMidnight_Properties_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDateMidnight_Properties_OE25Dev
-[INFO] Running org.joda.time.TestLocalTime_Properties_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestLocalTime_Properties_OE25Dev
-[INFO] Running org.joda.time.field.TestPreciseDurationField_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.field.TestPreciseDurationField_OE25Dev
-[INFO] Running org.joda.time.field.TestScaledDurationField_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.field.TestScaledDurationField_OE25Dev
-[INFO] Running org.joda.time.field.TestBaseDateTimeField_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.field.TestBaseDateTimeField_OE25Dev
-[INFO] Running org.joda.time.field.TestPreciseDateTimeField_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.joda.time.field.TestPreciseDateTimeField_OE25Dev
-[INFO] Running org.joda.time.field.TestMillisDurationField_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.field.TestMillisDurationField_OE25Dev
-[INFO] Running org.joda.time.field.TestPreciseDurationDateTimeField_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in org.joda.time.field.TestPreciseDurationDateTimeField_OE25Dev
-[INFO] Running org.joda.time.field.TestUnsupportedDateTimeField_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.joda.time.field.TestUnsupportedDateTimeField_OE25Dev
-[INFO] Running org.joda.time.field.TestFieldUtils_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.field.TestFieldUtils_OE25Dev
-[INFO] Running org.joda.time.field.TestOffsetDateTimeField_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.field.TestOffsetDateTimeField_OE25Dev
 [INFO] Running org.joda.time.TestDateTimeConstants_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDateTimeConstants_OE25Dev
-[INFO] Running org.joda.time.TestYearMonthDay_Properties_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestYearMonthDay_Properties_OE25Dev
-[INFO] Running org.joda.time.TestMutableDateTime_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMutableDateTime_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestMutablePeriod_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMutablePeriod_Basics_OE25Dev
-[INFO] Running org.joda.time.TestLocalDate_Properties_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestLocalDate_Properties_OE25Dev
-[INFO] Running org.joda.time.TestPartial_Match_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestPartial_Match_OE25Dev
-[INFO] Running org.joda.time.TestYears_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestYears_OE25Dev
-[INFO] Running org.joda.time.TestMutableInterval_Updates_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMutableInterval_Updates_OE25Dev
-[INFO] Running org.joda.time.TestMonthDay_Properties_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMonthDay_Properties_OE25Dev
-[INFO] Running org.joda.time.TestStringConvert_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestStringConvert_OE25Dev
-[INFO] Running org.joda.time.TestMutableDateTime_Adds_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMutableDateTime_Adds_OE25Dev
-[INFO] Running org.joda.time.TestInstant_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestInstant_Basics_OE25Dev
-[INFO] Running org.joda.time.TestYearMonth_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestYearMonth_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestLocalTime_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestLocalTime_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestWeeks_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestWeeks_OE25Dev
-[INFO] Running org.joda.time.TestPeriod_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestPeriod_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestMutablePeriod_Updates_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMutablePeriod_Updates_OE25Dev
-[INFO] Running org.joda.time.TestAbstractPartial_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestAbstractPartial_OE25Dev
-[INFO] Running org.joda.time.TestMutablePeriod_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMutablePeriod_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestLocalDate_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestLocalDate_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestYearMonthDay_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestYearMonthDay_Basics_OE25Dev
-[INFO] Running org.joda.time.convert.TestReadablePartialConverter_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.convert.TestReadablePartialConverter_OE25Dev
-[INFO] Running org.joda.time.convert.TestReadableIntervalConverter_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestReadableIntervalConverter_OE25Dev
-[INFO] Running org.joda.time.convert.TestConverterManager_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestConverterManager_OE25Dev
-[INFO] Running org.joda.time.convert.TestReadableDurationConverter_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestReadableDurationConverter_OE25Dev
-[INFO] Running org.joda.time.convert.TestStringConverter_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestStringConverter_OE25Dev
-[INFO] Running org.joda.time.convert.TestReadableInstantConverter_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.convert.TestReadableInstantConverter_OE25Dev
-[INFO] Running org.joda.time.convert.TestDateConverter_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestDateConverter_OE25Dev
 [INFO] Running org.joda.time.convert.TestNullConverter_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestNullConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestReadableDurationConverter_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestReadableDurationConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestReadableInstantConverter_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestReadableInstantConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestReadablePeriodConverter_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestReadablePeriodConverter_OE25Dev
 [INFO] Running org.joda.time.convert.TestLongConverter_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestLongConverter_OE25Dev
-[INFO] Running org.joda.time.convert.TestReadablePeriodConverter_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.joda.time.convert.TestReadablePeriodConverter_OE25Dev
-[INFO] Running org.joda.time.convert.TestCalendarConverter_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.joda.time.convert.TestCalendarConverter_OE25Dev
-[INFO] Running org.joda.time.convert.TestConverterSet_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.joda.time.convert.TestConverterSet_OE25Dev
-[INFO] Running org.joda.time.TestMutableInterval_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.joda.time.TestMutableInterval_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestDateTimeComparator_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDateTimeComparator_OE25Dev
-[INFO] Running org.joda.time.TestMonths_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMonths_OE25Dev
-[INFO] Running org.joda.time.TestDateTime_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDateTime_Basics_OE25Dev
-[INFO] Running org.joda.time.TestDateTimeZone_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.joda.time.TestDateTimeZone_OE25Dev
-[INFO] Running org.joda.time.TestChronology_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestChronology_OE25Dev
-[INFO] Running org.joda.time.format.TestDateTimeFormat_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.format.TestDateTimeFormat_OE25Dev
-[INFO] Running org.joda.time.format.TestPeriodFormat_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.format.TestPeriodFormat_OE25Dev
-[INFO] Running org.joda.time.format.TestISODateTimeFormatParsing_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.joda.time.format.TestISODateTimeFormatParsing_OE25Dev
-[INFO] Running org.joda.time.format.TestTextFields_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.joda.time.format.TestTextFields_OE25Dev
-[INFO] Running org.joda.time.format.TestDateTimeFormatStyle_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.format.TestDateTimeFormatStyle_OE25Dev
-[INFO] Running org.joda.time.format.TestISOPeriodFormat_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.joda.time.format.TestISOPeriodFormat_OE25Dev
-[INFO] Running org.joda.time.format.TestISODateTimeFormat_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.joda.time.format.TestISODateTimeFormat_OE25Dev
-[INFO] Running org.joda.time.format.TestPeriodFormatterBuilder_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.format.TestPeriodFormatterBuilder_OE25Dev
-[INFO] Running org.joda.time.format.TestISODateTimeFormat_Fields_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.format.TestISODateTimeFormat_Fields_OE25Dev
-[INFO] Running org.joda.time.format.TestDateTimeParserBucket_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.format.TestDateTimeParserBucket_OE25Dev
-[INFO] Running org.joda.time.format.TestDateTimeFormatterBuilder_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.format.TestDateTimeFormatterBuilder_OE25Dev
-[INFO] Running org.joda.time.format.TestISOPeriodFormatParsing_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.format.TestISOPeriodFormatParsing_OE25Dev
-[INFO] Running org.joda.time.format.TestPeriodFormatParsing_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.format.TestPeriodFormatParsing_OE25Dev
-[INFO] Running org.joda.time.format.TestPeriodFormatter_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.format.TestPeriodFormatter_OE25Dev
-[INFO] Running org.joda.time.format.TestDateTimeFormatter_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.joda.time.format.TestDateTimeFormatter_OE25Dev
-[INFO] Running org.joda.time.TestDays_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDays_OE25Dev
-[INFO] Running org.joda.time.TestYearMonth_Properties_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestYearMonth_Properties_OE25Dev
-[INFO] Running org.joda.time.TestDurationFieldType_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDurationFieldType_OE25Dev
-[INFO] Running org.joda.time.TestPartial_Properties_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestPartial_Properties_OE25Dev
-[INFO] Running org.joda.time.TestDateMidnight_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDateMidnight_Basics_OE25Dev
-[INFO] Running org.joda.time.TestMonthDay_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMonthDay_Basics_OE25Dev
-[INFO] Running org.joda.time.TestMutableDateTime_Sets_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMutableDateTime_Sets_OE25Dev
-[INFO] Running org.joda.time.TestDateTime_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDateTime_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestMinutes_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMinutes_OE25Dev
-[INFO] Running org.joda.time.TestSeconds_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestSeconds_OE25Dev
+[INFO] Running org.joda.time.convert.TestDateConverter_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestDateConverter_OE25Dev
+[INFO] Running org.joda.time.convert.TestReadableIntervalConverter_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.convert.TestReadableIntervalConverter_OE25Dev
+[INFO] Running org.joda.time.TestMutablePeriod_Basics_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMutablePeriod_Basics_OE25Dev
 [INFO] Running org.joda.time.TestSerialization_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestSerialization_OE25Dev
-[INFO] Running org.joda.time.TestBaseSingleFieldPeriod_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestBaseSingleFieldPeriod_OE25Dev
-[INFO] Running org.joda.time.TestLocalTime_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestLocalTime_Basics_OE25Dev
-[INFO] Running org.joda.time.TestDateMidnight_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDateMidnight_Constructors_OE25Dev
-[INFO] Running org.joda.time.chrono.TestGregorianChronology_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.chrono.TestGregorianChronology_OE25Dev
-[INFO] Running org.joda.time.chrono.TestISOChronology_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.chrono.TestISOChronology_OE25Dev
-[INFO] Running org.joda.time.chrono.TestGJChronology_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.chrono.TestGJChronology_OE25Dev
-[INFO] Running org.joda.time.chrono.TestCopticChronology_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.chrono.TestCopticChronology_OE25Dev
-[INFO] Running org.joda.time.chrono.TestEthiopicChronology_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.chrono.TestEthiopicChronology_OE25Dev
-[INFO] Running org.joda.time.chrono.TestJulianChronology_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.chrono.TestJulianChronology_OE25Dev
-[INFO] Running org.joda.time.chrono.TestIslamicChronology_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.chrono.TestIslamicChronology_OE25Dev
-[INFO] Running org.joda.time.chrono.TestLenientChronology_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.chrono.TestLenientChronology_OE25Dev
-[INFO] Running org.joda.time.chrono.TestGJDate_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.chrono.TestGJDate_OE25Dev
-[INFO] Running org.joda.time.chrono.TestBuddhistChronology_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.chrono.TestBuddhistChronology_OE25Dev
-[INFO] Running org.joda.time.TestInterval_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestInterval_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestBasePartial_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestBasePartial_OE25Dev
-[INFO] Running org.joda.time.TestDateTimeFieldType_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDateTimeFieldType_OE25Dev
-[INFO] Running org.joda.time.TestTimeOfDay_Properties_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestTimeOfDay_Properties_OE25Dev
-[INFO] Running org.joda.time.TestTimeOfDay_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestTimeOfDay_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestPartial_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestPartial_Basics_OE25Dev
-[INFO] Running org.joda.time.TestDuration_Constructors_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDuration_Constructors_OE25Dev
-[INFO] Running org.joda.time.TestInterval_Basics_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestInterval_Basics_OE25Dev
+[INFO] Running org.joda.time.TestMutableDateTime_Properties_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestMutableDateTime_Properties_OE25Dev
+[INFO] Running org.joda.time.TestDateMidnight_Properties_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.joda.time.TestDateMidnight_Properties_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -298,8 +98,8 @@ Writing ZoneInfoMap
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  23.989 s
-[INFO] Finished at: 2026-01-16T13:17:57-05:00
+[INFO] Total time:  30.563 s
+[INFO] Finished at: 2026-01-16T15:50:10-05:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.21.0:test (default-test) on project joda-time: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 

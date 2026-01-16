@@ -10376,6 +10376,12 @@ rng-_242_1,"    @ParameterizedTest
         Assertions.assertThrows(IllegalStateException.class, () -> generator.restoreState(state));
     }
 ",ProvidersCommonParametricTest::testStateWrongSize_1_oe
+rng-_243_1,"    @ParameterizedTest
+    @MethodSource(""getList"")
+    void testRestoreForeignState_1_oe(RestorableUniformRandomProvider generator) {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.restoreState(new Ran));
+    }
+",ProvidersCommonParametricTest::testRestoreForeignState_1_oe
 rng-_244_1,"    @Test
     void testStateSizeTooSmall_1_oe() {
         final DummyGenerator dummy = new DummyGenerator();

@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
+module load maven
+module load java/17
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PROJECTS_DIR="$ROOT/projects_decomposed"

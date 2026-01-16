@@ -619,6 +619,19 @@ bcel_61_2,"    public void testMethodAnnotations_2_oe() throws ClassNotFoundExce
         assertTrue(""Should have default of bananas but default is "" + val.getValueString(), val.getValueString().equals(""bananas""));
     }
 ",AnnotationDefaultAttributeTestCase::testMethodAnnotations_2_oe
+bcel_62_1,"    public void testPerformance_1_oe() {
+        final File javaLib = new File(System.getProperty(""java.home""), ""lib"");
+        javaLib.listFiles((FileFilter) file -> {
+            if(file.getName().endsWith("".jar"")) {
+                try {
+                    test(file);
+                } catch (final IOException e) {
+                    Assert.fail(e.getMessage());
+    }
+    }
+    }
+    }
+",PerformanceTest::testPerformance_1_oe
 bcel_63_1,"    public void testEnumClassSaysItIs_1_oe() throws ClassNotFoundException
     {
         JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+"".data.SimpleEnum"");

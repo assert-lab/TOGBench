@@ -32,7 +32,7 @@
 -------------------------------------------------------
 Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 Running org.asynchttpclient.extras.rxjava2.DefaultRxHttpClientTest_OE25Dev
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.711 sec - in org.asynchttpclient.extras.rxjava2.DefaultRxHttpClientTest_OE25Dev
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.01 sec - in org.asynchttpclient.extras.rxjava2.DefaultRxHttpClientTest_OE25Dev
 
 Results :
 
@@ -41,6 +41,6 @@ Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.994 s
-[INFO] Finished at: 2026-01-16T13:19:12-05:00
+[INFO] Total time:  6.765 s
+[INFO] Finished at: 2026-01-16T15:51:09-05:00
 [INFO] ------------------------------------------------------------------------

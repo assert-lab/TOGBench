@@ -1336,6 +1336,21 @@ springside4_15_1,"	@Test
 		assertThat(result).isEqualTo(""haha"");
 	}
 ",BasicFutureTest::test_1_oe
+springside4_15_2,"	@Test
+	public void test_2_oe() throws InterruptedException, ExecutionException {
+		MyFuture<String> future = new MyFuture<String>();
+		Tasks.success(future);
+		String result = future.get();
+		// removed other assertion
+
+		// 无人设置返回值
+		try {
+			MyFuture<String> future2 = new MyFuture<String>();
+			future2.get(10, TimeUnit.MILLISECONDS);
+			fail(""should fail before"");
+	}
+	}
+",BasicFutureTest::test_2_oe
 springside4_15_3,"	@Test
 	public void test_3_oe() throws InterruptedException, ExecutionException {
 		MyFuture<String> future = new MyFuture<String>();
@@ -1353,6 +1368,54 @@ springside4_15_3,"	@Test
 	}
 	}
 ",BasicFutureTest::test_3_oe
+springside4_15_4,"	@Test
+	public void test_4_oe() throws InterruptedException, ExecutionException {
+		MyFuture<String> future = new MyFuture<String>();
+		Tasks.success(future);
+		String result = future.get();
+		// removed other assertion
+
+		// 无人设置返回值
+		try {
+			MyFuture<String> future2 = new MyFuture<String>();
+			future2.get(10, TimeUnit.MILLISECONDS);
+			// removed other assertion
+		} catch (TimeoutException e) {
+			// removed other assertion
+		}
+
+		// 失败
+		try {
+			MyFuture<String> future3 = new MyFuture<String>();
+			Tasks.fail(future3);
+	}
+	}
+",BasicFutureTest::test_4_oe
+springside4_15_5,"	@Test
+	public void test_5_oe() throws InterruptedException, ExecutionException {
+		MyFuture<String> future = new MyFuture<String>();
+		Tasks.success(future);
+		String result = future.get();
+		// removed other assertion
+
+		// 无人设置返回值
+		try {
+			MyFuture<String> future2 = new MyFuture<String>();
+			future2.get(10, TimeUnit.MILLISECONDS);
+			// removed other assertion
+		} catch (TimeoutException e) {
+			// removed other assertion
+		}
+
+		// 失败
+		try {
+			MyFuture<String> future3 = new MyFuture<String>();
+			// removed other assertion
+			future3.get();
+			fail(""should fail before"");
+	}
+	}
+",BasicFutureTest::test_5_oe
 springside4_15_6,"	@Test
 	public void test_6_oe() throws InterruptedException, ExecutionException {
 		MyFuture<String> future = new MyFuture<String>();
@@ -1518,6 +1581,136 @@ springside4_18_2,"	@Test
 		assertThat(ThreadUtil.getCurrentMethod()).isEqualTo(""org.springside.modules.utils.concurrent.ThreadUtilTest.testCaller()"");
 	}
 ",ThreadUtilTest::testCaller_2_oe
+springside4_19_1,"	@Test
+	public void test_1_oe() {
+		QueuableCachedThreadPool threadPool = null;
+		try {
+			threadPool = ThreadPoolBuilder.queuableCachedPool().setMinSize(0).setMaxSize(10).setQueueSize(10).build();
+			// 线程满
+			for (int i = 0; i < 10; i++) {
+				threadPool.submit(new LongRunTask());
+			}
+
+			assertThat(threadPool.getActiveCount()).isEqualTo(10);
+	}
+	}
+",QueuableCachedThreadPoolTest::test_1_oe
+springside4_19_2,"	@Test
+	public void test_2_oe() {
+		QueuableCachedThreadPool threadPool = null;
+		try {
+			threadPool = ThreadPoolBuilder.queuableCachedPool().setMinSize(0).setMaxSize(10).setQueueSize(10).build();
+			// 线程满
+			for (int i = 0; i < 10; i++) {
+				threadPool.submit(new LongRunTask());
+			}
+
+			// removed other assertion
+			assertThat(threadPool.getQueue().size()).isEqualTo(0);
+	}
+	}
+",QueuableCachedThreadPoolTest::test_2_oe
+springside4_19_3,"	@Test
+	public void test_3_oe() {
+		QueuableCachedThreadPool threadPool = null;
+		try {
+			threadPool = ThreadPoolBuilder.queuableCachedPool().setMinSize(0).setMaxSize(10).setQueueSize(10).build();
+			// 线程满
+			for (int i = 0; i < 10; i++) {
+				threadPool.submit(new LongRunTask());
+			}
+
+			// removed other assertion
+			// removed other assertion
+
+			// queue 满
+			for (int i = 0; i < 10; i++) {
+				threadPool.submit(new LongRunTask());
+			}
+			assertThat(threadPool.getActiveCount()).isEqualTo(10);
+	}
+	}
+",QueuableCachedThreadPoolTest::test_3_oe
+springside4_19_4,"	@Test
+	public void test_4_oe() {
+		QueuableCachedThreadPool threadPool = null;
+		try {
+			threadPool = ThreadPoolBuilder.queuableCachedPool().setMinSize(0).setMaxSize(10).setQueueSize(10).build();
+			// 线程满
+			for (int i = 0; i < 10; i++) {
+				threadPool.submit(new LongRunTask());
+			}
+
+			// removed other assertion
+			// removed other assertion
+
+			// queue 满
+			for (int i = 0; i < 10; i++) {
+				threadPool.submit(new LongRunTask());
+			}
+			// removed other assertion
+			assertThat(threadPool.getQueue().size()).isEqualTo(10);
+	}
+	}
+",QueuableCachedThreadPoolTest::test_4_oe
+springside4_19_5,"	@Test
+	public void test_5_oe() {
+		QueuableCachedThreadPool threadPool = null;
+		try {
+			threadPool = ThreadPoolBuilder.queuableCachedPool().setMinSize(0).setMaxSize(10).setQueueSize(10).build();
+			// 线程满
+			for (int i = 0; i < 10; i++) {
+				threadPool.submit(new LongRunTask());
+			}
+
+			// removed other assertion
+			// removed other assertion
+
+			// queue 满
+			for (int i = 0; i < 10; i++) {
+				threadPool.submit(new LongRunTask());
+			}
+			// removed other assertion
+			// removed other assertion
+
+			// 爆
+			try {
+				threadPool.submit(new LongRunTask());
+				fail(""should fail before"");
+	}
+	}
+	}
+",QueuableCachedThreadPoolTest::test_5_oe
+springside4_19_6,"	@Test
+	public void test_6_oe() {
+		QueuableCachedThreadPool threadPool = null;
+		try {
+			threadPool = ThreadPoolBuilder.queuableCachedPool().setMinSize(0).setMaxSize(10).setQueueSize(10).build();
+			// 线程满
+			for (int i = 0; i < 10; i++) {
+				threadPool.submit(new LongRunTask());
+			}
+
+			// removed other assertion
+			// removed other assertion
+
+			// queue 满
+			for (int i = 0; i < 10; i++) {
+				threadPool.submit(new LongRunTask());
+			}
+			// removed other assertion
+			// removed other assertion
+
+			// 爆
+			try {
+				threadPool.submit(new LongRunTask());
+				// removed other assertion
+			} catch (Throwable t) {
+				assertThat(t).isInstanceOf(RejectedExecutionException.class);
+	}
+	}
+	}
+",QueuableCachedThreadPoolTest::test_6_oe
 springside4_20_1,"	@Test
 	public void fixPool_1_oe() {
 		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
@@ -2761,6 +2954,26 @@ springside4_32_3,"	@Test
 		assertThat(EncodeUtil.decodeHex(input)).hasSize(4).containsSequence((byte) 1, (byte) 2, (byte) 15, (byte) 17);
 	}
 ",EncodeUtilTest::hexEncode_3_oe
+springside4_32_4,"	@Test
+	public void hexEncode_4_oe() {
+		String input = ""haha,i am a very long message"";
+		String result = EncodeUtil.encodeHex(input.getBytes());
+		// removed other assertion
+
+		byte[] bytes = new byte[] { 1, 2, 15, 17 };
+		result = EncodeUtil.encodeHex(bytes);
+		// removed other assertion
+
+		input = ""01020F11"";
+		// removed other assertion
+
+		try {
+			input = ""01020G11"";
+			EncodeUtil.decodeHex(input);
+			fail(""should throw exception before"");
+	}
+	}
+",EncodeUtilTest::hexEncode_4_oe
 springside4_32_5,"	@Test
 	public void hexEncode_5_oe() {
 		String input = ""haha,i am a very long message"";
@@ -2823,6 +3036,29 @@ springside4_34_1,"	@Test
 		assertThat(new String(EncodeUtil.decodeBase64UrlSafe(result), Charsets.UTF_8)).isEqualTo(input);
 	}
 ",EncodeUtilTest::base64UrlSafeEncode_1_oe
+springside4_34_2,"	@Test
+	public void base64UrlSafeEncode_2_oe() {
+		String input = ""haha,i am a very long message"";
+		String result = EncodeUtil.encodeBase64UrlSafe(input.getBytes());
+		// removed other assertion
+
+		try {
+			assertThat(result).isEqualTo(EncodeUtil.decodeBase64UrlSafe(""AQIPE+8=""));
+	}
+	}
+",EncodeUtilTest::base64UrlSafeEncode_2_oe
+springside4_34_3,"	@Test
+	public void base64UrlSafeEncode_3_oe() {
+		String input = ""haha,i am a very long message"";
+		String result = EncodeUtil.encodeBase64UrlSafe(input.getBytes());
+		// removed other assertion
+
+		try {
+			// removed other assertion
+			fail(""should throw exception before"");
+	}
+	}
+",EncodeUtilTest::base64UrlSafeEncode_3_oe
 springside4_34_4,"	@Test
 	public void base64UrlSafeEncode_4_oe() {
 		String input = ""haha,i am a very long message"";
@@ -3792,6 +4028,37 @@ springside4_52_7,"	@Test
 		assertThat(UnitConverter.convertDurationMillis(""12d"")).isEqualTo(12l * 24 * 60 * 60 * 1000);
 	}
 ",UnitConverterTest::convertDurationMillis_7_oe
+springside4_52_8,"	@Test
+	public void convertDurationMillis_8_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		try {
+			assertThat(UnitConverter.convertDurationMillis(""12a"")).isEqualTo(12 * 60 * 1000);
+	}
+	}
+",UnitConverterTest::convertDurationMillis_8_oe
+springside4_52_9,"	@Test
+	public void convertDurationMillis_9_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		try {
+			// removed other assertion
+			fail(""should fail"");
+	}
+	}
+",UnitConverterTest::convertDurationMillis_9_oe
 springside4_52_10,"	@Test
 	public void convertDurationMillis_10_oe() {
 		// removed other assertion
@@ -3810,6 +4077,51 @@ springside4_52_10,"	@Test
 	}
 	}
 ",UnitConverterTest::convertDurationMillis_10_oe
+springside4_52_11,"	@Test
+	public void convertDurationMillis_11_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		
+		try {
+			assertThat(UnitConverter.convertDurationMillis(""a12"")).isEqualTo(12 * 60 * 1000);
+	}
+	}
+",UnitConverterTest::convertDurationMillis_11_oe
+springside4_52_12,"	@Test
+	public void convertDurationMillis_12_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		try {
+			// removed other assertion
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		
+		try {
+			// removed other assertion
+			fail(""should fail"");
+	}
+	}
+",UnitConverterTest::convertDurationMillis_12_oe
 springside4_52_13,"	@Test
 	public void convertDurationMillis_13_oe() {
 		// removed other assertion
@@ -3882,6 +4194,22 @@ springside4_53_6,"	@Test
 		assertThat(UnitConverter.convertSizeBytes(""12T"")).isEqualTo(12l * 1024 * 1024 * 1024 * 1024);
 	}
 ",UnitConverterTest::convertSizeBytes_6_oe
+springside4_53_7,"	@Test
+	public void convertSizeBytes_7_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		try {
+			UnitConverter.convertSizeBytes(""12x"");
+			fail(""should fail"");
+	}
+	}
+",UnitConverterTest::convertSizeBytes_7_oe
 springside4_53_8,"	@Test
 	public void convertSizeBytes_8_oe() {
 		// removed other assertion
@@ -3900,6 +4228,29 @@ springside4_53_8,"	@Test
 	}
 	}
 ",UnitConverterTest::convertSizeBytes_8_oe
+springside4_53_9,"	@Test
+	public void convertSizeBytes_9_oe() {
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		try {
+			UnitConverter.convertSizeBytes(""12x"");
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		
+		try {
+			UnitConverter.convertSizeBytes(""a12"");
+			fail(""should fail"");
+	}
+	}
+",UnitConverterTest::convertSizeBytes_9_oe
 springside4_53_10,"	@Test
 	public void convertSizeBytes_10_oe() {
 		// removed other assertion
@@ -3925,6 +4276,21 @@ springside4_53_10,"	@Test
 	}
 	}
 ",UnitConverterTest::convertSizeBytes_10_oe
+springside4_54_1,"	@Test
+	public void power2_1_oe() {
+		try {
+			assertThat(MathUtil.nextPowerOfTwo(-5)).isEqualTo(8);
+	}
+	}
+",MathUtilTest::power2_1_oe
+springside4_54_2,"	@Test
+	public void power2_2_oe() {
+		try {
+			// removed other assertion
+			fail(""should fail here"");
+	}
+	}
+",MathUtilTest::power2_2_oe
 springside4_54_3,"	@Test
 	public void power2_3_oe() {
 		try {
@@ -5442,6 +5808,37 @@ springside4_60_8,"	@Test
 		assertThat(NumberUtil.toInt32(123l)).isEqualTo(123);
 	}
 ",NumberUtilTest::toBytes_8_oe
+springside4_60_9,"	@Test
+	public void toBytes_9_oe() {
+		byte[] bytes = NumberUtil.toBytes(1);
+		// removed other assertion
+
+		bytes = NumberUtil.toBytes(257);
+		// removed other assertion
+		// removed other assertion
+
+		//long
+		byte[] bytes2 = NumberUtil.toBytes(1L);
+		// removed other assertion
+
+		
+		bytes2 = NumberUtil.toBytes(257L);
+		// removed other assertion
+		// removed other assertion
+		
+		//dobule
+		byte[] bytes3 = NumberUtil.toBytes(1.123d);
+		// removed other assertion
+		
+		//toInt32
+		// removed other assertion
+		
+		try{
+			NumberUtil.toInt32(Long.valueOf(Integer.MAX_VALUE+1l));
+			fail(""should fail here"");
+	}
+	}
+",NumberUtilTest::toBytes_9_oe
 springside4_60_10,"	@Test
 	public void toBytes_10_oe() {
 		byte[] bytes = NumberUtil.toBytes(1);
@@ -6587,6 +6984,17 @@ springside4_66_1,"	@Test
 		assertThat(list).hasSize(7).containsExactly(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
 	}
 ",ArrayUtilTest::asList_1_oe
+springside4_66_2,"	@Test
+	public void asList_2_oe() {
+		List<String> list = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
+		// removed other assertion
+
+		try {
+			list.add(""a"");
+			fail(""should fail before"");
+	}
+	}
+",ArrayUtilTest::asList_2_oe
 springside4_66_3,"	@Test
 	public void asList_3_oe() {
 		List<String> list = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
@@ -6616,6 +7024,27 @@ springside4_66_4,"	@Test
 		assertThat(list2).hasSize(7).containsExactly(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
 	}
 ",ArrayUtilTest::asList_4_oe
+springside4_66_5,"	@Test
+	public void asList_5_oe() {
+		List<String> list = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
+		// removed other assertion
+
+		try {
+			list.add(""a"");
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		List<String> list2 = ArrayUtil.asList(""d"", new String[] { ""a"", ""c"", ""b"", ""e"", ""i"", ""g"" });
+		// removed other assertion
+
+		try {
+			list2.add(""a"");
+			fail(""should fail before"");
+	}
+	}
+",ArrayUtilTest::asList_5_oe
 springside4_66_6,"	@Test
 	public void asList_6_oe() {
 		List<String> list = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
@@ -6791,6 +7220,23 @@ springside4_69_3,"	@Test
 		assertThat(set3).isSameAs(set1);
 	}
 ",SetUtilTest::jdkBuildSet_3_oe
+springside4_69_4,"	@Test
+	public void jdkBuildSet_4_oe() {
+		Set<String> set1 = SetUtil.emptySet();
+		// removed other assertion
+
+		Set<String> set2 = SetUtil.emptySetIfNull(null);
+		// removed other assertion
+
+		Set<String> set3 = SetUtil.emptySetIfNull(set1);
+		// removed other assertion
+
+		try {
+			set1.add(""a"");
+			fail(""should fail before"");
+	}
+	}
+",SetUtilTest::jdkBuildSet_4_oe
 springside4_69_5,"	@Test
 	public void jdkBuildSet_5_oe() {
 		Set<String> set1 = SetUtil.emptySet();
@@ -6832,6 +7278,32 @@ springside4_69_6,"	@Test
 		assertThat(set4).hasSize(1).contains(""1"");
 	}
 ",SetUtilTest::jdkBuildSet_6_oe
+springside4_69_7,"	@Test
+	public void jdkBuildSet_7_oe() {
+		Set<String> set1 = SetUtil.emptySet();
+		// removed other assertion
+
+		Set<String> set2 = SetUtil.emptySetIfNull(null);
+		// removed other assertion
+
+		Set<String> set3 = SetUtil.emptySetIfNull(set1);
+		// removed other assertion
+
+		try {
+			set1.add(""a"");
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		Set<String> set4 = SetUtil.singletonSet(""1"");
+		// removed other assertion
+		try {
+			set4.add(""a"");
+			fail(""should fail before"");
+	}
+	}
+",SetUtilTest::jdkBuildSet_7_oe
 springside4_69_8,"	@Test
 	public void jdkBuildSet_8_oe() {
 		Set<String> set1 = SetUtil.emptySet();
@@ -6860,6 +7332,42 @@ springside4_69_8,"	@Test
 	}
 	}
 ",SetUtilTest::jdkBuildSet_8_oe
+springside4_69_9,"	@Test
+	public void jdkBuildSet_9_oe() {
+		Set<String> set1 = SetUtil.emptySet();
+		// removed other assertion
+
+		Set<String> set2 = SetUtil.emptySetIfNull(null);
+		// removed other assertion
+
+		Set<String> set3 = SetUtil.emptySetIfNull(set1);
+		// removed other assertion
+
+		try {
+			set1.add(""a"");
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		Set<String> set4 = SetUtil.singletonSet(""1"");
+		// removed other assertion
+		try {
+			set4.add(""a"");
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		Set<String> set5 = SetUtil.newHashSet();
+		Set<String> set6 = SetUtil.unmodifiableSet(set5);
+
+		try {
+			set6.add(""a"");
+			fail(""should fail before"");
+	}
+	}
+",SetUtilTest::jdkBuildSet_9_oe
 springside4_69_10,"	@Test
 	public void jdkBuildSet_10_oe() {
 		Set<String> set1 = SetUtil.emptySet();
@@ -6952,6 +7460,29 @@ springside4_70_4,"	@Test
 		assertThat(set6).hasSize(6).contains(""1"", ""2"", ""3"", ""4"", ""5"", ""7"");
 	}
 ",SetUtilTest::collectionCaculate_4_oe
+springside4_70_5,"	@Test
+	public void collectionCaculate_5_oe() {
+		HashSet<String> set1 = SetUtil.newHashSet(""1"", ""2"", ""3"", ""6"");
+		HashSet<String> set2 = SetUtil.newHashSet(""4"", ""5"", ""6"", ""7"");
+
+		Set<String> set3 = SetUtil.unionView(set1, set2);
+		// removed other assertion
+
+		Set<String> set4 = SetUtil.intersectionView(set1, set2);
+		// removed other assertion
+
+		Set<String> set5 = SetUtil.differenceView(set1, set2);
+		// removed other assertion
+
+		Set<String> set6 = SetUtil.disjointView(set1, set2);
+		// removed other assertion
+
+		try {
+			set6.add(""a"");
+			fail(""should fail before"");
+	}
+	}
+",SetUtilTest::collectionCaculate_5_oe
 springside4_70_6,"	@Test
 	public void collectionCaculate_6_oe() {
 		HashSet<String> set1 = SetUtil.newHashSet(""1"", ""2"", ""3"", ""6"");
@@ -7214,6 +7745,25 @@ springside4_73_4,"	@Test
 		assertThat(map4).hasSize(1).containsEntry(""haha"", 1);
 	}
 ",MapUtilTest::jdkBuildMap_4_oe
+springside4_73_5,"	@Test
+	public void jdkBuildMap_5_oe() {
+		Map<String, Integer> map1 = MapUtil.emptyMap();
+		// removed other assertion
+
+		Map<String, Integer> map2 = MapUtil.emptyMapIfNull(null);
+		// removed other assertion
+
+		Map<String, Integer> map3 = MapUtil.emptyMapIfNull(map1);
+		// removed other assertion
+
+		Map<String, Integer> map4 = MapUtil.singletonMap(""haha"", 1);
+		// removed other assertion
+		try {
+			map4.put(""dada"", 2);
+			fail(""should fail before"");
+	}
+	}
+",MapUtilTest::jdkBuildMap_5_oe
 springside4_73_6,"	@Test
 	public void jdkBuildMap_6_oe() {
 		Map<String, Integer> map1 = MapUtil.emptyMap();
@@ -7235,6 +7785,35 @@ springside4_73_6,"	@Test
 	}
 	}
 ",MapUtilTest::jdkBuildMap_6_oe
+springside4_73_7,"	@Test
+	public void jdkBuildMap_7_oe() {
+		Map<String, Integer> map1 = MapUtil.emptyMap();
+		// removed other assertion
+
+		Map<String, Integer> map2 = MapUtil.emptyMapIfNull(null);
+		// removed other assertion
+
+		Map<String, Integer> map3 = MapUtil.emptyMapIfNull(map1);
+		// removed other assertion
+
+		Map<String, Integer> map4 = MapUtil.singletonMap(""haha"", 1);
+		// removed other assertion
+		try {
+			map4.put(""dada"", 2);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		Map<String, Integer> map5 = MapUtil.newHashMap();
+		Map<String, Integer> map6 = MapUtil.unmodifiableMap(map5);
+
+		try {
+			map6.put(""a"", 2);
+			fail(""should fail before"");
+	}
+	}
+",MapUtilTest::jdkBuildMap_7_oe
 springside4_73_8,"	@Test
 	public void jdkBuildMap_8_oe() {
 		Map<String, Integer> map1 = MapUtil.emptyMap();
@@ -8214,6 +8793,24 @@ springside4_80_3,"	@Test
 		assertThat(list3).isSameAs(list1);
 	}
 ",ListUtilTest::jdkBuild_3_oe
+springside4_80_4,"	@Test
+	public void jdkBuild_4_oe() {
+		List<String> list1 = ListUtil.emptyList();
+
+		// removed other assertion
+
+		List<String> list2 = ListUtil.emptyListIfNull(null);
+		// removed other assertion
+
+		List<String> list3 = ListUtil.emptyListIfNull(list1);
+		// removed other assertion
+
+		try {
+			list1.add(""a"");
+			fail(""should fail before"");
+	}
+	}
+",ListUtilTest::jdkBuild_4_oe
 springside4_80_5,"	@Test
 	public void jdkBuild_5_oe() {
 		List<String> list1 = ListUtil.emptyList();
@@ -8257,6 +8854,33 @@ springside4_80_6,"	@Test
 		assertThat(list4).hasSize(1).contains(""1"");
 	}
 ",ListUtilTest::jdkBuild_6_oe
+springside4_80_7,"	@Test
+	public void jdkBuild_7_oe() {
+		List<String> list1 = ListUtil.emptyList();
+
+		// removed other assertion
+
+		List<String> list2 = ListUtil.emptyListIfNull(null);
+		// removed other assertion
+
+		List<String> list3 = ListUtil.emptyListIfNull(list1);
+		// removed other assertion
+
+		try {
+			list1.add(""a"");
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		List<String> list4 = ListUtil.singletonList(""1"");
+		// removed other assertion
+		try {
+			list4.add(""a"");
+			fail(""should fail before"");
+	}
+	}
+",ListUtilTest::jdkBuild_7_oe
 springside4_80_8,"	@Test
 	public void jdkBuild_8_oe() {
 		List<String> list1 = ListUtil.emptyList();
@@ -8286,6 +8910,43 @@ springside4_80_8,"	@Test
 	}
 	}
 ",ListUtilTest::jdkBuild_8_oe
+springside4_80_9,"	@Test
+	public void jdkBuild_9_oe() {
+		List<String> list1 = ListUtil.emptyList();
+
+		// removed other assertion
+
+		List<String> list2 = ListUtil.emptyListIfNull(null);
+		// removed other assertion
+
+		List<String> list3 = ListUtil.emptyListIfNull(list1);
+		// removed other assertion
+
+		try {
+			list1.add(""a"");
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		List<String> list4 = ListUtil.singletonList(""1"");
+		// removed other assertion
+		try {
+			list4.add(""a"");
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		List<String> list5 = ListUtil.newArrayList();
+		List<String> list6 = ListUtil.unmodifiableList(list5);
+
+		try {
+			list6.add(""a"");
+			fail(""should fail before"");
+	}
+	}
+",ListUtilTest::jdkBuild_9_oe
 springside4_80_10,"	@Test
 	public void jdkBuild_10_oe() {
 		List<String> list1 = ListUtil.emptyList();
@@ -9186,6 +9847,29 @@ springside4_85_4,"	@Test
 		assertThat(list.contains(""2"")).isFalse();
 	}
 ",SortedArrayListTest::sortedArrayList_4_oe
+springside4_85_5,"	@Test
+	public void sortedArrayList_5_oe() {
+		SortedArrayList<String> list = ListUtil.createSortedArrayList();
+		list.add(""9"");
+		list.add(""1"");
+		list.add(""6"");
+		list.add(""9"");
+		list.add(""3"");
+
+		// removed other assertion
+
+		list.remove(2);
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		try {
+			list.add(1, ""2"");
+			fail(""should fail before"");
+	}
+	}
+",SortedArrayListTest::sortedArrayList_5_oe
 springside4_85_6,"	@Test
 	public void sortedArrayList_6_oe() {
 		SortedArrayList<String> list = ListUtil.createSortedArrayList();
@@ -9211,6 +9895,36 @@ springside4_85_6,"	@Test
 	}
 	}
 ",SortedArrayListTest::sortedArrayList_6_oe
+springside4_85_7,"	@Test
+	public void sortedArrayList_7_oe() {
+		SortedArrayList<String> list = ListUtil.createSortedArrayList();
+		list.add(""9"");
+		list.add(""1"");
+		list.add(""6"");
+		list.add(""9"");
+		list.add(""3"");
+
+		// removed other assertion
+
+		list.remove(2);
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+
+		try {
+			list.add(1, ""2"");
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			list.set(1, ""2"");
+			fail(""should fail before"");
+	}
+	}
+",SortedArrayListTest::sortedArrayList_7_oe
 springside4_85_8,"	@Test
 	public void sortedArrayList_8_oe() {
 		SortedArrayList<String> list = ListUtil.createSortedArrayList();
@@ -9306,6 +10020,192 @@ springside4_86_3,"	@Test
 		assertThat(pair.toString()).isEqualTo(""Pair [first=haha, second=1]"");
 	}
 ",PairTest::test_3_oe
+springside4_87_1,"	@Test
+	public void test_1_oe() {
+		try {
+			DummyClock clock = ClockUtil.useDummyClock();
+			Logger realLogger = LoggerFactory.getLogger(ThrottledSlf4jLoggerTest.class);
+			LogbackListAppender appender = LogbackListAppender.create(ThrottledSlf4jLoggerTest.class);
+			// 间隔10毫秒
+			ThrottledSlf4jLogger logger = new ThrottledSlf4jLogger(realLogger, 10, TimeUnit.MILLISECONDS);
+
+			logger.warn(""haha"");
+			assertThat(appender.getLogsCount()).isEqualTo(1);
+	}
+	}
+",ThrottledSlf4jLoggerTest::test_1_oe
+springside4_87_2,"	@Test
+	public void test_2_oe() {
+		try {
+			DummyClock clock = ClockUtil.useDummyClock();
+			Logger realLogger = LoggerFactory.getLogger(ThrottledSlf4jLoggerTest.class);
+			LogbackListAppender appender = LogbackListAppender.create(ThrottledSlf4jLoggerTest.class);
+			// 间隔10毫秒
+			ThrottledSlf4jLogger logger = new ThrottledSlf4jLogger(realLogger, 10, TimeUnit.MILLISECONDS);
+
+			logger.warn(""haha"");
+			// removed other assertion
+
+			// still 1
+			logger.warn(""haha {}"", 1);
+			assertThat(appender.getLogsCount()).isEqualTo(1);
+	}
+	}
+",ThrottledSlf4jLoggerTest::test_2_oe
+springside4_87_3,"	@Test
+	public void test_3_oe() {
+		try {
+			DummyClock clock = ClockUtil.useDummyClock();
+			Logger realLogger = LoggerFactory.getLogger(ThrottledSlf4jLoggerTest.class);
+			LogbackListAppender appender = LogbackListAppender.create(ThrottledSlf4jLoggerTest.class);
+			// 间隔10毫秒
+			ThrottledSlf4jLogger logger = new ThrottledSlf4jLogger(realLogger, 10, TimeUnit.MILLISECONDS);
+
+			logger.warn(""haha"");
+			// removed other assertion
+
+			// still 1
+			logger.warn(""haha {}"", 1);
+			// removed other assertion
+
+			// still 1
+			logger.error(""haha {}"", 1);
+			assertThat(appender.getLogsCount()).isEqualTo(1);
+	}
+	}
+",ThrottledSlf4jLoggerTest::test_3_oe
+springside4_87_4,"	@Test
+	public void test_4_oe() {
+		try {
+			DummyClock clock = ClockUtil.useDummyClock();
+			Logger realLogger = LoggerFactory.getLogger(ThrottledSlf4jLoggerTest.class);
+			LogbackListAppender appender = LogbackListAppender.create(ThrottledSlf4jLoggerTest.class);
+			// 间隔10毫秒
+			ThrottledSlf4jLogger logger = new ThrottledSlf4jLogger(realLogger, 10, TimeUnit.MILLISECONDS);
+
+			logger.warn(""haha"");
+			// removed other assertion
+
+			// still 1
+			logger.warn(""haha {}"", 1);
+			// removed other assertion
+
+			// still 1
+			logger.error(""haha {}"", 1);
+			// removed other assertion
+			// still 1
+			clock.increaseTime(5);
+			logger.error(""haha, {} {} {}"", 1, 2, 3);
+			assertThat(appender.getLogsCount()).isEqualTo(1);
+	}
+	}
+",ThrottledSlf4jLoggerTest::test_4_oe
+springside4_87_5,"	@Test
+	public void test_5_oe() {
+		try {
+			DummyClock clock = ClockUtil.useDummyClock();
+			Logger realLogger = LoggerFactory.getLogger(ThrottledSlf4jLoggerTest.class);
+			LogbackListAppender appender = LogbackListAppender.create(ThrottledSlf4jLoggerTest.class);
+			// 间隔10毫秒
+			ThrottledSlf4jLogger logger = new ThrottledSlf4jLogger(realLogger, 10, TimeUnit.MILLISECONDS);
+
+			logger.warn(""haha"");
+			// removed other assertion
+
+			// still 1
+			logger.warn(""haha {}"", 1);
+			// removed other assertion
+
+			// still 1
+			logger.error(""haha {}"", 1);
+			// removed other assertion
+			// still 1
+			clock.increaseTime(5);
+			logger.error(""haha, {} {} {}"", 1, 2, 3);
+			// removed other assertion
+
+			// 10ms pass
+			clock.increaseTime(5);
+			logger.warn(""haha"");
+			assertThat(appender.getLogsCount()).isEqualTo(2);
+	}
+	}
+",ThrottledSlf4jLoggerTest::test_5_oe
+springside4_87_6,"	@Test
+	public void test_6_oe() {
+		try {
+			DummyClock clock = ClockUtil.useDummyClock();
+			Logger realLogger = LoggerFactory.getLogger(ThrottledSlf4jLoggerTest.class);
+			LogbackListAppender appender = LogbackListAppender.create(ThrottledSlf4jLoggerTest.class);
+			// 间隔10毫秒
+			ThrottledSlf4jLogger logger = new ThrottledSlf4jLogger(realLogger, 10, TimeUnit.MILLISECONDS);
+
+			logger.warn(""haha"");
+			// removed other assertion
+
+			// still 1
+			logger.warn(""haha {}"", 1);
+			// removed other assertion
+
+			// still 1
+			logger.error(""haha {}"", 1);
+			// removed other assertion
+			// still 1
+			clock.increaseTime(5);
+			logger.error(""haha, {} {} {}"", 1, 2, 3);
+			// removed other assertion
+
+			// 10ms pass
+			clock.increaseTime(5);
+			logger.warn(""haha"");
+			// removed other assertion
+
+			// still 2
+			logger.warn(""haha {} {} {}"", 1, 2, 3);
+			assertThat(appender.getLogsCount()).isEqualTo(2);
+	}
+	}
+",ThrottledSlf4jLoggerTest::test_6_oe
+springside4_87_7,"	@Test
+	public void test_7_oe() {
+		try {
+			DummyClock clock = ClockUtil.useDummyClock();
+			Logger realLogger = LoggerFactory.getLogger(ThrottledSlf4jLoggerTest.class);
+			LogbackListAppender appender = LogbackListAppender.create(ThrottledSlf4jLoggerTest.class);
+			// 间隔10毫秒
+			ThrottledSlf4jLogger logger = new ThrottledSlf4jLogger(realLogger, 10, TimeUnit.MILLISECONDS);
+
+			logger.warn(""haha"");
+			// removed other assertion
+
+			// still 1
+			logger.warn(""haha {}"", 1);
+			// removed other assertion
+
+			// still 1
+			logger.error(""haha {}"", 1);
+			// removed other assertion
+			// still 1
+			clock.increaseTime(5);
+			logger.error(""haha, {} {} {}"", 1, 2, 3);
+			// removed other assertion
+
+			// 10ms pass
+			clock.increaseTime(5);
+			logger.warn(""haha"");
+			// removed other assertion
+
+			// still 2
+			logger.warn(""haha {} {} {}"", 1, 2, 3);
+			// removed other assertion
+
+			// still 2
+			clock.increaseTime(7);
+			logger.warn(""haha"");
+			assertThat(appender.getLogsCount()).isEqualTo(2);
+	}
+	}
+",ThrottledSlf4jLoggerTest::test_7_oe
 springside4_88_1,"	@Test
 	public void test_1_oe() throws IOException {
 		// getResoruce
@@ -9398,6 +10298,49 @@ springside4_89_2,"	@Test
 		assertThat(guavaFile.getEntry(""/META-INF/MANIFEST.MF"")).isNull();
 	}
 ",ResourceUtilTest::resourceNameTest_2_oe
+springside4_90_1,"	@Test
+	public void readWrite_1_oe() throws IOException {
+		File file = FileUtil.createTempFile(""abc"", "".tmp"");
+		try {
+			String content = ""haha\nhehe"";
+			FileUtil.write(content, file);
+
+			String result = FileUtil.toString(file);
+			assertThat(result).isEqualTo(content);
+	}
+	}
+",FileUtilTest::readWrite_1_oe
+springside4_90_2,"	@Test
+	public void readWrite_2_oe() throws IOException {
+		File file = FileUtil.createTempFile(""abc"", "".tmp"");
+		try {
+			String content = ""haha\nhehe"";
+			FileUtil.write(content, file);
+
+			String result = FileUtil.toString(file);
+			// removed other assertion
+			List<String> lines = FileUtil.toLines(file);
+			assertThat(lines).containsExactly(""haha"", ""hehe"");
+	}
+	}
+",FileUtilTest::readWrite_2_oe
+springside4_90_3,"	@Test
+	public void readWrite_3_oe() throws IOException {
+		File file = FileUtil.createTempFile(""abc"", "".tmp"");
+		try {
+			String content = ""haha\nhehe"";
+			FileUtil.write(content, file);
+
+			String result = FileUtil.toString(file);
+			// removed other assertion
+			List<String> lines = FileUtil.toLines(file);
+			// removed other assertion
+
+			FileUtil.append(""kaka"", file);
+			assertThat(new String(FileUtil.toByteArray(file), Charsets.UTF_8)).isEqualTo(""haha\nhehekaka"");
+	}
+	}
+",FileUtilTest::readWrite_3_oe
 springside4_91_1,"	@Test
 	public void opFiles_1_oe() throws IOException {
 		File file = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testFile"" + RandomUtil.nextInt()));
@@ -9546,6 +10489,32 @@ springside4_93_2,"	@Test
 		assertThat(FileUtil.isDirExists(Platforms.TMP_DIR + RandomUtil.nextInt())).isFalse();
 	}
 ",FileUtilTest::fileExist_2_oe
+springside4_93_3,"	@Test
+	public void fileExist_3_oe() throws IOException {
+		// removed other assertion
+		// removed other assertion
+
+		File tmpFile = null;
+		try {
+			tmpFile = FileUtil.createTempFile();
+			assertThat(FileUtil.isFileExists(tmpFile)).isTrue();
+	}
+	}
+",FileUtilTest::fileExist_3_oe
+springside4_93_4,"	@Test
+	public void fileExist_4_oe() throws IOException {
+		// removed other assertion
+		// removed other assertion
+
+		File tmpFile = null;
+		try {
+			tmpFile = FileUtil.createTempFile();
+			// removed other assertion
+
+			assertThat(FileUtil.isFileExists(tmpFile.getAbsolutePath() + RandomUtil.nextInt())).isFalse();
+	}
+	}
+",FileUtilTest::fileExist_4_oe
 springside4_94_1,"	@Test
 	public void getName_1_oe() {
 
@@ -10175,6 +11144,21 @@ springside4_100_2,"	@Test
 		assertThat(IOUtil.toString(is)).isEqualTo(""springside.min=1\nspringside.max=10"");
 	}
 ",URLResourceTest::resource_2_oe
+springside4_100_3,"	@Test
+	public void resource_3_oe() throws IOException {
+		File file = URLResourceUtil.asFile(""classpath://application.properties"");
+		// removed other assertion
+
+		InputStream is = URLResourceUtil.asStream(""classpath://application.properties"");
+		// removed other assertion
+		IOUtil.closeQuietly(is);
+
+		try {
+			URLResourceUtil.asFile(""classpath://notexist.properties"");
+			fail(""should fail"");
+	}
+	}
+",URLResourceTest::resource_3_oe
 springside4_100_4,"	@Test
 	public void resource_4_oe() throws IOException {
 		File file = URLResourceUtil.asFile(""classpath://application.properties"");
@@ -10192,6 +11176,28 @@ springside4_100_4,"	@Test
 	}
 	}
 ",URLResourceTest::resource_4_oe
+springside4_100_5,"	@Test
+	public void resource_5_oe() throws IOException {
+		File file = URLResourceUtil.asFile(""classpath://application.properties"");
+		// removed other assertion
+
+		InputStream is = URLResourceUtil.asStream(""classpath://application.properties"");
+		// removed other assertion
+		IOUtil.closeQuietly(is);
+
+		try {
+			URLResourceUtil.asFile(""classpath://notexist.properties"");
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			URLResourceUtil.asStream(""classpath://notexist.properties"");
+			fail(""should fail"");
+	}
+	}
+",URLResourceTest::resource_5_oe
 springside4_100_6,"	@Test
 	public void resource_6_oe() throws IOException {
 		File file = URLResourceUtil.asFile(""classpath://application.properties"");
@@ -10216,6 +11222,31 @@ springside4_100_6,"	@Test
 	}
 	}
 ",URLResourceTest::resource_6_oe
+springside4_101_1,"	@Test
+	public void file_1_oe() throws IOException {
+		File file = FileUtil.createTempFile();
+		FileUtil.write(""haha"", file);
+		try {
+			File file2 = URLResourceUtil.asFile(""file://"" + file.getAbsolutePath());
+			assertThat(FileUtil.toString(file2)).isEqualTo(""haha"");
+	}
+	}
+",URLResourceTest::file_1_oe
+springside4_101_2,"	@Test
+	public void file_2_oe() throws IOException {
+		File file = FileUtil.createTempFile();
+		FileUtil.write(""haha"", file);
+		try {
+			File file2 = URLResourceUtil.asFile(""file://"" + file.getAbsolutePath());
+			// removed other assertion
+
+			File file2NotExist = URLResourceUtil.asFile(""file://"" + file.getAbsolutePath() + "".noexist"");
+
+			File file3 = URLResourceUtil.asFile(file.getAbsolutePath());
+			assertThat(FileUtil.toString(file3)).isEqualTo(""haha"");
+	}
+	}
+",URLResourceTest::file_2_oe
 springside4_102_1,"	@Test
 	public void test_1_oe() throws InvocationTargetException {
 		FastMethodInvoker fastGetAge = FastMethodInvoker.create(Student.class, ""getAge"");
@@ -11000,6 +12031,15 @@ springside4_112_6,"	@Test
 		assertThat(clock.nanoTime()).isEqualTo(150);
 	}
 ",ClockUtilTest::testDummyClock_6_oe
+springside4_113_1,"	@Test
+	public void elapsedTime_1_oe() {
+		try {
+			DummyClock clock = ClockUtil.useDummyClock(2000);
+			clock.increaseTime(1000);
+			assertThat(ClockUtil.elapsedTime(2000)).isEqualTo(1000);
+	}
+	}
+",ClockUtilTest::elapsedTime_1_oe
 springside4_114_1,"	@Test
 	public void isSameDay_1_oe() {
 		Date date1 = new Date(106, 10, 1);
@@ -11063,6 +12103,57 @@ springside4_114_5,"	@Test
 		assertThat(DateUtil.isBetween(date4, date1, date2)).isTrue();
 	}
 ",DateUtilTest::isSameDay_5_oe
+springside4_114_6,"	@Test
+	public void isSameDay_6_oe() {
+		Date date1 = new Date(106, 10, 1);
+		Date date2 = new Date(106, 10, 1, 12, 23, 44);
+		// removed other assertion
+
+		Date date3 = new Date(106, 10, 1);
+		// removed other assertion
+
+		Date date5 = new Date(106, 10, 2);
+		// removed other assertion
+
+		Date date4 = new Date(106, 10, 1, 12, 23, 43);
+		// removed other assertion
+		// removed other assertion
+
+		try {
+			DateUtil.isBetween(null, date1, date2);
+			fail(""should fail before"");
+	}
+	}
+",DateUtilTest::isSameDay_6_oe
+springside4_114_7,"	@Test
+	public void isSameDay_7_oe() {
+		Date date1 = new Date(106, 10, 1);
+		Date date2 = new Date(106, 10, 1, 12, 23, 44);
+		// removed other assertion
+
+		Date date3 = new Date(106, 10, 1);
+		// removed other assertion
+
+		Date date5 = new Date(106, 10, 2);
+		// removed other assertion
+
+		Date date4 = new Date(106, 10, 1, 12, 23, 43);
+		// removed other assertion
+		// removed other assertion
+
+		try {
+			DateUtil.isBetween(null, date1, date2);
+			// removed other assertion
+		} catch (Exception e) {
+
+		}
+
+		try {
+			DateUtil.isBetween(date3, date2, date1);
+			fail(""should fail before"");
+	}
+	}
+",DateUtilTest::isSameDay_7_oe
 springside4_114_8,"	@Test
 	public void isSameDay_8_oe() {
 		Date date1 = new Date(106, 10, 1);
@@ -12568,6 +13659,123 @@ springside4_125_6,"	@Test
 		assertThat(DateFormatUtil.formatDurationOnSecond(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)) .isEqualTo(""52:00:00"");
 	}
 ",DateFormatUtilTest::formatDuration_6_oe
+springside4_126_1,"	@Test
+	public void formatFriendlyTimeSpanByNow_1_oe() throws ParseException {
+		try {
+			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
+
+			ClockUtil.useDummyClock(now);
+
+			Date lessOneSecond = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:59.500"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(lessOneSecond)).isEqualTo(""刚刚"");
+	}
+	}
+",DateFormatUtilTest::formatFriendlyTimeSpanByNow_1_oe
+springside4_126_2,"	@Test
+	public void formatFriendlyTimeSpanByNow_2_oe() throws ParseException {
+		try {
+			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
+
+			ClockUtil.useDummyClock(now);
+
+			Date lessOneSecond = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:59.500"");
+			// removed other assertion
+
+			Date lessOneMinute = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:55.000"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(lessOneMinute)).isEqualTo(""5秒前"");
+	}
+	}
+",DateFormatUtilTest::formatFriendlyTimeSpanByNow_2_oe
+springside4_126_3,"	@Test
+	public void formatFriendlyTimeSpanByNow_3_oe() throws ParseException {
+		try {
+			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
+
+			ClockUtil.useDummyClock(now);
+
+			Date lessOneSecond = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:59.500"");
+			// removed other assertion
+
+			Date lessOneMinute = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:55.000"");
+			// removed other assertion
+
+			Date lessOneHour = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:00:00"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(lessOneHour)).isEqualTo(""30分钟前"");
+	}
+	}
+",DateFormatUtilTest::formatFriendlyTimeSpanByNow_3_oe
+springside4_126_4,"	@Test
+	public void formatFriendlyTimeSpanByNow_4_oe() throws ParseException {
+		try {
+			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
+
+			ClockUtil.useDummyClock(now);
+
+			Date lessOneSecond = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:59.500"");
+			// removed other assertion
+
+			Date lessOneMinute = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:55.000"");
+			// removed other assertion
+
+			Date lessOneHour = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:00:00"");
+			// removed other assertion
+
+			Date today = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 1:00:00"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(today)).isEqualTo(""今天01:00"");
+	}
+	}
+",DateFormatUtilTest::formatFriendlyTimeSpanByNow_4_oe
+springside4_126_5,"	@Test
+	public void formatFriendlyTimeSpanByNow_5_oe() throws ParseException {
+		try {
+			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
+
+			ClockUtil.useDummyClock(now);
+
+			Date lessOneSecond = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:59.500"");
+			// removed other assertion
+
+			Date lessOneMinute = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:55.000"");
+			// removed other assertion
+
+			Date lessOneHour = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:00:00"");
+			// removed other assertion
+
+			Date today = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 1:00:00"");
+			// removed other assertion
+
+			Date yesterday = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-10 1:00:00"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(yesterday)).isEqualTo(""昨天01:00"");
+	}
+	}
+",DateFormatUtilTest::formatFriendlyTimeSpanByNow_5_oe
+springside4_126_6,"	@Test
+	public void formatFriendlyTimeSpanByNow_6_oe() throws ParseException {
+		try {
+			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
+
+			ClockUtil.useDummyClock(now);
+
+			Date lessOneSecond = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:59.500"");
+			// removed other assertion
+
+			Date lessOneMinute = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:55.000"");
+			// removed other assertion
+
+			Date lessOneHour = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:00:00"");
+			// removed other assertion
+
+			Date today = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 1:00:00"");
+			// removed other assertion
+
+			Date yesterday = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-10 1:00:00"");
+			// removed other assertion
+
+			Date threeDayBefore = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-09 1:00:00"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(threeDayBefore)).isEqualTo(""2016-12-09"");
+	}
+	}
+",DateFormatUtilTest::formatFriendlyTimeSpanByNow_6_oe
 springside4_127_1,"	@Test
 	public void xmlToObject_1_oe() {
 		String xml = generateXmlByDom4j();
@@ -13500,6 +14708,16 @@ springside4_135_2,"	@Test
 		assertThat(bean.getDefaultValue()).isEqualTo(""lalala"");
 	}
 ",JsonMapperTest::update_2_oe
+springside4_136_1,"	@Test
+	public void unchecked_1_oe() {
+		// convert Exception to RuntimeException with cause
+		Exception exception = new Exception(""my exception"");
+		try {
+			ExceptionUtil.unchecked(exception);
+			fail(""should fail before"");
+	}
+	}
+",ExceptionUtilTest::unchecked_1_oe
 springside4_136_2,"	@Test
 	public void unchecked_2_oe() {
 		// convert Exception to RuntimeException with cause
@@ -13512,6 +14730,25 @@ springside4_136_2,"	@Test
 	}
 	}
 ",ExceptionUtilTest::unchecked_2_oe
+springside4_136_3,"	@Test
+	public void unchecked_3_oe() {
+		// convert Exception to RuntimeException with cause
+		Exception exception = new Exception(""my exception"");
+		try {
+			ExceptionUtil.unchecked(exception);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// do nothing of Error
+		Error error = new LinkageError();
+		try {
+			ExceptionUtil.unchecked(error);
+			fail(""should fail before"");
+	}
+	}
+",ExceptionUtilTest::unchecked_3_oe
 springside4_136_4,"	@Test
 	public void unchecked_4_oe() {
 		// convert Exception to RuntimeException with cause
@@ -13533,6 +14770,34 @@ springside4_136_4,"	@Test
 	}
 	}
 ",ExceptionUtilTest::unchecked_4_oe
+springside4_136_5,"	@Test
+	public void unchecked_5_oe() {
+		// convert Exception to RuntimeException with cause
+		Exception exception = new Exception(""my exception"");
+		try {
+			ExceptionUtil.unchecked(exception);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// do nothing of Error
+		Error error = new LinkageError();
+		try {
+			ExceptionUtil.unchecked(error);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// do nothing of RuntimeException
+		RuntimeException runtimeException = new RuntimeException(""haha"");
+		try {
+			ExceptionUtil.unchecked(runtimeException);
+			fail(""should fail before"");
+	}
+	}
+",ExceptionUtilTest::unchecked_5_oe
 springside4_136_6,"	@Test
 	public void unchecked_6_oe() {
 		// convert Exception to RuntimeException with cause
@@ -14623,6 +15888,62 @@ springside4_146_15,"	@Test
 		assertThat(d).isEqualTo(11);
 	}
 ",MoreValidateTest::test_15_oe
+springside4_146_16,"	@Test
+	public void test_16_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_16_oe
 springside4_146_17,"	@Test
 	public void test_17_oe() {
 		// int
@@ -14681,6 +16002,68 @@ springside4_146_17,"	@Test
 	}
 	}
 ",MoreValidateTest::test_17_oe
+springside4_146_18,"	@Test
+	public void test_18_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_18_oe
 springside4_146_19,"	@Test
 	public void test_19_oe() {
 		// int
@@ -14745,6 +16128,75 @@ springside4_146_19,"	@Test
 	}
 	}
 ",MoreValidateTest::test_19_oe
+springside4_146_20,"	@Test
+	public void test_20_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_20_oe
 springside4_146_21,"	@Test
 	public void test_21_oe() {
 		// int
@@ -14816,6 +16268,83 @@ springside4_146_21,"	@Test
 	}
 	}
 ",MoreValidateTest::test_21_oe
+springside4_146_22,"	@Test
+	public void test_22_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_22_oe
 springside4_146_23,"	@Test
 	public void test_23_oe() {
 		// int
@@ -14895,6 +16424,90 @@ springside4_146_23,"	@Test
 	}
 	}
 ",MoreValidateTest::test_23_oe
+springside4_146_24,"	@Test
+	public void test_24_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1l);
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_24_oe
 springside4_146_25,"	@Test
 	public void test_25_oe() {
 		// int
@@ -14981,6 +16594,96 @@ springside4_146_25,"	@Test
 	}
 	}
 ",MoreValidateTest::test_25_oe
+springside4_146_26,"	@Test
+	public void test_26_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", 0l);
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_26_oe
 springside4_146_27,"	@Test
 	public void test_27_oe() {
 		// int
@@ -15073,6 +16776,104 @@ springside4_146_27,"	@Test
 	}
 	}
 ",MoreValidateTest::test_27_oe
+springside4_146_28,"	@Test
+	public void test_28_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", 0l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Long
+		try {
+			MoreValidate.nonNegative(""x"", Long.valueOf(-1));
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_28_oe
 springside4_146_29,"	@Test
 	public void test_29_oe() {
 		// int
@@ -15173,6 +16974,110 @@ springside4_146_29,"	@Test
 	}
 	}
 ",MoreValidateTest::test_29_oe
+springside4_146_30,"	@Test
+	public void test_30_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", 0l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Long
+		try {
+			MoreValidate.nonNegative(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(-1));
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_30_oe
 springside4_146_31,"	@Test
 	public void test_31_oe() {
 		// int
@@ -15279,6 +17184,117 @@ springside4_146_31,"	@Test
 	}
 	}
 ",MoreValidateTest::test_31_oe
+springside4_146_32,"	@Test
+	public void test_32_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", 0l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Long
+		try {
+			MoreValidate.nonNegative(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(0));
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_32_oe
 springside4_146_33,"	@Test
 	public void test_33_oe() {
 		// int
@@ -15392,6 +17408,125 @@ springside4_146_33,"	@Test
 	}
 	}
 ",MoreValidateTest::test_33_oe
+springside4_146_34,"	@Test
+	public void test_34_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", 0l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Long
+		try {
+			MoreValidate.nonNegative(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(0));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Integer
+		try {
+			MoreValidate.nonNegative(""x"", Integer.valueOf(-1));
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_34_oe
 springside4_146_35,"	@Test
 	public void test_35_oe() {
 		// int
@@ -15513,6 +17648,132 @@ springside4_146_35,"	@Test
 	}
 	}
 ",MoreValidateTest::test_35_oe
+springside4_146_36,"	@Test
+	public void test_36_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", 0l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Long
+		try {
+			MoreValidate.nonNegative(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(0));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Integer
+		try {
+			MoreValidate.nonNegative(""x"", Integer.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(-1));
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_36_oe
 springside4_146_37,"	@Test
 	public void test_37_oe() {
 		// int
@@ -15641,6 +17902,139 @@ springside4_146_37,"	@Test
 	}
 	}
 ",MoreValidateTest::test_37_oe
+springside4_146_38,"	@Test
+	public void test_38_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", 0l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Long
+		try {
+			MoreValidate.nonNegative(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(0));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Integer
+		try {
+			MoreValidate.nonNegative(""x"", Integer.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(0));
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_38_oe
 springside4_146_39,"	@Test
 	public void test_39_oe() {
 		// int
@@ -15776,6 +18170,147 @@ springside4_146_39,"	@Test
 	}
 	}
 ",MoreValidateTest::test_39_oe
+springside4_146_40,"	@Test
+	public void test_40_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", 0l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Long
+		try {
+			MoreValidate.nonNegative(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(0));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Integer
+		try {
+			MoreValidate.nonNegative(""x"", Integer.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(0));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// double
+		try {
+			MoreValidate.nonNegative(""x"", -9999.2d);
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_40_oe
 springside4_146_41,"	@Test
 	public void test_41_oe() {
 		// int
@@ -15919,6 +18454,154 @@ springside4_146_41,"	@Test
 	}
 	}
 ",MoreValidateTest::test_41_oe
+springside4_146_42,"	@Test
+	public void test_42_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", 0l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Long
+		try {
+			MoreValidate.nonNegative(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(0));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Integer
+		try {
+			MoreValidate.nonNegative(""x"", Integer.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(0));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// double
+		try {
+			MoreValidate.nonNegative(""x"", -9999.2d);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1.2d);
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_42_oe
 springside4_146_43,"	@Test
 	public void test_43_oe() {
 		// int
@@ -16069,6 +18752,160 @@ springside4_146_43,"	@Test
 	}
 	}
 ",MoreValidateTest::test_43_oe
+springside4_146_44,"	@Test
+	public void test_44_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		// removed other assertion
+		a = MoreValidate.nonNegative(""x"", 1);
+		// removed other assertion
+
+		a = MoreValidate.positive(""x"", 1);
+		// removed other assertion
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		// removed other assertion
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		// removed other assertion
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		// removed other assertion
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		// removed other assertion
+
+		b = MoreValidate.positive(""x"", 1l);
+		// removed other assertion
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		// removed other assertion
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		// removed other assertion
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		// removed other assertion
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		// removed other assertion
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		// removed other assertion
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		// removed other assertion
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", 0l);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Long
+		try {
+			MoreValidate.nonNegative(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(0));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// Integer
+		try {
+			MoreValidate.nonNegative(""x"", Integer.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(-1));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(0));
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		// double
+		try {
+			MoreValidate.nonNegative(""x"", -9999.2d);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1.2d);
+			// removed other assertion
+		} catch (Throwable t) {
+			// removed other assertion
+		}
+		try {
+			MoreValidate.positive(""x"", 0d);
+			fail(""fail"");
+	}
+	}
+",MoreValidateTest::test_44_oe
 springside4_146_45,"	@Test
 	public void test_45_oe() {
 		// int
@@ -16894,6 +19731,31 @@ springside4_148_3,"	@Test
 		assertThat(result3).isEqualTo(""456"");
 	}
 ",SystemPropertiesUtilTest::stringSystemProperty_3_oe
+springside4_148_4,"	@Test
+	public void stringSystemProperty_4_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+		String envName = ""ss_test"" + RandomUtil.nextInt();
+
+		// default 值
+		String result = SystemPropertiesUtil.getString(name, envName, ""123"");
+		// removed other assertion
+
+		// env值
+		String result2 = SystemPropertiesUtil.getString(name, ""HOME"", ""123"");
+		// removed other assertion
+
+		// system properties值
+		System.setProperty(name, ""456"");
+		String result3 = SystemPropertiesUtil.getString(name, envName, ""123"");
+		// removed other assertion
+
+		try {
+			// 非法字符
+			String result4 = SystemPropertiesUtil.getString(name, name, ""123"");
+			fail(""should fail before"");
+	}
+	}
+",SystemPropertiesUtilTest::stringSystemProperty_4_oe
 springside4_148_5,"	@Test
 	public void stringSystemProperty_5_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
@@ -17524,6 +20386,131 @@ springside4_158_4,"	@Test
 		assertThat(port3).isBetween(NetUtil.PORT_RANGE_MIN, NetUtil.PORT_RANGE_MAX);
 	}
 ",NetUtilTest::portDetect_4_oe
+springside4_158_5,"	@Test
+	public void portDetect_5_oe() throws UnknownHostException, IOException {
+		int port = NetUtil.findRandomAvailablePort(20000, 20100);
+		// removed other assertion
+		System.out.println(""random port:"" + port);
+
+		// removed other assertion
+
+		int port2 = NetUtil.findAvailablePortFrom(port);
+		// removed other assertion
+
+		int port3 = NetUtil.findRandomAvailablePort();
+
+		// removed other assertion
+		System.out.println(""random port:"" + port3);
+
+		// 尝试占住一个端口
+		ServerSocket serverSocket = null;
+		try {
+			serverSocket = ServerSocketFactory.getDefault().createServerSocket(port, 1,
+					InetAddress.getByName(""localhost""));
+
+			assertThat(NetUtil.isPortAvailable(port)).isFalse();
+	}
+	}
+",NetUtilTest::portDetect_5_oe
+springside4_158_6,"	@Test
+	public void portDetect_6_oe() throws UnknownHostException, IOException {
+		int port = NetUtil.findRandomAvailablePort(20000, 20100);
+		// removed other assertion
+		System.out.println(""random port:"" + port);
+
+		// removed other assertion
+
+		int port2 = NetUtil.findAvailablePortFrom(port);
+		// removed other assertion
+
+		int port3 = NetUtil.findRandomAvailablePort();
+
+		// removed other assertion
+		System.out.println(""random port:"" + port3);
+
+		// 尝试占住一个端口
+		ServerSocket serverSocket = null;
+		try {
+			serverSocket = ServerSocketFactory.getDefault().createServerSocket(port, 1,
+					InetAddress.getByName(""localhost""));
+
+			// removed other assertion
+
+			int port4 = NetUtil.findAvailablePortFrom(port);
+			assertThat(port4).isEqualTo(port + 1);
+	}
+	}
+",NetUtilTest::portDetect_6_oe
+springside4_158_7,"	@Test
+	public void portDetect_7_oe() throws UnknownHostException, IOException {
+		int port = NetUtil.findRandomAvailablePort(20000, 20100);
+		// removed other assertion
+		System.out.println(""random port:"" + port);
+
+		// removed other assertion
+
+		int port2 = NetUtil.findAvailablePortFrom(port);
+		// removed other assertion
+
+		int port3 = NetUtil.findRandomAvailablePort();
+
+		// removed other assertion
+		System.out.println(""random port:"" + port3);
+
+		// 尝试占住一个端口
+		ServerSocket serverSocket = null;
+		try {
+			serverSocket = ServerSocketFactory.getDefault().createServerSocket(port, 1,
+					InetAddress.getByName(""localhost""));
+
+			// removed other assertion
+
+			int port4 = NetUtil.findAvailablePortFrom(port);
+			// removed other assertion
+
+			try {
+				int port5 = NetUtil.findRandomAvailablePort(port, port);
+				fail(""should fail before"");
+	}
+	}
+	}
+",NetUtilTest::portDetect_7_oe
+springside4_158_8,"	@Test
+	public void portDetect_8_oe() throws UnknownHostException, IOException {
+		int port = NetUtil.findRandomAvailablePort(20000, 20100);
+		// removed other assertion
+		System.out.println(""random port:"" + port);
+
+		// removed other assertion
+
+		int port2 = NetUtil.findAvailablePortFrom(port);
+		// removed other assertion
+
+		int port3 = NetUtil.findRandomAvailablePort();
+
+		// removed other assertion
+		System.out.println(""random port:"" + port3);
+
+		// 尝试占住一个端口
+		ServerSocket serverSocket = null;
+		try {
+			serverSocket = ServerSocketFactory.getDefault().createServerSocket(port, 1,
+					InetAddress.getByName(""localhost""));
+
+			// removed other assertion
+
+			int port4 = NetUtil.findAvailablePortFrom(port);
+			// removed other assertion
+
+			try {
+				int port5 = NetUtil.findRandomAvailablePort(port, port);
+				// removed other assertion
+			} catch (Throwable t) {
+				assertThat(t).isInstanceOf(IllegalStateException.class);
+	}
+	}
+	}
+",NetUtilTest::portDetect_8_oe
 springside4_159_1,"	@Test
 	public void stringAndInt_1_oe() {
 
@@ -17756,6 +20743,19 @@ springside4_165_2,"	@Test
 		assertThat(sampler).isInstanceOf(AlwaysSampler.class);
 	}
 ",SamplerTest::always_2_oe
+springside4_165_3,"	@Test
+	public void always_3_oe() {
+		Sampler sampler = Sampler.create(0d);
+		// removed other assertion
+		sampler = Sampler.create(100d);
+		// removed other assertion
+
+		try {
+			sampler = Sampler.create(101d);
+			fail(""shoud fail before"");
+	}
+	}
+",SamplerTest::always_3_oe
 springside4_165_4,"	@Test
 	public void always_4_oe() {
 		Sampler sampler = Sampler.create(0d);
@@ -17771,6 +20771,26 @@ springside4_165_4,"	@Test
 	}
 	}
 ",SamplerTest::always_4_oe
+springside4_165_5,"	@Test
+	public void always_5_oe() {
+		Sampler sampler = Sampler.create(0d);
+		// removed other assertion
+		sampler = Sampler.create(100d);
+		// removed other assertion
+
+		try {
+			sampler = Sampler.create(101d);
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+		}
+
+		try {
+			sampler = Sampler.create(-2.2);
+			fail(""shoud fail before"");
+	}
+	}
+",SamplerTest::always_5_oe
 springside4_165_6,"	@Test
 	public void always_6_oe() {
 		Sampler sampler = Sampler.create(0d);

@@ -21,7 +21,7 @@
 [INFO] 
 [INFO] --- compiler:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-simple ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 6 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/simple/target/test-classes
+[INFO] Compiling 5 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/simple/target/test-classes
 [INFO] 
 [INFO] --- surefire:2.19.1:test (default-test) @ async-http-client-extras-simple ---
 
@@ -30,15 +30,15 @@
 -------------------------------------------------------
 Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 Running TestSuite
-Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.502 sec - in TestSuite
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.036 sec - in TestSuite
 
 Results :
 
-Tests run: 37, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 7, Failures: 0, Errors: 0, Skipped: 0
 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.969 s
-[INFO] Finished at: 2026-01-16T13:19:20-05:00
+[INFO] Total time:  9.334 s
+[INFO] Finished at: 2026-01-16T15:51:14-05:00
 [INFO] ------------------------------------------------------------------------

@@ -26,6 +26,7 @@ dbut_4_6,commons-dbutils-1.7,GenerousBeanProcessorTest,testMapColumnsToPropertie
 dbut_5_1,commons-dbutils-1.7,QueryLoaderTest,testLoad_1_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown
 dbut_5_2,commons-dbutils-1.7,QueryLoaderTest,testLoad_2_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown
 dbut_5_3,commons-dbutils-1.7,QueryLoaderTest,testLoad_3_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown
+dbut_6_1,commons-dbutils-1.7,QueryLoaderTest,testLoadThrowsIllegalArgumentException_1_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown
 dbut_6_2,commons-dbutils-1.7,QueryLoaderTest,testLoadThrowsIllegalArgumentException_2_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown
 dbut_6_3,commons-dbutils-1.7,QueryLoaderTest,testLoadThrowsIllegalArgumentException_3_oe,src/test/java/org/apache/commons/dbutils/QueryLoaderTest.java,,,,assert,unknown
 dbut_7_1,commons-dbutils-1.7,BaseResultSetHandlerTest,handleWithoutExplicitResultSetInvocation_1_oe,src/test/java/org/apache/commons/dbutils/BaseResultSetHandlerTest.java,,,,assert,unknown
@@ -50,6 +51,7 @@ dbut_8_8,commons-dbutils-1.7,ResultSetIteratorTest,testNext_8_oe,src/test/java/o
 dbut_8_9,commons-dbutils-1.7,ResultSetIteratorTest,testNext_9_oe,src/test/java/org/apache/commons/dbutils/ResultSetIteratorTest.java,,,,assert,unknown
 dbut_8_10,commons-dbutils-1.7,ResultSetIteratorTest,testNext_10_oe,src/test/java/org/apache/commons/dbutils/ResultSetIteratorTest.java,,,,assert,unknown
 dbut_8_11,commons-dbutils-1.7,ResultSetIteratorTest,testNext_11_oe,src/test/java/org/apache/commons/dbutils/ResultSetIteratorTest.java,,,,assert,unknown
+dbut_9_1,commons-dbutils-1.7,ResultSetIteratorTest,testRethrowThrowsRuntimeException_1_oe,src/test/java/org/apache/commons/dbutils/ResultSetIteratorTest.java,,,,assert,unknown
 dbut_9_2,commons-dbutils-1.7,ResultSetIteratorTest,testRethrowThrowsRuntimeException_2_oe,src/test/java/org/apache/commons/dbutils/ResultSetIteratorTest.java,,,,assert,unknown
 dbut_10_1,commons-dbutils-1.7,QueryRunnerTest,testGoodInsert_1_oe,src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java,,,,assert,unknown
 dbut_11_1,commons-dbutils-1.7,QueryRunnerTest,testGoodBatchInsert_1_oe,src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java,,,,assert,unknown
@@ -77,6 +79,8 @@ dbut_20_1,commons-dbutils-1.7,ProxyFactoryTest,testCreateResultSet_1_oe,src/test
 dbut_21_1,commons-dbutils-1.7,ProxyFactoryTest,testCreateResultSetMetaData_1_oe,src/test/java/org/apache/commons/dbutils/ProxyFactoryTest.java,,,,assert,unknown
 dbut_22_1,commons-dbutils-1.7,ProxyFactoryTest,testCreateStatement_1_oe,src/test/java/org/apache/commons/dbutils/ProxyFactoryTest.java,,,,assert,unknown
 dbut_23_1,commons-dbutils-1.7,ProxyFactoryTest,testCreateCallableStatement_1_oe,src/test/java/org/apache/commons/dbutils/ProxyFactoryTest.java,,,,assert,unknown
+dbut_24_1,commons-dbutils-1.7,DbUtilsTest,commitAndCloseWithException_1_oe,src/test/java/org/apache/commons/dbutils/DbUtilsTest.java,,,,assert,unknown
+dbut_25_1,commons-dbutils-1.7,DbUtilsTest,rollbackAndCloseWithException_1_oe,src/test/java/org/apache/commons/dbutils/DbUtilsTest.java,,,,assert,unknown
 dbut_26_1,commons-dbutils-1.7,DbUtilsTest,testLoadDriverReturnsFalse_1_oe,src/test/java/org/apache/commons/dbutils/DbUtilsTest.java,,,,assert,unknown
 dbut_27_1,commons-dbutils-1.7,OutParameterTest,testSetValue_1_oe,src/test/java/org/apache/commons/dbutils/OutParameterTest.java,,,,assert,unknown
 dbut_28_1,commons-dbutils-1.7,BaseTestCase,testCheckDataSizes_1_oe,src/test/java/org/apache/commons/dbutils/BaseTestCase.java,,,,assert,unknown

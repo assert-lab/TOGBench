@@ -1,4 +1,102 @@
 id,test_prefix,test_name
+vali_1_1,"   public void testManualObject_1_oe() {
+        //     property name of the method we are validating
+        String property = ""date"";
+        // name of ValidatorAction
+        String action = ""date"";
+        ValidatorResources resources = setupDateResources(property, action);
+
+      TestBean bean = new TestBean();  
+      bean.setDate(""2/3/1999"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+
+      try {
+         ValidatorResults results = validator.validate();
+         
+         assertNotNull(""Results are null."", results);
+   }
+   }
+",ValidatorTest::testManualObject_1_oe
+vali_1_2,"   public void testManualObject_2_oe() {
+        //     property name of the method we are validating
+        String property = ""date"";
+        // name of ValidatorAction
+        String action = ""date"";
+        ValidatorResources resources = setupDateResources(property, action);
+
+      TestBean bean = new TestBean();  
+      bean.setDate(""2/3/1999"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+
+      try {
+         ValidatorResults results = validator.validate();
+         
+         // removed other assertion
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         assertNotNull(""Results are null."", results);
+   }
+   }
+",ValidatorTest::testManualObject_2_oe
+vali_1_3,"   public void testManualObject_3_oe() {
+        //     property name of the method we are validating
+        String property = ""date"";
+        // name of ValidatorAction
+        String action = ""date"";
+        ValidatorResources resources = setupDateResources(property, action);
+
+      TestBean bean = new TestBean();  
+      bean.setDate(""2/3/1999"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+
+      try {
+         ValidatorResults results = validator.validate();
+         
+         // removed other assertion
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         // removed other assertion
+         
+         assertTrue(""ValidatorResult does not contain '"" + action + ""' validator result."", result.containsAction(action));
+   }
+   }
+",ValidatorTest::testManualObject_3_oe
+vali_1_4,"   public void testManualObject_4_oe() {
+        //     property name of the method we are validating
+        String property = ""date"";
+        // name of ValidatorAction
+        String action = ""date"";
+        ValidatorResources resources = setupDateResources(property, action);
+
+      TestBean bean = new TestBean();  
+      bean.setDate(""2/3/1999"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+
+      try {
+         ValidatorResults results = validator.validate();
+         
+         // removed other assertion
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         // removed other assertion
+         
+         // removed other assertion
+         
+         assertTrue(""Validation of the date formatting has failed."", result.isValid(action));
+   }
+   }
+",ValidatorTest::testManualObject_4_oe
 vali_1_5,"   public void testManualObject_5_oe() {
         //     property name of the method we are validating
         String property = ""date"";
@@ -29,6 +127,176 @@ vali_1_5,"   public void testManualObject_5_oe() {
    }
    }
 ",ValidatorTest::testManualObject_5_oe
+vali_1_6,"   public void testManualObject_6_oe() {
+        //     property name of the method we are validating
+        String property = ""date"";
+        // name of ValidatorAction
+        String action = ""date"";
+        ValidatorResources resources = setupDateResources(property, action);
+
+      TestBean bean = new TestBean();  
+      bean.setDate(""2/3/1999"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+
+      try {
+         ValidatorResults results = validator.validate();
+         
+         // removed other assertion
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         // removed other assertion
+         
+         // removed other assertion
+         
+         // removed other assertion
+      } catch (Exception e) {
+         // removed other assertion
+      }
+
+      bean.setDate(""2/30/1999"");
+      
+      try {
+         ValidatorResults results = validator.validate();
+         
+         assertNotNull(""Results are null."", results);
+   }
+   }
+",ValidatorTest::testManualObject_6_oe
+vali_1_7,"   public void testManualObject_7_oe() {
+        //     property name of the method we are validating
+        String property = ""date"";
+        // name of ValidatorAction
+        String action = ""date"";
+        ValidatorResources resources = setupDateResources(property, action);
+
+      TestBean bean = new TestBean();  
+      bean.setDate(""2/3/1999"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+
+      try {
+         ValidatorResults results = validator.validate();
+         
+         // removed other assertion
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         // removed other assertion
+         
+         // removed other assertion
+         
+         // removed other assertion
+      } catch (Exception e) {
+         // removed other assertion
+      }
+
+      bean.setDate(""2/30/1999"");
+      
+      try {
+         ValidatorResults results = validator.validate();
+         
+         // removed other assertion
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         assertNotNull(""Results are null."", results);
+   }
+   }
+",ValidatorTest::testManualObject_7_oe
+vali_1_8,"   public void testManualObject_8_oe() {
+        //     property name of the method we are validating
+        String property = ""date"";
+        // name of ValidatorAction
+        String action = ""date"";
+        ValidatorResources resources = setupDateResources(property, action);
+
+      TestBean bean = new TestBean();  
+      bean.setDate(""2/3/1999"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+
+      try {
+         ValidatorResults results = validator.validate();
+         
+         // removed other assertion
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         // removed other assertion
+         
+         // removed other assertion
+         
+         // removed other assertion
+      } catch (Exception e) {
+         // removed other assertion
+      }
+
+      bean.setDate(""2/30/1999"");
+      
+      try {
+         ValidatorResults results = validator.validate();
+         
+         // removed other assertion
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         // removed other assertion
+         
+         assertTrue(""ValidatorResult does not contain '"" + action + ""' validator result."", result.containsAction(action));
+   }
+   }
+",ValidatorTest::testManualObject_8_oe
+vali_1_9,"   public void testManualObject_9_oe() {
+        //     property name of the method we are validating
+        String property = ""date"";
+        // name of ValidatorAction
+        String action = ""date"";
+        ValidatorResources resources = setupDateResources(property, action);
+
+      TestBean bean = new TestBean();  
+      bean.setDate(""2/3/1999"");
+      
+      Validator validator = new Validator(resources, ""testForm"");
+      validator.setParameter(Validator.BEAN_PARAM, bean);
+
+      try {
+         ValidatorResults results = validator.validate();
+         
+         // removed other assertion
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         // removed other assertion
+         
+         // removed other assertion
+         
+         // removed other assertion
+      } catch (Exception e) {
+         // removed other assertion
+      }
+
+      bean.setDate(""2/30/1999"");
+      
+      try {
+         ValidatorResults results = validator.validate();
+         
+         // removed other assertion
+         
+         ValidatorResult result = results.getValidatorResult(property);
+         
+         // removed other assertion
+         
+         // removed other assertion
+         
+         assertTrue(""Validation of the date formatting has passed when it should have failed."", !result.isValid(action));
+   }
+   }
+",ValidatorTest::testManualObject_9_oe
 vali_1_10,"   public void testManualObject_10_oe() {
         //     property name of the method we are validating
         String property = ""date"";
@@ -359,6 +627,14 @@ vali_4_4,"   public void testManualBoolean_4_oe() {
       assertEquals(""Validation of the letter 'AA'."", 1, l.size());
    }
 ",ValidatorTest::testManualBoolean_4_oe
+vali_5_1,"    public void testNullInputStream_1_oe() throws Exception {
+
+        try {
+            new ValidatorResources((InputStream)null);
+            fail(""Expected IllegalArgumentException"");
+    }
+    }
+",ValidatorResourcesTest::testNullInputStream_1_oe
 vali_6_1,"    public void testEmailWithControlChars_1_oe() {
         EmailValidator validator = new EmailValidator();
         for (char c = 0; c < 32; c++) {
@@ -1572,6 +1848,30 @@ vali_14_2,"   public void testIsValid_2_oe(Object[] testObjects, int options) {
       assertTrue(urlVal.isValid(""http://www.google.com/""));
    }
 ",UrlTest::testIsValid_2_oe
+vali_14_3,"   public void testIsValid_3_oe(Object[] testObjects, int options) {
+      UrlValidator urlVal = new UrlValidator(null, options);
+      // removed other assertion
+      // removed other assertion
+      int statusPerLine = 60;
+      int printed = 0;
+      if (printIndex)  {
+         statusPerLine = 6;
+      }
+      do {
+          StringBuilder testBuffer = new StringBuilder();
+         boolean expected = true;
+         for (int testPartsIndexIndex = 0; testPartsIndexIndex < testPartsIndex.length; ++testPartsIndexIndex) {
+            int index = testPartsIndex[testPartsIndexIndex];
+            ResultPair[] part = (ResultPair[]) testObjects[testPartsIndexIndex];
+            testBuffer.append(part[index].item);
+            expected &= part[index].valid;
+         }
+         String url = testBuffer.toString();
+         boolean result = urlVal.isValid(url);
+         assertEquals(url, expected, result);
+   }
+   }
+",UrlTest::testIsValid_3_oe
 vali_15_1,"   public void testValidator204_1_oe() {
        String[] schemes = {""http"",""https""};
        UrlValidator urlValidator = new UrlValidator(schemes);
@@ -8131,6 +8431,25 @@ vali_57_8,"    public void testOrder_8_oe() {
        assertTrue(""lastName in "" + FORM_KEY2 + "" should be the first in the list"", fieldLastName.getKey().equals(""lastName""));
     }
 ",ExtensionTest::testOrder_8_oe
+vali_58_1,"    public void testValidatorException_1_oe() {
+        // Create bean to run test on.
+        ValueBean info = new ValueBean();
+        info.setValue(""VALIDATOR"");
+
+        // Construct validator based on the loaded resources 
+        // and the form key
+        Validator validator = new Validator(resources, FORM_KEY);
+        // add the name bean to the validator as a resource 
+        // for the validations to be performed on.
+        validator.setParameter(Validator.BEAN_PARAM, info);
+
+        // Get results of the validation which can throw ValidatorException
+        try {
+            validator.validate();
+            fail(""ValidatorException should occur here!"");
+    }
+    }
+",ExceptionTest::testValidatorException_1_oe
 vali_58_2,"    public void testValidatorException_2_oe() {
         // Create bean to run test on.
         ValueBean info = new ValueBean();
@@ -9551,6 +9870,17 @@ vali_81_1,"    @Test
         assertNotNull(dv);
     }
 ",DomainValidatorStartupTest::testCannotUpdate_1_oe
+vali_81_2,"    @Test
+    public void testCannotUpdate_2_oe() {
+        DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{""ch""}); // OK
+        DomainValidator dv = DomainValidator.getInstance();
+        // removed other assertion
+        try {
+            DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{""ch""});
+            fail(""Expected IllegalStateException"");
+    }
+    }
+",DomainValidatorStartupTest::testCannotUpdate_2_oe
 vali_82_1,"    @Test
     public void testInstanceOverride_1_oe() { // Show that the instance picks up static values
         DomainValidator.updateTLDOverride(ArrayType.GENERIC_PLUS, new String[]{""gp""});
@@ -12580,6 +12910,88 @@ vali_108_21,"    public void testInvalid_21_oe() {
         assertFalse(""ISBN13-9"", validator.isValid(baseCode + ""9""));
     }
 ",ISBNValidatorTest::testInvalid_21_oe
+vali_109_1,"    public void testConversionErrors_1_oe() {
+        ISBNValidator validator = ISBNValidator.getInstance();
+        String input = null;
+        try {
+            input = ""123456789 "";
+            validator.convertToISBN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'"");
+    }
+    }
+",ISBNValidatorTest::testConversionErrors_1_oe
+vali_109_2,"    public void testConversionErrors_2_oe() {
+        ISBNValidator validator = ISBNValidator.getInstance();
+        String input = null;
+        try {
+            input = ""123456789 "";
+            validator.convertToISBN13(input);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = ""12345678901"";
+            validator.convertToISBN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'"");
+    }
+    }
+",ISBNValidatorTest::testConversionErrors_2_oe
+vali_109_3,"    public void testConversionErrors_3_oe() {
+        ISBNValidator validator = ISBNValidator.getInstance();
+        String input = null;
+        try {
+            input = ""123456789 "";
+            validator.convertToISBN13(input);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = ""12345678901"";
+            validator.convertToISBN13(input);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = """";
+            validator.convertToISBN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'"");
+    }
+    }
+",ISBNValidatorTest::testConversionErrors_3_oe
+vali_109_4,"    public void testConversionErrors_4_oe() {
+        ISBNValidator validator = ISBNValidator.getInstance();
+        String input = null;
+        try {
+            input = ""123456789 "";
+            validator.convertToISBN13(input);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = ""12345678901"";
+            validator.convertToISBN13(input);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = """";
+            validator.convertToISBN13(input);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = ""X234567890"";
+            validator.convertToISBN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'"");
+    }
+    }
+",ISBNValidatorTest::testConversionErrors_4_oe
 vali_110_1,"    public void testIsValidTrue_1_oe() {
         for(String f : validFormat) {
             assertTrue(f, VALIDATOR_TRUE.isValid(f));
@@ -25332,6 +25744,83 @@ vali_169_35,"    public void testCompare_35_oe() {
         assertEquals(""year GT"", 1,  calValidator.compareYears(value, cal20041231)); // -1 year;
     }
 ",CalendarValidatorTest::testCompare_35_oe
+vali_169_36,"    public void testCompare_36_oe() {
+        int sameTime = 124522;
+        int testDate = 20050823;
+        Calendar diffHour    = createCalendar(GMT, testDate, 115922);    // same date, different time
+        Calendar diffMin     = createCalendar(GMT, testDate, 124422);    // same date, different time
+        Calendar diffSec     = createCalendar(GMT, testDate, 124521);    // same date, different time
+
+        Calendar value       = createCalendar(GMT, testDate, sameTime);   // test value
+        Calendar cal20050824 = createCalendar(GMT, 20050824, sameTime);   // +1 day
+        Calendar cal20050822 = createCalendar(GMT, 20050822, sameTime);   // -1 day
+
+        Calendar cal20050830 = createCalendar(GMT, 20050830, sameTime);   // +1 week
+        Calendar cal20050816 = createCalendar(GMT, 20050816, sameTime);   // -1 week
+
+        Calendar cal20050901 = createCalendar(GMT, 20050901, sameTime);   // +1 month
+        Calendar cal20050801 = createCalendar(GMT, 20050801, sameTime);   // same month
+        Calendar cal20050731 = createCalendar(GMT, 20050731, sameTime);   // -1 month
+
+        Calendar cal20051101 = createCalendar(GMT, 20051101, sameTime);   // +1 quarter (Feb Start)
+        Calendar cal20051001 = createCalendar(GMT, 20051001, sameTime);   // +1 quarter
+        Calendar cal20050701 = createCalendar(GMT, 20050701, sameTime);   // same quarter
+        Calendar cal20050630 = createCalendar(GMT, 20050630, sameTime);   // -1 quarter
+
+        Calendar cal20060101 = createCalendar(GMT, 20060101, sameTime);   // +1 year
+        Calendar cal20050101 = createCalendar(GMT, 20050101, sameTime);   // same year
+        Calendar cal20041231 = createCalendar(GMT, 20041231, sameTime);   // -1 year
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Change quarter 1 to start in Feb
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // invalid compare
+        try {
+            calValidator.compare(value, value,  -1);
+            fail(""Invalid Compare field - expected IllegalArgumentException to be thrown"");
+    }
+    }
+",CalendarValidatorTest::testCompare_36_oe
 vali_169_37,"    public void testCompare_37_oe() {
         int sameTime = 124522;
         int testDate = 20050823;
@@ -26868,6 +27357,15 @@ vali_176_3,"    public void testNullValue_3_oe() {
         assertEquals(""Instance match()"",    null,  validator.match(null));
     }
 ",RegexValidatorTest::testNullValue_3_oe
+vali_177_1,"    public void testMissingRegex_1_oe() {
+
+        // Single Regular Expression - null
+        try {
+            new RegexValidator((String)null);
+            fail(""Single Null - expected IllegalArgumentException"");
+    }
+    }
+",RegexValidatorTest::testMissingRegex_1_oe
 vali_177_2,"    public void testMissingRegex_2_oe() {
 
         // Single Regular Expression - null
@@ -26879,6 +27377,23 @@ vali_177_2,"    public void testMissingRegex_2_oe() {
     }
     }
 ",RegexValidatorTest::testMissingRegex_2_oe
+vali_177_3,"    public void testMissingRegex_3_oe() {
+
+        // Single Regular Expression - null
+        try {
+            new RegexValidator((String)null);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Single Regular Expression - Zero Length
+        try {
+            new RegexValidator("""");
+            fail(""Single Zero Length - expected IllegalArgumentException"");
+    }
+    }
+",RegexValidatorTest::testMissingRegex_3_oe
 vali_177_4,"    public void testMissingRegex_4_oe() {
 
         // Single Regular Expression - null
@@ -26898,6 +27413,31 @@ vali_177_4,"    public void testMissingRegex_4_oe() {
     }
     }
 ",RegexValidatorTest::testMissingRegex_4_oe
+vali_177_5,"    public void testMissingRegex_5_oe() {
+
+        // Single Regular Expression - null
+        try {
+            new RegexValidator((String)null);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Single Regular Expression - Zero Length
+        try {
+            new RegexValidator("""");
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Multiple Regular Expression - Null array
+        try {
+            new RegexValidator((String[])null);
+            fail(""Null Array - expected IllegalArgumentException"");
+    }
+    }
+",RegexValidatorTest::testMissingRegex_5_oe
 vali_177_6,"    public void testMissingRegex_6_oe() {
 
         // Single Regular Expression - null
@@ -26925,6 +27465,39 @@ vali_177_6,"    public void testMissingRegex_6_oe() {
     }
     }
 ",RegexValidatorTest::testMissingRegex_6_oe
+vali_177_7,"    public void testMissingRegex_7_oe() {
+
+        // Single Regular Expression - null
+        try {
+            new RegexValidator((String)null);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Single Regular Expression - Zero Length
+        try {
+            new RegexValidator("""");
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Multiple Regular Expression - Null array
+        try {
+            new RegexValidator((String[])null);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Multiple Regular Expression - Zero Length array
+        try {
+            new RegexValidator(new String[0]);
+            fail(""Zero Length Array - expected IllegalArgumentException"");
+    }
+    }
+",RegexValidatorTest::testMissingRegex_7_oe
 vali_177_8,"    public void testMissingRegex_8_oe() {
 
         // Single Regular Expression - null
@@ -26960,6 +27533,48 @@ vali_177_8,"    public void testMissingRegex_8_oe() {
     }
     }
 ",RegexValidatorTest::testMissingRegex_8_oe
+vali_177_9,"    public void testMissingRegex_9_oe() {
+
+        // Single Regular Expression - null
+        try {
+            new RegexValidator((String)null);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Single Regular Expression - Zero Length
+        try {
+            new RegexValidator("""");
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Multiple Regular Expression - Null array
+        try {
+            new RegexValidator((String[])null);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Multiple Regular Expression - Zero Length array
+        try {
+            new RegexValidator(new String[0]);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Multiple Regular Expression - Array has Null
+        String[] expressions = new String[] {""ABC"", null};
+        try {
+            new RegexValidator(expressions);
+            fail(""Array has Null - expected IllegalArgumentException"");
+    }
+    }
+",RegexValidatorTest::testMissingRegex_9_oe
 vali_177_10,"    public void testMissingRegex_10_oe() {
 
         // Single Regular Expression - null
@@ -27004,6 +27619,57 @@ vali_177_10,"    public void testMissingRegex_10_oe() {
     }
     }
 ",RegexValidatorTest::testMissingRegex_10_oe
+vali_177_11,"    public void testMissingRegex_11_oe() {
+
+        // Single Regular Expression - null
+        try {
+            new RegexValidator((String)null);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Single Regular Expression - Zero Length
+        try {
+            new RegexValidator("""");
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Multiple Regular Expression - Null array
+        try {
+            new RegexValidator((String[])null);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Multiple Regular Expression - Zero Length array
+        try {
+            new RegexValidator(new String[0]);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Multiple Regular Expression - Array has Null
+        String[] expressions = new String[] {""ABC"", null};
+        try {
+            new RegexValidator(expressions);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // removed other assertion
+        }
+
+        // Multiple Regular Expression - Array has Zero Length
+        expressions = new String[] {"""", ""ABC""};
+        try {
+            new RegexValidator(expressions);
+            fail(""Array has Zero Length - expected IllegalArgumentException"");
+    }
+    }
+",RegexValidatorTest::testMissingRegex_11_oe
 vali_177_12,"    public void testMissingRegex_12_oe() {
 
         // Single Regular Expression - null
@@ -30570,6 +31236,264 @@ vali_197_1,"    public void testIsValidISSNConvertNull_1_oe() {
         assertNull(VALIDATOR.convertToEAN13(null, ""00""));
     }
 ",ISSNValidatorTest::testIsValidISSNConvertNull_1_oe
+vali_198_1,"    public void testIsValidISSNConvertSuffix_1_oe() {
+        try {
+            assertNull(VALIDATOR.convertToEAN13(null, null));
+    }
+    }
+",ISSNValidatorTest::testIsValidISSNConvertSuffix_1_oe
+vali_198_2,"    public void testIsValidISSNConvertSuffix_2_oe() {
+        try {
+            // removed other assertion
+            fail(""Expected IllegalArgumentException"");
+    }
+    }
+",ISSNValidatorTest::testIsValidISSNConvertSuffix_2_oe
+vali_198_3,"    public void testIsValidISSNConvertSuffix_3_oe() {
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            assertNull(VALIDATOR.convertToEAN13(null, """"));
+    }
+    }
+",ISSNValidatorTest::testIsValidISSNConvertSuffix_3_oe
+vali_198_4,"    public void testIsValidISSNConvertSuffix_4_oe() {
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            fail(""Expected IllegalArgumentException"");
+    }
+    }
+",ISSNValidatorTest::testIsValidISSNConvertSuffix_4_oe
+vali_198_5,"    public void testIsValidISSNConvertSuffix_5_oe() {
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            assertNull(VALIDATOR.convertToEAN13(null, ""0""));
+    }
+    }
+",ISSNValidatorTest::testIsValidISSNConvertSuffix_5_oe
+vali_198_6,"    public void testIsValidISSNConvertSuffix_6_oe() {
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            fail(""Expected IllegalArgumentException"");
+    }
+    }
+",ISSNValidatorTest::testIsValidISSNConvertSuffix_6_oe
+vali_198_7,"    public void testIsValidISSNConvertSuffix_7_oe() {
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            assertNull(VALIDATOR.convertToEAN13(null, ""A""));
+    }
+    }
+",ISSNValidatorTest::testIsValidISSNConvertSuffix_7_oe
+vali_198_8,"    public void testIsValidISSNConvertSuffix_8_oe() {
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            fail(""Expected IllegalArgumentException"");
+    }
+    }
+",ISSNValidatorTest::testIsValidISSNConvertSuffix_8_oe
+vali_198_9,"    public void testIsValidISSNConvertSuffix_9_oe() {
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            assertNull(VALIDATOR.convertToEAN13(null, ""AA""));
+    }
+    }
+",ISSNValidatorTest::testIsValidISSNConvertSuffix_9_oe
+vali_198_10,"    public void testIsValidISSNConvertSuffix_10_oe() {
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            fail(""Expected IllegalArgumentException"");
+    }
+    }
+",ISSNValidatorTest::testIsValidISSNConvertSuffix_10_oe
+vali_198_11,"    public void testIsValidISSNConvertSuffix_11_oe() {
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            assertNull(VALIDATOR.convertToEAN13(null, ""999""));
+    }
+    }
+",ISSNValidatorTest::testIsValidISSNConvertSuffix_11_oe
+vali_198_12,"    public void testIsValidISSNConvertSuffix_12_oe() {
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            // removed other assertion
+        } catch (IllegalArgumentException expected) {
+            
+        }
+        try {
+            // removed other assertion
+            fail(""Expected IllegalArgumentException"");
+    }
+    }
+",ISSNValidatorTest::testIsValidISSNConvertSuffix_12_oe
 vali_199_1,"    public void testIsValidISSNConvert_1_oe() {        
         CheckDigit ean13cd = EAN13CheckDigit.EAN13_CHECK_DIGIT;
         Random r = new Random();
@@ -30619,6 +31543,54 @@ vali_199_4,"    public void testIsValidISSNConvert_4_oe() {
         assertEquals(""9771234567003"", VALIDATOR.convertToEAN13(""1234-5679"", ""00""));
     }
 ",ISSNValidatorTest::testIsValidISSNConvert_4_oe
+vali_200_1,"    public void testConversionErrors_1_oe() {
+        String input = null;
+        try {
+            input = ""9780072129519"";
+            VALIDATOR.extractFromEAN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'"");
+    }
+    }
+",ISSNValidatorTest::testConversionErrors_1_oe
+vali_200_2,"    public void testConversionErrors_2_oe() {
+        String input = null;
+        try {
+            input = ""9780072129519"";
+            VALIDATOR.extractFromEAN13(input);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = ""9791090636071"";
+            VALIDATOR.extractFromEAN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'"");
+    }
+    }
+",ISSNValidatorTest::testConversionErrors_2_oe
+vali_200_3,"    public void testConversionErrors_3_oe() {
+        String input = null;
+        try {
+            input = ""9780072129519"";
+            VALIDATOR.extractFromEAN13(input);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = ""9791090636071"";
+            VALIDATOR.extractFromEAN13(input);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            // expected result
+        }
+        try {
+            input = ""03178471"";
+            VALIDATOR.extractFromEAN13(input);
+            fail(""Expected IllegalArgumentException for '"" + input + ""'"");
+    }
+    }
+",ISSNValidatorTest::testConversionErrors_3_oe
 vali_201_1,"    public void testValidCheckDigitEan13_1_oe() {
         assertNull(VALIDATOR.extractFromEAN13(""9771234567001""));
     }
@@ -151127,6 +152099,28 @@ vali_232_10,"    public void testArrayConstructor_10_oe() {
         assertFalse(ccv.isValid(ERROR_DISCOVER));
     }
 ",CreditCardValidatorTest::testArrayConstructor_10_oe
+vali_232_11,"    public void testArrayConstructor_11_oe() {
+        CreditCardValidator ccv = new CreditCardValidator(new CodeValidator[]
+               {CreditCardValidator.VISA_VALIDATOR, CreditCardValidator.AMEX_VALIDATOR});
+        
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            new CreditCardValidator((CodeValidator[]) null);
+            fail(""Expected IllegalArgumentException"");
+    }
+    }
+",CreditCardValidatorTest::testArrayConstructor_11_oe
 vali_233_1,"    public void testAmexValidator_1_oe() {
 
         CodeValidator validator = CreditCardValidator.AMEX_VALIDATOR;
@@ -157718,6 +158712,30 @@ vali_251_2,"   public void testIsValid_2_oe(Object[] testObjects, long options) 
       assertTrue(urlVal.isValid(""http://www.google.com/""));
    }
 ",UrlValidatorTest::testIsValid_2_oe
+vali_251_3,"   public void testIsValid_3_oe(Object[] testObjects, long options) {
+      UrlValidator urlVal = new UrlValidator(null, null, options);
+      // removed other assertion
+      // removed other assertion
+      int statusPerLine = 60;
+      int printed = 0;
+      if (printIndex)  {
+         statusPerLine = 6;
+      }
+      do {
+          StringBuilder testBuffer = new StringBuilder();
+         boolean expected = true;
+         for (int testPartsIndexIndex = 0; testPartsIndexIndex < testPartsIndex.length; ++testPartsIndexIndex) {
+            int index = testPartsIndex[testPartsIndexIndex];
+            ResultPair[] part = (ResultPair[]) testObjects[testPartsIndexIndex];
+            testBuffer.append(part[index].item);
+            expected &= part[index].valid;
+         }
+         String url = testBuffer.toString();
+         boolean result = urlVal.isValid(url);
+         assertEquals(url, expected, result);
+   }
+   }
+",UrlValidatorTest::testIsValid_3_oe
 vali_252_1,"   @Test
    public void testValidator202_1_oe() {
        String[] schemes = {""http"",""https""};
@@ -158207,6 +159225,34 @@ vali_258_8,"    @Test
         assertTrue(""file:///c:/ should now be allowed"", validator.isValid(""file:///C:/some.file""));
     }
 ",UrlValidatorTest::testValidator276_8_oe
+vali_258_9,"    @Test
+    public void testValidator276_9_oe() {
+        // file:// isn't allowed by default
+        UrlValidator validator = new UrlValidator();
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // Turn it on, and check
+        // Note - we need to enable local urls when working with file:
+        validator = new UrlValidator(new String[] {""http"",""file""}, UrlValidator.ALLOW_LOCAL_URLS);
+
+        // removed other assertion
+
+        // removed other assertion
+
+        assertFalse(""file:///c:\\ should not be allowed"", // Only allow forward slashes validator.isValid(""file:///C:\\some.file""));
+    }
+",UrlValidatorTest::testValidator276_9_oe
 vali_258_10,"    @Test
     public void testValidator276_10_oe() {
         // file:// isn't allowed by default
@@ -162254,6 +163300,24 @@ vali_291_2,"    public void testIsValidFalse_2_oe() {
     }
     }
 ",AbstractCheckDigitTest::testIsValidFalse_2_oe
+vali_292_1,"    public void testCalculateValid_1_oe() {
+        if (log.isDebugEnabled()) {
+            log.debug(""testCalculateValid() for "" + routine.getClass().getName());
+        }
+
+        // test valid values
+        for (int i = 0; i < valid.length; i++) {
+            String code = removeCheckDigit(valid[i]);
+            String expected = checkDigit(valid[i]);
+            try {
+                if (log.isDebugEnabled()) {
+                    log.debug(""   "" + i + "" Testing Valid Check Digit, Code=["" + code + ""] expected=["" + expected + ""]"");
+                }
+                assertEquals(""valid["" + i +""]: "" + valid[i], expected, routine.calculate(code));
+    }
+    }
+    }
+",AbstractCheckDigitTest::testCalculateValid_1_oe
 vali_292_2,"    public void testCalculateValid_2_oe() {
         if (log.isDebugEnabled()) {
             log.debug(""testCalculateValid() for "" + routine.getClass().getName());
@@ -162274,6 +163338,29 @@ vali_292_2,"    public void testCalculateValid_2_oe() {
     }
     }
 ",AbstractCheckDigitTest::testCalculateValid_2_oe
+vali_293_1,"    public void testCalculateInvalid_1_oe() {
+
+        if (log.isDebugEnabled()) {
+            log.debug(""testCalculateInvalid() for "" + routine.getClass().getName());
+        }
+
+        // test invalid code values
+        for (int i = 0; i < invalid.length; i++) {
+            try {
+                final String code = invalid[i];
+                if (log.isDebugEnabled()) {
+                    log.debug(""   "" + i + "" Testing Invalid Check Digit, Code=["" + code + ""]"");
+                }
+                String expected = checkDigit(code);
+                String actual = routine.calculate(removeCheckDigit(code));
+                // If exception not thrown, check that the digit is incorrect instead
+                if (expected.equals(actual)) {
+                    fail(""Expected mismatch for "" + code + "" expected "" + expected + "" actual "" + actual);
+    }
+    }
+    }
+    }
+",AbstractCheckDigitTest::testCalculateInvalid_1_oe
 vali_293_2,"    public void testCalculateInvalid_2_oe() {
 
         if (log.isDebugEnabled()) {
@@ -162331,6 +163418,25 @@ vali_294_3,"    public void testMissingCode_3_oe() {
         assertFalse(""isValid() Length 1"", routine.isValid(""9""));
     }
 ",AbstractCheckDigitTest::testMissingCode_3_oe
+vali_294_4,"    public void testMissingCode_4_oe() {
+
+        // isValid() null
+        // removed other assertion
+
+        // isValid() zero length
+        // removed other assertion
+
+        // isValid() length 1
+        // Don't use 0, because that passes for Verhoef (not sure why yet)
+        // removed other assertion
+
+        // calculate() null
+        try {
+            routine.calculate(null);
+            fail(""calculate() Null - expected exception"");
+    }
+    }
+",AbstractCheckDigitTest::testMissingCode_4_oe
 vali_294_5,"    public void testMissingCode_5_oe() {
 
         // isValid() null
@@ -162352,6 +163458,33 @@ vali_294_5,"    public void testMissingCode_5_oe() {
     }
     }
 ",AbstractCheckDigitTest::testMissingCode_5_oe
+vali_294_6,"    public void testMissingCode_6_oe() {
+
+        // isValid() null
+        // removed other assertion
+
+        // isValid() zero length
+        // removed other assertion
+
+        // isValid() length 1
+        // Don't use 0, because that passes for Verhoef (not sure why yet)
+        // removed other assertion
+
+        // calculate() null
+        try {
+            routine.calculate(null);
+            // removed other assertion
+        } catch (Exception e) {
+            // removed other assertion
+        }
+
+        // calculate() zero length
+        try {
+            routine.calculate("""");
+            fail(""calculate() Zero Length - expected exception"");
+    }
+    }
+",AbstractCheckDigitTest::testMissingCode_6_oe
 vali_294_7,"    public void testMissingCode_7_oe() {
 
         // isValid() null
@@ -162386,6 +163519,16 @@ vali_295_1,"    public void testZeroSum_1_oe() {
         assertFalse(""isValid() Zero Sum"", routine.isValid(zeroSum));
     }
 ",AbstractCheckDigitTest::testZeroSum_1_oe
+vali_295_2,"    public void testZeroSum_2_oe() {
+        
+        // removed other assertion
+
+        try {
+            routine.calculate(zeroSum);
+            fail(""Zero Sum - expected exception"");
+    }
+    }
+",AbstractCheckDigitTest::testZeroSum_2_oe
 vali_295_3,"    public void testZeroSum_3_oe() {
         
         // removed other assertion
@@ -162483,6 +163626,44 @@ vali_299_1,"    public void testVALIDATOR_346_1_oe() {
     }
     }
 ",SedolCheckDigitTest::testVALIDATOR_346_1_oe
+vali_300_1,"    public void testOther_1_oe() throws Exception {
+        BufferedReader rdr = null;
+        try {
+            rdr = new BufferedReader(
+                    new InputStreamReader(
+                            this.getClass().getResourceAsStream(""IBANtests.txt""),""ASCII""));
+            String line;
+            while((line=rdr.readLine()) != null) {
+                if (!line.startsWith(""#"") && line.length() > 0) {
+                    if (line.startsWith(""-"")) {
+                        line = line.substring(1);
+                        Assert.assertFalse(line, routine.isValid(line.replaceAll("" "", """")));
+    }
+    }
+    }
+    }
+    }
+",IBANCheckDigitTest::testOther_1_oe
+vali_300_2,"    public void testOther_2_oe() throws Exception {
+        BufferedReader rdr = null;
+        try {
+            rdr = new BufferedReader(
+                    new InputStreamReader(
+                            this.getClass().getResourceAsStream(""IBANtests.txt""),""ASCII""));
+            String line;
+            while((line=rdr.readLine()) != null) {
+                if (!line.startsWith(""#"") && line.length() > 0) {
+                    if (line.startsWith(""-"")) {
+                        line = line.substring(1);
+                        // removed other assertion
+                    } else {
+                        Assert.assertTrue(line, routine.isValid(line.replaceAll("" "", """")));
+    }
+    }
+    }
+    }
+    }
+",IBANCheckDigitTest::testOther_2_oe
 vali_301_1,"    public void testVALIDATOR_346_1_oe() {
         for (int i = 0; i < invalidCheckDigits.length; i++) {
             String invalidCheckDigit = invalidCheckDigits[i];
@@ -162526,6 +163707,18 @@ vali_304_4,"    public void testInvalidLength_4_oe() {
         assertFalse(""isValid() Lth 14"", routine.isValid(""12345678901234""));
     }
 ",ISBNCheckDigitTest::testInvalidLength_4_oe
+vali_304_5,"    public void testInvalidLength_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            routine.calculate(""12345678"");
+            fail(""calculate() Lth 8 - expected exception"");
+    }
+    }
+",ISBNCheckDigitTest::testInvalidLength_5_oe
 vali_304_6,"    public void testInvalidLength_6_oe() {
         // removed other assertion
         // removed other assertion
@@ -162540,6 +163733,25 @@ vali_304_6,"    public void testInvalidLength_6_oe() {
     }
     }
 ",ISBNCheckDigitTest::testInvalidLength_6_oe
+vali_304_7,"    public void testInvalidLength_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            routine.calculate(""12345678"");
+            // removed other assertion
+        } catch (Exception e) {
+            // removed other assertion
+        }
+
+        try {
+            routine.calculate(""1234567890"");
+            fail(""calculate() Lth 10 - expected exception"");
+    }
+    }
+",ISBNCheckDigitTest::testInvalidLength_7_oe
 vali_304_8,"    public void testInvalidLength_8_oe() {
         // removed other assertion
         // removed other assertion
@@ -162561,6 +163773,32 @@ vali_304_8,"    public void testInvalidLength_8_oe() {
     }
     }
 ",ISBNCheckDigitTest::testInvalidLength_8_oe
+vali_304_9,"    public void testInvalidLength_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            routine.calculate(""12345678"");
+            // removed other assertion
+        } catch (Exception e) {
+            // removed other assertion
+        }
+
+        try {
+            routine.calculate(""1234567890"");
+            // removed other assertion
+        } catch (Exception e) {
+            // removed other assertion
+        }
+
+        try {
+            routine.calculate(""12345678901"");
+            fail(""calculate() Lth 11 - expected exception"");
+    }
+    }
+",ISBNCheckDigitTest::testInvalidLength_9_oe
 vali_304_10,"    public void testInvalidLength_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -162589,6 +163827,39 @@ vali_304_10,"    public void testInvalidLength_10_oe() {
     }
     }
 ",ISBNCheckDigitTest::testInvalidLength_10_oe
+vali_304_11,"    public void testInvalidLength_11_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            routine.calculate(""12345678"");
+            // removed other assertion
+        } catch (Exception e) {
+            // removed other assertion
+        }
+
+        try {
+            routine.calculate(""1234567890"");
+            // removed other assertion
+        } catch (Exception e) {
+            // removed other assertion
+        }
+
+        try {
+            routine.calculate(""12345678901"");
+            // removed other assertion
+        } catch (Exception e) {
+            // removed other assertion
+        }
+
+        try {
+            routine.calculate(""1234567890123"");
+            fail(""calculate() Lth 13 - expected exception"");
+    }
+    }
+",ISBNCheckDigitTest::testInvalidLength_11_oe
 vali_304_12,"    public void testInvalidLength_12_oe() {
         // removed other assertion
         // removed other assertion

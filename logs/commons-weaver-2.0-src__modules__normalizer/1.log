@@ -45,7 +45,7 @@ main:
 [INFO] --- buildnumber:1.4:create (default) @ commons-weaver-normalizer ---
 [INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/modules/normalizer' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/modules/normalizer
-[INFO] Storing buildNumber: 74773d2acb91b0a98a0c2844a2b8369f83706543 at timestamp: 1768587499039
+[INFO] Storing buildNumber: ba422cbeaa32efdad405fd5df283f67519011b01 at timestamp: 1768596631790
 [INFO] Storing buildScmBranch: main
 [INFO] 
 [INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-normalizer ---
@@ -83,7 +83,7 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 s - in org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.237 s - in org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -92,6 +92,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.763 s
-[INFO] Finished at: 2026-01-16T13:18:23-05:00
+[INFO] Total time:  9.645 s
+[INFO] Finished at: 2026-01-16T15:50:38-05:00
 [INFO] ------------------------------------------------------------------------

@@ -73,6 +73,7 @@ bcel_59_1,bcel-6.5.0-src,PLSETestCase,testB262_1_oe,src/test/java/org/apache/bce
 bcel_60_1,bcel-6.5.0-src,PLSETestCase,testB295_1_oe,src/test/java/org/apache/bcel/PLSETestCase.java,,,,assert,unknown
 bcel_61_1,bcel-6.5.0-src,AnnotationDefaultAttributeTestCase,testMethodAnnotations_1_oe,src/test/java/org/apache/bcel/AnnotationDefaultAttributeTestCase.java,,,,assert,unknown
 bcel_61_2,bcel-6.5.0-src,AnnotationDefaultAttributeTestCase,testMethodAnnotations_2_oe,src/test/java/org/apache/bcel/AnnotationDefaultAttributeTestCase.java,,,,assert,unknown
+bcel_62_1,bcel-6.5.0-src,PerformanceTest,testPerformance_1_oe,src/test/java/org/apache/bcel/PerformanceTest.java,,,,assert,unknown
 bcel_63_1,bcel-6.5.0-src,EnumAccessFlagTestCase,testEnumClassSaysItIs_1_oe,src/test/java/org/apache/bcel/EnumAccessFlagTestCase.java,,,,assert,unknown
 bcel_63_2,bcel-6.5.0-src,EnumAccessFlagTestCase,testEnumClassSaysItIs_2_oe,src/test/java/org/apache/bcel/EnumAccessFlagTestCase.java,,,,assert,unknown
 bcel_64_1,bcel-6.5.0-src,Class2HTMLTestCase,testConvertJavaUtil_1_oe,src/test/java/org/apache/bcel/util/Class2HTMLTestCase.java,,,,assert,unknown
