@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Fri Jan 16 10:34:44 EST 2026:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-019b-c771-d418-00000f593000 
-on database directory memory:/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@30946e09 
+Fri Jan 16 13:19:57 EST 2026:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.1 - (1616546): instance a816c00e-019b-c809-170f-00000ebea6e8 
+on database directory memory:/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa/test with class loader sun.misc.Launcher$AppClassLoader@6bc7c054 
 Loaded from file:/home/wxw9rr/.m2/repository/org/apache/derby/derby/10.11.1.1/derby-10.11.1.1.jar
-java.vendor=Eclipse Adoptium
-java.runtime.version=17.0.15+6
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_171-b11
 user.dir=/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-openjpa
 os.name=Linux
 os.arch=amd64

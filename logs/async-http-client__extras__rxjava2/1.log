@@ -1,0 +1,46 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------< org.asynchttpclient:async-http-client-extras-rxjava2 >--------
+[INFO] Building Asynchronous Http Client RxJava2 Extras 2.12.3
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:1.4.1:enforce (enforce-versions) @ async-http-client-extras-rxjava2 ---
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ async-http-client-extras-rxjava2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/main/resources
+[INFO] 
+[INFO] --- compiler:3.6.1:compile (default-compile) @ async-http-client-extras-rxjava2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/target/classes
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ async-http-client-extras-rxjava2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-rxjava2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/target/test-classes
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeAsyncHandlerBridgeTest.java: Some input files use or override a deprecated API.
+[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeAsyncHandlerBridgeTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- surefire:2.19.1:test (default-test) @ async-http-client-extras-rxjava2 ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
+Running org.asynchttpclient.extras.rxjava2.DefaultRxHttpClientTest_OE25Dev
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.711 sec - in org.asynchttpclient.extras.rxjava2.DefaultRxHttpClientTest_OE25Dev
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.994 s
+[INFO] Finished at: 2026-01-16T13:19:12-05:00
+[INFO] ------------------------------------------------------------------------

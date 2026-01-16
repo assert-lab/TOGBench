@@ -1,0 +1,76 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------< org.apache.commons:commons-numbers-quaternion >------------
+[INFO] Building Apache Commons Numbers Quaternion 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-quaternion ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-quaternion ---
+[INFO] 
+[INFO] --- apache-rat:0.13:check (rat-check) @ commons-numbers-quaternion ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper:3.1.0:parse-version (parse-version) @ commons-numbers-quaternion ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-numbers-quaternion ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-quaternion/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-numbers-quaternion ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-numbers-quaternion ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-quaternion' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-quaternion
+[INFO] Storing buildNumber: 74773d2acb91b0a98a0c2844a2b8369f83706543 at timestamp: 1768587434815
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ commons-numbers-quaternion ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-quaternion/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-numbers-quaternion ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-quaternion/target/classes
+[INFO] 
+[INFO] --- bundle:4.2.1:manifest (bundle-manifest) @ commons-numbers-quaternion ---
+[INFO] 
+[INFO] --- animal-sniffer:1.18:check (checkAPIcompatibility) @ commons-numbers-quaternion ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-numbers-quaternion ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-quaternion/src/test/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-numbers-quaternion ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-quaternion/target/test-classes
+[INFO] 
+[INFO] --- jacoco:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-quaternion ---
+[INFO] argLine set to -javaagent:/home/wxw9rr/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-quaternion/target/jacoco.exec
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-numbers-quaternion ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.numbers.quaternion.SlerpTest_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in org.apache.commons.numbers.quaternion.SlerpTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.368 s
+[INFO] Finished at: 2026-01-16T13:17:20-05:00
+[INFO] ------------------------------------------------------------------------

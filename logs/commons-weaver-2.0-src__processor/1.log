@@ -1,0 +1,126 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------< org.apache.commons:commons-weaver-processor >-------------
+[INFO] Building Apache Commons Weaver Processor 2.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-processor ---
+[INFO] Executing tasks
+
+main:
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-processor ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/generated-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/generated-test-resources/notices/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/apidocs/META-INF
+     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/apidocs/META-INF
+     [copy] Copying /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/apidocs/META-INF/LICENSE-asm6.2.1.txt
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-processor ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor
+[INFO] Storing buildNumber: 74773d2acb91b0a98a0c2844a2b8369f83706543 at timestamp: 1768587499054
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-processor ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/src/main/resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-processor ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 39 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/classes
+[INFO] 
+[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-processor ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- build-helper:1.9:add-test-resource (add-test-notices) @ commons-weaver-processor ---
+[INFO] 
+[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-processor ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-processor ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 19 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/test-classes
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-processor ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.weaver.FinderTest_OE25Dev
+[INFO] Tests run: 166, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.797 s - in org.apache.commons.weaver.FinderTest_OE25Dev
+[INFO] Running org.apache.commons.weaver.utils.ProvidersTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.weaver.utils.ProvidersTest_OE25Dev
+[INFO] Running org.apache.commons.weaver.utils.ArgsTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.weaver.utils.ArgsTest_OE25Dev
+[INFO] Running org.apache.commons.weaver.test.WeaveProcessorTest_OE25Dev
+[ERROR] Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.691 s <<< FAILURE! - in org.apache.commons.weaver.test.WeaveProcessorTest_OE25Dev
+[ERROR] testWeaveVisiting_5_oe(org.apache.commons.weaver.test.WeaveProcessorTest_OE25Dev)  Time elapsed: 0.09 s  <<< FAILURE!
+java.lang.AssertionError: expected:<1> but was:<5>
+	at org.apache.commons.weaver.test.WeaveProcessorTest_OE25Dev.testWeaveVisiting_5_oe(WeaveProcessorTest_OE25Dev.java:138)
+
+[ERROR] testWeaveVisiting_7_oe(org.apache.commons.weaver.test.WeaveProcessorTest_OE25Dev)  Time elapsed: 0.061 s  <<< FAILURE!
+java.lang.AssertionError: expected:<2> but was:<14>
+	at org.apache.commons.weaver.test.WeaveProcessorTest_OE25Dev.testWeaveVisiting_7_oe(WeaveProcessorTest_OE25Dev.java:190)
+
+[INFO] Running org.apache.commons.weaver.test.CleanProcessorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in org.apache.commons.weaver.test.CleanProcessorTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   WeaveProcessorTest_OE25Dev.testWeaveVisiting_5_oe:138 expected:<1> but was:<5>
+[ERROR]   WeaveProcessorTest_OE25Dev.testWeaveVisiting_7_oe:190 expected:<2> but was:<14>
+[INFO] 
+[ERROR] Tests run: 188, Failures: 2, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  23.842 s
+[INFO] Finished at: 2026-01-16T13:18:41-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-weaver-processor: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-weaver-2.0-src/processor/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -2,6 +2,8 @@ find projects_decomposed -type f -name "*_OE25Dev.java" -delete
 
 ./scripts/build_treesitter.sh
 
+./scripts/expand_assertEqualsTypeNotNull.py
+
 python3 scripts/1_build_dataset.py
 
 python3 scripts/dataset_post_process.py

@@ -1,0 +1,84 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-numbers-core >---------------
+[INFO] Building Apache Commons Numbers Core 1.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-core ---
+[INFO] 
+[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-core ---
+[INFO] 
+[INFO] --- apache-rat:0.13:check (rat-check) @ commons-numbers-core ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper:3.1.0:parse-version (parse-version) @ commons-numbers-core ---
+[INFO] 
+[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-numbers-core ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-core/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-numbers-core ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber:1.4:create (default) @ commons-numbers-core ---
+[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-core' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-core
+[INFO] Storing buildNumber: 74773d2acb91b0a98a0c2844a2b8369f83706543 at timestamp: 1768587431237
+[INFO] Storing buildScmBranch: main
+[INFO] 
+[INFO] --- resources:3.1.0:resources (default-resources) @ commons-numbers-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-core/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-numbers-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-core/target/classes
+[INFO] 
+[INFO] --- bundle:4.2.1:manifest (bundle-manifest) @ commons-numbers-core ---
+[INFO] 
+[INFO] --- animal-sniffer:1.18:check (checkAPIcompatibility) @ commons-numbers-core ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-numbers-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-core/src/test/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-numbers-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 13 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-core/target/test-classes
+[INFO] 
+[INFO] --- jacoco:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-core ---
+[INFO] argLine set to -javaagent:/home/wxw9rr/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-core/target/jacoco.exec
+[INFO] 
+[INFO] --- surefire:2.22.0:test (default-test) @ commons-numbers-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
+[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s - in org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.PrecisionTest_OE25Dev
+[INFO] Tests run: 145, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.numbers.core.PrecisionTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.NormTest_OE25Dev
+[INFO] Tests run: 109, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.numbers.core.NormTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.SumTest_OE25Dev
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.numbers.core.SumTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 427, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.857 s
+[INFO] Finished at: 2026-01-16T13:17:18-05:00
+[INFO] ------------------------------------------------------------------------
