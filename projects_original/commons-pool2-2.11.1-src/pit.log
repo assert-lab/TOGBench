@@ -60,4 +60,119 @@
 [INFO] Mutating from /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_original/commons-pool2-2.11.1-src/target/classes
 [INFO] Replacing properties in argLine --illegal-access=permit
                 --add-opens java.base/java.lang=ALL-UNNAMED
-/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|//-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_ELSE
+>> Generated 69 Killed 48 (70%)
+> KILLED 40 SURVIVED 16 TIMED_OUT 8 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 5 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 490 Killed 270 (55%)
+> KILLED 225 SURVIVED 132 TIMED_OUT 45 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 88 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator
+>> Generated 1 Killed 1 (100%)
+> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 0 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_ELSE
+>> Generated 362 Killed 210 (58%)
+> KILLED 185 SURVIVED 114 TIMED_OUT 25 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 38 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
+>> Generated 169 Killed 127 (75%)
+> KILLED 123 SURVIVED 16 TIMED_OUT 4 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 26 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_ORDER_IF
+>> Generated 69 Killed 40 (58%)
+> KILLED 31 SURVIVED 24 TIMED_OUT 9 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 5 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
+>> Generated 48 Killed 28 (58%)
+> KILLED 25 SURVIVED 14 TIMED_OUT 3 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 6 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
+>> Generated 52 Killed 17 (33%)
+> KILLED 17 SURVIVED 16 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 19 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+>> Generated 69 Killed 20 (29%)
+> KILLED 17 SURVIVED 44 TIMED_OUT 3 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 5 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
+>> Generated 101 Killed 64 (63%)
+> KILLED 60 SURVIVED 11 TIMED_OUT 4 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 26 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
+>> Generated 9 Killed 5 (56%)
+> KILLED 5 SURVIVED 1 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 3 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
+>> Generated 75 Killed 35 (47%)
+> KILLED 32 SURVIVED 25 TIMED_OUT 3 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 15 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
+>> Generated 61 Killed 41 (67%)
+> KILLED 35 SURVIVED 15 TIMED_OUT 6 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 5 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.RemoveConditionalMutator_EQUAL_IF
+>> Generated 362 Killed 219 (60%)
+> KILLED 180 SURVIVED 105 TIMED_OUT 39 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 38 
+--------------------------------------------------------------------------------
+================================================================================
+- Timings
+================================================================================
+> pre-scan for mutations : < 1 second
+> scan classpath : < 1 second
+> coverage and dependency analysis : 5 minutes and 19 seconds
+> build mutation tests : < 1 second
+> run mutation analysis : 5 hours, 8 minutes and 51 seconds
+--------------------------------------------------------------------------------
+> Total  : 5 hours, 14 minutes and 12 seconds
+--------------------------------------------------------------------------------
+> 26 tests took longer than 2000 ms
+> Slowest test ([engine:junit-jupiter]/[class:org.apache.commons.pool2.impl.TestGenericKeyedObjectPool]/[method:testMaxActivePerKeyExceeded()]) took 105181 ms
+> Largest test ([engine:junit-jupiter]/[class:org.apache.commons.pool2.impl.TestGenericKeyedObjectPool]/[method:testEviction()]) covered 1022 blocks
+================================================================================
+- Statistics
+================================================================================
+>> Line Coverage (for mutated classes only): 2463/3123 (79%)
+>> 115 tests examined
+>> Generated 1937 mutations Killed 1125 (58%)
+>> Mutations with no coverage 279. Test strength 68%
+>> Ran 15164 tests (7.83 tests per mutation)
+Enhanced functionality available at https://www.arcmutate.com/
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  05:14 h
+[INFO] Finished at: 2026-01-16T17:07:26-05:00
+[INFO] ------------------------------------------------------------------------
