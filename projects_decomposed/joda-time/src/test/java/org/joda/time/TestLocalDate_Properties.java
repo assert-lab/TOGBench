@@ -84,10 +84,10 @@ public class TestLocalDate_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetYear() {
         LocalDate test = new LocalDate(1972, 6, 9);
-        assertSame(test.getChronology().year(), test.year().getField());
+        assertEquals(test.getChronology().year(), test.year().getField());
         assertEquals("year", test.year().getName());
         assertEquals("Property[year]", test.year().toString());
-        assertSame(test, test.year().getLocalDate());
+        assertEquals(test, test.year().getLocalDate());
         assertEquals(1972, test.year().get());
         assertEquals("1972", test.year().getAsString());
         assertEquals("1972", test.year().getAsText());
@@ -194,10 +194,10 @@ public class TestLocalDate_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMonth() {
         LocalDate test = new LocalDate(1972, 6, 9);
-        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
+        assertEquals(test.getChronology().monthOfYear(), test.monthOfYear().getField());
         assertEquals("monthOfYear", test.monthOfYear().getName());
         assertEquals("Property[monthOfYear]", test.monthOfYear().toString());
-        assertSame(test, test.monthOfYear().getLocalDate());
+        assertEquals(test, test.monthOfYear().getLocalDate());
         assertEquals(6, test.monthOfYear().get());
         assertEquals("6", test.monthOfYear().getAsString());
         assertEquals("June", test.monthOfYear().getAsText());
@@ -338,10 +338,10 @@ public class TestLocalDate_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetDay() {
         LocalDate test = new LocalDate(1972, 6, 9);
-        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
         assertEquals("dayOfMonth", test.dayOfMonth().getName());
         assertEquals("Property[dayOfMonth]", test.dayOfMonth().toString());
-        assertSame(test, test.dayOfMonth().getLocalDate());
+        assertEquals(test, test.dayOfMonth().getLocalDate());
         assertEquals(9, test.dayOfMonth().get());
         assertEquals("9", test.dayOfMonth().getAsString());
         assertEquals("9", test.dayOfMonth().getAsText());

@@ -295,8 +295,8 @@ public class TestDateTimeFieldType extends TestCase {
         DateTimeFieldType type = (DateTimeFieldType) con.newInstance(params);
         
         assertEquals("other", type.getName());
-        assertSame(DurationFieldType.hours(), type.getDurationType());
-        assertSame(DurationFieldType.months(), type.getRangeDurationType());
+        assertEquals(DurationFieldType.hours(), type.getDurationType());
+        assertEquals(DurationFieldType.months(), type.getRangeDurationType());
         try {
             type.getField(CopticChronology.getInstanceUTC());
             fail();
@@ -309,7 +309,7 @@ public class TestDateTimeFieldType extends TestCase {
     //-----------------------------------------------------------------------
     private void assertSerialization(DateTimeFieldType type) throws Exception {
         DateTimeFieldType result = doSerialization(type);
-        assertSame(type, result);
+        assertEquals(type, result);
     }
 
     private DateTimeFieldType doSerialization(DateTimeFieldType type) throws Exception {

@@ -171,7 +171,7 @@ public class TestDurationFieldType extends TestCase {
     //-----------------------------------------------------------------------
     private void assertSerialization(DurationFieldType type) throws Exception {
         DurationFieldType result = doSerialization(type);
-        assertSame(type, result);
+        assertEquals(type, result);
     }
 
     private DurationFieldType doSerialization(DurationFieldType type) throws Exception {

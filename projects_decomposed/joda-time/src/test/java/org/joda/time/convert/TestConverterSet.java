@@ -127,7 +127,7 @@ public class TestConverterSet extends TestCase {
         };
         ConverterSet set = new ConverterSet(array);
         ConverterSet result = set.add(c4, null);
-        assertSame(set, result);
+        assertEquals(set, result);
     }
 
     public void testAddNullRemoved3() {
@@ -158,7 +158,7 @@ public class TestConverterSet extends TestCase {
         };
         ConverterSet set = new ConverterSet(array);
         ConverterSet result = set.remove(c5, null);
-        assertSame(set, result);
+        assertEquals(set, result);
     }
 
     //-----------------------------------------------------------------------

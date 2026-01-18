@@ -89,10 +89,10 @@ public class TestLocalDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetYear() {
         LocalDateTime test = new LocalDateTime(1972, 6, 9, 10, 20, 30, 40);
-        assertSame(test.getChronology().year(), test.year().getField());
+        assertEquals(test.getChronology().year(), test.year().getField());
         assertEquals("year", test.year().getName());
         assertEquals("Property[year]", test.year().toString());
-        assertSame(test, test.year().getLocalDateTime());
+        assertEquals(test, test.year().getLocalDateTime());
         assertEquals(1972, test.year().get());
         assertEquals("1972", test.year().getAsString());
         assertEquals("1972", test.year().getAsText());
@@ -199,10 +199,10 @@ public class TestLocalDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMonth() {
         LocalDateTime test = new LocalDateTime(1972, 6, 9, 10, 20, 30, 40);
-        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
+        assertEquals(test.getChronology().monthOfYear(), test.monthOfYear().getField());
         assertEquals("monthOfYear", test.monthOfYear().getName());
         assertEquals("Property[monthOfYear]", test.monthOfYear().toString());
-        assertSame(test, test.monthOfYear().getLocalDateTime());
+        assertEquals(test, test.monthOfYear().getLocalDateTime());
         assertEquals(6, test.monthOfYear().get());
         assertEquals("6", test.monthOfYear().getAsString());
         assertEquals("June", test.monthOfYear().getAsText());
@@ -343,10 +343,10 @@ public class TestLocalDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetDay() {
         LocalDateTime test = new LocalDateTime(1972, 6, 9, 10, 20, 30, 40);
-        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
         assertEquals("dayOfMonth", test.dayOfMonth().getName());
         assertEquals("Property[dayOfMonth]", test.dayOfMonth().toString());
-        assertSame(test, test.dayOfMonth().getLocalDateTime());
+        assertEquals(test, test.dayOfMonth().getLocalDateTime());
         assertEquals(9, test.dayOfMonth().get());
         assertEquals("9", test.dayOfMonth().getAsString());
         assertEquals("9", test.dayOfMonth().getAsText());
@@ -532,10 +532,10 @@ public class TestLocalDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetHour() {
         LocalDateTime test = new LocalDateTime(2005, 6, 9, 10, 20, 30, 40);
-        assertSame(test.getChronology().hourOfDay(), test.hourOfDay().getField());
+        assertEquals(test.getChronology().hourOfDay(), test.hourOfDay().getField());
         assertEquals("hourOfDay", test.hourOfDay().getName());
         assertEquals("Property[hourOfDay]", test.hourOfDay().toString());
-        assertSame(test, test.hourOfDay().getLocalDateTime());
+        assertEquals(test, test.hourOfDay().getLocalDateTime());
         assertEquals(10, test.hourOfDay().get());
         assertEquals("10", test.hourOfDay().getAsString());
         assertEquals("10", test.hourOfDay().getAsText());
@@ -692,10 +692,10 @@ public class TestLocalDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMinute() {
         LocalDateTime test = new LocalDateTime(2005, 6, 9, 10, 20, 30, 40);
-        assertSame(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
+        assertEquals(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
         assertEquals("minuteOfHour", test.minuteOfHour().getName());
         assertEquals("Property[minuteOfHour]", test.minuteOfHour().toString());
-        assertSame(test, test.minuteOfHour().getLocalDateTime());
+        assertEquals(test, test.minuteOfHour().getLocalDateTime());
         assertEquals(20, test.minuteOfHour().get());
         assertEquals("20", test.minuteOfHour().getAsString());
         assertEquals("20", test.minuteOfHour().getAsText());
@@ -823,10 +823,10 @@ public class TestLocalDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetSecond() {
         LocalDateTime test = new LocalDateTime(2005, 6, 9, 10, 20, 30, 40);
-        assertSame(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
+        assertEquals(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
         assertEquals("secondOfMinute", test.secondOfMinute().getName());
         assertEquals("Property[secondOfMinute]", test.secondOfMinute().toString());
-        assertSame(test, test.secondOfMinute().getLocalDateTime());
+        assertEquals(test, test.secondOfMinute().getLocalDateTime());
         assertEquals(30, test.secondOfMinute().get());
         assertEquals("30", test.secondOfMinute().getAsString());
         assertEquals("30", test.secondOfMinute().getAsText());
@@ -951,10 +951,10 @@ public class TestLocalDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMilli() {
         LocalDateTime test = new LocalDateTime(2005, 6, 9, 10, 20, 30, 40);
-        assertSame(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
+        assertEquals(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
         assertEquals("millisOfSecond", test.millisOfSecond().getName());
         assertEquals("Property[millisOfSecond]", test.millisOfSecond().toString());
-        assertSame(test, test.millisOfSecond().getLocalDateTime());
+        assertEquals(test, test.millisOfSecond().getLocalDateTime());
         assertEquals(40, test.millisOfSecond().get());
         assertEquals("40", test.millisOfSecond().getAsString());
         assertEquals("40", test.millisOfSecond().getAsText());

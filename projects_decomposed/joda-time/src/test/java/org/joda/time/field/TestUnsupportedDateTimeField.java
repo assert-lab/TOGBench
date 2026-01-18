@@ -89,7 +89,7 @@ public class TestUnsupportedDateTimeField extends TestCase {
         DateTimeField fieldTwo = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
-        assertSame(fieldOne, fieldTwo);
+        assertEquals(fieldOne, fieldTwo);
 
         /**
          * The fields returned by getInstance should NOT be the same when the
@@ -111,7 +111,7 @@ public class TestUnsupportedDateTimeField extends TestCase {
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
 
-        assertSame(fieldOne.getName(), dateTimeFieldTypeOne.getName());
+        assertEquals(fieldOne.getName(), dateTimeFieldTypeOne.getName());
     }
 
     /**

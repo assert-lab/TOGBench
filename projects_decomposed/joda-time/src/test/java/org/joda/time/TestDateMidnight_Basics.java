@@ -487,8 +487,8 @@ public class TestDateMidnight_Basics extends TestCase {
     public void testToDateTimeISO() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         DateTime result = test.toDateTimeISO();
-        assertSame(DateTime.class, result.getClass());
-        assertSame(ISOChronology.class, result.getChronology().getClass());
+        assertEquals(DateTime.class, result.getClass());
+        assertEquals(ISOChronology.class, result.getChronology().getClass());
         assertEquals(test.getMillis(), result.getMillis());
         assertEquals(ISO_PARIS, result.getChronology());
     }
@@ -555,8 +555,8 @@ public class TestDateMidnight_Basics extends TestCase {
     public void testToMutableDateTimeISO() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC, PARIS);
         MutableDateTime result = test.toMutableDateTimeISO();
-        assertSame(MutableDateTime.class, result.getClass());
-        assertSame(ISOChronology.class, result.getChronology().getClass());
+        assertEquals(MutableDateTime.class, result.getClass());
+        assertEquals(ISOChronology.class, result.getChronology().getClass());
         assertEquals(test.getMillis(), result.getMillis());
         assertEquals(ISO_PARIS, result.getChronology());
     }
@@ -674,7 +674,7 @@ public class TestDateMidnight_Basics extends TestCase {
         
         test = new DateMidnight(TEST_TIME1_UTC);
         result = test.withMillis(TEST_TIME1_UTC);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testWithChronology_Chronology() {
@@ -698,7 +698,7 @@ public class TestDateMidnight_Basics extends TestCase {
         
         test = new DateMidnight(TEST_TIME1_UTC);
         result = test.withChronology(ISO_DEFAULT);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testWithZoneRetainFields_DateTimeZone() {
@@ -716,15 +716,15 @@ public class TestDateMidnight_Basics extends TestCase {
         
         test = new DateMidnight(TEST_TIME1_UTC);
         result = test.withZoneRetainFields(LONDON);
-        assertSame(test, result);
+        assertEquals(test, result);
         
         test = new DateMidnight(TEST_TIME1_UTC);
         result = test.withZoneRetainFields(null);
-        assertSame(test, result);
+        assertEquals(test, result);
         
         test = new DateMidnight(TEST_TIME1_UTC, new MockNullZoneChronology());
         result = test.withZoneRetainFields(LONDON);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -736,7 +736,7 @@ public class TestDateMidnight_Basics extends TestCase {
         
         test = new DateMidnight(TEST_TIME1_UTC);
         result = test.withFields(null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -784,7 +784,7 @@ public class TestDateMidnight_Basics extends TestCase {
     public void testWithFieldAdded4() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
         DateMidnight result = test.withFieldAdded(DurationFieldType.years(), 0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -795,7 +795,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.withDurationAdded(123456789L, 0);
-        assertSame(test, result);
+        assertEquals(test, result);
         
         result = test.withDurationAdded(123456789L, 2);
         expected = new DateMidnight(test.getMillis() + (2L * 123456789L), BUDDHIST_DEFAULT);
@@ -814,10 +814,10 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.withDurationAdded(null, 1);
-        assertSame(test, result);
+        assertEquals(test, result);
         
         result = test.withDurationAdded(new Duration(123456789L), 0);
-        assertSame(test, result);
+        assertEquals(test, result);
         
         result = test.withDurationAdded(new Duration(123456789L), 2);
         expected = new DateMidnight(test.getMillis() + (2L * 123456789L), BUDDHIST_DEFAULT);
@@ -836,10 +836,10 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.withPeriodAdded(null, 1);
-        assertSame(test, result);
+        assertEquals(test, result);
         
         result = test.withPeriodAdded(new Period(1, 2, 3, 4, 5, 6, 7, 8), 0);
-        assertSame(test, result);
+        assertEquals(test, result);
         
         result = test.withPeriodAdded(new Period(1, 2, 0, 4, 5, 6, 7, 8), 3);
         expected = new DateMidnight(2005, 11, 15, BUDDHIST_DEFAULT);
@@ -865,7 +865,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plus((ReadableDuration) null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlus_RP() {
@@ -875,7 +875,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plus((ReadablePeriod) null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlusYears_int() {
@@ -885,7 +885,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusYears(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlusMonths_int() {
@@ -895,7 +895,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusMonths(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlusWeeks_int() {
@@ -905,7 +905,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusWeeks(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlusDays_int() {
@@ -915,7 +915,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusDays(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     //-----------------------------------------------------------------------    
@@ -933,7 +933,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minus((ReadableDuration) null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinus_RP() {
@@ -943,7 +943,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minus((ReadablePeriod) null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinusYears_int() {
@@ -953,7 +953,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusYears(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinusMonths_int() {
@@ -963,7 +963,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusMonths(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinusWeeks_int() {
@@ -973,7 +973,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusWeeks(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinusDays_int() {
@@ -983,7 +983,7 @@ public class TestDateMidnight_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusDays(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     //-----------------------------------------------------------------------

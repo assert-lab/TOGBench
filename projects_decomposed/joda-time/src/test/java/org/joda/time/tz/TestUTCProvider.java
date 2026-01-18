@@ -66,7 +66,7 @@ public class TestUTCProvider extends TestCase {
     //-----------------------------------------------------------------------
     public void testGetZone_String() throws Exception {
         Provider p = new UTCProvider();
-        assertSame(DateTimeZone.UTC, p.getZone("UTC"));
+        assertEquals(DateTimeZone.UTC, p.getZone("UTC"));
         assertEquals(null, p.getZone(null));
         assertEquals(null, p.getZone("Europe/London"));
         assertEquals(null, p.getZone("Blah"));

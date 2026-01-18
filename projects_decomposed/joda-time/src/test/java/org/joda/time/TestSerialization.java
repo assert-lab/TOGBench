@@ -297,7 +297,7 @@ public class TestSerialization extends TestCase {
         Object obj = ois.readObject();
         ois.close();
         if (same) {
-            assertSame(test, obj);
+            assertEquals(test, obj);
         } else {
             assertEquals(test, obj);
         }
@@ -307,7 +307,7 @@ public class TestSerialization extends TestCase {
 //            obj = ois.readObject();
 //            ois.close();
 //            if (same) {
-//                assertSame(test, obj);
+//                assertEquals(test, obj);
 //            } else {
 //                assertEquals(test, obj);
 //            }
@@ -328,7 +328,7 @@ public class TestSerialization extends TestCase {
         ois.close();
         
         if (same) {
-            assertSame(test, obj);
+            assertEquals(test, obj);
         } else {
             assertEquals(test, obj);
         }

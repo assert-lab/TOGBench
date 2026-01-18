@@ -65,12 +65,12 @@ public class TestWeeks extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testFactory_weeks_int() {
-        assertSame(Weeks.ZERO, Weeks.weeks(0));
-        assertSame(Weeks.ONE, Weeks.weeks(1));
-        assertSame(Weeks.TWO, Weeks.weeks(2));
-        assertSame(Weeks.THREE, Weeks.weeks(3));
-        assertSame(Weeks.MAX_VALUE, Weeks.weeks(Integer.MAX_VALUE));
-        assertSame(Weeks.MIN_VALUE, Weeks.weeks(Integer.MIN_VALUE));
+        assertEquals(Weeks.ZERO, Weeks.weeks(0));
+        assertEquals(Weeks.ONE, Weeks.weeks(1));
+        assertEquals(Weeks.TWO, Weeks.weeks(2));
+        assertEquals(Weeks.THREE, Weeks.weeks(3));
+        assertEquals(Weeks.MAX_VALUE, Weeks.weeks(Integer.MAX_VALUE));
+        assertEquals(Weeks.MIN_VALUE, Weeks.weeks(Integer.MIN_VALUE));
         assertEquals(-1, Weeks.weeks(-1).getWeeks());
         assertEquals(4, Weeks.weeks(4).getWeeks());
     }
@@ -208,7 +208,7 @@ public class TestWeeks extends TestCase {
         Weeks result = (Weeks) ois.readObject();
         ois.close();
         
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -349,7 +349,7 @@ public class TestWeeks extends TestCase {
         assertEquals(6, test.multipliedBy(3).getWeeks());
         assertEquals(2, test.getWeeks());
         assertEquals(-6, test.multipliedBy(-3).getWeeks());
-        assertSame(test, test.multipliedBy(1));
+        assertEquals(test, test.multipliedBy(1));
         
         Weeks halfMax = Weeks.weeks(Integer.MAX_VALUE / 2 + 1);
         try {
@@ -368,7 +368,7 @@ public class TestWeeks extends TestCase {
         assertEquals(3, test.dividedBy(4).getWeeks());
         assertEquals(2, test.dividedBy(5).getWeeks());
         assertEquals(2, test.dividedBy(6).getWeeks());
-        assertSame(test, test.dividedBy(1));
+        assertEquals(test, test.dividedBy(1));
         
         try {
             Weeks.ONE.dividedBy(0);

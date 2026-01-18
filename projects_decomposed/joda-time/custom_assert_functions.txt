@@ -1,0 +1,104 @@
+================================================================================
+assertEqualsAfterSerialization  |  src/test/java/org/joda/time/TestPeriodType.java:111
+================================================================================
+    private void assertEqualsAfterSerialization(PeriodType type) throws Exception {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(baos);
+        oos.writeObject(type);
+        oos.close();
+        byte[] bytes = baos.toByteArray();
+        
+        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+        ObjectInputStream ois = new ObjectInputStream(bais);
+        PeriodType result = (PeriodType) ois.readObject();
+        ois.close();
+        
+        assertEquals(type, result);
+    }
+
+================================================================================
+assertSameAfterSerialization  |  src/test/java/org/joda/time/TestPeriodType.java:126
+================================================================================
+    private void assertSameAfterSerialization(PeriodType type) throws Exception {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ObjectOutputStream oos = new ObjectOutputStream(baos);
+        oos.writeObject(type);
+        oos.close();
+        byte[] bytes = baos.toByteArray();
+        
+        ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+        ObjectInputStream ois = new ObjectInputStream(bais);
+        PeriodType result = (PeriodType) ois.readObject();
+        ois.close();
+        
+        assertEquals(type, result);
+    }
+
+================================================================================
+assertSerialization  |  src/test/java/org/joda/time/TestDateTimeFieldType.java:310
+================================================================================
+    private void assertSerialization(DateTimeFieldType type) throws Exception {
+        DateTimeFieldType result = doSerialization(type);
+        assertSame(type, result);
+    }
+
+================================================================================
+assertMessageContains  |  src/test/java/org/joda/time/TestPartial_Constructors.java:479
+================================================================================
+    private void assertMessageContains(Exception ex, String str) {
+        assertEquals(ex.getMessage() + ": " + str, true, ex.getMessage().indexOf(str) >= 0);
+    }
+
+================================================================================
+assertMessageContains  |  src/test/java/org/joda/time/TestPartial_Constructors.java:490
+================================================================================
+    private void assertMessageContains(Exception ex, String str1, String str2) {
+        assertEquals(ex.getMessage() + ": " + str1 + "/" + str2, true,
+            ex.getMessage().indexOf(str1) >= 0 &&
+            ex.getMessage().indexOf(str2) >= 0 &&
+            ex.getMessage().indexOf(str1) < ex.getMessage().indexOf(str2));
+    }
+
+================================================================================
+assertSerialization  |  src/test/java/org/joda/time/TestDurationFieldType.java:172
+================================================================================
+    private void assertSerialization(DurationFieldType type) throws Exception {
+        DurationFieldType result = doSerialization(type);
+        assertSame(type, result);
+    }
+
+================================================================================
+assertParse  |  src/test/java/org/joda/time/format/TestISODateTimeFormatParsing.java:850
+================================================================================
+    private void assertParse(DateTimeFormatter parser, boolean expected, String str) {
+        if (expected) {
+            parser.parseMillis(str);
+        } else {
+            try {
+                parser.parseMillis(str);
+                fail();
+            } catch (IllegalArgumentException ex) {
+                // expected
+            }
+        }
+    }
+
+================================================================================
+assertParse  |  src/test/java/org/joda/time/format/TestISODateTimeFormatParsing.java:863
+================================================================================
+    private void assertParse(DateTimeFormatter parser, String str, DateTime expected) {
+        DateTime dt = parser.parseDateTime(str);
+        assertEquals(expected, dt);
+    }
+
+================================================================================
+assertNoPrint  |  src/test/java/org/joda/time/format/TestISODateTimeFormatParsing.java:868
+================================================================================
+    private void assertNoPrint(DateTimeFormatter parser) {
+        try {
+            parser.print(new DateTime(2012, 6, 30, 12, 0, 0));
+        } catch (UnsupportedOperationException ex) {
+            // expected
+        }
+    }
+

@@ -108,8 +108,8 @@ public class TestYearMonth_Basics extends TestCase {
 
     public void testGetFieldType() {
         YearMonth test = new YearMonth(COPTIC_PARIS);
-        assertSame(DateTimeFieldType.year(), test.getFieldType(0));
-        assertSame(DateTimeFieldType.monthOfYear(), test.getFieldType(1));
+        assertEquals(DateTimeFieldType.year(), test.getFieldType(0));
+        assertEquals(DateTimeFieldType.monthOfYear(), test.getFieldType(1));
         try {
             test.getFieldType(-1);
         } catch (IndexOutOfBoundsException ex) {}
@@ -122,15 +122,15 @@ public class TestYearMonth_Basics extends TestCase {
         YearMonth test = new YearMonth(COPTIC_PARIS);
         DateTimeFieldType[] fields = test.getFieldTypes();
         assertEquals(2, fields.length);
-        assertSame(DateTimeFieldType.year(), fields[0]);
-        assertSame(DateTimeFieldType.monthOfYear(), fields[1]);
+        assertEquals(DateTimeFieldType.year(), fields[0]);
+        assertEquals(DateTimeFieldType.monthOfYear(), fields[1]);
         assertNotSame(test.getFieldTypes(), test.getFieldTypes());
     }
 
     public void testGetField() {
         YearMonth test = new YearMonth(COPTIC_PARIS);
-        assertSame(COPTIC_UTC.year(), test.getField(0));
-        assertSame(COPTIC_UTC.monthOfYear(), test.getField(1));
+        assertEquals(COPTIC_UTC.year(), test.getField(0));
+        assertEquals(COPTIC_UTC.monthOfYear(), test.getField(1));
         try {
             test.getField(-1);
         } catch (IndexOutOfBoundsException ex) {}
@@ -143,8 +143,8 @@ public class TestYearMonth_Basics extends TestCase {
         YearMonth test = new YearMonth(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         assertEquals(2, fields.length);
-        assertSame(COPTIC_UTC.year(), fields[0]);
-        assertSame(COPTIC_UTC.monthOfYear(), fields[1]);
+        assertEquals(COPTIC_UTC.year(), fields[0]);
+        assertEquals(COPTIC_UTC.monthOfYear(), fields[1]);
         assertNotSame(test.getFields(), test.getFields());
     }
 
@@ -347,7 +347,7 @@ public class TestYearMonth_Basics extends TestCase {
     public void testWithChronologyRetainFields_sameChrono() {
         YearMonth base = new YearMonth(2005, 6, COPTIC_PARIS);
         YearMonth test = base.withChronologyRetainFields(COPTIC_TOKYO);
-        assertSame(base, test);
+        assertEquals(base, test);
     }
 
     public void testWithChronologyRetainFields_nullChrono() {
@@ -398,7 +398,7 @@ public class TestYearMonth_Basics extends TestCase {
         YearMonth test = new YearMonth(2004, 6);
         YearMonth result = test.withField(DateTimeFieldType.year(), 2004);
         assertEquals(new YearMonth(2004, 6), test);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -429,7 +429,7 @@ public class TestYearMonth_Basics extends TestCase {
     public void testWithFieldAdded_zero() {
         YearMonth test = new YearMonth(2004, 6);
         YearMonth result = test.withFieldAdded(DurationFieldType.years(), 0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testWithFieldAdded_unknownField() {
@@ -448,7 +448,7 @@ public class TestYearMonth_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plus((ReadablePeriod) null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlusYears_int() {
@@ -458,7 +458,7 @@ public class TestYearMonth_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusYears(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlusMonths_int() {
@@ -468,7 +468,7 @@ public class TestYearMonth_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusMonths(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -479,7 +479,7 @@ public class TestYearMonth_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minus((ReadablePeriod) null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinusYears_int() {
@@ -489,7 +489,7 @@ public class TestYearMonth_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusYears(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinusMonths_int() {
@@ -499,7 +499,7 @@ public class TestYearMonth_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusMonths(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     //-----------------------------------------------------------------------

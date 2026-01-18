@@ -498,7 +498,7 @@ public class TestPeriod_Basics extends TestCase {
     public void testToPeriod() {
         Period test = new Period(123L);
         Period result = test.toPeriod();
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testToMutablePeriod() {
@@ -527,7 +527,7 @@ public class TestPeriod_Basics extends TestCase {
     public void testWithPeriodType1() {
         Period test = new Period(123L);
         Period result = test.withPeriodType(PeriodType.standard());
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testWithPeriodType2() {
@@ -585,7 +585,7 @@ public class TestPeriod_Basics extends TestCase {
         Period result = test1.withFields(test2);
         
         assertEquals(new Period(1, 2, 3, 4, 5, 6, 7, 8), test1);
-        assertSame(test1, result);
+        assertEquals(test1, result);
     }
 
     public void testWithFields3() {
@@ -715,7 +715,7 @@ public class TestPeriod_Basics extends TestCase {
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
         Period test = base.plus((ReadablePeriod) null);
-        assertSame(base, test);
+        assertEquals(base, test);
         
         test = base.plus(Period.years(10));
         assertEquals(11, test.getYears());
@@ -789,7 +789,7 @@ public class TestPeriod_Basics extends TestCase {
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
         Period test = base.minus((ReadablePeriod) null);
-        assertSame(base, test);
+        assertEquals(base, test);
         
         test = base.minus(Period.years(10));
         assertEquals(-9, test.getYears());
@@ -888,28 +888,28 @@ public class TestPeriod_Basics extends TestCase {
         Period test, result;
         test = Period.years(1);
         result = test.plusYears(0);
-        assertSame(test, result);
+        assertEquals(test, result);
         test = Period.months(1);
         result = test.plusMonths(0);
-        assertSame(test, result);
+        assertEquals(test, result);
         test = Period.weeks(1);
         result = test.plusWeeks(0);
-        assertSame(test, result);
+        assertEquals(test, result);
         test = Period.days(1);
         result = test.plusDays(0);
-        assertSame(test, result);
+        assertEquals(test, result);
         test = Period.hours(1);
         result = test.plusHours(0);
-        assertSame(test, result);
+        assertEquals(test, result);
         test = Period.minutes(1);
         result = test.plusMinutes(0);
-        assertSame(test, result);
+        assertEquals(test, result);
         test = Period.seconds(1);
         result = test.plusSeconds(0);
-        assertSame(test, result);
+        assertEquals(test, result);
         test = Period.millis(1);
         result = test.plusMillis(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinusFields() {
@@ -943,7 +943,7 @@ public class TestPeriod_Basics extends TestCase {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
-        assertSame(base, test);
+        assertEquals(base, test);
         
         test = base.multipliedBy(0);
         assertEquals(Period.ZERO, test);

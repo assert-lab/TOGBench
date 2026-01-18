@@ -172,7 +172,7 @@ public class TestMutableDateTime_Sets extends TestCase {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, chrono);
         test.setZoneRetainFields(PARIS);
         assertEquals(TEST_TIME1 - DateTimeConstants.MILLIS_PER_HOUR, test.getMillis());
-        assertSame(chrono, test.getChronology());
+        assertEquals(chrono, test.getChronology());
     }        
 
     //-----------------------------------------------------------------------

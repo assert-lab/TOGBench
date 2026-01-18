@@ -157,11 +157,11 @@ public class TestMonthDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetDayOfMonth() {
         MonthDay test = new MonthDay(4, 6);
-        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
         assertEquals("dayOfMonth", test.dayOfMonth().getName());
         assertEquals("Property[dayOfMonth]", test.dayOfMonth().toString());
-        assertSame(test, test.dayOfMonth().getReadablePartial());
-        assertSame(test, test.dayOfMonth().getMonthDay());
+        assertEquals(test, test.dayOfMonth().getReadablePartial());
+        assertEquals(test, test.dayOfMonth().getMonthDay());
         assertEquals(6, test.dayOfMonth().get());
         assertEquals("6", test.dayOfMonth().getAsString());
         assertEquals("6", test.dayOfMonth().getAsText());

@@ -100,10 +100,10 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetEra() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().era(), test.era().getField());
+        assertEquals(test.getChronology().era(), test.era().getField());
         assertEquals("era", test.era().getName());
         assertEquals("Property[era]", test.era().toString());
-        assertSame(test, test.era().getMutableDateTime());
+        assertEquals(test, test.era().getMutableDateTime());
         assertEquals(1, test.era().get());
         assertEquals("AD", test.era().getAsText());
         assertEquals("ap. J.-C.", test.era().getAsText(Locale.FRENCH));
@@ -120,7 +120,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetYearOfEra() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().yearOfEra(), test.yearOfEra().getField());
+        assertEquals(test.getChronology().yearOfEra(), test.yearOfEra().getField());
         assertEquals("yearOfEra", test.yearOfEra().getName());
         assertEquals("Property[yearOfEra]", test.yearOfEra().toString());
         assertEquals(2004, test.yearOfEra().get());
@@ -137,7 +137,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetCenturyOfEra() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().centuryOfEra(), test.centuryOfEra().getField());
+        assertEquals(test.getChronology().centuryOfEra(), test.centuryOfEra().getField());
         assertEquals("centuryOfEra", test.centuryOfEra().getName());
         assertEquals("Property[centuryOfEra]", test.centuryOfEra().toString());
         assertEquals(20, test.centuryOfEra().get());
@@ -154,7 +154,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetYearOfCentury() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().yearOfCentury(), test.yearOfCentury().getField());
+        assertEquals(test.getChronology().yearOfCentury(), test.yearOfCentury().getField());
         assertEquals("yearOfCentury", test.yearOfCentury().getName());
         assertEquals("Property[yearOfCentury]", test.yearOfCentury().toString());
         assertEquals(4, test.yearOfCentury().get());
@@ -171,7 +171,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetWeekyear() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().weekyear(), test.weekyear().getField());
+        assertEquals(test.getChronology().weekyear(), test.weekyear().getField());
         assertEquals("weekyear", test.weekyear().getName());
         assertEquals("Property[weekyear]", test.weekyear().toString());
         assertEquals(2004, test.weekyear().get());
@@ -188,7 +188,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetYear() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().year(), test.year().getField());
+        assertEquals(test.getChronology().year(), test.year().getField());
         assertEquals("year", test.year().getName());
         assertEquals("Property[year]", test.year().toString());
         assertEquals(2004, test.year().get());
@@ -265,7 +265,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetDayOfMonth() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
         assertEquals("dayOfMonth", test.dayOfMonth().getName());
         assertEquals("Property[dayOfMonth]", test.dayOfMonth().toString());
         assertEquals(9, test.dayOfMonth().get());
@@ -314,7 +314,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     public void testPropertyGetDayOfYear() {
         // 31+29+31+30+31+9 = 161
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().dayOfYear(), test.dayOfYear().getField());
+        assertEquals(test.getChronology().dayOfYear(), test.dayOfYear().getField());
         assertEquals("dayOfYear", test.dayOfYear().getName());
         assertEquals("Property[dayOfYear]", test.dayOfYear().toString());
         assertEquals(161, test.dayOfYear().get());
@@ -371,7 +371,7 @@ public class TestMutableDateTime_Properties extends TestCase {
         // 2004-12-25 = Mon             W52
         // 2005-01-01 = Mon             W1
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().weekOfWeekyear(), test.weekOfWeekyear().getField());
+        assertEquals(test.getChronology().weekOfWeekyear(), test.weekOfWeekyear().getField());
         assertEquals("weekOfWeekyear", test.weekOfWeekyear().getName());
         assertEquals("Property[weekOfWeekyear]", test.weekOfWeekyear().toString());
         assertEquals(24, test.weekOfWeekyear().get());
@@ -415,7 +415,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetDayOfWeek() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().dayOfWeek(), test.dayOfWeek().getField());
+        assertEquals(test.getChronology().dayOfWeek(), test.dayOfWeek().getField());
         assertEquals("dayOfWeek", test.dayOfWeek().getName());
         assertEquals("Property[dayOfWeek]", test.dayOfWeek().toString());
         assertEquals(3, test.dayOfWeek().get());
@@ -483,7 +483,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetHourOfDay() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().hourOfDay(), test.hourOfDay().getField());
+        assertEquals(test.getChronology().hourOfDay(), test.hourOfDay().getField());
         assertEquals("hourOfDay", test.hourOfDay().getName());
         assertEquals("Property[hourOfDay]", test.hourOfDay().toString());
         assertEquals(13, test.hourOfDay().get());
@@ -563,7 +563,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMinuteOfHour() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
+        assertEquals(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
         assertEquals("minuteOfHour", test.minuteOfHour().getName());
         assertEquals("Property[minuteOfHour]", test.minuteOfHour().toString());
         assertEquals(23, test.minuteOfHour().get());
@@ -580,7 +580,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMinuteOfDay() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().minuteOfDay(), test.minuteOfDay().getField());
+        assertEquals(test.getChronology().minuteOfDay(), test.minuteOfDay().getField());
         assertEquals("minuteOfDay", test.minuteOfDay().getName());
         assertEquals("Property[minuteOfDay]", test.minuteOfDay().toString());
         assertEquals(803, test.minuteOfDay().get());
@@ -597,7 +597,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetSecondOfMinute() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
+        assertEquals(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
         assertEquals("secondOfMinute", test.secondOfMinute().getName());
         assertEquals("Property[secondOfMinute]", test.secondOfMinute().toString());
         assertEquals(43, test.secondOfMinute().get());
@@ -614,7 +614,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetSecondOfDay() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().secondOfDay(), test.secondOfDay().getField());
+        assertEquals(test.getChronology().secondOfDay(), test.secondOfDay().getField());
         assertEquals("secondOfDay", test.secondOfDay().getName());
         assertEquals("Property[secondOfDay]", test.secondOfDay().toString());
         assertEquals(48223, test.secondOfDay().get());
@@ -631,7 +631,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMillisOfSecond() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
+        assertEquals(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
         assertEquals("millisOfSecond", test.millisOfSecond().getName());
         assertEquals("Property[millisOfSecond]", test.millisOfSecond().toString());
         assertEquals(53, test.millisOfSecond().get());
@@ -648,7 +648,7 @@ public class TestMutableDateTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMillisOfDay() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().millisOfDay(), test.millisOfDay().getField());
+        assertEquals(test.getChronology().millisOfDay(), test.millisOfDay().getField());
         assertEquals("millisOfDay", test.millisOfDay().getName());
         assertEquals("Property[millisOfDay]", test.millisOfDay().toString());
         assertEquals(48223053, test.millisOfDay().get());

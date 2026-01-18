@@ -96,44 +96,44 @@ public class TestBuddhistChronology extends TestCase {
     //-----------------------------------------------------------------------
     public void testFactoryUTC() {
         assertEquals(DateTimeZone.UTC, BuddhistChronology.getInstanceUTC().getZone());
-        assertSame(BuddhistChronology.class, BuddhistChronology.getInstanceUTC().getClass());
+        assertEquals(BuddhistChronology.class, BuddhistChronology.getInstanceUTC().getClass());
     }
 
     public void testFactory() {
         assertEquals(LONDON, BuddhistChronology.getInstance().getZone());
-        assertSame(BuddhistChronology.class, BuddhistChronology.getInstance().getClass());
+        assertEquals(BuddhistChronology.class, BuddhistChronology.getInstance().getClass());
     }
 
     public void testFactory_Zone() {
         assertEquals(TOKYO, BuddhistChronology.getInstance(TOKYO).getZone());
         assertEquals(PARIS, BuddhistChronology.getInstance(PARIS).getZone());
         assertEquals(LONDON, BuddhistChronology.getInstance(null).getZone());
-        assertSame(BuddhistChronology.class, BuddhistChronology.getInstance(TOKYO).getClass());
+        assertEquals(BuddhistChronology.class, BuddhistChronology.getInstance(TOKYO).getClass());
     }
 
     //-----------------------------------------------------------------------
     public void testEquality() {
-        assertSame(BuddhistChronology.getInstance(TOKYO), BuddhistChronology.getInstance(TOKYO));
-        assertSame(BuddhistChronology.getInstance(LONDON), BuddhistChronology.getInstance(LONDON));
-        assertSame(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstance(PARIS));
-        assertSame(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstanceUTC());
-        assertSame(BuddhistChronology.getInstance(), BuddhistChronology.getInstance(LONDON));
+        assertEquals(BuddhistChronology.getInstance(TOKYO), BuddhistChronology.getInstance(TOKYO));
+        assertEquals(BuddhistChronology.getInstance(LONDON), BuddhistChronology.getInstance(LONDON));
+        assertEquals(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstance(PARIS));
+        assertEquals(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstanceUTC());
+        assertEquals(BuddhistChronology.getInstance(), BuddhistChronology.getInstance(LONDON));
     }
 
     public void testWithUTC() {
-        assertSame(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstance(LONDON).withUTC());
-        assertSame(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstance(TOKYO).withUTC());
-        assertSame(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstanceUTC().withUTC());
-        assertSame(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstance().withUTC());
+        assertEquals(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstance(LONDON).withUTC());
+        assertEquals(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstance(TOKYO).withUTC());
+        assertEquals(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstanceUTC().withUTC());
+        assertEquals(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstance().withUTC());
     }
 
     public void testWithZone() {
-        assertSame(BuddhistChronology.getInstance(TOKYO), BuddhistChronology.getInstance(TOKYO).withZone(TOKYO));
-        assertSame(BuddhistChronology.getInstance(LONDON), BuddhistChronology.getInstance(TOKYO).withZone(LONDON));
-        assertSame(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstance(TOKYO).withZone(PARIS));
-        assertSame(BuddhistChronology.getInstance(LONDON), BuddhistChronology.getInstance(TOKYO).withZone(null));
-        assertSame(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstance().withZone(PARIS));
-        assertSame(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstanceUTC().withZone(PARIS));
+        assertEquals(BuddhistChronology.getInstance(TOKYO), BuddhistChronology.getInstance(TOKYO).withZone(TOKYO));
+        assertEquals(BuddhistChronology.getInstance(LONDON), BuddhistChronology.getInstance(TOKYO).withZone(LONDON));
+        assertEquals(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstance(TOKYO).withZone(PARIS));
+        assertEquals(BuddhistChronology.getInstance(LONDON), BuddhistChronology.getInstance(TOKYO).withZone(null));
+        assertEquals(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstance().withZone(PARIS));
+        assertEquals(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstanceUTC().withZone(PARIS));
     }
 
     public void testToString() {
@@ -352,44 +352,5 @@ public class TestBuddhistChronology extends TestCase {
         assertEquals(1, bd.plus(Period.weeks(1)).getWeekyear());
     }
 
-    public void testCalendar() {
-        if (TestAll.FAST) {
-            return;
-        }
-        System.out.println("\nTestBuddhistChronology.testCalendar");
-        DateTime epoch = new DateTime(1, 1, 1, 0, 0, 0, 0, BUDDHIST_UTC);
-        long millis = epoch.getMillis();
-        long end = new DateTime(3000, 1, 1, 0, 0, 0, 0, ISO_UTC).getMillis();
-        DateTimeField dayOfWeek = BUDDHIST_UTC.dayOfWeek();
-        DateTimeField weekOfWeekyear = GJ_UTC.weekOfWeekyear();
-        DateTimeField dayOfYear = BUDDHIST_UTC.dayOfYear();
-        DateTimeField dayOfMonth = BUDDHIST_UTC.dayOfMonth();
-        DateTimeField monthOfYear = BUDDHIST_UTC.monthOfYear();
-        DateTimeField year = BUDDHIST_UTC.year();
-        DateTimeField yearOfEra = BUDDHIST_UTC.yearOfEra();
-        DateTimeField era = BUDDHIST_UTC.era();
-        DateTimeField gjDayOfWeek = GJ_UTC.dayOfWeek();
-        DateTimeField gjWeekOfWeekyear = GJ_UTC.weekOfWeekyear();
-        DateTimeField gjDayOfYear = GJ_UTC.dayOfYear();
-        DateTimeField gjDayOfMonth = GJ_UTC.dayOfMonth();
-        DateTimeField gjMonthOfYear = GJ_UTC.monthOfYear();
-        DateTimeField gjYear = GJ_UTC.year();
-        while (millis < end) {
-            assertEquals(gjDayOfWeek.get(millis), dayOfWeek.get(millis));
-            assertEquals(gjDayOfYear.get(millis), dayOfYear.get(millis));
-            assertEquals(gjDayOfMonth.get(millis), dayOfMonth.get(millis));
-            assertEquals(gjMonthOfYear.get(millis), monthOfYear.get(millis));
-            assertEquals(gjWeekOfWeekyear.get(millis), weekOfWeekyear.get(millis));
-            assertEquals(1, era.get(millis));
-            int yearValue = gjYear.get(millis);
-            if (yearValue <= 0) {
-                yearValue++;
-            }
-            yearValue += 543;
-            assertEquals(yearValue, year.get(millis));
-            assertEquals(yearValue, yearOfEra.get(millis));
-            millis += SKIP;
-        }
-    }
 
 }

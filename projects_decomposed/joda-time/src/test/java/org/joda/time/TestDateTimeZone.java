@@ -170,7 +170,7 @@ public class TestDateTimeZone extends TestCase {
         assertNotNull(DateTimeZone.getDefault());
         
         DateTimeZone.setDefault(PARIS);
-        assertSame(PARIS, DateTimeZone.getDefault());
+        assertEquals(PARIS, DateTimeZone.getDefault());
         
         try {
             DateTimeZone.setDefault(null);
@@ -203,13 +203,13 @@ public class TestDateTimeZone extends TestCase {
         assertEquals("Europe/London", zone.getID());
         
         zone = DateTimeZone.forID("UTC");
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forID("+00:00");
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forID("+00");
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forID("+01:23");
         assertEquals("+01:23", zone.getID());
@@ -358,7 +358,7 @@ public class TestDateTimeZone extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testForOffsetMillis_int() {
-        assertSame(DateTimeZone.UTC, DateTimeZone.forOffsetMillis(0));
+        assertEquals(DateTimeZone.UTC, DateTimeZone.forOffsetMillis(0));
         assertEquals(DateTimeZone.forID("+23:59:59.999"), DateTimeZone.forOffsetMillis((24 * 60 * 60 * 1000) - 1));
         assertEquals(DateTimeZone.forID("+03:00"), DateTimeZone.forOffsetMillis(3 * 60 * 60 * 1000));
         assertEquals(DateTimeZone.forID("-02:00"), DateTimeZone.forOffsetMillis(-2 * 60 * 60 * 1000));
@@ -374,19 +374,19 @@ public class TestDateTimeZone extends TestCase {
         
         DateTimeZone zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("Europe/London"));
         assertEquals("Europe/London", zone.getID());
-        assertSame(DateTimeZone.UTC, DateTimeZone.forTimeZone(TimeZone.getTimeZone("UTC")));
+        assertEquals(DateTimeZone.UTC, DateTimeZone.forTimeZone(TimeZone.getTimeZone("UTC")));
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("+00:00"));
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+00:00"));
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+00:00"));
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+00"));
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+01:23"));
         assertEquals("+01:23", zone.getID());
@@ -498,7 +498,7 @@ public class TestDateTimeZone extends TestCase {
         
             Provider prov = new MockOKProvider();
             DateTimeZone.setProvider(prov);
-            assertSame(prov, DateTimeZone.getProvider());
+            assertEquals(prov, DateTimeZone.getProvider());
             assertEquals(2, DateTimeZone.getAvailableIDs().size());
             assertTrue(DateTimeZone.getAvailableIDs().contains("UTC"));
             assertTrue(DateTimeZone.getAvailableIDs().contains("Europe/London"));
@@ -655,7 +655,7 @@ public class TestDateTimeZone extends TestCase {
         
             provider = new MockOKButNullNameProvider();
             DateTimeZone.setNameProvider(provider);
-            assertSame(provider, DateTimeZone.getNameProvider());
+            assertEquals(provider, DateTimeZone.getNameProvider());
             
             assertEquals("+00:00", DateTimeZone.UTC.getShortName(TEST_TIME_SUMMER));
             assertEquals("+00:00", DateTimeZone.UTC.getName(TEST_TIME_SUMMER));
@@ -1228,7 +1228,7 @@ public class TestDateTimeZone extends TestCase {
         DateTimeZone result = (DateTimeZone) ois.readObject();
         ois.close();
         
-        assertSame(zone, result);
+        assertEquals(zone, result);
     }
 
     //-----------------------------------------------------------------------

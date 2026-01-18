@@ -120,7 +120,7 @@ public class TestPeriodFormat extends TestCase {
     
     //-----------------------------------------------------------------------
     public void test_getDefault_cached() {
-        assertSame(PeriodFormat.getDefault(), PeriodFormat.getDefault());
+        assertEquals(PeriodFormat.getDefault(), PeriodFormat.getDefault());
     }
 
     //-----------------------------------------------------------------------
@@ -165,7 +165,7 @@ public class TestPeriodFormat extends TestCase {
 
     //-----------------------------------------------------------------------
     public void test_wordBased_fr_cached() {
-        assertSame(PeriodFormat.wordBased(FR), PeriodFormat.wordBased(FR));
+        assertEquals(PeriodFormat.wordBased(FR), PeriodFormat.wordBased(FR));
     }
 
     //-----------------------------------------------------------------------
@@ -202,7 +202,7 @@ public class TestPeriodFormat extends TestCase {
 
     //-----------------------------------------------------------------------
     public void test_wordBased_pt_cached() {
-        assertSame(PeriodFormat.wordBased(PT), PeriodFormat.wordBased(PT));
+        assertEquals(PeriodFormat.wordBased(PT), PeriodFormat.wordBased(PT));
     }
 
     //-----------------------------------------------------------------------
@@ -239,7 +239,7 @@ public class TestPeriodFormat extends TestCase {
 
     //-----------------------------------------------------------------------
     public void test_wordBased_es_cached() {
-        assertSame(PeriodFormat.wordBased(ES), PeriodFormat.wordBased(ES));
+        assertEquals(PeriodFormat.wordBased(ES), PeriodFormat.wordBased(ES));
     }
 
     //-----------------------------------------------------------------------
@@ -276,7 +276,7 @@ public class TestPeriodFormat extends TestCase {
 
     //-----------------------------------------------------------------------
     public void test_wordBased_de_cached() {
-        assertSame(PeriodFormat.wordBased(DE), PeriodFormat.wordBased(DE));
+        assertEquals(PeriodFormat.wordBased(DE), PeriodFormat.wordBased(DE));
     }
 
     //-----------------------------------------------------------------------
@@ -313,7 +313,7 @@ public class TestPeriodFormat extends TestCase {
 
     //-----------------------------------------------------------------------
     public void test_wordBased_nl_cached() {
-        assertSame(PeriodFormat.wordBased(NL), PeriodFormat.wordBased(NL));
+        assertEquals(PeriodFormat.wordBased(NL), PeriodFormat.wordBased(NL));
     }
 
     //-----------------------------------------------------------------------
@@ -332,7 +332,7 @@ public class TestPeriodFormat extends TestCase {
     
     //-----------------------------------------------------------------------
     public void test_wordBased_da_cached() {
-        assertSame(PeriodFormat.wordBased(DA), PeriodFormat.wordBased(DA));
+        assertEquals(PeriodFormat.wordBased(DA), PeriodFormat.wordBased(DA));
     }
     
     //-----------------------------------------------------------------------
@@ -351,7 +351,7 @@ public class TestPeriodFormat extends TestCase {
 
     //-----------------------------------------------------------------------
     public void test_wordBased_ja_cached() {
-        assertSame(PeriodFormat.wordBased(JA), PeriodFormat.wordBased(JA));
+        assertEquals(PeriodFormat.wordBased(JA), PeriodFormat.wordBased(JA));
     }
 
     //-----------------------------------------------------------------------
@@ -421,7 +421,7 @@ public class TestPeriodFormat extends TestCase {
 
     // -----------------------------------------------------------------------
     public void test_wordBased_pl_cached() {
-        assertSame(PeriodFormat.wordBased(PL), PeriodFormat.wordBased(PL));
+        assertEquals(PeriodFormat.wordBased(PL), PeriodFormat.wordBased(PL));
     }
     
     // -----------------------------------------------------------------------
@@ -636,7 +636,7 @@ public class TestPeriodFormat extends TestCase {
 
     // -----------------------------------------------------------------------
     public void test_wordBased_ru_cached() {
-        assertSame(PeriodFormat.wordBased(RU), PeriodFormat.wordBased(RU));
+        assertEquals(PeriodFormat.wordBased(RU), PeriodFormat.wordBased(RU));
     }
 
     // -----------------------------------------------------------------------

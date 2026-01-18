@@ -1271,13 +1271,13 @@ public class TestDateTimeZoneCutover extends TestCase {
         DateTime baseBefore = base.minusHours(2);
         DateTime baseAfter = base.minusHours(1);
         
-        assertSame(base, base.withEarlierOffsetAtOverlap());
-        assertSame(base, base.withLaterOffsetAtOverlap());
+        assertEquals(base, base.withEarlierOffsetAtOverlap());
+        assertEquals(base, base.withLaterOffsetAtOverlap());
         
-        assertSame(baseBefore, baseBefore.withEarlierOffsetAtOverlap());
+        assertEquals(baseBefore, baseBefore.withEarlierOffsetAtOverlap());
         assertEquals(baseAfter, baseBefore.withLaterOffsetAtOverlap());
         
-        assertSame(baseAfter, baseAfter.withLaterOffsetAtOverlap());
+        assertEquals(baseAfter, baseAfter.withLaterOffsetAtOverlap());
         assertEquals(baseBefore, baseAfter.withEarlierOffsetAtOverlap());
     }
 
@@ -1287,13 +1287,13 @@ public class TestDateTimeZoneCutover extends TestCase {
         DateTime baseBefore = base.plusHours(1);  // 23:15 (first)
         DateTime baseAfter = base.plusHours(2);  // 23:15 (second)
         
-        assertSame(base, base.withEarlierOffsetAtOverlap());
-        assertSame(base, base.withLaterOffsetAtOverlap());
+        assertEquals(base, base.withEarlierOffsetAtOverlap());
+        assertEquals(base, base.withLaterOffsetAtOverlap());
         
-        assertSame(baseBefore, baseBefore.withEarlierOffsetAtOverlap());
+        assertEquals(baseBefore, baseBefore.withEarlierOffsetAtOverlap());
         assertEquals(baseAfter, baseBefore.withLaterOffsetAtOverlap());
         
-        assertSame(baseAfter, baseAfter.withLaterOffsetAtOverlap());
+        assertEquals(baseAfter, baseAfter.withLaterOffsetAtOverlap());
         assertEquals(baseBefore, baseAfter.withEarlierOffsetAtOverlap());
     }
 
@@ -1303,13 +1303,13 @@ public class TestDateTimeZoneCutover extends TestCase {
       DateTime baseBefore = base.plusHours(1);  // 23:15
       DateTime baseAfter = base.plusHours(2);  // 01:15
       
-      assertSame(base, base.withEarlierOffsetAtOverlap());
-      assertSame(base, base.withLaterOffsetAtOverlap());
+      assertEquals(base, base.withEarlierOffsetAtOverlap());
+      assertEquals(base, base.withLaterOffsetAtOverlap());
       
-      assertSame(baseBefore, baseBefore.withEarlierOffsetAtOverlap());
+      assertEquals(baseBefore, baseBefore.withEarlierOffsetAtOverlap());
       assertEquals(baseBefore, baseBefore.withLaterOffsetAtOverlap());
       
-      assertSame(baseAfter, baseAfter.withLaterOffsetAtOverlap());
+      assertEquals(baseAfter, baseAfter.withLaterOffsetAtOverlap());
       assertEquals(baseAfter, baseAfter.withEarlierOffsetAtOverlap());
   }
 

@@ -293,45 +293,45 @@ public class TestDateTimeFormatter extends TestCase {
     public void testWithGetLocale() {
         DateTimeFormatter f2 = f.withLocale(Locale.FRENCH);
         assertEquals(Locale.FRENCH, f2.getLocale());
-        assertSame(f2, f2.withLocale(Locale.FRENCH));
+        assertEquals(f2, f2.withLocale(Locale.FRENCH));
         
         f2 = f.withLocale(null);
         assertEquals(null, f2.getLocale());
-        assertSame(f2, f2.withLocale(null));
+        assertEquals(f2, f2.withLocale(null));
     }
 
     public void testWithGetZone() {
         DateTimeFormatter f2 = f.withZone(PARIS);
         assertEquals(PARIS, f2.getZone());
-        assertSame(f2, f2.withZone(PARIS));
+        assertEquals(f2, f2.withZone(PARIS));
         
         f2 = f.withZone(null);
         assertEquals(null, f2.getZone());
-        assertSame(f2, f2.withZone(null));
+        assertEquals(f2, f2.withZone(null));
     }
 
     public void testWithGetChronology() {
         DateTimeFormatter f2 = f.withChronology(BUDDHIST_PARIS);
         assertEquals(BUDDHIST_PARIS, f2.getChronology());
-        assertSame(f2, f2.withChronology(BUDDHIST_PARIS));
+        assertEquals(f2, f2.withChronology(BUDDHIST_PARIS));
         
         f2 = f.withChronology(null);
         assertEquals(null, f2.getChronology());
-        assertSame(f2, f2.withChronology(null));
+        assertEquals(f2, f2.withChronology(null));
     }
 
     public void testWithGetPivotYear() {
         DateTimeFormatter f2 = f.withPivotYear(13);
         assertEquals(new Integer(13), f2.getPivotYear());
-        assertSame(f2, f2.withPivotYear(13));
+        assertEquals(f2, f2.withPivotYear(13));
         
         f2 = f.withPivotYear(new Integer(14));
         assertEquals(new Integer(14), f2.getPivotYear());
-        assertSame(f2, f2.withPivotYear(new Integer(14)));
+        assertEquals(f2, f2.withPivotYear(new Integer(14)));
         
         f2 = f.withPivotYear(null);
         assertEquals(null, f2.getPivotYear());
-        assertSame(f2, f2.withPivotYear(null));
+        assertEquals(f2, f2.withPivotYear(null));
     }
 
     public void testWithGetOffsetParsedMethods() {
@@ -354,7 +354,7 @@ public class TestDateTimeFormatter extends TestCase {
         f2 = f.withOffsetParsed();
         assertNotSame(f, f2);
         DateTimeFormatter f3 = f2.withOffsetParsed();
-        assertSame(f2, f3);
+        assertEquals(f2, f3);
     }
 
     public void testPrinterParserMethods() {

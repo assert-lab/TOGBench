@@ -1,6 +1,6 @@
 find projects_decomposed/joda-time -type f -name "*_OE25Dev.java" -delete
 
-# ./scripts_experimental/build_treesitter.sh
+./scripts_experimental/build_treesitter.sh
 
 ./scripts_experimental/expand_arch_type_asserts_lang3.py
 

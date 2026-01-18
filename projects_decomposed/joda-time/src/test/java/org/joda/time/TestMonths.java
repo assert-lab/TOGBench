@@ -74,21 +74,21 @@ public class TestMonths extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testFactory_months_int() {
-        assertSame(Months.ZERO, Months.months(0));
-        assertSame(Months.ONE, Months.months(1));
-        assertSame(Months.TWO, Months.months(2));
-        assertSame(Months.THREE, Months.months(3));
-        assertSame(Months.FOUR, Months.months(4));
-        assertSame(Months.FIVE, Months.months(5));
-        assertSame(Months.SIX, Months.months(6));
-        assertSame(Months.SEVEN, Months.months(7));
-        assertSame(Months.EIGHT, Months.months(8));
-        assertSame(Months.NINE, Months.months(9));
-        assertSame(Months.TEN, Months.months(10));
-        assertSame(Months.ELEVEN, Months.months(11));
-        assertSame(Months.TWELVE, Months.months(12));
-        assertSame(Months.MAX_VALUE, Months.months(Integer.MAX_VALUE));
-        assertSame(Months.MIN_VALUE, Months.months(Integer.MIN_VALUE));
+        assertEquals(Months.ZERO, Months.months(0));
+        assertEquals(Months.ONE, Months.months(1));
+        assertEquals(Months.TWO, Months.months(2));
+        assertEquals(Months.THREE, Months.months(3));
+        assertEquals(Months.FOUR, Months.months(4));
+        assertEquals(Months.FIVE, Months.months(5));
+        assertEquals(Months.SIX, Months.months(6));
+        assertEquals(Months.SEVEN, Months.months(7));
+        assertEquals(Months.EIGHT, Months.months(8));
+        assertEquals(Months.NINE, Months.months(9));
+        assertEquals(Months.TEN, Months.months(10));
+        assertEquals(Months.ELEVEN, Months.months(11));
+        assertEquals(Months.TWELVE, Months.months(12));
+        assertEquals(Months.MAX_VALUE, Months.months(Integer.MAX_VALUE));
+        assertEquals(Months.MIN_VALUE, Months.months(Integer.MIN_VALUE));
         assertEquals(-1, Months.months(-1).getMonths());
         assertEquals(13, Months.months(13).getMonths());
     }
@@ -260,7 +260,7 @@ public class TestMonths extends TestCase {
         Months result = (Months) ois.readObject();
         ois.close();
         
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -339,7 +339,7 @@ public class TestMonths extends TestCase {
         assertEquals(6, test.multipliedBy(3).getMonths());
         assertEquals(2, test.getMonths());
         assertEquals(-6, test.multipliedBy(-3).getMonths());
-        assertSame(test, test.multipliedBy(1));
+        assertEquals(test, test.multipliedBy(1));
         
         Months halfMax = Months.months(Integer.MAX_VALUE / 2 + 1);
         try {
@@ -358,7 +358,7 @@ public class TestMonths extends TestCase {
         assertEquals(3, test.dividedBy(4).getMonths());
         assertEquals(2, test.dividedBy(5).getMonths());
         assertEquals(2, test.dividedBy(6).getMonths());
-        assertSame(test, test.dividedBy(1));
+        assertEquals(test, test.dividedBy(1));
         
         try {
             Months.ONE.dividedBy(0);

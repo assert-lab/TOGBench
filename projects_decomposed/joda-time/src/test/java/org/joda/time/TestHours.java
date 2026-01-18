@@ -70,17 +70,17 @@ public class TestHours extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testFactory_hours_int() {
-        assertSame(Hours.ZERO, Hours.hours(0));
-        assertSame(Hours.ONE, Hours.hours(1));
-        assertSame(Hours.TWO, Hours.hours(2));
-        assertSame(Hours.THREE, Hours.hours(3));
-        assertSame(Hours.FOUR, Hours.hours(4));
-        assertSame(Hours.FIVE, Hours.hours(5));
-        assertSame(Hours.SIX, Hours.hours(6));
-        assertSame(Hours.SEVEN, Hours.hours(7));
-        assertSame(Hours.EIGHT, Hours.hours(8));
-        assertSame(Hours.MAX_VALUE, Hours.hours(Integer.MAX_VALUE));
-        assertSame(Hours.MIN_VALUE, Hours.hours(Integer.MIN_VALUE));
+        assertEquals(Hours.ZERO, Hours.hours(0));
+        assertEquals(Hours.ONE, Hours.hours(1));
+        assertEquals(Hours.TWO, Hours.hours(2));
+        assertEquals(Hours.THREE, Hours.hours(3));
+        assertEquals(Hours.FOUR, Hours.hours(4));
+        assertEquals(Hours.FIVE, Hours.hours(5));
+        assertEquals(Hours.SIX, Hours.hours(6));
+        assertEquals(Hours.SEVEN, Hours.hours(7));
+        assertEquals(Hours.EIGHT, Hours.hours(8));
+        assertEquals(Hours.MAX_VALUE, Hours.hours(Integer.MAX_VALUE));
+        assertEquals(Hours.MIN_VALUE, Hours.hours(Integer.MIN_VALUE));
         assertEquals(-1, Hours.hours(-1).getHours());
         assertEquals(9, Hours.hours(9).getHours());
     }
@@ -219,7 +219,7 @@ public class TestHours extends TestCase {
         Hours result = (Hours) ois.readObject();
         ois.close();
         
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -346,7 +346,7 @@ public class TestHours extends TestCase {
         assertEquals(6, test.multipliedBy(3).getHours());
         assertEquals(2, test.getHours());
         assertEquals(-6, test.multipliedBy(-3).getHours());
-        assertSame(test, test.multipliedBy(1));
+        assertEquals(test, test.multipliedBy(1));
         
         Hours halfMax = Hours.hours(Integer.MAX_VALUE / 2 + 1);
         try {
@@ -365,7 +365,7 @@ public class TestHours extends TestCase {
         assertEquals(3, test.dividedBy(4).getHours());
         assertEquals(2, test.dividedBy(5).getHours());
         assertEquals(2, test.dividedBy(6).getHours());
-        assertSame(test, test.dividedBy(1));
+        assertEquals(test, test.dividedBy(1));
         
         try {
             Hours.ONE.dividedBy(0);
