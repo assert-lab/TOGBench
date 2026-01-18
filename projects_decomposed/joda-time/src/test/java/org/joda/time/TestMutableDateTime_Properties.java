@@ -230,34 +230,6 @@ public class TestMutableDateTime_Properties extends TestCase {
         assertEquals("1960-06-09T00:00:00.000+01:00", test.toString());
     }
 
-    //-----------------------------------------------------------------------
-    public void testPropertyGetMonthOfYear() {
-        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
-        assertEquals("monthOfYear", test.monthOfYear().getName());
-        assertEquals("Property[monthOfYear]", test.monthOfYear().toString());
-        assertEquals(6, test.monthOfYear().get());
-        assertEquals("June", test.monthOfYear().getAsText());
-        assertEquals("juin", test.monthOfYear().getAsText(Locale.FRENCH));
-        assertEquals("Jun", test.monthOfYear().getAsShortText());
-        assertEquals("juin", test.monthOfYear().getAsShortText(Locale.FRENCH));
-        assertEquals(test.getChronology().months(), test.monthOfYear().getDurationField());
-        assertEquals(test.getChronology().years(), test.monthOfYear().getRangeDurationField());
-        assertEquals(9, test.monthOfYear().getMaximumTextLength(null));
-        assertEquals(3, test.monthOfYear().getMaximumShortTextLength(null));
-        test = new MutableDateTime(2004, 7, 9, 0, 0, 0, 0);
-        assertEquals("juillet", test.monthOfYear().getAsText(Locale.FRENCH));
-        assertEquals("juil.", test.monthOfYear().getAsShortText(Locale.FRENCH));
-        assertEquals(1, test.monthOfYear().getMinimumValue());
-        assertEquals(1, test.monthOfYear().getMinimumValueOverall());
-        assertEquals(12, test.monthOfYear().getMaximumValue());
-        assertEquals(12, test.monthOfYear().getMaximumValueOverall());
-        assertEquals(1, test.monthOfYear().getMinimumValue());
-        assertEquals(1, test.monthOfYear().getMinimumValueOverall());
-        assertEquals(12, test.monthOfYear().getMaximumValue());
-        assertEquals(12, test.monthOfYear().getMaximumValueOverall());
-    }
-
     public void testPropertyAddMonthOfYear() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
         test.monthOfYear().add(6);

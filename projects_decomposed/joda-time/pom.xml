@@ -417,6 +417,7 @@
               <goal>enforce</goal>
             </goals>
             <configuration>
+
               <rules>
                 <requireMavenVersion>
                   <version>3.6.0</version>
@@ -473,16 +474,9 @@
           <version>${maven-surefire-plugin.version}</version>
         <configuration>
           <useUnlimitedThreads>true</useUnlimitedThreads>
-    <excludes>
-      <!-- failed tests -->
-      <exclude>**/TestMonthDay_Properties*</exclude>
-      <exclude>**/TestDateMidnight_Properties*</exclude>
-      <exclude>**/TestDateTime_Properties*</exclude>
-      <exclude>**/TestMutableDateTime_Properties*</exclude>
-      <exclude>**/TestDateTimeZone*</exclude>
-      <exclude>**/gj/MainTest*</exclude> <!-- gj.MainTest -->
-            <exclude>**/TestAll*</exclude>
-    </excludes>
+              <includes>
+                <include>**/TestAllPackages.java</include>
+              </includes>
           <!--argLine>-Djava.security.manager -Djava.security.policy=${basedir}/src/test/resources/java.policy</argLine-->
         </configuration>
       </plugin>
@@ -797,10 +791,10 @@
       <scope>compile</scope>
       <optional>true</optional><!-- mandatory in Scala -->
     </dependency>
-    <dependency>
+      <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.12</version>
+      <version>3.8.2</version>
       <scope>test</scope>
     </dependency>
 

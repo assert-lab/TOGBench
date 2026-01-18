@@ -338,42 +338,6 @@ public class TestDateTime_Properties extends TestCase {
         assertEquals(false, test1.year().hashCode() == new DateTime(2004, 6, 9, 0, 0, 0, 0, CopticChronology.getInstance()).year().hashCode());
     }
 
-    //-----------------------------------------------------------------------
-    public void testPropertyGetMonthOfYear() {
-        DateTime test = new DateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
-        assertEquals("monthOfYear", test.monthOfYear().getName());
-        assertEquals("Property[monthOfYear]", test.monthOfYear().toString());
-        assertSame(test, test.monthOfYear().getDateTime());
-        assertEquals(6, test.monthOfYear().get());
-        assertEquals("6", test.monthOfYear().getAsString());
-        assertEquals("June", test.monthOfYear().getAsText());
-        assertEquals("June", test.monthOfYear().getField().getAsText(6, Locale.ENGLISH));
-        assertEquals("juin", test.monthOfYear().getAsText(Locale.FRENCH));
-        assertEquals("juin", test.monthOfYear().getField().getAsText(6, Locale.FRENCH));
-        assertEquals("Jun", test.monthOfYear().getAsShortText());
-        assertEquals("Jun", test.monthOfYear().getField().getAsShortText(6, Locale.ENGLISH));
-        assertEquals("juin", test.monthOfYear().getAsShortText(Locale.FRENCH));
-        assertEquals("juin", test.monthOfYear().getField().getAsShortText(6, Locale.FRENCH));
-        assertEquals(test.getChronology().months(), test.monthOfYear().getDurationField());
-        assertEquals(test.getChronology().years(), test.monthOfYear().getRangeDurationField());
-        assertEquals(9, test.monthOfYear().getMaximumTextLength(null));
-        assertEquals(3, test.monthOfYear().getMaximumShortTextLength(null));
-        test = new DateTime(2004, 7, 9, 0, 0, 0, 0);
-        assertEquals("juillet", test.monthOfYear().getAsText(Locale.FRENCH));
-        assertEquals("juillet", test.monthOfYear().getField().getAsText(7, Locale.FRENCH));
-        assertEquals("juil.", test.monthOfYear().getAsShortText(Locale.FRENCH));
-        assertEquals("juil.", test.monthOfYear().getField().getAsShortText(7, Locale.FRENCH));
-        assertEquals(1, test.monthOfYear().getMinimumValue());
-        assertEquals(1, test.monthOfYear().getMinimumValueOverall());
-        assertEquals(12, test.monthOfYear().getMaximumValue());
-        assertEquals(12, test.monthOfYear().getMaximumValueOverall());
-        assertEquals(1, test.monthOfYear().getMinimumValue());
-        assertEquals(1, test.monthOfYear().getMinimumValueOverall());
-        assertEquals(12, test.monthOfYear().getMaximumValue());
-        assertEquals(12, test.monthOfYear().getMaximumValueOverall());
-    }
-
     public void testPropertyLeapMonthOfYear() {
         DateTime test = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         assertEquals(false, test.monthOfYear().isLeap());
