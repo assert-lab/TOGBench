@@ -113,25 +113,25 @@ public class TestMinutes_OE25Dev extends TestCase {
     }
 
     public void testFactory_minutes_int_1_oe() {
-        assertSame(Minutes.ZERO, Minutes.minutes(0));
+        assertEquals(Minutes.ZERO, Minutes.minutes(0));
     }
 
     public void testFactory_minutes_int_2_oe() {
         // removed other assertion
-        assertSame(Minutes.ONE, Minutes.minutes(1));
+        assertEquals(Minutes.ONE, Minutes.minutes(1));
     }
 
     public void testFactory_minutes_int_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(Minutes.TWO, Minutes.minutes(2));
+        assertEquals(Minutes.TWO, Minutes.minutes(2));
     }
 
     public void testFactory_minutes_int_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Minutes.THREE, Minutes.minutes(3));
+        assertEquals(Minutes.THREE, Minutes.minutes(3));
     }
 
     public void testFactory_minutes_int_5_oe() {
@@ -139,7 +139,7 @@ public class TestMinutes_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Minutes.MAX_VALUE, Minutes.minutes(Integer.MAX_VALUE));
+        assertEquals(Minutes.MAX_VALUE, Minutes.minutes(Integer.MAX_VALUE));
     }
 
     public void testFactory_minutes_int_6_oe() {
@@ -148,7 +148,7 @@ public class TestMinutes_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Minutes.MIN_VALUE, Minutes.minutes(Integer.MIN_VALUE));
+        assertEquals(Minutes.MIN_VALUE, Minutes.minutes(Integer.MIN_VALUE));
     }
 
     public void testFactory_minutes_int_7_oe() {
@@ -540,7 +540,7 @@ public class TestMinutes_OE25Dev extends TestCase {
         Minutes result = (Minutes) ois.readObject();
         ois.close();
         
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testToStandardWeeks_1_oe() {
@@ -743,7 +743,7 @@ public class TestMinutes_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.multipliedBy(1));
+        assertEquals(test, test.multipliedBy(1));
     }
 
     public void testDividedBy_int_1_oe() {
@@ -799,7 +799,7 @@ public class TestMinutes_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.dividedBy(1));
+        assertEquals(test, test.dividedBy(1));
     }
 
     public void testNegated_1_oe() {

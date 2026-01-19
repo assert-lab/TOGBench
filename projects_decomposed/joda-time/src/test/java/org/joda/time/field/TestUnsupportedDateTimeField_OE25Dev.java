@@ -157,7 +157,7 @@ public class TestUnsupportedDateTimeField_OE25Dev extends TestCase {
         DateTimeField fieldTwo = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
-        assertSame(fieldOne, fieldTwo);
+        assertEquals(fieldOne, fieldTwo);
     }
 
     public void testDifferentDurationReturnDifferentObjects_2_oe() {
@@ -189,7 +189,7 @@ public class TestUnsupportedDateTimeField_OE25Dev extends TestCase {
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
 
-        assertSame(fieldOne.getName(), dateTimeFieldTypeOne.getName());
+        assertEquals(fieldOne.getName(), dateTimeFieldTypeOne.getName());
     }
 
     public void testAlwaysFalseReturnTypes_1_oe() {

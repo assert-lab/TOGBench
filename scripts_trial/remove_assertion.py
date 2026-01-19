@@ -1,0 +1,1 @@
+# removes assertion code lines and adds <assertion_here> tag for future assertion injection

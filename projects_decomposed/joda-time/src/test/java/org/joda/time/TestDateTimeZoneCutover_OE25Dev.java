@@ -2443,7 +2443,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         DateTime baseBefore = base.minusHours(2);
         DateTime baseAfter = base.minusHours(1);
         
-        assertSame(base, base.withEarlierOffsetAtOverlap());
+        assertEquals(base, base.withEarlierOffsetAtOverlap());
     }
 
     public void testBug3192457_adjustOffset_2_oe() {
@@ -2453,7 +2453,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         DateTime baseAfter = base.minusHours(1);
         
         // removed other assertion
-        assertSame(base, base.withLaterOffsetAtOverlap());
+        assertEquals(base, base.withLaterOffsetAtOverlap());
     }
 
     public void testBug3192457_adjustOffset_3_oe() {
@@ -2465,7 +2465,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         
-        assertSame(baseBefore, baseBefore.withEarlierOffsetAtOverlap());
+        assertEquals(baseBefore, baseBefore.withEarlierOffsetAtOverlap());
     }
 
     public void testBug3192457_adjustOffset_4_oe() {
@@ -2493,7 +2493,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         
-        assertSame(baseAfter, baseAfter.withLaterOffsetAtOverlap());
+        assertEquals(baseAfter, baseAfter.withLaterOffsetAtOverlap());
     }
 
     public void testBug3192457_adjustOffset_6_oe() {
@@ -2518,7 +2518,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         DateTime baseBefore = base.plusHours(1);  // 23:15 (first)
         DateTime baseAfter = base.plusHours(2);  // 23:15 (second)
         
-        assertSame(base, base.withEarlierOffsetAtOverlap());
+        assertEquals(base, base.withEarlierOffsetAtOverlap());
     }
 
     public void testBug3476684_adjustOffset_2_oe() {
@@ -2528,7 +2528,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         DateTime baseAfter = base.plusHours(2);  // 23:15 (second)
         
         // removed other assertion
-        assertSame(base, base.withLaterOffsetAtOverlap());
+        assertEquals(base, base.withLaterOffsetAtOverlap());
     }
 
     public void testBug3476684_adjustOffset_3_oe() {
@@ -2540,7 +2540,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         
-        assertSame(baseBefore, baseBefore.withEarlierOffsetAtOverlap());
+        assertEquals(baseBefore, baseBefore.withEarlierOffsetAtOverlap());
     }
 
     public void testBug3476684_adjustOffset_4_oe() {
@@ -2568,7 +2568,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         
-        assertSame(baseAfter, baseAfter.withLaterOffsetAtOverlap());
+        assertEquals(baseAfter, baseAfter.withLaterOffsetAtOverlap());
     }
 
     public void testBug3476684_adjustOffset_6_oe() {
@@ -2593,7 +2593,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
       DateTime baseBefore = base.plusHours(1);  // 23:15
       DateTime baseAfter = base.plusHours(2);  // 01:15
       
-      assertSame(base, base.withEarlierOffsetAtOverlap());
+      assertEquals(base, base.withEarlierOffsetAtOverlap());
     }
 
     public void testBug3476684_adjustOffset_springGap_2_oe() {
@@ -2603,7 +2603,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
       DateTime baseAfter = base.plusHours(2);  // 01:15
       
       // removed other assertion
-      assertSame(base, base.withLaterOffsetAtOverlap());
+      assertEquals(base, base.withLaterOffsetAtOverlap());
     }
 
     public void testBug3476684_adjustOffset_springGap_3_oe() {
@@ -2615,7 +2615,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
       // removed other assertion
       // removed other assertion
       
-      assertSame(baseBefore, baseBefore.withEarlierOffsetAtOverlap());
+      assertEquals(baseBefore, baseBefore.withEarlierOffsetAtOverlap());
     }
 
     public void testBug3476684_adjustOffset_springGap_4_oe() {
@@ -2643,7 +2643,7 @@ public class TestDateTimeZoneCutover_OE25Dev extends TestCase {
       // removed other assertion
       // removed other assertion
       
-      assertSame(baseAfter, baseAfter.withLaterOffsetAtOverlap());
+      assertEquals(baseAfter, baseAfter.withLaterOffsetAtOverlap());
     }
 
     public void testBug3476684_adjustOffset_springGap_6_oe() {

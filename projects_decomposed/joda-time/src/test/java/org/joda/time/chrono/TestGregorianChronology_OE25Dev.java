@@ -99,7 +99,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
 
     public void testFactoryUTC_2_oe() {
         // removed other assertion
-        assertSame(GregorianChronology.class, GregorianChronology.getInstanceUTC().getClass());
+        assertEquals(GregorianChronology.class, GregorianChronology.getInstanceUTC().getClass());
     }
 
     public void testFactory_1_oe() {
@@ -108,7 +108,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
 
     public void testFactory_2_oe() {
         // removed other assertion
-        assertSame(GregorianChronology.class, GregorianChronology.getInstance().getClass());
+        assertEquals(GregorianChronology.class, GregorianChronology.getInstance().getClass());
     }
 
     public void testFactory_Zone_1_oe() {
@@ -130,7 +130,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GregorianChronology.class, GregorianChronology.getInstance(TOKYO).getClass());
+        assertEquals(GregorianChronology.class, GregorianChronology.getInstance(TOKYO).getClass());
     }
 
     public void testFactory_Zone_int_1_oe() {
@@ -145,25 +145,25 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
     }
 
     public void testEquality_1_oe() {
-        assertSame(GregorianChronology.getInstance(TOKYO), GregorianChronology.getInstance(TOKYO));
+        assertEquals(GregorianChronology.getInstance(TOKYO), GregorianChronology.getInstance(TOKYO));
     }
 
     public void testEquality_2_oe() {
         // removed other assertion
-        assertSame(GregorianChronology.getInstance(LONDON), GregorianChronology.getInstance(LONDON));
+        assertEquals(GregorianChronology.getInstance(LONDON), GregorianChronology.getInstance(LONDON));
     }
 
     public void testEquality_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstance(PARIS));
+        assertEquals(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstance(PARIS));
     }
 
     public void testEquality_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstanceUTC());
+        assertEquals(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstanceUTC());
     }
 
     public void testEquality_5_oe() {
@@ -171,51 +171,51 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GregorianChronology.getInstance(), GregorianChronology.getInstance(LONDON));
+        assertEquals(GregorianChronology.getInstance(), GregorianChronology.getInstance(LONDON));
     }
 
     public void testWithUTC_1_oe() {
-        assertSame(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstance(LONDON).withUTC());
+        assertEquals(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstance(LONDON).withUTC());
     }
 
     public void testWithUTC_2_oe() {
         // removed other assertion
-        assertSame(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstance(TOKYO).withUTC());
+        assertEquals(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstance(TOKYO).withUTC());
     }
 
     public void testWithUTC_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstanceUTC().withUTC());
+        assertEquals(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstanceUTC().withUTC());
     }
 
     public void testWithUTC_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstance().withUTC());
+        assertEquals(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstance().withUTC());
     }
 
     public void testWithZone_1_oe() {
-        assertSame(GregorianChronology.getInstance(TOKYO), GregorianChronology.getInstance(TOKYO).withZone(TOKYO));
+        assertEquals(GregorianChronology.getInstance(TOKYO), GregorianChronology.getInstance(TOKYO).withZone(TOKYO));
     }
 
     public void testWithZone_2_oe() {
         // removed other assertion
-        assertSame(GregorianChronology.getInstance(LONDON), GregorianChronology.getInstance(TOKYO).withZone(LONDON));
+        assertEquals(GregorianChronology.getInstance(LONDON), GregorianChronology.getInstance(TOKYO).withZone(LONDON));
     }
 
     public void testWithZone_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstance(TOKYO).withZone(PARIS));
+        assertEquals(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstance(TOKYO).withZone(PARIS));
     }
 
     public void testWithZone_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GregorianChronology.getInstance(LONDON), GregorianChronology.getInstance(TOKYO).withZone(null));
+        assertEquals(GregorianChronology.getInstance(LONDON), GregorianChronology.getInstance(TOKYO).withZone(null));
     }
 
     public void testWithZone_5_oe() {
@@ -223,7 +223,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstance().withZone(PARIS));
+        assertEquals(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstance().withZone(PARIS));
     }
 
     public void testWithZone_6_oe() {
@@ -232,7 +232,7 @@ public class TestGregorianChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstanceUTC().withZone(PARIS));
+        assertEquals(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstanceUTC().withZone(PARIS));
     }
 
     public void testToString_1_oe() {

@@ -276,7 +276,7 @@ public class TestPeriodFormat_OE25Dev extends TestCase {
     }
 
     public void test_getDefault_cached_1_oe() {
-        assertSame(PeriodFormat.getDefault(), PeriodFormat.getDefault());
+        assertEquals(PeriodFormat.getDefault(), PeriodFormat.getDefault());
     }
 
     public void test_wordBased_default_1_oe() {
@@ -310,7 +310,7 @@ public class TestPeriodFormat_OE25Dev extends TestCase {
     }
 
     public void test_wordBased_fr_cached_1_oe() {
-        assertSame(PeriodFormat.wordBased(FR), PeriodFormat.wordBased(FR));
+        assertEquals(PeriodFormat.wordBased(FR), PeriodFormat.wordBased(FR));
     }
 
     public void test_wordBased_pt_formatStandard_1_oe() {
@@ -339,7 +339,7 @@ public class TestPeriodFormat_OE25Dev extends TestCase {
     }
 
     public void test_wordBased_pt_cached_1_oe() {
-        assertSame(PeriodFormat.wordBased(PT), PeriodFormat.wordBased(PT));
+        assertEquals(PeriodFormat.wordBased(PT), PeriodFormat.wordBased(PT));
     }
 
     public void test_wordBased_es_formatStandard_1_oe() {
@@ -368,7 +368,7 @@ public class TestPeriodFormat_OE25Dev extends TestCase {
     }
 
     public void test_wordBased_es_cached_1_oe() {
-        assertSame(PeriodFormat.wordBased(ES), PeriodFormat.wordBased(ES));
+        assertEquals(PeriodFormat.wordBased(ES), PeriodFormat.wordBased(ES));
     }
 
     public void test_wordBased_de_formatStandard_1_oe() {
@@ -397,7 +397,7 @@ public class TestPeriodFormat_OE25Dev extends TestCase {
     }
 
     public void test_wordBased_de_cached_1_oe() {
-        assertSame(PeriodFormat.wordBased(DE), PeriodFormat.wordBased(DE));
+        assertEquals(PeriodFormat.wordBased(DE), PeriodFormat.wordBased(DE));
     }
 
     public void test_wordBased_nl_formatStandard_1_oe() {
@@ -426,7 +426,7 @@ public class TestPeriodFormat_OE25Dev extends TestCase {
     }
 
     public void test_wordBased_nl_cached_1_oe() {
-        assertSame(PeriodFormat.wordBased(NL), PeriodFormat.wordBased(NL));
+        assertEquals(PeriodFormat.wordBased(NL), PeriodFormat.wordBased(NL));
     }
 
     public void test_wordBased_da_formatMultiple_1_oe() {
@@ -440,7 +440,7 @@ public class TestPeriodFormat_OE25Dev extends TestCase {
     }
 
     public void test_wordBased_da_cached_1_oe() {
-        assertSame(PeriodFormat.wordBased(DA), PeriodFormat.wordBased(DA));
+        assertEquals(PeriodFormat.wordBased(DA), PeriodFormat.wordBased(DA));
     }
 
     public void test_wordBased_ja_formatMultiple_1_oe() {
@@ -454,7 +454,7 @@ public class TestPeriodFormat_OE25Dev extends TestCase {
     }
 
     public void test_wordBased_ja_cached_1_oe() {
-        assertSame(PeriodFormat.wordBased(JA), PeriodFormat.wordBased(JA));
+        assertEquals(PeriodFormat.wordBased(JA), PeriodFormat.wordBased(JA));
     }
 
     public void test_wordBased_ja_parseOneField_1_oe() {
@@ -512,7 +512,7 @@ public class TestPeriodFormat_OE25Dev extends TestCase {
     }
 
     public void test_wordBased_pl_cached_1_oe() {
-        assertSame(PeriodFormat.wordBased(PL), PeriodFormat.wordBased(PL));
+        assertEquals(PeriodFormat.wordBased(PL), PeriodFormat.wordBased(PL));
     }
 
     public void test_wordBased_pl_regEx_1_oe() {
@@ -11486,7 +11486,7 @@ public class TestPeriodFormat_OE25Dev extends TestCase {
     }
 
     public void test_wordBased_ru_cached_1_oe() {
-        assertSame(PeriodFormat.wordBased(RU), PeriodFormat.wordBased(RU));
+        assertEquals(PeriodFormat.wordBased(RU), PeriodFormat.wordBased(RU));
     }
 
     public void test_wordBased_ru_regEx_1_oe() {

@@ -139,7 +139,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetEra_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertSame(test.getChronology().era(), test.era().getField());
+        assertEquals(test.getChronology().era(), test.era().getField());
     }
 
     public void testPropertyGetEra_2_oe() {
@@ -160,7 +160,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.era().getDateMidnight());
+        assertEquals(test, test.era().getDateMidnight());
     }
 
     public void testPropertyGetEra_5_oe() {
@@ -319,7 +319,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYearOfEra_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertSame(test.getChronology().yearOfEra(), test.yearOfEra().getField());
+        assertEquals(test.getChronology().yearOfEra(), test.yearOfEra().getField());
     }
 
     public void testPropertyGetYearOfEra_2_oe() {
@@ -340,7 +340,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.yearOfEra().getDateMidnight());
+        assertEquals(test, test.yearOfEra().getDateMidnight());
     }
 
     public void testPropertyGetYearOfEra_5_oe() {
@@ -462,7 +462,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetCenturyOfEra_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertSame(test.getChronology().centuryOfEra(), test.centuryOfEra().getField());
+        assertEquals(test.getChronology().centuryOfEra(), test.centuryOfEra().getField());
     }
 
     public void testPropertyGetCenturyOfEra_2_oe() {
@@ -483,7 +483,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.centuryOfEra().getDateMidnight());
+        assertEquals(test, test.centuryOfEra().getDateMidnight());
     }
 
     public void testPropertyGetCenturyOfEra_5_oe() {
@@ -605,7 +605,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYearOfCentury_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertSame(test.getChronology().yearOfCentury(), test.yearOfCentury().getField());
+        assertEquals(test.getChronology().yearOfCentury(), test.yearOfCentury().getField());
     }
 
     public void testPropertyGetYearOfCentury_2_oe() {
@@ -626,7 +626,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.yearOfCentury().getDateMidnight());
+        assertEquals(test, test.yearOfCentury().getDateMidnight());
     }
 
     public void testPropertyGetYearOfCentury_5_oe() {
@@ -748,7 +748,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetWeekyear_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertSame(test.getChronology().weekyear(), test.weekyear().getField());
+        assertEquals(test.getChronology().weekyear(), test.weekyear().getField());
     }
 
     public void testPropertyGetWeekyear_2_oe() {
@@ -769,7 +769,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.weekyear().getDateMidnight());
+        assertEquals(test, test.weekyear().getDateMidnight());
     }
 
     public void testPropertyGetWeekyear_5_oe() {
@@ -891,7 +891,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYear_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertSame(test.getChronology().year(), test.year().getField());
+        assertEquals(test.getChronology().year(), test.year().getField());
     }
 
     public void testPropertyGetYear_2_oe() {
@@ -912,7 +912,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.year().getDateMidnight());
+        assertEquals(test, test.year().getDateMidnight());
     }
 
     public void testPropertyGetYear_5_oe() {
@@ -1393,7 +1393,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDayOfMonth_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
     }
 
     public void testPropertyGetDayOfMonth_2_oe() {
@@ -1414,7 +1414,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.dayOfMonth().getDateMidnight());
+        assertEquals(test, test.dayOfMonth().getDateMidnight());
     }
 
     public void testPropertyGetDayOfMonth_5_oe() {
@@ -1710,7 +1710,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
     public void testPropertyGetDayOfYear_1_oe() {
         // 31+29+31+30+31+9 = 161
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertSame(test.getChronology().dayOfYear(), test.dayOfYear().getField());
+        assertEquals(test.getChronology().dayOfYear(), test.dayOfYear().getField());
     }
 
     public void testPropertyGetDayOfYear_2_oe() {
@@ -1734,7 +1734,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.dayOfYear().getDateMidnight());
+        assertEquals(test, test.dayOfYear().getDateMidnight());
     }
 
     public void testPropertyGetDayOfYear_5_oe() {
@@ -1925,7 +1925,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetWeekOfWeekyear_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertSame(test.getChronology().weekOfWeekyear(), test.weekOfWeekyear().getField());
+        assertEquals(test.getChronology().weekOfWeekyear(), test.weekOfWeekyear().getField());
     }
 
     public void testPropertyGetWeekOfWeekyear_2_oe() {
@@ -1946,7 +1946,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.weekOfWeekyear().getDateMidnight());
+        assertEquals(test, test.weekOfWeekyear().getDateMidnight());
     }
 
     public void testPropertyGetWeekOfWeekyear_5_oe() {
@@ -2125,7 +2125,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDayOfWeek_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertSame(test.getChronology().dayOfWeek(), test.dayOfWeek().getField());
+        assertEquals(test.getChronology().dayOfWeek(), test.dayOfWeek().getField());
     }
 
     public void testPropertyGetDayOfWeek_2_oe() {
@@ -2146,7 +2146,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.dayOfWeek().getDateMidnight());
+        assertEquals(test, test.dayOfWeek().getDateMidnight());
     }
 
     public void testPropertyGetDayOfWeek_5_oe() {

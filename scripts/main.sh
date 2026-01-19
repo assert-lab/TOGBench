@@ -10,9 +10,15 @@ python3 scripts/1_build_dataset.py
 
 python3 scripts/dataset_post_process.py
 
+# run project_fixes scripts for each projects
+./scripts/project_fixes/joda-time.sh
+
 # python3 scripts/2_filter_compilable_tests.py
 
 python3 scripts/3_rebuild_tests.py
+
+# run each projects' fix.sh before running mvn test
+./scripts/project_fixes.sh
 
 module load maven
 

@@ -40,6 +40,15 @@ public class StaticNoArgsTest_OE25Dev {
     }
 
     @Test
+    public void testThrowingCheckedException1() {
+        try {
+            StaticNoArgs.throwingCheckedException1();
+            fail();
+        } catch (CheckedException1 e) {
+        }
+    }
+
+    @Test
     public void testGetFoo_1_oe() {
         assertEquals("foo-value", StaticNoArgs.getFoo());
     }
@@ -52,14 +61,6 @@ public class StaticNoArgsTest_OE25Dev {
     @Test
     public void testGetFalse_1_oe() {
         assertFalse(StaticNoArgs.getFalse());
-    }
-
-    @Test
-    public void testThrowingCheckedException1_1_oe() {
-        try {
-            StaticNoArgs.throwingCheckedException1();
-            fail();
-    }
     }
 
     @Test

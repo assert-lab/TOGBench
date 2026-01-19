@@ -36,22 +36,34 @@ import static org.testng.Assert.assertTrue;
 public class AsyncHttpTest_OE25Dev {
   protected DefaultDeferredManager deferredManager = new DefaultDeferredManager();
 
-  public void testPromiseAdapter_1_oe() throws IOException {
+  public void testMultiplePromiseAdapter() throws IOException {
     final CountDownLatch latch = new CountDownLatch(1);
     final AtomicInteger successCount = new AtomicInteger();
-    final AtomicInteger progressCount = new AtomicInteger();
 
     try (AsyncHttpClient client = asyncHttpClient()) {
       Promise<Response, Throwable, HttpProgress> p1 = AsyncHttpDeferredObject.promise(client.prepareGet("http://gatling.io"));
-      p1.done(new DoneCallback<Response>() {
+      Promise<Response, Throwable, HttpProgress> p2 = AsyncHttpDeferredObject.promise(client.prepareGet("http://www.google.com"));
+      AsyncHttpDeferredObject deferredRequest = new AsyncHttpDeferredObject(client.prepareGet("http://jdeferred.org"));
+
+      deferredManager.when(p1, p2, deferredRequest).then(new DoneCallback<MultipleResults>() {
         @Override
-        public void onDone(Response response) {
+        public void onDone(MultipleResults result) {
           try {
-            assertEquals(response.getStatusCode(), 200);
-  }
-  }
-  }
-  }
+            assertEquals(result.size(), 3);
+            assertEquals(Response.class.cast(result.get(0).getResult()).getStatusCode(), 200);
+            assertEquals(Response.class.cast(result.get(1).getResult()).getStatusCode(), 200);
+            assertEquals(Response.class.cast(result.get(2).getResult()).getStatusCode(), 200);
+            successCount.incrementAndGet();
+          } finally {
+            latch.countDown();
+          }
+        }
+      });
+      latch.await();
+
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   public void testPromiseAdapter_2_oe() throws IOException {
@@ -81,92 +93,6 @@ public class AsyncHttpTest_OE25Dev {
 
       latch.await();
       assertTrue(progressCount.get() > 0);
-  }
-  }
-
-  public void testMultiplePromiseAdapter_1_oe() throws IOException {
-    final CountDownLatch latch = new CountDownLatch(1);
-    final AtomicInteger successCount = new AtomicInteger();
-
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      Promise<Response, Throwable, HttpProgress> p1 = AsyncHttpDeferredObject.promise(client.prepareGet("http://gatling.io"));
-      Promise<Response, Throwable, HttpProgress> p2 = AsyncHttpDeferredObject.promise(client.prepareGet("http://www.google.com"));
-      AsyncHttpDeferredObject deferredRequest = new AsyncHttpDeferredObject(client.prepareGet("http://jdeferred.org"));
-
-      deferredManager.when(p1, p2, deferredRequest).then(new DoneCallback<MultipleResults>() {
-        @Override
-        public void onDone(MultipleResults result) {
-          try {
-            assertEquals(result.size(), 3);
-  }
-  }
-  }
-  }
-  }
-
-  public void testMultiplePromiseAdapter_2_oe() throws IOException {
-    final CountDownLatch latch = new CountDownLatch(1);
-    final AtomicInteger successCount = new AtomicInteger();
-
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      Promise<Response, Throwable, HttpProgress> p1 = AsyncHttpDeferredObject.promise(client.prepareGet("http://gatling.io"));
-      Promise<Response, Throwable, HttpProgress> p2 = AsyncHttpDeferredObject.promise(client.prepareGet("http://www.google.com"));
-      AsyncHttpDeferredObject deferredRequest = new AsyncHttpDeferredObject(client.prepareGet("http://jdeferred.org"));
-
-      deferredManager.when(p1, p2, deferredRequest).then(new DoneCallback<MultipleResults>() {
-        @Override
-        public void onDone(MultipleResults result) {
-          try {
-            // removed other assertion
-            assertEquals(Response.class.cast(result.get(0).getResult()).getStatusCode(), 200);
-  }
-  }
-  }
-  }
-  }
-
-  public void testMultiplePromiseAdapter_3_oe() throws IOException {
-    final CountDownLatch latch = new CountDownLatch(1);
-    final AtomicInteger successCount = new AtomicInteger();
-
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      Promise<Response, Throwable, HttpProgress> p1 = AsyncHttpDeferredObject.promise(client.prepareGet("http://gatling.io"));
-      Promise<Response, Throwable, HttpProgress> p2 = AsyncHttpDeferredObject.promise(client.prepareGet("http://www.google.com"));
-      AsyncHttpDeferredObject deferredRequest = new AsyncHttpDeferredObject(client.prepareGet("http://jdeferred.org"));
-
-      deferredManager.when(p1, p2, deferredRequest).then(new DoneCallback<MultipleResults>() {
-        @Override
-        public void onDone(MultipleResults result) {
-          try {
-            // removed other assertion
-            // removed other assertion
-            assertEquals(Response.class.cast(result.get(1).getResult()).getStatusCode(), 200);
-  }
-  }
-  }
-  }
-  }
-
-  public void testMultiplePromiseAdapter_4_oe() throws IOException {
-    final CountDownLatch latch = new CountDownLatch(1);
-    final AtomicInteger successCount = new AtomicInteger();
-
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      Promise<Response, Throwable, HttpProgress> p1 = AsyncHttpDeferredObject.promise(client.prepareGet("http://gatling.io"));
-      Promise<Response, Throwable, HttpProgress> p2 = AsyncHttpDeferredObject.promise(client.prepareGet("http://www.google.com"));
-      AsyncHttpDeferredObject deferredRequest = new AsyncHttpDeferredObject(client.prepareGet("http://jdeferred.org"));
-
-      deferredManager.when(p1, p2, deferredRequest).then(new DoneCallback<MultipleResults>() {
-        @Override
-        public void onDone(MultipleResults result) {
-          try {
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            assertEquals(Response.class.cast(result.get(2).getResult()).getStatusCode(), 200);
-  }
-  }
-  }
   }
   }
 

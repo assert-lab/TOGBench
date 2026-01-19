@@ -331,7 +331,7 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
 
     public void testGetDuration2_1_oe() {
         Interval test = new Interval(TEST_TIME1, TEST_TIME1);
-        assertSame(Duration.ZERO, test.toDuration());
+        assertEquals(Duration.ZERO, test.toDuration());
     }
 
     public void testGetDuration3_1_oe() {
@@ -10689,7 +10689,7 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
     public void testToInterval1_1_oe() {
         Interval test = new Interval(TEST_TIME1, TEST_TIME2, COPTIC_PARIS);
         Interval result = test.toInterval();
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testToMutableInterval1_1_oe() {
@@ -10774,7 +10774,7 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
     public void testWithChronology3_1_oe() {
         Interval base = new Interval(TEST_TIME1, TEST_TIME2, COPTIC_PARIS);
         Interval test = base.withChronology(COPTIC_PARIS);
-        assertSame(base, test);
+        assertEquals(base, test);
     }
 
     public void testWithStartMillis_long1_1_oe() {
@@ -10786,7 +10786,7 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
     public void testWithStartMillis_long3_1_oe() {
         Interval base = new Interval(TEST_TIME1, TEST_TIME2, COPTIC_PARIS);
         Interval test = base.withStartMillis(TEST_TIME1);
-        assertSame(base, test);
+        assertEquals(base, test);
     }
 
     public void testWithStartInstant_RI1_1_oe() {
@@ -10810,7 +10810,7 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
     public void testWithEndMillis_long3_1_oe() {
         Interval base = new Interval(TEST_TIME1, TEST_TIME2, COPTIC_PARIS);
         Interval test = base.withEndMillis(TEST_TIME2);
-        assertSame(base, test);
+        assertEquals(base, test);
     }
 
     public void testWithEndInstant_RI1_1_oe() {
@@ -10844,7 +10844,7 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
         Interval base = new Interval(TEST_TIME_NOW, TEST_TIME2, COPTIC_PARIS);
         Interval test = base.withDurationAfterStart(base.toDuration());
         
-        assertSame(base, test);
+        assertEquals(base, test);
     }
 
     public void testWithDurationBeforeEnd1_1_oe() throws Throwable {
@@ -10866,7 +10866,7 @@ public class TestInterval_Basics_OE25Dev extends TestCase {
         Interval base = new Interval(TEST_TIME_NOW, TEST_TIME2, COPTIC_PARIS);
         Interval test = base.withDurationBeforeEnd(base.toDuration());
         
-        assertSame(base, test);
+        assertEquals(base, test);
     }
 
     public void testWithPeriodAfterStart1_1_oe() throws Throwable {

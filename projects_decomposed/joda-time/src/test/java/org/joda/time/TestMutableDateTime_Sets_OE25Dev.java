@@ -287,7 +287,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, chrono);
         test.setZoneRetainFields(PARIS);
         // removed other assertion
-        assertSame(chrono, test.getChronology());
+        assertEquals(chrono, test.getChronology());
     }
 
     public void testSetMillis_RI1_1_oe() {

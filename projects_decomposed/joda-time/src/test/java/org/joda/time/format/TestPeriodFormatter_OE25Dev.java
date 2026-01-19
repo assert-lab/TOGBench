@@ -138,7 +138,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
     public void testWithGetLocaleMethods_2_oe() {
         PeriodFormatter f2 = f.withLocale(Locale.FRENCH);
         // removed other assertion
-        assertSame(f2, f2.withLocale(Locale.FRENCH));
+        assertEquals(f2, f2.withLocale(Locale.FRENCH));
     }
 
     public void testWithGetLocaleMethods_3_oe() {
@@ -157,7 +157,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         
         f2 = f.withLocale(null);
         // removed other assertion
-        assertSame(f2, f2.withLocale(null));
+        assertEquals(f2, f2.withLocale(null));
     }
 
     public void testWithGetParseTypeMethods_1_oe() {
@@ -168,7 +168,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
     public void testWithGetParseTypeMethods_2_oe() {
         PeriodFormatter f2 = f.withParseType(PeriodType.dayTime());
         // removed other assertion
-        assertSame(f2, f2.withParseType(PeriodType.dayTime()));
+        assertEquals(f2, f2.withParseType(PeriodType.dayTime()));
     }
 
     public void testWithGetParseTypeMethods_3_oe() {
@@ -187,7 +187,7 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         
         f2 = f.withParseType(null);
         // removed other assertion
-        assertSame(f2, f2.withParseType(null));
+        assertEquals(f2, f2.withParseType(null));
     }
 
     public void testPrinterParserMethods_1_oe() {

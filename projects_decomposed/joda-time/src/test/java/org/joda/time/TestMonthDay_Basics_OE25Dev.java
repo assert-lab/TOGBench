@@ -224,13 +224,13 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
 
     public void testGetFieldType_1_oe() {
         MonthDay test = new MonthDay(COPTIC_PARIS);
-        assertSame(DateTimeFieldType.monthOfYear(), test.getFieldType(0));
+        assertEquals(DateTimeFieldType.monthOfYear(), test.getFieldType(0));
     }
 
     public void testGetFieldType_2_oe() {
         MonthDay test = new MonthDay(COPTIC_PARIS);
         // removed other assertion
-        assertSame(DateTimeFieldType.dayOfMonth(), test.getFieldType(1));
+        assertEquals(DateTimeFieldType.dayOfMonth(), test.getFieldType(1));
     }
 
     public void testGetFieldTypes_1_oe() {
@@ -243,7 +243,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
         MonthDay test = new MonthDay(COPTIC_PARIS);
         DateTimeFieldType[] fields = test.getFieldTypes();
         // removed other assertion
-        assertSame(DateTimeFieldType.monthOfYear(), fields[0]);
+        assertEquals(DateTimeFieldType.monthOfYear(), fields[0]);
     }
 
     public void testGetFieldTypes_3_oe() {
@@ -251,7 +251,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
         DateTimeFieldType[] fields = test.getFieldTypes();
         // removed other assertion
         // removed other assertion
-        assertSame(DateTimeFieldType.dayOfMonth(), fields[1]);
+        assertEquals(DateTimeFieldType.dayOfMonth(), fields[1]);
     }
 
     public void testGetFieldTypes_4_oe() {
@@ -265,13 +265,13 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
 
     public void testGetField_1_oe() {
         MonthDay test = new MonthDay(COPTIC_PARIS);
-        assertSame(COPTIC_UTC.monthOfYear(), test.getField(0));
+        assertEquals(COPTIC_UTC.monthOfYear(), test.getField(0));
     }
 
     public void testGetField_2_oe() {
         MonthDay test = new MonthDay(COPTIC_PARIS);
         // removed other assertion
-        assertSame(COPTIC_UTC.dayOfMonth(), test.getField(1));
+        assertEquals(COPTIC_UTC.dayOfMonth(), test.getField(1));
     }
 
     public void testGetFields_1_oe() {
@@ -284,7 +284,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
         MonthDay test = new MonthDay(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         // removed other assertion
-        assertSame(COPTIC_UTC.monthOfYear(), fields[0]);
+        assertEquals(COPTIC_UTC.monthOfYear(), fields[0]);
     }
 
     public void testGetFields_3_oe() {
@@ -292,7 +292,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
         DateTimeField[] fields = test.getFields();
         // removed other assertion
         // removed other assertion
-        assertSame(COPTIC_UTC.dayOfMonth(), fields[1]);
+        assertEquals(COPTIC_UTC.dayOfMonth(), fields[1]);
     }
 
     public void testGetFields_4_oe() {
@@ -1077,7 +1077,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
     public void testWithChronologyRetainFields_sameChrono_1_oe() {
         MonthDay base = new MonthDay(6, 6, COPTIC_PARIS);
         MonthDay test = base.withChronologyRetainFields(COPTIC_TOKYO);
-        assertSame(base, test);
+        assertEquals(base, test);
     }
 
     public void testWithChronologyRetainFields_nullChrono_1_oe() {
@@ -1121,7 +1121,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
         MonthDay test = new MonthDay(9, 6);
         MonthDay result = test.withField(DateTimeFieldType.monthOfYear(), 9);
         // removed other assertion
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testWithFieldAdded_1_oe() {
@@ -1142,7 +1142,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
     public void testWithFieldAdded_zero_1_oe() {
         MonthDay test = new MonthDay(9, 6);
         MonthDay result = test.withFieldAdded(DurationFieldType.months(), 0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlus_RP_1_oe() {
@@ -1159,7 +1159,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.plus((ReadablePeriod) null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlusMonths_int_1_oe() {
@@ -1200,7 +1200,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
     public void testPlusMonths_int_same_1_oe() {
         MonthDay test = new MonthDay(6, 5, ISO_UTC);
         MonthDay result = test.plusMonths(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlusMonths_int_wrap_1_oe() {
@@ -1283,7 +1283,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
     public void testPlusDays_same_1_oe() {
         MonthDay test = new MonthDay(5, 10, BuddhistChronology.getInstance());
         MonthDay result = test.plusDays(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinus_RP_1_oe() {
@@ -1300,7 +1300,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.minus((ReadablePeriod) null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinusMonths_int_1_oe() {
@@ -1341,7 +1341,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
     public void testMinusMonths_int_same_1_oe() {
         MonthDay test = new MonthDay(6, 5, ISO_UTC);
         MonthDay result = test.minusMonths(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinusMonths_int_wrap_1_oe() {
@@ -1417,7 +1417,7 @@ public class TestMonthDay_Basics_OE25Dev extends TestCase {
     public void testMinusDays_same_1_oe() {
         MonthDay test = new MonthDay(5, 11, BuddhistChronology.getInstance());
         MonthDay result = test.minusDays(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testToLocalDate_1_oe() {

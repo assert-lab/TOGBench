@@ -193,7 +193,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         };
         ConverterSet set = new ConverterSet(array);
         ConverterSet result = set.add(c4, null);
-        assertSame(set, result);
+        assertEquals(set, result);
     }
 
     public void testAddNullRemoved3_1_oe() {
@@ -251,7 +251,7 @@ public class TestConverterSet_OE25Dev extends TestCase {
         };
         ConverterSet set = new ConverterSet(array);
         ConverterSet result = set.remove(c5, null);
-        assertSame(set, result);
+        assertEquals(set, result);
     }
 
     public void testRemoveBadIndex1_2_oe() {

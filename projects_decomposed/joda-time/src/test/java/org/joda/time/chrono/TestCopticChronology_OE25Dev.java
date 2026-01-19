@@ -128,7 +128,7 @@ public class TestCopticChronology_OE25Dev extends TestCase {
 
     public void testFactoryUTC_2_oe() {
         // removed other assertion
-        assertSame(CopticChronology.class, CopticChronology.getInstanceUTC().getClass());
+        assertEquals(CopticChronology.class, CopticChronology.getInstanceUTC().getClass());
     }
 
     public void testFactory_1_oe() {
@@ -137,7 +137,7 @@ public class TestCopticChronology_OE25Dev extends TestCase {
 
     public void testFactory_2_oe() {
         // removed other assertion
-        assertSame(CopticChronology.class, CopticChronology.getInstance().getClass());
+        assertEquals(CopticChronology.class, CopticChronology.getInstance().getClass());
     }
 
     public void testFactory_Zone_1_oe() {
@@ -159,29 +159,29 @@ public class TestCopticChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(CopticChronology.class, CopticChronology.getInstance(TOKYO).getClass());
+        assertEquals(CopticChronology.class, CopticChronology.getInstance(TOKYO).getClass());
     }
 
     public void testEquality_1_oe() {
-        assertSame(CopticChronology.getInstance(TOKYO), CopticChronology.getInstance(TOKYO));
+        assertEquals(CopticChronology.getInstance(TOKYO), CopticChronology.getInstance(TOKYO));
     }
 
     public void testEquality_2_oe() {
         // removed other assertion
-        assertSame(CopticChronology.getInstance(LONDON), CopticChronology.getInstance(LONDON));
+        assertEquals(CopticChronology.getInstance(LONDON), CopticChronology.getInstance(LONDON));
     }
 
     public void testEquality_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(CopticChronology.getInstance(PARIS), CopticChronology.getInstance(PARIS));
+        assertEquals(CopticChronology.getInstance(PARIS), CopticChronology.getInstance(PARIS));
     }
 
     public void testEquality_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(CopticChronology.getInstanceUTC(), CopticChronology.getInstanceUTC());
+        assertEquals(CopticChronology.getInstanceUTC(), CopticChronology.getInstanceUTC());
     }
 
     public void testEquality_5_oe() {
@@ -189,51 +189,51 @@ public class TestCopticChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(CopticChronology.getInstance(), CopticChronology.getInstance(LONDON));
+        assertEquals(CopticChronology.getInstance(), CopticChronology.getInstance(LONDON));
     }
 
     public void testWithUTC_1_oe() {
-        assertSame(CopticChronology.getInstanceUTC(), CopticChronology.getInstance(LONDON).withUTC());
+        assertEquals(CopticChronology.getInstanceUTC(), CopticChronology.getInstance(LONDON).withUTC());
     }
 
     public void testWithUTC_2_oe() {
         // removed other assertion
-        assertSame(CopticChronology.getInstanceUTC(), CopticChronology.getInstance(TOKYO).withUTC());
+        assertEquals(CopticChronology.getInstanceUTC(), CopticChronology.getInstance(TOKYO).withUTC());
     }
 
     public void testWithUTC_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(CopticChronology.getInstanceUTC(), CopticChronology.getInstanceUTC().withUTC());
+        assertEquals(CopticChronology.getInstanceUTC(), CopticChronology.getInstanceUTC().withUTC());
     }
 
     public void testWithUTC_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(CopticChronology.getInstanceUTC(), CopticChronology.getInstance().withUTC());
+        assertEquals(CopticChronology.getInstanceUTC(), CopticChronology.getInstance().withUTC());
     }
 
     public void testWithZone_1_oe() {
-        assertSame(CopticChronology.getInstance(TOKYO), CopticChronology.getInstance(TOKYO).withZone(TOKYO));
+        assertEquals(CopticChronology.getInstance(TOKYO), CopticChronology.getInstance(TOKYO).withZone(TOKYO));
     }
 
     public void testWithZone_2_oe() {
         // removed other assertion
-        assertSame(CopticChronology.getInstance(LONDON), CopticChronology.getInstance(TOKYO).withZone(LONDON));
+        assertEquals(CopticChronology.getInstance(LONDON), CopticChronology.getInstance(TOKYO).withZone(LONDON));
     }
 
     public void testWithZone_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(CopticChronology.getInstance(PARIS), CopticChronology.getInstance(TOKYO).withZone(PARIS));
+        assertEquals(CopticChronology.getInstance(PARIS), CopticChronology.getInstance(TOKYO).withZone(PARIS));
     }
 
     public void testWithZone_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(CopticChronology.getInstance(LONDON), CopticChronology.getInstance(TOKYO).withZone(null));
+        assertEquals(CopticChronology.getInstance(LONDON), CopticChronology.getInstance(TOKYO).withZone(null));
     }
 
     public void testWithZone_5_oe() {
@@ -241,7 +241,7 @@ public class TestCopticChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(CopticChronology.getInstance(PARIS), CopticChronology.getInstance().withZone(PARIS));
+        assertEquals(CopticChronology.getInstance(PARIS), CopticChronology.getInstance().withZone(PARIS));
     }
 
     public void testWithZone_6_oe() {
@@ -250,7 +250,7 @@ public class TestCopticChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(CopticChronology.getInstance(PARIS), CopticChronology.getInstanceUTC().withZone(PARIS));
+        assertEquals(CopticChronology.getInstance(PARIS), CopticChronology.getInstanceUTC().withZone(PARIS));
     }
 
     public void testToString_1_oe() {

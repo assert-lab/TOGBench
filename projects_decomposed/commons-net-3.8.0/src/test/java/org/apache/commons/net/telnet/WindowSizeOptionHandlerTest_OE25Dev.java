@@ -1,0 +1,143 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.net.telnet;
+
+/**
+ * JUnit test class for TerminalTypeOptionHandler
+ */
+public class WindowSizeOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTestAbstract
+{
+    /**
+     * setUp for the test.
+     */
+    @Override
+    protected void setUp()
+    {
+        opthand1 = new WindowSizeOptionHandler(80, 24);
+        opthand2 = new WindowSizeOptionHandler(255, 255, true, true, true, true);
+        opthand3 = new WindowSizeOptionHandler(0xFFFF, 0x00FF, false, false, false, false);
+    }
+
+    /**
+     * test of the constructors.
+     */
+
+    /**
+     * test of client-driven subnegotiation.
+     * Checks that no subnegotiation is made.
+     */
+
+    /**
+     * test of client-driven subnegotiation.
+     *
+     */
+
+
+
+    /**
+     * test of client-driven subnegotiation.
+     * Checks that nothing is sent
+     */
+
+    /**
+     * compares two arrays of int
+     */
+    private void equalInts(final int a1[], final int a2[])
+    {
+        assertEquals("Arrays should be the same length", a1.length, a2.length);
+        for(int ii=0; ii<a1.length; ii++)
+        {
+            assertEquals("Array entry "+ii+" should match",a1[ii], a2[ii]);
+        }
+    }
+
+    public void testConstructors_1_oe()
+    {
+        assertEquals(TelnetOption.WINDOW_SIZE, opthand1.getOptionCode());
+    }
+
+    public void testStartSubnegotiation_1_oe()
+    {
+        assertNull(opthand1.startSubnegotiationRemote());
+    }
+
+    public void testStartSubnegotiation_2_oe()
+    {
+        // removed other assertion
+        assertNull(opthand2.startSubnegotiationRemote());
+    }
+
+    public void testStartSubnegotiation_3_oe()
+    {
+        // removed other assertion
+        // removed other assertion
+        assertNull(opthand3.startSubnegotiationRemote());
+    }
+
+    public void testStartSubnegotiationLocal_1_oe()
+    {
+        final int[] exp1 = {31, 0, 80, 0, 24};
+        final int[] start1 = opthand1.startSubnegotiationLocal();
+        assertEquals(5, start1.length);
+    }
+
+    public void testAnswerSubnegotiation_1_oe()
+    {
+        final int subn[] =
+        {
+            TelnetOption.WINDOW_SIZE, 24, 80
+        };
+
+        final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
+        final int resp2[] = opthand2.answerSubnegotiation(subn, subn.length);
+        final int resp3[] = opthand3.answerSubnegotiation(subn, subn.length);
+
+        assertNull(resp1);
+    }
+
+    public void testAnswerSubnegotiation_2_oe()
+    {
+        final int subn[] =
+        {
+            TelnetOption.WINDOW_SIZE, 24, 80
+        };
+
+        final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
+        final int resp2[] = opthand2.answerSubnegotiation(subn, subn.length);
+        final int resp3[] = opthand3.answerSubnegotiation(subn, subn.length);
+
+        // removed other assertion
+        assertNull(resp2);
+    }
+
+    public void testAnswerSubnegotiation_3_oe()
+    {
+        final int subn[] =
+        {
+            TelnetOption.WINDOW_SIZE, 24, 80
+        };
+
+        final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
+        final int resp2[] = opthand2.answerSubnegotiation(subn, subn.length);
+        final int resp3[] = opthand3.answerSubnegotiation(subn, subn.length);
+
+        // removed other assertion
+        // removed other assertion
+        assertNull(resp3);
+    }
+
+}

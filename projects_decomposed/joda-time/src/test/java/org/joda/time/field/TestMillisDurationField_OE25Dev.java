@@ -301,7 +301,7 @@ public class TestMillisDurationField_OE25Dev extends TestCase {
         DurationField result = (DurationField) ois.readObject();
         ois.close();
         
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
 }

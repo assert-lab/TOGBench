@@ -493,7 +493,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         DateTimeZone.setDefault(PARIS);
-        assertSame(PARIS, DateTimeZone.getDefault());
+        assertEquals(PARIS, DateTimeZone.getDefault());
     }
 
     public void testForID_String_1_oe() {
@@ -514,7 +514,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forID("UTC");
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
     }
 
     public void testForID_String_4_oe() {
@@ -527,7 +527,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forID("+00:00");
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
     }
 
     public void testForID_String_5_oe() {
@@ -543,7 +543,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forID("+00");
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
     }
 
     public void testForID_String_6_oe() {
@@ -788,7 +788,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
     }
 
     public void testForOffsetMillis_int_1_oe() {
-        assertSame(DateTimeZone.UTC, DateTimeZone.forOffsetMillis(0));
+        assertEquals(DateTimeZone.UTC, DateTimeZone.forOffsetMillis(0));
     }
 
     public void testForOffsetMillis_int_2_oe() {
@@ -842,7 +842,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         
         DateTimeZone zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("Europe/London"));
         // removed other assertion
-        assertSame(DateTimeZone.UTC, DateTimeZone.forTimeZone(TimeZone.getTimeZone("UTC")));
+        assertEquals(DateTimeZone.UTC, DateTimeZone.forTimeZone(TimeZone.getTimeZone("UTC")));
     }
 
     public void testForTimeZone_TimeZone_4_oe() {
@@ -853,7 +853,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("+00:00"));
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
     }
 
     public void testForTimeZone_TimeZone_5_oe() {
@@ -867,7 +867,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+00:00"));
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
     }
 
     public void testForTimeZone_TimeZone_6_oe() {
@@ -884,7 +884,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+00:00"));
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
     }
 
     public void testForTimeZone_TimeZone_7_oe() {
@@ -904,7 +904,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+00"));
-        assertSame(DateTimeZone.UTC, zone);
+        assertEquals(DateTimeZone.UTC, zone);
     }
 
     public void testForTimeZone_TimeZone_8_oe() {
@@ -5189,7 +5189,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         DateTimeZone result = (DateTimeZone) ois.readObject();
         ois.close();
         
-        assertSame(zone, result);
+        assertEquals(zone, result);
     }
 
     public void testSerialization2_1_oe() throws Exception {

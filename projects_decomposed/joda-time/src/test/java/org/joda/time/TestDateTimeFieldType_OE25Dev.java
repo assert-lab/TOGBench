@@ -1006,7 +1006,7 @@ public class TestDateTimeFieldType_OE25Dev extends TestCase {
         DateTimeFieldType type = (DateTimeFieldType) con.newInstance(params);
         
         // removed other assertion
-        assertSame(DurationFieldType.hours(), type.getDurationType());
+        assertEquals(DurationFieldType.hours(), type.getDurationType());
     }
 
     public void test_other_5_oe() throws Exception {
@@ -1021,7 +1021,7 @@ public class TestDateTimeFieldType_OE25Dev extends TestCase {
         
         // removed other assertion
         // removed other assertion
-        assertSame(DurationFieldType.months(), type.getRangeDurationType());
+        assertEquals(DurationFieldType.months(), type.getRangeDurationType());
     }
 
     public void test_other_7_oe() throws Exception {

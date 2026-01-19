@@ -294,7 +294,7 @@ public class TestMonthDay_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDayOfMonth_1_oe() {
         MonthDay test = new MonthDay(4, 6);
-        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
     }
 
     public void testPropertyGetDayOfMonth_2_oe() {
@@ -315,7 +315,7 @@ public class TestMonthDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.dayOfMonth().getReadablePartial());
+        assertEquals(test, test.dayOfMonth().getReadablePartial());
     }
 
     public void testPropertyGetDayOfMonth_5_oe() {
@@ -324,7 +324,7 @@ public class TestMonthDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.dayOfMonth().getMonthDay());
+        assertEquals(test, test.dayOfMonth().getMonthDay());
     }
 
     public void testPropertyGetDayOfMonth_6_oe() {

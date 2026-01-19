@@ -1282,7 +1282,7 @@ public class TestDuration_Basics_OE25Dev extends TestCase {
     public void testToDuration1_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.toDuration();
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testToDuration2_1_oe() {
@@ -2002,7 +2002,7 @@ public class TestDuration_Basics_OE25Dev extends TestCase {
     public void testWithMillis1_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.withMillis(123L);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testWithMillis2_1_oe() {
@@ -2032,13 +2032,13 @@ public class TestDuration_Basics_OE25Dev extends TestCase {
     public void testWithDurationAdded_long_int4_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(0L, 1);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testWithDurationAdded_long_int5_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(8000L, 0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlus_long1_1_oe() {
@@ -2050,7 +2050,7 @@ public class TestDuration_Basics_OE25Dev extends TestCase {
     public void testPlus_long2_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.plus(0L);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinus_long1_1_oe() {
@@ -2062,7 +2062,7 @@ public class TestDuration_Basics_OE25Dev extends TestCase {
     public void testMinus_long2_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.minus(0L);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMultipliedBy_long1_1_oe() {
@@ -2074,7 +2074,7 @@ public class TestDuration_Basics_OE25Dev extends TestCase {
     public void testMultipliedBy_long2_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.multipliedBy(1L);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testDividedBy_long1_1_oe() {
@@ -2086,7 +2086,7 @@ public class TestDuration_Basics_OE25Dev extends TestCase {
     public void testDividedBy_long2_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.dividedBy(1L);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testDividedByRoundingMode_long1_1_oe() {
@@ -2110,7 +2110,7 @@ public class TestDuration_Basics_OE25Dev extends TestCase {
     public void testDividedByRoundingMode_long4_1_oe() {
         Duration test = new Duration(33L);
         Duration result = test.dividedBy(1L, RoundingMode.FLOOR);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testNegated_long1_1_oe() {
@@ -2161,19 +2161,19 @@ public class TestDuration_Basics_OE25Dev extends TestCase {
     public void testWithDurationAdded_RD_int4_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(new Duration(0L), 1);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testWithDurationAdded_RD_int5_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(new Duration(8000L), 0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testWithDurationAdded_RD_int6_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.withDurationAdded(null, 0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlus_RD1_1_oe() {
@@ -2185,13 +2185,13 @@ public class TestDuration_Basics_OE25Dev extends TestCase {
     public void testPlus_RD2_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.plus(new Duration(0L));
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlus_RD3_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.plus(null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinus_RD1_1_oe() {
@@ -2203,13 +2203,13 @@ public class TestDuration_Basics_OE25Dev extends TestCase {
     public void testMinus_RD2_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.minus(new Duration(0L));
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinus_RD3_1_oe() {
         Duration test = new Duration(123L);
         Duration result = test.minus(null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMutableDuration_1_oe() {

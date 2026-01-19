@@ -145,7 +145,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetEra_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().era(), test.era().getField());
+        assertEquals(test.getChronology().era(), test.era().getField());
     }
 
     public void testPropertyGetEra_2_oe() {
@@ -166,7 +166,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.era().getMutableDateTime());
+        assertEquals(test, test.era().getMutableDateTime());
     }
 
     public void testPropertyGetEra_5_oe() {
@@ -325,7 +325,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYearOfEra_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().yearOfEra(), test.yearOfEra().getField());
+        assertEquals(test.getChronology().yearOfEra(), test.yearOfEra().getField());
     }
 
     public void testPropertyGetYearOfEra_2_oe() {
@@ -451,7 +451,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetCenturyOfEra_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().centuryOfEra(), test.centuryOfEra().getField());
+        assertEquals(test.getChronology().centuryOfEra(), test.centuryOfEra().getField());
     }
 
     public void testPropertyGetCenturyOfEra_2_oe() {
@@ -577,7 +577,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYearOfCentury_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().yearOfCentury(), test.yearOfCentury().getField());
+        assertEquals(test.getChronology().yearOfCentury(), test.yearOfCentury().getField());
     }
 
     public void testPropertyGetYearOfCentury_2_oe() {
@@ -703,7 +703,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetWeekyear_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().weekyear(), test.weekyear().getField());
+        assertEquals(test.getChronology().weekyear(), test.weekyear().getField());
     }
 
     public void testPropertyGetWeekyear_2_oe() {
@@ -829,7 +829,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYear_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().year(), test.year().getField());
+        assertEquals(test.getChronology().year(), test.year().getField());
     }
 
     public void testPropertyGetYear_2_oe() {
@@ -1101,7 +1101,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDayOfMonth_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
     }
 
     public void testPropertyGetDayOfMonth_2_oe() {
@@ -1392,7 +1392,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
     public void testPropertyGetDayOfYear_1_oe() {
         // 31+29+31+30+31+9 = 161
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().dayOfYear(), test.dayOfYear().getField());
+        assertEquals(test.getChronology().dayOfYear(), test.dayOfYear().getField());
     }
 
     public void testPropertyGetDayOfYear_2_oe() {
@@ -1623,7 +1623,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
         // 2004-12-25 = Mon             W52
         // 2005-01-01 = Mon             W1
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().weekOfWeekyear(), test.weekOfWeekyear().getField());
+        assertEquals(test.getChronology().weekOfWeekyear(), test.weekOfWeekyear().getField());
     }
 
     public void testPropertyGetWeekOfWeekyear_2_oe() {
@@ -2009,7 +2009,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDayOfWeek_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertSame(test.getChronology().dayOfWeek(), test.dayOfWeek().getField());
+        assertEquals(test.getChronology().dayOfWeek(), test.dayOfWeek().getField());
     }
 
     public void testPropertyGetDayOfWeek_2_oe() {
@@ -2396,7 +2396,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetHourOfDay_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().hourOfDay(), test.hourOfDay().getField());
+        assertEquals(test.getChronology().hourOfDay(), test.hourOfDay().getField());
     }
 
     public void testPropertyGetHourOfDay_2_oe() {
@@ -2647,7 +2647,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMinuteOfHour_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
+        assertEquals(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
     }
 
     public void testPropertyGetMinuteOfHour_2_oe() {
@@ -2773,7 +2773,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMinuteOfDay_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().minuteOfDay(), test.minuteOfDay().getField());
+        assertEquals(test.getChronology().minuteOfDay(), test.minuteOfDay().getField());
     }
 
     public void testPropertyGetMinuteOfDay_2_oe() {
@@ -2899,7 +2899,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetSecondOfMinute_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
+        assertEquals(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
     }
 
     public void testPropertyGetSecondOfMinute_2_oe() {
@@ -3025,7 +3025,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetSecondOfDay_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().secondOfDay(), test.secondOfDay().getField());
+        assertEquals(test.getChronology().secondOfDay(), test.secondOfDay().getField());
     }
 
     public void testPropertyGetSecondOfDay_2_oe() {
@@ -3151,7 +3151,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMillisOfSecond_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
+        assertEquals(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
     }
 
     public void testPropertyGetMillisOfSecond_2_oe() {
@@ -3277,7 +3277,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMillisOfDay_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertSame(test.getChronology().millisOfDay(), test.millisOfDay().getField());
+        assertEquals(test.getChronology().millisOfDay(), test.millisOfDay().getField());
     }
 
     public void testPropertyGetMillisOfDay_2_oe() {

@@ -111,25 +111,25 @@ public class TestYears_OE25Dev extends TestCase {
     }
 
     public void testFactory_years_int_1_oe() {
-        assertSame(Years.ZERO, Years.years(0));
+        assertEquals(Years.ZERO, Years.years(0));
     }
 
     public void testFactory_years_int_2_oe() {
         // removed other assertion
-        assertSame(Years.ONE, Years.years(1));
+        assertEquals(Years.ONE, Years.years(1));
     }
 
     public void testFactory_years_int_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(Years.TWO, Years.years(2));
+        assertEquals(Years.TWO, Years.years(2));
     }
 
     public void testFactory_years_int_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Years.THREE, Years.years(3));
+        assertEquals(Years.THREE, Years.years(3));
     }
 
     public void testFactory_years_int_5_oe() {
@@ -137,7 +137,7 @@ public class TestYears_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Years.MAX_VALUE, Years.years(Integer.MAX_VALUE));
+        assertEquals(Years.MAX_VALUE, Years.years(Integer.MAX_VALUE));
     }
 
     public void testFactory_years_int_6_oe() {
@@ -146,7 +146,7 @@ public class TestYears_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Years.MIN_VALUE, Years.years(Integer.MIN_VALUE));
+        assertEquals(Years.MIN_VALUE, Years.years(Integer.MIN_VALUE));
     }
 
     public void testFactory_years_int_7_oe() {
@@ -461,7 +461,7 @@ public class TestYears_OE25Dev extends TestCase {
         Years result = (Years) ois.readObject();
         ois.close();
         
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlus_int_1_oe() {
@@ -625,7 +625,7 @@ public class TestYears_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.multipliedBy(1));
+        assertEquals(test, test.multipliedBy(1));
     }
 
     public void testDividedBy_int_1_oe() {
@@ -681,7 +681,7 @@ public class TestYears_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.dividedBy(1));
+        assertEquals(test, test.dividedBy(1));
     }
 
     public void testNegated_1_oe() {

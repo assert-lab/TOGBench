@@ -140,7 +140,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     public void testForStyle_shortDate_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("S-");
-        assertSame(g, f);
+        assertEquals(g, f);
     }
 
     public void testForStyle_shortDate_2_oe() throws Exception {
@@ -196,7 +196,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     public void testForStyle_shortTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-S");
-        assertSame(g, f);
+        assertEquals(g, f);
     }
 
     public void testForStyle_shortTime_2_oe() throws Exception {
@@ -256,7 +256,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     public void testForStyle_shortDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("SS");
-        assertSame(g, f);
+        assertEquals(g, f);
     }
 
     public void testForStyle_shortDateTime_2_oe() throws Exception {
@@ -312,7 +312,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     public void testForStyle_mediumDate_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("M-");
-        assertSame(g, f);
+        assertEquals(g, f);
     }
 
     public void testForStyle_mediumDate_2_oe() throws Exception {
@@ -351,7 +351,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     public void testForStyle_mediumTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-M");
-        assertSame(g, f);
+        assertEquals(g, f);
     }
 
     public void testForStyle_mediumTime_2_oe() throws Exception {
@@ -390,7 +390,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     public void testForStyle_mediumDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("MM");
-        assertSame(g, f);
+        assertEquals(g, f);
     }
 
     public void testForStyle_mediumDateTime_2_oe() throws Exception {
@@ -429,7 +429,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     public void testForStyle_longDate_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("L-");
-        assertSame(g, f);
+        assertEquals(g, f);
     }
 
     public void testForStyle_longDate_2_oe() throws Exception {
@@ -468,7 +468,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     public void testForStyle_longTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-L");
-        assertSame(g, f);
+        assertEquals(g, f);
     }
 
     public void testForStyle_longTime_2_oe() throws Exception {
@@ -507,7 +507,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     public void testForStyle_longDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("LL");
-        assertSame(g, f);
+        assertEquals(g, f);
     }
 
     public void testForStyle_longDateTime_2_oe() throws Exception {
@@ -546,7 +546,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     public void testForStyle_fullDate_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("F-");
-        assertSame(g, f);
+        assertEquals(g, f);
     }
 
     public void testForStyle_fullDate_2_oe() throws Exception {
@@ -585,7 +585,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     public void testForStyle_fullTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-F");
-        assertSame(g, f);
+        assertEquals(g, f);
     }
 
     public void testForStyle_fullTime_2_oe() throws Exception {
@@ -624,7 +624,7 @@ public class TestDateTimeFormatStyle_OE25Dev extends TestCase {
     public void testForStyle_fullDateTime_1_oe() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("FF");
-        assertSame(g, f);
+        assertEquals(g, f);
     }
 
     public void testForStyle_fullDateTime_2_oe() throws Exception {

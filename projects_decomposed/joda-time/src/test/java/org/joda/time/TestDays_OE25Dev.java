@@ -165,25 +165,25 @@ public class TestDays_OE25Dev extends TestCase {
     }
 
     public void testFactory_days_int_1_oe() {
-        assertSame(Days.ZERO, Days.days(0));
+        assertEquals(Days.ZERO, Days.days(0));
     }
 
     public void testFactory_days_int_2_oe() {
         // removed other assertion
-        assertSame(Days.ONE, Days.days(1));
+        assertEquals(Days.ONE, Days.days(1));
     }
 
     public void testFactory_days_int_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(Days.TWO, Days.days(2));
+        assertEquals(Days.TWO, Days.days(2));
     }
 
     public void testFactory_days_int_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Days.THREE, Days.days(3));
+        assertEquals(Days.THREE, Days.days(3));
     }
 
     public void testFactory_days_int_5_oe() {
@@ -191,7 +191,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Days.FOUR, Days.days(4));
+        assertEquals(Days.FOUR, Days.days(4));
     }
 
     public void testFactory_days_int_6_oe() {
@@ -200,7 +200,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Days.FIVE, Days.days(5));
+        assertEquals(Days.FIVE, Days.days(5));
     }
 
     public void testFactory_days_int_7_oe() {
@@ -210,7 +210,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Days.SIX, Days.days(6));
+        assertEquals(Days.SIX, Days.days(6));
     }
 
     public void testFactory_days_int_8_oe() {
@@ -221,7 +221,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Days.SEVEN, Days.days(7));
+        assertEquals(Days.SEVEN, Days.days(7));
     }
 
     public void testFactory_days_int_9_oe() {
@@ -233,7 +233,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Days.MAX_VALUE, Days.days(Integer.MAX_VALUE));
+        assertEquals(Days.MAX_VALUE, Days.days(Integer.MAX_VALUE));
     }
 
     public void testFactory_days_int_10_oe() {
@@ -246,7 +246,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(Days.MIN_VALUE, Days.days(Integer.MIN_VALUE));
+        assertEquals(Days.MIN_VALUE, Days.days(Integer.MIN_VALUE));
     }
 
     public void testFactory_days_int_11_oe() {
@@ -789,7 +789,7 @@ public class TestDays_OE25Dev extends TestCase {
         Days result = (Days) ois.readObject();
         ois.close();
         
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testToStandardWeeks_1_oe() {
@@ -992,7 +992,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.multipliedBy(1));
+        assertEquals(test, test.multipliedBy(1));
     }
 
     public void testDividedBy_int_1_oe() {
@@ -1048,7 +1048,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.dividedBy(1));
+        assertEquals(test, test.dividedBy(1));
     }
 
     public void testNegated_1_oe() {

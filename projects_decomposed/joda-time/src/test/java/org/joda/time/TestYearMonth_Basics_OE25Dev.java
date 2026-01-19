@@ -233,13 +233,13 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
 
     public void testGetFieldType_1_oe() {
         YearMonth test = new YearMonth(COPTIC_PARIS);
-        assertSame(DateTimeFieldType.year(), test.getFieldType(0));
+        assertEquals(DateTimeFieldType.year(), test.getFieldType(0));
     }
 
     public void testGetFieldType_2_oe() {
         YearMonth test = new YearMonth(COPTIC_PARIS);
         // removed other assertion
-        assertSame(DateTimeFieldType.monthOfYear(), test.getFieldType(1));
+        assertEquals(DateTimeFieldType.monthOfYear(), test.getFieldType(1));
     }
 
     public void testGetFieldTypes_1_oe() {
@@ -252,7 +252,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
         YearMonth test = new YearMonth(COPTIC_PARIS);
         DateTimeFieldType[] fields = test.getFieldTypes();
         // removed other assertion
-        assertSame(DateTimeFieldType.year(), fields[0]);
+        assertEquals(DateTimeFieldType.year(), fields[0]);
     }
 
     public void testGetFieldTypes_3_oe() {
@@ -260,7 +260,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
         DateTimeFieldType[] fields = test.getFieldTypes();
         // removed other assertion
         // removed other assertion
-        assertSame(DateTimeFieldType.monthOfYear(), fields[1]);
+        assertEquals(DateTimeFieldType.monthOfYear(), fields[1]);
     }
 
     public void testGetFieldTypes_4_oe() {
@@ -274,13 +274,13 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
 
     public void testGetField_1_oe() {
         YearMonth test = new YearMonth(COPTIC_PARIS);
-        assertSame(COPTIC_UTC.year(), test.getField(0));
+        assertEquals(COPTIC_UTC.year(), test.getField(0));
     }
 
     public void testGetField_2_oe() {
         YearMonth test = new YearMonth(COPTIC_PARIS);
         // removed other assertion
-        assertSame(COPTIC_UTC.monthOfYear(), test.getField(1));
+        assertEquals(COPTIC_UTC.monthOfYear(), test.getField(1));
     }
 
     public void testGetFields_1_oe() {
@@ -293,7 +293,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
         YearMonth test = new YearMonth(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         // removed other assertion
-        assertSame(COPTIC_UTC.year(), fields[0]);
+        assertEquals(COPTIC_UTC.year(), fields[0]);
     }
 
     public void testGetFields_3_oe() {
@@ -301,7 +301,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
         DateTimeField[] fields = test.getFields();
         // removed other assertion
         // removed other assertion
-        assertSame(COPTIC_UTC.monthOfYear(), fields[1]);
+        assertEquals(COPTIC_UTC.monthOfYear(), fields[1]);
     }
 
     public void testGetFields_4_oe() {
@@ -1086,7 +1086,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
     public void testWithChronologyRetainFields_sameChrono_1_oe() {
         YearMonth base = new YearMonth(2005, 6, COPTIC_PARIS);
         YearMonth test = base.withChronologyRetainFields(COPTIC_TOKYO);
-        assertSame(base, test);
+        assertEquals(base, test);
     }
 
     public void testWithChronologyRetainFields_nullChrono_1_oe() {
@@ -1130,7 +1130,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
         YearMonth test = new YearMonth(2004, 6);
         YearMonth result = test.withField(DateTimeFieldType.year(), 2004);
         // removed other assertion
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testWithFieldAdded_1_oe() {
@@ -1151,7 +1151,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
     public void testWithFieldAdded_zero_1_oe() {
         YearMonth test = new YearMonth(2004, 6);
         YearMonth result = test.withFieldAdded(DurationFieldType.years(), 0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlus_RP_1_oe() {
@@ -1168,7 +1168,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.plus((ReadablePeriod) null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlusYears_int_1_oe() {
@@ -1185,7 +1185,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.plusYears(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testPlusMonths_int_1_oe() {
@@ -1202,7 +1202,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.plusMonths(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinus_RP_1_oe() {
@@ -1219,7 +1219,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.minus((ReadablePeriod) null);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinusYears_int_1_oe() {
@@ -1236,7 +1236,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.minusYears(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testMinusMonths_int_1_oe() {
@@ -1253,7 +1253,7 @@ public class TestYearMonth_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.minusMonths(0);
-        assertSame(test, result);
+        assertEquals(test, result);
     }
 
     public void testToLocalDate_1_oe() {

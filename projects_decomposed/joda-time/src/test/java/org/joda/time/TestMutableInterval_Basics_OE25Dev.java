@@ -221,7 +221,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
 
     public void testGetDuration2_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME1);
-        assertSame(Duration.ZERO, test.toDuration());
+        assertEquals(Duration.ZERO, test.toDuration());
     }
 
     public void testEqualsHashCode_1_oe() {

@@ -350,7 +350,7 @@ public class TestYearMonthDay_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYear_1_oe() {
         YearMonthDay test = new YearMonthDay(1972, 6, 9);
-        assertSame(test.getChronology().year(), test.year().getField());
+        assertEquals(test.getChronology().year(), test.year().getField());
     }
 
     public void testPropertyGetYear_2_oe() {
@@ -371,7 +371,7 @@ public class TestYearMonthDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.year().getReadablePartial());
+        assertEquals(test, test.year().getReadablePartial());
     }
 
     public void testPropertyGetYear_5_oe() {
@@ -380,7 +380,7 @@ public class TestYearMonthDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.year().getYearMonthDay());
+        assertEquals(test, test.year().getYearMonthDay());
     }
 
     public void testPropertyGetYear_6_oe() {
@@ -628,7 +628,7 @@ public class TestYearMonthDay_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMonth_1_oe() {
         YearMonthDay test = new YearMonthDay(1972, 6, 9);
-        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
+        assertEquals(test.getChronology().monthOfYear(), test.monthOfYear().getField());
     }
 
     public void testPropertyGetMonth_2_oe() {
@@ -649,7 +649,7 @@ public class TestYearMonthDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.monthOfYear().getReadablePartial());
+        assertEquals(test, test.monthOfYear().getReadablePartial());
     }
 
     public void testPropertyGetMonth_5_oe() {
@@ -658,7 +658,7 @@ public class TestYearMonthDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.monthOfYear().getYearMonthDay());
+        assertEquals(test, test.monthOfYear().getYearMonthDay());
     }
 
     public void testPropertyGetMonth_6_oe() {
@@ -949,7 +949,7 @@ public class TestYearMonthDay_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDay_1_oe() {
         YearMonthDay test = new YearMonthDay(1972, 6, 9);
-        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
     }
 
     public void testPropertyGetDay_2_oe() {
@@ -970,7 +970,7 @@ public class TestYearMonthDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.dayOfMonth().getReadablePartial());
+        assertEquals(test, test.dayOfMonth().getReadablePartial());
     }
 
     public void testPropertyGetDay_5_oe() {
@@ -979,7 +979,7 @@ public class TestYearMonthDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(test, test.dayOfMonth().getYearMonthDay());
+        assertEquals(test, test.dayOfMonth().getYearMonthDay());
     }
 
     public void testPropertyGetDay_6_oe() {

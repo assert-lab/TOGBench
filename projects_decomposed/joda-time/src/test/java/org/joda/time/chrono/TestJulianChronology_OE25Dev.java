@@ -96,7 +96,7 @@ public class TestJulianChronology_OE25Dev extends TestCase {
 
     public void testFactoryUTC_2_oe() {
         // removed other assertion
-        assertSame(JulianChronology.class, JulianChronology.getInstanceUTC().getClass());
+        assertEquals(JulianChronology.class, JulianChronology.getInstanceUTC().getClass());
     }
 
     public void testFactory_1_oe() {
@@ -105,7 +105,7 @@ public class TestJulianChronology_OE25Dev extends TestCase {
 
     public void testFactory_2_oe() {
         // removed other assertion
-        assertSame(JulianChronology.class, JulianChronology.getInstance().getClass());
+        assertEquals(JulianChronology.class, JulianChronology.getInstance().getClass());
     }
 
     public void testFactory_Zone_1_oe() {
@@ -127,7 +127,7 @@ public class TestJulianChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(JulianChronology.class, JulianChronology.getInstance(TOKYO).getClass());
+        assertEquals(JulianChronology.class, JulianChronology.getInstance(TOKYO).getClass());
     }
 
     public void testFactory_Zone_int_1_oe() {
@@ -142,25 +142,25 @@ public class TestJulianChronology_OE25Dev extends TestCase {
     }
 
     public void testEquality_1_oe() {
-        assertSame(JulianChronology.getInstance(TOKYO), JulianChronology.getInstance(TOKYO));
+        assertEquals(JulianChronology.getInstance(TOKYO), JulianChronology.getInstance(TOKYO));
     }
 
     public void testEquality_2_oe() {
         // removed other assertion
-        assertSame(JulianChronology.getInstance(LONDON), JulianChronology.getInstance(LONDON));
+        assertEquals(JulianChronology.getInstance(LONDON), JulianChronology.getInstance(LONDON));
     }
 
     public void testEquality_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(JulianChronology.getInstance(PARIS), JulianChronology.getInstance(PARIS));
+        assertEquals(JulianChronology.getInstance(PARIS), JulianChronology.getInstance(PARIS));
     }
 
     public void testEquality_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(JulianChronology.getInstanceUTC(), JulianChronology.getInstanceUTC());
+        assertEquals(JulianChronology.getInstanceUTC(), JulianChronology.getInstanceUTC());
     }
 
     public void testEquality_5_oe() {
@@ -168,51 +168,51 @@ public class TestJulianChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(JulianChronology.getInstance(), JulianChronology.getInstance(LONDON));
+        assertEquals(JulianChronology.getInstance(), JulianChronology.getInstance(LONDON));
     }
 
     public void testWithUTC_1_oe() {
-        assertSame(JulianChronology.getInstanceUTC(), JulianChronology.getInstance(LONDON).withUTC());
+        assertEquals(JulianChronology.getInstanceUTC(), JulianChronology.getInstance(LONDON).withUTC());
     }
 
     public void testWithUTC_2_oe() {
         // removed other assertion
-        assertSame(JulianChronology.getInstanceUTC(), JulianChronology.getInstance(TOKYO).withUTC());
+        assertEquals(JulianChronology.getInstanceUTC(), JulianChronology.getInstance(TOKYO).withUTC());
     }
 
     public void testWithUTC_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(JulianChronology.getInstanceUTC(), JulianChronology.getInstanceUTC().withUTC());
+        assertEquals(JulianChronology.getInstanceUTC(), JulianChronology.getInstanceUTC().withUTC());
     }
 
     public void testWithUTC_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(JulianChronology.getInstanceUTC(), JulianChronology.getInstance().withUTC());
+        assertEquals(JulianChronology.getInstanceUTC(), JulianChronology.getInstance().withUTC());
     }
 
     public void testWithZone_1_oe() {
-        assertSame(JulianChronology.getInstance(TOKYO), JulianChronology.getInstance(TOKYO).withZone(TOKYO));
+        assertEquals(JulianChronology.getInstance(TOKYO), JulianChronology.getInstance(TOKYO).withZone(TOKYO));
     }
 
     public void testWithZone_2_oe() {
         // removed other assertion
-        assertSame(JulianChronology.getInstance(LONDON), JulianChronology.getInstance(TOKYO).withZone(LONDON));
+        assertEquals(JulianChronology.getInstance(LONDON), JulianChronology.getInstance(TOKYO).withZone(LONDON));
     }
 
     public void testWithZone_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(JulianChronology.getInstance(PARIS), JulianChronology.getInstance(TOKYO).withZone(PARIS));
+        assertEquals(JulianChronology.getInstance(PARIS), JulianChronology.getInstance(TOKYO).withZone(PARIS));
     }
 
     public void testWithZone_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(JulianChronology.getInstance(LONDON), JulianChronology.getInstance(TOKYO).withZone(null));
+        assertEquals(JulianChronology.getInstance(LONDON), JulianChronology.getInstance(TOKYO).withZone(null));
     }
 
     public void testWithZone_5_oe() {
@@ -220,7 +220,7 @@ public class TestJulianChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(JulianChronology.getInstance(PARIS), JulianChronology.getInstance().withZone(PARIS));
+        assertEquals(JulianChronology.getInstance(PARIS), JulianChronology.getInstance().withZone(PARIS));
     }
 
     public void testWithZone_6_oe() {
@@ -229,7 +229,7 @@ public class TestJulianChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(JulianChronology.getInstance(PARIS), JulianChronology.getInstanceUTC().withZone(PARIS));
+        assertEquals(JulianChronology.getInstance(PARIS), JulianChronology.getInstanceUTC().withZone(PARIS));
     }
 
     public void testToString_1_oe() {

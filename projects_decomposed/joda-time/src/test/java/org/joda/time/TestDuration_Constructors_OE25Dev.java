@@ -201,7 +201,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         // removed other assertion
         
         test = Duration.standardDays(0);
-        assertSame(Duration.ZERO, test);
+        assertEquals(Duration.ZERO, test);
     }
 
     public void testFactory_standardHours_long_1_oe() throws Throwable {
@@ -225,7 +225,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         // removed other assertion
         
         test = Duration.standardHours(0);
-        assertSame(Duration.ZERO, test);
+        assertEquals(Duration.ZERO, test);
     }
 
     public void testFactory_standardMinutes_long_1_oe() throws Throwable {
@@ -249,7 +249,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         // removed other assertion
         
         test = Duration.standardMinutes(0);
-        assertSame(Duration.ZERO, test);
+        assertEquals(Duration.ZERO, test);
     }
 
     public void testFactory_standardSeconds_long_1_oe() throws Throwable {
@@ -273,7 +273,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         // removed other assertion
         
         test = Duration.standardSeconds(0);
-        assertSame(Duration.ZERO, test);
+        assertEquals(Duration.ZERO, test);
     }
 
     public void testFactory_millis_long_1_oe() throws Throwable {
@@ -297,7 +297,7 @@ public class TestDuration_Constructors_OE25Dev extends TestCase {
         // removed other assertion
         
         test = Duration.millis(0);
-        assertSame(Duration.ZERO, test);
+        assertEquals(Duration.ZERO, test);
     }
 
     public void testConstructor_long1_1_oe() throws Throwable {

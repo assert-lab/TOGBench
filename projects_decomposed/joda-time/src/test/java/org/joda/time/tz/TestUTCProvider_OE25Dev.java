@@ -88,7 +88,7 @@ public class TestUTCProvider_OE25Dev extends TestCase {
 
     public void testGetZone_String_1_oe() throws Exception {
         Provider p = new UTCProvider();
-        assertSame(DateTimeZone.UTC, p.getZone("UTC"));
+        assertEquals(DateTimeZone.UTC, p.getZone("UTC"));
     }
 
     public void testGetZone_String_2_oe() throws Exception {

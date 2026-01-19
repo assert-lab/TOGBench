@@ -267,7 +267,7 @@ public class TestGJChronology_OE25Dev extends TestCase {
 
     public void testFactoryUTC_2_oe() {
         // removed other assertion
-        assertSame(GJChronology.class, GJChronology.getInstanceUTC().getClass());
+        assertEquals(GJChronology.class, GJChronology.getInstanceUTC().getClass());
     }
 
     public void testFactory_1_oe() {
@@ -276,7 +276,7 @@ public class TestGJChronology_OE25Dev extends TestCase {
 
     public void testFactory_2_oe() {
         // removed other assertion
-        assertSame(GJChronology.class, GJChronology.getInstance().getClass());
+        assertEquals(GJChronology.class, GJChronology.getInstance().getClass());
     }
 
     public void testFactory_Zone_1_oe() {
@@ -298,7 +298,7 @@ public class TestGJChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.class, GJChronology.getInstance(TOKYO).getClass());
+        assertEquals(GJChronology.class, GJChronology.getInstance(TOKYO).getClass());
     }
 
     public void testFactory_Zone_long_int_1_oe() {
@@ -324,7 +324,7 @@ public class TestGJChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.class, GJChronology.getInstance(TOKYO, 0L, 2).getClass());
+        assertEquals(GJChronology.class, GJChronology.getInstance(TOKYO, 0L, 2).getClass());
     }
 
     public void testFactory_Zone_RI_1_oe() {
@@ -342,7 +342,7 @@ public class TestGJChronology_OE25Dev extends TestCase {
         GJChronology chrono = GJChronology.getInstance(TOKYO, new Instant(0L));
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.class, GJChronology.getInstance(TOKYO, new Instant(0L)).getClass());
+        assertEquals(GJChronology.class, GJChronology.getInstance(TOKYO, new Instant(0L)).getClass());
     }
 
     public void testFactory_Zone_RI_4_oe() {
@@ -391,7 +391,7 @@ public class TestGJChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.class, GJChronology.getInstance(TOKYO, new Instant(0L), 2).getClass());
+        assertEquals(GJChronology.class, GJChronology.getInstance(TOKYO, new Instant(0L), 2).getClass());
     }
 
     public void testFactory_Zone_RI_int_5_oe() {
@@ -434,25 +434,25 @@ public class TestGJChronology_OE25Dev extends TestCase {
     }
 
     public void testEquality_1_oe() {
-        assertSame(GJChronology.getInstance(TOKYO), GJChronology.getInstance(TOKYO));
+        assertEquals(GJChronology.getInstance(TOKYO), GJChronology.getInstance(TOKYO));
     }
 
     public void testEquality_2_oe() {
         // removed other assertion
-        assertSame(GJChronology.getInstance(LONDON), GJChronology.getInstance(LONDON));
+        assertEquals(GJChronology.getInstance(LONDON), GJChronology.getInstance(LONDON));
     }
 
     public void testEquality_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.getInstance(PARIS), GJChronology.getInstance(PARIS));
+        assertEquals(GJChronology.getInstance(PARIS), GJChronology.getInstance(PARIS));
     }
 
     public void testEquality_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.getInstanceUTC(), GJChronology.getInstanceUTC());
+        assertEquals(GJChronology.getInstanceUTC(), GJChronology.getInstanceUTC());
     }
 
     public void testEquality_5_oe() {
@@ -460,51 +460,51 @@ public class TestGJChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.getInstance(), GJChronology.getInstance(LONDON));
+        assertEquals(GJChronology.getInstance(), GJChronology.getInstance(LONDON));
     }
 
     public void testWithUTC_1_oe() {
-        assertSame(GJChronology.getInstanceUTC(), GJChronology.getInstance(LONDON).withUTC());
+        assertEquals(GJChronology.getInstanceUTC(), GJChronology.getInstance(LONDON).withUTC());
     }
 
     public void testWithUTC_2_oe() {
         // removed other assertion
-        assertSame(GJChronology.getInstanceUTC(), GJChronology.getInstance(TOKYO).withUTC());
+        assertEquals(GJChronology.getInstanceUTC(), GJChronology.getInstance(TOKYO).withUTC());
     }
 
     public void testWithUTC_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.getInstanceUTC(), GJChronology.getInstanceUTC().withUTC());
+        assertEquals(GJChronology.getInstanceUTC(), GJChronology.getInstanceUTC().withUTC());
     }
 
     public void testWithUTC_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.getInstanceUTC(), GJChronology.getInstance().withUTC());
+        assertEquals(GJChronology.getInstanceUTC(), GJChronology.getInstance().withUTC());
     }
 
     public void testWithZone_1_oe() {
-        assertSame(GJChronology.getInstance(TOKYO), GJChronology.getInstance(TOKYO).withZone(TOKYO));
+        assertEquals(GJChronology.getInstance(TOKYO), GJChronology.getInstance(TOKYO).withZone(TOKYO));
     }
 
     public void testWithZone_2_oe() {
         // removed other assertion
-        assertSame(GJChronology.getInstance(LONDON), GJChronology.getInstance(TOKYO).withZone(LONDON));
+        assertEquals(GJChronology.getInstance(LONDON), GJChronology.getInstance(TOKYO).withZone(LONDON));
     }
 
     public void testWithZone_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.getInstance(PARIS), GJChronology.getInstance(TOKYO).withZone(PARIS));
+        assertEquals(GJChronology.getInstance(PARIS), GJChronology.getInstance(TOKYO).withZone(PARIS));
     }
 
     public void testWithZone_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.getInstance(LONDON), GJChronology.getInstance(TOKYO).withZone(null));
+        assertEquals(GJChronology.getInstance(LONDON), GJChronology.getInstance(TOKYO).withZone(null));
     }
 
     public void testWithZone_5_oe() {
@@ -512,7 +512,7 @@ public class TestGJChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.getInstance(PARIS), GJChronology.getInstance().withZone(PARIS));
+        assertEquals(GJChronology.getInstance(PARIS), GJChronology.getInstance().withZone(PARIS));
     }
 
     public void testWithZone_6_oe() {
@@ -521,7 +521,7 @@ public class TestGJChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertSame(GJChronology.getInstance(PARIS), GJChronology.getInstanceUTC().withZone(PARIS));
+        assertEquals(GJChronology.getInstance(PARIS), GJChronology.getInstanceUTC().withZone(PARIS));
     }
 
     public void testToString_1_oe() {
