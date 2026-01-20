@@ -2,43 +2,41 @@
 [INFO] 
 [INFO] -------< org.asynchttpclient:async-http-client-extras-retrofit2 >-------
 [INFO] Building Asynchronous Http Client Retrofit2 Extras 2.12.3
-[INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- enforcer:1.4.1:enforce (enforce-versions) @ async-http-client-extras-retrofit2 ---
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-extras-retrofit2 ---
 [INFO] 
-[INFO] --- resources:3.0.2:resources (default-resources) @ async-http-client-extras-retrofit2 ---
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-extras-retrofit2 ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/main/resources
 [INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ async-http-client-extras-retrofit2 ---
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ async-http-client-extras-retrofit2 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 2 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/target/classes
+[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/target/classes
 [INFO] 
-[INFO] --- resources:3.0.2:testResources (default-testResources) @ async-http-client-extras-retrofit2 ---
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ async-http-client-extras-retrofit2 ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/resources
 [INFO] 
-[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ async-http-client-extras-retrofit2 ---
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ async-http-client-extras-retrofit2 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 5 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/target/test-classes
+[INFO] Compiling 6 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/target/test-classes
 [INFO] 
-[INFO] --- surefire:2.19.1:test (default-test) @ async-http-client-extras-retrofit2 ---
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-extras-retrofit2 ---
 
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
-Running org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
-Tests run: 74, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.178 sec - in org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+Running TestSuite
+Tests run: 76, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.762 sec - in TestSuite
 
 Results :
 
-Tests run: 74, Failures: 0, Errors: 0, Skipped: 0
+Tests run: 76, Failures: 0, Errors: 0, Skipped: 0
 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  13.444 s
-[INFO] Finished at: 2026-01-16T15:51:29-05:00
+[INFO] Total time:  16.290 s
+[INFO] Finished at: 2026-01-20T01:58:23-06:00
 [INFO] ------------------------------------------------------------------------

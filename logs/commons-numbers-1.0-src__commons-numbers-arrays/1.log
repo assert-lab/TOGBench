@@ -2,69 +2,68 @@
 [INFO] 
 [INFO] -------------< org.apache.commons:commons-numbers-arrays >--------------
 [INFO] Building Apache Commons Numbers Arrays 1.0
-[INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-arrays ---
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-arrays ---
 [INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-arrays ---
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-arrays ---
 [INFO] 
-[INFO] --- apache-rat:0.13:check (rat-check) @ commons-numbers-arrays ---
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-numbers-arrays ---
 [INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
 [INFO] 
-[INFO] --- build-helper:3.1.0:parse-version (parse-version) @ commons-numbers-arrays ---
+[INFO] --- build-helper-maven-plugin:3.1.0:parse-version (parse-version) @ commons-numbers-arrays ---
 [INFO] 
-[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-numbers-arrays ---
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-numbers-arrays ---
 [INFO] Executing tasks
 
 main:
-     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays/target/apidocs/META-INF
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays/target/apidocs/META-INF
 [INFO] Executed tasks
 [INFO] 
-[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-numbers-arrays ---
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-numbers-arrays ---
 [INFO] Skipping remote resources execution.
 [INFO] 
-[INFO] --- buildnumber:1.4:create (default) @ commons-numbers-arrays ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays
-[INFO] Storing buildNumber: ba422cbeaa32efdad405fd5df283f67519011b01 at timestamp: 1768596554093
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-arrays ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays
+[INFO] Storing buildNumber: e69f19256bc398a1a6fc36d3a4ec525a40e47c15 at timestamp: 1768895908128
 [INFO] Storing buildScmBranch: main
 [INFO] 
-[INFO] --- resources:3.1.0:resources (default-resources) @ commons-numbers-arrays ---
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-arrays ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays/src/main/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-numbers-arrays ---
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-numbers-arrays ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 3 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays/target/classes
+[INFO] Compiling 3 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays/target/classes
 [INFO] 
-[INFO] --- bundle:4.2.1:manifest (bundle-manifest) @ commons-numbers-arrays ---
+[INFO] --- maven-bundle-plugin:4.2.1:manifest (bundle-manifest) @ commons-numbers-arrays ---
 [INFO] 
-[INFO] --- animal-sniffer:1.18:check (checkAPIcompatibility) @ commons-numbers-arrays ---
+[INFO] --- animal-sniffer-maven-plugin:1.18:check (checkAPIcompatibility) @ commons-numbers-arrays ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
 [INFO] 
-[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-numbers-arrays ---
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-numbers-arrays ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays/src/test/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
-[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-numbers-arrays ---
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-arrays ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 4 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays/target/test-classes
+[INFO] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays/target/test-classes
 [INFO] 
-[INFO] --- jacoco:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-arrays ---
-[INFO] argLine set to -javaagent:/home/wxw9rr/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays/target/jacoco.exec
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-arrays ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-arrays/target/jacoco.exec
 [INFO] 
-[INFO] --- surefire:2.22.0:test (default-test) @ commons-numbers-arrays ---
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-arrays ---
 [INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.arrays.SortInPlaceTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in org.apache.commons.numbers.arrays.SortInPlaceTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in org.apache.commons.numbers.arrays.SortInPlaceTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.arrays.MultidimensionalCounterTest_OE25Dev
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.468 s - in org.apache.commons.numbers.arrays.MultidimensionalCounterTest_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s - in org.apache.commons.numbers.arrays.MultidimensionalCounterTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -73,6 +72,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.510 s
-[INFO] Finished at: 2026-01-16T15:49:21-05:00
+[INFO] Total time:  8.589 s
+[INFO] Finished at: 2026-01-20T01:58:33-06:00
 [INFO] ------------------------------------------------------------------------

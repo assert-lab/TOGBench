@@ -2,38 +2,39 @@
 [INFO] 
 [INFO] ------------------< io.springside:springside-metrics >------------------
 [INFO] Building Springside :: Module :: Metrics 5.0.0-SNAPSHOT
-[INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- resources:3.3.0:resources (default-resources) @ springside-metrics ---
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/resources
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ springside-metrics ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/resources
 [INFO] 
-[INFO] --- compiler:3.10.1:compile (default-compile) @ springside-metrics ---
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ springside-metrics ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 18 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/target/classes
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java uses or overrides a deprecated API that is marked for removal.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java: Recompile with -Xlint:removal for details.
+[INFO] Compiling 18 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/target/classes
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java uses or overrides a deprecated API that is marked for removal.
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/src/main/java/org/springside/modules/metrics/ReportScheduler.java: Recompile with -Xlint:removal for details.
 [INFO] 
-[INFO] --- resources:3.3.0:testResources (default-testResources) @ springside-metrics ---
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ springside-metrics ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Copying 1 resource
 [INFO] 
-[INFO] --- compiler:3.10.1:testCompile (default-testCompile) @ springside-metrics ---
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ springside-metrics ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 10 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/springside4/modules/metrics/target/test-classes
+[INFO] Compiling 10 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/metrics/target/test-classes
 [INFO] 
-[INFO] --- surefire:2.22.0:test (default-test) @ springside-metrics ---
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ springside-metrics ---
 [INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.springside.modules.metrics.HistogramTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 s - in org.springside.modules.metrics.HistogramTest_OE25Dev
-[INFO] Running org.springside.modules.metrics.CounterTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.springside.modules.metrics.CounterTest_OE25Dev
-[INFO] Running org.springside.modules.metrics.MetricRegistryTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.springside.modules.metrics.MetricRegistryTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.157 s - in org.springside.modules.metrics.HistogramTest_OE25Dev
 [INFO] Running org.springside.modules.metrics.TimerTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.springside.modules.metrics.TimerTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.TimerTest_OE25Dev
+[INFO] Running org.springside.modules.metrics.CounterTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.springside.modules.metrics.CounterTest_OE25Dev
+[INFO] Running org.springside.modules.metrics.MetricRegistryTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.metrics.MetricRegistryTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -42,6 +43,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.187 s
-[INFO] Finished at: 2026-01-16T15:50:16-05:00
+[INFO] Total time:  7.485 s
+[INFO] Finished at: 2026-01-20T01:57:59-06:00
 [INFO] ------------------------------------------------------------------------

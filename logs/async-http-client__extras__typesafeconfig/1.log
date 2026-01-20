@@ -2,33 +2,32 @@
 [INFO] 
 [INFO] ----< org.asynchttpclient:async-http-client-extras-typesafe-config >----
 [INFO] Building Asynchronous Http Client Typesafe Config Extras 2.12.3
-[INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- enforcer:1.4.1:enforce (enforce-versions) @ async-http-client-extras-typesafe-config ---
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-extras-typesafe-config ---
 [INFO] 
-[INFO] --- resources:3.0.2:resources (default-resources) @ async-http-client-extras-typesafe-config ---
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-extras-typesafe-config ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/typesafeconfig/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/typesafeconfig/src/main/resources
 [INFO] 
-[INFO] --- compiler:3.6.1:compile (default-compile) @ async-http-client-extras-typesafe-config ---
+[INFO] --- maven-compiler-plugin:3.6.1:compile (default-compile) @ async-http-client-extras-typesafe-config ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 1 source file to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/typesafeconfig/target/classes
+[INFO] Compiling 1 source file to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/typesafeconfig/target/classes
 [INFO] 
-[INFO] --- resources:3.0.2:testResources (default-testResources) @ async-http-client-extras-typesafe-config ---
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ async-http-client-extras-typesafe-config ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/typesafeconfig/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/typesafeconfig/src/test/resources
 [INFO] 
-[INFO] --- compiler:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-typesafe-config ---
+[INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-typesafe-config ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 1 source file to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/typesafeconfig/target/test-classes
+[INFO] Compiling 1 source file to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/typesafeconfig/target/test-classes
 [INFO] 
-[INFO] --- surefire:2.19.1:test (default-test) @ async-http-client-extras-typesafe-config ---
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-extras-typesafe-config ---
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.345 s
-[INFO] Finished at: 2026-01-16T15:50:52-05:00
+[INFO] Total time:  6.061 s
+[INFO] Finished at: 2026-01-20T01:58:09-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-typesafe-config: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 

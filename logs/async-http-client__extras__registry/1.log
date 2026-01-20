@@ -2,40 +2,38 @@
 [INFO] 
 [INFO] -------< org.asynchttpclient:async-http-client-extras-registry >--------
 [INFO] Building Asynchronous Http Client Registry Extras 2.12.3
-[INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- enforcer:1.4.1:enforce (enforce-versions) @ async-http-client-extras-registry ---
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-extras-registry ---
 [INFO] 
-[INFO] --- resources:3.0.2:resources (default-resources) @ async-http-client-extras-registry ---
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-extras-registry ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/resources
 [INFO] 
-[INFO] --- compiler:3.6.1:compile (default-compile) @ async-http-client-extras-registry ---
+[INFO] --- maven-compiler-plugin:3.6.1:compile (default-compile) @ async-http-client-extras-registry ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 5 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/registry/target/classes
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncHttpClientRegistryImpl.java: Some input files use or override a deprecated API.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncHttpClientRegistryImpl.java: Recompile with -Xlint:deprecation for details.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncImplHelper.java: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncImplHelper.java uses or overrides a deprecated API that is marked for removal.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncImplHelper.java: Recompile with -Xlint:removal for details.
+[INFO] Compiling 5 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncHttpClientFactory.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncHttpClientFactory.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncImplHelper.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncImplHelper.java uses or overrides a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncImplHelper.java: Recompile with -Xlint:removal for details.
 [INFO] 
-[INFO] --- resources:3.0.2:testResources (default-testResources) @ async-http-client-extras-registry ---
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ async-http-client-extras-registry ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Copying 2 resources
 [INFO] 
-[INFO] --- compiler:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-registry ---
+[INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-registry ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 9 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/registry/target/test-classes
+[INFO] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/target/test-classes
 [INFO] 
-[INFO] --- surefire:2.19.1:test (default-test) @ async-http-client-extras-registry ---
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-extras-registry ---
 
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 Running TestSuite
-Tests run: 25, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 1.407 sec <<< FAILURE! - in TestSuite
-testClearAllInstances_4_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.015 sec  <<< FAILURE!
+Tests run: 25, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 1.562 sec <<< FAILURE! - in TestSuite
+testClearAllInstances_4_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
 java.lang.AssertionError: expected [0] but found [3]
 	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev.testClearAllInstances_4_oe(AsyncHttpClientRegistryTest_OE25Dev.java:234)
 
@@ -55,7 +53,7 @@ testRegisterIfNew_3_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegist
 java.lang.AssertionError: expected [true] but found [false]
 	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev.testRegisterIfNew_3_oe(AsyncHttpClientRegistryTest_OE25Dev.java:131)
 
-testRegisterIfNew_4_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+testRegisterIfNew_4_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
 java.lang.AssertionError: expected object to not be null
 	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev.testRegisterIfNew_4_oe(AsyncHttpClientRegistryTest_OE25Dev.java:143)
 
@@ -85,12 +83,12 @@ Tests run: 25, Failures: 8, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.464 s
-[INFO] Finished at: 2026-01-16T15:51:26-05:00
+[INFO] Total time:  8.994 s
+[INFO] Finished at: 2026-01-20T01:58:11-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-registry: There are test failures.
 [ERROR] 
-[ERROR] Please refer to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/registry/target/surefire-reports for the individual test results.
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/target/surefire-reports for the individual test results.
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

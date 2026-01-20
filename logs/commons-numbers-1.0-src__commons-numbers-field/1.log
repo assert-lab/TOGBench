@@ -2,69 +2,68 @@
 [INFO] 
 [INFO] --------------< org.apache.commons:commons-numbers-field >--------------
 [INFO] Building Apache Commons Numbers Field 1.0
-[INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-field ---
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-field ---
 [INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-field ---
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-field ---
 [INFO] 
-[INFO] --- apache-rat:0.13:check (rat-check) @ commons-numbers-field ---
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-numbers-field ---
 [INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
 [INFO] 
-[INFO] --- build-helper:3.1.0:parse-version (parse-version) @ commons-numbers-field ---
+[INFO] --- build-helper-maven-plugin:3.1.0:parse-version (parse-version) @ commons-numbers-field ---
 [INFO] 
-[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-numbers-field ---
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-numbers-field ---
 [INFO] Executing tasks
 
 main:
-     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field/target/apidocs/META-INF
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field/target/apidocs/META-INF
 [INFO] Executed tasks
 [INFO] 
-[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-numbers-field ---
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-numbers-field ---
 [INFO] Skipping remote resources execution.
 [INFO] 
-[INFO] --- buildnumber:1.4:create (default) @ commons-numbers-field ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field
-[INFO] Storing buildNumber: ba422cbeaa32efdad405fd5df283f67519011b01 at timestamp: 1768596572320
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-field ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field
+[INFO] Storing buildNumber: e69f19256bc398a1a6fc36d3a4ec525a40e47c15 at timestamp: 1768895915419
 [INFO] Storing buildScmBranch: main
 [INFO] 
-[INFO] --- resources:3.1.0:resources (default-resources) @ commons-numbers-field ---
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-field ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field/src/main/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-numbers-field ---
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-numbers-field ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 7 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field/target/classes
+[INFO] Compiling 7 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field/target/classes
 [INFO] 
-[INFO] --- bundle:4.2.1:manifest (bundle-manifest) @ commons-numbers-field ---
+[INFO] --- maven-bundle-plugin:4.2.1:manifest (bundle-manifest) @ commons-numbers-field ---
 [INFO] 
-[INFO] --- animal-sniffer:1.18:check (checkAPIcompatibility) @ commons-numbers-field ---
+[INFO] --- animal-sniffer-maven-plugin:1.18:check (checkAPIcompatibility) @ commons-numbers-field ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
 [INFO] 
-[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-numbers-field ---
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-numbers-field ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field/src/test/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
-[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-numbers-field ---
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-field ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 6 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field/target/test-classes
+[INFO] Compiling 6 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field/target/test-classes
 [INFO] 
-[INFO] --- jacoco:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-field ---
-[INFO] argLine set to -javaagent:/home/wxw9rr/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field/target/jacoco.exec
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-field ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-field/target/jacoco.exec
 [INFO] 
-[INFO] --- surefire:2.22.0:test (default-test) @ commons-numbers-field ---
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-field ---
 [INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.field.FP64Test_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.23 s - in org.apache.commons.numbers.field.FP64Test_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.124 s - in org.apache.commons.numbers.field.FP64Test_OE25Dev
 [INFO] Running org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.393 s - in org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
+[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.222 s - in org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -73,6 +72,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.815 s
-[INFO] Finished at: 2026-01-16T15:49:40-05:00
+[INFO] Total time:  7.637 s
+[INFO] Finished at: 2026-01-20T01:58:40-06:00
 [INFO] ------------------------------------------------------------------------

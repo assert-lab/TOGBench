@@ -2,40 +2,43 @@
 [INFO] 
 [INFO] --------< org.asynchttpclient:async-http-client-extras-rxjava >---------
 [INFO] Building Asynchronous Http Client RxJava Extras 2.12.3
-[INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- enforcer:1.4.1:enforce (enforce-versions) @ async-http-client-extras-rxjava ---
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-extras-rxjava ---
 [INFO] 
-[INFO] --- resources:3.0.2:resources (default-resources) @ async-http-client-extras-rxjava ---
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-extras-rxjava ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/main/resources
 [INFO] 
-[INFO] --- compiler:3.6.1:compile (default-compile) @ async-http-client-extras-rxjava ---
+[INFO] --- maven-compiler-plugin:3.6.1:compile (default-compile) @ async-http-client-extras-rxjava ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 7 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/target/classes
+[INFO] Compiling 7 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/target/classes
 [INFO] 
-[INFO] --- resources:3.0.2:testResources (default-testResources) @ async-http-client-extras-rxjava ---
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ async-http-client-extras-rxjava ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/resources
 [INFO] 
-[INFO] --- compiler:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-rxjava ---
+[INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-rxjava ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 2 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/target/test-classes
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/single/AsyncHttpSingleTest.java: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/single/AsyncHttpSingleTest.java uses or overrides a deprecated API.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/single/AsyncHttpSingleTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] Compiling 3 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/single/AsyncHttpSingleTest_OE25Dev.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/single/AsyncHttpSingleTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
-[INFO] --- surefire:2.19.1:test (default-test) @ async-http-client-extras-rxjava ---
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-extras-rxjava ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.asynchttpclient.extras.rxjava.single.AsyncHttpSingleTest_OE25Dev
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.795 sec - in org.asynchttpclient.extras.rxjava.single.AsyncHttpSingleTest_OE25Dev
+
+Results :
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.969 s
-[INFO] Finished at: 2026-01-16T15:51:27-05:00
+[INFO] Total time:  9.597 s
+[INFO] Finished at: 2026-01-20T01:58:11-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-rxjava: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

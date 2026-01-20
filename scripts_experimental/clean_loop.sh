@@ -2,7 +2,7 @@
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-PROJECTS_DIR="$ROOT/projects_decomposed/joda-time"
+PROJECTS_DIR="$ROOT/projects_decomposed"
 LOG_ROOT="$ROOT/logs"
 
 rm -rf "$LOG_ROOT" 2>/dev/null || true

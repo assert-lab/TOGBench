@@ -2,33 +2,32 @@
 [INFO] 
 [INFO] ---------< org.asynchttpclient:async-http-client-netty-utils >----------
 [INFO] Building Asynchronous Http Client Netty Utils 2.12.3
-[INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- enforcer:1.4.1:enforce (enforce-versions) @ async-http-client-netty-utils ---
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-netty-utils ---
 [INFO] 
-[INFO] --- resources:3.0.2:resources (default-resources) @ async-http-client-netty-utils ---
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-netty-utils ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/netty-utils/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/netty-utils/src/main/resources
 [INFO] 
-[INFO] --- compiler:3.6.1:compile (default-compile) @ async-http-client-netty-utils ---
+[INFO] --- maven-compiler-plugin:3.6.1:compile (default-compile) @ async-http-client-netty-utils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 2 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/netty-utils/target/classes
+[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/netty-utils/target/classes
 [INFO] 
-[INFO] --- resources:3.0.2:testResources (default-testResources) @ async-http-client-netty-utils ---
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ async-http-client-netty-utils ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/netty-utils/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/netty-utils/src/test/resources
 [INFO] 
-[INFO] --- compiler:3.6.1:testCompile (default-testCompile) @ async-http-client-netty-utils ---
+[INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-netty-utils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 2 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/async-http-client/netty-utils/target/test-classes
+[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/netty-utils/target/test-classes
 [INFO] 
-[INFO] --- surefire:2.19.1:test (default-test) @ async-http-client-netty-utils ---
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-netty-utils ---
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.315 s
-[INFO] Finished at: 2026-01-16T15:50:49-05:00
+[INFO] Total time:  5.405 s
+[INFO] Finished at: 2026-01-20T01:58:07-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-netty-utils: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 

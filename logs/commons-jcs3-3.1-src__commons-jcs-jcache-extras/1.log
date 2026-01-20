@@ -10,87 +10,86 @@
 [INFO] 
 [INFO] -----------< org.apache.commons:commons-jcs3-jcache-extras >------------
 [INFO] Building Apache Commons JCS :: JCache Extras 3.1
-[INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-jcs3-jcache-extras ---
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-jcs3-jcache-extras ---
 [INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-jcs3-jcache-extras ---
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-jcs3-jcache-extras ---
 [INFO] 
-[INFO] --- apache-rat:0.13:check (rat-check) @ commons-jcs3-jcache-extras ---
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-jcs3-jcache-extras ---
 [INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
 [INFO] 
-[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-jcs3-jcache-extras ---
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-jcs3-jcache-extras ---
 [INFO] 
-[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-jcs3-jcache-extras ---
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-jcs3-jcache-extras ---
 [INFO] Skipping Antrun execution
 [INFO] 
-[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-jcs3-jcache-extras ---
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-jcs3-jcache-extras ---
 [INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
 [INFO] Copying 3 resources from 1 bundle.
 [INFO] 
-[INFO] --- buildnumber:1.4:create (default) @ commons-jcs3-jcache-extras ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras
-[INFO] Storing buildNumber: ba422cbeaa32efdad405fd5df283f67519011b01 at timestamp: 1768596708640
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-jcache-extras ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras
+[INFO] Storing buildNumber: e69f19256bc398a1a6fc36d3a4ec525a40e47c15 at timestamp: 1768895920578
 [INFO] Storing buildScmBranch: main
 [INFO] 
-[INFO] --- resources:3.1.0:resources (default-resources) @ commons-jcs3-jcache-extras ---
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-jcs3-jcache-extras ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Copying 1 resource
 [INFO] Copying 0 resource to META-INF
 [INFO] Copying 3 resources
 [INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-jcs3-jcache-extras ---
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-jcs3-jcache-extras ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 13 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/target/classes
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/main/java/org/apache/commons/jcs3/jcache/extras/cdi/CacheProviderBean.java: Some input files use or override a deprecated API.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/main/java/org/apache/commons/jcs3/jcache/extras/cdi/CacheProviderBean.java: Recompile with -Xlint:deprecation for details.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/main/java/org/apache/commons/jcs3/jcache/extras/loader/CompositeCacheLoader.java: Some input files use unchecked or unsafe operations.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/main/java/org/apache/commons/jcs3/jcache/extras/loader/CompositeCacheLoader.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 13 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/main/java/org/apache/commons/jcs3/jcache/extras/cdi/CacheManagerBean.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/main/java/org/apache/commons/jcs3/jcache/extras/cdi/CacheManagerBean.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/main/java/org/apache/commons/jcs3/jcache/extras/writer/CompositeCacheWriter.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/main/java/org/apache/commons/jcs3/jcache/extras/writer/CompositeCacheWriter.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
-[INFO] --- bundle:5.1.1:manifest (bundle-manifest) @ commons-jcs3-jcache-extras ---
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-jcs3-jcache-extras ---
 [INFO] 
-[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-jcs3-jcache-extras ---
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-jcs3-jcache-extras ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Copying 1 resource
 [INFO] Copying 0 resource to META-INF
 [INFO] Copying 3 resources
 [INFO] 
-[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-jcs3-jcache-extras ---
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-jcs3-jcache-extras ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 12 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/target/test-classes
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/web/JCacheFilterTest.java: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/web/JCacheFilterTest.java uses or overrides a deprecated API.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/web/JCacheFilterTest.java: Recompile with -Xlint:deprecation for details.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/writer/CompositeCacheWriterTest.java: Some input files use unchecked or unsafe operations.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/writer/CompositeCacheWriterTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 12 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/web/JCacheFilterTest.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/web/JCacheFilterTest.java uses or overrides a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/web/JCacheFilterTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/loader/CompositeCacheLoaderTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/src/test/java/org/apache/commons/jcs3/jcache/extras/loader/CompositeCacheLoaderTest.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
-[INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-jcs3-jcache-extras ---
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-jcs3-jcache-extras ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
 [INFO] 
-[INFO] --- surefire:2.22.2:test (default-test) @ commons-jcs3-jcache-extras ---
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ commons-jcs3-jcache-extras ---
 [INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.922 s - in org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
-[INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.154 s - in org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
-[INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.806 s - in org.apache.commons.jcs3.jcache.extras.cdi.ExtraJCacheExtensionTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoaderTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
-[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 8.625 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
-[ERROR] checkLoadAll_3_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.19 s  <<< FAILURE!
+[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 8.264 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev
+[ERROR] checkLoadAll_3_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.069 s  <<< FAILURE!
 java.lang.AssertionError: expected:<2> but was:<1>
 	at org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev.checkLoadAll_3_oe(CacheLoaderAdapterTest_OE25Dev.java:87)
 
-[ERROR] checkLoadAll_6_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.252 s  <<< FAILURE!
+[ERROR] checkLoadAll_6_oe(org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev)  Time elapsed: 2.074 s  <<< FAILURE!
 java.lang.AssertionError: expected:<2> but was:<1>
 	at org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapterTest_OE25Dev.checkLoadAll_6_oe(CacheLoaderAdapterTest_OE25Dev.java:162)
 
+[INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapterTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.apache.commons.jcs3.jcache.extras.writer.CompositeCacheWriterTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -103,12 +102,12 @@ java.lang.AssertionError: expected:<2> but was:<1>
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  23.045 s
-[INFO] Finished at: 2026-01-16T15:52:09-05:00
+[INFO] Total time:  17.691 s
+[INFO] Finished at: 2026-01-20T01:58:55-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project commons-jcs3-jcache-extras: There are test failures.
 [ERROR] 
-[ERROR] Please refer to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/target/surefire-reports for the individual test results.
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3-3.1-src/commons-jcs-jcache-extras/target/surefire-reports for the individual test results.
 [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
 [ERROR] -> [Help 1]
 [ERROR] 

@@ -10,95 +10,90 @@
 [INFO] 
 [INFO] ----------------------< commons-net:commons-net >-----------------------
 [INFO] Building Apache Commons Net 3.8.0
-[INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-net ---
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-net ---
 [INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-net ---
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-net ---
 [INFO] 
-[INFO] --- apache-rat:0.13:check (rat-check) @ commons-net ---
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-net ---
 [INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
 [INFO] 
-[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-net ---
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-net ---
 [INFO] 
-[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-net ---
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-net ---
 [INFO] Executing tasks
 
 main:
-     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-net-3.8.0/target/apidocs/META-INF
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net-3.8.0/target/apidocs/META-INF
 [INFO] Executed tasks
 [INFO] 
-[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-net ---
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-net ---
 [INFO] Skipping remote resources execution.
 [INFO] 
-[INFO] --- buildnumber:1.4:create (default) @ commons-net ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-net-3.8.0' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-net-3.8.0
-[INFO] Storing buildNumber: ba422cbeaa32efdad405fd5df283f67519011b01 at timestamp: 1768596519569
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-net ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net-3.8.0' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net-3.8.0
+[INFO] Storing buildNumber: e69f19256bc398a1a6fc36d3a4ec525a40e47c15 at timestamp: 1768895856215
 [INFO] Storing buildScmBranch: main
 [INFO] 
-[INFO] --- resources:3.1.0:resources (default-resources) @ commons-net ---
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-net ---
 [INFO] Using 'iso-8859-1' encoding to copy filtered resources.
 [INFO] Copying 1 resource
 [INFO] Copying 2 resources to META-INF
 [INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-net ---
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-net ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 191 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-net-3.8.0/target/classes
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-net-3.8.0/src/main/java/org/apache/commons/net/ftp/parser/DefaultFTPFileEntryParserFactory.java: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-net-3.8.0/src/main/java/org/apache/commons/net/ftp/parser/DefaultFTPFileEntryParserFactory.java uses or overrides a deprecated API.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-net-3.8.0/src/main/java/org/apache/commons/net/ftp/parser/DefaultFTPFileEntryParserFactory.java: Recompile with -Xlint:deprecation for details.
+[INFO] Compiling 191 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net-3.8.0/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net-3.8.0/src/main/java/org/apache/commons/net/ftp/parser/DefaultFTPFileEntryParserFactory.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net-3.8.0/src/main/java/org/apache/commons/net/ftp/parser/DefaultFTPFileEntryParserFactory.java uses or overrides a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net-3.8.0/src/main/java/org/apache/commons/net/ftp/parser/DefaultFTPFileEntryParserFactory.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
-[INFO] --- bundle:5.1.1:manifest (bundle-manifest) @ commons-net ---
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-net ---
 [INFO] 
-[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-net ---
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-net ---
 [INFO] Using 'iso-8859-1' encoding to copy filtered resources.
 [INFO] Copying 3 resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
-[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-net ---
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-net ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 86 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-net-3.8.0/target/test-classes
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-net-3.8.0/src/test/java/org/apache/commons/net/tftp/TFTPServer.java: Some input files use or override a deprecated API.
-[INFO] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-net-3.8.0/src/test/java/org/apache/commons/net/tftp/TFTPServer.java: Recompile with -Xlint:deprecation for details.
+[INFO] Compiling 93 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net-3.8.0/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net-3.8.0/src/test/java/org/apache/commons/net/tftp/TFTPServer.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net-3.8.0/src/test/java/org/apache/commons/net/tftp/TFTPServer.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
-[INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-net ---
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-net ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
 [INFO] 
-[INFO] --- surefire:2.22.0:test (default-test) @ commons-net ---
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-net ---
 [INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.net.SocketClientFunctionalTest_OE25Dev
-[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.223 s <<< FAILURE! - in org.apache.commons.net.SocketClientFunctionalTest_OE25Dev
-[ERROR] testProxySettings_1_oe(org.apache.commons.net.SocketClientFunctionalTest_OE25Dev)  Time elapsed: 0.071 s  <<< ERROR!
-java.net.SocketException: Connection refused
-	at org.apache.commons.net.SocketClientFunctionalTest_OE25Dev.testProxySettings_1_oe(SocketClientFunctionalTest_OE25Dev.java:59)
-
+[INFO] Running org.apache.commons.net.nntp.TestThreader_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 s - in org.apache.commons.net.nntp.TestThreader_OE25Dev
 [INFO] Running org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev
-[ERROR] Tests run: 73, Failures: 0, Errors: 73, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev
-[ERROR] testRetrieveMessageTopOnEmptyMailbox_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
+[ERROR] Tests run: 73, Failures: 0, Errors: 73, Skipped: 0, Time elapsed: 0.197 s <<< FAILURE! - in org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev
+[ERROR] testRetrieveMessageTopOnEmptyMailbox_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.04 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testRetrieveMessageTopOnEmptyMailbox_1_oe(POP3ClientCommandsTest_OE25Dev.java:1097)
 
-[ERROR] testRetrieveMessageTopOnEmptyMailbox_2_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRetrieveMessageTopOnEmptyMailbox_2_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testRetrieveMessageTopOnEmptyMailbox_2_oe(POP3ClientCommandsTest_OE25Dev.java:1104)
 
-[ERROR] testDelete_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testDelete_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testDelete_1_oe(POP3ClientCommandsTest_OE25Dev.java:1225)
 
-[ERROR] testDelete_2_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testDelete_2_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testDelete_2_oe(POP3ClientCommandsTest_OE25Dev.java:1245)
 
-[ERROR] testRetrieveMessageOnFullMailbox_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRetrieveMessageOnFullMailbox_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.008 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testRetrieveMessageOnFullMailbox_1_oe(POP3ClientCommandsTest_OE25Dev.java:865)
@@ -143,7 +138,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testStatus_6_oe(POP3ClientCommandsTest_OE25Dev.java:201)
 
-[ERROR] testStatus_7_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testStatus_7_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.02 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testStatus_7_oe(POP3ClientCommandsTest_OE25Dev.java:225)
@@ -153,7 +148,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testStatus_8_oe(POP3ClientCommandsTest_OE25Dev.java:250)
 
-[ERROR] testStatus_9_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.007 s  <<< ERROR!
+[ERROR] testStatus_9_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testStatus_9_oe(POP3ClientCommandsTest_OE25Dev.java:276)
@@ -168,7 +163,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListUniqueIDsOnEmptyMailbox_2_oe(POP3ClientCommandsTest_OE25Dev.java:822)
 
-[ERROR] testListUniqueIDsOnEmptyMailbox_3_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testListUniqueIDsOnEmptyMailbox_3_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListUniqueIDsOnEmptyMailbox_3_oe(POP3ClientCommandsTest_OE25Dev.java:832)
@@ -198,7 +193,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListUniqueIDsOnFullMailbox_1_oe(POP3ClientCommandsTest_OE25Dev.java:606)
 
-[ERROR] testListUniqueIDsOnFullMailbox_2_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testListUniqueIDsOnFullMailbox_2_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListUniqueIDsOnFullMailbox_2_oe(POP3ClientCommandsTest_OE25Dev.java:616)
@@ -213,12 +208,12 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListUniqueIDsOnFullMailbox_4_oe(POP3ClientCommandsTest_OE25Dev.java:647)
 
-[ERROR] testListUniqueIDsOnFullMailbox_5_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testListUniqueIDsOnFullMailbox_5_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListUniqueIDsOnFullMailbox_5_oe(POP3ClientCommandsTest_OE25Dev.java:664)
 
-[ERROR] testRetrieveMessageOnEmptyMailbox_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testRetrieveMessageOnEmptyMailbox_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testRetrieveMessageOnEmptyMailbox_1_oe(POP3ClientCommandsTest_OE25Dev.java:940)
@@ -228,7 +223,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testRetrieveMessageOnEmptyMailbox_2_oe(POP3ClientCommandsTest_OE25Dev.java:947)
 
-[ERROR] testListUniqueIDOnFullMailbox_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testListUniqueIDOnFullMailbox_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListUniqueIDOnFullMailbox_1_oe(POP3ClientCommandsTest_OE25Dev.java:686)
@@ -238,7 +233,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListUniqueIDOnFullMailbox_2_oe(POP3ClientCommandsTest_OE25Dev.java:697)
 
-[ERROR] testListUniqueIDOnFullMailbox_3_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testListUniqueIDOnFullMailbox_3_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListUniqueIDOnFullMailbox_3_oe(POP3ClientCommandsTest_OE25Dev.java:709)
@@ -258,12 +253,12 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListUniqueIDOnFullMailbox_6_oe(POP3ClientCommandsTest_OE25Dev.java:760)
 
-[ERROR] testListUniqueIDOnFullMailbox_7_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+[ERROR] testListUniqueIDOnFullMailbox_7_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListUniqueIDOnFullMailbox_7_oe(POP3ClientCommandsTest_OE25Dev.java:785)
 
-[ERROR] testListUniqueIdentifierOnEmptyMailbox_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testListUniqueIdentifierOnEmptyMailbox_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListUniqueIdentifierOnEmptyMailbox_1_oe(POP3ClientCommandsTest_OE25Dev.java:847)
@@ -308,7 +303,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testRetrieveMessageShouldFails_2_oe(POP3ClientCommandsTest_OE25Dev.java:965)
 
-[ERROR] testRetrieveMessageShouldFails_3_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRetrieveMessageShouldFails_3_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.014 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testRetrieveMessageShouldFails_3_oe(POP3ClientCommandsTest_OE25Dev.java:978)
@@ -318,7 +313,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testRetrieveMessageShouldFails_4_oe(POP3ClientCommandsTest_OE25Dev.java:994)
 
-[ERROR] testListMessageOnFullMailbox_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testListMessageOnFullMailbox_1_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListMessageOnFullMailbox_1_oe(POP3ClientCommandsTest_OE25Dev.java:409)
@@ -333,7 +328,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListMessageOnFullMailbox_3_oe(POP3ClientCommandsTest_OE25Dev.java:432)
 
-[ERROR] testListMessageOnFullMailbox_4_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testListMessageOnFullMailbox_4_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListMessageOnFullMailbox_4_oe(POP3ClientCommandsTest_OE25Dev.java:445)
@@ -363,7 +358,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testResetAndDeleteShouldFails_1_oe(POP3ClientCommandsTest_OE25Dev.java:1276)
 
-[ERROR] testResetAndDeleteShouldFails_2_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testResetAndDeleteShouldFails_2_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.014 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testResetAndDeleteShouldFails_2_oe(POP3ClientCommandsTest_OE25Dev.java:1286)
@@ -388,7 +383,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListMessagesOnFullMailbox_2_oe(POP3ClientCommandsTest_OE25Dev.java:320)
 
-[ERROR] testListMessagesOnFullMailbox_3_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+[ERROR] testListMessagesOnFullMailbox_3_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testListMessagesOnFullMailbox_3_oe(POP3ClientCommandsTest_OE25Dev.java:335)
@@ -418,7 +413,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testNoopCommand_2_oe(POP3ClientCommandsTest_OE25Dev.java:95)
 
-[ERROR] testNoopCommand_3_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testNoopCommand_3_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.013 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testNoopCommand_3_oe(POP3ClientCommandsTest_OE25Dev.java:108)
@@ -428,7 +423,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testRetrieveMessageTopShouldFails_1_oe(POP3ClientCommandsTest_OE25Dev.java:1112)
 
-[ERROR] testRetrieveMessageTopShouldFails_2_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+[ERROR] testRetrieveMessageTopShouldFails_2_oe(org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev)  Time elapsed: 0.006 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.connect(POP3ClientCommandsTest_OE25Dev.java:72)
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testRetrieveMessageTopShouldFails_2_oe(POP3ClientCommandsTest_OE25Dev.java:1122)
@@ -444,7 +439,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientCommandsTest_OE25Dev.testRetrieveMessageTopShouldFails_4_oe(POP3ClientCommandsTest_OE25Dev.java:1151)
 
 [INFO] Running org.apache.commons.net.pop3.POP3ClientTest_OE25Dev
-[ERROR] Tests run: 8, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.net.pop3.POP3ClientTest_OE25Dev
+[ERROR] Tests run: 8, Failures: 0, Errors: 7, Skipped: 0, Time elapsed: 0.001 s <<< FAILURE! - in org.apache.commons.net.pop3.POP3ClientTest_OE25Dev
 [ERROR] testLogoutFromAllStates_1_oe(org.apache.commons.net.pop3.POP3ClientTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientTest_OE25Dev.connect(POP3ClientTest_OE25Dev.java:72)
@@ -481,7 +476,7 @@ java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ClientTest_OE25Dev.testLoginFromWrongState_3_oe(POP3ClientTest_OE25Dev.java:151)
 
 [INFO] Running org.apache.commons.net.pop3.POP3ConstructorTest_OE25Dev
-[ERROR] Tests run: 38, Failures: 0, Errors: 13, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.net.pop3.POP3ConstructorTest_OE25Dev
+[ERROR] Tests run: 38, Failures: 0, Errors: 13, Skipped: 0, Time elapsed: 0.033 s <<< FAILURE! - in org.apache.commons.net.pop3.POP3ConstructorTest_OE25Dev
 [ERROR] testPOP3ClientStateTransition_5_oe(org.apache.commons.net.pop3.POP3ConstructorTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ConstructorTest_OE25Dev.testPOP3ClientStateTransition_5_oe(POP3ConstructorTest_OE25Dev.java:401)
@@ -534,71 +529,15 @@ java.net.ConnectException: Connection refused
 java.net.ConnectException: Connection refused
 	at org.apache.commons.net.pop3.POP3ConstructorTest_OE25Dev.testPOP3ClientStateTransition_17_oe(POP3ConstructorTest_OE25Dev.java:847)
 
-[INFO] Running org.apache.commons.net.tftp.TFTPTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.895 s - in org.apache.commons.net.tftp.TFTPTest_OE25Dev
-[INFO] Running org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev
-[ERROR] Tests run: 9, Failures: 0, Errors: 8, Skipped: 0, Time elapsed: 0.055 s <<< FAILURE! - in org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev
-[ERROR] testReadOnly_2_oe(org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.net.BindException: Address already in use
-	at org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev.testReadOnly_2_oe(TFTPServerPathTest_OE25Dev.java:65)
-
-[ERROR] testReadOnly_3_oe(org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.net.BindException: Address already in use
-	at org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev.testReadOnly_3_oe(TFTPServerPathTest_OE25Dev.java:94)
-
-[ERROR] testWriteOutsideHome_1_oe(org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.net.BindException: Address already in use
-	at org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev.testWriteOutsideHome_1_oe(TFTPServerPathTest_OE25Dev.java:215)
-
-[ERROR] testWriteOutsideHome_2_oe(org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.net.BindException: Address already in use
-	at org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev.testWriteOutsideHome_2_oe(TFTPServerPathTest_OE25Dev.java:231)
-
-[ERROR] testWriteOutsideHome_3_oe(org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.net.BindException: Address already in use
-	at org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev.testWriteOutsideHome_3_oe(TFTPServerPathTest_OE25Dev.java:252)
-
-[ERROR] testWriteOnly_1_oe(org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.net.BindException: Address already in use
-	at org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev.testWriteOnly_1_oe(TFTPServerPathTest_OE25Dev.java:130)
-
-[ERROR] testWriteOnly_2_oe(org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.net.BindException: Address already in use
-	at org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev.testWriteOnly_2_oe(TFTPServerPathTest_OE25Dev.java:152)
-
-[ERROR] testWriteOnly_3_oe(org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
-java.net.BindException: Address already in use
-	at org.apache.commons.net.tftp.TFTPServerPathTest_OE25Dev.testWriteOnly_3_oe(TFTPServerPathTest_OE25Dev.java:179)
-
-[INFO] Running org.apache.commons.net.smtp.SimpleSMTPHeaderTestCase_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 s - in org.apache.commons.net.smtp.SimpleSMTPHeaderTestCase_OE25Dev
-[INFO] Running org.apache.commons.net.telnet.TelnetClientFunctionalTest_OE25Dev
-[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.048 s <<< FAILURE! - in org.apache.commons.net.telnet.TelnetClientFunctionalTest_OE25Dev
-[ERROR] testFunctionalTest_1_oe(org.apache.commons.net.telnet.TelnetClientFunctionalTest_OE25Dev)  Time elapsed: 0.047 s  <<< ERROR!
-java.net.UnknownHostException: rainmaker.wunderground.com: Name or service not known
-	at org.apache.commons.net.telnet.TelnetClientFunctionalTest_OE25Dev.testFunctionalTest_1_oe(TelnetClientFunctionalTest_OE25Dev.java:84)
-
-[INFO] Running org.apache.commons.net.telnet.TelnetOptionTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.net.telnet.TelnetOptionTest_OE25Dev
-[INFO] Running org.apache.commons.net.telnet.InvalidTelnetOptionExceptionTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.telnet.InvalidTelnetOptionExceptionTest_OE25Dev
-[INFO] Running org.apache.commons.net.nntp.TestThreader_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.net.nntp.TestThreader_OE25Dev
-[INFO] Running org.apache.commons.net.SocketClientTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.SocketClientTest_OE25Dev
 [INFO] Running org.apache.commons.net.io.DotTerminatedMessageReaderTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.io.DotTerminatedMessageReaderTest_OE25Dev
-[INFO] Running org.apache.commons.net.imap.IMAPTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.imap.IMAPTest_OE25Dev
-[INFO] Running org.apache.commons.net.ntp.TimeStampTest_OE25Dev
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.net.ntp.TimeStampTest_OE25Dev
-[INFO] Running org.apache.commons.net.ntp.TestNtpPacket_OE25Dev
-[INFO] Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.net.ntp.TestNtpPacket_OE25Dev
-[INFO] Running org.apache.commons.net.ntp.TestTimeInfo_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.net.ntp.TestTimeInfo_OE25Dev
-[INFO] Running org.apache.commons.net.ftp.FTPClientTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.104 s - in org.apache.commons.net.ftp.FTPClientTest_OE25Dev
-[INFO] Running org.apache.commons.net.ftp.parser.FTPConfigEntryParserTest_OE25Dev
-[INFO] Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.net.ftp.parser.FTPConfigEntryParserTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.net.io.DotTerminatedMessageReaderTest_OE25Dev
+[INFO] Running org.apache.commons.net.SubnetUtilsTest_OE25Dev
+[INFO] Tests run: 108, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.046 s - in org.apache.commons.net.SubnetUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.net.SocketClientFunctionalTest_OE25Dev
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.024 s <<< FAILURE! - in org.apache.commons.net.SocketClientFunctionalTest_OE25Dev
+[ERROR] testProxySettings_1_oe(org.apache.commons.net.SocketClientFunctionalTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+java.net.SocketException: Connection refused
+	at org.apache.commons.net.SocketClientFunctionalTest_OE25Dev.testProxySettings_1_oe(SocketClientFunctionalTest_OE25Dev.java:59)
+
 [INFO] Running org.apache.commons.net.ftp.ListingFunctionalTest_OE25Dev
 TIMEOUT

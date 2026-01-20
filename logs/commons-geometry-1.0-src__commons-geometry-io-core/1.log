@@ -1,7 +1,7 @@
 [INFO] Scanning for projects...
 [WARNING] 
 [WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-geometry-io-core:jar:1.0
-[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ org.apache.commons:commons-geometry-parent:1.0, /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/pom.xml, line 232, column 15
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ org.apache.commons:commons-geometry-parent:1.0, /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/pom.xml, line 232, column 15
 [WARNING] 
 [WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
 [WARNING] 
@@ -10,75 +10,74 @@
 [INFO] 
 [INFO] ------------< org.apache.commons:commons-geometry-io-core >-------------
 [INFO] Building Apache Commons Geometry IO Core 1.0
-[INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-geometry-io-core ---
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-geometry-io-core ---
 [INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-geometry-io-core ---
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-geometry-io-core ---
 [INFO] 
-[INFO] --- apache-rat:0.13:check (rat-check) @ commons-geometry-io-core ---
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-geometry-io-core ---
 [INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
 [INFO] 
-[INFO] --- build-helper:3.2.0:parse-version (parse-version) @ commons-geometry-io-core ---
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-geometry-io-core ---
 [INFO] 
-[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-geometry-io-core ---
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-geometry-io-core ---
 [INFO] Executing tasks
 
 main:
-     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/target/apidocs/META-INF
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/target/apidocs/META-INF
 [INFO] Executed tasks
 [INFO] 
-[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-geometry-io-core ---
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-geometry-io-core ---
 [INFO] Skipping remote resources execution.
 [INFO] 
-[INFO] --- buildnumber:1.4:create (default) @ commons-geometry-io-core ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core
-[INFO] Storing buildNumber: ba422cbeaa32efdad405fd5df283f67519011b01 at timestamp: 1768596519644
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-io-core ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core
+[INFO] Storing buildNumber: e69f19256bc398a1a6fc36d3a4ec525a40e47c15 at timestamp: 1768895856660
 [INFO] Storing buildScmBranch: main
 [INFO] 
-[INFO] --- resources:3.1.0:resources (default-resources) @ commons-geometry-io-core ---
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-geometry-io-core ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/src/main/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-geometry-io-core ---
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-geometry-io-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 26 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/target/classes
+[INFO] Compiling 26 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/target/classes
 [INFO] 
-[INFO] --- bundle:5.1.1:manifest (bundle-manifest) @ commons-geometry-io-core ---
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-geometry-io-core ---
 [INFO] 
-[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-geometry-io-core ---
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-geometry-io-core ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/src/test/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
-[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-geometry-io-core ---
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-geometry-io-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 23 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/target/test-classes
+[INFO] Compiling 23 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/target/test-classes
 [INFO] 
-[INFO] --- animal-sniffer:1.19:check (checkAPIcompatibility) @ commons-geometry-io-core ---
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-geometry-io-core ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
 [INFO] 
-[INFO] --- jacoco:0.8.5:prepare-agent (prepare-agent) @ commons-geometry-io-core ---
-[INFO] argLine set to -javaagent:/home/wxw9rr/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/target/jacoco.exec
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-geometry-io-core ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/target/jacoco.exec
 [INFO] 
-[INFO] --- surefire:3.0.0-M7:test (default-test) @ commons-geometry-io-core ---
+[INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ commons-geometry-io-core ---
 [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
 [INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.geometry.io.core.output.FileGeometryOutputTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.48 s - in org.apache.commons.geometry.io.core.output.FileGeometryOutputTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.io.core.output.StreamGeometryOutputTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.geometry.io.core.output.StreamGeometryOutputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.utils.AbstractTextFormatWriterTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.geometry.io.core.utils.AbstractTextFormatWriterTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.348 s - in org.apache.commons.geometry.io.core.utils.AbstractTextFormatWriterTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.core.output.StreamGeometryOutputTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.apache.commons.geometry.io.core.output.StreamGeometryOutputTest_OE25Dev
+[INFO] Running org.apache.commons.geometry.io.core.output.FileGeometryOutputTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.128 s - in org.apache.commons.geometry.io.core.output.FileGeometryOutputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev
-[ERROR] Tests run: 52, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 0.097 s <<< FAILURE! - in org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_4_oe  Time elapsed: 0.006 s  <<< FAILURE!
+[ERROR] Tests run: 52, Failures: 11, Errors: 0, Skipped: 0, Time elapsed: 0.284 s <<< FAILURE! - in org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_4_oe  Time elapsed: 0.008 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -157,7 +156,7 @@ org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_6_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_6_oe  Time elapsed: 0.003 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <f> but was: <a>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -315,7 +314,7 @@ org.opentest4j.AssertionFailedError: expected: <g> but was: <a>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_9_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_9_oe  Time elapsed: 0.01 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <1> but was: <7>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -473,7 +472,7 @@ org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_11_oe  Time elapsed: 0.012 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testSkip_11_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <0> but was: <7>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -710,7 +709,7 @@ org.opentest4j.AssertionFailedError: expected: <defgh> but was: <abcdefgh>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testReadPeek_string_6_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testReadPeek_string_6_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <defgh> but was: <abcdefgh>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -789,7 +788,7 @@ org.opentest4j.AssertionFailedError: expected: <defgh> but was: <abcdefgh>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testReadPeek_string_7_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testReadPeek_string_7_oe  Time elapsed: 0.001 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -868,7 +867,7 @@ org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
-[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testReadPeek_string_8_oe  Time elapsed: 0.001 s  <<< FAILURE!
+[ERROR] org.apache.commons.geometry.io.core.internal.CharReadBufferTest_OE25Dev.testReadPeek_string_8_oe  Time elapsed: 0.009 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
 	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
@@ -948,13 +947,13 @@ org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
 
 [INFO] Running org.apache.commons.geometry.io.core.input.FileGeometryInputTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.177 s - in org.apache.commons.geometry.io.core.input.FileGeometryInputTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in org.apache.commons.geometry.io.core.input.FileGeometryInputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.input.UrlGeometryInputTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.175 s - in org.apache.commons.geometry.io.core.input.UrlGeometryInputTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in org.apache.commons.geometry.io.core.input.UrlGeometryInputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.input.StreamGeometryInputTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.geometry.io.core.input.StreamGeometryInputTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.geometry.io.core.input.StreamGeometryInputTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.io.core.BoundaryIOManagerTest_OE25Dev
-[INFO] Tests run: 101, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.157 s - in org.apache.commons.geometry.io.core.BoundaryIOManagerTest_OE25Dev
+[INFO] Tests run: 101, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.27 s - in org.apache.commons.geometry.io.core.BoundaryIOManagerTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -976,12 +975,12 @@ org.opentest4j.AssertionFailedError: expected: <null> but was: <a>
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  20.114 s
-[INFO] Finished at: 2026-01-16T15:48:54-05:00
+[INFO] Total time:  21.504 s
+[INFO] Finished at: 2026-01-20T01:57:53-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project commons-geometry-io-core: There are test failures.
 [ERROR] 
-[ERROR] Please refer to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/target/surefire-reports for the individual test results.
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry-1.0-src/commons-geometry-io-core/target/surefire-reports for the individual test results.
 [ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
 [ERROR] -> [Help 1]
 [ERROR] 

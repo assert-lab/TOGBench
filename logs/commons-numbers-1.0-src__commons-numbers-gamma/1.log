@@ -2,105 +2,104 @@
 [INFO] 
 [INFO] --------------< org.apache.commons:commons-numbers-gamma >--------------
 [INFO] Building Apache Commons Numbers Gamma 1.0
-[INFO]   from pom.xml
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-gamma ---
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-gamma ---
 [INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-gamma ---
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-gamma ---
 [INFO] 
-[INFO] --- apache-rat:0.13:check (rat-check) @ commons-numbers-gamma ---
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-numbers-gamma ---
 [INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
 [INFO] 
-[INFO] --- build-helper:3.1.0:parse-version (parse-version) @ commons-numbers-gamma ---
+[INFO] --- build-helper-maven-plugin:3.1.0:parse-version (parse-version) @ commons-numbers-gamma ---
 [INFO] 
-[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-numbers-gamma ---
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-numbers-gamma ---
 [INFO] Executing tasks
 
 main:
-     [copy] Copying 2 files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/target/apidocs/META-INF
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/target/apidocs/META-INF
 [INFO] Executed tasks
 [INFO] 
-[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-numbers-gamma ---
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-numbers-gamma ---
 [INFO] Skipping remote resources execution.
 [INFO] 
-[INFO] --- buildnumber:1.4:create (default) @ commons-numbers-gamma ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma
-[INFO] Storing buildNumber: ba422cbeaa32efdad405fd5df283f67519011b01 at timestamp: 1768596562953
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-gamma ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma
+[INFO] Storing buildNumber: e69f19256bc398a1a6fc36d3a4ec525a40e47c15 at timestamp: 1768895897385
 [INFO] Storing buildScmBranch: main
 [INFO] 
-[INFO] --- resources:3.1.0:resources (default-resources) @ commons-numbers-gamma ---
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-gamma ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/main/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-numbers-gamma ---
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-numbers-gamma ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 18 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/target/classes
+[INFO] Compiling 18 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/target/classes
 [INFO] 
-[INFO] --- bundle:4.2.1:manifest (bundle-manifest) @ commons-numbers-gamma ---
+[INFO] --- maven-bundle-plugin:4.2.1:manifest (bundle-manifest) @ commons-numbers-gamma ---
 [INFO] 
-[INFO] --- animal-sniffer:1.18:check (checkAPIcompatibility) @ commons-numbers-gamma ---
+[INFO] --- animal-sniffer-maven-plugin:1.18:check (checkAPIcompatibility) @ commons-numbers-gamma ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
 [INFO] 
-[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-numbers-gamma ---
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-numbers-gamma ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
-[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-numbers-gamma ---
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-gamma ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 30 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/target/test-classes
+[INFO] Compiling 30 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/target/test-classes
 [INFO] 
-[INFO] --- jacoco:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-gamma ---
-[INFO] argLine set to -javaagent:/home/wxw9rr/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/target/jacoco.exec
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-gamma ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/target/jacoco.exec
 [INFO] 
-[INFO] --- surefire:2.22.0:test (default-test) @ commons-numbers-gamma ---
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-gamma ---
 [INFO] 
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.numbers.gamma.InverseErfTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s - in org.apache.commons.numbers.gamma.InverseErfTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.LogGammaSumTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.numbers.gamma.LogGammaSumTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.InverseErfcTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.numbers.gamma.InverseErfcTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.DigammaTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.numbers.gamma.DigammaTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.LogGamma1pTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.gamma.LogGamma1pTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.GammaTest_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.019 s <<< FAILURE! - in org.apache.commons.numbers.gamma.GammaTest_OE25Dev
-[ERROR] testGammaNegativeDouble_1_oe  Time elapsed: 0.019 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <-1> but was: <1>
-	at org.apache.commons.numbers.gamma.GammaTest_OE25Dev.testGammaNegativeDouble_1_oe(GammaTest_OE25Dev.java:549)
-
-[INFO] Running org.apache.commons.numbers.gamma.LanczosApproximationTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.gamma.LanczosApproximationTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.InvGamma1pm1Test_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.gamma.InvGamma1pm1Test_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.TrigammaTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.gamma.TrigammaTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.gamma.ErfDifferenceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s - in org.apache.commons.numbers.gamma.ErfDifferenceTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.RegularizedGammaTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.gamma.RegularizedGammaTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.gamma.InverseErfcTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.numbers.gamma.InverseErfcTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.gamma.InvGamma1pm1Test_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.numbers.gamma.InvGamma1pm1Test_OE25Dev
+[INFO] Running org.apache.commons.numbers.gamma.LogGammaSumTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.numbers.gamma.LogGammaSumTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.gamma.LogGamma1pTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.gamma.LogGamma1pTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.RegularizedBetaTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.gamma.RegularizedBetaTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.ErfTest_OE25Dev
-[ERROR] Tests run: 13, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in org.apache.commons.numbers.gamma.ErfTest_OE25Dev
-[ERROR] testErfGnu_1_oe  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <-0.9999999999999927> but was: <-1.0>
-	at org.apache.commons.numbers.gamma.ErfTest_OE25Dev.testErfGnu_1_oe(ErfTest_OE25Dev.java:272)
-
-[INFO] Running org.apache.commons.numbers.gamma.ErfDifferenceTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.gamma.ErfDifferenceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.numbers.gamma.RegularizedBetaTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.gamma.InverseErfTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.numbers.gamma.InverseErfTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.gamma.LanczosApproximationTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.numbers.gamma.LanczosApproximationTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.gamma.ErfcTest_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.numbers.gamma.ErfcTest_OE25Dev
-[ERROR] testErfcGnu_1_oe  Time elapsed: 0 s  <<< FAILURE!
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.036 s <<< FAILURE! - in org.apache.commons.numbers.gamma.ErfcTest_OE25Dev
+[ERROR] testErfcGnu_1_oe  Time elapsed: 0.031 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <1.9999999999999927> but was: <2.0>
 	at org.apache.commons.numbers.gamma.ErfcTest_OE25Dev.testErfcGnu_1_oe(ErfcTest_OE25Dev.java:55)
 
+[INFO] Running org.apache.commons.numbers.gamma.ErfTest_OE25Dev
+[ERROR] Tests run: 13, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in org.apache.commons.numbers.gamma.ErfTest_OE25Dev
+[ERROR] testErfGnu_1_oe  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <-0.9999999999999927> but was: <-1.0>
+	at org.apache.commons.numbers.gamma.ErfTest_OE25Dev.testErfGnu_1_oe(ErfTest_OE25Dev.java:272)
+
+[INFO] Running org.apache.commons.numbers.gamma.GammaTest_OE25Dev
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in org.apache.commons.numbers.gamma.GammaTest_OE25Dev
+[ERROR] testGammaNegativeDouble_1_oe  Time elapsed: 0.003 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <-1> but was: <1>
+	at org.apache.commons.numbers.gamma.GammaTest_OE25Dev.testGammaNegativeDouble_1_oe(GammaTest_OE25Dev.java:549)
+
+[INFO] Running org.apache.commons.numbers.gamma.TrigammaTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.numbers.gamma.TrigammaTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.gamma.DigammaTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.numbers.gamma.DigammaTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -114,12 +113,12 @@ org.opentest4j.AssertionFailedError: expected: <1.9999999999999927> but was: <2.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.971 s
-[INFO] Finished at: 2026-01-16T15:49:32-05:00
+[INFO] Total time:  11.710 s
+[INFO] Finished at: 2026-01-20T01:58:25-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-gamma: There are test failures.
 [ERROR] 
-[ERROR] Please refer to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/target/surefire-reports for the individual test results.
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/target/surefire-reports for the individual test results.
 [ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
 [ERROR] -> [Help 1]
 [ERROR] 
