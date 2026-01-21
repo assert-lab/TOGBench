@@ -71,7 +71,7 @@ public class TestPeriodType_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestPeriodType_OE25Dev.class);
+        return new TestSuite(TestPeriodType.class);
     }
 
     public TestPeriodType_OE25Dev(String name) {
@@ -2504,7 +2504,7 @@ public class TestPeriodType_OE25Dev extends TestCase {
         PeriodType type = PeriodType.forFields(new DurationFieldType[] {
             DurationFieldType.years(),
         });
-        assertEquals(PeriodType.years(), type);
+        assertSame(PeriodType.years(), type);
     }
 
     public void testForFields1_2_oe() throws Exception {
@@ -2515,7 +2515,7 @@ public class TestPeriodType_OE25Dev extends TestCase {
         type = PeriodType.forFields(new DurationFieldType[] {
             DurationFieldType.months(),
         });
-        assertEquals(PeriodType.months(), type);
+        assertSame(PeriodType.months(), type);
     }
 
     public void testForFields1_3_oe() throws Exception {
@@ -2530,7 +2530,7 @@ public class TestPeriodType_OE25Dev extends TestCase {
         type = PeriodType.forFields(new DurationFieldType[] {
                 DurationFieldType.weeks(),
         });
-        assertEquals(PeriodType.weeks(), type);
+        assertSame(PeriodType.weeks(), type);
     }
 
     public void testForFields1_4_oe() throws Exception {
@@ -2549,7 +2549,7 @@ public class TestPeriodType_OE25Dev extends TestCase {
         type = PeriodType.forFields(new DurationFieldType[] {
                 DurationFieldType.days(),
         });
-        assertEquals(PeriodType.days(), type);
+        assertSame(PeriodType.days(), type);
     }
 
     public void testForFields1_5_oe() throws Exception {
@@ -2572,7 +2572,7 @@ public class TestPeriodType_OE25Dev extends TestCase {
         type = PeriodType.forFields(new DurationFieldType[] {
                 DurationFieldType.hours(),
         });
-        assertEquals(PeriodType.hours(), type);
+        assertSame(PeriodType.hours(), type);
     }
 
     public void testForFields1_6_oe() throws Exception {
@@ -2599,7 +2599,7 @@ public class TestPeriodType_OE25Dev extends TestCase {
         type = PeriodType.forFields(new DurationFieldType[] {
                 DurationFieldType.minutes(),
         });
-        assertEquals(PeriodType.minutes(), type);
+        assertSame(PeriodType.minutes(), type);
     }
 
     public void testForFields1_7_oe() throws Exception {
@@ -2630,7 +2630,7 @@ public class TestPeriodType_OE25Dev extends TestCase {
         type = PeriodType.forFields(new DurationFieldType[] {
                 DurationFieldType.seconds(),
         });
-        assertEquals(PeriodType.seconds(), type);
+        assertSame(PeriodType.seconds(), type);
     }
 
     public void testForFields1_8_oe() throws Exception {
@@ -2665,7 +2665,7 @@ public class TestPeriodType_OE25Dev extends TestCase {
         type = PeriodType.forFields(new DurationFieldType[] {
                 DurationFieldType.millis(),
         });
-        assertEquals(PeriodType.millis(), type);
+        assertSame(PeriodType.millis(), type);
     }
 
     public void testForFields2_1_oe() throws Exception {

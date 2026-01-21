@@ -72,7 +72,7 @@ public class TestPartial_Match_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestPartial_Match_OE25Dev.class);
+        return new TestSuite(TestPartial_Match.class);
     }
 
     public TestPartial_Match_OE25Dev(String name) {

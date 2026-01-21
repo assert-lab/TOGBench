@@ -21,32 +21,44 @@ package org.apache.commons.jcs3.utils.discovery;
 
 import java.util.ArrayList;
 
+import org.apache.commons.jcs3.utils.serialization.StandardSerializer;
+
 import junit.framework.TestCase;
 
 /** Unit tests for the service. */
 public class UDPDiscoveryServiceUnitTest
     extends TestCase
 {
-    /** Verify that the list is updated. */
-    public void testAddOrUpdateService_NotInList()
+    private final static String host = "228.5.6.7";
+    private final static int port = 6789;
+
+    private UDPDiscoveryService service;
+    private MockDiscoveryListener discoveryListener;
+
+    @Override
+    protected void setUp() throws Exception
     {
+        super.setUp();
+
         // SETUP
-        String host = "228.5.6.7";
-        int port = 6789;
-        UDPDiscoveryAttributes attributes = new UDPDiscoveryAttributes();
+        final UDPDiscoveryAttributes attributes = new UDPDiscoveryAttributes();
         attributes.setUdpDiscoveryAddr( host );
         attributes.setUdpDiscoveryPort( port );
         attributes.setServicePort( 1000 );
 
         // create the service
-        UDPDiscoveryService service = new UDPDiscoveryService( attributes );
+        service = new UDPDiscoveryService(attributes, new StandardSerializer());
         service.startup();
         service.addParticipatingCacheName( "testCache1" );
 
-        MockDiscoveryListener discoveryListener = new MockDiscoveryListener();
+        discoveryListener = new MockDiscoveryListener();
         service.addDiscoveryListener( discoveryListener );
+    }
 
-        DiscoveredService discoveredService = new DiscoveredService();
+    /** Verify that the list is updated. */
+    public void testAddOrUpdateService_NotInList()
+    {
+        final DiscoveredService discoveredService = new DiscoveredService();
         discoveredService.setServiceAddress( host );
         discoveredService.setCacheNames( new ArrayList<>() );
         discoveredService.setServicePort( 1000 );
@@ -65,35 +77,19 @@ public class UDPDiscoveryServiceUnitTest
     /** Verify that the list is updated. */
     public void testAddOrUpdateService_InList_NamesDoNotChange()
     {
-        // SETUP
-        String host = "228.5.6.7";
-        int port = 6789;
-        UDPDiscoveryAttributes attributes = new UDPDiscoveryAttributes();
-        attributes.setUdpDiscoveryAddr( host );
-        attributes.setUdpDiscoveryPort( port );
-        attributes.setServicePort( 1000 );
+        final ArrayList<String> sameCacheNames = new ArrayList<>();
+        sameCacheNames.add( "name1" );
 
-        // create the service
-        UDPDiscoveryService service = new UDPDiscoveryService( attributes );
-        service.startup();
-        service.addParticipatingCacheName( "testCache1" );
-
-        MockDiscoveryListener discoveryListener = new MockDiscoveryListener();
-        service.addDiscoveryListener( discoveryListener );
-
-        ArrayList<String> sametCacheNames = new ArrayList<>();
-        sametCacheNames.add( "name1" );
-
-        DiscoveredService discoveredService = new DiscoveredService();
+        final DiscoveredService discoveredService = new DiscoveredService();
         discoveredService.setServiceAddress( host );
-        discoveredService.setCacheNames( sametCacheNames );
+        discoveredService.setCacheNames( sameCacheNames );
         discoveredService.setServicePort( 1000 );
         discoveredService.setLastHearFromTime( 100 );
 
 
-        DiscoveredService discoveredService2 = new DiscoveredService();
+        final DiscoveredService discoveredService2 = new DiscoveredService();
         discoveredService2.setServiceAddress( host );
-        discoveredService2.setCacheNames( sametCacheNames );
+        discoveredService2.setCacheNames( sameCacheNames );
         discoveredService2.setServicePort( 1000 );
         discoveredService2.setLastHearFromTime( 500 );
 
@@ -110,7 +106,7 @@ public class UDPDiscoveryServiceUnitTest
             .contains( discoveredService ) );
 
         // need to update the time this sucks. add has no effect convert to a map
-        for (DiscoveredService service1 : service.getDiscoveredServices())
+        for (final DiscoveredService service1 : service.getDiscoveredServices())
         {
             if ( discoveredService.equals( service1 ) )
             {
@@ -128,31 +124,15 @@ public class UDPDiscoveryServiceUnitTest
     /** Verify that the list is updated. */
     public void testAddOrUpdateService_InList_NamesChange()
     {
-        // SETUP
-        String host = "228.5.6.7";
-        int port = 6789;
-        UDPDiscoveryAttributes attributes = new UDPDiscoveryAttributes();
-        attributes.setUdpDiscoveryAddr( host );
-        attributes.setUdpDiscoveryPort( port );
-        attributes.setServicePort( 1000 );
-
-        // create the service
-        UDPDiscoveryService service = new UDPDiscoveryService( attributes );
-        service.startup();
-        service.addParticipatingCacheName( "testCache1" );
-
-        MockDiscoveryListener discoveryListener = new MockDiscoveryListener();
-        service.addDiscoveryListener( discoveryListener );
-
-        DiscoveredService discoveredService = new DiscoveredService();
+        final DiscoveredService discoveredService = new DiscoveredService();
         discoveredService.setServiceAddress( host );
         discoveredService.setCacheNames( new ArrayList<>() );
         discoveredService.setServicePort( 1000 );
         discoveredService.setLastHearFromTime( 100 );
 
-        ArrayList<String> differentCacheNames = new ArrayList<>();
+        final ArrayList<String> differentCacheNames = new ArrayList<>();
         differentCacheNames.add( "name1" );
-        DiscoveredService discoveredService2 = new DiscoveredService();
+        final DiscoveredService discoveredService2 = new DiscoveredService();
         discoveredService2.setServiceAddress( host );
         discoveredService2.setCacheNames( differentCacheNames );
         discoveredService2.setServicePort( 1000 );
@@ -171,7 +151,7 @@ public class UDPDiscoveryServiceUnitTest
             .contains( discoveredService ) );
 
         // need to update the time this sucks. add has no effect convert to a map
-        for (DiscoveredService service1 : service.getDiscoveredServices())
+        for (final DiscoveredService service1 : service.getDiscoveredServices())
         {
             if ( discoveredService.equals( service1 ) )
             {
@@ -190,23 +170,7 @@ public class UDPDiscoveryServiceUnitTest
     /** Verify that the list is updated. */
     public void testRemoveDiscoveredService()
     {
-        // SETUP
-        String host = "228.5.6.7";
-        int port = 6789;
-        UDPDiscoveryAttributes attributes = new UDPDiscoveryAttributes();
-        attributes.setUdpDiscoveryAddr( host );
-        attributes.setUdpDiscoveryPort( port );
-        attributes.setServicePort( 1000 );
-
-        // create the service
-        UDPDiscoveryService service = new UDPDiscoveryService( attributes );
-        service.startup();
-        service.addParticipatingCacheName( "testCache1" );
-
-        MockDiscoveryListener discoveryListener = new MockDiscoveryListener();
-        service.addDiscoveryListener( discoveryListener );
-
-        DiscoveredService discoveredService = new DiscoveredService();
+        final DiscoveredService discoveredService = new DiscoveredService();
         discoveredService.setServiceAddress( host );
         discoveredService.setCacheNames( new ArrayList<>() );
         discoveredService.setServicePort( 1000 );

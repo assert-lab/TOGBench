@@ -27,7 +27,9 @@ import org.apache.commons.jcs3.log.LogManager;
 
 /**
  * Used to periodically broadcast our location to other caches that might be listening.
+ * @deprecated Functionality moved to UDPDiscoveryService
  */
+@Deprecated
 public class UDPDiscoverySenderThread
     implements Runnable
 {
@@ -45,7 +47,7 @@ public class UDPDiscoverySenderThread
     /**
      * @param cacheNames The cacheNames to set.
      */
-    protected void setCacheNames( ArrayList<String> cacheNames )
+    protected void setCacheNames( final ArrayList<String> cacheNames )
     {
         log.info( "Resetting cacheNames = [{0}]", cacheNames );
         this.cacheNames = cacheNames;
@@ -66,7 +68,7 @@ public class UDPDiscoverySenderThread
      * @param attributes host, port, etc.
      * @param cacheNames List of strings of the names of the region participating.
      */
-    public UDPDiscoverySenderThread( UDPDiscoveryAttributes attributes, ArrayList<String> cacheNames )
+    public UDPDiscoverySenderThread( final UDPDiscoveryAttributes attributes, final ArrayList<String> cacheNames )
     {
         this.attributes = attributes;
 
@@ -74,10 +76,10 @@ public class UDPDiscoverySenderThread
 
         log.debug( "Creating sender thread for discoveryAddress = [{0}] and "
                 + "discoveryPort = [{1}] myHostName = [{2}] and port = [{3}]",
-                () -> attributes.getUdpDiscoveryAddr(),
-                () -> attributes.getUdpDiscoveryPort(),
-                () -> attributes.getServiceAddress(),
-                () -> attributes.getServicePort() );
+                attributes::getUdpDiscoveryAddr,
+                attributes::getUdpDiscoveryPort,
+                attributes::getServiceAddress,
+                attributes::getServicePort);
 
         try (UDPDiscoverySender sender = new UDPDiscoverySender(
                 attributes.getUdpDiscoveryAddr(),
@@ -89,7 +91,7 @@ public class UDPDiscoverySenderThread
 
             log.debug( "Sent a request broadcast to the group" );
         }
-        catch ( IOException e )
+        catch ( final IOException e )
         {
             log.error( "Problem sending a Request Broadcast", e );
         }
@@ -115,7 +117,7 @@ public class UDPDiscoverySenderThread
 
             log.debug( "Called sender to issue a passive broadcast" );
         }
-        catch ( IOException e )
+        catch ( final IOException e )
         {
             log.error( "Problem calling the UDP Discovery Sender [{0}:{1}]",
                     attributes.getUdpDiscoveryAddr(),
@@ -137,9 +139,9 @@ public class UDPDiscoverySenderThread
         {
             sender.removeBroadcast( attributes.getServiceAddress(), attributes.getServicePort(), cacheNames );
 
-            log.debug( "Called sender to issue a remove broadcast in shudown." );
+            log.debug( "Called sender to issue a remove broadcast in shutdown." );
         }
-        catch ( IOException e )
+        catch ( final IOException e )
         {
             log.error( "Problem calling the UDP Discovery Sender", e );
         }

@@ -48,12 +48,12 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateGetRequest_Normal_1_oe()
     {
         // SETUP
-        String cacheName = "test";
-        Serializable key = "key";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final Serializable key = "key";
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createGetRequest( cacheName, key, requesterId );
 
         // VERIFY
@@ -63,12 +63,12 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateGetRequest_Normal_2_oe()
     {
         // SETUP
-        String cacheName = "test";
-        Serializable key = "key";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final Serializable key = "key";
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createGetRequest( cacheName, key, requesterId );
 
         // VERIFY
@@ -79,12 +79,12 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateGetRequest_Normal_3_oe()
     {
         // SETUP
-        String cacheName = "test";
-        Serializable key = "key";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final Serializable key = "key";
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createGetRequest( cacheName, key, requesterId );
 
         // VERIFY
@@ -96,12 +96,12 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateGetMatchingRequest_Normal_1_oe()
     {
         // SETUP
-        String cacheName = "test";
-        String pattern = "pattern";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final String pattern = "pattern";
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createGetMatchingRequest( cacheName, pattern, requesterId );
 
         // VERIFY
@@ -111,12 +111,12 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateGetMatchingRequest_Normal_2_oe()
     {
         // SETUP
-        String cacheName = "test";
-        String pattern = "pattern";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final String pattern = "pattern";
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createGetMatchingRequest( cacheName, pattern, requesterId );
 
         // VERIFY
@@ -127,12 +127,12 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateGetMatchingRequest_Normal_3_oe()
     {
         // SETUP
-        String cacheName = "test";
-        String pattern = "pattern";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final String pattern = "pattern";
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createGetMatchingRequest( cacheName, pattern, requesterId );
 
         // VERIFY
@@ -144,12 +144,12 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateGetMultipleRequest_Normal_1_oe()
     {
         // SETUP
-        String cacheName = "test";
-        Set<Serializable> keys = Collections.emptySet();
-        long requesterId = 2;
+        final String cacheName = "test";
+        final Set<Serializable> keys = Collections.emptySet();
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createGetMultipleRequest( cacheName, keys, requesterId );
 
         // VERIFY
@@ -159,12 +159,12 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateGetMultipleRequest_Normal_2_oe()
     {
         // SETUP
-        String cacheName = "test";
-        Set<Serializable> keys = Collections.emptySet();
-        long requesterId = 2;
+        final String cacheName = "test";
+        final Set<Serializable> keys = Collections.emptySet();
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createGetMultipleRequest( cacheName, keys, requesterId );
 
         // VERIFY
@@ -175,12 +175,12 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateGetMultipleRequest_Normal_3_oe()
     {
         // SETUP
-        String cacheName = "test";
-        Set<Serializable> keys = Collections.emptySet();
-        long requesterId = 2;
+        final String cacheName = "test";
+        final Set<Serializable> keys = Collections.emptySet();
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createGetMultipleRequest( cacheName, keys, requesterId );
 
         // VERIFY
@@ -192,12 +192,12 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateRemoveRequest_Normal_1_oe()
     {
         // SETUP
-        String cacheName = "test";
-        Serializable key = "key";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final Serializable key = "key";
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result = RemoteCacheRequestFactory
+        final RemoteCacheRequest<Serializable, Serializable> result = RemoteCacheRequestFactory
             .createRemoveRequest( cacheName, key, requesterId );
 
         // VERIFY
@@ -207,12 +207,12 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateRemoveRequest_Normal_2_oe()
     {
         // SETUP
-        String cacheName = "test";
-        Serializable key = "key";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final Serializable key = "key";
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result = RemoteCacheRequestFactory
+        final RemoteCacheRequest<Serializable, Serializable> result = RemoteCacheRequestFactory
             .createRemoveRequest( cacheName, key, requesterId );
 
         // VERIFY
@@ -223,12 +223,12 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateRemoveRequest_Normal_3_oe()
     {
         // SETUP
-        String cacheName = "test";
-        Serializable key = "key";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final Serializable key = "key";
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result = RemoteCacheRequestFactory
+        final RemoteCacheRequest<Serializable, Serializable> result = RemoteCacheRequestFactory
             .createRemoveRequest( cacheName, key, requesterId );
 
         // VERIFY
@@ -240,11 +240,11 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateRemoveAllRequest_Normal_1_oe()
     {
         // SETUP
-        String cacheName = "test";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createRemoveAllRequest( cacheName, requesterId );
 
         // VERIFY
@@ -254,11 +254,11 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateRemoveAllRequest_Normal_2_oe()
     {
         // SETUP
-        String cacheName = "test";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createRemoveAllRequest( cacheName, requesterId );
 
         // VERIFY
@@ -269,11 +269,11 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateRemoveAllRequest_Normal_3_oe()
     {
         // SETUP
-        String cacheName = "test";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final long requesterId = 2;
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createRemoveAllRequest( cacheName, requesterId );
 
         // VERIFY
@@ -285,15 +285,15 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateUpdateRequest_Normal_1_oe()
     {
         // SETUP
-        String cacheName = "test";
-        Serializable key = "key";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final Serializable key = "key";
+        final long requesterId = 2;
 
-        CacheElement<Serializable, Serializable> element =
+        final CacheElement<Serializable, Serializable> element =
             new CacheElement<>( cacheName, key, null );
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createUpdateRequest( element, requesterId );
 
         // VERIFY
@@ -303,15 +303,15 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateUpdateRequest_Normal_2_oe()
     {
         // SETUP
-        String cacheName = "test";
-        Serializable key = "key";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final Serializable key = "key";
+        final long requesterId = 2;
 
-        CacheElement<Serializable, Serializable> element =
+        final CacheElement<Serializable, Serializable> element =
             new CacheElement<>( cacheName, key, null );
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createUpdateRequest( element, requesterId );
 
         // VERIFY
@@ -322,15 +322,15 @@ public class RemoteCacheRequestFactoryUnitTest_OE25Dev
     public void testCreateUpdateRequest_Normal_3_oe()
     {
         // SETUP
-        String cacheName = "test";
-        Serializable key = "key";
-        long requesterId = 2;
+        final String cacheName = "test";
+        final Serializable key = "key";
+        final long requesterId = 2;
 
-        CacheElement<Serializable, Serializable> element =
+        final CacheElement<Serializable, Serializable> element =
             new CacheElement<>( cacheName, key, null );
 
         // DO WORK
-        RemoteCacheRequest<Serializable, Serializable> result =
+        final RemoteCacheRequest<Serializable, Serializable> result =
             RemoteCacheRequestFactory.createUpdateRequest( element, requesterId );
 
         // VERIFY

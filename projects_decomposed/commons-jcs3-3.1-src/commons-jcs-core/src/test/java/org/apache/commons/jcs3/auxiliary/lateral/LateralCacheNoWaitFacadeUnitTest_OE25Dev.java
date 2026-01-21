@@ -1,6 +1,10 @@
 package org.apache.commons.jcs3.auxiliary.lateral;
 
-import org.apache.commons.jcs3.auxiliary.lateral.behavior.ILateralCacheAttributes;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.TCPLateralCacheAttributes;
+import org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocal;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -29,6 +33,23 @@ import junit.framework.TestCase;
 public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
     extends TestCase
 {
+    private LateralCacheNoWaitFacade<String, String> facade;
+    private LateralCache<String, String> cache;
+
+    @Override
+    protected void setUp() throws Exception
+    {
+        // SETUP
+        List<LateralCacheNoWait<String, String>> noWaits = new ArrayList<>();
+        TCPLateralCacheAttributes cattr = new TCPLateralCacheAttributes();
+        cattr.setCacheName( "testCache1" );
+        cattr.setTcpServer("localhost:7890");
+
+
+        facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
+        cache = new LateralCache<>(cattr, new ZombieCacheServiceNonLocal<>(), null);
+    }
+
     /**
      * Verify that we can remove an item.
      */
@@ -47,15 +68,6 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
 
     public void testAddThenRemoveNoWait_InList_1_oe()
     {
-        // SETUP
-        @SuppressWarnings("unchecked")
-        LateralCacheNoWait<String, String>[] noWaits = new LateralCacheNoWait[0];
-        ILateralCacheAttributes cattr = new LateralCacheAttributes();
-        cattr.setCacheName( "testCache1" );
-
-        LateralCacheNoWaitFacade<String, String> facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
-
-        LateralCache<String, String> cache = new LateralCache<>( cattr );
         LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
 
         // DO WORK
@@ -67,15 +79,6 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
 
     public void testAddThenRemoveNoWait_InList_2_oe()
     {
-        // SETUP
-        @SuppressWarnings("unchecked")
-        LateralCacheNoWait<String, String>[] noWaits = new LateralCacheNoWait[0];
-        ILateralCacheAttributes cattr = new LateralCacheAttributes();
-        cattr.setCacheName( "testCache1" );
-
-        LateralCacheNoWaitFacade<String, String> facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
-
-        LateralCache<String, String> cache = new LateralCache<>( cattr );
         LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
 
         // DO WORK
@@ -88,20 +91,11 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
         facade.removeNoWait( noWait );
 
         // VERIFY
-        assertEquals( "Should have 0", 0, facade.noWaits.length );
+        assertEquals( "Should have 0", 0, facade.getNoWaitSize() );
     }
 
     public void testAddThenRemoveNoWait_InList_3_oe()
     {
-        // SETUP
-        @SuppressWarnings("unchecked")
-        LateralCacheNoWait<String, String>[] noWaits = new LateralCacheNoWait[0];
-        ILateralCacheAttributes cattr = new LateralCacheAttributes();
-        cattr.setCacheName( "testCache1" );
-
-        LateralCacheNoWaitFacade<String, String> facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
-
-        LateralCache<String, String> cache = new LateralCache<>( cattr );
         LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
 
         // DO WORK
@@ -120,39 +114,25 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
 
     public void testAddThenRemoveNoWait_InListSize2_1_oe()
     {
-        // SETUP
-        @SuppressWarnings("unchecked")
-        LateralCacheNoWait<String, String>[] noWaits = new LateralCacheNoWait[0];
-        ILateralCacheAttributes cattr = new LateralCacheAttributes();
-        cattr.setCacheName( "testCache1" );
-
-        LateralCacheNoWaitFacade<String, String> facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
-
-        LateralCache<String, String> cache = new LateralCache<>( cattr );
-        LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
-        LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
+        final LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
+        noWait.setIdentityKey("1234");
+        final LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
+        noWait2.setIdentityKey("2345");
 
         // DO WORK
         facade.addNoWait( noWait );
         facade.addNoWait( noWait2 );
 
         // VERIFY
-        assertEquals( "Should have 2", 2, facade.noWaits.length );
+        assertEquals( "Should have 2", 2, facade.getNoWaitSize() );
     }
 
     public void testAddThenRemoveNoWait_InListSize2_2_oe()
     {
-        // SETUP
-        @SuppressWarnings("unchecked")
-        LateralCacheNoWait<String, String>[] noWaits = new LateralCacheNoWait[0];
-        ILateralCacheAttributes cattr = new LateralCacheAttributes();
-        cattr.setCacheName( "testCache1" );
-
-        LateralCacheNoWaitFacade<String, String> facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
-
-        LateralCache<String, String> cache = new LateralCache<>( cattr );
-        LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
-        LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
+        final LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
+        noWait.setIdentityKey("1234");
+        final LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
+        noWait2.setIdentityKey("2345");
 
         // DO WORK
         facade.addNoWait( noWait );
@@ -165,17 +145,10 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
 
     public void testAddThenRemoveNoWait_InListSize2_3_oe()
     {
-        // SETUP
-        @SuppressWarnings("unchecked")
-        LateralCacheNoWait<String, String>[] noWaits = new LateralCacheNoWait[0];
-        ILateralCacheAttributes cattr = new LateralCacheAttributes();
-        cattr.setCacheName( "testCache1" );
-
-        LateralCacheNoWaitFacade<String, String> facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
-
-        LateralCache<String, String> cache = new LateralCache<>( cattr );
-        LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
-        LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
+        final LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
+        noWait.setIdentityKey("1234");
+        final LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
+        noWait2.setIdentityKey("2345");
 
         // DO WORK
         facade.addNoWait( noWait );
@@ -189,17 +162,10 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
 
     public void testAddThenRemoveNoWait_InListSize2_4_oe()
     {
-        // SETUP
-        @SuppressWarnings("unchecked")
-        LateralCacheNoWait<String, String>[] noWaits = new LateralCacheNoWait[0];
-        ILateralCacheAttributes cattr = new LateralCacheAttributes();
-        cattr.setCacheName( "testCache1" );
-
-        LateralCacheNoWaitFacade<String, String> facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
-
-        LateralCache<String, String> cache = new LateralCache<>( cattr );
-        LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
-        LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
+        final LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
+        noWait.setIdentityKey("1234");
+        final LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
+        noWait2.setIdentityKey("2345");
 
         // DO WORK
         facade.addNoWait( noWait );
@@ -214,22 +180,15 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
         facade.removeNoWait( noWait );
 
         // VERIFY
-        assertEquals( "Should only have 1", 1, facade.noWaits.length );
+        assertEquals( "Should only have 1", 1, facade.getNoWaitSize() );
     }
 
     public void testAddThenRemoveNoWait_InListSize2_5_oe()
     {
-        // SETUP
-        @SuppressWarnings("unchecked")
-        LateralCacheNoWait<String, String>[] noWaits = new LateralCacheNoWait[0];
-        ILateralCacheAttributes cattr = new LateralCacheAttributes();
-        cattr.setCacheName( "testCache1" );
-
-        LateralCacheNoWaitFacade<String, String> facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
-
-        LateralCache<String, String> cache = new LateralCache<>( cattr );
-        LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
-        LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
+        final LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
+        noWait.setIdentityKey("1234");
+        final LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
+        noWait2.setIdentityKey("2345");
 
         // DO WORK
         facade.addNoWait( noWait );
@@ -250,17 +209,10 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
 
     public void testAddThenRemoveNoWait_InListSize2_6_oe()
     {
-        // SETUP
-        @SuppressWarnings("unchecked")
-        LateralCacheNoWait<String, String>[] noWaits = new LateralCacheNoWait[0];
-        ILateralCacheAttributes cattr = new LateralCacheAttributes();
-        cattr.setCacheName( "testCache1" );
-
-        LateralCacheNoWaitFacade<String, String> facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
-
-        LateralCache<String, String> cache = new LateralCache<>( cattr );
-        LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
-        LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
+        final LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
+        noWait.setIdentityKey("1234");
+        final LateralCacheNoWait<String, String> noWait2 = new LateralCacheNoWait<>( cache );
+        noWait2.setIdentityKey("2345");
 
         // DO WORK
         facade.addNoWait( noWait );
@@ -282,16 +234,7 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
 
     public void testAdd_InList_1_oe()
     {
-        // SETUP
-        @SuppressWarnings("unchecked")
-        LateralCacheNoWait<String, String>[] noWaits = new LateralCacheNoWait[0];
-        ILateralCacheAttributes cattr = new LateralCacheAttributes();
-        cattr.setCacheName( "testCache1" );
-
-        LateralCacheNoWaitFacade<String, String> facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
-
-        LateralCache<String, String> cache = new LateralCache<>( cattr );
-        LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
+        final LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
 
         // DO WORK
         facade.addNoWait( noWait );
@@ -303,16 +246,7 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
 
     public void testAdd_InList_2_oe()
     {
-        // SETUP
-        @SuppressWarnings("unchecked")
-        LateralCacheNoWait<String, String>[] noWaits = new LateralCacheNoWait[0];
-        ILateralCacheAttributes cattr = new LateralCacheAttributes();
-        cattr.setCacheName( "testCache1" );
-
-        LateralCacheNoWaitFacade<String, String> facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
-
-        LateralCache<String, String> cache = new LateralCache<>( cattr );
-        LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
+        final LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
 
         // DO WORK
         facade.addNoWait( noWait );
@@ -320,21 +254,12 @@ public class LateralCacheNoWaitFacadeUnitTest_OE25Dev
 
         // VERIFY
         // removed other assertion
-        assertEquals( "Should only have 1", 1, facade.noWaits.length );
+        assertEquals( "Should only have 1", 1, facade.getNoWaitSize() );
     }
 
     public void testAddThenRemoveNoWait_NotInList_1_oe()
     {
-        // SETUP
-        @SuppressWarnings("unchecked")
-        LateralCacheNoWait<String, String>[] noWaits = new LateralCacheNoWait[0];
-        ILateralCacheAttributes cattr = new LateralCacheAttributes();
-        cattr.setCacheName( "testCache1" );
-
-        LateralCacheNoWaitFacade<String, String> facade = new LateralCacheNoWaitFacade<>( null, noWaits, cattr );
-
-        LateralCache<String, String> cache = new LateralCache<>( cattr );
-        LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
+        final LateralCacheNoWait<String, String> noWait = new LateralCacheNoWait<>( cache );
 
         // DO WORK
         facade.removeNoWait( noWait );

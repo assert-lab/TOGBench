@@ -18,9 +18,9 @@ package org.apache.commons.jcs3.log;
  */
 
 import java.text.MessageFormat;
-import java.util.Arrays;
 import java.util.IllegalFormatException;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 /**
  * Handles messages that consist of a format string conforming to
@@ -29,7 +29,7 @@ import java.util.function.Supplier;
 public class MessageFormatter
 {
     private final String messagePattern;
-    private transient Object[] parameters;
+    private final transient Object[] parameters;
     private transient String formattedMessage;
     private transient Throwable throwable;
 
@@ -64,11 +64,11 @@ public class MessageFormatter
     public MessageFormatter(final String messagePattern, final Supplier<?>... paramSuppliers)
     {
         this.messagePattern = messagePattern;
-        this.parameters = Arrays.stream(paramSuppliers)
-                            .map(s -> s.get())
+        this.parameters = Stream.of(paramSuppliers)
+                            .map(Supplier::get)
                             .toArray();
 
-        final int length = parameters == null ? 0 : parameters.length;
+        final int length = parameters.length;
         if (length > 0 && parameters[length - 1] instanceof Throwable)
         {
             this.throwable = (Throwable) parameters[length - 1];

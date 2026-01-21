@@ -78,6 +78,26 @@ public class TestMonthDay_Properties extends TestCase {
         locale = null;
     }
 
+    //-----------------------------------------------------------------------
+    public void testPropertyGetMonthOfYear() {
+        MonthDay test = new MonthDay(9, 6);
+        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
+        assertEquals("monthOfYear", test.monthOfYear().getName());
+        assertEquals("Property[monthOfYear]", test.monthOfYear().toString());
+        assertSame(test, test.monthOfYear().getReadablePartial());
+        assertSame(test, test.monthOfYear().getMonthDay());
+        assertEquals(9, test.monthOfYear().get());
+        assertEquals("9", test.monthOfYear().getAsString());
+        assertEquals("September", test.monthOfYear().getAsText());
+        assertEquals("septembre", test.monthOfYear().getAsText(Locale.FRENCH));
+        assertEquals("Sep", test.monthOfYear().getAsShortText());
+        assertEquals("sept.", test.monthOfYear().getAsShortText(Locale.FRENCH));
+        assertEquals(test.getChronology().months(), test.monthOfYear().getDurationField());
+        // assertEquals(test.getChronology().days(), test.dayOfMonth().getRangeDurationField());
+        assertEquals(9, test.monthOfYear().getMaximumTextLength(null));
+        assertEquals(3, test.monthOfYear().getMaximumShortTextLength(null));
+    }
+
     public void testPropertyGetMaxMinValuesMonthOfYear() {
         MonthDay test = new MonthDay(10, 6);
         assertEquals(1, test.monthOfYear().getMinimumValue());
@@ -157,11 +177,11 @@ public class TestMonthDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetDayOfMonth() {
         MonthDay test = new MonthDay(4, 6);
-        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
         assertEquals("dayOfMonth", test.dayOfMonth().getName());
         assertEquals("Property[dayOfMonth]", test.dayOfMonth().toString());
-        assertEquals(test, test.dayOfMonth().getReadablePartial());
-        assertEquals(test, test.dayOfMonth().getMonthDay());
+        assertSame(test, test.dayOfMonth().getReadablePartial());
+        assertSame(test, test.dayOfMonth().getMonthDay());
         assertEquals(6, test.dayOfMonth().get());
         assertEquals("6", test.dayOfMonth().getAsString());
         assertEquals("6", test.dayOfMonth().getAsText());

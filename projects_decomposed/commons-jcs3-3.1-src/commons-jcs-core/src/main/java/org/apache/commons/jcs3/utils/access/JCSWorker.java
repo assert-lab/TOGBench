@@ -58,8 +58,8 @@ import org.apache.commons.jcs3.log.LogManager;
  *        JCSWorkerHelper helper = new AbstractJCSWorkerHelper(){
  *          public Object doWork(){
  *            // Do some (DB?) work here which results in a list
- *            // This only happens if the cache dosn't have a item in this region for aKey
- *            // Note this is especially useful with Hibernate, which will cache indiviual
+ *            // This only happens if the cache doesn't have a item in this region for aKey
+ *            // Note this is especially useful with Hibernate, which will cache individual
  *            // Objects, but not entire query result sets.
  *            List results = query.list();
  *            // Whatever we return here get's cached with aKey, and future calls to
@@ -97,15 +97,15 @@ public class JCSWorker<K, V>
     private static final Log logger = LogManager.getLog( JCSWorker.class );
 
     /** The cache we are working with */
-    private CacheAccess<K, V> cache;
+    private final CacheAccess<K, V> cache;
 
     /** The cache we are working with */
-    private GroupCacheAccess<K, V> groupCache;
+    private final GroupCacheAccess<K, V> groupCache;
 
     /**
      * Map to hold who's doing work presently.
      */
-    private volatile ConcurrentMap<String, JCSWorkerHelper<V>> map = new ConcurrentHashMap<>();
+    private final ConcurrentMap<String, JCSWorkerHelper<V>> map = new ConcurrentHashMap<>();
 
     /**
      * Region for the JCS cache.
@@ -125,7 +125,7 @@ public class JCSWorker<K, V>
             cache = JCS.getInstance( aRegion );
             groupCache = JCS.getGroupCacheInstance( aRegion );
         }
-        catch ( CacheException e )
+        catch ( final CacheException e )
         {
             throw new RuntimeException( e.getMessage() );
         }
@@ -157,7 +157,7 @@ public class JCSWorker<K, V>
      *             Throws an exception if anything goes wrong while doing the
      *             work.
      */
-    public V getResult( K aKey, JCSWorkerHelper<V> aWorker )
+    public V getResult( final K aKey, final JCSWorkerHelper<V> aWorker )
         throws Exception
     {
         return run( aKey, null, aWorker );
@@ -182,7 +182,7 @@ public class JCSWorker<K, V>
      *             Throws an exception if anything goes wrong while doing the
      *             work.
      */
-    public V getResult( K aKey, String aGroup, JCSWorkerHelper<V> aWorker )
+    public V getResult( final K aKey, final String aGroup, final JCSWorkerHelper<V> aWorker )
         throws Exception
     {
         return run( aKey, aGroup, aWorker );
@@ -202,40 +202,40 @@ public class JCSWorker<K, V>
      *             If something goes wrong while doing the work, throw an
      *             exception.
      */
-    private V run( K aKey, String aGroup, JCSWorkerHelper<V> aHelper )
+    private V run( final K aKey, final String aGroup, final JCSWorkerHelper<V> aHelper )
         throws Exception
     {
         V result = null;
         // long start = 0;
         // long dbTime = 0;
-        JCSWorkerHelper<V> helper = map.putIfAbsent(getRegion() + aKey, aHelper);
+        final JCSWorkerHelper<V> helper = map.putIfAbsent(getRegion() + aKey, aHelper);
 
         if ( helper != null )
         {
             synchronized ( helper )
             {
                 logger.debug( "Found a worker already doing this work ({0}:{1}).",
-                        () -> getRegion(), () -> aKey );
+                        this::getRegion, () -> aKey );
                 while ( !helper.isFinished() )
                 {
                     try
                     {
                         helper.wait();
                     }
-                    catch (InterruptedException e)
+                    catch (final InterruptedException e)
                     {
                         // expected
                     }
                 }
                 logger.debug( "Another thread finished our work for us. Using "
                         + "those results instead. ({0}:{1}).",
-                        () -> getRegion(), () -> aKey );
+                        this::getRegion, () -> aKey );
             }
         }
         // Do the work
         try
         {
-            logger.debug( "{0} is doing the work.", () -> getRegion() );
+            logger.debug( "{0} is doing the work.", this::getRegion);
 
             // Try to get the item from the cache
             if ( aGroup != null )
@@ -246,7 +246,7 @@ public class JCSWorker<K, V>
             {
                 result = cache.get( aKey );
             }
-            // If the cache dosn't have it, do the work.
+            // If the cache doesn't have it, do the work.
             if ( result == null )
             {
                 result = aHelper.doWork();
@@ -267,7 +267,7 @@ public class JCSWorker<K, V>
         }
         finally
         {
-            logger.debug( "{0}:{1} entered finally.", () -> getRegion(),
+            logger.debug( "{0}:{1} entered finally.", this::getRegion,
                     () -> aKey );
 
             // Remove ourselves as the worker.

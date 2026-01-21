@@ -48,7 +48,7 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDateTimeParserBucket_OE25Dev.class);
+        return new TestSuite(TestDateTimeParserBucket.class);
     }
 
     public TestDateTimeParserBucket_OE25Dev(String name) {

@@ -73,7 +73,7 @@ public class TestMutableDateTime_Constructors_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestMutableDateTime_Constructors_OE25Dev.class);
+        return new TestSuite(TestMutableDateTime_Constructors.class);
     }
 
     public TestMutableDateTime_Constructors_OE25Dev(String name) {

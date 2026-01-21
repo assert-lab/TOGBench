@@ -30,7 +30,7 @@ public class CacheInvocationContextImpl<A extends Annotation> extends CacheMetho
 {
     private static final Object[] EMPTY_ARGS = new Object[0];
 
-    private CacheInvocationParameter[] parameters = null;
+    private CacheInvocationParameter[] parameters;
 
     public CacheInvocationContextImpl(final InvocationContext delegate, final A cacheAnnotation, final String cacheName,
                                       final CDIJCacheHelper.MethodMeta meta)
@@ -82,9 +82,7 @@ public class CacheInvocationContextImpl<A extends Annotation> extends CacheMetho
         else
         {
             int outIdx = 0;
-            for (int idx = 0; idx < indexes.length; idx++)
-            {
-                final int i = indexes[idx];
+            for (final Integer i : indexes) {
                 parametersAsArray[outIdx] = newCacheInvocationParameterImpl(parameterTypes[i], args[i], parameterAnnotations.get(i), i);
                 outIdx++;
             }

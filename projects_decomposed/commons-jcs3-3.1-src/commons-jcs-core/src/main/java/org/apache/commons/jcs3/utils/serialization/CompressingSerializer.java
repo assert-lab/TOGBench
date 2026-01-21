@@ -21,6 +21,7 @@ package org.apache.commons.jcs3.utils.serialization;
 
 import java.io.IOException;
 
+import org.apache.commons.jcs3.engine.behavior.IElementSerializer;
 import org.apache.commons.jcs3.utils.zip.CompressionUtil;
 
 /**
@@ -28,6 +29,29 @@ import org.apache.commons.jcs3.utils.zip.CompressionUtil;
  */
 public class CompressingSerializer extends StandardSerializer
 {
+    /** Wrapped serializer */
+    private final IElementSerializer serializer;
+
+
+    /**
+     * Default constructor
+     */
+    public CompressingSerializer()
+    {
+        this(new StandardSerializer());
+    }
+
+    /**
+     * Wrapper constructor
+     *
+     * @param serializer the wrapped serializer
+     * @since 3.1
+     */
+    public CompressingSerializer(IElementSerializer serializer)
+    {
+        this.serializer = serializer;
+    }
+
     /**
      * Serializes an object using default serialization. Compresses the byte array.
      * <p>
@@ -36,12 +60,11 @@ public class CompressingSerializer extends StandardSerializer
      * @throws IOException on i/o problem
      */
     @Override
-    public <T> byte[] serialize( T obj )
+    public <T> byte[] serialize( final T obj )
         throws IOException
     {
-        byte[] uncompressed = super.serialize(obj);
-        byte[] compressed = CompressionUtil.compressByteArray( uncompressed );
-        return compressed;
+        final byte[] uncompressed = serializer.serialize(obj);
+        return CompressionUtil.compressByteArray( uncompressed );
     }
 
     /**
@@ -55,7 +78,7 @@ public class CompressingSerializer extends StandardSerializer
      * @throws ClassNotFoundException if class is not found during deserialization
      */
     @Override
-    public <T> T deSerialize( byte[] data, ClassLoader loader )
+    public <T> T deSerialize( final byte[] data, final ClassLoader loader )
         throws IOException, ClassNotFoundException
     {
         if ( data == null )
@@ -63,7 +86,7 @@ public class CompressingSerializer extends StandardSerializer
             return null;
         }
 
-        byte[] decompressedByteArray = CompressionUtil.decompressByteArray( data );
-        return super.deSerialize(decompressedByteArray, loader);
+        final byte[] decompressedByteArray = CompressionUtil.decompressByteArray( data );
+        return serializer.deSerialize(decompressedByteArray, loader);
     }
 }

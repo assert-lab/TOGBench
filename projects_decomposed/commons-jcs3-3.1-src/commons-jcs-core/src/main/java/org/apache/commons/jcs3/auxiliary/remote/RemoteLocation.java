@@ -48,7 +48,7 @@ public final class RemoteLocation
      * @param host
      * @param port
      */
-    public RemoteLocation( String host, int port )
+    public RemoteLocation( final String host, final int port )
     {
         this.host = host;
         this.port = port;
@@ -75,17 +75,17 @@ public final class RemoteLocation
      * @return true if the host and port are equal
      */
     @Override
-    public boolean equals( Object obj )
+    public boolean equals( final Object obj )
     {
         if ( obj == this )
         {
             return true;
         }
-        if ( obj == null || !( obj instanceof RemoteLocation ) )
+        if (!(obj instanceof RemoteLocation))
         {
             return false;
         }
-        RemoteLocation l = (RemoteLocation) obj;
+        final RemoteLocation l = (RemoteLocation) obj;
         if ( this.host == null )
         {
             return l.host == null && port == l.port;
@@ -108,7 +108,7 @@ public final class RemoteLocation
     @Override
     public String toString()
     {
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         if (this.host != null)
         {
             sb.append(this.host);
@@ -127,17 +127,13 @@ public final class RemoteLocation
      */
     public static RemoteLocation parseServerAndPort(final String server)
     {
-        Matcher match = SERVER_COLON_PORT.matcher(server);
+        final Matcher match = SERVER_COLON_PORT.matcher(server);
 
         if (match.find() && match.groupCount() == 2)
         {
-            RemoteLocation location = new RemoteLocation( match.group(1), Integer.parseInt( match.group(2) ) );
-            return location;
+            return new RemoteLocation( match.group(1), Integer.parseInt( match.group(2) ) );
         }
-        else
-        {
-            log.error("Invalid server descriptor: {0}", server);
-        }
+        log.error("Invalid server descriptor: {0}", server);
 
         return null;
     }

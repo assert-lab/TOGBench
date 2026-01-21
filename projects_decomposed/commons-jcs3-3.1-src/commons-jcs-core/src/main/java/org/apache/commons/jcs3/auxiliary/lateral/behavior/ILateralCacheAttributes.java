@@ -33,16 +33,32 @@ public interface ILateralCacheAttributes
     enum Type
     {
         /** HTTP type */
-        HTTP, // 1
+        HTTP("HTTP"), // 1
 
         /** UDP type */
-        UDP, // 2
+        UDP("UDP"), // 2
 
         /** TCP type */
-        TCP, // 3
+        TCP("TCP"), // 3
 
         /** XMLRPC type */
-        XMLRPC // 4
+        XMLRPC("XMLRPC"); // 4
+
+        private final String typeName;
+
+        Type(String typeName)
+        {
+            this.typeName = typeName;
+        }
+
+        /**
+         * @since 3.1
+         */
+        @Override
+        public String toString()
+        {
+            return typeName;
+        }
     }
 
     /**
@@ -139,14 +155,18 @@ public interface ILateralCacheAttributes
      * Sets the transmissionTypeName attribute of the ILateralCacheAttributes object
      * <p>
      * @param val The new transmissionTypeName value
+     * @deprecated Use setTransmissionType()
      */
+    @Deprecated
     void setTransmissionTypeName( String val );
 
     /**
      * Gets the transmissionTypeName attribute of the ILateralCacheAttributes object
      * <p>
      * @return The transmissionTypeName value
+     * @deprecated Use getTransmissionType
      */
+    @Deprecated
     String getTransmissionTypeName();
 
     /**

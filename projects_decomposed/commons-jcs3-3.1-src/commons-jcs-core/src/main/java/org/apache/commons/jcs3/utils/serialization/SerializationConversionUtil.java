@@ -49,8 +49,8 @@ public class SerializationConversionUtil
      * @return null for null;
      * @throws IOException
      */
-    public static <K, V> ICacheElementSerialized<K, V> getSerializedCacheElement( ICacheElement<K, V> element,
-                                                                    IElementSerializer elementSerializer )
+    public static <K, V> ICacheElementSerialized<K, V> getSerializedCacheElement( final ICacheElement<K, V> element,
+                                                                    final IElementSerializer elementSerializer )
         throws IOException
     {
         if ( element == null )
@@ -67,31 +67,26 @@ public class SerializationConversionUtil
         }
         else
         {
-            if ( elementSerializer != null )
-            {
-                try
-                {
-                    serializedValue = elementSerializer.serialize(element.getVal());
-
-                    // update size in bytes
-                    element.getElementAttributes().setSize(serializedValue.length);
-                }
-                catch ( IOException e )
-                {
-                    log.error( "Problem serializing object.", e );
-                    throw e;
-                }
-            }
-            else
-            {
+            if ( elementSerializer == null ) {
                 // we could just use the default.
                 throw new IOException( "Could not serialize object. The ElementSerializer is null." );
             }
-        }
-        ICacheElementSerialized<K, V> serialized = new CacheElementSerialized<>(
-                element.getCacheName(), element.getKey(), serializedValue, element.getElementAttributes() );
+            try
+            {
+                serializedValue = elementSerializer.serialize(element.getVal());
 
-        return serialized;
+                // update size in bytes
+                element.getElementAttributes().setSize(serializedValue.length);
+            }
+            catch ( final IOException e )
+            {
+                log.error( "Problem serializing object.", e );
+                throw e;
+            }
+        }
+
+        return new CacheElementSerialized<>(
+                element.getCacheName(), element.getKey(), serializedValue, element.getElementAttributes() );
     }
 
     /**
@@ -105,8 +100,8 @@ public class SerializationConversionUtil
      * @throws IOException
      * @throws ClassNotFoundException
      */
-    public static <K, V> ICacheElement<K, V> getDeSerializedCacheElement( ICacheElementSerialized<K, V> serialized,
-                                                            IElementSerializer elementSerializer )
+    public static <K, V> ICacheElement<K, V> getDeSerializedCacheElement( final ICacheElementSerialized<K, V> serialized,
+                                                            final IElementSerializer elementSerializer )
         throws IOException, ClassNotFoundException
     {
         if ( serialized == null )
@@ -116,32 +111,20 @@ public class SerializationConversionUtil
 
         V deSerializedValue = null;
 
-        if ( elementSerializer != null )
-        {
-            try
-            {
-                try
-                {
-                    deSerializedValue = elementSerializer.deSerialize( serialized.getSerializedValue(), null );
-                }
-                catch ( ClassNotFoundException e )
-                {
-                    log.error( "Problem de-serializing object.", e );
-                    throw e;
-                }
-            }
-            catch ( IOException e )
-            {
-                log.error( "Problem de-serializing object.", e );
-                throw e;
-            }
-        }
-        else
-        {
+        if ( elementSerializer == null ) {
             // we could just use the default.
             throw new IOException( "Could not de-serialize object. The ElementSerializer is null." );
-       }
-        ICacheElement<K, V> deSerialized = new CacheElement<>( serialized.getCacheName(), serialized.getKey(), deSerializedValue );
+        }
+        try
+        {
+            deSerializedValue = elementSerializer.deSerialize( serialized.getSerializedValue(), null );
+        }
+        catch ( final ClassNotFoundException | IOException e )
+        {
+            log.error( "Problem de-serializing object.", e );
+            throw e;
+        }
+        final ICacheElement<K, V> deSerialized = new CacheElement<>( serialized.getCacheName(), serialized.getKey(), deSerializedValue );
         deSerialized.setElementAttributes( serialized.getElementAttributes() );
 
         return deSerialized;

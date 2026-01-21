@@ -47,21 +47,21 @@ public class BlockDiskUnitTest_OE25Dev
     protected void setUp() throws Exception
     {
         super.setUp();
-        String rootDirName = "target/test-sandbox/block";
+        final String rootDirName = "target/test-sandbox/block";
         this.rafDir = new File( rootDirName );
         this.rafDir.mkdirs();
     }
 
-    private void setUpBlockDisk(String fileName) throws IOException
+    private void setUpBlockDisk(final String fileName) throws IOException
     {
-        File file = new File(rafDir, fileName + ".data");
+        final File file = new File(rafDir, fileName + ".data");
         file.delete();
         this.disk = new BlockDisk(file, new StandardSerializer());
     }
 
-    private void setUpBlockDisk(String fileName, int blockSize) throws IOException
+    private void setUpBlockDisk(final String fileName, final int blockSize) throws IOException
     {
-        File file = new File(rafDir, fileName + ".data");
+        final File file = new File(rafDir, fileName + ".data");
         file.delete();
         this.disk = new BlockDisk(file, blockSize, new StandardSerializer());
     }
@@ -137,7 +137,7 @@ public class BlockDiskUnitTest_OE25Dev
      * @param numBlocks
      * @return num bytes.
      */
-    private int getBytesForBlocksOfByteArrays( int blockSize, int numBlocks )
+    private int getBytesForBlocksOfByteArrays( final int blockSize, final int numBlocks )
     {
         // byte arrays encur some bytes of serialization overhead.
         return blockSize * numBlocks - ( numBlocks * BlockDisk.HEADER_SIZE_BYTES ) - ( numBlocks * 14 );
@@ -162,7 +162,7 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWrite_NullBlockElement");
 
         // DO WORK
-        int[] blocks = disk.write( null );
+        final int[] blocks = disk.write( null );
 
         // VERIFY
         assertEquals( "Wrong number of blocks recorded.", 1, disk.getNumberOfBlocks() );
@@ -175,7 +175,7 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWrite_NullBlockElement");
 
         // DO WORK
-        int[] blocks = disk.write( null );
+        final int[] blocks = disk.write( null );
 
         // VERIFY
         // removed other assertion
@@ -189,7 +189,7 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWrite_NullBlockElement");
 
         // DO WORK
-        int[] blocks = disk.write( null );
+        final int[] blocks = disk.write( null );
 
         // VERIFY
         // removed other assertion
@@ -204,8 +204,8 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWrite_SingleBlockElement");
 
         // DO WORK
-        int bytes = 1 * 1024;
-        int[] blocks = disk.write( new byte[bytes] );
+        final int bytes = 1 * 1024;
+        final int[] blocks = disk.write( new byte[bytes] );
 
         // VERIFY
         assertEquals( "Wrong number of blocks recorded.", 1, disk.getNumberOfBlocks() );
@@ -218,8 +218,8 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWrite_SingleBlockElement");
 
         // DO WORK
-        int bytes = 1 * 1024;
-        int[] blocks = disk.write( new byte[bytes] );
+        final int bytes = 1 * 1024;
+        final int[] blocks = disk.write( new byte[bytes] );
 
         // VERIFY
         // removed other assertion
@@ -233,8 +233,8 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWrite_SingleBlockElement");
 
         // DO WORK
-        int bytes = 1 * 1024;
-        int[] blocks = disk.write( new byte[bytes] );
+        final int bytes = 1 * 1024;
+        final int[] blocks = disk.write( new byte[bytes] );
 
         // VERIFY
         // removed other assertion
@@ -249,10 +249,10 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWriteAndRead_SingleBlockElement");
 
         // DO WORK
-        int bytes = 1 * 1024;
-        int[] blocks = disk.write( new byte[bytes] );
+        final int bytes = 1 * 1024;
+        final int[] blocks = disk.write( new byte[bytes] );
 
-        byte[] result = (byte[]) disk.read( blocks );
+        final byte[] result = (byte[]) disk.read( blocks );
 
         // VERIFY
         assertEquals( "Wrong item retured.", new byte[bytes].length, result.length );
@@ -265,9 +265,9 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWrite_TwoSingleBlockElements");
 
         // DO WORK
-        int bytes = 1 * 1024;
-        int[] blocks1 = disk.write( new byte[bytes] );
-        int[] blocks2 = disk.write( new byte[bytes] );
+        final int bytes = 1 * 1024;
+        final int[] blocks1 = disk.write( new byte[bytes] );
+        final int[] blocks2 = disk.write( new byte[bytes] );
 
         // VERIFY
         assertEquals( "Wrong number of blocks recorded.", 2, disk.getNumberOfBlocks() );
@@ -280,9 +280,9 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWrite_TwoSingleBlockElements");
 
         // DO WORK
-        int bytes = 1 * 1024;
-        int[] blocks1 = disk.write( new byte[bytes] );
-        int[] blocks2 = disk.write( new byte[bytes] );
+        final int bytes = 1 * 1024;
+        final int[] blocks1 = disk.write( new byte[bytes] );
+        final int[] blocks2 = disk.write( new byte[bytes] );
 
         // VERIFY
         // removed other assertion
@@ -296,9 +296,9 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWrite_TwoSingleBlockElements");
 
         // DO WORK
-        int bytes = 1 * 1024;
-        int[] blocks1 = disk.write( new byte[bytes] );
-        int[] blocks2 = disk.write( new byte[bytes] );
+        final int bytes = 1 * 1024;
+        final int[] blocks1 = disk.write( new byte[bytes] );
+        final int[] blocks2 = disk.write( new byte[bytes] );
 
         // VERIFY
         // removed other assertion
@@ -313,9 +313,9 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWrite_TwoSingleBlockElements");
 
         // DO WORK
-        int bytes = 1 * 1024;
-        int[] blocks1 = disk.write( new byte[bytes] );
-        int[] blocks2 = disk.write( new byte[bytes] );
+        final int bytes = 1 * 1024;
+        final int[] blocks1 = disk.write( new byte[bytes] );
+        final int[] blocks2 = disk.write( new byte[bytes] );
 
         // VERIFY
         // removed other assertion
@@ -331,9 +331,9 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWrite_TwoSingleBlockElements");
 
         // DO WORK
-        int bytes = 1 * 1024;
-        int[] blocks1 = disk.write( new byte[bytes] );
-        int[] blocks2 = disk.write( new byte[bytes] );
+        final int bytes = 1 * 1024;
+        final int[] blocks1 = disk.write( new byte[bytes] );
+        final int[] blocks2 = disk.write( new byte[bytes] );
 
         // VERIFY
         // removed other assertion
@@ -350,7 +350,7 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testCalculateBlocksNeededDouble");
 
         // DO WORK
-        int result = disk.calculateTheNumberOfBlocksNeeded( new byte[disk.getBlockSizeBytes() * 2
+        final int result = disk.calculateTheNumberOfBlocksNeeded( new byte[disk.getBlockSizeBytes() * 2
             - ( 2 * BlockDisk.HEADER_SIZE_BYTES )] );
 
         // Verify
@@ -365,8 +365,8 @@ public class BlockDiskUnitTest_OE25Dev
 
         // DO WORK
         // byte arrays encur 27 bytes of serialization overhead.
-        int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), 2 );
-        int[] blocks = disk.write( new byte[bytes] );
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), 2 );
+        final int[] blocks = disk.write( new byte[bytes] );
 
         // VERIFY
         assertEquals( "Wrong number of blocks recorded.", 2, disk.getNumberOfBlocks() );
@@ -380,8 +380,8 @@ public class BlockDiskUnitTest_OE25Dev
 
         // DO WORK
         // byte arrays encur 27 bytes of serialization overhead.
-        int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), 2 );
-        int[] blocks = disk.write( new byte[bytes] );
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), 2 );
+        final int[] blocks = disk.write( new byte[bytes] );
 
         // VERIFY
         // removed other assertion
@@ -396,8 +396,8 @@ public class BlockDiskUnitTest_OE25Dev
 
         // DO WORK
         // byte arrays encur 27 bytes of serialization overhead.
-        int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), 2 );
-        int[] blocks = disk.write( new byte[bytes] );
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), 2 );
+        final int[] blocks = disk.write( new byte[bytes] );
 
         // VERIFY
         // removed other assertion
@@ -409,14 +409,14 @@ public class BlockDiskUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        int numBlocks = 128;
+        final int numBlocks = 128;
 
         setUpBlockDisk("testWrite_128BlockElement");
 
         // DO WORK
         // byte arrays encur 27 bytes of serialization overhead.
-        int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocks );
-        int[] blocks = disk.write( new byte[bytes] );
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocks );
+        final int[] blocks = disk.write( new byte[bytes] );
 
         // VERIFY
         assertEquals( "Wrong number of blocks recorded.", numBlocks, disk.getNumberOfBlocks() );
@@ -426,14 +426,14 @@ public class BlockDiskUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        int numBlocks = 128;
+        final int numBlocks = 128;
 
         setUpBlockDisk("testWrite_128BlockElement");
 
         // DO WORK
         // byte arrays encur 27 bytes of serialization overhead.
-        int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocks );
-        int[] blocks = disk.write( new byte[bytes] );
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocks );
+        final int[] blocks = disk.write( new byte[bytes] );
 
         // VERIFY
         // removed other assertion
@@ -444,14 +444,14 @@ public class BlockDiskUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        int numBlocks = 128;
+        final int numBlocks = 128;
 
         setUpBlockDisk("testWrite_128BlockElement");
 
         // DO WORK
         // byte arrays encur 27 bytes of serialization overhead.
-        int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocks );
-        int[] blocks = disk.write( new byte[bytes] );
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocks );
+        final int[] blocks = disk.write( new byte[bytes] );
 
         // VERIFY
         // removed other assertion
@@ -466,14 +466,14 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWriteAndReadSingleBlockElement");
 
         // DO WORK
-        int numBlocksPerElement = 4;
-        int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
+        final int numBlocksPerElement = 4;
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
 
-        int numElements = 100;
+        final int numElements = 100;
         for ( int i = 0; i < numElements; i++ )
         {
-            int[] blocks = disk.write( new byte[bytes] );
-            byte[] result = (byte[]) disk.read( blocks );
+            final int[] blocks = disk.write( new byte[bytes] );
+            final byte[] result = (byte[]) disk.read( blocks );
 
             // VERIFY
             assertEquals( "Wrong item retured.", new byte[bytes].length, result.length );
@@ -487,14 +487,14 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWriteAndReadSingleBlockElement");
 
         // DO WORK
-        int numBlocksPerElement = 4;
-        int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
+        final int numBlocksPerElement = 4;
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
 
-        int numElements = 100;
+        final int numElements = 100;
         for ( int i = 0; i < numElements; i++ )
         {
-            int[] blocks = disk.write( new byte[bytes] );
-            byte[] result = (byte[]) disk.read( blocks );
+            final int[] blocks = disk.write( new byte[bytes] );
+            final byte[] result = (byte[]) disk.read( blocks );
 
             // VERIFY
             // removed other assertion
@@ -509,17 +509,17 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWriteAndReadSingleBlockElement", 1024);
 
         // DO WORK
-        int numBlocksPerElement = 4;
-        int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
+        final int numBlocksPerElement = 4;
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
 
-        int numElements = 100;
-        Random r = new Random(System.currentTimeMillis());
+        final int numElements = 100;
+        final Random r = new Random(System.currentTimeMillis());
         final byte[] src = new byte[bytes];
         for ( int i = 0; i < numElements; i++ )
         {
             r.nextBytes(src);  // Ensure we don't just write zeros out
-            int[] blocks = disk.write( src );
-            byte[] result = (byte[]) disk.read( blocks );
+            final int[] blocks = disk.write( src );
+            final byte[] result = (byte[]) disk.read( blocks );
 
             // VERIFY
             assertEquals( "Wrong item length retured.", src.length, result.length );
@@ -533,17 +533,17 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWriteAndReadSingleBlockElement", 1024);
 
         // DO WORK
-        int numBlocksPerElement = 4;
-        int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
+        final int numBlocksPerElement = 4;
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
 
-        int numElements = 100;
-        Random r = new Random(System.currentTimeMillis());
+        final int numElements = 100;
+        final Random r = new Random(System.currentTimeMillis());
         final byte[] src = new byte[bytes];
         for ( int i = 0; i < numElements; i++ )
         {
             r.nextBytes(src);  // Ensure we don't just write zeros out
-            int[] blocks = disk.write( src );
-            byte[] result = (byte[]) disk.read( blocks );
+            final int[] blocks = disk.write( src );
+            final byte[] result = (byte[]) disk.read( blocks );
 
             // VERIFY
             // removed other assertion
@@ -558,17 +558,17 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWriteAndReadSingleBlockElement", 1024);
 
         // DO WORK
-        int numBlocksPerElement = 4;
-        int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
+        final int numBlocksPerElement = 4;
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
 
-        int numElements = 100;
-        Random r = new Random(System.currentTimeMillis());
+        final int numElements = 100;
+        final Random r = new Random(System.currentTimeMillis());
         final byte[] src = new byte[bytes];
         for ( int i = 0; i < numElements; i++ )
         {
             r.nextBytes(src);  // Ensure we don't just write zeros out
-            int[] blocks = disk.write( src );
-            byte[] result = (byte[]) disk.read( blocks );
+            final int[] blocks = disk.write( src );
+            final byte[] result = (byte[]) disk.read( blocks );
 
             // VERIFY
             // removed other assertion
@@ -588,17 +588,17 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWriteAndReadSingleBlockElement", 1024);
 
         // DO WORK
-        int numBlocksPerElement = 4;
-        int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
+        final int numBlocksPerElement = 4;
+        final int bytes = getBytesForBlocksOfByteArrays( disk.getBlockSizeBytes(), numBlocksPerElement );
 
-        int numElements = 100;
-        Random r = new Random(System.currentTimeMillis());
+        final int numElements = 100;
+        final Random r = new Random(System.currentTimeMillis());
         final byte[] src = new byte[bytes];
         for ( int i = 0; i < numElements; i++ )
         {
             r.nextBytes(src);  // Ensure we don't just write zeros out
-            int[] blocks = disk.write( src );
-            byte[] result = (byte[]) disk.read( blocks );
+            final int[] blocks = disk.write( src );
+            final byte[] result = (byte[]) disk.read( blocks );
 
             // VERIFY
             // removed other assertion
@@ -619,7 +619,7 @@ public class BlockDiskUnitTest_OE25Dev
         setUpBlockDisk("testWriteAndRead_BigString", 4096); //1024
 
         String string = "This is my big string ABCDEFGH";
-        StringBuilder sb = new StringBuilder();
+        final StringBuilder sb = new StringBuilder();
         sb.append( string );
         for ( int i = 0; i < 8; i++ )
         {
@@ -628,8 +628,8 @@ public class BlockDiskUnitTest_OE25Dev
         string = sb.toString();
 
         // DO WORK
-        int[] blocks = disk.write( string );
-        String result = (String) disk.read( blocks );
+        final int[] blocks = disk.write( string );
+        final String result = (String) disk.read( blocks );
 
         // VERIFY
 //        System.out.println( string );
@@ -649,8 +649,8 @@ public class BlockDiskUnitTest_OE25Dev
         string += string;
 
         // DO WORK
-        int[] blocks = disk.write( string );
-        String result = (String) disk.read( blocks );
+        final int[] blocks = disk.write( string );
+        final String result = (String) disk.read( blocks );
 
         // VERIFY
         assertEquals( "Wrong item retured.", string, result );
@@ -660,7 +660,7 @@ public class BlockDiskUnitTest_OE25Dev
     {
         // SETUP
         setUpBlockDisk("testJCS156", 4096);
-        long offset = disk.calculateByteOffsetForBlockAsLong(Integer.MAX_VALUE);
+        final long offset = disk.calculateByteOffsetForBlockAsLong(Integer.MAX_VALUE);
         assertTrue("Must not wrap round", offset > 0);
     }
 
@@ -668,7 +668,7 @@ public class BlockDiskUnitTest_OE25Dev
     {
         // SETUP
         setUpBlockDisk("testJCS156", 4096);
-        long offset = disk.calculateByteOffsetForBlockAsLong(Integer.MAX_VALUE);
+        final long offset = disk.calculateByteOffsetForBlockAsLong(Integer.MAX_VALUE);
         // removed other assertion
         assertEquals(Integer.MAX_VALUE*4096L,offset);
     }

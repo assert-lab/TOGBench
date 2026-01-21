@@ -1,5 +1,13 @@
 package org.apache.commons.jcs3.auxiliary.disk.indexed;
 
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.commons.jcs3.JCS;
+import org.apache.commons.jcs3.access.CacheAccess;
+import org.apache.commons.jcs3.engine.behavior.ICacheElement;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -23,14 +31,6 @@ import junit.extensions.ActiveTestSuite;
 import junit.framework.Test;
 import junit.framework.TestCase;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import org.apache.commons.jcs3.JCS;
-import org.apache.commons.jcs3.access.CacheAccess;
-import org.apache.commons.jcs3.engine.behavior.ICacheElement;
-
 /**
  * Test which exercises the indexed disk cache. This one uses three different
  * regions for thre threads. It uses a config file that specifies 0 items in
@@ -43,25 +43,14 @@ public class IndexedDiskCacheNoMemoryUnitTest
      * Number of items to cache; the configured maxObjects for the memory cache
      * regions is 0.
      */
-    private static int items = 2000;
+    private static final int items = 2000;
 
     /**
      * @param testName
      */
-    public IndexedDiskCacheNoMemoryUnitTest( String testName )
+    public IndexedDiskCacheNoMemoryUnitTest( final String testName )
     {
         super( testName );
-    }
-
-    /**
-     * Main method passes this test to the text test runner.
-     * <p>
-     * @param args
-     */
-    public static void main( String args[] )
-    {
-        String[] testCaseName = { IndexedDiskCacheNoMemoryUnitTest.class.getName() };
-        junit.textui.TestRunner.main( testCaseName );
     }
 
     /**
@@ -71,7 +60,7 @@ public class IndexedDiskCacheNoMemoryUnitTest
      */
     public static Test suite()
     {
-        ActiveTestSuite suite = new ActiveTestSuite();
+        final ActiveTestSuite suite = new ActiveTestSuite();
 
         suite.addTest( new IndexedDiskCacheNoMemoryUnitTest( "testIndexedDiskCache1" )
         {
@@ -125,10 +114,10 @@ public class IndexedDiskCacheNoMemoryUnitTest
      * @throws Exception
      *                If an error occurs
      */
-    public void runTestForRegion( String region )
+    public void runTestForRegion( final String region )
         throws Exception
     {
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
         // Add items to cache
 
@@ -141,22 +130,22 @@ public class IndexedDiskCacheNoMemoryUnitTest
 
         for ( int i = 0; i <= items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
 
             assertEquals( region + " data " + i, value );
         }
 
         // Test that getElements returns all the expected values
-        Set<String> keys = new HashSet<>();
+        final Set<String> keys = new HashSet<>();
         for ( int i = 0; i <= items; i++ )
         {
             keys.add( i + ":key" );
         }
 
-        Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
         for ( int i = 0; i <= items; i++ )
         {
-            ICacheElement<String, String> element = elements.get( i + ":key" );
+            final ICacheElement<String, String> element = elements.get( i + ":key" );
             assertNotNull( "element " + i + ":key is missing", element );
             assertEquals( "value " + i + ":key", region + " data " + i, element.getVal() );
         }

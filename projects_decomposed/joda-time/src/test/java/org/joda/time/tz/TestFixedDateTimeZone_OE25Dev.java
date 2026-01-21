@@ -35,7 +35,7 @@ public class TestFixedDateTimeZone_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestFixedDateTimeZone_OE25Dev.class);
+        return new TestSuite(TestFixedDateTimeZone.class);
     }
 
     private DateTimeZone originalDateTimeZone = null;

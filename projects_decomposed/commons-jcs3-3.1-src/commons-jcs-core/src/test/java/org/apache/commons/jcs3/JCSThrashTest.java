@@ -129,7 +129,7 @@ public class JCSThrashTest
     public void testForMemoryLeaks()
         throws Exception
     {
-        long differenceMemoryCache = thrashCache();
+        final long differenceMemoryCache = thrashCache();
         LOG.info( "Memory Difference is: " + differenceMemoryCache );
         assertTrue( differenceMemoryCache < 500000 );
 
@@ -143,7 +143,7 @@ public class JCSThrashTest
     protected long thrashCache()
         throws Exception
     {
-        long startingSize = measureMemoryUse();
+        final long startingSize = measureMemoryUse();
         LOG.info( "Memory Used is: " + startingSize );
 
         final String value = "value";
@@ -180,7 +180,7 @@ public class JCSThrashTest
                 {
                     // Use a random length value
                     final String keyj = "key" + j;
-                    byte[] valuej = new byte[10000];
+                    final byte[] valuej = new byte[10000];
                     jcs.put( keyj, valuej );
                 }
             };
@@ -190,7 +190,7 @@ public class JCSThrashTest
         runThreads( executables );
         jcs.clear();
 
-        long finishingSize = measureMemoryUse();
+        final long finishingSize = measureMemoryUse();
         LOG.info( "Memory Used is: " + finishingSize );
         return finishingSize - startingSize;
     }
@@ -226,7 +226,7 @@ public class JCSThrashTest
                             executable.execute();
                         }
                     }
-                    catch ( Throwable t )
+                    catch ( final Throwable t )
                     {
                         // Hang on to any errors
                         errors[0] = t;
@@ -237,9 +237,8 @@ public class JCSThrashTest
         }
 
         // Wait for the threads to finish
-        for ( int i = 0; i < threads.length; i++ )
-        {
-            threads[i].join();
+        for (final Thread thread : threads) {
+            thread.join();
         }
 
         // Throw any error that happened
@@ -285,13 +284,13 @@ public class JCSThrashTest
         final String listSize = "List Size";
         final String lruMemoryCache = "LRU Memory Cache";
         String result = "0";
-        List<IStats> istats = jcs.getStatistics().getAuxiliaryCacheStats();
-        for ( IStats istat : istats )
+        final List<IStats> istats = jcs.getStatistics().getAuxiliaryCacheStats();
+        for ( final IStats istat : istats )
         {
-            List<IStatElement<?>> statElements = istat.getStatElements();
+            final List<IStatElement<?>> statElements = istat.getStatElements();
             if ( lruMemoryCache.equals( istat.getTypeName() ) )
             {
-                for ( IStatElement<?> statElement : statElements )
+                for ( final IStatElement<?> statElement : statElements )
                 {
                     if ( listSize.equals( statElement.getName() ) )
                     {

@@ -457,8 +457,8 @@ public class TestMutableDateTime_Basics extends TestCase {
     public void testToDateTimeISO() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, PARIS);
         DateTime result = test.toDateTimeISO();
-        assertEquals(DateTime.class, result.getClass());
-        assertEquals(ISOChronology.class, result.getChronology().getClass());
+        assertSame(DateTime.class, result.getClass());
+        assertSame(ISOChronology.class, result.getChronology().getClass());
         assertEquals(test.getMillis(), result.getMillis());
         assertEquals(ISOChronology.getInstance(PARIS), result.getChronology());
     }
@@ -525,8 +525,8 @@ public class TestMutableDateTime_Basics extends TestCase {
     public void testToMutableDateTimeISO() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, PARIS);
         MutableDateTime result = test.toMutableDateTimeISO();
-        assertEquals(MutableDateTime.class, result.getClass());
-        assertEquals(ISOChronology.class, result.getChronology().getClass());
+        assertSame(MutableDateTime.class, result.getClass());
+        assertSame(ISOChronology.class, result.getChronology().getClass());
         assertEquals(test.getMillis(), result.getMillis());
         assertEquals(ISOChronology.getInstance(PARIS), result.getChronology());
         assertNotSame(test, result);

@@ -20,6 +20,7 @@ package org.apache.commons.jcs3.engine.control.group;
  */
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Description of the Class
@@ -36,15 +37,12 @@ public class GroupAttrName<T>
     /** the name of the attribute */
     public final T attrName;
 
-    /** Cached toString value */
-    private String toString;
-
     /**
      * Constructor for the GroupAttrName object
      * @param groupId
      * @param attrName
      */
-    public GroupAttrName( GroupId groupId, T attrName )
+    public GroupAttrName( final GroupId groupId, final T attrName )
     {
         this.groupId = groupId;
         this.attrName = attrName;
@@ -61,26 +59,17 @@ public class GroupAttrName<T>
      * @return Whether equal.
      */
     @Override
-    public boolean equals( Object obj )
+    public boolean equals( final Object obj )
     {
-        if ( obj == null || !( obj instanceof GroupAttrName ) )
+        if (!(obj instanceof GroupAttrName))
         {
             return false;
         }
-        GroupAttrName<?> to = (GroupAttrName<?>) obj;
+        final GroupAttrName<?> to = (GroupAttrName<?>) obj;
 
         if (groupId.equals( to.groupId ))
         {
-            if (attrName == null && to.attrName == null)
-            {
-                return true;
-            }
-            else if (attrName == null || to.attrName == null)
-            {
-                return false;
-            }
-
-            return  attrName.equals( to.attrName );
+            return Objects.equals(attrName, to.attrName);
         }
 
         return false;
@@ -92,12 +81,7 @@ public class GroupAttrName<T>
     @Override
     public int hashCode()
     {
-        if (attrName == null)
-        {
-            return groupId.hashCode();
-        }
-
-        return groupId.hashCode() ^ attrName.hashCode();
+        return Objects.hash(groupId, attrName);
     }
 
     /**
@@ -106,12 +90,7 @@ public class GroupAttrName<T>
     @Override
     public String toString()
     {
-        if ( toString == null )
-        {
-            toString = "[GAN: groupId=" + groupId + ", attrName=" + attrName + "]";
-        }
-
-        return toString;
+        return String.format("GAN:%s:%s", groupId, Objects.toString(attrName, ""));
     }
 
 }

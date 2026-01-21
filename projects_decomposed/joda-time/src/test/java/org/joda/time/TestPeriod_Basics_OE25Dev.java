@@ -77,7 +77,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestPeriod_Basics_OE25Dev.class);
+        return new TestSuite(TestPeriod_Basics.class);
     }
 
     public TestPeriod_Basics_OE25Dev(String name) {
@@ -1211,7 +1211,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
     public void testToPeriod_1_oe() {
         Period test = new Period(123L);
         Period result = test.toPeriod();
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testToMutablePeriod_1_oe() {
@@ -1233,7 +1233,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
     public void testWithPeriodType1_1_oe() {
         Period test = new Period(123L);
         Period result = test.withPeriodType(PeriodType.standard());
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testWithPeriodType2_1_oe() {
@@ -1409,7 +1409,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         Period result = test1.withFields(test2);
         
         // removed other assertion
-        assertEquals(test1, result);
+        assertSame(test1, result);
     }
 
     public void testWithFields3_2_oe() {
@@ -1688,7 +1688,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
         Period test = base.plus((ReadablePeriod) null);
-        assertEquals(base, test);
+        assertSame(base, test);
     }
 
     public void testPlus_2_oe() {
@@ -3076,7 +3076,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         Period baseDaysOnly = new Period(0, 0, 0, 10, 0, 0, 0, 0, PeriodType.days());
         
         Period test = base.minus((ReadablePeriod) null);
-        assertEquals(base, test);
+        assertSame(base, test);
     }
 
     public void testMinus_2_oe() {
@@ -4567,7 +4567,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         Period test, result;
         test = Period.years(1);
         result = test.plusYears(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusFieldsZero_2_oe() {
@@ -4577,7 +4577,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         // removed other assertion
         test = Period.months(1);
         result = test.plusMonths(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusFieldsZero_3_oe() {
@@ -4590,7 +4590,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         // removed other assertion
         test = Period.weeks(1);
         result = test.plusWeeks(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusFieldsZero_4_oe() {
@@ -4606,7 +4606,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         // removed other assertion
         test = Period.days(1);
         result = test.plusDays(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusFieldsZero_5_oe() {
@@ -4625,7 +4625,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         // removed other assertion
         test = Period.hours(1);
         result = test.plusHours(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusFieldsZero_6_oe() {
@@ -4647,7 +4647,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         // removed other assertion
         test = Period.minutes(1);
         result = test.plusMinutes(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusFieldsZero_7_oe() {
@@ -4672,7 +4672,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         // removed other assertion
         test = Period.seconds(1);
         result = test.plusSeconds(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusFieldsZero_8_oe() {
@@ -4700,7 +4700,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         // removed other assertion
         test = Period.millis(1);
         result = test.plusMillis(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusFields_1_oe() {
@@ -4811,7 +4811,7 @@ public class TestPeriod_Basics_OE25Dev extends TestCase {
         Period base = new Period(1, 2, 3, 4, 5, 6, 7, 8);
         
         Period test = base.multipliedBy(1);
-        assertEquals(base, test);
+        assertSame(base, test);
     }
 
     public void testMultipliedBy_2_oe() {

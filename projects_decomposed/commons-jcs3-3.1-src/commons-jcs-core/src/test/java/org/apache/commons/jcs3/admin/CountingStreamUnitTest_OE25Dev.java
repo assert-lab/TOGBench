@@ -53,14 +53,14 @@ public class CountingStreamUnitTest_OE25Dev
 
     public void testSingleByte_1_oe() throws Exception
     {
-        CountingOnlyOutputStream out = new CountingOnlyOutputStream();
+        final CountingOnlyOutputStream out = new CountingOnlyOutputStream();
         out.write( 1 );
         assertEquals( "Wrong number of bytes written.", 1, out.getCount() );
     }
 
     public void testSingleByte_2_oe() throws Exception
     {
-        CountingOnlyOutputStream out = new CountingOnlyOutputStream();
+        final CountingOnlyOutputStream out = new CountingOnlyOutputStream();
         out.write( 1 );
         // removed other assertion
         out.write( 1 );
@@ -69,17 +69,17 @@ public class CountingStreamUnitTest_OE25Dev
 
     public void testByteArray_1_oe() throws Exception
     {
-        CountingOnlyOutputStream out = new CountingOnlyOutputStream();
-        byte[] array = new byte[]{1,2,3,4,5};
+        final CountingOnlyOutputStream out = new CountingOnlyOutputStream();
+        final byte[] array = new byte[]{1,2,3,4,5};
         out.write( array );
         assertEquals( "Wrong number of bytes written.", array.length, out.getCount() );
     }
 
     public void testByteArrayLenCount_1_oe() throws Exception
     {
-        CountingOnlyOutputStream out = new CountingOnlyOutputStream();
-        byte[] array = new byte[]{1,2,3,4,5};
-        int len = 3;
+        final CountingOnlyOutputStream out = new CountingOnlyOutputStream();
+        final byte[] array = new byte[]{1,2,3,4,5};
+        final int len = 3;
         out.write( array, 0, len );
         assertEquals( "Wrong number of bytes written.", len, out.getCount() );
     }

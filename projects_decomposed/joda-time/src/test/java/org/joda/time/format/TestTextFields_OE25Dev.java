@@ -64,7 +64,7 @@ public class TestTextFields_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestTextFields_OE25Dev.class);
+        return new TestSuite(TestTextFields.class);
     }
 
     public TestTextFields_OE25Dev(String name) {

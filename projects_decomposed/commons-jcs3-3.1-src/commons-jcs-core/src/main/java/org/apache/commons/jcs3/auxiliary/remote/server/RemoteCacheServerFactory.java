@@ -29,6 +29,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 import java.rmi.server.RMISocketFactory;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -65,12 +66,11 @@ public class RemoteCacheServerFactory
     private static ScheduledExecutorService keepAliveDaemon;
 
     /** A reference to the registry. */
-    private static Registry registry = null;
+    private static Registry registry;
 
     /** Constructor for the RemoteCacheServerFactory object. */
     private RemoteCacheServerFactory()
     {
-        super();
     }
 
     /**
@@ -99,7 +99,7 @@ public class RemoteCacheServerFactory
      * @param props
      * @throws IOException
      */
-    public static void startup( String host, int port, Properties props)
+    public static void startup( String host, final int port, final Properties props)
         throws IOException
     {
         if ( remoteCacheServer != null )
@@ -113,25 +113,21 @@ public class RemoteCacheServerFactory
             {
                 return;
             }
-            if ( host == null )
-            {
-                host = "";
-            }
 
-            RemoteCacheServerAttributes rcsa = configureRemoteCacheServerAttributes(props);
+            final RemoteCacheServerAttributes rcsa = configureRemoteCacheServerAttributes(props);
 
             // These should come from the file!
-            rcsa.setRemoteLocation( host, port );
+            rcsa.setRemoteLocation( Objects.toString(host, ""), port );
             log.info( "Creating server with these attributes: {0}", rcsa );
 
             setServiceName( rcsa.getRemoteServiceName() );
 
-            RMISocketFactory customRMISocketFactory = configureObjectSpecificCustomFactory( props );
+            final RMISocketFactory customRMISocketFactory = configureObjectSpecificCustomFactory( props );
 
             RemoteUtils.configureGlobalCustomSocketFactory( rcsa.getRmiSocketFactoryTimeoutMillis() );
 
             // CONFIGURE THE EVENT LOGGER
-            ICacheEventLogger cacheEventLogger = configureCacheEventLogger( props );
+            final ICacheEventLogger cacheEventLogger = configureCacheEventLogger( props );
 
             // CREATE SERVER
             if ( customRMISocketFactory != null )
@@ -159,31 +155,99 @@ public class RemoteCacheServerFactory
                     keepAliveDaemon = Executors.newScheduledThreadPool(1,
                             new DaemonThreadFactory("JCS-RemoteCacheServerFactory-"));
                 }
-                RegistryKeepAliveRunner runner = new RegistryKeepAliveRunner( host, port, serviceName );
-                runner.setCacheEventLogger( cacheEventLogger );
-                keepAliveDaemon.scheduleAtFixedRate(runner, 0, rcsa.getRegistryKeepAliveDelayMillis(), TimeUnit.MILLISECONDS);
+                keepAliveDaemon.scheduleAtFixedRate(() -> keepAlive(host, port, cacheEventLogger),
+                        0, rcsa.getRegistryKeepAliveDelayMillis(), TimeUnit.MILLISECONDS);
             }
         }
     }
 
     /**
-     * Tries to get the event logger by new and old config styles.
-     * <p>
-     * @param props
-     * @return ICacheEventLogger
+     * Tries to lookup the server. If unsuccessful it will rebind the server using the factory
+     * rebind method.
+     *
+     * @param registryHost - Hostname of the registry
+     * @param registryPort - the port on which to start the registry
+     * @param cacheEventLogger the event logger for error messages
+     * @since 3.1
      */
-    protected static ICacheEventLogger configureCacheEventLogger( Properties props )
+    protected static void keepAlive(String registryHost, int registryPort, ICacheEventLogger cacheEventLogger)
     {
-        ICacheEventLogger cacheEventLogger = AuxiliaryCacheConfigurator
-            .parseCacheEventLogger( props, IRemoteCacheConstants.CACHE_SERVER_PREFIX );
+        String namingURL = RemoteUtils.getNamingURL(registryHost, registryPort, serviceName);
+        log.debug( "looking up server {0}", namingURL );
 
-        // try the old way
-        if ( cacheEventLogger == null )
+        try
         {
-            cacheEventLogger = AuxiliaryCacheConfigurator.parseCacheEventLogger( props,
-                                                                                 IRemoteCacheConstants.PROPERTY_PREFIX );
+            final Object obj = Naming.lookup( namingURL );
+
+            // Successful connection to the remote server.
+            final String message = "RMI registry looks fine.  Found [" + obj + "] in registry [" + namingURL + "]";
+            if ( cacheEventLogger != null )
+            {
+                cacheEventLogger.logApplicationEvent( "RegistryKeepAliveRunner", "Naming.lookup", message );
+            }
+            log.debug( message );
         }
-        return cacheEventLogger;
+        catch ( final Exception ex )
+        {
+            // Failed to connect to the remote server.
+            final String message = "Problem finding server at [" + namingURL
+                + "].  Will attempt to start registry and rebind.";
+            log.error( message, ex );
+            if ( cacheEventLogger != null )
+            {
+                cacheEventLogger.logError( "RegistryKeepAliveRunner", "Naming.lookup", message + ":" + ex.getMessage() );
+            }
+
+            registry = RemoteUtils.createRegistry(registryPort);
+
+            if ( cacheEventLogger != null )
+            {
+                if (registry != null)
+                {
+                    cacheEventLogger.logApplicationEvent( "RegistryKeepAliveRunner", "createRegistry",
+                            "Successfully created registry [" + serviceName + "]." );
+                }
+                else
+                {
+                    cacheEventLogger.logError( "RegistryKeepAliveRunner", "createRegistry",
+                            "Could not start registry [" + serviceName + "]." );
+                }
+            }
+        }
+
+        try
+        {
+            registerServer(serviceName, remoteCacheServer);
+
+            final String message = "Successfully rebound server to registry [" + serviceName + "].";
+            if ( cacheEventLogger != null )
+            {
+                cacheEventLogger.logApplicationEvent( "RegistryKeepAliveRunner", "registerServer", message );
+            }
+            log.info( message );
+        }
+        catch ( final RemoteException e )
+        {
+            final String message = "Could not rebind server to registry [" + serviceName + "].";
+            log.error( message, e );
+            if ( cacheEventLogger != null )
+            {
+                cacheEventLogger.logError( "RegistryKeepAliveRunner", "registerServer", message + ":"
+                    + e.getMessage() );
+            }
+        }
+    }
+
+    /**
+     * Tries to get the event logger.
+     * <p>
+     * @param props configuration properties
+     * @return ICacheEventLogger, may be null
+     */
+    protected static ICacheEventLogger configureCacheEventLogger( final Properties props )
+    {
+        return AuxiliaryCacheConfigurator
+                .parseCacheEventLogger( props, IRemoteCacheConstants.CACHE_SERVER_PREFIX );
     }
 
     /**
@@ -193,9 +257,9 @@ public class RemoteCacheServerFactory
      * @param props
      * @return RMISocketFactory
      */
-    protected static RMISocketFactory configureObjectSpecificCustomFactory( Properties props )
+    protected static RMISocketFactory configureObjectSpecificCustomFactory( final Properties props )
     {
-        RMISocketFactory customRMISocketFactory =
+        final RMISocketFactory customRMISocketFactory =
             OptionConverter.instantiateByKey( props, CUSTOM_RMI_SOCKET_FACTORY_PROPERTY_PREFIX, null );
 
         if ( customRMISocketFactory != null )
@@ -220,7 +284,7 @@ public class RemoteCacheServerFactory
      * @param server the server object to bind
      * @throws RemoteException
      */
-    protected static void registerServer(String serviceName, Remote server )
+    protected static void registerServer(final String serviceName, final Remote server )
         throws RemoteException
     {
         if ( server == null )
@@ -246,76 +310,14 @@ public class RemoteCacheServerFactory
      * @param prop
      * @return RemoteCacheServerAttributesconfigureRemoteCacheServerAttributes
      */
-    protected static RemoteCacheServerAttributes configureRemoteCacheServerAttributes( Properties prop )
+    protected static RemoteCacheServerAttributes configureRemoteCacheServerAttributes( final Properties prop )
     {
-        RemoteCacheServerAttributes rcsa = new RemoteCacheServerAttributes();
+        final RemoteCacheServerAttributes rcsa = new RemoteCacheServerAttributes();
 
         // configure automatically
         PropertySetter.setProperties( rcsa, prop, CACHE_SERVER_ATTRIBUTES_PROPERTY_PREFIX + "." );
 
-        configureManuallyIfValuesArePresent( prop, rcsa );
-
         return rcsa;
-    }
-
-    /**
-     * This looks for the old config values.
-     * <p>
-     * @param prop
-     * @param rcsa
-     */
-    private static void configureManuallyIfValuesArePresent( Properties prop, RemoteCacheServerAttributes rcsa )
-    {
-        // DEPRECATED CONFIG
-        String servicePortStr = prop.getProperty( REMOTE_CACHE_SERVICE_PORT );
-        if ( servicePortStr != null )
-        {
-            try
-            {
-                int servicePort = Integer.parseInt( servicePortStr );
-                rcsa.setServicePort( servicePort );
-                log.debug( "Remote cache service uses port number {0}", servicePort );
-            }
-            catch ( NumberFormatException ignore )
-            {
-                log.debug( "Remote cache service port property {0}" +
-                    " not specified. An anonymous port will be used.", REMOTE_CACHE_SERVICE_PORT );
-            }
-        }
-
-        String socketTimeoutMillisStr = prop.getProperty( SOCKET_TIMEOUT_MILLIS );
-        if ( socketTimeoutMillisStr != null )
-        {
-            try
-            {
-                int rmiSocketFactoryTimeoutMillis = Integer.parseInt( socketTimeoutMillisStr );
-                rcsa.setRmiSocketFactoryTimeoutMillis( rmiSocketFactoryTimeoutMillis );
-                log.debug( "Remote cache socket timeout {0} ms.", rmiSocketFactoryTimeoutMillis );
-            }
-            catch ( NumberFormatException ignore )
-            {
-                log.debug( "Remote cache socket timeout property {0}" +
-                    " not specified. The default will be used.", SOCKET_TIMEOUT_MILLIS );
-            }
-        }
-
-        String lccStr = prop.getProperty( REMOTE_LOCAL_CLUSTER_CONSISTENCY );
-        if ( lccStr != null )
-        {
-            boolean lcc = Boolean.parseBoolean( lccStr );
-            rcsa.setLocalClusterConsistency( lcc );
-        }
-
-        String acgStr = prop.getProperty( REMOTE_ALLOW_CLUSTER_GET );
-        if ( acgStr != null )
-        {
-            boolean acg = Boolean.parseBoolean( lccStr );
-            rcsa.setAllowClusterGet( acg );
-        }
-
-        // Register the RemoteCacheServer remote object in the registry.
-        rcsa.setRemoteServiceName(
-                prop.getProperty( REMOTE_CACHE_SERVICE_NAME, REMOTE_CACHE_SERVICE_VAL ).trim() );
     }
 
     /**
@@ -325,7 +327,7 @@ public class RemoteCacheServerFactory
      * @param port
      * @throws IOException
      */
-    static void shutdownImpl( String host, int port )
+    static void shutdownImpl( final String host, final int port )
         throws IOException
     {
         synchronized ( RemoteCacheServer.class )
@@ -340,13 +342,13 @@ public class RemoteCacheServerFactory
             {
                 Naming.unbind( RemoteUtils.getNamingURL(host, port, getServiceName()) );
             }
-            catch ( MalformedURLException ex )
+            catch ( final MalformedURLException ex )
             {
                 // impossible case.
                 throw new IllegalArgumentException( ex.getMessage() + "; host=" + host + ", port=" + port
                     + ", serviceName=" + getServiceName() );
             }
-            catch ( NotBoundException ex )
+            catch ( final NotBoundException ex )
             {
                 // ignore.
             }
@@ -378,17 +380,17 @@ public class RemoteCacheServerFactory
      * @param args The command line arguments
      * @throws Exception
      */
-    public static void main( String[] args )
+    public static void main( final String[] args )
         throws Exception
     {
-        Properties prop = args.length > 0 ? RemoteUtils.loadProps( args[args.length - 1] ) : new Properties();
+        final Properties prop = args.length > 0 ? RemoteUtils.loadProps( args[args.length - 1] ) : new Properties();
 
         int port;
         try
         {
             port = Integer.parseInt( prop.getProperty( "registry.port" ) );
         }
-        catch ( NumberFormatException ex )
+        catch ( final NumberFormatException ex )
         {
             port = Registry.REGISTRY_PORT;
         }
@@ -398,10 +400,10 @@ public class RemoteCacheServerFactory
         {
             try
             {
-                ICacheServiceAdmin admin = lookupCacheServiceAdmin(prop, port);
+                final ICacheServiceAdmin admin = lookupCacheServiceAdmin(prop, port);
                 admin.shutdown();
             }
-            catch ( Exception ex )
+            catch ( final Exception ex )
             {
                 log.error( "Problem calling shutdown.", ex );
             }
@@ -416,19 +418,19 @@ public class RemoteCacheServerFactory
 
             try
             {
-                ICacheServiceAdmin admin = lookupCacheServiceAdmin(prop, port);
+                final ICacheServiceAdmin admin = lookupCacheServiceAdmin(prop, port);
 
                 try
                 {
 //                    System.out.println( admin.getStats().toString() );
                     log.debug( admin.getStats() );
                 }
-                catch ( IOException es )
+                catch ( final IOException es )
                 {
                     log.error( es );
                 }
             }
-            catch ( Exception ex )
+            catch ( final Exception ex )
             {
                 log.error( "Problem getting stats.", ex );
             }
@@ -437,8 +439,8 @@ public class RemoteCacheServerFactory
         }
 
         // startup.
-        String hostName = prop.getProperty( "registry.host" );
-        InetAddress host = InetAddress.getByName(hostName);
+        final String hostName = prop.getProperty( "registry.host" );
+        final InetAddress host = InetAddress.getByName(hostName);
 
         if (host.isLoopbackAddress())
         {
@@ -459,13 +461,13 @@ public class RemoteCacheServerFactory
      *
      * @throws Exception if lookup fails
      */
-    private static ICacheServiceAdmin lookupCacheServiceAdmin(Properties config, int port) throws Exception
+    private static ICacheServiceAdmin lookupCacheServiceAdmin(final Properties config, final int port) throws Exception
     {
-        String remoteServiceName = config.getProperty( REMOTE_CACHE_SERVICE_NAME, REMOTE_CACHE_SERVICE_VAL ).trim();
-        String registry = RemoteUtils.getNamingURL("", port, remoteServiceName);
+        final String remoteServiceName = config.getProperty( REMOTE_CACHE_SERVICE_NAME, REMOTE_CACHE_SERVICE_VAL ).trim();
+        final String registry = RemoteUtils.getNamingURL("", port, remoteServiceName);
 
         log.debug( "looking up server {0}", registry );
-        Object obj = Naming.lookup( registry );
+        final Object obj = Naming.lookup( registry );
         log.debug( "server found" );
 
         return (ICacheServiceAdmin) obj;
@@ -474,7 +476,7 @@ public class RemoteCacheServerFactory
     /**
      * @param serviceName the serviceName to set
      */
-    protected static void setServiceName( String serviceName )
+    protected static void setServiceName( final String serviceName )
     {
         RemoteCacheServerFactory.serviceName = serviceName;
     }

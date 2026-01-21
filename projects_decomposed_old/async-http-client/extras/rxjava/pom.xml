@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>async-http-client-extras-parent</artifactId>
+    <groupId>org.asynchttpclient</groupId>
+    <version>2.12.3</version>
+  </parent>
+  <artifactId>async-http-client-extras-rxjava</artifactId>
+  <name>Asynchronous Http Client RxJava Extras</name>
+  <description>The Async Http Client RxJava Extras.</description>
+
+  <properties>
+    <javaModuleName>org.asynchttpclient.extras.rxjava</javaModuleName>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>io.reactivex</groupId>
+      <artifactId>rxjava</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.22.0</version>
+
+        <dependencies>
+          <dependency>
+            <groupId>org.pitest</groupId>
+            <artifactId>pitest-testng-plugin</artifactId>
+            <version>1.0.0</version>
+          </dependency>
+        </dependencies>
+
+        <configuration>
+          <testPlugin>testng</testPlugin>
+          <threads>8</threads>
+          <timeoutConstant>1000</timeoutConstant>
+          <mutators>
+            <mutator>STRONGER</mutator>
+          </mutators>
+          <avoidCallsTo>
+            <avoidCallsTo>java.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.log4j</avoidCallsTo>
+            <avoidCallsTo>org.slf4j.*</avoidCallsTo>
+            <avoidCallsTo>org.apache.commons.logging</avoidCallsTo>
+          </avoidCallsTo>
+          <verbose>false</verbose>
+          <targetClasses>
+            <param>org.asynchttpclient.extras.rxjava.*</param>
+          </targetClasses>
+          <targetTests>
+            <param>org.asynchttpclient.extras.rxjava.*</param>
+          </targetTests>
+
+          <fullMutationMatrix>true</fullMutationMatrix>
+          <exportLineCoverage>true</exportLineCoverage>
+          <outputFormats>
+            <param>XML</param>
+          </outputFormats>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

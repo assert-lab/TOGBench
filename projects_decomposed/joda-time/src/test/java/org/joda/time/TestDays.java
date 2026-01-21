@@ -69,16 +69,16 @@ public class TestDays extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testFactory_days_int() {
-        assertEquals(Days.ZERO, Days.days(0));
-        assertEquals(Days.ONE, Days.days(1));
-        assertEquals(Days.TWO, Days.days(2));
-        assertEquals(Days.THREE, Days.days(3));
-        assertEquals(Days.FOUR, Days.days(4));
-        assertEquals(Days.FIVE, Days.days(5));
-        assertEquals(Days.SIX, Days.days(6));
-        assertEquals(Days.SEVEN, Days.days(7));
-        assertEquals(Days.MAX_VALUE, Days.days(Integer.MAX_VALUE));
-        assertEquals(Days.MIN_VALUE, Days.days(Integer.MIN_VALUE));
+        assertSame(Days.ZERO, Days.days(0));
+        assertSame(Days.ONE, Days.days(1));
+        assertSame(Days.TWO, Days.days(2));
+        assertSame(Days.THREE, Days.days(3));
+        assertSame(Days.FOUR, Days.days(4));
+        assertSame(Days.FIVE, Days.days(5));
+        assertSame(Days.SIX, Days.days(6));
+        assertSame(Days.SEVEN, Days.days(7));
+        assertSame(Days.MAX_VALUE, Days.days(Integer.MAX_VALUE));
+        assertSame(Days.MIN_VALUE, Days.days(Integer.MIN_VALUE));
         assertEquals(-1, Days.days(-1).getDays());
         assertEquals(8, Days.days(8).getDays());
     }
@@ -250,7 +250,7 @@ public class TestDays extends TestCase {
         Days result = (Days) ois.readObject();
         ois.close();
         
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -384,7 +384,7 @@ public class TestDays extends TestCase {
         assertEquals(6, test.multipliedBy(3).getDays());
         assertEquals(2, test.getDays());
         assertEquals(-6, test.multipliedBy(-3).getDays());
-        assertEquals(test, test.multipliedBy(1));
+        assertSame(test, test.multipliedBy(1));
         
         Days halfMax = Days.days(Integer.MAX_VALUE / 2 + 1);
         try {
@@ -403,7 +403,7 @@ public class TestDays extends TestCase {
         assertEquals(3, test.dividedBy(4).getDays());
         assertEquals(2, test.dividedBy(5).getDays());
         assertEquals(2, test.dividedBy(6).getDays());
-        assertEquals(test, test.dividedBy(1));
+        assertSame(test, test.dividedBy(1));
         
         try {
             Days.ONE.dividedBy(0);

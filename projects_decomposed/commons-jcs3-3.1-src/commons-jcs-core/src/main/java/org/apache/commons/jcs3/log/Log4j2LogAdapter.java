@@ -35,13 +35,12 @@ public class Log4j2LogAdapter implements Log
      *
      * @param logger the log4j Logger
      */
-    public Log4j2LogAdapter(Logger logger)
+    public Log4j2LogAdapter(final Logger logger)
     {
-        super();
         this.logger = logger;
     }
 
-    private void log(Level level, String message, Supplier<?>... paramSuppliers)
+    private void log(final Level level, final String message, final Supplier<?>... paramSuppliers)
     {
         if (logger.isEnabled(level))
         {
@@ -85,7 +84,7 @@ public class Log4j2LogAdapter implements Log
      * @param message the message string to log.
      */
     @Override
-    public void debug(String message)
+    public void debug(final String message)
     {
         logger.debug(message);
     }
@@ -96,7 +95,7 @@ public class Log4j2LogAdapter implements Log
      * @param message the message object to log.
      */
     @Override
-    public void debug(Object message)
+    public void debug(final Object message)
     {
         logger.debug(message);
     }
@@ -108,7 +107,7 @@ public class Log4j2LogAdapter implements Log
      * @param params parameters to the message.
      */
     @Override
-    public void debug(String message, Object... params)
+    public void debug(final String message, final Object... params)
     {
         logger.debug(message, params);
     }
@@ -122,7 +121,7 @@ public class Log4j2LogAdapter implements Log
      *        the desired log message parameters.
      */
     @Override
-    public void debug(String message, Supplier<?>... paramSuppliers)
+    public void debug(final String message, final Supplier<?>... paramSuppliers)
     {
         log(Level.DEBUG, message, paramSuppliers);
     }
@@ -135,7 +134,7 @@ public class Log4j2LogAdapter implements Log
      * @param t the exception to log, including its stack trace.
      */
     @Override
-    public void debug(String message, Throwable t)
+    public void debug(final String message, final Throwable t)
     {
         logger.debug(message, t);
     }
@@ -146,7 +145,7 @@ public class Log4j2LogAdapter implements Log
      * @param message the message string to log.
      */
     @Override
-    public void error(String message)
+    public void error(final String message)
     {
         logger.error(message);
     }
@@ -157,7 +156,7 @@ public class Log4j2LogAdapter implements Log
      * @param message the message object to log.
      */
     @Override
-    public void error(Object message)
+    public void error(final Object message)
     {
         logger.error(message);
     }
@@ -169,7 +168,7 @@ public class Log4j2LogAdapter implements Log
      * @param params parameters to the message.
      */
     @Override
-    public void error(String message, Object... params)
+    public void error(final String message, final Object... params)
     {
         logger.error(message, params);
     }
@@ -183,7 +182,7 @@ public class Log4j2LogAdapter implements Log
      *        the desired log message parameters.
      */
     @Override
-    public void error(String message, Supplier<?>... paramSuppliers)
+    public void error(final String message, final Supplier<?>... paramSuppliers)
     {
         log(Level.ERROR, message, paramSuppliers);
     }
@@ -196,7 +195,7 @@ public class Log4j2LogAdapter implements Log
      * @param t the exception to log, including its stack trace.
      */
     @Override
-    public void error(String message, Throwable t)
+    public void error(final String message, final Throwable t)
     {
         logger.error(message, t);
     }
@@ -207,7 +206,7 @@ public class Log4j2LogAdapter implements Log
      * @param message the message string to log.
      */
     @Override
-    public void fatal(String message)
+    public void fatal(final String message)
     {
         logger.fatal(message);
     }
@@ -218,7 +217,7 @@ public class Log4j2LogAdapter implements Log
      * @param message the message object to log.
      */
     @Override
-    public void fatal(Object message)
+    public void fatal(final Object message)
     {
         logger.fatal(message);
     }
@@ -230,7 +229,7 @@ public class Log4j2LogAdapter implements Log
      * @param params parameters to the message.
      */
     @Override
-    public void fatal(String message, Object... params)
+    public void fatal(final String message, final Object... params)
     {
         logger.fatal(message, params);
     }
@@ -244,7 +243,7 @@ public class Log4j2LogAdapter implements Log
      *        the desired log message parameters.
      */
     @Override
-    public void fatal(String message, Supplier<?>... paramSuppliers)
+    public void fatal(final String message, final Supplier<?>... paramSuppliers)
     {
         log(Level.FATAL, message, paramSuppliers);
     }
@@ -257,7 +256,7 @@ public class Log4j2LogAdapter implements Log
      * @param t the exception to log, including its stack trace.
      */
     @Override
-    public void fatal(String message, Throwable t)
+    public void fatal(final String message, final Throwable t)
     {
         logger.fatal(message, t);
     }
@@ -279,7 +278,7 @@ public class Log4j2LogAdapter implements Log
      * @param message the message string to log.
      */
     @Override
-    public void info(String message)
+    public void info(final String message)
     {
         logger.info(message);
     }
@@ -290,7 +289,7 @@ public class Log4j2LogAdapter implements Log
      * @param message the message object to log.
      */
     @Override
-    public void info(Object message)
+    public void info(final Object message)
     {
         logger.info(message);
     }
@@ -302,7 +301,7 @@ public class Log4j2LogAdapter implements Log
      * @param params parameters to the message.
      */
     @Override
-    public void info(String message, Object... params)
+    public void info(final String message, final Object... params)
     {
         logger.info(message, params);
     }
@@ -316,7 +315,7 @@ public class Log4j2LogAdapter implements Log
      *        the desired log message parameters.
      */
     @Override
-    public void info(String message, Supplier<?>... paramSuppliers)
+    public void info(final String message, final Supplier<?>... paramSuppliers)
     {
         log(Level.INFO, message, paramSuppliers);
     }
@@ -329,7 +328,7 @@ public class Log4j2LogAdapter implements Log
      * @param t the exception to log, including its stack trace.
      */
     @Override
-    public void info(String message, Throwable t)
+    public void info(final String message, final Throwable t)
     {
         logger.info(message, t);
     }
@@ -412,7 +411,7 @@ public class Log4j2LogAdapter implements Log
      * @param message the message string to log.
      */
     @Override
-    public void trace(String message)
+    public void trace(final String message)
     {
         logger.trace(message);
     }
@@ -423,7 +422,7 @@ public class Log4j2LogAdapter implements Log
      * @param message the message object to log.
      */
     @Override
-    public void trace(Object message)
+    public void trace(final Object message)
     {
         logger.trace(message);
     }
@@ -435,7 +434,7 @@ public class Log4j2LogAdapter implements Log
      * @param params parameters to the message.
      */
     @Override
-    public void trace(String message, Object... params)
+    public void trace(final String message, final Object... params)
     {
         logger.trace(message, params);
     }
@@ -449,7 +448,7 @@ public class Log4j2LogAdapter implements Log
      *        the desired log message parameters.
      */
     @Override
-    public void trace(String message, Supplier<?>... paramSuppliers)
+    public void trace(final String message, final Supplier<?>... paramSuppliers)
     {
         log(Level.TRACE, message, paramSuppliers);
     }
@@ -463,7 +462,7 @@ public class Log4j2LogAdapter implements Log
      * @see #debug(String)
      */
     @Override
-    public void trace(String message, Throwable t)
+    public void trace(final String message, final Throwable t)
     {
         logger.trace(message, t);
     }
@@ -474,7 +473,7 @@ public class Log4j2LogAdapter implements Log
      * @param message the message string to log.
      */
     @Override
-    public void warn(String message)
+    public void warn(final String message)
     {
         logger.warn(message);
     }
@@ -485,7 +484,7 @@ public class Log4j2LogAdapter implements Log
      * @param message the message object to log.
      */
     @Override
-    public void warn(Object message)
+    public void warn(final Object message)
     {
         logger.warn(message);
     }
@@ -497,7 +496,7 @@ public class Log4j2LogAdapter implements Log
      * @param params parameters to the message.
      */
     @Override
-    public void warn(String message, Object... params)
+    public void warn(final String message, final Object... params)
     {
         logger.warn(message, params);
     }
@@ -511,7 +510,7 @@ public class Log4j2LogAdapter implements Log
      *        the desired log message parameters.
      */
     @Override
-    public void warn(String message, Supplier<?>... paramSuppliers)
+    public void warn(final String message, final Supplier<?>... paramSuppliers)
     {
         log(Level.WARN, message, paramSuppliers);
     }
@@ -524,7 +523,7 @@ public class Log4j2LogAdapter implements Log
      * @param t the exception to log, including its stack trace.
      */
     @Override
-    public void warn(String message, Throwable t)
+    public void warn(final String message, final Throwable t)
     {
         logger.warn(message, t);
     }

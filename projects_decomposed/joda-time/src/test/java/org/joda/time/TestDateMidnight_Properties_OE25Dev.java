@@ -74,7 +74,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDateMidnight_Properties_OE25Dev.class);
+        return new TestSuite(TestDateMidnight_Properties.class);
     }
 
     public TestDateMidnight_Properties_OE25Dev(String name) {
@@ -122,6 +122,8 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
+    //-----------------------------------------------------------------------
+
     public void testTest_1_oe() {
         assertEquals("2002-06-09T00:00:00.000Z", new Instant(TEST_TIME_NOW).toString());
     }
@@ -139,7 +141,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetEra_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().era(), test.era().getField());
+        assertSame(test.getChronology().era(), test.era().getField());
     }
 
     public void testPropertyGetEra_2_oe() {
@@ -160,7 +162,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.era().getDateMidnight());
+        assertSame(test, test.era().getDateMidnight());
     }
 
     public void testPropertyGetEra_5_oe() {
@@ -319,7 +321,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYearOfEra_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().yearOfEra(), test.yearOfEra().getField());
+        assertSame(test.getChronology().yearOfEra(), test.yearOfEra().getField());
     }
 
     public void testPropertyGetYearOfEra_2_oe() {
@@ -340,7 +342,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.yearOfEra().getDateMidnight());
+        assertSame(test, test.yearOfEra().getDateMidnight());
     }
 
     public void testPropertyGetYearOfEra_5_oe() {
@@ -462,7 +464,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetCenturyOfEra_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().centuryOfEra(), test.centuryOfEra().getField());
+        assertSame(test.getChronology().centuryOfEra(), test.centuryOfEra().getField());
     }
 
     public void testPropertyGetCenturyOfEra_2_oe() {
@@ -483,7 +485,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.centuryOfEra().getDateMidnight());
+        assertSame(test, test.centuryOfEra().getDateMidnight());
     }
 
     public void testPropertyGetCenturyOfEra_5_oe() {
@@ -605,7 +607,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYearOfCentury_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().yearOfCentury(), test.yearOfCentury().getField());
+        assertSame(test.getChronology().yearOfCentury(), test.yearOfCentury().getField());
     }
 
     public void testPropertyGetYearOfCentury_2_oe() {
@@ -626,7 +628,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.yearOfCentury().getDateMidnight());
+        assertSame(test, test.yearOfCentury().getDateMidnight());
     }
 
     public void testPropertyGetYearOfCentury_5_oe() {
@@ -748,7 +750,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetWeekyear_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().weekyear(), test.weekyear().getField());
+        assertSame(test.getChronology().weekyear(), test.weekyear().getField());
     }
 
     public void testPropertyGetWeekyear_2_oe() {
@@ -769,7 +771,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.weekyear().getDateMidnight());
+        assertSame(test, test.weekyear().getDateMidnight());
     }
 
     public void testPropertyGetWeekyear_5_oe() {
@@ -891,7 +893,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYear_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().year(), test.year().getField());
+        assertSame(test.getChronology().year(), test.year().getField());
     }
 
     public void testPropertyGetYear_2_oe() {
@@ -912,7 +914,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.year().getDateMidnight());
+        assertSame(test, test.year().getDateMidnight());
     }
 
     public void testPropertyGetYear_5_oe() {
@@ -1108,6 +1110,412 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         assertEquals(292278993, test.year().getMaximumValueOverall());
+    }
+
+    public void testPropertyGetMonthOfYear_1_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
+    }
+
+    public void testPropertyGetMonthOfYear_2_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        assertEquals("monthOfYear", test.monthOfYear().getName());
+    }
+
+    public void testPropertyGetMonthOfYear_3_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Property[monthOfYear]", test.monthOfYear().toString());
+    }
+
+    public void testPropertyGetMonthOfYear_4_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertSame(test, test.monthOfYear().getDateMidnight());
+    }
+
+    public void testPropertyGetMonthOfYear_5_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(6, test.monthOfYear().get());
+    }
+
+    public void testPropertyGetMonthOfYear_6_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("6", test.monthOfYear().getAsString());
+    }
+
+    public void testPropertyGetMonthOfYear_7_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("June", test.monthOfYear().getAsText());
+    }
+
+    public void testPropertyGetMonthOfYear_8_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("juin", test.monthOfYear().getAsText(Locale.FRENCH));
+    }
+
+    public void testPropertyGetMonthOfYear_9_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Jun", test.monthOfYear().getAsShortText());
+    }
+
+    public void testPropertyGetMonthOfYear_10_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("juin", test.monthOfYear().getAsShortText(Locale.FRENCH));
+    }
+
+    public void testPropertyGetMonthOfYear_11_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(test.getChronology().months(), test.monthOfYear().getDurationField());
+    }
+
+    public void testPropertyGetMonthOfYear_12_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(test.getChronology().years(), test.monthOfYear().getRangeDurationField());
+    }
+
+    public void testPropertyGetMonthOfYear_13_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(9, test.monthOfYear().getMaximumTextLength(null));
+    }
+
+    public void testPropertyGetMonthOfYear_14_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(3, test.monthOfYear().getMaximumShortTextLength(null));
+    }
+
+    public void testPropertyGetMonthOfYear_15_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new DateMidnight(2004, 7, 9);
+        assertEquals("juillet", test.monthOfYear().getAsText(Locale.FRENCH));
+    }
+
+    public void testPropertyGetMonthOfYear_16_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new DateMidnight(2004, 7, 9);
+        // removed other assertion
+        assertEquals("juil.", test.monthOfYear().getAsShortText(Locale.FRENCH));
+    }
+
+    public void testPropertyGetMonthOfYear_17_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new DateMidnight(2004, 7, 9);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, test.monthOfYear().getMinimumValue());
+    }
+
+    public void testPropertyGetMonthOfYear_18_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new DateMidnight(2004, 7, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, test.monthOfYear().getMinimumValueOverall());
+    }
+
+    public void testPropertyGetMonthOfYear_19_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new DateMidnight(2004, 7, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(12, test.monthOfYear().getMaximumValue());
+    }
+
+    public void testPropertyGetMonthOfYear_20_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new DateMidnight(2004, 7, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(12, test.monthOfYear().getMaximumValueOverall());
+    }
+
+    public void testPropertyGetMonthOfYear_21_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new DateMidnight(2004, 7, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, test.monthOfYear().getMinimumValue());
+    }
+
+    public void testPropertyGetMonthOfYear_22_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new DateMidnight(2004, 7, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, test.monthOfYear().getMinimumValueOverall());
+    }
+
+    public void testPropertyGetMonthOfYear_23_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new DateMidnight(2004, 7, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(12, test.monthOfYear().getMaximumValue());
+    }
+
+    public void testPropertyGetMonthOfYear_24_oe() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new DateMidnight(2004, 7, 9);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(12, test.monthOfYear().getMaximumValueOverall());
     }
 
     public void testPropertySetMonthOfYear_1_oe() {
@@ -1393,7 +1801,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDayOfMonth_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
     }
 
     public void testPropertyGetDayOfMonth_2_oe() {
@@ -1414,7 +1822,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.dayOfMonth().getDateMidnight());
+        assertSame(test, test.dayOfMonth().getDateMidnight());
     }
 
     public void testPropertyGetDayOfMonth_5_oe() {
@@ -1710,7 +2118,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
     public void testPropertyGetDayOfYear_1_oe() {
         // 31+29+31+30+31+9 = 161
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().dayOfYear(), test.dayOfYear().getField());
+        assertSame(test.getChronology().dayOfYear(), test.dayOfYear().getField());
     }
 
     public void testPropertyGetDayOfYear_2_oe() {
@@ -1734,7 +2142,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.dayOfYear().getDateMidnight());
+        assertSame(test, test.dayOfYear().getDateMidnight());
     }
 
     public void testPropertyGetDayOfYear_5_oe() {
@@ -1925,7 +2333,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetWeekOfWeekyear_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().weekOfWeekyear(), test.weekOfWeekyear().getField());
+        assertSame(test.getChronology().weekOfWeekyear(), test.weekOfWeekyear().getField());
     }
 
     public void testPropertyGetWeekOfWeekyear_2_oe() {
@@ -1946,7 +2354,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.weekOfWeekyear().getDateMidnight());
+        assertSame(test, test.weekOfWeekyear().getDateMidnight());
     }
 
     public void testPropertyGetWeekOfWeekyear_5_oe() {
@@ -2125,7 +2533,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDayOfWeek_1_oe() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().dayOfWeek(), test.dayOfWeek().getField());
+        assertSame(test.getChronology().dayOfWeek(), test.dayOfWeek().getField());
     }
 
     public void testPropertyGetDayOfWeek_2_oe() {
@@ -2146,7 +2554,7 @@ public class TestDateMidnight_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.dayOfWeek().getDateMidnight());
+        assertSame(test, test.dayOfWeek().getDateMidnight());
     }
 
     public void testPropertyGetDayOfWeek_5_oe() {

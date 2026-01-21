@@ -51,7 +51,7 @@ public class TestDateTimeFormatterBuilder_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDateTimeFormatterBuilder_OE25Dev.class);
+        return new TestSuite(TestDateTimeFormatterBuilder.class);
     }
 
     public TestDateTimeFormatterBuilder_OE25Dev(String name) {

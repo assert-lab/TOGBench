@@ -1,17 +1,17 @@
 id,test_prefix,test_name
-jcs3_95_1,"    public void testNullSerializerConversion_1_oe()
+jcs3_101_1,"    public void testNullSerializerConversion_1_oe()
     {
         // SETUP
-        String cacheName = ""testName"";
-        String key = ""key"";
-        String value = ""value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf"";
+        final String cacheName = ""testName"";
+        final String key = ""key"";
+        final String value = ""value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf"";
 
-        IElementSerializer elementSerializer = null;// new StandardSerializer();
+        final IElementSerializer elementSerializer = null;// new StandardSerializer();
 
-        IElementAttributes attr = new ElementAttributes();
+        final IElementAttributes attr = new ElementAttributes();
         attr.setMaxLife(34);
 
-        ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
+        final ICacheElement<String, String> before = new CacheElement<>( cacheName, key, value );
         before.setElementAttributes( attr );
 
         // DO WORK
@@ -24,18 +24,18 @@ jcs3_95_1,"    public void testNullSerializerConversion_1_oe()
     }
     }
 ",SerializationConversionUtilUnitTest::testNullSerializerConversion_1_oe
-jcs3_126_3,"    public void testPutSafe_3_oe()
+jcs3_131_3,"    public void testPutSafe_3_oe()
         throws Exception
     {
-        CacheAccess<String, String> access = JCS.getInstance( ""test"" );
+        final CacheAccess<String, String> access = JCS.getInstance( ""test"" );
         // removed other assertion
 
-        String key = ""mykey"";
-        String value = ""myvalue"";
+        final String key = ""mykey"";
+        final String value = ""myvalue"";
 
         access.put( key, value );
 
-        String returnedValue1 = access.get( key );
+        final String returnedValue1 = access.get( key );
         // removed other assertion
 
         try
@@ -45,14 +45,14 @@ jcs3_126_3,"    public void testPutSafe_3_oe()
     }
     }
 ",CacheAccessUnitTest::testPutSafe_3_oe
-jcs3_127_2,"    public void testPutNullKey_2_oe()
+jcs3_132_2,"    public void testPutNullKey_2_oe()
         throws Exception
     {
-        CacheAccess<String, String> access = JCS.getInstance( ""test"" );
+        final CacheAccess<String, String> access = JCS.getInstance( ""test"" );
         // removed other assertion
 
-        String key = null;
-        String value = ""myvalue"";
+        final String key = null;
+        final String value = ""myvalue"";
 
         try
         {
@@ -61,14 +61,14 @@ jcs3_127_2,"    public void testPutNullKey_2_oe()
     }
     }
 ",CacheAccessUnitTest::testPutNullKey_2_oe
-jcs3_128_2,"    public void testPutNullValue_2_oe()
+jcs3_133_2,"    public void testPutNullValue_2_oe()
         throws Exception
     {
-        CacheAccess<String, String> access = JCS.getInstance( ""test"" );
+        final CacheAccess<String, String> access = JCS.getInstance( ""test"" );
         // removed other assertion
 
-        String key = ""myKey"";
-        String value = null;
+        final String key = ""myKey"";
+        final String value = null;
 
         try
         {
@@ -77,15 +77,15 @@ jcs3_128_2,"    public void testPutNullValue_2_oe()
     }
     }
 ",CacheAccessUnitTest::testPutNullValue_2_oe
-jcs3_139_2,"    public void testPutNullKey_2_oe()
+jcs3_144_2,"    public void testPutNullKey_2_oe()
         throws Exception
     {
-        GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( ""test"" );
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( ""test"" );
         // removed other assertion
 
-        String key = null;
-        String group = ""mygroup"";
-        String value = ""myvalue"";
+        final String key = null;
+        final String group = ""mygroup"";
+        final String value = ""myvalue"";
 
         try
         {
@@ -94,15 +94,15 @@ jcs3_139_2,"    public void testPutNullKey_2_oe()
     }
     }
 ",GroupCacheAccessUnitTest::testPutNullKey_2_oe
-jcs3_140_2,"    public void testPutNullValue_2_oe()
+jcs3_145_2,"    public void testPutNullValue_2_oe()
         throws Exception
     {
-        GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( ""test"" );
+        final GroupCacheAccess<String, String> access = JCS.getGroupCacheInstance( ""test"" );
         // removed other assertion
 
-        String key = ""myKey"";
-        String group = ""mygroup"";
-        String value = null;
+        final String key = ""myKey"";
+        final String group = ""mygroup"";
+        final String value = null;
 
         try
         {
@@ -111,7 +111,7 @@ jcs3_140_2,"    public void testPutNullValue_2_oe()
     }
     }
 ",GroupCacheAccessUnitTest::testPutNullValue_2_oe
-jcs3_186_1,"    public void testGetDatesWithNullInput_1_oe()
+jcs3_191_1,"    public void testGetDatesWithNullInput_1_oe()
     {
         try
         {
@@ -121,7 +121,7 @@ jcs3_186_1,"    public void testGetDatesWithNullInput_1_oe()
     }
     }
 ",ScheduleParserUtilUnitTest::testGetDatesWithNullInput_1_oe
-jcs3_187_1,"    public void testGetDateWithNullInput_1_oe()
+jcs3_192_1,"    public void testGetDateWithNullInput_1_oe()
     {
         try
         {
@@ -131,47 +131,47 @@ jcs3_187_1,"    public void testGetDateWithNullInput_1_oe()
     }
     }
 ",ScheduleParserUtilUnitTest::testGetDateWithNullInput_1_oe
-jcs3_190_1,"    public void testGetDatesMalformedNoColon_1_oe()
+jcs3_195_1,"    public void testGetDatesMalformedNoColon_1_oe()
     {
         try
         {
-            String schedule = ""12:34:56,03:51:00,123234"";
+            final String schedule = ""12:34:56,03:51:00,123234"";
             ScheduleParser.createDatesForSchedule( schedule );
 
             fail( ""Should have thrown an exception for a malformed date"" );
     }
     }
 ",ScheduleParserUtilUnitTest::testGetDatesMalformedNoColon_1_oe
-jcs3_191_1,"    public void testGetDatesMalformedNan_1_oe()
+jcs3_196_1,"    public void testGetDatesMalformedNan_1_oe()
     {
         try
         {
-            String schedule = ""12:34:56,03:51:00,aa:12:12"";
+            final String schedule = ""12:34:56,03:51:00,aa:12:12"";
             ScheduleParser.createDatesForSchedule( schedule );
 
             fail( ""Should have thrown an exception for a malformed date"" );
     }
     }
 ",ScheduleParserUtilUnitTest::testGetDatesMalformedNan_1_oe
-jcs3_220_1,"	  public void testRecycleBin_1_oe()
+jcs3_225_1,"	  public void testRecycleBin_1_oe()
 		        throws IOException
 		    {
-		        IndexedDiskCacheAttributes cattr = getCacheAttributes();
+		        final IndexedDiskCacheAttributes cattr = getCacheAttributes();
 		        cattr.setCacheName( ""testRemoveItems"" );
 		        cattr.setOptimizeAtRemoveCount( 7 );
 		        cattr.setMaxKeySize( 5 );
 		        cattr.setMaxPurgatorySize( 0 );
 		        cattr.setDiskPath( ""target/test-sandbox/BreakIndexTest"" );
-		        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+		        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
-		        String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
-		        String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
 
 		        //System.out.println( ""------------------------- testRecycleBin "" );
 
 		        for ( int i = 0; i < 6; i++ )
 		        {
-		            ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
+		            final ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
 		            //System.out.println( ""About to add "" + ""key:"" + test[i] + "" i = "" + i );
 		            disk.processUpdate( element );
 		        }
@@ -186,7 +186,7 @@ jcs3_220_1,"	  public void testRecycleBin_1_oe()
 		        // will not fit.
 		        for ( int i = 7; i < 9; i++ )
 		        {
-		            ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
+		            final ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
 		            //System.out.println( ""About to add "" + ""key:"" + test[i] + "" i = "" + i );
 		            disk.processUpdate( element );
 		        }
@@ -195,7 +195,7 @@ jcs3_220_1,"	  public void testRecycleBin_1_oe()
 		        {
 		            for ( int i = 0; i < 9; i++ )
 		            {
-		                ICacheElement<String, String> element = disk.get( ""key:"" + test[i] );
+		                final ICacheElement<String, String> element = disk.get( ""key:"" + test[i] );
 		                if ( element != null )
 		                {
 		                    //System.out.println( ""element = "" + element.getVal() );
@@ -205,7 +205,7 @@ jcs3_220_1,"	  public void testRecycleBin_1_oe()
 		                    //System.out.println( ""null --"" + ""key:"" + test[i] );
 		                }
 
-		                String expectedValue = expect[i];
+		                final String expectedValue = expect[i];
 		                if ( expectedValue == null )
 		                {
 		                    assertNull( ""Expected a null element"", element );
@@ -214,25 +214,25 @@ jcs3_220_1,"	  public void testRecycleBin_1_oe()
 	  }
 	  }
 ",IndexDiskCacheCountUnitTest::testRecycleBin_1_oe
-jcs3_220_2,"	  public void testRecycleBin_2_oe()
+jcs3_225_2,"	  public void testRecycleBin_2_oe()
 		        throws IOException
 		    {
-		        IndexedDiskCacheAttributes cattr = getCacheAttributes();
+		        final IndexedDiskCacheAttributes cattr = getCacheAttributes();
 		        cattr.setCacheName( ""testRemoveItems"" );
 		        cattr.setOptimizeAtRemoveCount( 7 );
 		        cattr.setMaxKeySize( 5 );
 		        cattr.setMaxPurgatorySize( 0 );
 		        cattr.setDiskPath( ""target/test-sandbox/BreakIndexTest"" );
-		        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+		        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
-		        String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
-		        String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
 
 		        //System.out.println( ""------------------------- testRecycleBin "" );
 
 		        for ( int i = 0; i < 6; i++ )
 		        {
-		            ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
+		            final ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
 		            //System.out.println( ""About to add "" + ""key:"" + test[i] + "" i = "" + i );
 		            disk.processUpdate( element );
 		        }
@@ -247,7 +247,7 @@ jcs3_220_2,"	  public void testRecycleBin_2_oe()
 		        // will not fit.
 		        for ( int i = 7; i < 9; i++ )
 		        {
-		            ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
+		            final ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
 		            //System.out.println( ""About to add "" + ""key:"" + test[i] + "" i = "" + i );
 		            disk.processUpdate( element );
 		        }
@@ -256,7 +256,7 @@ jcs3_220_2,"	  public void testRecycleBin_2_oe()
 		        {
 		            for ( int i = 0; i < 9; i++ )
 		            {
-		                ICacheElement<String, String> element = disk.get( ""key:"" + test[i] );
+		                final ICacheElement<String, String> element = disk.get( ""key:"" + test[i] );
 		                if ( element != null )
 		                {
 		                    //System.out.println( ""element = "" + element.getVal() );
@@ -266,7 +266,7 @@ jcs3_220_2,"	  public void testRecycleBin_2_oe()
 		                    //System.out.println( ""null --"" + ""key:"" + test[i] );
 		                }
 
-		                String expectedValue = expect[i];
+		                final String expectedValue = expect[i];
 		                if ( expectedValue == null )
 		                {
 		                    // removed other assertion
@@ -279,25 +279,25 @@ jcs3_220_2,"	  public void testRecycleBin_2_oe()
 	  }
 	  }
 ",IndexDiskCacheCountUnitTest::testRecycleBin_2_oe
-jcs3_220_3,"	  public void testRecycleBin_3_oe()
+jcs3_225_3,"	  public void testRecycleBin_3_oe()
 		        throws IOException
 		    {
-		        IndexedDiskCacheAttributes cattr = getCacheAttributes();
+		        final IndexedDiskCacheAttributes cattr = getCacheAttributes();
 		        cattr.setCacheName( ""testRemoveItems"" );
 		        cattr.setOptimizeAtRemoveCount( 7 );
 		        cattr.setMaxKeySize( 5 );
 		        cattr.setMaxPurgatorySize( 0 );
 		        cattr.setDiskPath( ""target/test-sandbox/BreakIndexTest"" );
-		        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+		        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
-		        String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
-		        String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
 
 		        //System.out.println( ""------------------------- testRecycleBin "" );
 
 		        for ( int i = 0; i < 6; i++ )
 		        {
-		            ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
+		            final ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
 		            //System.out.println( ""About to add "" + ""key:"" + test[i] + "" i = "" + i );
 		            disk.processUpdate( element );
 		        }
@@ -312,7 +312,7 @@ jcs3_220_3,"	  public void testRecycleBin_3_oe()
 		        // will not fit.
 		        for ( int i = 7; i < 9; i++ )
 		        {
-		            ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
+		            final ICacheElement<String, String> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], test[i] );
 		            //System.out.println( ""About to add "" + ""key:"" + test[i] + "" i = "" + i );
 		            disk.processUpdate( element );
 		        }
@@ -321,7 +321,7 @@ jcs3_220_3,"	  public void testRecycleBin_3_oe()
 		        {
 		            for ( int i = 0; i < 9; i++ )
 		            {
-		                ICacheElement<String, String> element = disk.get( ""key:"" + test[i] );
+		                final ICacheElement<String, String> element = disk.get( ""key:"" + test[i] );
 		                if ( element != null )
 		                {
 		                    //System.out.println( ""element = "" + element.getVal() );
@@ -331,7 +331,7 @@ jcs3_220_3,"	  public void testRecycleBin_3_oe()
 		                    //System.out.println( ""null --"" + ""key:"" + test[i] );
 		                }
 
-		                String expectedValue = expect[i];
+		                final String expectedValue = expect[i];
 		                if ( expectedValue == null )
 		                {
 		                    // removed other assertion
@@ -345,13 +345,13 @@ jcs3_220_3,"	  public void testRecycleBin_3_oe()
 	  }
 	  }
 ",IndexDiskCacheCountUnitTest::testRecycleBin_3_oe
-jcs3_221_1,"    public void testLargeNumberOfItems_1_oe()
+jcs3_226_1,"    public void testLargeNumberOfItems_1_oe()
         throws Exception
     {
-        int items = 300000;
-        String region = ""testCache1"";
+        final int items = 300000;
+        final String region = ""testCache1"";
 
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
         try
         {
@@ -378,32 +378,32 @@ jcs3_221_1,"    public void testLargeNumberOfItems_1_oe()
 
             for ( int i = 0; i <= items; i++ )
             {
-                String value = jcs.get( i + "":key"" );
+                final String value = jcs.get( i + "":key"" );
 
                 assertEquals( region + "" data "" + i, value );
     }
     }
     }
 ",HugeQuantityIndDiskCacheLoadTest::testLargeNumberOfItems_1_oe
-jcs3_223_1,"	  public void testRecycleBin_1_oe()
+jcs3_228_1,"	  public void testRecycleBin_1_oe()
 		        throws IOException
 		    {
-		        IndexedDiskCacheAttributes cattr = getCacheAttributes();
+		        final IndexedDiskCacheAttributes cattr = getCacheAttributes();
 		        cattr.setCacheName( ""testRemoveItems"" );
 		        cattr.setOptimizeAtRemoveCount( 7 );
 		        cattr.setMaxKeySize( 8); // 1kb DiskTestObject takes 1420 bytes, so 5*1420 = 7100, so to keep 5 ojbects, we need max key size of 8
 		        cattr.setMaxPurgatorySize( 0 );
 		        cattr.setDiskPath( ""target/test-sandbox/BreakIndexTest"" );
-		        IndexedDiskCache<String, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
+		        final IndexedDiskCache<String, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
 
-		        String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
-		        String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
-		        DiskTestObject value = DiskTestObjectUtil.createCacheElementsWithTestObjects( 1, 1, cattr .getCacheName())[0].getVal();
+		        final String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final DiskTestObject value = DiskTestObjectUtil.createCacheElementsWithTestObjects( 1, 1, cattr .getCacheName())[0].getVal();
 		        //System.out.println( ""------------------------- testRecycleBin "" );
 
 		        for ( int i = 0; i < 6; i++ )
 		        {
-		            ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
+		            final ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
 		            //System.out.println( ""About to add "" + ""key:"" + test[i] + "" i = "" + i );
 		            disk.processUpdate( element );
 		        }
@@ -418,7 +418,7 @@ jcs3_223_1,"	  public void testRecycleBin_1_oe()
 		        // will not fit.
 		        for ( int i = 7; i < 9; i++ )
 		        {
-		            ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
+		            final ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
 		            //System.out.println( ""About to add "" + ""key:"" + test[i] + "" i = "" + i );
 		            disk.processUpdate( element );
 		        }
@@ -427,7 +427,7 @@ jcs3_223_1,"	  public void testRecycleBin_1_oe()
 		        {
 		            for ( int i = 0; i < 9; i++ )
 		            {
-		                ICacheElement<String, DiskTestObject> element = disk.get( ""key:"" + test[i] );
+		                final ICacheElement<String, DiskTestObject> element = disk.get( ""key:"" + test[i] );
 		                if ( element != null )
 		                {
 		                    //System.out.println( ""element = "" + element.getVal() );
@@ -437,7 +437,7 @@ jcs3_223_1,"	  public void testRecycleBin_1_oe()
 		                    //System.out.println( ""null --"" + ""key:"" + test[i] );
 		                }
 
-		                String expectedValue = expect[i];
+		                final String expectedValue = expect[i];
 		                if ( expectedValue == null )
 		                {
 		                    assertNull( ""Expected a null element"", element );
@@ -446,25 +446,25 @@ jcs3_223_1,"	  public void testRecycleBin_1_oe()
 	  }
 	  }
 ",IndexDiskCacheSizeUnitTest::testRecycleBin_1_oe
-jcs3_223_2,"	  public void testRecycleBin_2_oe()
+jcs3_228_2,"	  public void testRecycleBin_2_oe()
 		        throws IOException
 		    {
-		        IndexedDiskCacheAttributes cattr = getCacheAttributes();
+		        final IndexedDiskCacheAttributes cattr = getCacheAttributes();
 		        cattr.setCacheName( ""testRemoveItems"" );
 		        cattr.setOptimizeAtRemoveCount( 7 );
 		        cattr.setMaxKeySize( 8); // 1kb DiskTestObject takes 1420 bytes, so 5*1420 = 7100, so to keep 5 ojbects, we need max key size of 8
 		        cattr.setMaxPurgatorySize( 0 );
 		        cattr.setDiskPath( ""target/test-sandbox/BreakIndexTest"" );
-		        IndexedDiskCache<String, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
+		        final IndexedDiskCache<String, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
 
-		        String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
-		        String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
-		        DiskTestObject value = DiskTestObjectUtil.createCacheElementsWithTestObjects( 1, 1, cattr .getCacheName())[0].getVal();
+		        final String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final DiskTestObject value = DiskTestObjectUtil.createCacheElementsWithTestObjects( 1, 1, cattr .getCacheName())[0].getVal();
 		        //System.out.println( ""------------------------- testRecycleBin "" );
 
 		        for ( int i = 0; i < 6; i++ )
 		        {
-		            ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
+		            final ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
 		            //System.out.println( ""About to add "" + ""key:"" + test[i] + "" i = "" + i );
 		            disk.processUpdate( element );
 		        }
@@ -479,7 +479,7 @@ jcs3_223_2,"	  public void testRecycleBin_2_oe()
 		        // will not fit.
 		        for ( int i = 7; i < 9; i++ )
 		        {
-		            ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
+		            final ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
 		            //System.out.println( ""About to add "" + ""key:"" + test[i] + "" i = "" + i );
 		            disk.processUpdate( element );
 		        }
@@ -488,7 +488,7 @@ jcs3_223_2,"	  public void testRecycleBin_2_oe()
 		        {
 		            for ( int i = 0; i < 9; i++ )
 		            {
-		                ICacheElement<String, DiskTestObject> element = disk.get( ""key:"" + test[i] );
+		                final ICacheElement<String, DiskTestObject> element = disk.get( ""key:"" + test[i] );
 		                if ( element != null )
 		                {
 		                    //System.out.println( ""element = "" + element.getVal() );
@@ -498,7 +498,7 @@ jcs3_223_2,"	  public void testRecycleBin_2_oe()
 		                    //System.out.println( ""null --"" + ""key:"" + test[i] );
 		                }
 
-		                String expectedValue = expect[i];
+		                final String expectedValue = expect[i];
 		                if ( expectedValue == null )
 		                {
 		                    // removed other assertion
@@ -511,25 +511,25 @@ jcs3_223_2,"	  public void testRecycleBin_2_oe()
 	  }
 	  }
 ",IndexDiskCacheSizeUnitTest::testRecycleBin_2_oe
-jcs3_223_3,"	  public void testRecycleBin_3_oe()
+jcs3_228_3,"	  public void testRecycleBin_3_oe()
 		        throws IOException
 		    {
-		        IndexedDiskCacheAttributes cattr = getCacheAttributes();
+		        final IndexedDiskCacheAttributes cattr = getCacheAttributes();
 		        cattr.setCacheName( ""testRemoveItems"" );
 		        cattr.setOptimizeAtRemoveCount( 7 );
 		        cattr.setMaxKeySize( 8); // 1kb DiskTestObject takes 1420 bytes, so 5*1420 = 7100, so to keep 5 ojbects, we need max key size of 8
 		        cattr.setMaxPurgatorySize( 0 );
 		        cattr.setDiskPath( ""target/test-sandbox/BreakIndexTest"" );
-		        IndexedDiskCache<String, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
+		        final IndexedDiskCache<String, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
 
-		        String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
-		        String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
-		        DiskTestObject value = DiskTestObjectUtil.createCacheElementsWithTestObjects( 1, 1, cattr .getCacheName())[0].getVal();
+		        final String[] test = { ""a"", ""bb"", ""ccc"", ""dddd"", ""eeeee"", ""ffffff"", ""ggggggg"", ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final String[] expect = { null, ""bb"", ""ccc"", null, null, ""ffffff"", null, ""hhhhhhhhh"", ""iiiiiiiiii"" };
+		        final DiskTestObject value = DiskTestObjectUtil.createCacheElementsWithTestObjects( 1, 1, cattr .getCacheName())[0].getVal();
 		        //System.out.println( ""------------------------- testRecycleBin "" );
 
 		        for ( int i = 0; i < 6; i++ )
 		        {
-		            ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
+		            final ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
 		            //System.out.println( ""About to add "" + ""key:"" + test[i] + "" i = "" + i );
 		            disk.processUpdate( element );
 		        }
@@ -544,7 +544,7 @@ jcs3_223_3,"	  public void testRecycleBin_3_oe()
 		        // will not fit.
 		        for ( int i = 7; i < 9; i++ )
 		        {
-		            ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
+		            final ICacheElement<String, DiskTestObject> element = new CacheElement<>( ""testRecycleBin"", ""key:"" + test[i], value);
 		            //System.out.println( ""About to add "" + ""key:"" + test[i] + "" i = "" + i );
 		            disk.processUpdate( element );
 		        }
@@ -553,7 +553,7 @@ jcs3_223_3,"	  public void testRecycleBin_3_oe()
 		        {
 		            for ( int i = 0; i < 9; i++ )
 		            {
-		                ICacheElement<String, DiskTestObject> element = disk.get( ""key:"" + test[i] );
+		                final ICacheElement<String, DiskTestObject> element = disk.get( ""key:"" + test[i] );
 		                if ( element != null )
 		                {
 		                    //System.out.println( ""element = "" + element.getVal() );
@@ -563,7 +563,7 @@ jcs3_223_3,"	  public void testRecycleBin_3_oe()
 		                    //System.out.println( ""null --"" + ""key:"" + test[i] );
 		                }
 
-		                String expectedValue = expect[i];
+		                final String expectedValue = expect[i];
 		                if ( expectedValue == null )
 		                {
 		                    // removed other assertion
@@ -577,22 +577,22 @@ jcs3_223_3,"	  public void testRecycleBin_3_oe()
 	  }
 	  }
 ",IndexDiskCacheSizeUnitTest::testRecycleBin_3_oe
-jcs3_248_1,"    public void testLargeNumberOfItems_1_oe()
+jcs3_253_1,"    public void testLargeNumberOfItems_1_oe()
         throws Exception
     {
-        int items = 300000;
-        String region = ""testCache1"";
+        final int items = 300000;
+        final String region = ""testCache1"";
 
         System.out.println( ""--------------------------"" );
-        long initialMemory = measureMemoryUse();
+        final long initialMemory = measureMemoryUse();
         System.out.println( ""Before getting JCS: "" + initialMemory );
 
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
         jcs.clear();
 
         try
         {
-            ElapsedTimer timer = new ElapsedTimer();
+            final ElapsedTimer timer = new ElapsedTimer();
             System.out.println( ""Start: "" + measureMemoryUse() );
 
             // Add items to cache
@@ -626,7 +626,7 @@ jcs3_248_1,"    public void testLargeNumberOfItems_1_oe()
             for ( int i = 0; i <= items; i++ )
             {
                 //System.out.print(  ""\033[s"" );
-                String value = jcs.get( i + "":key"" );
+                final String value = jcs.get( i + "":key"" );
                 if ( i % 1000 == 0 )
                 {
                     //System.out.print(  ""\033[r"" );
@@ -637,24 +637,24 @@ jcs3_248_1,"    public void testLargeNumberOfItems_1_oe()
     }
     }
 ",HugeQuantityBlockDiskCacheLoadTest::testLargeNumberOfItems_1_oe
-jcs3_319_1,"    @Test
+jcs3_324_1,"    @Test
     public void test1SinglePut_1_oe()
             throws Exception
             {
         // SETUP
-        MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
+        final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
-        RemoteCacheAttributes attributes = new RemoteCacheAttributes();
+        final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
         attributes.setRemoteLocation(""localhost"", remotePort);
         attributes.setLocalPort(LOCAL_PORT);
         attributes.setCacheName(""testSinglePut"");
 
-        RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
-        AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
+        final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
+        final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
         // DO WORK
-        int numPutsPrior = server.getPutCount();
-        ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
+        final int numPutsPrior = server.getPutCount();
+        final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
         cache.update(element);
         SleepUtil.sleepAtLeast(200);
 
@@ -665,24 +665,24 @@ jcs3_319_1,"    @Test
     }
     }
 ",BasicRemoteCacheClientServerUnitTest::test1SinglePut_1_oe
-jcs3_319_2,"    @Test
+jcs3_324_2,"    @Test
     public void test1SinglePut_2_oe()
             throws Exception
             {
         // SETUP
-        MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
+        final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
-        RemoteCacheAttributes attributes = new RemoteCacheAttributes();
+        final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
         attributes.setRemoteLocation(""localhost"", remotePort);
         attributes.setLocalPort(LOCAL_PORT);
         attributes.setCacheName(""testSinglePut"");
 
-        RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
-        AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
+        final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
+        final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
         // DO WORK
-        int numPutsPrior = server.getPutCount();
-        ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
+        final int numPutsPrior = server.getPutCount();
+        final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
         cache.update(element);
         SleepUtil.sleepAtLeast(200);
 
@@ -694,26 +694,26 @@ jcs3_319_2,"    @Test
     }
     }
 ",BasicRemoteCacheClientServerUnitTest::test1SinglePut_2_oe
-jcs3_320_1,"    @Test
+jcs3_325_1,"    @Test
     public void test2PutRemove_1_oe()
             throws Exception
             {
         // SETUP
-        MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
+        final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
-        RemoteCacheAttributes attributes = new RemoteCacheAttributes();
+        final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
         attributes.setRemoteLocation(""localhost"", remotePort);
         attributes.setLocalPort(LOCAL_PORT);
         attributes.setCacheName(""testPutRemove"");
 
-        MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
 
-        RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, cacheEventLogger, null);
-        AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
+        final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, cacheEventLogger, null);
+        final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
         // DO WORK
-        int numPutsPrior = server.getPutCount();
-        ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
+        final int numPutsPrior = server.getPutCount();
+        final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
         cache.update(element);
         SleepUtil.sleepAtLeast(50);
 
@@ -724,26 +724,26 @@ jcs3_320_1,"    @Test
     }
     }
 ",BasicRemoteCacheClientServerUnitTest::test2PutRemove_1_oe
-jcs3_320_2,"    @Test
+jcs3_325_2,"    @Test
     public void test2PutRemove_2_oe()
             throws Exception
             {
         // SETUP
-        MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
+        final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
-        RemoteCacheAttributes attributes = new RemoteCacheAttributes();
+        final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
         attributes.setRemoteLocation(""localhost"", remotePort);
         attributes.setLocalPort(LOCAL_PORT);
         attributes.setCacheName(""testPutRemove"");
 
-        MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
 
-        RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, cacheEventLogger, null);
-        AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
+        final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, cacheEventLogger, null);
+        final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
         // DO WORK
-        int numPutsPrior = server.getPutCount();
-        ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
+        final int numPutsPrior = server.getPutCount();
+        final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
         cache.update(element);
         SleepUtil.sleepAtLeast(50);
 
@@ -755,27 +755,27 @@ jcs3_320_2,"    @Test
     }
     }
 ",BasicRemoteCacheClientServerUnitTest::test2PutRemove_2_oe
-jcs3_321_1,"    @Test
+jcs3_326_1,"    @Test
     public void test3PutAndListen_1_oe()
             throws Exception
             {
         // SETUP
-        MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
+        final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
-        RemoteCacheAttributes attributes = new RemoteCacheAttributes();
+        final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
         attributes.setRemoteLocation(""localhost"", remotePort);
         attributes.setLocalPort(LOCAL_PORT);
         attributes.setCacheName(""testPutAndListen"");
 
-        RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
-        AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
+        final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
+        final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
-        MockRemoteCacheListener<String, String> listener = new MockRemoteCacheListener<>();
+        final MockRemoteCacheListener<String, String> listener = new MockRemoteCacheListener<>();
         server.addCacheListener(cache.getCacheName(), listener);
 
         // DO WORK
-        int numPutsPrior = server.getPutCount();
-        ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
+        final int numPutsPrior = server.getPutCount();
+        final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
         cache.update(element);
         SleepUtil.sleepAtLeast(50);
 
@@ -786,27 +786,27 @@ jcs3_321_1,"    @Test
     }
     }
 ",BasicRemoteCacheClientServerUnitTest::test3PutAndListen_1_oe
-jcs3_321_2,"    @Test
+jcs3_326_2,"    @Test
     public void test3PutAndListen_2_oe()
             throws Exception
             {
         // SETUP
-        MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
+        final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
-        RemoteCacheAttributes attributes = new RemoteCacheAttributes();
+        final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
         attributes.setRemoteLocation(""localhost"", remotePort);
         attributes.setLocalPort(LOCAL_PORT);
         attributes.setCacheName(""testPutAndListen"");
 
-        RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
-        AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
+        final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
+        final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
-        MockRemoteCacheListener<String, String> listener = new MockRemoteCacheListener<>();
+        final MockRemoteCacheListener<String, String> listener = new MockRemoteCacheListener<>();
         server.addCacheListener(cache.getCacheName(), listener);
 
         // DO WORK
-        int numPutsPrior = server.getPutCount();
-        ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
+        final int numPutsPrior = server.getPutCount();
+        final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
         cache.update(element);
         SleepUtil.sleepAtLeast(50);
 
@@ -818,27 +818,27 @@ jcs3_321_2,"    @Test
     }
     }
 ",BasicRemoteCacheClientServerUnitTest::test3PutAndListen_2_oe
-jcs3_321_3,"    @Test
+jcs3_326_3,"    @Test
     public void test3PutAndListen_3_oe()
             throws Exception
             {
         // SETUP
-        MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
+        final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
-        RemoteCacheAttributes attributes = new RemoteCacheAttributes();
+        final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
         attributes.setRemoteLocation(""localhost"", remotePort);
         attributes.setLocalPort(LOCAL_PORT);
         attributes.setCacheName(""testPutAndListen"");
 
-        RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
-        AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
+        final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
+        final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
-        MockRemoteCacheListener<String, String> listener = new MockRemoteCacheListener<>();
+        final MockRemoteCacheListener<String, String> listener = new MockRemoteCacheListener<>();
         server.addCacheListener(cache.getCacheName(), listener);
 
         // DO WORK
-        int numPutsPrior = server.getPutCount();
-        ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
+        final int numPutsPrior = server.getPutCount();
+        final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"", ""value"");
         cache.update(element);
         SleepUtil.sleepAtLeast(50);
 
@@ -851,30 +851,30 @@ jcs3_321_3,"    @Test
     }
     }
 ",BasicRemoteCacheClientServerUnitTest::test3PutAndListen_3_oe
-jcs3_322_1,"    @Test
+jcs3_327_1,"    @Test
     public void test4PutaMultipleAndListen_1_oe()
             throws Exception
     {
         // SETUP
-        MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
+        final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
-        RemoteCacheAttributes attributes = new RemoteCacheAttributes();
+        final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
         attributes.setRemoteLocation(""localhost"", remotePort);
         attributes.setLocalPort(LOCAL_PORT);
         attributes.setCacheName(""testPutaMultipleAndListen"");
 
-        RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
-        AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
+        final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
+        final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
-        MockRemoteCacheListener<String, String> listener = new MockRemoteCacheListener<>();
+        final MockRemoteCacheListener<String, String> listener = new MockRemoteCacheListener<>();
         server.addCacheListener(cache.getCacheName(), listener);
 
         // DO WORK
-        int numPutsPrior = server.getPutCount();
-        int numToPut = 100;
+        final int numPutsPrior = server.getPutCount();
+        final int numToPut = 100;
         for (int i = 0; i < numToPut; i++)
         {
-            ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"" + 1, ""value"" + i);
+            final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"" + 1, ""value"" + i);
             cache.update(element);
         }
         SleepUtil.sleepAtLeast(500);
@@ -886,30 +886,30 @@ jcs3_322_1,"    @Test
     }
     }
 ",BasicRemoteCacheClientServerUnitTest::test4PutaMultipleAndListen_1_oe
-jcs3_322_2,"    @Test
+jcs3_327_2,"    @Test
     public void test4PutaMultipleAndListen_2_oe()
             throws Exception
     {
         // SETUP
-        MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
+        final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
-        RemoteCacheAttributes attributes = new RemoteCacheAttributes();
+        final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
         attributes.setRemoteLocation(""localhost"", remotePort);
         attributes.setLocalPort(LOCAL_PORT);
         attributes.setCacheName(""testPutaMultipleAndListen"");
 
-        RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
-        AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
+        final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
+        final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
-        MockRemoteCacheListener<String, String> listener = new MockRemoteCacheListener<>();
+        final MockRemoteCacheListener<String, String> listener = new MockRemoteCacheListener<>();
         server.addCacheListener(cache.getCacheName(), listener);
 
         // DO WORK
-        int numPutsPrior = server.getPutCount();
-        int numToPut = 100;
+        final int numPutsPrior = server.getPutCount();
+        final int numToPut = 100;
         for (int i = 0; i < numToPut; i++)
         {
-            ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"" + 1, ""value"" + i);
+            final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"" + 1, ""value"" + i);
             cache.update(element);
         }
         SleepUtil.sleepAtLeast(500);
@@ -922,30 +922,30 @@ jcs3_322_2,"    @Test
     }
     }
 ",BasicRemoteCacheClientServerUnitTest::test4PutaMultipleAndListen_2_oe
-jcs3_322_3,"    @Test
+jcs3_327_3,"    @Test
     public void test4PutaMultipleAndListen_3_oe()
             throws Exception
     {
         // SETUP
-        MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
+        final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
 
-        RemoteCacheAttributes attributes = new RemoteCacheAttributes();
+        final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
         attributes.setRemoteLocation(""localhost"", remotePort);
         attributes.setLocalPort(LOCAL_PORT);
         attributes.setCacheName(""testPutaMultipleAndListen"");
 
-        RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
-        AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
+        final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
+        final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
 
-        MockRemoteCacheListener<String, String> listener = new MockRemoteCacheListener<>();
+        final MockRemoteCacheListener<String, String> listener = new MockRemoteCacheListener<>();
         server.addCacheListener(cache.getCacheName(), listener);
 
         // DO WORK
-        int numPutsPrior = server.getPutCount();
-        int numToPut = 100;
+        final int numPutsPrior = server.getPutCount();
+        final int numToPut = 100;
         for (int i = 0; i < numToPut; i++)
         {
-            ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"" + 1, ""value"" + i);
+            final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), ""key"" + 1, ""value"" + i);
             cache.update(element);
         }
         SleepUtil.sleepAtLeast(500);
@@ -959,7 +959,7 @@ jcs3_322_3,"    @Test
     }
     }
 ",BasicRemoteCacheClientServerUnitTest::test4PutaMultipleAndListen_3_oe
-jcs3_349_1,"    @Test
+jcs3_353_1,"    @Test
     public void accessExpiry_1_oe() throws InterruptedException
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -983,7 +983,7 @@ jcs3_349_1,"    @Test
     }
     }
 ",CacheTest::accessExpiry_1_oe
-jcs3_349_2,"    @Test
+jcs3_353_2,"    @Test
     public void accessExpiry_2_oe() throws InterruptedException
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -1012,7 +1012,7 @@ jcs3_349_2,"    @Test
     }
     }
 ",CacheTest::accessExpiry_2_oe
-jcs3_349_3,"    @Test
+jcs3_353_3,"    @Test
     public void accessExpiry_3_oe() throws InterruptedException
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -1042,7 +1042,7 @@ jcs3_349_3,"    @Test
     }
     }
 ",CacheTest::accessExpiry_3_oe
-jcs3_349_4,"    @Test
+jcs3_353_4,"    @Test
     public void accessExpiry_4_oe() throws InterruptedException
     {
         final CachingProvider cachingProvider = Caching.getCachingProvider();
@@ -1074,7 +1074,7 @@ jcs3_349_4,"    @Test
     }
     }
 ",CacheTest::accessExpiry_4_oe
-jcs3_362_1,"    @Test
+jcs3_366_1,"    @Test
     public void testFilterNoOutput_1_oe() throws Exception
     {
         Empty.COUNTER.set(0);
@@ -1096,7 +1096,7 @@ jcs3_362_1,"    @Test
     }
     }
 ",JCacheFilterTest::testFilterNoOutput_1_oe
-jcs3_362_2,"    @Test
+jcs3_366_2,"    @Test
     public void testFilterNoOutput_2_oe() throws Exception
     {
         Empty.COUNTER.set(0);
@@ -1119,7 +1119,7 @@ jcs3_362_2,"    @Test
     }
     }
 ",JCacheFilterTest::testFilterNoOutput_2_oe
-jcs3_362_3,"    @Test
+jcs3_366_3,"    @Test
     public void testFilterNoOutput_3_oe() throws Exception
     {
         Empty.COUNTER.set(0);
@@ -1144,7 +1144,7 @@ jcs3_362_3,"    @Test
     }
     }
 ",JCacheFilterTest::testFilterNoOutput_3_oe
-jcs3_362_4,"    @Test
+jcs3_366_4,"    @Test
     public void testFilterNoOutput_4_oe() throws Exception
     {
         Empty.COUNTER.set(0);
@@ -1170,7 +1170,7 @@ jcs3_362_4,"    @Test
     }
     }
 ",JCacheFilterTest::testFilterNoOutput_4_oe
-jcs3_363_1,"    @Test
+jcs3_367_1,"    @Test
     public void testFilter_1_oe() throws Exception
     {
         Hello.COUNTER.set(0);
@@ -1190,7 +1190,7 @@ jcs3_363_1,"    @Test
     }
     }
 ",JCacheFilterTest::testFilter_1_oe
-jcs3_363_2,"    @Test
+jcs3_367_2,"    @Test
     public void testFilter_2_oe() throws Exception
     {
         Hello.COUNTER.set(0);
@@ -1211,7 +1211,7 @@ jcs3_363_2,"    @Test
     }
     }
 ",JCacheFilterTest::testFilter_2_oe
-jcs3_363_3,"    @Test
+jcs3_367_3,"    @Test
     public void testFilter_3_oe() throws Exception
     {
         Hello.COUNTER.set(0);
@@ -1234,7 +1234,7 @@ jcs3_363_3,"    @Test
     }
     }
 ",JCacheFilterTest::testFilter_3_oe
-jcs3_363_4,"    @Test
+jcs3_367_4,"    @Test
     public void testFilter_4_oe() throws Exception
     {
         Hello.COUNTER.set(0);
@@ -1258,7 +1258,7 @@ jcs3_363_4,"    @Test
     }
     }
 ",JCacheFilterTest::testFilter_4_oe
-jcs3_368_1,"    @Test
+jcs3_372_1,"    @Test
     public void checkOWBProvider_1_oe()
     {
         try {
@@ -1267,7 +1267,7 @@ jcs3_368_1,"    @Test
     }
     }
 ",EnsureCDIIsTestedWhenTCKsRunTest::checkOWBProvider_1_oe
-jcs3_368_2,"    @Test
+jcs3_372_2,"    @Test
     public void checkOWBProvider_2_oe()
     {
         try {

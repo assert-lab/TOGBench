@@ -71,7 +71,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestMutableDateTime_Sets_OE25Dev.class);
+        return new TestSuite(TestMutableDateTime_Sets.class);
     }
 
     public TestMutableDateTime_Sets_OE25Dev(String name) {
@@ -287,7 +287,7 @@ public class TestMutableDateTime_Sets_OE25Dev extends TestCase {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, chrono);
         test.setZoneRetainFields(PARIS);
         // removed other assertion
-        assertEquals(chrono, test.getChronology());
+        assertSame(chrono, test.getChronology());
     }
 
     public void testSetMillis_RI1_1_oe() {

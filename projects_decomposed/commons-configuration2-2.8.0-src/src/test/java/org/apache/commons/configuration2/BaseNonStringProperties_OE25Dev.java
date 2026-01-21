@@ -1,0 +1,212 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.configuration2;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Test;
+
+/**
+ * Test if non-string properties are handled correctly.
+ *
+ */
+public abstract class BaseNonStringProperties_OE25Dev {
+
+    protected NonStringTestHolder nonStringTestHolder = new NonStringTestHolder();
+
+    protected Configuration conf;
+
+    @Test
+    public void testBoolean() throws Exception {
+        nonStringTestHolder.testBoolean();
+    }
+
+    @Test
+    public void testBooleanDefaultValue() throws Exception {
+        nonStringTestHolder.testBooleanDefaultValue();
+    }
+
+    @Test
+    public void testByte() throws Exception {
+        nonStringTestHolder.testByte();
+    }
+
+    @Test
+    public void testDouble() throws Exception {
+        nonStringTestHolder.testDouble();
+    }
+
+    @Test
+    public void testDoubleDefaultValue() throws Exception {
+        nonStringTestHolder.testDoubleDefaultValue();
+    }
+
+    @Test
+    public void testFloat() throws Exception {
+        nonStringTestHolder.testFloat();
+    }
+
+    @Test
+    public void testFloatDefaultValue() throws Exception {
+        nonStringTestHolder.testFloatDefaultValue();
+
+    }
+
+    @Test
+    public void testInteger() throws Exception {
+        nonStringTestHolder.testInteger();
+    }
+
+    @Test
+    public void testIntegerDefaultValue() throws Exception {
+        nonStringTestHolder.testIntegerDefaultValue();
+    }
+
+    @Test
+    public void testIsEmpty() throws Exception {
+        nonStringTestHolder.testIsEmpty();
+    }
+
+    @Test
+    public void testListMissing() throws Exception {
+        nonStringTestHolder.testListMissing();
+    }
+
+    @Test
+    public void testLong() throws Exception {
+        nonStringTestHolder.testLong();
+    }
+
+    @Test
+    public void testLongDefaultValue() throws Exception {
+        nonStringTestHolder.testLongDefaultValue();
+    }
+
+    @Test
+    public void testShort() throws Exception {
+        nonStringTestHolder.testShort();
+    }
+
+    @Test
+    public void testShortDefaultValue() throws Exception {
+        nonStringTestHolder.testShortDefaultValue();
+    }
+
+    @Test
+    public void testSubset() throws Exception {
+        nonStringTestHolder.testSubset();
+    }
+
+    @Test
+    public void testBooleanArrayValue_1_oe() throws Exception {
+        final boolean booleanValue = conf.getBoolean("test.boolean");
+        assertTrue(booleanValue);
+    }
+
+    @Test
+    public void testBooleanArrayValue_2_oe() throws Exception {
+        final boolean booleanValue = conf.getBoolean("test.boolean");
+        // removed other assertion
+        assertEquals(2, conf.getList("test.boolean.array").size());
+    }
+
+    @Test
+    public void testByteArrayValue_1_oe() throws Exception {
+        final byte testValue = 10;
+        final byte byteValue = conf.getByte("test.byte");
+        assertEquals(testValue, byteValue);
+    }
+
+    @Test
+    public void testByteArrayValue_2_oe() throws Exception {
+        final byte testValue = 10;
+        final byte byteValue = conf.getByte("test.byte");
+        // removed other assertion
+        assertEquals(2, conf.getList("test.byte.array").size());
+    }
+
+    @Test
+    public void testDoubleArrayValue_1_oe() throws Exception {
+        final double testValue = 10.25;
+        final double doubleValue = conf.getDouble("test.double");
+        assertEquals(testValue, doubleValue, 0.01);
+    }
+
+    @Test
+    public void testDoubleArrayValue_2_oe() throws Exception {
+        final double testValue = 10.25;
+        final double doubleValue = conf.getDouble("test.double");
+        // removed other assertion
+        assertEquals(2, conf.getList("test.double.array").size());
+    }
+
+    @Test
+    public void testFloatArrayValue_1_oe() throws Exception {
+        final float testValue = (float) 20.25;
+        final float floatValue = conf.getFloat("test.float");
+        assertEquals(testValue, floatValue, 0.01);
+    }
+
+    @Test
+    public void testFloatArrayValue_2_oe() throws Exception {
+        final float testValue = (float) 20.25;
+        final float floatValue = conf.getFloat("test.float");
+        // removed other assertion
+        assertEquals(2, conf.getList("test.float.array").size());
+    }
+
+    @Test
+    public void testIntegerArrayValue_1_oe() throws Exception {
+        final int intValue = conf.getInt("test.integer");
+        assertEquals(10, intValue);
+    }
+
+    @Test
+    public void testIntegerArrayValue_2_oe() throws Exception {
+        final int intValue = conf.getInt("test.integer");
+        // removed other assertion
+        assertEquals(2, conf.getList("test.integer.array").size());
+    }
+
+    @Test
+    public void testLongArrayValue_1_oe() throws Exception {
+        final long longValue = conf.getLong("test.long");
+        assertEquals(1000000, longValue);
+    }
+
+    @Test
+    public void testLongArrayValue_2_oe() throws Exception {
+        final long longValue = conf.getLong("test.long");
+        // removed other assertion
+        assertEquals(2, conf.getList("test.long.array").size());
+    }
+
+    @Test
+    public void testShortArrayValue_1_oe() throws Exception {
+        final short shortValue = conf.getShort("test.short");
+        assertEquals(1, shortValue);
+    }
+
+    @Test
+    public void testShortArrayValue_2_oe() throws Exception {
+        final short shortValue = conf.getShort("test.short");
+        // removed other assertion
+        assertEquals(2, conf.getList("test.short.array").size());
+    }
+
+}

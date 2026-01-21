@@ -85,7 +85,7 @@ public abstract class AbstractCacheEventQueue<K, V>
      * <p>
      * @param wtdm the ms for the q to sit idle.
      */
-    public void setWaitToDieMillis( int wtdm )
+    public void setWaitToDieMillis( final int wtdm )
     {
         waitToDieMillis = wtdm;
     }
@@ -127,8 +127,8 @@ public abstract class AbstractCacheEventQueue<K, V>
      * @param maxFailure
      * @param waitBeforeRetry
      */
-    protected void initialize( ICacheListener<K, V> listener, long listenerId, String cacheName, int maxFailure,
-                            int waitBeforeRetry)
+    protected void initialize( final ICacheListener<K, V> listener, final long listenerId, final String cacheName, final int maxFailure,
+                            final int waitBeforeRetry)
     {
         if ( listener == null )
         {
@@ -152,7 +152,7 @@ public abstract class AbstractCacheEventQueue<K, V>
      * @throws IOException
      */
     @Override
-    public void addPutEvent( ICacheElement<K, V> ce )
+    public void addPutEvent( final ICacheElement<K, V> ce )
     {
         put( new PutEvent( ce ) );
     }
@@ -165,7 +165,7 @@ public abstract class AbstractCacheEventQueue<K, V>
      * @throws IOException
      */
     @Override
-    public void addRemoveEvent( K key )
+    public void addRemoveEvent( final K key )
     {
         put( new RemoveEvent( key ) );
     }
@@ -205,45 +205,40 @@ public abstract class AbstractCacheEventQueue<K, V>
      */
     protected abstract class AbstractCacheEvent implements Runnable
     {
-        /** Number of failures encountered processing this event. */
-        int failures = 0;
-
         /**
          * Main processing method for the AbstractCacheEvent object
          */
         @Override
-        @SuppressWarnings("synthetic-access")
         public void run()
         {
-            try
+            for (int failures = 0; failures < maxFailure; failures++)
             {
-                doRun();
-            }
-            catch ( IOException e )
-            {
-                log.warn( e );
-                if ( ++failures >= maxFailure )
+                try
                 {
-                    log.warn( "Error while running event from Queue: {0}. "
-                            + "Dropping Event and marking Event Queue as "
-                            + "non-functional.", this );
-                    destroy();
+                    doRun();
                     return;
                 }
-                log.info( "Error while running event from Queue: {0}. "
-                        + "Retrying...", this );
+                catch (final IOException e)
+                {
+                    log.warn("Error while running event from Queue: {0}. "
+                            + "Retrying...", this, e);
+                }
+
                 try
                 {
                     Thread.sleep( waitBeforeRetry );
-                    run();
                 }
-                catch ( InterruptedException ie )
+                catch ( final InterruptedException ie )
                 {
-                    log.warn( "Interrupted while sleeping for retry on event "
-                            + "{0}.", this );
-                    destroy();
+                    log.warn("Interrupted while sleeping for retry on event "
+                            + "{0}.", this, ie);
+                    break;
                 }
             }
+
+            log.warn( "Dropping Event and marking Event Queue {0} as "
+                    + "non-functional.", this );
+            destroy();
         }
 
         /**
@@ -269,7 +264,7 @@ public abstract class AbstractCacheEventQueue<K, V>
          * <p>
          * @param ice
          */
-        PutEvent( ICacheElement<K, V> ice )
+        PutEvent( final ICacheElement<K, V> ice )
         {
             this.ice = ice;
         }
@@ -319,7 +314,7 @@ public abstract class AbstractCacheEventQueue<K, V>
          * <p>
          * @param key
          */
-        RemoveEvent( K key )
+        RemoveEvent( final K key )
         {
             this.key = key;
         }
@@ -430,7 +425,7 @@ public abstract class AbstractCacheEventQueue<K, V>
      * <p>
      * @param b
      */
-    public void setWorking( boolean b )
+    public void setWorking( final boolean b )
     {
         working.set(b);
     }

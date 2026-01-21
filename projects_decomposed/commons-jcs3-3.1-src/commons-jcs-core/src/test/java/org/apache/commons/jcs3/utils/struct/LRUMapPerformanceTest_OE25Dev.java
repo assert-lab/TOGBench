@@ -34,10 +34,10 @@ public class LRUMapPerformanceTest_OE25Dev
     extends TestCase
 {
     /** The put put ration after the test */
-    float ratioPut = 0;
+    float ratioPut;
 
     /** The ratio after the test */
-    float ratioGet = 0;
+    float ratioGet;
 
     /** put jcs / commons ratio */
     float targetPut = 1.2f;
@@ -78,7 +78,7 @@ public class LRUMapPerformanceTest_OE25Dev
 
         try
         {
-            LRUMap<String, String> cache = new LRUMap<>( tries );
+            final LRUMap<String, String> cache = new LRUMap<>( tries );
 
             for ( int j = 0; j < loops; j++ )
             {
@@ -108,7 +108,7 @@ public class LRUMapPerformanceTest_OE25Dev
                 ///////////////////////////////////////////////////////////////
                 cache2Name = "LRUMap (commons)";
                 //or LRUMapJCS
-                Map<String, String> cache2 = new org.apache.commons.collections4.map.LRUMap<>( tries );
+                final Map<String, String> cache2 = new org.apache.commons.collections4.map.LRUMap<>( tries );
 //                Map<String, String> cache2 = new ConcurrentLinkedHashMap.Builder<String, String>()
 //                        .maximumWeightedCapacity( tries )
 //                        .build();
@@ -139,16 +139,16 @@ public class LRUMapPerformanceTest_OE25Dev
                 System.out.println( "\n" );
             }
         }
-        catch ( Exception e )
+        catch ( final Exception e )
         {
             e.printStackTrace( System.out );
             System.out.println( e );
         }
 
-        long putAvJCS = putTotalJCS / loops;
-        long getAvJCS = getTotalJCS / loops;
-        long putAvHashtable = putTotalHashtable / loops;
-        long getAvHashtable = getTotalHashtable / loops;
+        final long putAvJCS = putTotalJCS / loops;
+        final long getAvJCS = getTotalJCS / loops;
+        final long putAvHashtable = putTotalHashtable / loops;
+        final long getAvHashtable = getTotalHashtable / loops;
 
         System.out.println( "Finished " + loops + " loops of " + tries + " gets and puts" );
 

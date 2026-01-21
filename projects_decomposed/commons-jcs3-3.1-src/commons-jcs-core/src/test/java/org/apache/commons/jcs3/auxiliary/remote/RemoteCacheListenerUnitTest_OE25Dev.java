@@ -61,20 +61,20 @@ public class RemoteCacheListenerUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        IRemoteCacheAttributes irca = new RemoteCacheAttributes();
+        final IRemoteCacheAttributes irca = new RemoteCacheAttributes();
         irca.setRemoveUponRemotePut( false );
-        ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
-        RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        final RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
 
-        String cacheName = "testName";
-        String key = "key";
-        String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
-        IElementAttributes attr = new ElementAttributes();
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+        final IElementAttributes attr = new ElementAttributes();
         attr.setMaxLife(34);
 
-        IElementSerializer elementSerializer = new StandardSerializer();
+        final IElementSerializer elementSerializer = new StandardSerializer();
 
-        ICacheElementSerialized<String, String> element =
+        final ICacheElementSerialized<String, String> element =
             new CacheElementSerialized<>( cacheName, key, elementSerializer
             .serialize( value ), attr );
 
@@ -82,8 +82,8 @@ public class RemoteCacheListenerUnitTest_OE25Dev
         listener.handlePut( element );
 
         // VERIFY
-        ICache<String, String> cache = cacheMgr.getCache( cacheName );
-        ICacheElement<String, String> after = cache.get( key );
+        final ICache<String, String> cache = cacheMgr.getCache( cacheName );
+        final ICacheElement<String, String> after = cache.get( key );
 
         assertNotNull( "Should have a deserialized object.", after );
     }
@@ -92,20 +92,20 @@ public class RemoteCacheListenerUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        IRemoteCacheAttributes irca = new RemoteCacheAttributes();
+        final IRemoteCacheAttributes irca = new RemoteCacheAttributes();
         irca.setRemoveUponRemotePut( false );
-        ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
-        RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        final RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
 
-        String cacheName = "testName";
-        String key = "key";
-        String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
-        IElementAttributes attr = new ElementAttributes();
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+        final IElementAttributes attr = new ElementAttributes();
         attr.setMaxLife(34);
 
-        IElementSerializer elementSerializer = new StandardSerializer();
+        final IElementSerializer elementSerializer = new StandardSerializer();
 
-        ICacheElementSerialized<String, String> element =
+        final ICacheElementSerialized<String, String> element =
             new CacheElementSerialized<>( cacheName, key, elementSerializer
             .serialize( value ), attr );
 
@@ -113,8 +113,8 @@ public class RemoteCacheListenerUnitTest_OE25Dev
         listener.handlePut( element );
 
         // VERIFY
-        ICache<String, String> cache = cacheMgr.getCache( cacheName );
-        ICacheElement<String, String> after = cache.get( key );
+        final ICache<String, String> cache = cacheMgr.getCache( cacheName );
+        final ICacheElement<String, String> after = cache.get( key );
 
         // removed other assertion
         assertEquals( "Values should be the same.", value, after.getVal() );
@@ -124,20 +124,20 @@ public class RemoteCacheListenerUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        IRemoteCacheAttributes irca = new RemoteCacheAttributes();
+        final IRemoteCacheAttributes irca = new RemoteCacheAttributes();
         irca.setRemoveUponRemotePut( false );
-        ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
-        RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        final RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
 
-        String cacheName = "testName";
-        String key = "key";
-        String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
-        IElementAttributes attr = new ElementAttributes();
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+        final IElementAttributes attr = new ElementAttributes();
         attr.setMaxLife(34);
 
-        IElementSerializer elementSerializer = new StandardSerializer();
+        final IElementSerializer elementSerializer = new StandardSerializer();
 
-        ICacheElementSerialized<String, String> element =
+        final ICacheElementSerialized<String, String> element =
             new CacheElementSerialized<>( cacheName, key, elementSerializer
             .serialize( value ), attr );
 
@@ -145,8 +145,8 @@ public class RemoteCacheListenerUnitTest_OE25Dev
         listener.handlePut( element );
 
         // VERIFY
-        ICache<String, String> cache = cacheMgr.getCache( cacheName );
-        ICacheElement<String, String> after = cache.get( key );
+        final ICache<String, String> cache = cacheMgr.getCache( cacheName );
+        final ICacheElement<String, String> after = cache.get( key );
 
         // removed other assertion
         // removed other assertion
@@ -157,20 +157,20 @@ public class RemoteCacheListenerUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        IRemoteCacheAttributes irca = new RemoteCacheAttributes();
+        final IRemoteCacheAttributes irca = new RemoteCacheAttributes();
         irca.setRemoveUponRemotePut( false );
-        ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
-        RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        final RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
 
-        String cacheName = "testName";
-        String key = "key";
-        String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
-        IElementAttributes attr = new ElementAttributes();
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+        final IElementAttributes attr = new ElementAttributes();
         attr.setMaxLife(34);
 
-        IElementSerializer elementSerializer = new StandardSerializer();
+        final IElementSerializer elementSerializer = new StandardSerializer();
 
-        ICacheElementSerialized<String, String> element =
+        final ICacheElementSerialized<String, String> element =
             new CacheElementSerialized<>( cacheName, key, elementSerializer
             .serialize( value ), attr );
 
@@ -178,8 +178,8 @@ public class RemoteCacheListenerUnitTest_OE25Dev
         listener.handlePut( element );
 
         // VERIFY
-        ICache<String, String> cache = cacheMgr.getCache( cacheName );
-        ICacheElement<String, String> after = cache.get( key );
+        final ICache<String, String> cache = cacheMgr.getCache( cacheName );
+        final ICacheElement<String, String> after = cache.get( key );
 
         // removed other assertion
         // removed other assertion
@@ -191,20 +191,20 @@ public class RemoteCacheListenerUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        IRemoteCacheAttributes irca = new RemoteCacheAttributes();
+        final IRemoteCacheAttributes irca = new RemoteCacheAttributes();
         irca.setRemoveUponRemotePut( false );
-        ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
-        RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        final RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
 
-        String cacheName = "testName";
-        String key = "key";
-        String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
-        IElementAttributes attr = new ElementAttributes();
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+        final IElementAttributes attr = new ElementAttributes();
         attr.setMaxLife(34);
 
-        IElementSerializer elementSerializer = new StandardSerializer();
+        final IElementSerializer elementSerializer = new StandardSerializer();
 
-        ICacheElementSerialized<String, String> element =
+        final ICacheElementSerialized<String, String> element =
             new CacheElementSerialized<>( cacheName, key, elementSerializer
             .serialize( value ), attr );
 
@@ -212,8 +212,8 @@ public class RemoteCacheListenerUnitTest_OE25Dev
         listener.handlePut( element );
 
         // VERIFY
-        ICache<String, String> cache = cacheMgr.getCache( cacheName );
-        ICacheElement<String, String> after = cache.get( key );
+        final ICache<String, String> cache = cacheMgr.getCache( cacheName );
+        final ICacheElement<String, String> after = cache.get( key );
 
         // removed other assertion
         // removed other assertion
@@ -226,20 +226,20 @@ public class RemoteCacheListenerUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        IRemoteCacheAttributes irca = new RemoteCacheAttributes();
+        final IRemoteCacheAttributes irca = new RemoteCacheAttributes();
         irca.setRemoveUponRemotePut( true );
-        ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
-        RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        final RemoteCacheListener<String, String> listener = new RemoteCacheListener<>( irca, cacheMgr, new StandardSerializer() );
 
-        String cacheName = "testName";
-        String key = "key";
-        String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
-        IElementAttributes attr = new ElementAttributes();
+        final String cacheName = "testName";
+        final String key = "key";
+        final String value = "value fdsadf dsafdsa fdsaf dsafdsaf dsafdsaf dsaf dsaf dsaf dsafa dsaf dsaf dsafdsaf";
+        final IElementAttributes attr = new ElementAttributes();
         attr.setMaxLife(34);
 
-        IElementSerializer elementSerializer = new StandardSerializer();
+        final IElementSerializer elementSerializer = new StandardSerializer();
 
-        ICacheElementSerialized<String, String> element =
+        final ICacheElementSerialized<String, String> element =
             new CacheElementSerialized<>( cacheName, key, elementSerializer
             .serialize( value ), attr );
 
@@ -247,8 +247,8 @@ public class RemoteCacheListenerUnitTest_OE25Dev
         listener.handlePut( element );
 
         // VERIFY
-        ICache<String, String> cache = cacheMgr.getCache( cacheName );
-        ICacheElement<String, String> after = cache.get( key );
+        final ICache<String, String> cache = cacheMgr.getCache( cacheName );
+        final ICacheElement<String, String> after = cache.get( key );
 
         assertNull( "Should not have a deserialized object since remove on put is true.", after );
     }

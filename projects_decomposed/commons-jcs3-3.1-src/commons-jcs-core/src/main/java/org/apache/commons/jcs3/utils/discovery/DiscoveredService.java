@@ -21,6 +21,7 @@ package org.apache.commons.jcs3.utils.discovery;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * This contains info about a discovered service. These objects are stored in a set in the
@@ -44,12 +45,34 @@ public class DiscoveredService
     private int servicePort;
 
     /** last time we heard from this service? */
-    private long lastHearFromTime = 0;
+    private long lastHearFromTime;
+
+    /**
+     * Default constructor
+     */
+    public DiscoveredService()
+    {
+        // empty
+    }
+
+    /**
+     * Constructor
+     *
+     * @param message incoming message
+     * @since 3.1
+     */
+    public DiscoveredService(UDPDiscoveryMessage message)
+    {
+        setServiceAddress( message.getHost() );
+        setCacheNames( message.getCacheNames() );
+        setServicePort( message.getPort() );
+        setLastHearFromTime( System.currentTimeMillis() );
+    }
 
     /**
      * @param cacheNames the cacheNames to set
      */
-    public void setCacheNames( ArrayList<String> cacheNames )
+    public void setCacheNames( final ArrayList<String> cacheNames )
     {
         this.cacheNames = cacheNames;
     }
@@ -65,7 +88,7 @@ public class DiscoveredService
     /**
      * @param serviceAddress The serviceAddress to set.
      */
-    public void setServiceAddress( String serviceAddress )
+    public void setServiceAddress( final String serviceAddress )
     {
         this.serviceAddress = serviceAddress;
     }
@@ -81,7 +104,7 @@ public class DiscoveredService
     /**
      * @param servicePort The servicePort to set.
      */
-    public void setServicePort( int servicePort )
+    public void setServicePort( final int servicePort )
     {
         this.servicePort = servicePort;
     }
@@ -97,7 +120,7 @@ public class DiscoveredService
     /**
      * @param lastHearFromTime The lastHearFromTime to set.
      */
-    public void setLastHearFromTime( long lastHearFromTime )
+    public void setLastHearFromTime( final long lastHearFromTime )
     {
         this.lastHearFromTime = lastHearFromTime;
     }
@@ -114,12 +137,7 @@ public class DiscoveredService
 	@Override
 	public int hashCode()
 	{
-		final int prime = 31;
-		int result = 1;
-		result = prime * result
-				+ ((serviceAddress == null) ? 0 : serviceAddress.hashCode());
-		result = prime * result + servicePort;
-		return result;
+		return Objects.hash(serviceAddress, servicePort);
 	}
 
 	/**
@@ -133,7 +151,7 @@ public class DiscoveredService
      * @return equality based on the address/port
      */
 	@Override
-	public boolean equals(Object otherArg)
+	public boolean equals(final Object otherArg)
 	{
 		if (this == otherArg)
 		{
@@ -147,24 +165,13 @@ public class DiscoveredService
 		{
 			return false;
 		}
-		DiscoveredService other = (DiscoveredService) otherArg;
-		if (serviceAddress == null)
-		{
-			if (other.serviceAddress != null)
-			{
-				return false;
-			}
-		} else if (!serviceAddress.equals(other.serviceAddress))
+		final DiscoveredService other = (DiscoveredService) otherArg;
+		if (!Objects.equals(serviceAddress, other.serviceAddress))
 		{
 			return false;
 		}
-		if (servicePort != other.servicePort)
-		{
-			return false;
-		}
-
-		return true;
-	}
+        return servicePort == other.servicePort;
+    }
 
     /**
      * @return string for debugging purposes.
@@ -172,7 +179,7 @@ public class DiscoveredService
     @Override
     public String toString()
     {
-        StringBuilder buf = new StringBuilder();
+        final StringBuilder buf = new StringBuilder();
         buf.append( "\n DiscoveredService" );
         buf.append( "\n CacheNames = [" + getCacheNames() + "]" );
         buf.append( "\n ServiceAddress = [" + getServiceAddress() + "]" );

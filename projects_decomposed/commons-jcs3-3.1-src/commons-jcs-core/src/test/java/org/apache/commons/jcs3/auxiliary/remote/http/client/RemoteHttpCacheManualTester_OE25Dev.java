@@ -29,7 +29,7 @@ public class RemoteHttpCacheManualTester_OE25Dev
     extends TestCase
 {
     /** number to use for the test */
-    private static int items = 100;
+    private static final int items = 100;
 
     /**
      * Test setup
@@ -48,7 +48,7 @@ public class RemoteHttpCacheManualTester_OE25Dev
     public void testSimpleLoad_1_oe()
         throws Exception
     {
-        CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
 
         jcs.put( "TestKey", "TestValue" );
 
@@ -61,7 +61,7 @@ public class RemoteHttpCacheManualTester_OE25Dev
 
         for ( int i = items; i > 0; i-- )
         {
-            String res = jcs.get( i + ":key" );
+            final String res = jcs.get( i + ":key" );
             if ( res == null )
             {
                 //assertNotNull( "[" + i + ":key] should not be null", res );

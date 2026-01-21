@@ -96,19 +96,19 @@ public class TestGJChronology extends TestCase {
     //-----------------------------------------------------------------------
     public void testFactoryUTC() {
         assertEquals(DateTimeZone.UTC, GJChronology.getInstanceUTC().getZone());
-        assertEquals(GJChronology.class, GJChronology.getInstanceUTC().getClass());
+        assertSame(GJChronology.class, GJChronology.getInstanceUTC().getClass());
     }
 
     public void testFactory() {
         assertEquals(LONDON, GJChronology.getInstance().getZone());
-        assertEquals(GJChronology.class, GJChronology.getInstance().getClass());
+        assertSame(GJChronology.class, GJChronology.getInstance().getClass());
     }
 
     public void testFactory_Zone() {
         assertEquals(TOKYO, GJChronology.getInstance(TOKYO).getZone());
         assertEquals(PARIS, GJChronology.getInstance(PARIS).getZone());
         assertEquals(LONDON, GJChronology.getInstance(null).getZone());
-        assertEquals(GJChronology.class, GJChronology.getInstance(TOKYO).getClass());
+        assertSame(GJChronology.class, GJChronology.getInstance(TOKYO).getClass());
     }
 
     public void testFactory_Zone_long_int() {
@@ -116,7 +116,7 @@ public class TestGJChronology extends TestCase {
         assertEquals(TOKYO, chrono.getZone());
         assertEquals(new Instant(0L), chrono.getGregorianCutover());
         assertEquals(2, chrono.getMinimumDaysInFirstWeek());
-        assertEquals(GJChronology.class, GJChronology.getInstance(TOKYO, 0L, 2).getClass());
+        assertSame(GJChronology.class, GJChronology.getInstance(TOKYO, 0L, 2).getClass());
         
         try {
             GJChronology.getInstance(TOKYO, 0L, 0);
@@ -132,7 +132,7 @@ public class TestGJChronology extends TestCase {
         GJChronology chrono = GJChronology.getInstance(TOKYO, new Instant(0L));
         assertEquals(TOKYO, chrono.getZone());
         assertEquals(new Instant(0L), chrono.getGregorianCutover());
-        assertEquals(GJChronology.class, GJChronology.getInstance(TOKYO, new Instant(0L)).getClass());
+        assertSame(GJChronology.class, GJChronology.getInstance(TOKYO, new Instant(0L)).getClass());
         
         DateTime cutover = new DateTime(1582, 10, 15, 0, 0, 0, 0, DateTimeZone.UTC);
         chrono = GJChronology.getInstance(TOKYO, null);
@@ -145,7 +145,7 @@ public class TestGJChronology extends TestCase {
         assertEquals(TOKYO, chrono.getZone());
         assertEquals(new Instant(0L), chrono.getGregorianCutover());
         assertEquals(2, chrono.getMinimumDaysInFirstWeek());
-        assertEquals(GJChronology.class, GJChronology.getInstance(TOKYO, new Instant(0L), 2).getClass());
+        assertSame(GJChronology.class, GJChronology.getInstance(TOKYO, new Instant(0L), 2).getClass());
         
         DateTime cutover = new DateTime(1582, 10, 15, 0, 0, 0, 0, DateTimeZone.UTC);
         chrono = GJChronology.getInstance(TOKYO, null, 2);
@@ -165,27 +165,27 @@ public class TestGJChronology extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testEquality() {
-        assertEquals(GJChronology.getInstance(TOKYO), GJChronology.getInstance(TOKYO));
-        assertEquals(GJChronology.getInstance(LONDON), GJChronology.getInstance(LONDON));
-        assertEquals(GJChronology.getInstance(PARIS), GJChronology.getInstance(PARIS));
-        assertEquals(GJChronology.getInstanceUTC(), GJChronology.getInstanceUTC());
-        assertEquals(GJChronology.getInstance(), GJChronology.getInstance(LONDON));
+        assertSame(GJChronology.getInstance(TOKYO), GJChronology.getInstance(TOKYO));
+        assertSame(GJChronology.getInstance(LONDON), GJChronology.getInstance(LONDON));
+        assertSame(GJChronology.getInstance(PARIS), GJChronology.getInstance(PARIS));
+        assertSame(GJChronology.getInstanceUTC(), GJChronology.getInstanceUTC());
+        assertSame(GJChronology.getInstance(), GJChronology.getInstance(LONDON));
     }
 
     public void testWithUTC() {
-        assertEquals(GJChronology.getInstanceUTC(), GJChronology.getInstance(LONDON).withUTC());
-        assertEquals(GJChronology.getInstanceUTC(), GJChronology.getInstance(TOKYO).withUTC());
-        assertEquals(GJChronology.getInstanceUTC(), GJChronology.getInstanceUTC().withUTC());
-        assertEquals(GJChronology.getInstanceUTC(), GJChronology.getInstance().withUTC());
+        assertSame(GJChronology.getInstanceUTC(), GJChronology.getInstance(LONDON).withUTC());
+        assertSame(GJChronology.getInstanceUTC(), GJChronology.getInstance(TOKYO).withUTC());
+        assertSame(GJChronology.getInstanceUTC(), GJChronology.getInstanceUTC().withUTC());
+        assertSame(GJChronology.getInstanceUTC(), GJChronology.getInstance().withUTC());
     }
 
     public void testWithZone() {
-        assertEquals(GJChronology.getInstance(TOKYO), GJChronology.getInstance(TOKYO).withZone(TOKYO));
-        assertEquals(GJChronology.getInstance(LONDON), GJChronology.getInstance(TOKYO).withZone(LONDON));
-        assertEquals(GJChronology.getInstance(PARIS), GJChronology.getInstance(TOKYO).withZone(PARIS));
-        assertEquals(GJChronology.getInstance(LONDON), GJChronology.getInstance(TOKYO).withZone(null));
-        assertEquals(GJChronology.getInstance(PARIS), GJChronology.getInstance().withZone(PARIS));
-        assertEquals(GJChronology.getInstance(PARIS), GJChronology.getInstanceUTC().withZone(PARIS));
+        assertSame(GJChronology.getInstance(TOKYO), GJChronology.getInstance(TOKYO).withZone(TOKYO));
+        assertSame(GJChronology.getInstance(LONDON), GJChronology.getInstance(TOKYO).withZone(LONDON));
+        assertSame(GJChronology.getInstance(PARIS), GJChronology.getInstance(TOKYO).withZone(PARIS));
+        assertSame(GJChronology.getInstance(LONDON), GJChronology.getInstance(TOKYO).withZone(null));
+        assertSame(GJChronology.getInstance(PARIS), GJChronology.getInstance().withZone(PARIS));
+        assertSame(GJChronology.getInstance(PARIS), GJChronology.getInstanceUTC().withZone(PARIS));
     }
 
     public void testToString() {

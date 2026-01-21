@@ -1,5 +1,13 @@
 package org.apache.commons.jcs3.auxiliary.disk.block;
 
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.commons.jcs3.JCS;
+import org.apache.commons.jcs3.access.CacheAccess;
+import org.apache.commons.jcs3.engine.behavior.ICacheElement;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -23,14 +31,6 @@ import junit.extensions.ActiveTestSuite;
 import junit.framework.Test;
 import junit.framework.TestCase;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import org.apache.commons.jcs3.JCS;
-import org.apache.commons.jcs3.access.CacheAccess;
-import org.apache.commons.jcs3.engine.behavior.ICacheElement;
-
 /**
  * Test which exercises the block disk cache. This one uses three different
  * regions for three threads.
@@ -42,7 +42,7 @@ public class BlockDiskCacheConcurrentUnitTest
      * Number of items to cache, twice the configured maxObjects for the memory
      * cache regions.
      */
-    private static int items = 200;
+    private static final int items = 200;
 
     /**
      * Constructor for the TestDiskCache object.
@@ -50,21 +50,10 @@ public class BlockDiskCacheConcurrentUnitTest
      * @param testName
      * @throws Exception
      */
-    public BlockDiskCacheConcurrentUnitTest( String testName )
+    public BlockDiskCacheConcurrentUnitTest( final String testName )
         throws Exception
     {
         super( testName );
-    }
-
-    /**
-     * Main method passes this test to the text test runner.
-     *
-     * @param args
-     */
-    public static void main( String args[] )
-    {
-        String[] testCaseName = { BlockDiskCacheConcurrentUnitTest.class.getName() };
-        junit.textui.TestRunner.main( testCaseName );
     }
 
     /**
@@ -76,7 +65,7 @@ public class BlockDiskCacheConcurrentUnitTest
     public static Test suite()
         throws Exception
     {
-        ActiveTestSuite suite = new ActiveTestSuite();
+        final ActiveTestSuite suite = new ActiveTestSuite();
 
         JCS.setConfigFilename( "/TestBlockDiskCache.ccf" );
         JCS.getInstance( "indexedRegion1" ).clear();
@@ -145,49 +134,49 @@ public class BlockDiskCacheConcurrentUnitTest
      * @throws Exception
      *                If an error occurs
      */
-    public void runTestForRegion( String region )
+    public void runTestForRegion( final String region )
         throws Exception
     {
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
         // Add items to cache
-        for ( int i = 0; i <= items; i++ )
+        for ( int i = 0; i < items; i++ )
         {
             jcs.put( i + ":key", region + " data " + i );
         }
 
         // Test that all items are in cache
-        for ( int i = 0; i <= items; i++ )
+        for ( int i = 0; i < items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
 
             assertEquals( region + " data " + i, value );
         }
 
         // Test that getElements returns all the expected values
-        Set<String> keys = new HashSet<>();
-        for ( int i = 0; i <= items; i++ )
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
         {
             keys.add( i + ":key" );
         }
 
-        Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
-        for ( int i = 0; i <= items; i++ )
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i < items; i++ )
         {
-            ICacheElement<String, String> element = elements.get( i + ":key" );
+            final ICacheElement<String, String> element = elements.get( i + ":key" );
             assertNotNull( "element " + i + ":key is missing", element );
             assertEquals( "value " + i + ":key", region + " data " + i, element.getVal() );
         }
 
         // Remove all the items
-        for ( int i = 0; i <= items; i++ )
+        for ( int i = 0; i < items; i++ )
         {
             jcs.remove( i + ":key" );
         }
 
         // Verify removal
         // another thread may have inserted since
-        for ( int i = 0; i <= items; i++ )
+        for ( int i = 0; i < items; i++ )
         {
             assertNull( "Removed key should be null: " + i + ":key" + "\n stats " + jcs.getStats(), jcs
                 .get( i + ":key" ) );
@@ -206,42 +195,42 @@ public class BlockDiskCacheConcurrentUnitTest
      * @throws Exception
      *                If an error occurs
      */
-    public void runTestForRegionInRange( String region, int start, int end )
+    public void runTestForRegionInRange( final String region, final int start, final int end )
         throws Exception
     {
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
         // Add items to cache
-        for ( int i = start; i <= end; i++ )
+        for ( int i = start; i < end; i++ )
         {
             jcs.put( i + ":key", region + " data " + i );
         }
 
         // Test that all items are in cache
-        for ( int i = start; i <= end; i++ )
+        for ( int i = start; i < end; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
 
             assertEquals( region + " data " + i, value );
         }
 
         // Test that getElements returns all the expected values
-        Set<String> keys = new HashSet<>();
-        for ( int i = start; i <= end; i++ )
+        final Set<String> keys = new HashSet<>();
+        for ( int i = start; i < end; i++ )
         {
             keys.add( i + ":key" );
         }
 
-        Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
-        for ( int i = start; i <= end; i++ )
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = start; i < end; i++ )
         {
-            ICacheElement<String, String> element = elements.get( i + ":key" );
+            final ICacheElement<String, String> element = elements.get( i + ":key" );
             assertNotNull( "element " + i + ":key is missing", element );
             assertEquals( "value " + i + ":key", region + " data " + i, element.getVal() );
         }
 
         // Remove all the items
-        for ( int i = start; i <= end; i++ )
+        for ( int i = start; i < end; i++ )
         {
             jcs.remove( i + ":key" );
         }
@@ -250,7 +239,7 @@ public class BlockDiskCacheConcurrentUnitTest
 
         // Verify removal
         // another thread may have inserted since
-        for ( int i = start; i <= end; i++ )
+        for ( int i = start; i < end; i++ )
         {
             assertNull( "Removed key should be null: " + i + ":key " + "\n stats " + jcs.getStats(), jcs.get( i
                 + ":key" ) );

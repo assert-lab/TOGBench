@@ -67,7 +67,7 @@ public class TCPLateralCacheAttributes
     private String tcpServer = "";
 
     /** The port */
-    private int tcpListenerPort = 0;
+    private int tcpListenerPort;
 
     /** The host */
     private String tcpListenerHost = "";
@@ -80,6 +80,9 @@ public class TCPLateralCacheAttributes
 
     /** discovery switch */
     private boolean udpDiscoveryEnabled = DEFAULT_UDP_DISCOVERY_ENABLED;
+
+    /** udp datagram TTL */
+    private int udpTTL = 0;
 
     /** can we put */
     private boolean allowPut = DEFAULT_ALLOW_GET;
@@ -105,7 +108,7 @@ public class TCPLateralCacheAttributes
      * @param val The new tcpServer value
      */
     @Override
-    public void setTcpServer( String val )
+    public void setTcpServer( final String val )
     {
         this.tcpServer = val;
     }
@@ -127,7 +130,7 @@ public class TCPLateralCacheAttributes
      * @param val The new tcpServers value
      */
     @Override
-    public void setTcpServers( String val )
+    public void setTcpServers( final String val )
     {
         this.tcpServers = val;
     }
@@ -149,7 +152,7 @@ public class TCPLateralCacheAttributes
      * @param val The new tcpListenerPort value
      */
     @Override
-    public void setTcpListenerPort( int val )
+    public void setTcpListenerPort( final int val )
     {
         this.tcpListenerPort = val;
     }
@@ -172,7 +175,7 @@ public class TCPLateralCacheAttributes
      *            The new tcpListenerHost value
      */
     @Override
-    public void setTcpListenerHost( String val )
+    public void setTcpListenerHost( final String val )
     {
         this.tcpListenerHost = val;
     }
@@ -195,7 +198,7 @@ public class TCPLateralCacheAttributes
      * @param udpDiscoveryEnabled The udpDiscoveryEnabled to set.
      */
     @Override
-    public void setUdpDiscoveryEnabled( boolean udpDiscoveryEnabled )
+    public void setUdpDiscoveryEnabled( final boolean udpDiscoveryEnabled )
     {
         this.udpDiscoveryEnabled = udpDiscoveryEnabled;
     }
@@ -228,7 +231,7 @@ public class TCPLateralCacheAttributes
      * @param udpDiscoveryPort The udpDiscoveryPort to set.
      */
     @Override
-    public void setUdpDiscoveryPort( int udpDiscoveryPort )
+    public void setUdpDiscoveryPort( final int udpDiscoveryPort )
     {
         this.udpDiscoveryPort = udpDiscoveryPort;
     }
@@ -250,9 +253,33 @@ public class TCPLateralCacheAttributes
      * @param udpDiscoveryAddr The udpDiscoveryAddr to set.
      */
     @Override
-    public void setUdpDiscoveryAddr( String udpDiscoveryAddr )
+    public void setUdpDiscoveryAddr( final String udpDiscoveryAddr )
     {
         this.udpDiscoveryAddr = udpDiscoveryAddr;
+    }
+
+    /**
+     * The time-to-live for the UDP multicast packets
+     * <p>
+     * @return Returns the udpTTL.
+     * @since 3.1
+     */
+    @Override
+    public int getUdpTTL()
+    {
+        return udpTTL;
+    }
+
+    /**
+     * Sets the time-to-live for the UDP multicast packet
+     * <p>
+     * @param udpTTL The udpTTL to set.
+     * @since 3.1
+     */
+    @Override
+    public void setUdpTTL( final int udpTTL )
+    {
+        this.udpTTL = udpTTL;
     }
 
     /**
@@ -263,7 +290,7 @@ public class TCPLateralCacheAttributes
      * @param allowGet
      */
     @Override
-    public void setAllowGet( boolean allowGet )
+    public void setAllowGet( final boolean allowGet )
     {
         this.allowGet = allowGet;
     }
@@ -285,7 +312,7 @@ public class TCPLateralCacheAttributes
      * @param allowPut
      */
     @Override
-    public void setAllowPut( boolean allowPut )
+    public void setAllowPut( final boolean allowPut )
     {
         this.allowPut = allowPut;
     }
@@ -309,7 +336,7 @@ public class TCPLateralCacheAttributes
      * @param issueRemoveOnPut
      */
     @Override
-    public void setIssueRemoveOnPut( boolean issueRemoveOnPut )
+    public void setIssueRemoveOnPut( final boolean issueRemoveOnPut )
     {
         this.issueRemoveOnPut = issueRemoveOnPut;
     }
@@ -352,7 +379,7 @@ public class TCPLateralCacheAttributes
      * @param filter
      */
     @Override
-    public void setFilterRemoveByHashCode( boolean filter )
+    public void setFilterRemoveByHashCode( final boolean filter )
     {
         this.filterRemoveByHashCode = filter;
     }
@@ -361,7 +388,7 @@ public class TCPLateralCacheAttributes
      * @param socketTimeOut the socketTimeOut to set
      */
     @Override
-    public void setSocketTimeOut( int socketTimeOut )
+    public void setSocketTimeOut( final int socketTimeOut )
     {
         this.socketTimeOut = socketTimeOut;
     }
@@ -379,7 +406,7 @@ public class TCPLateralCacheAttributes
      * @param openTimeOut the openTimeOut to set
      */
     @Override
-    public void setOpenTimeOut( int openTimeOut )
+    public void setOpenTimeOut( final int openTimeOut )
     {
         this.openTimeOut = openTimeOut;
     }

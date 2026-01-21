@@ -69,11 +69,11 @@ public class HSQLDiskCacheUnitTest_OE25Dev
     public void testBasicPutRemove_1_oe()
         throws Exception
     {
-        int items = 20;
+        final int items = 20;
 
-        String region = "testBasicPutRemove";
+        final String region = "testBasicPutRemove";
 
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
         // Add items to cache
         for ( int i = 0; i <= items; i++ )
@@ -84,7 +84,7 @@ public class HSQLDiskCacheUnitTest_OE25Dev
         // Test that all items are in cache
         for ( int i = 0; i <= items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
             assertEquals( "key = [" + i + ":key] value = [" + value + "]", region + " data " + i, value );
     }
     }
@@ -92,11 +92,11 @@ public class HSQLDiskCacheUnitTest_OE25Dev
     public void testBasicPutRemove_2_oe()
         throws Exception
     {
-        int items = 20;
+        final int items = 20;
 
-        String region = "testBasicPutRemove";
+        final String region = "testBasicPutRemove";
 
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
         // Add items to cache
         for ( int i = 0; i <= items; i++ )
@@ -107,21 +107,21 @@ public class HSQLDiskCacheUnitTest_OE25Dev
         // Test that all items are in cache
         for ( int i = 0; i <= items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
             // removed other assertion
         }
 
         // Test that getElements returns all the expected values
-        Set<String> keys = new HashSet<>();
+        final Set<String> keys = new HashSet<>();
         for ( int i = 0; i <= items; i++ )
         {
             keys.add( i + ":key" );
         }
 
-        Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
         for ( int i = 0; i <= items; i++ )
         {
-            ICacheElement<String, String> element = elements.get( i + ":key" );
+            final ICacheElement<String, String> element = elements.get( i + ":key" );
             assertNotNull( "element " + i + ":key is missing", element );
     }
     }
@@ -129,11 +129,11 @@ public class HSQLDiskCacheUnitTest_OE25Dev
     public void testBasicPutRemove_3_oe()
         throws Exception
     {
-        int items = 20;
+        final int items = 20;
 
-        String region = "testBasicPutRemove";
+        final String region = "testBasicPutRemove";
 
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
         // Add items to cache
         for ( int i = 0; i <= items; i++ )
@@ -144,21 +144,21 @@ public class HSQLDiskCacheUnitTest_OE25Dev
         // Test that all items are in cache
         for ( int i = 0; i <= items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
             // removed other assertion
         }
 
         // Test that getElements returns all the expected values
-        Set<String> keys = new HashSet<>();
+        final Set<String> keys = new HashSet<>();
         for ( int i = 0; i <= items; i++ )
         {
             keys.add( i + ":key" );
         }
 
-        Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
         for ( int i = 0; i <= items; i++ )
         {
-            ICacheElement<String, String> element = elements.get( i + ":key" );
+            final ICacheElement<String, String> element = elements.get( i + ":key" );
             // removed other assertion
             assertEquals( "value " + i + ":key", region + " data " + i, element.getVal() );
     }
@@ -167,11 +167,11 @@ public class HSQLDiskCacheUnitTest_OE25Dev
     public void testBasicPutRemove_4_oe()
         throws Exception
     {
-        int items = 20;
+        final int items = 20;
 
-        String region = "testBasicPutRemove";
+        final String region = "testBasicPutRemove";
 
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
         // Add items to cache
         for ( int i = 0; i <= items; i++ )
@@ -182,21 +182,21 @@ public class HSQLDiskCacheUnitTest_OE25Dev
         // Test that all items are in cache
         for ( int i = 0; i <= items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
             // removed other assertion
         }
 
         // Test that getElements returns all the expected values
-        Set<String> keys = new HashSet<>();
+        final Set<String> keys = new HashSet<>();
         for ( int i = 0; i <= items; i++ )
         {
             keys.add( i + ":key" );
         }
 
-        Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
         for ( int i = 0; i <= items; i++ )
         {
-            ICacheElement<String, String> element = elements.get( i + ":key" );
+            final ICacheElement<String, String> element = elements.get( i + ":key" );
             // removed other assertion
             // removed other assertion
         }
@@ -217,10 +217,10 @@ public class HSQLDiskCacheUnitTest_OE25Dev
     public void testRemoveAll_1_oe()
         throws CacheException, InterruptedException
     {
-        String region = "removeAllAllowed";
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String region = "removeAllAllowed";
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
-        int items = 20;
+        final int items = 20;
 
         // Add items to cache
         for ( int i = 0; i <= items; i++ )
@@ -241,7 +241,7 @@ public class HSQLDiskCacheUnitTest_OE25Dev
 
         for ( int i = 0; i <= items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
             assertNull( "value should be null key = [" + i + ":key] value = [" + value + "]", value );
     }
     }
@@ -249,10 +249,10 @@ public class HSQLDiskCacheUnitTest_OE25Dev
     public void testRemoveAllProhibition_1_oe()
         throws CacheException, InterruptedException
     {
-        String region = "noRemoveAll";
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String region = "noRemoveAll";
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
-        int items = 20;
+        final int items = 20;
 
         // Add items to cache
         for ( int i = 0; i <= items; i++ )
@@ -267,7 +267,7 @@ public class HSQLDiskCacheUnitTest_OE25Dev
 
         for ( int i = 0; i <= items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
             assertEquals( "key = [" + i + ":key] value = [" + value + "]", region + " data " + i, value );
     }
     }

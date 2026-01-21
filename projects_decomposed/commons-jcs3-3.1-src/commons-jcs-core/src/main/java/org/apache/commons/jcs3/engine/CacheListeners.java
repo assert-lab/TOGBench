@@ -43,7 +43,7 @@ public class CacheListeners<K, V>
      * <p>
      * @param cache
      */
-    public CacheListeners( ICache<K, V> cache )
+    public CacheListeners( final ICache<K, V> cache )
     {
         if ( cache == null )
         {
@@ -56,24 +56,14 @@ public class CacheListeners<K, V>
     @Override
     public String toString()
     {
-        StringBuilder buffer = new StringBuilder();
+        final StringBuilder buffer = new StringBuilder();
         buffer.append( "\n CacheListeners" );
-        if ( cache != null )
-        {
-            buffer.append( "\n Region = " + cache.getCacheName() );
-        }
-        if ( eventQMap != null )
-        {
-            buffer.append( "\n Event Queue Map " );
-            buffer.append( "\n size = " + eventQMap.size() );
-            eventQMap.forEach((key, value)
-                    -> buffer.append( "\n Entry: key: ").append(key)
-                        .append(", value: ").append(value));
-        }
-        else
-        {
-            buffer.append( "\n No Listeners. " );
-        }
+        buffer.append( "\n Region = " + cache.getCacheName() );
+        buffer.append( "\n Event Queue Map " );
+        buffer.append( "\n size = " + eventQMap.size() );
+        eventQMap.forEach((key, value)
+                -> buffer.append( "\n Entry: key: ").append(key)
+                    .append(", value: ").append(value));
         return buffer.toString();
     }
 }

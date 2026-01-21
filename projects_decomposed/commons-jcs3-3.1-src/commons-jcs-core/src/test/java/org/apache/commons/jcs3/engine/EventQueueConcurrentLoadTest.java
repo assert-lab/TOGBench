@@ -38,37 +38,27 @@ public class EventQueueConcurrentLoadTest
     extends TestCase
 {
     /** The queue implementation */
-    private static CacheEventQueue<String, String> queue = null;
+    private static CacheEventQueue<String, String> queue;
 
     /** The mock listener */
-    private static CacheListenerImpl<String, String> listen = null;
+    private static CacheListenerImpl<String, String> listen;
 
     /** max failure setting */
-    private final int maxFailure = 3;
+    private static final int maxFailure = 3;
 
     /** time to wait before retrying on failure. */
-    private final int waitBeforeRetry = 100;
+    private static final int waitBeforeRetry = 100;
 
     /** very small idle time */
-    private final int idleTime = 2;
+    private static final int idleTime = 2;
 
     /**
      * Constructor for the TestDiskCache object.
      * @param testName
      */
-    public EventQueueConcurrentLoadTest( String testName )
+    public EventQueueConcurrentLoadTest( final String testName )
     {
         super( testName );
-    }
-
-    /**
-     * Main method passes this test to the text test runner.
-     * @param args
-     */
-    public static void main( String args[] )
-    {
-        String[] testCaseName = { EventQueueConcurrentLoadTest.class.getName() };
-        junit.textui.TestRunner.main( testCaseName );
     }
 
     /**
@@ -77,7 +67,7 @@ public class EventQueueConcurrentLoadTest
      */
     public static Test suite()
     {
-        ActiveTestSuite suite = new ActiveTestSuite();
+        final ActiveTestSuite suite = new ActiveTestSuite();
 
         suite.addTest( new EventQueueConcurrentLoadTest( "testRunPutTest1" )
         {
@@ -160,12 +150,12 @@ public class EventQueueConcurrentLoadTest
      * @param expectedPutCount
      * @throws Exception
      */
-    public void runPutTest( int end, int expectedPutCount )
+    public void runPutTest( final int end, final int expectedPutCount )
         throws Exception
     {
         for ( int i = 0; i <= end; i++ )
         {
-            CacheElement<String, String> elem = new CacheElement<>( "testCache1", i + ":key", i + "data" );
+            final CacheElement<String, String> elem = new CacheElement<>( "testCache1", i + ":key", i + "data" );
             queue.addPutEvent( elem );
         }
 
@@ -191,7 +181,7 @@ public class EventQueueConcurrentLoadTest
      * @param end
      * @throws Exception
      */
-    public void runRemoveTest( int end )
+    public void runRemoveTest( final int end )
         throws Exception
     {
         for ( int i = 0; i <= end; i++ )
@@ -207,7 +197,7 @@ public class EventQueueConcurrentLoadTest
      * @param expectedPutCount
      * @throws Exception
      */
-    public void runPutDelayTest( int end, int expectedPutCount )
+    public void runPutDelayTest( final int end, final int expectedPutCount )
         throws Exception
     {
         while ( !queue.isEmpty() )
@@ -221,7 +211,7 @@ public class EventQueueConcurrentLoadTest
         System.out.println( "queue is empty, begin" );
 
         // get it going
-        CacheElement<String, String> elem = new CacheElement<>( "testCache1", "a:key", "adata" );
+        final CacheElement<String, String> elem = new CacheElement<>( "testCache1", "a:key", "adata" );
         queue.addPutEvent( elem );
 
         for ( int i = 0; i <= end; i++ )
@@ -237,7 +227,7 @@ public class EventQueueConcurrentLoadTest
                     this.wait( idleTime / 2 );
                 }
             }
-            CacheElement<String, String> elem2 = new CacheElement<>( "testCache1", i + ":key", i + "data" );
+            final CacheElement<String, String> elem2 = new CacheElement<>( "testCache1", i + ":key", i + "data" );
             queue.addPutEvent( elem2 );
         }
 
@@ -269,19 +259,19 @@ public class EventQueueConcurrentLoadTest
         /**
          * <code>putCount</code>
          */
-        protected int putCount = 0;
+        protected int putCount;
 
         /**
          * <code>removeCount</code>
          */
-        protected int removeCount = 0;
+        protected int removeCount;
 
         /**
          * @param item
          * @throws IOException
          */
         @Override
-        public void handlePut( ICacheElement<K, V> item )
+        public void handlePut( final ICacheElement<K, V> item )
             throws IOException
         {
             synchronized ( this )
@@ -296,7 +286,7 @@ public class EventQueueConcurrentLoadTest
          * @throws IOException
          */
         @Override
-        public void handleRemove( String cacheName, K key )
+        public void handleRemove( final String cacheName, final K key )
             throws IOException
         {
             synchronized ( this )
@@ -311,7 +301,7 @@ public class EventQueueConcurrentLoadTest
          * @throws IOException
          */
         @Override
-        public void handleRemoveAll( String cacheName )
+        public void handleRemoveAll( final String cacheName )
             throws IOException
         {
             // TODO Auto-generated method stub
@@ -323,7 +313,7 @@ public class EventQueueConcurrentLoadTest
          * @throws IOException
          */
         @Override
-        public void handleDispose( String cacheName )
+        public void handleDispose( final String cacheName )
             throws IOException
         {
             // TODO Auto-generated method stub
@@ -335,7 +325,7 @@ public class EventQueueConcurrentLoadTest
          * @throws IOException
          */
         @Override
-        public void setListenerId( long id )
+        public void setListenerId( final long id )
             throws IOException
         {
             // TODO Auto-generated method stub

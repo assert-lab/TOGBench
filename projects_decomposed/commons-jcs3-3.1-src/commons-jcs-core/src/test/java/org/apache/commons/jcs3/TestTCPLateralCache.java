@@ -38,14 +38,14 @@ public class TestTCPLateralCache
      * Number of items to cache, twice the configured maxObjects for the memory
      * cache regions.
      */
-    private static int items = 200;
+    private static final int items = 200;
 
     /**
      * Constructor for the TestTCPLateralCache object.
      *
      * @param testName
      */
-    public TestTCPLateralCache( String testName )
+    public TestTCPLateralCache( final String testName )
     {
         super( testName );
     }
@@ -57,7 +57,7 @@ public class TestTCPLateralCache
      */
     public static Test suite()
     {
-        ActiveTestSuite suite = new ActiveTestSuite();
+        final ActiveTestSuite suite = new ActiveTestSuite();
 
         suite.addTest( new TestTCPLateralCache( "testTcpRegion1_no_receiver" )
         {
@@ -107,10 +107,10 @@ public class TestTCPLateralCache
      * @throws Exception
      *                If an error occurs
      */
-    public void runTestForRegion( String region )
+    public void runTestForRegion( final String region )
         throws Exception
     {
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
         // Add items to cache
 
@@ -123,7 +123,7 @@ public class TestTCPLateralCache
 
         for ( int i = 0; i <= items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
 
             assertEquals( region + " data " + i, value );
         }

@@ -45,12 +45,12 @@ public class JCSWorkerUnitTest_OE25Dev
     public void testSimpleGet_1_oe()
         throws Exception
     {
-        JCSWorker<String, Long> cachingWorker = new JCSWorker<>( "example region" );
+        final JCSWorker<String, Long> cachingWorker = new JCSWorker<>( "example region" );
 
         // This is the helper.
-        JCSWorkerHelper<Long> helper = new AbstractJCSWorkerHelper<Long>()
+        final JCSWorkerHelper<Long> helper = new AbstractJCSWorkerHelper<Long>()
         {
-            int timesCalled = 0;
+            int timesCalled;
 
             @Override
             public Long doWork()
@@ -59,21 +59,21 @@ public class JCSWorkerUnitTest_OE25Dev
             }
         };
 
-        String key = "abc";
+        final String key = "abc";
 
-        Long result = cachingWorker.getResult( key, helper );
+        final Long result = cachingWorker.getResult( key, helper );
         assertEquals( "Called the wrong number of times", Long.valueOf( 1 ), result );
     }
 
     public void testSimpleGet_2_oe()
         throws Exception
     {
-        JCSWorker<String, Long> cachingWorker = new JCSWorker<>( "example region" );
+        final JCSWorker<String, Long> cachingWorker = new JCSWorker<>( "example region" );
 
         // This is the helper.
-        JCSWorkerHelper<Long> helper = new AbstractJCSWorkerHelper<Long>()
+        final JCSWorkerHelper<Long> helper = new AbstractJCSWorkerHelper<Long>()
         {
-            int timesCalled = 0;
+            int timesCalled;
 
             @Override
             public Long doWork()
@@ -82,13 +82,13 @@ public class JCSWorkerUnitTest_OE25Dev
             }
         };
 
-        String key = "abc";
+        final String key = "abc";
 
-        Long result = cachingWorker.getResult( key, helper );
+        final Long result = cachingWorker.getResult( key, helper );
         // removed other assertion
 
         // should get it from the cache.
-        Long result2 = cachingWorker.getResult( key, helper );
+        final Long result2 = cachingWorker.getResult( key, helper );
         assertEquals( "Called the wrong number of times", Long.valueOf( 1 ), result2 );
     }
 

@@ -32,7 +32,7 @@ public class ZeroSizeCacheUnitTest_OE25Dev
     extends TestCase
 {
     /** number to get each loop */
-    private static int items = 20000;
+    private static final int items = 20000;
 
     /**
      * Test setup
@@ -57,7 +57,7 @@ public class ZeroSizeCacheUnitTest_OE25Dev
     public void testPutGetRemove_1_oe()
         throws Exception
     {
-        CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
 
         for ( int i = 0; i <= items; i++ )
         {
@@ -67,7 +67,7 @@ public class ZeroSizeCacheUnitTest_OE25Dev
         // all the gets should be null
         for ( int i = items; i >= 0; i-- )
         {
-            String res = jcs.get( i + ":key" );
+            final String res = jcs.get( i + ":key" );
             assertNull( "[" + i + ":key] should be null", res );
     }
     }
@@ -75,7 +75,7 @@ public class ZeroSizeCacheUnitTest_OE25Dev
     public void testPutGetRemove_2_oe()
         throws Exception
     {
-        CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
 
         for ( int i = 0; i <= items; i++ )
         {
@@ -85,7 +85,7 @@ public class ZeroSizeCacheUnitTest_OE25Dev
         // all the gets should be null
         for ( int i = items; i >= 0; i-- )
         {
-            String res = jcs.get( i + ":key" );
+            final String res = jcs.get( i + ":key" );
             // removed other assertion
         }
 
@@ -103,7 +103,7 @@ public class ZeroSizeCacheUnitTest_OE25Dev
 
         for ( int i = items; i >= 0; i-- )
         {
-            String res = jcs.get( i + ":key" );
+            final String res = jcs.get( i + ":key" );
             assertNull( "[" + i + ":key] should be null", res );
     }
     }

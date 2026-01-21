@@ -51,7 +51,7 @@ public class TestReadablePeriodConverter_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestReadablePeriodConverter_OE25Dev.class);
+        return new TestSuite(TestReadablePeriodConverter.class);
     }
 
     public TestReadablePeriodConverter_OE25Dev(String name) {

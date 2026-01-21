@@ -32,7 +32,7 @@ public class TestDurationField_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDurationField_OE25Dev.class);
+        return new TestSuite(TestDurationField.class);
     }
 
     public TestDurationField_OE25Dev(String name) {

@@ -39,7 +39,7 @@ public class RemoteUtilsUnitTest_OE25Dev
 
     public void testCreateRegistry_1_oe()
     {
-        Registry registry = RemoteUtils.createRegistry( 1102 );
+        final Registry registry = RemoteUtils.createRegistry( 1102 );
         assertNotNull("Registry should not be null", registry);
     }
 

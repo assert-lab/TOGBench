@@ -8062,7 +8062,21 @@ spark_72_5,"    @Test
         assertEquals(""Should return trustStorePassword from SslStores"", ""truststorepassword"", sslStores.trustStorePassword());
     }
 ",ServiceTest::testSecure_thenReturnNewSslStores_5_oe
-spark_73_2,"    @Test
+spark_73_1,"    @Test
+    public void awaitStopBlocksUntilExtinguished_1_oe() {
+        Service service = Service.ignite();
+        Routes routes = Mockito.mock(Routes.class);
+        EmbeddedServer server = Mockito.mock(EmbeddedServer.class);
+        service.routes = routes;
+        service.server = server;
+        service.initialized = true;
+        service.stop();
+        service.awaitStop();
+        Mockito.verify(server).extinguish();
+        assertFalse(service.initialized);
+    }
+",ServiceTest::awaitStopBlocksUntilExtinguished_1_oe
+spark_74_2,"    @Test
     public void testSession_whenHttpSessionIsNull_thenThrowException_2_oe() {
 
         try {
@@ -8076,7 +8090,7 @@ spark_73_2,"    @Test
     }
     }
 ",SessionTest::testSession_whenHttpSessionIsNull_thenThrowException_2_oe
-spark_74_2,"    @Test
+spark_75_2,"    @Test
     public void testSession_whenRequestIsNull_thenThrowException_2_oe() {
 
         try {
@@ -8090,20 +8104,20 @@ spark_74_2,"    @Test
     }
     }
 ",SessionTest::testSession_whenRequestIsNull_thenThrowException_2_oe
-spark_75_1,"    @Test
+spark_76_1,"    @Test
     public void testSession_1_oe() {
 
         HttpSession internalSession = Whitebox.getInternalState(session, ""session"");
         assertEquals(""Internal session should be set to the http session provided during instantiation"", httpSession, internalSession);
     }
 ",SessionTest::testSession_1_oe
-spark_76_1,"    @Test
+spark_77_1,"    @Test
     public void testRaw_1_oe() {
 
         assertEquals(""Should return the HttpSession provided during instantiation"", httpSession, session.raw());
     }
 ",SessionTest::testRaw_1_oe
-spark_77_1,"    @Test
+spark_78_1,"    @Test
     public void testAttribute_whenAttributeIsRetrieved_1_oe() {
 
         when(httpSession.getAttribute(""name"")).thenReturn(""Jett"");
@@ -8111,7 +8125,7 @@ spark_77_1,"    @Test
         assertEquals(""Should return attribute from HttpSession"", ""Jett"", session.attribute(""name""));
     }
 ",SessionTest::testAttribute_whenAttributeIsRetrieved_1_oe
-spark_78_1,"    @Test
+spark_79_1,"    @Test
     public void testAttributes_1_oe() {
 
         Set<String> attributes = new HashSet<>(Arrays.asList(""name"", ""location""));
@@ -8121,7 +8135,7 @@ spark_78_1,"    @Test
         assertEquals(""Should return attributes from the HttpSession"", attributes, session.attributes());
     }
 ",SessionTest::testAttributes_1_oe
-spark_79_1,"    @Test
+spark_80_1,"    @Test
     public void testCreationTime_1_oe() {
 
         when(httpSession.getCreationTime()).thenReturn(10000000l);
@@ -8129,7 +8143,7 @@ spark_79_1,"    @Test
         assertEquals(""Should return creationTime from HttpSession"", 10000000l, session.creationTime());
     }
 ",SessionTest::testCreationTime_1_oe
-spark_80_1,"    @Test
+spark_81_1,"    @Test
     public void testId_1_oe() {
 
         when(httpSession.getId()).thenReturn(""id"");
@@ -8137,7 +8151,7 @@ spark_80_1,"    @Test
         assertEquals(""Should return session id from HttpSession"", ""id"", session.id());
     }
 ",SessionTest::testId_1_oe
-spark_81_1,"    @Test
+spark_82_1,"    @Test
     public void testLastAccessedTime_1_oe() {
 
         when(httpSession.getLastAccessedTime()).thenReturn(20000000l);
@@ -8145,7 +8159,7 @@ spark_81_1,"    @Test
         assertEquals(""Should return lastAccessedTime from HttpSession"", 20000000l, session.lastAccessedTime());
     }
 ",SessionTest::testLastAccessedTime_1_oe
-spark_82_1,"    @Test
+spark_83_1,"    @Test
     public void testMaxInactiveInterval_whenRetrieved_1_oe() {
 
         when(httpSession.getMaxInactiveInterval()).thenReturn(100);
@@ -8153,7 +8167,7 @@ spark_82_1,"    @Test
         assertEquals(""Should return maxInactiveInterval from HttpSession"", 100, session.maxInactiveInterval());
     }
 ",SessionTest::testMaxInactiveInterval_whenRetrieved_1_oe
-spark_83_1,"    @Test
+spark_84_1,"    @Test
     public void testIsNew_1_oe() {
 
         when(httpSession.isNew()).thenReturn(true);
@@ -8161,7 +8175,7 @@ spark_83_1,"    @Test
         assertEquals(""Should return isNew status from HttpSession"", true, session.isNew());
     }
 ",SessionTest::testIsNew_1_oe
-spark_84_1,"    @Test
+spark_85_1,"    @Test
     public void testGetInstance_whenDefaultInstanceIsNull_1_oe() {
         //given
         ExceptionMapper exceptionMapper = null;
@@ -8172,7 +8186,7 @@ spark_84_1,"    @Test
         assertEquals(""Should be equals because ExceptionMapper is a singleton"", Whitebox.getInternalState(ExceptionMapper.class, ""servletInstance""), exceptionMapper);
     }
 ",ExceptionMapperTest::testGetInstance_whenDefaultInstanceIsNull_1_oe
-spark_85_1,"    @Test
+spark_86_1,"    @Test
     public void testGetInstance_whenDefaultInstanceIsNotNull_1_oe() {
         //given
         ExceptionMapper.getServletInstance(); //initialize Singleton
@@ -8182,14 +8196,14 @@ spark_85_1,"    @Test
         assertEquals(""Should be equals because ExceptionMapper is a singleton"", Whitebox.getInternalState(ExceptionMapper.class, ""servletInstance""), exceptionMapper);
     }
 ",ExceptionMapperTest::testGetInstance_whenDefaultInstanceIsNotNull_1_oe
-spark_86_1,"    @Test
+spark_87_1,"    @Test
     public void canCreateBook_1_oe() {
         UrlResponse response = createBookViaPOST();
 
         assertNotNull(response);
     }
 ",BooksIntegrationTest::canCreateBook_1_oe
-spark_86_2,"    @Test
+spark_87_2,"    @Test
     public void canCreateBook_2_oe() {
         UrlResponse response = createBookViaPOST();
 
@@ -8197,7 +8211,7 @@ spark_86_2,"    @Test
         assertNotNull(response.body);
     }
 ",BooksIntegrationTest::canCreateBook_2_oe
-spark_86_3,"    @Test
+spark_87_3,"    @Test
     public void canCreateBook_3_oe() {
         UrlResponse response = createBookViaPOST();
 
@@ -8206,7 +8220,7 @@ spark_86_3,"    @Test
         assertTrue(Integer.valueOf(response.body) > 0);
     }
 ",BooksIntegrationTest::canCreateBook_3_oe
-spark_86_4,"    @Test
+spark_87_4,"    @Test
     public void canCreateBook_4_oe() {
         UrlResponse response = createBookViaPOST();
 
@@ -8216,7 +8230,7 @@ spark_86_4,"    @Test
         assertEquals(201, response.status);
     }
 ",BooksIntegrationTest::canCreateBook_4_oe
-spark_87_1,"    @Test
+spark_88_1,"    @Test
     public void canListBooks_1_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8225,7 +8239,7 @@ spark_87_1,"    @Test
         assertNotNull(response);
     }
 ",BooksIntegrationTest::canListBooks_1_oe
-spark_87_2,"    @Test
+spark_88_2,"    @Test
     public void canListBooks_2_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8236,7 +8250,7 @@ spark_87_2,"    @Test
         assertNotNull(body);
     }
 ",BooksIntegrationTest::canListBooks_2_oe
-spark_87_3,"    @Test
+spark_88_3,"    @Test
     public void canListBooks_3_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8248,7 +8262,7 @@ spark_87_3,"    @Test
         assertTrue(Integer.valueOf(body) > 0);
     }
 ",BooksIntegrationTest::canListBooks_3_oe
-spark_87_4,"    @Test
+spark_88_4,"    @Test
     public void canListBooks_4_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8261,7 +8275,7 @@ spark_87_4,"    @Test
         assertEquals(200, response.status);
     }
 ",BooksIntegrationTest::canListBooks_4_oe
-spark_87_5,"    @Test
+spark_88_5,"    @Test
     public void canListBooks_5_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8275,7 +8289,7 @@ spark_87_5,"    @Test
         assertTrue(response.body.contains(bookId));
     }
 ",BooksIntegrationTest::canListBooks_5_oe
-spark_88_1,"    @Test
+spark_89_1,"    @Test
     public void canGetBook_1_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8285,7 +8299,7 @@ spark_88_1,"    @Test
         assertNotNull(response);
     }
 ",BooksIntegrationTest::canGetBook_1_oe
-spark_88_2,"    @Test
+spark_89_2,"    @Test
     public void canGetBook_2_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8296,7 +8310,7 @@ spark_88_2,"    @Test
         assertNotNull(response.body);
     }
 ",BooksIntegrationTest::canGetBook_2_oe
-spark_88_3,"    @Test
+spark_89_3,"    @Test
     public void canGetBook_3_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8308,7 +8322,7 @@ spark_88_3,"    @Test
         assertEquals(200, response.status);
     }
 ",BooksIntegrationTest::canGetBook_3_oe
-spark_88_4,"    @Test
+spark_89_4,"    @Test
     public void canGetBook_4_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8321,7 +8335,7 @@ spark_88_4,"    @Test
         assertTrue(result.contains(AUTHOR));
     }
 ",BooksIntegrationTest::canGetBook_4_oe
-spark_88_5,"    @Test
+spark_89_5,"    @Test
     public void canGetBook_5_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8335,7 +8349,7 @@ spark_88_5,"    @Test
         assertTrue(result.contains(TITLE));
     }
 ",BooksIntegrationTest::canGetBook_5_oe
-spark_88_6,"    @Test
+spark_89_6,"    @Test
     public void canGetBook_6_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8350,7 +8364,7 @@ spark_88_6,"    @Test
         assertTrue(beforeFilterIsSet(response));
     }
 ",BooksIntegrationTest::canGetBook_6_oe
-spark_88_7,"    @Test
+spark_89_7,"    @Test
     public void canGetBook_7_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8366,7 +8380,7 @@ spark_88_7,"    @Test
         assertTrue(afterFilterIsSet(response));
     }
 ",BooksIntegrationTest::canGetBook_7_oe
-spark_89_1,"    @Test
+spark_90_1,"    @Test
     public void canUpdateBook_1_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8376,7 +8390,7 @@ spark_89_1,"    @Test
         assertNotNull(response);
     }
 ",BooksIntegrationTest::canUpdateBook_1_oe
-spark_89_2,"    @Test
+spark_90_2,"    @Test
     public void canUpdateBook_2_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8387,7 +8401,7 @@ spark_89_2,"    @Test
         assertNotNull(response.body);
     }
 ",BooksIntegrationTest::canUpdateBook_2_oe
-spark_89_3,"    @Test
+spark_90_3,"    @Test
     public void canUpdateBook_3_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8399,7 +8413,7 @@ spark_89_3,"    @Test
         assertEquals(200, response.status);
     }
 ",BooksIntegrationTest::canUpdateBook_3_oe
-spark_89_4,"    @Test
+spark_90_4,"    @Test
     public void canUpdateBook_4_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8412,7 +8426,7 @@ spark_89_4,"    @Test
         assertTrue(result.contains(bookId));
     }
 ",BooksIntegrationTest::canUpdateBook_4_oe
-spark_89_5,"    @Test
+spark_90_5,"    @Test
     public void canUpdateBook_5_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8426,7 +8440,7 @@ spark_89_5,"    @Test
         assertTrue(result.contains(""updated""));
     }
 ",BooksIntegrationTest::canUpdateBook_5_oe
-spark_90_1,"    @Test
+spark_91_1,"    @Test
     public void canGetUpdatedBook_1_oe() {
         bookId = createBookViaPOST().body.trim();
         updateBook();
@@ -8437,7 +8451,7 @@ spark_90_1,"    @Test
         assertNotNull(response);
     }
 ",BooksIntegrationTest::canGetUpdatedBook_1_oe
-spark_90_2,"    @Test
+spark_91_2,"    @Test
     public void canGetUpdatedBook_2_oe() {
         bookId = createBookViaPOST().body.trim();
         updateBook();
@@ -8449,7 +8463,7 @@ spark_90_2,"    @Test
         assertNotNull(response.body);
     }
 ",BooksIntegrationTest::canGetUpdatedBook_2_oe
-spark_90_3,"    @Test
+spark_91_3,"    @Test
     public void canGetUpdatedBook_3_oe() {
         bookId = createBookViaPOST().body.trim();
         updateBook();
@@ -8462,7 +8476,7 @@ spark_90_3,"    @Test
         assertEquals(200, response.status);
     }
 ",BooksIntegrationTest::canGetUpdatedBook_3_oe
-spark_90_4,"    @Test
+spark_91_4,"    @Test
     public void canGetUpdatedBook_4_oe() {
         bookId = createBookViaPOST().body.trim();
         updateBook();
@@ -8476,7 +8490,7 @@ spark_90_4,"    @Test
         assertTrue(result.contains(AUTHOR));
     }
 ",BooksIntegrationTest::canGetUpdatedBook_4_oe
-spark_90_5,"    @Test
+spark_91_5,"    @Test
     public void canGetUpdatedBook_5_oe() {
         bookId = createBookViaPOST().body.trim();
         updateBook();
@@ -8491,7 +8505,7 @@ spark_90_5,"    @Test
         assertTrue(result.contains(NEW_TITLE));
     }
 ",BooksIntegrationTest::canGetUpdatedBook_5_oe
-spark_91_1,"    @Test
+spark_92_1,"    @Test
     public void canDeleteBook_1_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8501,7 +8515,7 @@ spark_91_1,"    @Test
         assertNotNull(response);
     }
 ",BooksIntegrationTest::canDeleteBook_1_oe
-spark_91_2,"    @Test
+spark_92_2,"    @Test
     public void canDeleteBook_2_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8512,7 +8526,7 @@ spark_91_2,"    @Test
         assertNotNull(response.body);
     }
 ",BooksIntegrationTest::canDeleteBook_2_oe
-spark_91_3,"    @Test
+spark_92_3,"    @Test
     public void canDeleteBook_3_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8524,7 +8538,7 @@ spark_91_3,"    @Test
         assertEquals(200, response.status);
     }
 ",BooksIntegrationTest::canDeleteBook_3_oe
-spark_91_4,"    @Test
+spark_92_4,"    @Test
     public void canDeleteBook_4_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8537,7 +8551,7 @@ spark_91_4,"    @Test
         assertTrue(result.contains(bookId));
     }
 ",BooksIntegrationTest::canDeleteBook_4_oe
-spark_91_5,"    @Test
+spark_92_5,"    @Test
     public void canDeleteBook_5_oe() {
         bookId = createBookViaPOST().body.trim();
 
@@ -8551,20 +8565,20 @@ spark_91_5,"    @Test
         assertTrue(result.contains(""deleted""));
     }
 ",BooksIntegrationTest::canDeleteBook_5_oe
-spark_92_1,"    @Test
+spark_93_1,"    @Test
     public void testGetHi_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         Assert.assertEquals(200, response.status);
     }
 ",GenericSecureIntegrationTest::testGetHi_1_oe
-spark_92_2,"    @Test
+spark_93_2,"    @Test
     public void testGetHi_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
         Assert.assertEquals(""Hello World!"", response.body);
     }
 ",GenericSecureIntegrationTest::testGetHi_2_oe
-spark_92_3,"    @Test
+spark_93_3,"    @Test
     public void testGetHi_3_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -8581,7 +8595,7 @@ spark_92_3,"    @Test
         Assert.assertEquals(xForwardedFor, response.body);
     }
 ",GenericSecureIntegrationTest::testGetHi_3_oe
-spark_92_4,"    @Test
+spark_93_4,"    @Test
     public void testGetHi_4_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -8601,7 +8615,7 @@ spark_92_4,"    @Test
         Assert.assertNotEquals(xForwardedFor, response.body);
     }
 ",GenericSecureIntegrationTest::testGetHi_4_oe
-spark_92_5,"    @Test
+spark_93_5,"    @Test
     public void testGetHi_5_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -8627,7 +8641,7 @@ spark_92_5,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",GenericSecureIntegrationTest::testGetHi_5_oe
-spark_92_6,"    @Test
+spark_93_6,"    @Test
     public void testGetHi_6_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -8654,7 +8668,7 @@ spark_92_6,"    @Test
         Assert.assertEquals("""", response.body);
     }
 ",GenericSecureIntegrationTest::testGetHi_6_oe
-spark_92_7,"    @Test
+spark_93_7,"    @Test
     public void testGetHi_7_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -8687,7 +8701,7 @@ spark_92_7,"    @Test
         Assert.assertTrue(response.headers.get(""after"").contains(""foobar""));
     }
 ",GenericSecureIntegrationTest::testGetHi_7_oe
-spark_92_8,"    @Test
+spark_93_8,"    @Test
     public void testGetHi_8_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -8726,7 +8740,7 @@ spark_92_8,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",GenericSecureIntegrationTest::testGetHi_8_oe
-spark_92_9,"    @Test
+spark_93_9,"    @Test
     public void testGetHi_9_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -8766,7 +8780,7 @@ spark_92_9,"    @Test
         Assert.assertEquals(""Hello Root!"", response.body);
     }
 ",GenericSecureIntegrationTest::testGetHi_9_oe
-spark_92_10,"    @Test
+spark_93_10,"    @Test
     public void testGetHi_10_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -8812,7 +8826,7 @@ spark_92_10,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",GenericSecureIntegrationTest::testGetHi_10_oe
-spark_92_11,"    @Test
+spark_93_11,"    @Test
     public void testGetHi_11_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -8859,7 +8873,7 @@ spark_92_11,"    @Test
         Assert.assertEquals(""echo: shizzy"", response.body);
     }
 ",GenericSecureIntegrationTest::testGetHi_11_oe
-spark_92_12,"    @Test
+spark_93_12,"    @Test
     public void testGetHi_12_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -8912,7 +8926,7 @@ spark_92_12,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",GenericSecureIntegrationTest::testGetHi_12_oe
-spark_92_13,"    @Test
+spark_93_13,"    @Test
     public void testGetHi_13_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -8966,7 +8980,7 @@ spark_92_13,"    @Test
         Assert.assertEquals(""echo: gunit"", response.body);
     }
 ",GenericSecureIntegrationTest::testGetHi_13_oe
-spark_92_14,"    @Test
+spark_93_14,"    @Test
     public void testGetHi_14_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -9026,7 +9040,7 @@ spark_92_14,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",GenericSecureIntegrationTest::testGetHi_14_oe
-spark_92_15,"    @Test
+spark_93_15,"    @Test
     public void testGetHi_15_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -9087,7 +9101,7 @@ spark_92_15,"    @Test
         Assert.assertEquals(""echo: plop"", response.body);
     }
 ",GenericSecureIntegrationTest::testGetHi_15_oe
-spark_92_16,"    @Test
+spark_93_16,"    @Test
     public void testGetHi_16_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -9154,7 +9168,7 @@ spark_92_16,"    @Test
         Assert.assertTrue(urlResponse.status == 401);
     }
 ",GenericSecureIntegrationTest::testGetHi_16_oe
-spark_92_17,"    @Test
+spark_93_17,"    @Test
     public void testGetHi_17_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -9227,7 +9241,7 @@ spark_92_17,"    @Test
         Assert.assertTrue(urlResponse.status == 404);
     }
 ",GenericSecureIntegrationTest::testGetHi_17_oe
-spark_92_18,"    @Test
+spark_93_18,"    @Test
     public void testGetHi_18_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -9307,7 +9321,7 @@ spark_92_18,"    @Test
         Assert.assertEquals(201, response.status);
     }
 ",GenericSecureIntegrationTest::testGetHi_18_oe
-spark_92_19,"    @Test
+spark_93_19,"    @Test
     public void testGetHi_19_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -9388,7 +9402,7 @@ spark_92_19,"    @Test
         Assert.assertTrue(response.body.contains(""Fo shizzy""));
     }
 ",GenericSecureIntegrationTest::testGetHi_19_oe
-spark_92_20,"    @Test
+spark_93_20,"    @Test
     public void testGetHi_20_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -9476,7 +9490,7 @@ spark_92_20,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",GenericSecureIntegrationTest::testGetHi_20_oe
-spark_92_21,"    @Test
+spark_93_21,"    @Test
     public void testGetHi_21_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
         // removed other assertion
@@ -9565,7 +9579,7 @@ spark_92_21,"    @Test
         Assert.assertTrue(response.body.contains(""Fo shizzy""));
     }
 ",GenericSecureIntegrationTest::testGetHi_21_oe
-spark_93_1,"    @Test
+spark_94_1,"    @Test
     public void testUnmap_1_oe() throws Exception {
         get(""/tobeunmapped"", (q, a) -> ""tobeunmapped"");
         awaitInitialization();
@@ -9574,7 +9588,7 @@ spark_93_1,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",UnmapTest::testUnmap_1_oe
-spark_93_2,"    @Test
+spark_94_2,"    @Test
     public void testUnmap_2_oe() throws Exception {
         get(""/tobeunmapped"", (q, a) -> ""tobeunmapped"");
         awaitInitialization();
@@ -9584,7 +9598,7 @@ spark_93_2,"    @Test
         Assert.assertEquals(""tobeunmapped"", response.body);
     }
 ",UnmapTest::testUnmap_2_oe
-spark_93_3,"    @Test
+spark_94_3,"    @Test
     public void testUnmap_3_oe() throws Exception {
         get(""/tobeunmapped"", (q, a) -> ""tobeunmapped"");
         awaitInitialization();
@@ -9599,7 +9613,7 @@ spark_93_3,"    @Test
         Assert.assertEquals(404, response.status);
     }
 ",UnmapTest::testUnmap_3_oe
-spark_93_4,"    @Test
+spark_94_4,"    @Test
     public void testUnmap_4_oe() throws Exception {
         get(""/tobeunmapped"", (q, a) -> ""tobeunmapped"");
         awaitInitialization();
@@ -9619,7 +9633,7 @@ spark_93_4,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",UnmapTest::testUnmap_4_oe
-spark_93_5,"    @Test
+spark_94_5,"    @Test
     public void testUnmap_5_oe() throws Exception {
         get(""/tobeunmapped"", (q, a) -> ""tobeunmapped"");
         awaitInitialization();
@@ -9640,7 +9654,7 @@ spark_93_5,"    @Test
         Assert.assertEquals(""tobeunmapped"", response.body);
     }
 ",UnmapTest::testUnmap_5_oe
-spark_93_6,"    @Test
+spark_94_6,"    @Test
     public void testUnmap_6_oe() throws Exception {
         get(""/tobeunmapped"", (q, a) -> ""tobeunmapped"");
         awaitInitialization();
@@ -9666,19 +9680,19 @@ spark_93_6,"    @Test
         Assert.assertEquals(404, response.status);
     }
 ",UnmapTest::testUnmap_6_oe
-spark_94_1,"    @Test
+spark_95_1,"    @Test
     public void testInitExceptionHandler_1_oe() throws Exception {
         Assert.assertEquals(""Custom init error"", errorMessage);
     }
 ",InitExceptionHandlerTest::testInitExceptionHandler_1_oe
-spark_95_1,"    @Test
+spark_96_1,"    @Test
     public void testPost_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""POST"", ""/hello"", BODY_CONTENT);
         LOGGER.info(response.body);
         Assert.assertEquals(HTTP_OK, response.status);
     }
 ",BodyAvailabilityTest::testPost_1_oe
-spark_95_2,"    @Test
+spark_96_2,"    @Test
     public void testPost_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""POST"", ""/hello"", BODY_CONTENT);
         LOGGER.info(response.body);
@@ -9686,7 +9700,7 @@ spark_95_2,"    @Test
         Assert.assertTrue(response.body.contains(BODY_CONTENT));
     }
 ",BodyAvailabilityTest::testPost_2_oe
-spark_95_3,"    @Test
+spark_96_3,"    @Test
     public void testPost_3_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""POST"", ""/hello"", BODY_CONTENT);
         LOGGER.info(response.body);
@@ -9696,7 +9710,7 @@ spark_95_3,"    @Test
         Assert.assertEquals(BODY_CONTENT, beforeBody);
     }
 ",BodyAvailabilityTest::testPost_3_oe
-spark_95_4,"    @Test
+spark_96_4,"    @Test
     public void testPost_4_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""POST"", ""/hello"", BODY_CONTENT);
         LOGGER.info(response.body);
@@ -9707,7 +9721,7 @@ spark_95_4,"    @Test
         Assert.assertEquals(BODY_CONTENT, routeBody);
     }
 ",BodyAvailabilityTest::testPost_4_oe
-spark_95_5,"    @Test
+spark_96_5,"    @Test
     public void testPost_5_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""POST"", ""/hello"", BODY_CONTENT);
         LOGGER.info(response.body);
@@ -9719,7 +9733,7 @@ spark_95_5,"    @Test
         Assert.assertEquals(BODY_CONTENT, afterBody);
     }
 ",BodyAvailabilityTest::testPost_5_oe
-spark_96_1,"    @Test
+spark_97_1,"    @Test
     public void testGetPort_withRandomPort_1_oe() throws Exception {
         int actualPort = service.port();
 
@@ -9731,7 +9745,7 @@ spark_96_1,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",ServicePortIntegrationTest::testGetPort_withRandomPort_1_oe
-spark_96_2,"    @Test
+spark_97_2,"    @Test
     public void testGetPort_withRandomPort_2_oe() throws Exception {
         int actualPort = service.port();
 
@@ -9744,33 +9758,33 @@ spark_96_2,"    @Test
         Assert.assertEquals(""Hello World!"", response.body);
     }
 ",ServicePortIntegrationTest::testGetPort_withRandomPort_2_oe
-spark_97_1,"    @Test
+spark_98_1,"    @Test
     public void filters_can_detect_response_status_1_oe() throws Exception {
         UrlResponse response = testUtil.get(""/204"");
         Assert.assertEquals(200, response.status);
     }
 ",ResponseWrapperDelegationTest::filters_can_detect_response_status_1_oe
-spark_97_2,"    @Test
+spark_98_2,"    @Test
     public void filters_can_detect_response_status_2_oe() throws Exception {
         UrlResponse response = testUtil.get(""/204"");
         // removed other assertion
         Assert.assertEquals(""ok"", response.body);
     }
 ",ResponseWrapperDelegationTest::filters_can_detect_response_status_2_oe
-spark_98_1,"    @Test
+spark_99_1,"    @Test
     public void filters_can_detect_content_type_1_oe() throws Exception {
         UrlResponse response = testUtil.get(""/json"");
         Assert.assertEquals(200, response.status);
     }
 ",ResponseWrapperDelegationTest::filters_can_detect_content_type_1_oe
-spark_98_2,"    @Test
+spark_99_2,"    @Test
     public void filters_can_detect_content_type_2_oe() throws Exception {
         UrlResponse response = testUtil.get(""/json"");
         // removed other assertion
         Assert.assertEquals(""{\""status\"": \""ok\""}"", response.body);
     }
 ",ResponseWrapperDelegationTest::filters_can_detect_content_type_2_oe
-spark_98_3,"    @Test
+spark_99_3,"    @Test
     public void filters_can_detect_content_type_3_oe() throws Exception {
         UrlResponse response = testUtil.get(""/json"");
         // removed other assertion
@@ -9778,25 +9792,25 @@ spark_98_3,"    @Test
         Assert.assertEquals(""text/plain"", response.headers.get(""Content-Type""));
     }
 ",ResponseWrapperDelegationTest::filters_can_detect_content_type_3_oe
-spark_99_1,"    @Test
+spark_100_1,"    @Test
     public void checkGzipCompression_1_oe() throws Exception {
         String decompressed = GzipExample.getAndDecompress();
         assertEquals(GzipExample.CONTENT, decompressed);
     }
 ",GzipTest::checkGzipCompression_1_oe
-spark_100_1,"    @Test
+spark_101_1,"    @Test
     public void testStaticFileCssStyleCss_1_oe() throws Exception {
         String decompressed = GzipClient.getAndDecompress(""http://localhost:4567/css/style.css"");
         Assert.assertEquals(""Content of css file"", decompressed);
     }
 ",GzipTest::testStaticFileCssStyleCss_1_oe
-spark_101_1,"    @Test
+spark_102_1,"    @Test
     public void testConstructor_whenHttpServletResponseParameter_1_oe() {
         HttpServletResponse returnResponse = Whitebox.getInternalState(response, ""response"");
         assertSame(""Should be the same the HttpServletResponse object for httpServletResponse and returnResponse"", httpServletResponse, returnResponse);
     }
 ",ResponseTest::testConstructor_whenHttpServletResponseParameter_1_oe
-spark_102_1,"    @Test
+spark_103_1,"    @Test
     public void testSetBody_1_oe() {
         final String finalBody = ""Hello world!"";
 
@@ -9805,7 +9819,7 @@ spark_102_1,"    @Test
         assertEquals(""Should return body specified"", finalBody, returnBody);
     }
 ",ResponseTest::testSetBody_1_oe
-spark_103_1,"    @Test
+spark_104_1,"    @Test
     public void testGetBody_1_oe() {
         final String finalBody = ""Hello world!"";
 
@@ -9814,13 +9828,13 @@ spark_103_1,"    @Test
         assertEquals(""Should return body specified"", finalBody, returnBody);
     }
 ",ResponseTest::testGetBody_1_oe
-spark_104_1,"    @Test
+spark_105_1,"    @Test
     public void testRaw_1_oe() {
         HttpServletResponse returnResponse = response.raw();
         assertSame(""Should be the same the HttpServletResponse object for httpServletResponse and returnResponse"", httpServletResponse, returnResponse);
     }
 ",ResponseTest::testRaw_1_oe
-spark_105_1,"    @Test
+spark_106_1,"    @Test
     public void testRemoveCookie_shouldModifyPropertiesFromCookieSuccessfully_1_oe() {
         final String finalPath = ""/cookie/SetCookie"";
         final String finalName = ""cookie_name"";
@@ -9837,7 +9851,7 @@ spark_105_1,"    @Test
         assertEquals(""Should return empty value for the given cookie name"", """", cookieArgumentCaptor.getValue().getValue());
     }
 ",ResponseTest::testRemoveCookie_shouldModifyPropertiesFromCookieSuccessfully_1_oe
-spark_105_2,"    @Test
+spark_106_2,"    @Test
     public void testRemoveCookie_shouldModifyPropertiesFromCookieSuccessfully_2_oe() {
         final String finalPath = ""/cookie/SetCookie"";
         final String finalName = ""cookie_name"";
@@ -9855,71 +9869,71 @@ spark_105_2,"    @Test
         assertEquals(""Should return an 0 for maximum cookie age"", 0, cookieArgumentCaptor.getValue().getMaxAge());
     }
 ",ResponseTest::testRemoveCookie_shouldModifyPropertiesFromCookieSuccessfully_2_oe
-spark_106_1,"    @Test
+spark_107_1,"    @Test
     public void testGetHello_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = firstClient.doMethod(""GET"", ""/hello"", null);
         Assert.assertEquals(200, response.status);
     }
 ",MultipleServicesTest::testGetHello_1_oe
-spark_106_2,"    @Test
+spark_107_2,"    @Test
     public void testGetHello_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = firstClient.doMethod(""GET"", ""/hello"", null);
         // removed other assertion
         Assert.assertEquals(""Hello World!"", response.body);
     }
 ",MultipleServicesTest::testGetHello_2_oe
-spark_107_1,"    @Test
+spark_108_1,"    @Test
     public void testGetRedirectedHi_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod(""GET"", ""/hi"", null);
         Assert.assertEquals(200, response.status);
     }
 ",MultipleServicesTest::testGetRedirectedHi_1_oe
-spark_107_2,"    @Test
+spark_108_2,"    @Test
     public void testGetRedirectedHi_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod(""GET"", ""/hi"", null);
         // removed other assertion
         Assert.assertEquals(""Hello World!"", response.body);
     }
 ",MultipleServicesTest::testGetRedirectedHi_2_oe
-spark_108_1,"    @Test
+spark_109_1,"    @Test
     public void testGetUniqueForSecondWithFirst_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = firstClient.doMethod(""GET"", ""/uniqueforsecond"", null);
         Assert.assertEquals(404, response.status);
     }
 ",MultipleServicesTest::testGetUniqueForSecondWithFirst_1_oe
-spark_109_1,"    @Test
+spark_110_1,"    @Test
     public void testGetUniqueForSecondWithSecond_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod(""GET"", ""/uniqueforsecond"", null);
         Assert.assertEquals(200, response.status);
     }
 ",MultipleServicesTest::testGetUniqueForSecondWithSecond_1_oe
-spark_109_2,"    @Test
+spark_110_2,"    @Test
     public void testGetUniqueForSecondWithSecond_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod(""GET"", ""/uniqueforsecond"", null);
         // removed other assertion
         Assert.assertEquals(""Bompton"", response.body);
     }
 ",MultipleServicesTest::testGetUniqueForSecondWithSecond_2_oe
-spark_110_1,"    @Test
+spark_111_1,"    @Test
     public void testStaticFileCssStyleCssWithFirst_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = firstClient.doMethod(""GET"", ""/css/style.css"", null);
         Assert.assertEquals(404, response.status);
     }
 ",MultipleServicesTest::testStaticFileCssStyleCssWithFirst_1_oe
-spark_111_1,"    @Test
+spark_112_1,"    @Test
     public void testStaticFileCssStyleCssWithSecond_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod(""GET"", ""/css/style.css"", null);
         Assert.assertEquals(200, response.status);
     }
 ",MultipleServicesTest::testStaticFileCssStyleCssWithSecond_1_oe
-spark_111_2,"    @Test
+spark_112_2,"    @Test
     public void testStaticFileCssStyleCssWithSecond_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = secondClient.doMethod(""GET"", ""/css/style.css"", null);
         // removed other assertion
         Assert.assertEquals(""Content of css file"", response.body);
     }
 ",MultipleServicesTest::testStaticFileCssStyleCssWithSecond_2_oe
-spark_112_1,"    @Test
+spark_113_1,"    @Test
     public void testGetAllRoutesFromBothServices_1_oe(){
         for(RouteMatch routeMatch : first.routes()){
             Assert.assertEquals(routeMatch.getAcceptType(), ""*/*"");
@@ -9935,7 +9949,7 @@ spark_112_1,"    @Test
     }
     }
 ",MultipleServicesTest::testGetAllRoutesFromBothServices_1_oe
-spark_112_2,"    @Test
+spark_113_2,"    @Test
     public void testGetAllRoutesFromBothServices_2_oe(){
         for(RouteMatch routeMatch : first.routes()){
             Assert.assertEquals(routeMatch.getAcceptType(), ""*/*"");
@@ -9953,7 +9967,7 @@ spark_112_2,"    @Test
     }
     }
 ",MultipleServicesTest::testGetAllRoutesFromBothServices_2_oe
-spark_112_3,"    @Test
+spark_113_3,"    @Test
     public void testGetAllRoutesFromBothServices_3_oe(){
         for(RouteMatch routeMatch : first.routes()){
             Assert.assertEquals(routeMatch.getAcceptType(), ""*/*"");
@@ -9972,7 +9986,7 @@ spark_112_3,"    @Test
     }
     }
 ",MultipleServicesTest::testGetAllRoutesFromBothServices_3_oe
-spark_112_4,"    @Test
+spark_113_4,"    @Test
     public void testGetAllRoutesFromBothServices_4_oe(){
         for(RouteMatch routeMatch : first.routes()){
             Assert.assertEquals(routeMatch.getAcceptType(), ""*/*"");
@@ -9992,14 +10006,14 @@ spark_112_4,"    @Test
     }
     }
 ",MultipleServicesTest::testGetAllRoutesFromBothServices_4_oe
-spark_113_1,"    @Test
+spark_114_1,"    @Test
     public final void test_encode_1_oe() {
         String in = ""hello"";
         String encode = Base64.encode(in);
         Assert.assertFalse(in.equals(encode));
     }
 ",Base64Test::test_encode_1_oe
-spark_114_1,"    @Test
+spark_115_1,"    @Test
     public final void test_decode_1_oe() {
         String in = ""hello"";
         String encode = Base64.encode(in);
@@ -10008,7 +10022,7 @@ spark_114_1,"    @Test
         Assert.assertTrue(in.equals(decode));
     }
 ",Base64Test::test_decode_1_oe
-spark_115_1,"    @Test
+spark_116_1,"    @Test
     public void testCss_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", ""/css/style.css"", null);
 
@@ -10016,7 +10030,7 @@ spark_115_1,"    @Test
         assertEquals(expectedContentType, ""text/css"");
     }
 ",StaticFilesFromArchiveTest::testCss_1_oe
-spark_115_2,"    @Test
+spark_116_2,"    @Test
     public void testCss_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", ""/css/style.css"", null);
 
@@ -10027,7 +10041,7 @@ spark_115_2,"    @Test
         assertEquals(""Content of css file"", body);
     }
 ",StaticFilesFromArchiveTest::testCss_2_oe
-spark_120_1,"    @Test
+spark_121_1,"    @Test
     public void constructorWithParametersMap_1_oe() {
         Map<String,String[]> params = new HashMap<>();
         
@@ -10038,7 +10052,7 @@ spark_120_1,"    @Test
         assertEquals(""fede"",queryMap.get(""user"").get(""info"").get(""name"").value());
     }
 ",QueryParamsMapTest::constructorWithParametersMap_1_oe
-spark_120_2,"    @Test
+spark_121_2,"    @Test
     public void constructorWithParametersMap_2_oe() {
         Map<String,String[]> params = new HashMap<>();
         
@@ -10050,7 +10064,7 @@ spark_120_2,"    @Test
         assertEquals(""fede"",queryMap.get(""user"",""info"",""name"").value());
     }
 ",QueryParamsMapTest::constructorWithParametersMap_2_oe
-spark_121_1,"    @Test
+spark_122_1,"    @Test
     public void keyToMap_1_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10060,7 +10074,7 @@ spark_121_1,"    @Test
         assertFalse(queryMap.getQueryMap().isEmpty());
     }
 ",QueryParamsMapTest::keyToMap_1_oe
-spark_121_2,"    @Test
+spark_122_2,"    @Test
     public void keyToMap_2_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10071,7 +10085,7 @@ spark_121_2,"    @Test
         assertFalse(queryMap.getQueryMap().get(""user"").getQueryMap().isEmpty());
     }
 ",QueryParamsMapTest::keyToMap_2_oe
-spark_121_3,"    @Test
+spark_122_3,"    @Test
     public void keyToMap_3_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10083,7 +10097,7 @@ spark_121_3,"    @Test
         assertFalse(queryMap.getQueryMap().get(""user"").getQueryMap().get(""info"").getQueryMap().isEmpty());
     }
 ",QueryParamsMapTest::keyToMap_3_oe
-spark_121_4,"    @Test
+spark_122_4,"    @Test
     public void keyToMap_4_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10096,7 +10110,7 @@ spark_121_4,"    @Test
         assertEquals(""federico"",queryMap.getQueryMap().get(""user"").getQueryMap().get(""info"").getQueryMap().get(""first_name"").getValues()[0]);
     }
 ",QueryParamsMapTest::keyToMap_4_oe
-spark_121_5,"    @Test
+spark_122_5,"    @Test
     public void keyToMap_5_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10110,7 +10124,7 @@ spark_121_5,"    @Test
         assertEquals(""dayan"",queryMap.getQueryMap().get(""user"").getQueryMap().get(""info"").getQueryMap().get(""last_name"").getValues()[0]);
     }
 ",QueryParamsMapTest::keyToMap_5_oe
-spark_121_6,"    @Test
+spark_122_6,"    @Test
     public void keyToMap_6_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10126,7 +10140,7 @@ spark_121_6,"    @Test
         assertTrue(queryMap.hasKey(""user""));
     }
 ",QueryParamsMapTest::keyToMap_6_oe
-spark_121_7,"    @Test
+spark_122_7,"    @Test
     public void keyToMap_7_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10143,7 +10157,7 @@ spark_121_7,"    @Test
         assertFalse(queryMap.hasKey(""frame""));
     }
 ",QueryParamsMapTest::keyToMap_7_oe
-spark_121_8,"    @Test
+spark_122_8,"    @Test
     public void keyToMap_8_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10161,7 +10175,7 @@ spark_121_8,"    @Test
         assertFalse(queryMap.hasKey(null));
     }
 ",QueryParamsMapTest::keyToMap_8_oe
-spark_121_9,"    @Test
+spark_122_9,"    @Test
     public void keyToMap_9_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10181,7 +10195,7 @@ spark_121_9,"    @Test
         assertTrue(queryMap.hasKeys());
     }
 ",QueryParamsMapTest::keyToMap_9_oe
-spark_121_10,"    @Test
+spark_122_10,"    @Test
     public void keyToMap_10_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10202,7 +10216,7 @@ spark_121_10,"    @Test
         assertFalse(queryMap.hasValue());
     }
 ",QueryParamsMapTest::keyToMap_10_oe
-spark_121_11,"    @Test
+spark_122_11,"    @Test
     public void keyToMap_11_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10224,7 +10238,7 @@ spark_121_11,"    @Test
         assertTrue(queryMap.getQueryMap().get(""user"").getQueryMap().get(""info"").getQueryMap().get(""last_name"").hasValue());
     }
 ",QueryParamsMapTest::keyToMap_11_oe
-spark_122_1,"    @Test
+spark_123_1,"    @Test
     public void testDifferentTypesForValue_1_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10234,7 +10248,7 @@ spark_122_1,"    @Test
         assertEquals(new Integer(10),queryMap.get(""user"").get(""age"").integerValue());
     }
 ",QueryParamsMapTest::testDifferentTypesForValue_1_oe
-spark_122_2,"    @Test
+spark_123_2,"    @Test
     public void testDifferentTypesForValue_2_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10245,7 +10259,7 @@ spark_122_2,"    @Test
         assertEquals(new Float(10),queryMap.get(""user"").get(""age"").floatValue());
     }
 ",QueryParamsMapTest::testDifferentTypesForValue_2_oe
-spark_122_3,"    @Test
+spark_123_3,"    @Test
     public void testDifferentTypesForValue_3_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10257,7 +10271,7 @@ spark_122_3,"    @Test
         assertEquals(new Double(10),queryMap.get(""user"").get(""age"").doubleValue());
     }
 ",QueryParamsMapTest::testDifferentTypesForValue_3_oe
-spark_122_4,"    @Test
+spark_123_4,"    @Test
     public void testDifferentTypesForValue_4_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10270,7 +10284,7 @@ spark_122_4,"    @Test
         assertEquals(new Long(10),queryMap.get(""user"").get(""age"").longValue());
     }
 ",QueryParamsMapTest::testDifferentTypesForValue_4_oe
-spark_122_5,"    @Test
+spark_123_5,"    @Test
     public void testDifferentTypesForValue_5_oe() {
         QueryParamsMap queryMap = new QueryParamsMap();
         
@@ -10284,14 +10298,14 @@ spark_122_5,"    @Test
         assertEquals(Boolean.TRUE,queryMap.get(""user"").get(""agrees"").booleanValue());
     }
 ",QueryParamsMapTest::testDifferentTypesForValue_5_oe
-spark_123_1,"    @Test
+spark_124_1,"    @Test
     public void parseKeyShouldParseRootKey_1_oe() {
         String[] parsed = queryMap.parseKey(""user[name][more]"");
         
         assertEquals(""user"",parsed[0]);
     }
 ",QueryParamsMapTest::parseKeyShouldParseRootKey_1_oe
-spark_123_2,"    @Test
+spark_124_2,"    @Test
     public void parseKeyShouldParseRootKey_2_oe() {
         String[] parsed = queryMap.parseKey(""user[name][more]"");
         
@@ -10299,7 +10313,7 @@ spark_123_2,"    @Test
         assertEquals(""[name][more]"",parsed[1]);
     }
 ",QueryParamsMapTest::parseKeyShouldParseRootKey_2_oe
-spark_124_1,"    @Test
+spark_125_1,"    @Test
     public void parseKeyShouldParseSubkeys_1_oe() {
         String[] parsed = null;
         
@@ -10308,7 +10322,7 @@ spark_124_1,"    @Test
         assertEquals(""name"",parsed[0]);
     }
 ",QueryParamsMapTest::parseKeyShouldParseSubkeys_1_oe
-spark_124_2,"    @Test
+spark_125_2,"    @Test
     public void parseKeyShouldParseSubkeys_2_oe() {
         String[] parsed = null;
         
@@ -10318,7 +10332,7 @@ spark_124_2,"    @Test
         assertEquals(""[more]"",parsed[1]);
     }
 ",QueryParamsMapTest::parseKeyShouldParseSubkeys_2_oe
-spark_124_3,"    @Test
+spark_125_3,"    @Test
     public void parseKeyShouldParseSubkeys_3_oe() {
         String[] parsed = null;
         
@@ -10332,7 +10346,7 @@ spark_124_3,"    @Test
         assertEquals(""more"",parsed[0]);
     }
 ",QueryParamsMapTest::parseKeyShouldParseSubkeys_3_oe
-spark_124_4,"    @Test
+spark_125_4,"    @Test
     public void parseKeyShouldParseSubkeys_4_oe() {
         String[] parsed = null;
         
@@ -10347,7 +10361,7 @@ spark_124_4,"    @Test
         assertEquals("""",parsed[1]);
     }
 ",QueryParamsMapTest::parseKeyShouldParseSubkeys_4_oe
-spark_125_1,"    @Test
+spark_126_1,"    @Test
     public void itShouldbeNullSafe_1_oe() {
         QueryParamsMap queryParamsMap = new QueryParamsMap();
         
@@ -10356,14 +10370,14 @@ spark_125_1,"    @Test
         assertNull(ret);
     }
 ",QueryParamsMapTest::itShouldbeNullSafe_1_oe
-spark_126_1,"    @Test
+spark_127_1,"    @Test
     public void testConstructor_1_oe() {
         QueryParamsMap queryMap = new QueryParamsMap(""user[name][more]"",""fede"");
 
         assertFalse(queryMap.getQueryMap().isEmpty());
     }
 ",QueryParamsMapTest::testConstructor_1_oe
-spark_126_2,"    @Test
+spark_127_2,"    @Test
     public void testConstructor_2_oe() {
         QueryParamsMap queryMap = new QueryParamsMap(""user[name][more]"",""fede"");
 
@@ -10371,7 +10385,7 @@ spark_126_2,"    @Test
         assertFalse(queryMap.getQueryMap().get(""user"").getQueryMap().isEmpty());
     }
 ",QueryParamsMapTest::testConstructor_2_oe
-spark_126_3,"    @Test
+spark_127_3,"    @Test
     public void testConstructor_3_oe() {
         QueryParamsMap queryMap = new QueryParamsMap(""user[name][more]"",""fede"");
 
@@ -10380,7 +10394,7 @@ spark_126_3,"    @Test
         assertFalse(queryMap.getQueryMap().get(""user"").getQueryMap().get(""name"").getQueryMap().isEmpty());
     }
 ",QueryParamsMapTest::testConstructor_3_oe
-spark_126_4,"    @Test
+spark_127_4,"    @Test
     public void testConstructor_4_oe() {
         QueryParamsMap queryMap = new QueryParamsMap(""user[name][more]"",""fede"");
 
@@ -10390,7 +10404,7 @@ spark_126_4,"    @Test
         assertEquals(""fede"",queryMap.getQueryMap().get(""user"").getQueryMap().get(""name"").getQueryMap().get(""more"").getValues()[0]);
     }
 ",QueryParamsMapTest::testConstructor_4_oe
-spark_127_1,"    @Test
+spark_128_1,"    @Test
     public void testToMap_1_oe() {
         Map<String,String[]> params = new HashMap<>();
         
@@ -10404,7 +10418,7 @@ spark_127_1,"    @Test
         assertEquals(2,map.size());
     }
 ",QueryParamsMapTest::testToMap_1_oe
-spark_127_2,"    @Test
+spark_128_2,"    @Test
     public void testToMap_2_oe() {
         Map<String,String[]> params = new HashMap<>();
         
@@ -10419,7 +10433,7 @@ spark_127_2,"    @Test
         assertEquals(""fede"",map.get(""name"")[0]);
     }
 ",QueryParamsMapTest::testToMap_2_oe
-spark_127_3,"    @Test
+spark_128_3,"    @Test
     public void testToMap_3_oe() {
         Map<String,String[]> params = new HashMap<>();
         
@@ -10435,25 +10449,25 @@ spark_127_3,"    @Test
         assertEquals(""dayan"",map.get(""last"")[0]);
     }
 ",QueryParamsMapTest::testToMap_3_oe
-spark_128_1,"    @Test
+spark_129_1,"    @Test
     public void testMimeTypes_1_oe() throws Exception {
         Assert.assertNull(doGet(""/pages/index.html"").headers.get(""Content-Type""));
     }
 ",DisableMimeGuessingTest::testMimeTypes_1_oe
-spark_128_2,"    @Test
+spark_129_2,"    @Test
     public void testMimeTypes_2_oe() throws Exception {
         // removed other assertion
         Assert.assertNull(doGet(""/js/scripts.js"").headers.get(""Content-Type""));
     }
 ",DisableMimeGuessingTest::testMimeTypes_2_oe
-spark_128_3,"    @Test
+spark_129_3,"    @Test
     public void testMimeTypes_3_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         Assert.assertNull(doGet(""/css/style.css"").headers.get(""Content-Type""));
     }
 ",DisableMimeGuessingTest::testMimeTypes_3_oe
-spark_128_4,"    @Test
+spark_129_4,"    @Test
     public void testMimeTypes_4_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10461,7 +10475,7 @@ spark_128_4,"    @Test
         Assert.assertNull(doGet(""/img/sparklogo.png"").headers.get(""Content-Type""));
     }
 ",DisableMimeGuessingTest::testMimeTypes_4_oe
-spark_128_5,"    @Test
+spark_129_5,"    @Test
     public void testMimeTypes_5_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10470,7 +10484,7 @@ spark_128_5,"    @Test
         Assert.assertNull(doGet(""/img/sparklogo.svg"").headers.get(""Content-Type""));
     }
 ",DisableMimeGuessingTest::testMimeTypes_5_oe
-spark_128_6,"    @Test
+spark_129_6,"    @Test
     public void testMimeTypes_6_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10480,7 +10494,7 @@ spark_128_6,"    @Test
         Assert.assertNull(doGet(""/img/sparklogoPng"").headers.get(""Content-Type""));
     }
 ",DisableMimeGuessingTest::testMimeTypes_6_oe
-spark_128_7,"    @Test
+spark_129_7,"    @Test
     public void testMimeTypes_7_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10491,7 +10505,7 @@ spark_128_7,"    @Test
         Assert.assertNull(doGet(""/img/sparklogoSvg"").headers.get(""Content-Type""));
     }
 ",DisableMimeGuessingTest::testMimeTypes_7_oe
-spark_128_8,"    @Test
+spark_129_8,"    @Test
     public void testMimeTypes_8_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10503,7 +10517,7 @@ spark_128_8,"    @Test
         Assert.assertNull(doGet(""/externalFile.html"").headers.get(""Content-Type""));
     }
 ",DisableMimeGuessingTest::testMimeTypes_8_oe
-spark_128_9,"    @Test
+spark_129_9,"    @Test
     public void testMimeTypes_9_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10521,20 +10535,20 @@ spark_128_9,"    @Test
         Assert.assertNull(doGet(""/img/file.cxt"").headers.get(""Content-Type""));
     }
 ",DisableMimeGuessingTest::testMimeTypes_9_oe
-spark_129_1,"    @Test
+spark_130_1,"    @Test
     public void testExternalStaticFile_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
         Assert.assertEquals(200, response.status);
     }
 ",StaticFilesTestExternal::testExternalStaticFile_1_oe
-spark_129_2,"    @Test
+spark_130_2,"    @Test
     public void testExternalStaticFile_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
         // removed other assertion
         Assert.assertEquals(""text/html"", response.headers.get(""Content-Type""));
     }
 ",StaticFilesTestExternal::testExternalStaticFile_2_oe
-spark_129_3,"    @Test
+spark_130_3,"    @Test
     public void testExternalStaticFile_3_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
         // removed other assertion
@@ -10542,7 +10556,7 @@ spark_129_3,"    @Test
         Assert.assertEquals(CONTENT_OF_EXTERNAL_FILE, response.body);
     }
 ",StaticFilesTestExternal::testExternalStaticFile_3_oe
-spark_129_4,"    @Test
+spark_130_4,"    @Test
     public void testExternalStaticFile_4_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
         // removed other assertion
@@ -10560,7 +10574,7 @@ spark_129_4,"    @Test
         Assert.assertEquals(404, response.status);
     }
 ",StaticFilesTestExternal::testExternalStaticFile_4_oe
-spark_129_5,"    @Test
+spark_130_5,"    @Test
     public void testExternalStaticFile_5_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
         // removed other assertion
@@ -10579,7 +10593,7 @@ spark_129_5,"    @Test
         Assert.assertEquals(NOT_FOUND_BRO, response.body);
     }
 ",StaticFilesTestExternal::testExternalStaticFile_5_oe
-spark_129_6,"    @Test
+spark_130_6,"    @Test
     public void testExternalStaticFile_6_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
         // removed other assertion
@@ -10606,7 +10620,7 @@ spark_129_6,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",StaticFilesTestExternal::testExternalStaticFile_6_oe
-spark_129_7,"    @Test
+spark_130_7,"    @Test
     public void testExternalStaticFile_7_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
         // removed other assertion
@@ -10634,25 +10648,25 @@ spark_129_7,"    @Test
         Assert.assertTrue(response.body.contains(FO_SHIZZY));
     }
 ",StaticFilesTestExternal::testExternalStaticFile_7_oe
-spark_130_1,"    @Test
+spark_131_1,"    @Test
     public void testMimeTypes_1_oe() throws Exception {
         Assert.assertEquals(""text/html"", doGet(""/pages/index.html"").headers.get(""Content-Type""));
     }
 ",StaticFilesTest::testMimeTypes_1_oe
-spark_130_2,"    @Test
+spark_131_2,"    @Test
     public void testMimeTypes_2_oe() throws Exception {
         // removed other assertion
         Assert.assertEquals(""application/javascript"", doGet(""/js/scripts.js"").headers.get(""Content-Type""));
     }
 ",StaticFilesTest::testMimeTypes_2_oe
-spark_130_3,"    @Test
+spark_131_3,"    @Test
     public void testMimeTypes_3_oe() throws Exception {
         // removed other assertion
         // removed other assertion
         Assert.assertEquals(""text/css"", doGet(""/css/style.css"").headers.get(""Content-Type""));
     }
 ",StaticFilesTest::testMimeTypes_3_oe
-spark_130_4,"    @Test
+spark_131_4,"    @Test
     public void testMimeTypes_4_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10660,7 +10674,7 @@ spark_130_4,"    @Test
         Assert.assertEquals(""image/png"", doGet(""/img/sparklogo.png"").headers.get(""Content-Type""));
     }
 ",StaticFilesTest::testMimeTypes_4_oe
-spark_130_5,"    @Test
+spark_131_5,"    @Test
     public void testMimeTypes_5_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10669,7 +10683,7 @@ spark_130_5,"    @Test
         Assert.assertEquals(""image/svg+xml"", doGet(""/img/sparklogo.svg"").headers.get(""Content-Type""));
     }
 ",StaticFilesTest::testMimeTypes_5_oe
-spark_130_6,"    @Test
+spark_131_6,"    @Test
     public void testMimeTypes_6_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10679,7 +10693,7 @@ spark_130_6,"    @Test
         Assert.assertEquals(""application/octet-stream"", doGet(""/img/sparklogoPng"").headers.get(""Content-Type""));
     }
 ",StaticFilesTest::testMimeTypes_6_oe
-spark_130_7,"    @Test
+spark_131_7,"    @Test
     public void testMimeTypes_7_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10690,7 +10704,7 @@ spark_130_7,"    @Test
         Assert.assertEquals(""application/octet-stream"", doGet(""/img/sparklogoSvg"").headers.get(""Content-Type""));
     }
 ",StaticFilesTest::testMimeTypes_7_oe
-spark_130_8,"    @Test
+spark_131_8,"    @Test
     public void testMimeTypes_8_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10702,7 +10716,7 @@ spark_130_8,"    @Test
         Assert.assertEquals(""text/html"", doGet(""/externalFile.html"").headers.get(""Content-Type""));
     }
 ",StaticFilesTest::testMimeTypes_8_oe
-spark_130_9,"    @Test
+spark_131_9,"    @Test
     public void testMimeTypes_9_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10720,7 +10734,7 @@ spark_130_9,"    @Test
         Assert.assertEquals(""custom-extension-type"", doGet(""/img/file.cxt"").headers.get(""Content-Type""));
     }
 ",StaticFilesTest::testMimeTypes_9_oe
-spark_130_10,"    @Test
+spark_131_10,"    @Test
     public void testMimeTypes_10_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10744,7 +10758,7 @@ spark_130_10,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",StaticFilesTest::testMimeTypes_10_oe
-spark_130_11,"    @Test
+spark_131_11,"    @Test
     public void testMimeTypes_11_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10769,7 +10783,7 @@ spark_130_11,"    @Test
         Assert.assertEquals(""text/css"", response.headers.get(""Content-Type""));
     }
 ",StaticFilesTest::testMimeTypes_11_oe
-spark_130_12,"    @Test
+spark_131_12,"    @Test
     public void testMimeTypes_12_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10795,7 +10809,7 @@ spark_130_12,"    @Test
         Assert.assertEquals(""Content of css file"", response.body);
     }
 ",StaticFilesTest::testMimeTypes_12_oe
-spark_130_13,"    @Test
+spark_131_13,"    @Test
     public void testMimeTypes_13_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10829,7 +10843,7 @@ spark_130_13,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",StaticFilesTest::testMimeTypes_13_oe
-spark_130_14,"    @Test
+spark_131_14,"    @Test
     public void testMimeTypes_14_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10864,7 +10878,7 @@ spark_130_14,"    @Test
         Assert.assertEquals(""<html><body>Hello Static World!</body></html>"", response.body);
     }
 ",StaticFilesTest::testMimeTypes_14_oe
-spark_130_15,"    @Test
+spark_131_15,"    @Test
     public void testMimeTypes_15_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10907,7 +10921,7 @@ spark_130_15,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",StaticFilesTest::testMimeTypes_15_oe
-spark_130_16,"    @Test
+spark_131_16,"    @Test
     public void testMimeTypes_16_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -10951,7 +10965,7 @@ spark_130_16,"    @Test
         Assert.assertEquals(""<html><body>Hello Static Files World!</body></html>"", response.body);
     }
 ",StaticFilesTest::testMimeTypes_16_oe
-spark_130_17,"    @Test
+spark_131_17,"    @Test
     public void testMimeTypes_17_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -11005,7 +11019,7 @@ spark_130_17,"    @Test
         Assert.assertEquals(400, response.status);
     }
 ",StaticFilesTest::testMimeTypes_17_oe
-spark_130_18,"    @Test
+spark_131_18,"    @Test
     public void testMimeTypes_18_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -11067,7 +11081,7 @@ spark_130_18,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",StaticFilesTest::testMimeTypes_18_oe
-spark_130_19,"    @Test
+spark_131_19,"    @Test
     public void testMimeTypes_19_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -11130,7 +11144,7 @@ spark_130_19,"    @Test
         Assert.assertEquals(CONTENT_OF_EXTERNAL_FILE, response.body);
     }
 ",StaticFilesTest::testMimeTypes_19_oe
-spark_130_20,"    @Test
+spark_131_20,"    @Test
     public void testMimeTypes_20_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -11204,7 +11218,7 @@ spark_130_20,"    @Test
         Assert.assertEquals(200, response.status);
     }
 ",StaticFilesTest::testMimeTypes_20_oe
-spark_130_21,"    @Test
+spark_131_21,"    @Test
     public void testMimeTypes_21_oe() throws Exception {
         // removed other assertion
         // removed other assertion
@@ -11279,14 +11293,14 @@ spark_130_21,"    @Test
         Assert.assertTrue(response.body.contains(FO_SHIZZY));
     }
 ",StaticFilesTest::testMimeTypes_21_oe
-spark_131_1,"    @Test
+spark_132_1,"    @Test
     public void testExceptionMapping404_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet(""/filethatdoesntexist.html"");
 
         Assert.assertEquals(404, response.status);
     }
 ",StaticFilesTest::testExceptionMapping404_1_oe
-spark_131_2,"    @Test
+spark_132_2,"    @Test
     public void testExceptionMapping404_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = doGet(""/filethatdoesntexist.html"");
 
@@ -11294,7 +11308,7 @@ spark_131_2,"    @Test
         Assert.assertEquals(NOT_FOUND_BRO, response.body);
     }
 ",StaticFilesTest::testExceptionMapping404_2_oe
-spark_132_1,"    @Test
+spark_133_1,"    @Test
     public void testSupportedHttpMethod_1_oe() {
         HttpMethod get = HttpMethod.get;
         HttpMethod method = HttpMethod.get(get.name());
@@ -11302,26 +11316,26 @@ spark_132_1,"    @Test
         Assert.assertEquals(get, method);
     }
 ",HttpMethodTest::testSupportedHttpMethod_1_oe
-spark_133_1,"    @Test
+spark_134_1,"    @Test
     public void testNotSupportedHttpMethod_1_oe() {
         HttpMethod method = HttpMethod.get(""lock"");
 
         Assert.assertEquals(HttpMethod.unsupported, method);
     }
 ",HttpMethodTest::testNotSupportedHttpMethod_1_oe
-spark_134_1,"    @Test
+spark_135_1,"    @Test
     public void testIsEmpty_whenArrayIsEmpty_1_oe() throws Exception {
 
         assertTrue(""Should return false because array is empty"", ObjectUtils.isEmpty(new Object[]{}));
     }
 ",ObjectUtilsTest::testIsEmpty_whenArrayIsEmpty_1_oe
-spark_135_1,"    @Test
+spark_136_1,"    @Test
     public void testIsEmpty_whenArrayIsNotEmpty_1_oe() throws Exception {
 
         assertFalse(""Should return false because array is not empty"", ObjectUtils.isEmpty(new Integer[]{1,2}));
     }
 ",ObjectUtilsTest::testIsEmpty_whenArrayIsNotEmpty_1_oe
-spark_136_1,"    @Test
+spark_137_1,"    @Test
     public void testConvertRouteToList_1_oe() throws Exception {
 
         List<String> expected = Arrays.asList(""api"", ""person"", "":id"");
@@ -11331,31 +11345,31 @@ spark_136_1,"    @Test
         assertThat(""Should return route as a list of individual elements that path is made of"", actual, is(expected));
     }
 ",SparkUtilsTest::testConvertRouteToList_1_oe
-spark_137_1,"    @Test
+spark_138_1,"    @Test
     public void testIsParam_whenParameterFormattedAsParm_1_oe() throws Exception {
 
         assertTrue(""Should return true because parameter follows convention of a parameter (:paramname)"", SparkUtils.isParam("":param""));
     }
 ",SparkUtilsTest::testIsParam_whenParameterFormattedAsParm_1_oe
-spark_138_1,"    @Test
+spark_139_1,"    @Test
     public void testIsParam_whenParameterNotFormattedAsParm_1_oe() throws Exception {
 
         assertFalse(""Should return false because parameter does not follows convention of a parameter (:paramname)"", SparkUtils.isParam("".param""));
     }
 ",SparkUtilsTest::testIsParam_whenParameterNotFormattedAsParm_1_oe
-spark_139_1,"    @Test
+spark_140_1,"    @Test
     public void testIsSplat_whenParameterIsASplat_1_oe() throws Exception {
 
         assertTrue(""Should return true because parameter is a splat (*)"", SparkUtils.isSplat(""*""));
     }
 ",SparkUtilsTest::testIsSplat_whenParameterIsASplat_1_oe
-spark_140_1,"    @Test
+spark_141_1,"    @Test
     public void testIsSplat_whenParameterIsNotASplat_1_oe() throws Exception {
 
         assertFalse(""Should return true because parameter is not a splat (*)"", SparkUtils.isSplat(""!""));
     }
 ",SparkUtilsTest::testIsSplat_whenParameterIsNotASplat_1_oe
-spark_141_1,"    @Test
+spark_142_1,"    @Test
     public void testIsEmpty_whenCollectionIsEmpty_thenReturnTrue_1_oe() {
 
         Collection<Object> testCollection = new ArrayList<>();
@@ -11363,7 +11377,7 @@ spark_141_1,"    @Test
         assertTrue(""Should return true because collection is empty"", CollectionUtils.isEmpty(testCollection));
     }
 ",CollectionUtilsTest::testIsEmpty_whenCollectionIsEmpty_thenReturnTrue_1_oe
-spark_142_1,"    @Test
+spark_143_1,"    @Test
     public void testIsEmpty_whenCollectionIsNotEmpty_thenReturnFalse_1_oe() {
 
         Collection<Integer> testCollection = new ArrayList<>();
@@ -11373,7 +11387,7 @@ spark_142_1,"    @Test
         assertFalse(""Should return false because collection is not empty"", CollectionUtils.isEmpty(testCollection));
     }
 ",CollectionUtilsTest::testIsEmpty_whenCollectionIsNotEmpty_thenReturnFalse_1_oe
-spark_143_1,"    @Test
+spark_144_1,"    @Test
     public void testIsEmpty_whenCollectionIsNull_thenReturnTrue_1_oe() {
 
         Collection<Integer> testCollection = null;
@@ -11381,7 +11395,7 @@ spark_143_1,"    @Test
         assertTrue(""Should return true because collection is null"", CollectionUtils.isEmpty(testCollection));
     }
 ",CollectionUtilsTest::testIsEmpty_whenCollectionIsNull_thenReturnTrue_1_oe
-spark_144_1,"    @Test
+spark_145_1,"    @Test
     public void testIsNotEmpty_whenCollectionIsEmpty_thenReturnFalse_1_oe() {
 
         Collection<Object> testCollection = new ArrayList<>();
@@ -11389,7 +11403,7 @@ spark_144_1,"    @Test
         assertFalse(""Should return false because collection is empty"", CollectionUtils.isNotEmpty(testCollection));
     }
 ",CollectionUtilsTest::testIsNotEmpty_whenCollectionIsEmpty_thenReturnFalse_1_oe
-spark_145_1,"    @Test
+spark_146_1,"    @Test
     public void testIsNotEmpty_whenCollectionIsNotEmpty_thenReturnTrue_1_oe() {
 
         Collection<Integer> testCollection = new ArrayList<>();
@@ -11399,7 +11413,7 @@ spark_145_1,"    @Test
         assertTrue(""Should return true because collection is not empty"", CollectionUtils.isNotEmpty(testCollection));
     }
 ",CollectionUtilsTest::testIsNotEmpty_whenCollectionIsNotEmpty_thenReturnTrue_1_oe
-spark_146_1,"    @Test
+spark_147_1,"    @Test
     public void testIsNotEmpty_whenCollectionIsNull_thenReturnFalse_1_oe() {
 
         Collection<Object> testCollection = null;
@@ -11407,7 +11421,7 @@ spark_146_1,"    @Test
         assertFalse(""Should return false because collection is null"", CollectionUtils.isNotEmpty(testCollection));
     }
 ",CollectionUtilsTest::testIsNotEmpty_whenCollectionIsNull_thenReturnFalse_1_oe
-spark_147_1,"    @Test
+spark_148_1,"    @Test
     public void testProcess_copiesData_1_oe() throws IOException {
         byte[] bytes = ""Hello, Spark!"".getBytes();
         ByteArrayInputStream input = new ByteArrayInputStream(bytes);
@@ -11418,7 +11432,7 @@ spark_147_1,"    @Test
         Assert.assertArrayEquals(bytes, output.toByteArray());
     }
 ",InputStreamSerializerTest::testProcess_copiesData_1_oe
-spark_148_1,"    @Test
+spark_149_1,"    @Test
     public void testProcess_closesStream_1_oe() throws IOException {
         MockInputStream input = new MockInputStream(new ByteArrayInputStream(new byte[0]));
         ByteArrayOutputStream output = new ByteArrayOutputStream();
@@ -11428,7 +11442,7 @@ spark_148_1,"    @Test
         Assert.assertTrue(""Expected stream to be closed"", input.closed);
     }
 ",InputStreamSerializerTest::testProcess_closesStream_1_oe
-spark_149_1,"    @Test
+spark_150_1,"    @Test
     public void canonical_1_oe() throws Exception {
         String[][] canonical = {
             {""/aaa/bbb/"", ""/aaa/bbb/""},
@@ -11484,46 +11498,46 @@ spark_149_1,"    @Test
     }
     }
 ",UriPathTest::canonical_1_oe
-spark_150_1,"    @Test
+spark_151_1,"    @Test
     public void testGetHi_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hello"", null);
         Assert.assertEquals(200, response.status);
     }
 ",CustomErrorPagesTest::testGetHi_1_oe
-spark_150_2,"    @Test
+spark_151_2,"    @Test
     public void testGetHi_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hello"", null);
         // removed other assertion
         Assert.assertEquals(HELLO_WORLD, response.body);
     }
 ",CustomErrorPagesTest::testGetHi_2_oe
-spark_151_1,"    @Test
+spark_152_1,"    @Test
     public void testCustomNotFound_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/othernotmapped"", null);
         Assert.assertEquals(404, response.status);
     }
 ",CustomErrorPagesTest::testCustomNotFound_1_oe
-spark_151_2,"    @Test
+spark_152_2,"    @Test
     public void testCustomNotFound_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/othernotmapped"", null);
         // removed other assertion
         Assert.assertEquals(CUSTOM_NOT_FOUND, response.body);
     }
 ",CustomErrorPagesTest::testCustomNotFound_2_oe
-spark_152_1,"    @Test
+spark_153_1,"    @Test
     public void testCustomInternal_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/raiseinternal"", null);
         Assert.assertEquals(500, response.status);
     }
 ",CustomErrorPagesTest::testCustomInternal_1_oe
-spark_152_2,"    @Test
+spark_153_2,"    @Test
     public void testCustomInternal_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/raiseinternal"", null);
         // removed other assertion
         Assert.assertEquals(APPLICATION_JSON, response.headers.get(""Content-Type""));
     }
 ",CustomErrorPagesTest::testCustomInternal_2_oe
-spark_152_3,"    @Test
+spark_153_3,"    @Test
     public void testCustomInternal_3_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/raiseinternal"", null);
         // removed other assertion
@@ -11531,27 +11545,27 @@ spark_152_3,"    @Test
         Assert.assertEquals(CUSTOM_INTERNAL, response.body);
     }
 ",CustomErrorPagesTest::testCustomInternal_3_oe
-spark_153_1,"    @Test
+spark_154_1,"    @Test
     public void testCustomInternalFailingRoute_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/raiseinternal?"" + QUERY_PARAM_KEY + ""=sumthin"", null);
         Assert.assertEquals(500, response.status);
     }
 ",CustomErrorPagesTest::testCustomInternalFailingRoute_1_oe
-spark_153_2,"    @Test
+spark_154_2,"    @Test
     public void testCustomInternalFailingRoute_2_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/raiseinternal?"" + QUERY_PARAM_KEY + ""=sumthin"", null);
         // removed other assertion
         Assert.assertEquals(CustomErrorPages.INTERNAL_ERROR, response.body);
     }
 ",CustomErrorPagesTest::testCustomInternalFailingRoute_2_oe
-spark_154_1,"    @Test
+spark_155_1,"    @Test
     public void testRunFromServlet_whenDefault_1_oe() throws Exception {
 
         AtomicBoolean isRunningFromServlet = Whitebox.getInternalState(ServletFlag.class, ""isRunningFromServlet"");
         assertFalse(""Should be false because it is the default value"", isRunningFromServlet.get());
     }
 ",ServletFlagTest::testRunFromServlet_whenDefault_1_oe
-spark_155_1,"    @Test
+spark_156_1,"    @Test
     public void testRunFromServlet_whenExecuted_1_oe() throws Exception {
 
         ServletFlag.runFromServlet();
@@ -11560,155 +11574,155 @@ spark_155_1,"    @Test
         assertTrue(""Should be true because it flag has been set after runFromServlet"", isRunningFromServlet.get());
     }
 ",ServletFlagTest::testRunFromServlet_whenExecuted_1_oe
-spark_156_1,"    @Test
+spark_157_1,"    @Test
     public void testIsRunningFromServlet_whenDefault_1_oe() throws Exception {
 
         assertFalse(""Should be false because it is the default value"", ServletFlag.isRunningFromServlet());
     }
 ",ServletFlagTest::testIsRunningFromServlet_whenDefault_1_oe
-spark_157_1,"    @Test
+spark_158_1,"    @Test
     public void testIsRunningFromServlet_whenRunningFromServlet_1_oe() throws Exception {
 
         ServletFlag.runFromServlet();
         assertTrue(""Should be true because call to runFromServlet has been made"", ServletFlag.isRunningFromServlet());
     }
 ",ServletFlagTest::testIsRunningFromServlet_whenRunningFromServlet_1_oe
-spark_158_1,"    @Test
+spark_159_1,"    @Test
     public void testGetHi_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/hi"", null);
         Assert.assertEquals(200, response.status);
     }
 ",ServletTest::testGetHi_1_oe
-spark_158_2,"    @Test
+spark_159_2,"    @Test
     public void testGetHi_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/hi"", null);
         // removed other assertion
         Assert.assertEquals(""Hello World!"", response.body);
     }
 ",ServletTest::testGetHi_2_oe
-spark_159_1,"    @Test
+spark_160_1,"    @Test
     public void testHiHead_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""HEAD"", SOMEPATH + ""/hi"", null);
         Assert.assertEquals(200, response.status);
     }
 ",ServletTest::testHiHead_1_oe
-spark_159_2,"    @Test
+spark_160_2,"    @Test
     public void testHiHead_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""HEAD"", SOMEPATH + ""/hi"", null);
         // removed other assertion
         Assert.assertEquals("""", response.body);
     }
 ",ServletTest::testHiHead_2_oe
-spark_160_1,"    @Test
+spark_161_1,"    @Test
     public void testGetHiAfterFilter_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/hi"", null);
         Assert.assertTrue(response.headers.get(""after"").contains(""foobar""));
     }
 ",ServletTest::testGetHiAfterFilter_1_oe
-spark_161_1,"    @Test
+spark_162_1,"    @Test
     public void testGetRoot_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/"", null);
         Assert.assertEquals(200, response.status);
     }
 ",ServletTest::testGetRoot_1_oe
-spark_161_2,"    @Test
+spark_162_2,"    @Test
     public void testGetRoot_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/"", null);
         // removed other assertion
         Assert.assertEquals(""Hello Root!"", response.body);
     }
 ",ServletTest::testGetRoot_2_oe
-spark_162_1,"    @Test
+spark_163_1,"    @Test
     public void testEchoParam1_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/shizzy"", null);
         Assert.assertEquals(200, response.status);
     }
 ",ServletTest::testEchoParam1_1_oe
-spark_162_2,"    @Test
+spark_163_2,"    @Test
     public void testEchoParam1_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/shizzy"", null);
         // removed other assertion
         Assert.assertEquals(""echo: shizzy"", response.body);
     }
 ",ServletTest::testEchoParam1_2_oe
-spark_163_1,"    @Test
+spark_164_1,"    @Test
     public void testEchoParam2_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/gunit"", null);
         Assert.assertEquals(200, response.status);
     }
 ",ServletTest::testEchoParam2_1_oe
-spark_163_2,"    @Test
+spark_164_2,"    @Test
     public void testEchoParam2_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/gunit"", null);
         // removed other assertion
         Assert.assertEquals(""echo: gunit"", response.body);
     }
 ",ServletTest::testEchoParam2_2_oe
-spark_164_1,"    @Test
+spark_165_1,"    @Test
     public void testUnauthorized_1_oe() throws Exception {
         UrlResponse urlResponse = testUtil.doMethod(""GET"", SOMEPATH + ""/protected/resource"", null);
         Assert.assertTrue(urlResponse.status == 401);
     }
 ",ServletTest::testUnauthorized_1_oe
-spark_165_1,"    @Test
+spark_166_1,"    @Test
     public void testNotFound_1_oe() throws Exception {
         UrlResponse urlResponse = testUtil.doMethod(""GET"", SOMEPATH + ""/no/resource"", null);
         Assert.assertTrue(urlResponse.status == 404);
     }
 ",ServletTest::testNotFound_1_oe
-spark_166_1,"    @Test
+spark_167_1,"    @Test
     public void testPost_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""POST"", SOMEPATH + ""/poster"", ""Fo shizzy"");
         Assert.assertEquals(201, response.status);
     }
 ",ServletTest::testPost_1_oe
-spark_166_2,"    @Test
+spark_167_2,"    @Test
     public void testPost_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""POST"", SOMEPATH + ""/poster"", ""Fo shizzy"");
         // removed other assertion
         Assert.assertTrue(response.body.contains(""Fo shizzy""));
     }
 ",ServletTest::testPost_2_oe
-spark_167_1,"    @Test
+spark_168_1,"    @Test
     public void testStaticResource_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/css/style.css"", null);
         Assert.assertEquals(200, response.status);
     }
 ",ServletTest::testStaticResource_1_oe
-spark_167_2,"    @Test
+spark_168_2,"    @Test
     public void testStaticResource_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/css/style.css"", null);
         // removed other assertion
         Assert.assertTrue(response.body.contains(""Content of css file""));
     }
 ",ServletTest::testStaticResource_2_oe
-spark_168_1,"    @Test
+spark_169_1,"    @Test
     public void testStaticWelcomeResource_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/pages/"", null);
         Assert.assertEquals(200, response.status);
     }
 ",ServletTest::testStaticWelcomeResource_1_oe
-spark_168_2,"    @Test
+spark_169_2,"    @Test
     public void testStaticWelcomeResource_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/pages/"", null);
         // removed other assertion
         Assert.assertTrue(response.body.contains(""<html><body>Hello Static World!</body></html>""));
     }
 ",ServletTest::testStaticWelcomeResource_2_oe
-spark_169_1,"    @Test
+spark_170_1,"    @Test
     public void testExternalStaticFile_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/"" + MyApp.EXTERNAL_FILE, null);
         Assert.assertEquals(200, response.status);
     }
 ",ServletTest::testExternalStaticFile_1_oe
-spark_169_2,"    @Test
+spark_170_2,"    @Test
     public void testExternalStaticFile_2_oe() throws Exception {
         UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/"" + MyApp.EXTERNAL_FILE, null);
         // removed other assertion
         Assert.assertEquals(""Content of external file"", response.body);
     }
 ",ServletTest::testExternalStaticFile_2_oe
-spark_170_1,"    @Test
+spark_171_1,"    @Test
     public void testAddAndCreate_whenCreate_createsCustomServer_1_oe() throws Exception {
         // Create custom Server
         Server server = new Server();
@@ -11726,7 +11740,7 @@ spark_170_1,"    @Test
         assertNotNull(embeddedServer);
     }
 ",EmbeddedServersTest::testAddAndCreate_whenCreate_createsCustomServer_1_oe
-spark_170_2,"    @Test
+spark_171_2,"    @Test
     public void testAddAndCreate_whenCreate_createsCustomServer_2_oe() throws Exception {
         // Create custom Server
         Server server = new Server();
@@ -11747,7 +11761,7 @@ spark_170_2,"    @Test
         assertTrue(requestLogFile.exists());
     }
 ",EmbeddedServersTest::testAddAndCreate_whenCreate_createsCustomServer_2_oe
-spark_171_1,"    @Test
+spark_172_1,"    @Test
     public void testAdd_whenConfigureRoutes_createsCustomServer_1_oe() throws Exception {
         File requestLogDir = temporaryFolder.newFolder();
         File requestLogFile = new File(requestLogDir, ""request.log"");
@@ -11771,7 +11785,7 @@ spark_171_1,"    @Test
         assertTrue(requestLogFile.exists());
     }
 ",EmbeddedServersTest::testAdd_whenConfigureRoutes_createsCustomServer_1_oe
-spark_172_2,"    @Test
+spark_173_2,"    @Test
     public void testCreateSocketConnector_whenServerIsNull_thenThrowException_2_oe() {
 
         try {
@@ -11782,7 +11796,7 @@ spark_172_2,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSocketConnector_whenServerIsNull_thenThrowException_2_oe
-spark_173_2,"    @Test
+spark_174_2,"    @Test
     public void testCreateSocketConnector_whenHostIsNull_thenThrowException_2_oe() {
 
         Server server = new Server();
@@ -11795,7 +11809,7 @@ spark_173_2,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSocketConnector_whenHostIsNull_thenThrowException_2_oe
-spark_174_1,"    @Test
+spark_175_1,"    @Test
     public void testCreateSocketConnector_1_oe() {
 
         final String host = ""localhost"";
@@ -11811,7 +11825,7 @@ spark_174_1,"    @Test
         assertEquals(""Server Connector Host should be set to the specified server"", host, internalHost);
     }
 ",SocketConnectorFactoryTest::testCreateSocketConnector_1_oe
-spark_174_2,"    @Test
+spark_175_2,"    @Test
     public void testCreateSocketConnector_2_oe() {
 
         final String host = ""localhost"";
@@ -11828,7 +11842,7 @@ spark_174_2,"    @Test
         assertEquals(""Server Connector Port should be set to the specified port"", port, internalPort);
     }
 ",SocketConnectorFactoryTest::testCreateSocketConnector_2_oe
-spark_174_3,"    @Test
+spark_175_3,"    @Test
     public void testCreateSocketConnector_3_oe() {
 
         final String host = ""localhost"";
@@ -11846,7 +11860,7 @@ spark_174_3,"    @Test
         assertEquals(""Server Connector Server should be set to the specified server"", internalServerConnector, server);
     }
 ",SocketConnectorFactoryTest::testCreateSocketConnector_3_oe
-spark_175_2,"    @Test
+spark_176_2,"    @Test
     public void testCreateSecureSocketConnector_whenServerIsNull_2_oe() {
 
         try {
@@ -11857,7 +11871,7 @@ spark_175_2,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenServerIsNull_2_oe
-spark_176_2,"    @Test
+spark_177_2,"    @Test
     public void testCreateSecureSocketConnector_whenHostIsNull_2_oe() {
 
         Server server = new Server();
@@ -11870,7 +11884,7 @@ spark_176_2,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenHostIsNull_2_oe
-spark_177_2,"    @Test
+spark_178_2,"    @Test
     public void testCreateSecureSocketConnector_whenSslStoresIsNull_2_oe() {
 
         Server server = new Server();
@@ -11883,7 +11897,7 @@ spark_177_2,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenSslStoresIsNull_2_oe
-spark_178_1,"    public void testCreateSecureSocketConnector_1_oe() throws  Exception {
+spark_179_1,"    public void testCreateSecureSocketConnector_1_oe() throws  Exception {
 
         final String host = ""localhost"";
         final int port = 8888;
@@ -11905,7 +11919,7 @@ spark_178_1,"    public void testCreateSecureSocketConnector_1_oe() throws  Exce
         assertEquals(""Server Connector Host should be set to the specified server"", host, internalHost);
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_1_oe
-spark_178_2,"    public void testCreateSecureSocketConnector_2_oe() throws  Exception {
+spark_179_2,"    public void testCreateSecureSocketConnector_2_oe() throws  Exception {
 
         final String host = ""localhost"";
         final int port = 8888;
@@ -11928,7 +11942,7 @@ spark_178_2,"    public void testCreateSecureSocketConnector_2_oe() throws  Exce
         assertEquals(""Server Connector Port should be set to the specified port"", port, internalPort);
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_2_oe
-spark_178_3,"    public void testCreateSecureSocketConnector_3_oe() throws  Exception {
+spark_179_3,"    public void testCreateSecureSocketConnector_3_oe() throws  Exception {
 
         final String host = ""localhost"";
         final int port = 8888;
@@ -11955,7 +11969,7 @@ spark_178_3,"    public void testCreateSecureSocketConnector_3_oe() throws  Exce
         assertTrue(""Should return true because factory for SSL should have been set"", factories.containsKey(""ssl"") && factories.get(""ssl"") != null);
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_3_oe
-spark_178_4,"    public void testCreateSecureSocketConnector_4_oe() throws  Exception {
+spark_179_4,"    public void testCreateSecureSocketConnector_4_oe() throws  Exception {
 
         final String host = ""localhost"";
         final int port = 8888;
@@ -11987,7 +12001,7 @@ spark_178_4,"    public void testCreateSecureSocketConnector_4_oe() throws  Exce
         assertEquals(""Should return the Keystore file specified"", keystoreFile, sslContextFactory.getKeyStoreResource().getFile().getName());
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_4_oe
-spark_178_5,"    public void testCreateSecureSocketConnector_5_oe() throws  Exception {
+spark_179_5,"    public void testCreateSecureSocketConnector_5_oe() throws  Exception {
 
         final String host = ""localhost"";
         final int port = 8888;
@@ -12021,7 +12035,7 @@ spark_178_5,"    public void testCreateSecureSocketConnector_5_oe() throws  Exce
         assertEquals(""Should return the Truststore file specified"", truststoreFile, sslContextFactory.getTrustStoreResource().getFile().getName());
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_5_oe
-spark_179_1,"    @Test
+spark_180_1,"    @Test
     public void create_1_oe() throws Exception {
         final JettyServerFactory jettyServerFactory = mock(JettyServerFactory.class);
         final StaticFilesConfiguration staticFilesConfiguration = mock(StaticFilesConfiguration.class);
@@ -12041,7 +12055,7 @@ spark_179_1,"    @Test
         assertTrue(((JettyHandler) server.getHandler()).getSessionCookieConfig().isHttpOnly());
     }
 ",EmbeddedJettyFactoryTest::create_1_oe
-spark_180_1,"    @Test
+spark_181_1,"    @Test
     public void create_withoutHttpOnly_1_oe() throws Exception {
         final JettyServerFactory jettyServerFactory = mock(JettyServerFactory.class);
         final StaticFilesConfiguration staticFilesConfiguration = mock(StaticFilesConfiguration.class);
@@ -12057,7 +12071,7 @@ spark_180_1,"    @Test
         assertFalse(((JettyHandler) server.getHandler()).getSessionCookieConfig().isHttpOnly());
     }
 ",EmbeddedJettyFactoryTest::create_withoutHttpOnly_1_oe
-spark_181_1,"    @Test
+spark_182_1,"    @Test
     public void testCreateServer_useDefaults_1_oe() {
         Server server = new JettyServer().create(0, 0, 0);
 
@@ -12070,7 +12084,7 @@ spark_181_1,"    @Test
         assertEquals(""Server thread pool default minThreads should be 8"", 8, minThreads);
     }
 ",JettyServerTest::testCreateServer_useDefaults_1_oe
-spark_181_2,"    @Test
+spark_182_2,"    @Test
     public void testCreateServer_useDefaults_2_oe() {
         Server server = new JettyServer().create(0, 0, 0);
 
@@ -12084,7 +12098,7 @@ spark_181_2,"    @Test
         assertEquals(""Server thread pool default maxThreads should be 200"", 200, maxThreads);
     }
 ",JettyServerTest::testCreateServer_useDefaults_2_oe
-spark_181_3,"    @Test
+spark_182_3,"    @Test
     public void testCreateServer_useDefaults_3_oe() {
         Server server = new JettyServer().create(0, 0, 0);
 
@@ -12099,7 +12113,7 @@ spark_181_3,"    @Test
         assertEquals(""Server thread pool default idleTimeout should be 60000"", 60000, idleTimeout);
     }
 ",JettyServerTest::testCreateServer_useDefaults_3_oe
-spark_182_1,"    @Test
+spark_183_1,"    @Test
     public void testCreateServer_whenNonDefaultMaxThreadsOnly_thenUseDefaultMinThreadsAndTimeout_1_oe() {
         Server server = new JettyServer().create(9, 0, 0);
 
@@ -12112,7 +12126,7 @@ spark_182_1,"    @Test
         assertEquals(""Server thread pool default minThreads should be 8"", 8, minThreads);
     }
 ",JettyServerTest::testCreateServer_whenNonDefaultMaxThreadsOnly_thenUseDefaultMinThreadsAndTimeout_1_oe
-spark_182_2,"    @Test
+spark_183_2,"    @Test
     public void testCreateServer_whenNonDefaultMaxThreadsOnly_thenUseDefaultMinThreadsAndTimeout_2_oe() {
         Server server = new JettyServer().create(9, 0, 0);
 
@@ -12126,7 +12140,7 @@ spark_182_2,"    @Test
         assertEquals(""Server thread pool default maxThreads should be the same as specified"", 9, maxThreads);
     }
 ",JettyServerTest::testCreateServer_whenNonDefaultMaxThreadsOnly_thenUseDefaultMinThreadsAndTimeout_2_oe
-spark_182_3,"    @Test
+spark_183_3,"    @Test
     public void testCreateServer_whenNonDefaultMaxThreadsOnly_thenUseDefaultMinThreadsAndTimeout_3_oe() {
         Server server = new JettyServer().create(9, 0, 0);
 
@@ -12141,7 +12155,7 @@ spark_182_3,"    @Test
         assertEquals(""Server thread pool default idleTimeout should be 60000"", 60000, idleTimeout);
     }
 ",JettyServerTest::testCreateServer_whenNonDefaultMaxThreadsOnly_thenUseDefaultMinThreadsAndTimeout_3_oe
-spark_183_2,"    @Test
+spark_184_2,"    @Test
     public void testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_2_oe() {
         try {
             new JettyServer().create(2, 0, 0);
@@ -12152,14 +12166,14 @@ spark_183_2,"    @Test
     }
     }
 ",JettyServerTest::testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_2_oe
-spark_184_1,"    @Test
+spark_185_1,"    @Test
     public void testCreateWebSocketHandler_1_oe() {
         WebSocketCreator annotated =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(AnnotatedHandler.class));
         assertTrue(annotated instanceof SparkWebSocketCreator);
     }
 ",WebSocketCreatorFactoryTest::testCreateWebSocketHandler_1_oe
-spark_184_2,"    @Test
+spark_185_2,"    @Test
     public void testCreateWebSocketHandler_2_oe() {
         WebSocketCreator annotated =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(AnnotatedHandler.class));
@@ -12167,7 +12181,7 @@ spark_184_2,"    @Test
         assertTrue(SparkWebSocketCreator.class.cast(annotated).getHandler() instanceof AnnotatedHandler);
     }
 ",WebSocketCreatorFactoryTest::testCreateWebSocketHandler_2_oe
-spark_184_3,"    @Test
+spark_185_3,"    @Test
     public void testCreateWebSocketHandler_3_oe() {
         WebSocketCreator annotated =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(AnnotatedHandler.class));
@@ -12179,7 +12193,7 @@ spark_184_3,"    @Test
         assertTrue(listener instanceof SparkWebSocketCreator);
     }
 ",WebSocketCreatorFactoryTest::testCreateWebSocketHandler_3_oe
-spark_184_4,"    @Test
+spark_185_4,"    @Test
     public void testCreateWebSocketHandler_4_oe() {
         WebSocketCreator annotated =
                 WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(AnnotatedHandler.class));
@@ -12192,7 +12206,7 @@ spark_184_4,"    @Test
         assertTrue(SparkWebSocketCreator.class.cast(listener).getHandler() instanceof ListenerHandler);
     }
 ",WebSocketCreatorFactoryTest::testCreateWebSocketHandler_4_oe
-spark_185_2,"    @Test
+spark_186_2,"    @Test
     public void testCannotCreateInvalidHandlers_2_oe() {
         try {
             WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(InvalidHandler.class));
@@ -12202,7 +12216,7 @@ spark_185_2,"    @Test
     }
     }
 ",WebSocketCreatorFactoryTest::testCannotCreateInvalidHandlers_2_oe
-spark_186_2,"    @Test
+spark_187_2,"    @Test
     public void testCreate_whenInstantiationException_2_oe() throws Exception {
         try {
             WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(FailingHandler.class));
@@ -12212,7 +12226,7 @@ spark_186_2,"    @Test
     }
     }
 ",WebSocketCreatorFactoryTest::testCreate_whenInstantiationException_2_oe
-spark_187_1,"    @Test
+spark_188_1,"    @Test
     public void testCreate_whenWebSocketHandlersIsNull_thenReturnNull_1_oe() throws Exception {
 
         servletContextHandler = WebSocketServletContextHandlerFactory.create(null, Optional.empty());
@@ -12220,7 +12234,7 @@ spark_187_1,"    @Test
         assertNull(""Should return null because no WebSocket Handlers were passed"", servletContextHandler);
     }
 ",WebSocketServletContextHandlerFactoryTest::testCreate_whenWebSocketHandlersIsNull_thenReturnNull_1_oe
-spark_188_1,"    @Test
+spark_189_1,"    @Test
     public void testCreate_whenNoIdleTimeoutIsPresent_1_oe() throws Exception {
 
         Map<String, WebSocketHandlerWrapper> webSocketHandlers = new HashMap<>();
@@ -12237,7 +12251,7 @@ spark_188_1,"    @Test
         assertNotNull(""Should return a WebSocketUpgradeFilter because we configured it to have one"", webSocketUpgradeFilter);
     }
 ",WebSocketServletContextHandlerFactoryTest::testCreate_whenNoIdleTimeoutIsPresent_1_oe
-spark_188_2,"    @Test
+spark_189_2,"    @Test
     public void testCreate_whenNoIdleTimeoutIsPresent_2_oe() throws Exception {
 
         Map<String, WebSocketHandlerWrapper> webSocketHandlers = new HashMap<>();
@@ -12262,7 +12276,7 @@ spark_188_2,"    @Test
         assertEquals(""Should return the WebSocket path specified when context handler was created"", webSocketPath, pathSpec.getDeclaration());
     }
 ",WebSocketServletContextHandlerFactoryTest::testCreate_whenNoIdleTimeoutIsPresent_2_oe
-spark_189_1,"    @Test
+spark_190_1,"    @Test
     public void testCreate_whenTimeoutIsPresent_1_oe() throws Exception {
 
         final Integer timeout = Integer.valueOf(1000);
@@ -12281,7 +12295,7 @@ spark_189_1,"    @Test
         assertNotNull(""Should return a WebSocketUpgradeFilter because we configured it to have one"", webSocketUpgradeFilter);
     }
 ",WebSocketServletContextHandlerFactoryTest::testCreate_whenTimeoutIsPresent_1_oe
-spark_189_2,"    @Test
+spark_190_2,"    @Test
     public void testCreate_whenTimeoutIsPresent_2_oe() throws Exception {
 
         final Integer timeout = Integer.valueOf(1000);
@@ -12306,7 +12320,7 @@ spark_189_2,"    @Test
         assertEquals(""Timeout value should be the same as the timeout specified when context handler was created"", timeout.longValue(), webSocketServerFactory.getPolicy().getIdleTimeout());
     }
 ",WebSocketServletContextHandlerFactoryTest::testCreate_whenTimeoutIsPresent_2_oe
-spark_189_3,"    @Test
+spark_190_3,"    @Test
     public void testCreate_whenTimeoutIsPresent_3_oe() throws Exception {
 
         final Integer timeout = Integer.valueOf(1000);
@@ -12336,7 +12350,7 @@ spark_189_3,"    @Test
         assertEquals(""Should return the WebSocket path specified when context handler was created"", webSocketPath, pathSpec.getDeclaration());
     }
 ",WebSocketServletContextHandlerFactoryTest::testCreate_whenTimeoutIsPresent_3_oe
-spark_190_1,"    @Test
+spark_191_1,"    @Test
     @PrepareForTest(WebSocketServletContextHandlerFactory.class)
     public void testCreate_whenWebSocketContextHandlerCreationFails_thenThrowException_1_oe() throws Exception {
 
@@ -12351,7 +12365,7 @@ spark_190_1,"    @Test
         assertNull(""Should return null because Websocket context handler was not created"", servletContextHandler);
     }
 ",WebSocketServletContextHandlerFactoryTest::testCreate_whenWebSocketContextHandlerCreationFails_thenThrowException_1_oe
-spark_191_1,"    @Test
+spark_192_1,"    @Test
     public void testGetFile_whenURLProtocolIsFile_thenReturnFileObject_1_oe() throws
                                                                          MalformedURLException,
                                                                          FileNotFoundException,

@@ -50,20 +50,18 @@ public class ShrinkerThread<K, V>
     private final int maxSpoolPerRun;
 
     /** Should we limit the number spooled per run. If so, the maxSpoolPerRun will be used. */
-    private boolean spoolLimit = false;
+    private boolean spoolLimit;
 
     /**
      * Constructor for the ShrinkerThread object.
      * <p>
      * @param cache The MemoryCache which the new shrinker should watch.
      */
-    public ShrinkerThread( CompositeCache<K, V> cache )
+    public ShrinkerThread( final CompositeCache<K, V> cache )
     {
-        super();
-
         this.cache = cache;
 
-        long maxMemoryIdleTimeSeconds = cache.getCacheAttributes().getMaxMemoryIdleTimeSeconds();
+        final long maxMemoryIdleTimeSeconds = cache.getCacheAttributes().getMaxMemoryIdleTimeSeconds();
 
         if ( maxMemoryIdleTimeSeconds < 0 )
         {
@@ -108,19 +106,19 @@ public class ShrinkerThread<K, V>
      */
     protected void shrink()
     {
-        log.debug( "Shrinking memory cache for: {0}", () -> this.cache.getCacheName() );
+        log.debug( "Shrinking memory cache for: {0}", this.cache::getCacheName);
 
-        IMemoryCache<K, V> memCache = cache.getMemoryCache();
+        final IMemoryCache<K, V> memCache = cache.getMemoryCache();
 
         try
         {
-            Set<K> keys = memCache.getKeySet();
-            int size = keys.size();
+            final Set<K> keys = memCache.getKeySet();
+            final int size = keys.size();
             log.debug( "Keys size: {0}", size );
 
             int spoolCount = 0;
 
-            for (K key : keys)
+            for (final K key : keys)
             {
                 final ICacheElement<K, V> cacheElement = memCache.getQuiet( key );
 
@@ -129,11 +127,11 @@ public class ShrinkerThread<K, V>
                     continue;
                 }
 
-                IElementAttributes attributes = cacheElement.getElementAttributes();
+                final IElementAttributes attributes = cacheElement.getElementAttributes();
 
                 boolean remove = false;
 
-                long now = System.currentTimeMillis();
+                final long now = System.currentTimeMillis();
 
                 // If the element is not eternal, check if it should be
                 // removed and remove it if so.
@@ -188,7 +186,7 @@ public class ShrinkerThread<K, V>
                 }
             }
         }
-        catch ( Throwable t )
+        catch ( final Throwable t )
         {
             log.info( "Unexpected trouble in shrink cycle", t );
 

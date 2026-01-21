@@ -67,7 +67,7 @@ public class TestEthiopicChronology_OE25Dev extends TestCase {
 
     public static TestSuite suite() {
         SKIP = 1 * MILLIS_PER_DAY;
-        return new TestSuite(TestEthiopicChronology_OE25Dev.class);
+        return new TestSuite(TestEthiopicChronology.class);
     }
 
     public TestEthiopicChronology_OE25Dev(String name) {
@@ -104,6 +104,94 @@ public class TestEthiopicChronology_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
+    //-----------------------------------------------------------------------
+    /**
+     * Tests era, year, monthOfYear, dayOfMonth and dayOfWeek.
+     */
+    public void testCalendar() {
+        if (TestAll.FAST) {
+            return;
+        }
+        System.out.println("\nTestEthiopicChronology.testCalendar");
+        DateTime epoch = new DateTime(1, 1, 1, 0, 0, 0, 0, ETHIOPIC_UTC);
+        long millis = epoch.getMillis();
+        long end = new DateTime(3000, 1, 1, 0, 0, 0, 0, ISO_UTC).getMillis();
+        DateTimeField dayOfWeek = ETHIOPIC_UTC.dayOfWeek();
+        DateTimeField dayOfYear = ETHIOPIC_UTC.dayOfYear();
+        DateTimeField dayOfMonth = ETHIOPIC_UTC.dayOfMonth();
+        DateTimeField monthOfYear = ETHIOPIC_UTC.monthOfYear();
+        DateTimeField year = ETHIOPIC_UTC.year();
+        DateTimeField yearOfEra = ETHIOPIC_UTC.yearOfEra();
+        DateTimeField era = ETHIOPIC_UTC.era();
+        int expectedDOW = new DateTime(8, 8, 29, 0, 0, 0, 0, JULIAN_UTC).getDayOfWeek();
+        int expectedDOY = 1;
+        int expectedDay = 1;
+        int expectedMonth = 1;
+        int expectedYear = 1;
+        while (millis < end) {
+            int dowValue = dayOfWeek.get(millis);
+            int doyValue = dayOfYear.get(millis);
+            int dayValue = dayOfMonth.get(millis);
+            int monthValue = monthOfYear.get(millis);
+            int yearValue = year.get(millis);
+            int yearOfEraValue = yearOfEra.get(millis);
+            int monthLen = dayOfMonth.getMaximumValue(millis);
+            if (monthValue < 1 || monthValue > 13) {
+                fail("Bad month: " + millis);
+            }
+            
+            // test era
+            assertEquals(1, era.get(millis));
+            assertEquals("EE", era.getAsText(millis));
+            assertEquals("EE", era.getAsShortText(millis));
+            
+            // test date
+            assertEquals(expectedYear, yearValue);
+            assertEquals(expectedYear, yearOfEraValue);
+            assertEquals(expectedMonth, monthValue);
+            assertEquals(expectedDay, dayValue);
+            assertEquals(expectedDOW, dowValue);
+            assertEquals(expectedDOY, doyValue);
+            
+            // test leap year
+            assertEquals(yearValue % 4 == 3, year.isLeap(millis));
+            
+            // test month length
+            if (monthValue == 13) {
+                assertEquals(yearValue % 4 == 3, monthOfYear.isLeap(millis));
+                if (yearValue % 4 == 3) {
+                    assertEquals(6, monthLen);
+                } else {
+                    assertEquals(5, monthLen);
+                }
+            } else {
+                assertEquals(30, monthLen);
+            }
+            
+            // recalculate date
+            expectedDOW = (((expectedDOW + 1) - 1) % 7) + 1;
+            expectedDay++;
+            expectedDOY++;
+            if (expectedDay == 31 && expectedMonth < 13) {
+                expectedDay = 1;
+                expectedMonth++;
+            } else if (expectedMonth == 13) {
+                if (expectedYear % 4 == 3 && expectedDay == 7) {
+                    expectedDay = 1;
+                    expectedMonth = 1;
+                    expectedYear++;
+                    expectedDOY = 1;
+                } else if (expectedYear % 4 != 3 && expectedDay == 6) {
+                    expectedDay = 1;
+                    expectedMonth = 1;
+                    expectedYear++;
+                    expectedDOY = 1;
+                }
+            }
+            millis += SKIP;
+        }
+    }
+
     public void testLeap_5_13() {
         Chronology chrono = EthiopicChronology.getInstance();
         DateTime dt = new DateTime(3, 13, 5, 0, 0, chrono);
@@ -128,7 +216,7 @@ public class TestEthiopicChronology_OE25Dev extends TestCase {
 
     public void testFactoryUTC_2_oe() {
         // removed other assertion
-        assertEquals(EthiopicChronology.class, EthiopicChronology.getInstanceUTC().getClass());
+        assertSame(EthiopicChronology.class, EthiopicChronology.getInstanceUTC().getClass());
     }
 
     public void testFactory_1_oe() {
@@ -137,7 +225,7 @@ public class TestEthiopicChronology_OE25Dev extends TestCase {
 
     public void testFactory_2_oe() {
         // removed other assertion
-        assertEquals(EthiopicChronology.class, EthiopicChronology.getInstance().getClass());
+        assertSame(EthiopicChronology.class, EthiopicChronology.getInstance().getClass());
     }
 
     public void testFactory_Zone_1_oe() {
@@ -159,29 +247,29 @@ public class TestEthiopicChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(EthiopicChronology.class, EthiopicChronology.getInstance(TOKYO).getClass());
+        assertSame(EthiopicChronology.class, EthiopicChronology.getInstance(TOKYO).getClass());
     }
 
     public void testEquality_1_oe() {
-        assertEquals(EthiopicChronology.getInstance(TOKYO), EthiopicChronology.getInstance(TOKYO));
+        assertSame(EthiopicChronology.getInstance(TOKYO), EthiopicChronology.getInstance(TOKYO));
     }
 
     public void testEquality_2_oe() {
         // removed other assertion
-        assertEquals(EthiopicChronology.getInstance(LONDON), EthiopicChronology.getInstance(LONDON));
+        assertSame(EthiopicChronology.getInstance(LONDON), EthiopicChronology.getInstance(LONDON));
     }
 
     public void testEquality_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstance(PARIS));
+        assertSame(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstance(PARIS));
     }
 
     public void testEquality_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstanceUTC());
+        assertSame(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstanceUTC());
     }
 
     public void testEquality_5_oe() {
@@ -189,51 +277,51 @@ public class TestEthiopicChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(EthiopicChronology.getInstance(), EthiopicChronology.getInstance(LONDON));
+        assertSame(EthiopicChronology.getInstance(), EthiopicChronology.getInstance(LONDON));
     }
 
     public void testWithUTC_1_oe() {
-        assertEquals(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstance(LONDON).withUTC());
+        assertSame(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstance(LONDON).withUTC());
     }
 
     public void testWithUTC_2_oe() {
         // removed other assertion
-        assertEquals(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstance(TOKYO).withUTC());
+        assertSame(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstance(TOKYO).withUTC());
     }
 
     public void testWithUTC_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstanceUTC().withUTC());
+        assertSame(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstanceUTC().withUTC());
     }
 
     public void testWithUTC_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstance().withUTC());
+        assertSame(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstance().withUTC());
     }
 
     public void testWithZone_1_oe() {
-        assertEquals(EthiopicChronology.getInstance(TOKYO), EthiopicChronology.getInstance(TOKYO).withZone(TOKYO));
+        assertSame(EthiopicChronology.getInstance(TOKYO), EthiopicChronology.getInstance(TOKYO).withZone(TOKYO));
     }
 
     public void testWithZone_2_oe() {
         // removed other assertion
-        assertEquals(EthiopicChronology.getInstance(LONDON), EthiopicChronology.getInstance(TOKYO).withZone(LONDON));
+        assertSame(EthiopicChronology.getInstance(LONDON), EthiopicChronology.getInstance(TOKYO).withZone(LONDON));
     }
 
     public void testWithZone_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstance(TOKYO).withZone(PARIS));
+        assertSame(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstance(TOKYO).withZone(PARIS));
     }
 
     public void testWithZone_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(EthiopicChronology.getInstance(LONDON), EthiopicChronology.getInstance(TOKYO).withZone(null));
+        assertSame(EthiopicChronology.getInstance(LONDON), EthiopicChronology.getInstance(TOKYO).withZone(null));
     }
 
     public void testWithZone_5_oe() {
@@ -241,7 +329,7 @@ public class TestEthiopicChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstance().withZone(PARIS));
+        assertSame(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstance().withZone(PARIS));
     }
 
     public void testWithZone_6_oe() {
@@ -250,7 +338,7 @@ public class TestEthiopicChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstanceUTC().withZone(PARIS));
+        assertSame(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstanceUTC().withZone(PARIS));
     }
 
     public void testToString_1_oe() {

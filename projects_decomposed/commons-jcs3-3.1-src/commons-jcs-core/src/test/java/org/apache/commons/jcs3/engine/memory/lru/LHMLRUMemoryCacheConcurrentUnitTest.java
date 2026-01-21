@@ -1,5 +1,14 @@
 package org.apache.commons.jcs3.engine.memory.lru;
 
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.commons.jcs3.engine.CacheElement;
+import org.apache.commons.jcs3.engine.behavior.ICacheElement;
+import org.apache.commons.jcs3.engine.control.CompositeCache;
+import org.apache.commons.jcs3.engine.control.CompositeCacheManager;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -23,15 +32,6 @@ import junit.extensions.ActiveTestSuite;
 import junit.framework.Test;
 import junit.framework.TestCase;
 
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-
-import org.apache.commons.jcs3.engine.CacheElement;
-import org.apache.commons.jcs3.engine.behavior.ICacheElement;
-import org.apache.commons.jcs3.engine.control.CompositeCache;
-import org.apache.commons.jcs3.engine.control.CompositeCacheManager;
-
 /**
  * Test which exercises the LRUMemory cache. This one uses three different
  * regions for three threads.
@@ -43,27 +43,16 @@ public class LHMLRUMemoryCacheConcurrentUnitTest
      * Number of items to cache, twice the configured maxObjects for the memory
      * cache regions.
      */
-    private static int items = 200;
+    private static final int items = 200;
 
     /**
      * Constructor for the TestDiskCache object.
      *
      * @param testName
      */
-    public LHMLRUMemoryCacheConcurrentUnitTest( String testName )
+    public LHMLRUMemoryCacheConcurrentUnitTest( final String testName )
     {
         super( testName );
-    }
-
-    /**
-     * Main method passes this test to the text test runner.
-     *
-     * @param args
-     */
-    public static void main( String args[] )
-    {
-        String[] testCaseName = { LHMLRUMemoryCacheConcurrentUnitTest.class.getName() };
-        junit.textui.TestRunner.main( testCaseName );
     }
 
     /**
@@ -73,7 +62,7 @@ public class LHMLRUMemoryCacheConcurrentUnitTest
      */
     public static Test suite()
     {
-        ActiveTestSuite suite = new ActiveTestSuite();
+        final ActiveTestSuite suite = new ActiveTestSuite();
 
         suite.addTest( new LHMLRUMemoryCacheConcurrentUnitTest( "testLHMLRUMemoryCache" )
         {
@@ -107,21 +96,21 @@ public class LHMLRUMemoryCacheConcurrentUnitTest
      * @throws Exception
      *                If an error occurs
      */
-    public void runTestForRegion( String region )
+    public void runTestForRegion( final String region )
         throws Exception
     {
-        CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
         cacheMgr.configure( "/TestLHMLRUCache.ccf" );
-        CompositeCache<String, String> cache = cacheMgr.getCache( region );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( region );
 
-        LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
+        final LRUMemoryCache<String, String> lru = new LRUMemoryCache<>();
         lru.initialize( cache );
 
         // Add items to cache
 
         for ( int i = 0; i < items; i++ )
         {
-            ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + ":key", region + " data " + i );
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + ":key", region + " data " + i );
             ice.setElementAttributes( cache.getElementAttributes() );
             lru.update( ice );
         }
@@ -135,25 +124,25 @@ public class LHMLRUMemoryCacheConcurrentUnitTest
         // Test that last items are in cache
         for ( int i = 100; i < items; i++ )
         {
-            String value = lru.get( i + ":key" ).getVal();
+            final String value = lru.get( i + ":key" ).getVal();
             assertEquals( region + " data " + i, value );
         }
 
         // Test that getMultiple returns all the items remaining in cache and none of the missing ones
-        Set<String> keys = new HashSet<>();
+        final Set<String> keys = new HashSet<>();
         for ( int i = 0; i < items; i++ )
         {
             keys.add( i + ":key" );
         }
 
-        Map<String, ICacheElement<String, String>> elements = lru.getMultiple( keys );
+        final Map<String, ICacheElement<String, String>> elements = lru.getMultiple( keys );
         for ( int i = 0; i < 100; i++ )
         {
             assertNull( "Should not have " + i + ":key", elements.get( i + ":key" ) );
         }
         for ( int i = 100; i < items; i++ )
         {
-            ICacheElement<String, String> element = elements.get( i + ":key" );
+            final ICacheElement<String, String> element = elements.get( i + ":key" );
             assertNotNull( "element " + i + ":key is missing", element );
             assertEquals( "value " + i + ":key", region + " data " + i, element.getVal() );
         }

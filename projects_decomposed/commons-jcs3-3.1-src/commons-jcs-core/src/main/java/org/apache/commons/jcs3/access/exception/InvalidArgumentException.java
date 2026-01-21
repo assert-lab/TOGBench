@@ -32,7 +32,6 @@ public class InvalidArgumentException
     /** Constructor for the InvalidArgumentException object */
     public InvalidArgumentException()
     {
-        super();
     }
 
     /**
@@ -40,7 +39,7 @@ public class InvalidArgumentException
      * <p>
      * @param message
      */
-    public InvalidArgumentException( String message )
+    public InvalidArgumentException( final String message )
     {
         super( message );
     }

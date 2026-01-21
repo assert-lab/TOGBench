@@ -25,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Enumeration;
 import java.util.Map;
 import java.util.Properties;
@@ -96,7 +97,7 @@ public class JCSCachingManager implements CacheManager
     private final Properties properties;
     private final ConcurrentMap<String, Cache<?, ?>> caches = new ConcurrentHashMap<>();
     private final Properties configProperties;
-    private volatile boolean closed = false;
+    private volatile boolean closed;
     private final InternalManager delegate = InternalManager.create();
 
     public JCSCachingManager(final CachingProvider provider, final URI uri, final ClassLoader loader, final Properties properties)
@@ -125,7 +126,7 @@ public class JCSCachingManager implements CacheManager
                 final Enumeration<URL> resources = loader.getResources(uri.getPath());
                 if (!resources.hasMoreElements()) // default
                 {
-                    props.load(new ByteArrayInputStream(DEFAULT_CONFIG.getBytes("UTF-8")));
+                    props.load(new ByteArrayInputStream(DEFAULT_CONFIG.getBytes(StandardCharsets.UTF_8)));
                 }
                 else
                 {
@@ -165,29 +166,10 @@ public class JCSCachingManager implements CacheManager
 
     private void addProperties(final URL url, final Properties aggregator)
     {
-        InputStream inStream = null;
-        try
-        {
-            inStream = url.openStream();
+        try (InputStream inStream = url.openStream()) {
             aggregator.load(inStream);
-        }
-        catch (final IOException e)
-        {
+        } catch (final IOException e) {
             throw new IllegalArgumentException(e);
-        }
-        finally
-        {
-            if (inStream != null)
-            {
-                try
-                {
-                    inStream.close();
-                }
-                catch (final IOException e)
-                {
-                    // no-op
-                }
-            }
         }
     }
 
@@ -207,23 +189,20 @@ public class JCSCachingManager implements CacheManager
         assertNotClosed();
         assertNotNull(cacheName, "cacheName");
         assertNotNull(configuration, "configuration");
-        final Class<?> keyType = configuration == null ? Object.class : configuration.getKeyType();
-        final Class<?> valueType = configuration == null ? Object.class : configuration.getValueType();
-        if (!caches.containsKey(cacheName))
-        {
-            final Cache<K, V> cache = ClassLoaderAwareCache.wrap(loader,
-                    new JCSCache/*<K, V>*/(
-                            loader, this, cacheName,
-                            new JCSConfiguration/*<K, V>*/(configuration, keyType, valueType),
-                            properties,
-                            ExpiryAwareCache.class.cast(delegate.getCache(cacheName))));
-            caches.putIfAbsent(cacheName, cache);
-        }
-        else
-        {
+        final Class<K> keyType = configuration.getKeyType();
+        final Class<V> valueType = configuration.getValueType();
+        if (caches.containsKey(cacheName)) {
             throw new javax.cache.CacheException("cache " + cacheName + " already exists");
         }
-        return (Cache<K, V>) getCache(cacheName, keyType, valueType);
+        @SuppressWarnings("unchecked")
+        final Cache<K, V> cache = ClassLoaderAwareCache.wrap(loader,
+                new JCSCache<>(
+                        loader, this, cacheName,
+                        new JCSConfiguration<K, V>(configuration, keyType, valueType),
+                        properties,
+                        ExpiryAwareCache.class.cast(delegate.getCache(cacheName))));
+        caches.putIfAbsent(cacheName, cache);
+        return getCache(cacheName, keyType, valueType);
     }
 
     @Override
@@ -354,15 +333,17 @@ public class JCSCachingManager implements CacheManager
 
     private <K, V> Cache<K, V> doGetCache(final String cacheName, final Class<K> keyType, final Class<V> valueType)
     {
+        @SuppressWarnings("unchecked") // common map for all caches
         final Cache<K, V> cache = (Cache<K, V>) caches.get(cacheName);
         if (cache == null)
         {
             return null;
         }
 
+        @SuppressWarnings("unchecked") // don't know how to solve this
         final Configuration<K, V> config = cache.getConfiguration(Configuration.class);
-        if ((keyType != null && !config.getKeyType().isAssignableFrom(keyType))
-                || (valueType != null && !config.getValueType().isAssignableFrom(valueType)))
+        if (keyType != null && !config.getKeyType().isAssignableFrom(keyType) ||
+            valueType != null && !config.getValueType().isAssignableFrom(valueType))
         {
             throw new IllegalArgumentException("this cache is <" + config.getKeyType().getName() + ", " + config.getValueType().getName()
                     + "> " + " and not <" + keyType.getName() + ", " + valueType.getName() + ">");

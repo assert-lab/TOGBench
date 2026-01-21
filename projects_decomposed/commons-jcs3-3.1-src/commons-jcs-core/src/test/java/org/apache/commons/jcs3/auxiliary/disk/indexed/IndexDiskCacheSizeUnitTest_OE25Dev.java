@@ -30,7 +30,7 @@ public class IndexDiskCacheSizeUnitTest_OE25Dev extends IndexDiskCacheUnitTestAb
 
 	@Override
 	public IndexedDiskCacheAttributes getCacheAttributes() {
-		IndexedDiskCacheAttributes ret = new IndexedDiskCacheAttributes();
+		final IndexedDiskCacheAttributes ret = new IndexedDiskCacheAttributes();
 		ret.setDiskLimitType(DiskLimitType.SIZE);
 		return ret;
 	}
@@ -38,22 +38,22 @@ public class IndexDiskCacheSizeUnitTest_OE25Dev extends IndexDiskCacheUnitTestAb
 	  public void testRecycleBin_4_oe()
 		        throws IOException
 		    {
-		        IndexedDiskCacheAttributes cattr = getCacheAttributes();
+		        final IndexedDiskCacheAttributes cattr = getCacheAttributes();
 		        cattr.setCacheName( "testRemoveItems" );
 		        cattr.setOptimizeAtRemoveCount( 7 );
 		        cattr.setMaxKeySize( 8); // 1kb DiskTestObject takes 1420 bytes, so 5*1420 = 7100, so to keep 5 ojbects, we need max key size of 8
 		        cattr.setMaxPurgatorySize( 0 );
 		        cattr.setDiskPath( "target/test-sandbox/BreakIndexTest" );
-		        IndexedDiskCache<String, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
+		        final IndexedDiskCache<String, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
 
-		        String[] test = { "a", "bb", "ccc", "dddd", "eeeee", "ffffff", "ggggggg", "hhhhhhhhh", "iiiiiiiiii" };
-		        String[] expect = { null, "bb", "ccc", null, null, "ffffff", null, "hhhhhhhhh", "iiiiiiiiii" };
-		        DiskTestObject value = DiskTestObjectUtil.createCacheElementsWithTestObjects( 1, 1, cattr .getCacheName())[0].getVal();
+		        final String[] test = { "a", "bb", "ccc", "dddd", "eeeee", "ffffff", "ggggggg", "hhhhhhhhh", "iiiiiiiiii" };
+		        final String[] expect = { null, "bb", "ccc", null, null, "ffffff", null, "hhhhhhhhh", "iiiiiiiiii" };
+		        final DiskTestObject value = DiskTestObjectUtil.createCacheElementsWithTestObjects( 1, 1, cattr .getCacheName())[0].getVal();
 		        //System.out.println( "------------------------- testRecycleBin " );
 
 		        for ( int i = 0; i < 6; i++ )
 		        {
-		            ICacheElement<String, DiskTestObject> element = new CacheElement<>( "testRecycleBin", "key:" + test[i], value);
+		            final ICacheElement<String, DiskTestObject> element = new CacheElement<>( "testRecycleBin", "key:" + test[i], value);
 		            //System.out.println( "About to add " + "key:" + test[i] + " i = " + i );
 		            disk.processUpdate( element );
 		        }
@@ -68,7 +68,7 @@ public class IndexDiskCacheSizeUnitTest_OE25Dev extends IndexDiskCacheUnitTestAb
 		        // will not fit.
 		        for ( int i = 7; i < 9; i++ )
 		        {
-		            ICacheElement<String, DiskTestObject> element = new CacheElement<>( "testRecycleBin", "key:" + test[i], value);
+		            final ICacheElement<String, DiskTestObject> element = new CacheElement<>( "testRecycleBin", "key:" + test[i], value);
 		            //System.out.println( "About to add " + "key:" + test[i] + " i = " + i );
 		            disk.processUpdate( element );
 		        }
@@ -77,7 +77,7 @@ public class IndexDiskCacheSizeUnitTest_OE25Dev extends IndexDiskCacheUnitTestAb
 		        {
 		            for ( int i = 0; i < 9; i++ )
 		            {
-		                ICacheElement<String, DiskTestObject> element = disk.get( "key:" + test[i] );
+		                final ICacheElement<String, DiskTestObject> element = disk.get( "key:" + test[i] );
 		                if ( element != null )
 		                {
 		                    //System.out.println( "element = " + element.getVal() );
@@ -87,7 +87,7 @@ public class IndexDiskCacheSizeUnitTest_OE25Dev extends IndexDiskCacheUnitTestAb
 		                    //System.out.println( "null --" + "key:" + test[i] );
 		                }
 
-		                String expectedValue = expect[i];
+		                final String expectedValue = expect[i];
 		                if ( expectedValue == null )
 		                {
 		                    // removed other assertion
@@ -99,7 +99,7 @@ public class IndexDiskCacheSizeUnitTest_OE25Dev extends IndexDiskCacheUnitTestAb
 		                }
 		            }
 		        }
-		        catch ( Exception e )
+		        catch ( final Exception e )
 		        {
 		            e.printStackTrace();
 		            fail( "Should not get an exception: " + e.toString() );

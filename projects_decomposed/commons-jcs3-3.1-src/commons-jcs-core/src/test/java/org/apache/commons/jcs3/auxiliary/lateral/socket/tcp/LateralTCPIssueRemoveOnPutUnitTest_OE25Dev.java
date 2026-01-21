@@ -1,5 +1,14 @@
 package org.apache.commons.jcs3.auxiliary.lateral.socket.tcp;
 
+import java.util.Random;
+
+import org.apache.commons.jcs3.JCS;
+import org.apache.commons.jcs3.access.CacheAccess;
+import org.apache.commons.jcs3.auxiliary.lateral.LateralCacheAttributes;
+import org.apache.commons.jcs3.engine.CacheElement;
+import org.apache.commons.jcs3.engine.behavior.ICacheElement;
+import org.apache.commons.jcs3.utils.serialization.StandardSerializer;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -21,13 +30,6 @@ package org.apache.commons.jcs3.auxiliary.lateral.socket.tcp;
 
 import junit.framework.TestCase;
 
-import java.util.Random;
-
-import org.apache.commons.jcs3.JCS;
-import org.apache.commons.jcs3.access.CacheAccess;
-import org.apache.commons.jcs3.engine.CacheElement;
-import org.apache.commons.jcs3.engine.behavior.ICacheElement;
-
 /**
  * Tests the issue remove on put fuctionality.
  * @author asmuts
@@ -36,7 +38,7 @@ public class LateralTCPIssueRemoveOnPutUnitTest_OE25Dev
     extends TestCase
 {
     /** Should log data go to system out. */
-    private static boolean isSysOut = false;
+    private static final boolean isSysOut = false;
 
     /** The port the server will listen to. */
     private final int serverPort = 1118;
@@ -46,7 +48,7 @@ public class LateralTCPIssueRemoveOnPutUnitTest_OE25Dev
      * <p>
      * @param testName
      */
-    public LateralTCPIssueRemoveOnPutUnitTest_OE25Dev( String testName )
+    public LateralTCPIssueRemoveOnPutUnitTest_OE25Dev( final String testName )
     {
         super( testName );
     }
@@ -88,19 +90,16 @@ public class LateralTCPIssueRemoveOnPutUnitTest_OE25Dev
      * @param testNum
      * @throws Exception If an error occurs
      */
-    public void runTestForRegion( String region, int range, int numOps, int testNum )
+    public void runTestForRegion( final String region, final int range, final int numOps, final int testNum )
         throws Exception
     {
-
-        boolean show = false;
-
-        CacheAccess<String, String> cache = JCS.getInstance( region );
+        final CacheAccess<String, String> cache = JCS.getInstance( region );
 
         Thread.sleep( 100 );
 
-        TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
         lattr2.setTcpListenerPort( 1102 );
-        lattr2.setTransmissionTypeName( "TCP" );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
         lattr2.setTcpServer( "localhost:" + serverPort );
         lattr2.setIssueRemoveOnPut( true );
         // should still try to remove
@@ -109,13 +108,14 @@ public class LateralTCPIssueRemoveOnPutUnitTest_OE25Dev
         // Using the lateral, this service will put to and remove from
         // the cache instance above.
         // The cache thinks it is different since the listenerid is different
-        LateralTCPService<String, String> service = new LateralTCPService<>( lattr2 );
+        final LateralTCPService<String, String> service =
+                new LateralTCPService<>( lattr2,  new StandardSerializer());
         service.setListenerId( 123456 );
 
-        String keyToBeRemovedOnPut = "test1";
+        final String keyToBeRemovedOnPut = "test1";
         cache.put( keyToBeRemovedOnPut, "this should get removed." );
 
-        ICacheElement<String, String> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
+        final ICacheElement<String, String> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
             + ":data-this shouldn't get there" );
         service.update( element1 );
 
@@ -123,46 +123,42 @@ public class LateralTCPIssueRemoveOnPutUnitTest_OE25Dev
         {
             for ( int i = 1; i < numOps; i++ )
             {
-                Random ran = new Random( i );
-                int n = ran.nextInt( 4 );
-                int kn = ran.nextInt( range );
-                String key = "key" + kn;
+                final Random ran = new Random( i );
+                final int n = ran.nextInt( 4 );
+                final int kn = ran.nextInt( range );
+                final String key = "key" + kn;
 
-                ICacheElement<String, String> element = new CacheElement<>( region, key, region + ":data" + i
+                final ICacheElement<String, String> element = new CacheElement<>( region, key, region + ":data" + i
                     + " junk asdfffffffadfasdfasf " + kn + ":" + n );
                 service.update( element );
-                if ( show )
-                {
-                    p( "put " + key );
-                }
+                p("put " + key);
 
-                if (show && i % 100 == 0 )
+                if (i % 100 == 0)
                 {
-                    System.out.println( cache.getStats() );
+                    p(cache.getStats());
                 }
 
             }
-            p( "Finished cycle of " + numOps );
+            p("Finished cycle of " + numOps);
         }
-        catch ( Exception e )
+        catch ( final Exception e )
         {
             p( e.toString() );
-            e.printStackTrace( System.out );
             throw e;
         }
 
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
-        String key = "testKey" + testNum;
-        String data = "testData" + testNum;
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = "testKey" + testNum;
+        final String data = "testData" + testNum;
         jcs.put( key, data );
-        String value = jcs.get( key );
+        final String value = jcs.get( key );
         assertEquals( "Couldn't put normally.", data, value );
 
         // make sure the items we can find are in the correct region.
         for ( int i = 1; i < numOps; i++ )
         {
-            String keyL = "key" + i;
-            String dataL = jcs.get( keyL );
+            final String keyL = "key" + i;
+            final String dataL = jcs.get( keyL );
             if ( dataL != null )
             {
                 assertTrue( "Incorrect region detected.", dataL.startsWith( region ) );
@@ -172,7 +168,7 @@ public class LateralTCPIssueRemoveOnPutUnitTest_OE25Dev
 
         Thread.sleep( 200 );
 
-        Object testObj = cache.get( keyToBeRemovedOnPut );
+        final Object testObj = cache.get( keyToBeRemovedOnPut );
         p( "runTestForRegion, test object = " + testObj );
         assertNull( "The test object should have been removed by a put.", testObj );
 
@@ -181,7 +177,7 @@ public class LateralTCPIssueRemoveOnPutUnitTest_OE25Dev
     /**
      * @param s String to be printed
      */
-    public static void p( String s )
+    public static void p( final String s )
     {
         if ( isSysOut )
         {
@@ -192,15 +188,15 @@ public class LateralTCPIssueRemoveOnPutUnitTest_OE25Dev
     public void testStandardPut_1_oe()
         throws Exception
     {
-        String region = "region1";
+        final String region = "region1";
 
-        CacheAccess<String, String> cache = JCS.getInstance( region );
+        final CacheAccess<String, String> cache = JCS.getInstance( region );
 
         Thread.sleep( 100 );
 
-        TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
         lattr2.setTcpListenerPort( 1102 );
-        lattr2.setTransmissionTypeName( "TCP" );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
         lattr2.setTcpServer( "localhost:" + serverPort );
         lattr2.setIssueRemoveOnPut( false );
         // should still try to remove
@@ -209,18 +205,19 @@ public class LateralTCPIssueRemoveOnPutUnitTest_OE25Dev
         // Using the lateral, this service will put to and remove from
         // the cache instance above.
         // The cache thinks it is different since the listenerid is different
-        LateralTCPService<String, String> service = new LateralTCPService<>( lattr2 );
+        final LateralTCPService<String, String> service =
+                new LateralTCPService<>(lattr2,  new StandardSerializer());
         service.setListenerId( 123456 );
 
-        String keyToBeRemovedOnPut = "test1_notremoved";
+        final String keyToBeRemovedOnPut = "test1_notremoved";
 
-        ICacheElement<String, String> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
+        final ICacheElement<String, String> element1 = new CacheElement<>( region, keyToBeRemovedOnPut, region
             + ":data-this shouldn't get removed, it should get to the cache." );
         service.update( element1 );
 
         Thread.sleep( 1000 );
 
-        Object testObj = cache.get( keyToBeRemovedOnPut );
+        final Object testObj = cache.get( keyToBeRemovedOnPut );
         p( "testStandardPut, test object = " + testObj );
         assertNotNull( "The test object should not have been removed by a put.", testObj );
     }

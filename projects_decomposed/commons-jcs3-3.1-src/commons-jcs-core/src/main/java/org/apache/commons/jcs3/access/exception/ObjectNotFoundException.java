@@ -36,14 +36,13 @@ public class ObjectNotFoundException
     /** Constructor for the ObjectNotFoundException object */
     public ObjectNotFoundException()
     {
-        super();
     }
 
     /**
      * Constructor for the ObjectNotFoundException object
      * @param message
      */
-    public ObjectNotFoundException( String message )
+    public ObjectNotFoundException( final String message )
     {
         super( message );
     }

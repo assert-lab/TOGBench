@@ -19,8 +19,6 @@
 package org.apache.commons.jcs3.jcache.extras.loader;
 
 import org.apache.commons.jcs3.jcache.extras.InternalCacheRule;
-import org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapter;
-import org.apache.commons.jcs3.jcache.extras.loader.CompositeCacheLoader;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -42,7 +40,7 @@ public class CompositeCacheLoaderTest_OE25Dev
     private final CacheLoaderAdapter<String, String> loader1 = new CacheLoaderAdapter<String, String>()
     {
         @Override
-        public String load(String key) throws CacheLoaderException
+        public String load(final String key) throws CacheLoaderException
         {
             count.incrementAndGet();
             return null;
@@ -51,7 +49,7 @@ public class CompositeCacheLoaderTest_OE25Dev
     private final CacheLoaderAdapter<String, String> loader2 = new CacheLoaderAdapter<String, String>()
     {
         @Override
-        public String load(String key) throws CacheLoaderException
+        public String load(final String key) throws CacheLoaderException
         {
             count.incrementAndGet();
             return null;
@@ -60,7 +58,7 @@ public class CompositeCacheLoaderTest_OE25Dev
     private final Configuration<?, ?> config = new MutableConfiguration<String, String>()
             .setStoreByValue(false)
             .setReadThrough(true)
-            .setCacheLoaderFactory(new CompositeCacheLoader<String, String>(loader1, loader2));
+            .setCacheLoaderFactory(new CompositeCacheLoader<>(loader1, loader2));
     private Cache<String, String> cache;
 
     @Test

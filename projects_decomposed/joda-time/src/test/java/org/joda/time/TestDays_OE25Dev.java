@@ -38,7 +38,7 @@ public class TestDays_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDays_OE25Dev.class);
+        return new TestSuite(TestDays.class);
     }
 
     public TestDays_OE25Dev(String name) {
@@ -165,25 +165,25 @@ public class TestDays_OE25Dev extends TestCase {
     }
 
     public void testFactory_days_int_1_oe() {
-        assertEquals(Days.ZERO, Days.days(0));
+        assertSame(Days.ZERO, Days.days(0));
     }
 
     public void testFactory_days_int_2_oe() {
         // removed other assertion
-        assertEquals(Days.ONE, Days.days(1));
+        assertSame(Days.ONE, Days.days(1));
     }
 
     public void testFactory_days_int_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals(Days.TWO, Days.days(2));
+        assertSame(Days.TWO, Days.days(2));
     }
 
     public void testFactory_days_int_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Days.THREE, Days.days(3));
+        assertSame(Days.THREE, Days.days(3));
     }
 
     public void testFactory_days_int_5_oe() {
@@ -191,7 +191,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Days.FOUR, Days.days(4));
+        assertSame(Days.FOUR, Days.days(4));
     }
 
     public void testFactory_days_int_6_oe() {
@@ -200,7 +200,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Days.FIVE, Days.days(5));
+        assertSame(Days.FIVE, Days.days(5));
     }
 
     public void testFactory_days_int_7_oe() {
@@ -210,7 +210,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Days.SIX, Days.days(6));
+        assertSame(Days.SIX, Days.days(6));
     }
 
     public void testFactory_days_int_8_oe() {
@@ -221,7 +221,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Days.SEVEN, Days.days(7));
+        assertSame(Days.SEVEN, Days.days(7));
     }
 
     public void testFactory_days_int_9_oe() {
@@ -233,7 +233,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Days.MAX_VALUE, Days.days(Integer.MAX_VALUE));
+        assertSame(Days.MAX_VALUE, Days.days(Integer.MAX_VALUE));
     }
 
     public void testFactory_days_int_10_oe() {
@@ -246,7 +246,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Days.MIN_VALUE, Days.days(Integer.MIN_VALUE));
+        assertSame(Days.MIN_VALUE, Days.days(Integer.MIN_VALUE));
     }
 
     public void testFactory_days_int_11_oe() {
@@ -789,7 +789,7 @@ public class TestDays_OE25Dev extends TestCase {
         Days result = (Days) ois.readObject();
         ois.close();
         
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testToStandardWeeks_1_oe() {
@@ -992,7 +992,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.multipliedBy(1));
+        assertSame(test, test.multipliedBy(1));
     }
 
     public void testDividedBy_int_1_oe() {
@@ -1048,7 +1048,7 @@ public class TestDays_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.dividedBy(1));
+        assertSame(test, test.dividedBy(1));
     }
 
     public void testNegated_1_oe() {

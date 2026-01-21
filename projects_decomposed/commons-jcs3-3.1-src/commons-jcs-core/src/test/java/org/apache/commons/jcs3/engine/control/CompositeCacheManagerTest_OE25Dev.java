@@ -38,10 +38,10 @@ public class CompositeCacheManagerTest_OE25Dev
     {
         // See JCS-184
         // create the manager
-        CompositeCacheManager manager = CompositeCacheManager.getInstance();
+        final CompositeCacheManager manager = CompositeCacheManager.getInstance();
         // add a simple cache
-        CompositeCacheAttributes cacheAttributes = new CompositeCacheAttributes();
-        CompositeCache<String, String> cache = new CompositeCache<>(cacheAttributes, /* attr */ null);
+        final CompositeCacheAttributes cacheAttributes = new CompositeCacheAttributes();
+        final CompositeCache<String, String> cache = new CompositeCache<>(cacheAttributes, /* attr */ null);
         manager.addCache("simple_cache", cache);
         // add a client to the cache
         CompositeCacheManager.getUnconfiguredInstance();
@@ -55,10 +55,10 @@ public class CompositeCacheManagerTest_OE25Dev
     {
         // See JCS-184
         // create the manager
-        CompositeCacheManager manager = CompositeCacheManager.getInstance();
+        final CompositeCacheManager manager = CompositeCacheManager.getInstance();
         // add a simple cache
-        CompositeCacheAttributes cacheAttributes = new CompositeCacheAttributes();
-        CompositeCache<String, String> cache = new CompositeCache<>(cacheAttributes, /* attr */ null);
+        final CompositeCacheAttributes cacheAttributes = new CompositeCacheAttributes();
+        final CompositeCache<String, String> cache = new CompositeCache<>(cacheAttributes, /* attr */ null);
         manager.addCache("simple_cache", cache);
         // add a client to the cache
         CompositeCacheManager.getUnconfiguredInstance();

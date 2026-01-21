@@ -79,10 +79,10 @@ public class TestLocalTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetHour() {
         LocalTime test = new LocalTime(10, 20, 30, 40);
-        assertEquals(test.getChronology().hourOfDay(), test.hourOfDay().getField());
+        assertSame(test.getChronology().hourOfDay(), test.hourOfDay().getField());
         assertEquals("hourOfDay", test.hourOfDay().getName());
         assertEquals("Property[hourOfDay]", test.hourOfDay().toString());
-        assertEquals(test, test.hourOfDay().getLocalTime());
+        assertSame(test, test.hourOfDay().getLocalTime());
         assertEquals(10, test.hourOfDay().get());
         assertEquals("10", test.hourOfDay().getAsString());
         assertEquals("10", test.hourOfDay().getAsText());
@@ -267,10 +267,10 @@ public class TestLocalTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMinute() {
         LocalTime test = new LocalTime(10, 20, 30, 40);
-        assertEquals(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
+        assertSame(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
         assertEquals("minuteOfHour", test.minuteOfHour().getName());
         assertEquals("Property[minuteOfHour]", test.minuteOfHour().toString());
-        assertEquals(test, test.minuteOfHour().getLocalTime());
+        assertSame(test, test.minuteOfHour().getLocalTime());
         assertEquals(20, test.minuteOfHour().get());
         assertEquals("20", test.minuteOfHour().getAsString());
         assertEquals("20", test.minuteOfHour().getAsText());
@@ -444,10 +444,10 @@ public class TestLocalTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetSecond() {
         LocalTime test = new LocalTime(10, 20, 30, 40);
-        assertEquals(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
+        assertSame(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
         assertEquals("secondOfMinute", test.secondOfMinute().getName());
         assertEquals("Property[secondOfMinute]", test.secondOfMinute().toString());
-        assertEquals(test, test.secondOfMinute().getLocalTime());
+        assertSame(test, test.secondOfMinute().getLocalTime());
         assertEquals(30, test.secondOfMinute().get());
         assertEquals("30", test.secondOfMinute().getAsString());
         assertEquals("30", test.secondOfMinute().getAsText());
@@ -615,10 +615,10 @@ public class TestLocalTime_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMilli() {
         LocalTime test = new LocalTime(10, 20, 30, 40);
-        assertEquals(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
+        assertSame(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
         assertEquals("millisOfSecond", test.millisOfSecond().getName());
         assertEquals("Property[millisOfSecond]", test.millisOfSecond().toString());
-        assertEquals(test, test.millisOfSecond().getLocalTime());
+        assertSame(test, test.millisOfSecond().getLocalTime());
         assertEquals(40, test.millisOfSecond().get());
         assertEquals("40", test.millisOfSecond().getAsString());
         assertEquals("40", test.millisOfSecond().getAsText());

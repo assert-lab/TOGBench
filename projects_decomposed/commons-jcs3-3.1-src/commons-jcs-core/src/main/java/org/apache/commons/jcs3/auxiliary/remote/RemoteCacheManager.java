@@ -94,9 +94,9 @@ public class RemoteCacheManager
      * @param cacheEventLogger
      * @param elementSerializer
      */
-    protected RemoteCacheManager( IRemoteCacheAttributes cattr, ICompositeCacheManager cacheMgr,
-                                RemoteCacheMonitor monitor,
-                                ICacheEventLogger cacheEventLogger, IElementSerializer elementSerializer)
+    protected RemoteCacheManager( final IRemoteCacheAttributes cattr, final ICompositeCacheManager cacheMgr,
+                                final RemoteCacheMonitor monitor,
+                                final ICacheEventLogger cacheEventLogger, final IElementSerializer elementSerializer)
     {
         this.cacheMgr = cacheMgr;
         this.monitor = monitor;
@@ -110,7 +110,7 @@ public class RemoteCacheManager
         {
             lookupRemoteService();
         }
-        catch (IOException e)
+        catch (final IOException e)
         {
             log.error("Could not find server", e);
             // Notify the cache monitor about the error, and kick off the
@@ -129,7 +129,7 @@ public class RemoteCacheManager
         log.info( "Looking up server [{0}]", registry );
         try
         {
-            Object obj = Naming.lookup( registry );
+            final Object obj = Naming.lookup( registry );
             log.info( "Server found: {0}", obj );
 
             // Successful connection to the remote server.
@@ -137,7 +137,7 @@ public class RemoteCacheManager
             log.debug( "Remote Service = {0}", remoteService );
             remoteWatch.setCacheWatch( (ICacheObserver) remoteService );
         }
-        catch ( Exception ex )
+        catch ( final Exception ex )
         {
             // Failed to connect to the remote server.
             // Configure this RemoteCacheManager instance to use the "zombie"
@@ -155,7 +155,7 @@ public class RemoteCacheManager
      * @param listener The feature to be added to the RemoteCacheListener attribute
      * @throws IOException
      */
-    public <K, V> void addRemoteCacheListener( IRemoteCacheAttributes cattr, IRemoteCacheListener<K, V> listener )
+    public <K, V> void addRemoteCacheListener( final IRemoteCacheAttributes cattr, final IRemoteCacheListener<K, V> listener )
         throws IOException
     {
         if ( cattr.isReceive() )
@@ -182,10 +182,10 @@ public class RemoteCacheManager
      * @param cattr
      * @throws IOException
      */
-    public void removeRemoteCacheListener( IRemoteCacheAttributes cattr )
+    public void removeRemoteCacheListener( final IRemoteCacheAttributes cattr )
         throws IOException
     {
-        RemoteCacheNoWait<?, ?> cache = caches.get( cattr.getCacheName() );
+        final RemoteCacheNoWait<?, ?> cache = caches.get( cattr.getCacheName() );
         if ( cache != null )
         {
         	removeListenerFromCache(cache);
@@ -205,14 +205,12 @@ public class RemoteCacheManager
     }
 
     // common helper method
-	private void removeListenerFromCache(RemoteCacheNoWait<?, ?> cache) throws IOException
+	private void removeListenerFromCache(final RemoteCacheNoWait<?, ?> cache) throws IOException
 	{
-		IRemoteCacheClient<?, ?> rc = cache.getRemoteCache();
-	    log.debug( "Found cache for [{0}], deregistering listener.",
-	            () -> cache.getCacheName() );
+		final IRemoteCacheClient<?, ?> rc = cache.getRemoteCache();
+	    log.debug( "Found cache for [{0}], deregistering listener.", cache::getCacheName);
 		// could also store the listener for a server in the manager.
-		IRemoteCacheListener<?, ?> listener = rc.getListener();
-        remoteWatch.removeCacheListener( cache.getCacheName(), listener );
+        remoteWatch.removeCacheListener(cache.getCacheName(), rc.getListener());
 	}
 
     /**
@@ -226,15 +224,11 @@ public class RemoteCacheManager
      * @return The cache value
      */
     @SuppressWarnings("unchecked") // Need to cast because of common map for all caches
-    public <K, V> RemoteCacheNoWait<K, V> getCache( IRemoteCacheAttributes cattr )
+    public <K, V> RemoteCacheNoWait<K, V> getCache( final IRemoteCacheAttributes cattr )
     {
-        RemoteCacheNoWait<K, V> remoteCacheNoWait =
-                (RemoteCacheNoWait<K, V>) caches.computeIfAbsent(cattr.getCacheName(), key -> {
-                    return newRemoteCacheNoWait(cattr);
-                });
-
         // might want to do some listener sanity checking here.
-        return remoteCacheNoWait;
+        return (RemoteCacheNoWait<K, V>) caches.computeIfAbsent(cattr.getCacheName(),
+                key -> newRemoteCacheNoWait(cattr));
     }
 
     /**
@@ -243,9 +237,9 @@ public class RemoteCacheManager
      * @param cattr the cache configuration
      * @return the instance
      */
-    protected <K, V> RemoteCacheNoWait<K, V> newRemoteCacheNoWait(IRemoteCacheAttributes cattr)
+    protected <K, V> RemoteCacheNoWait<K, V> newRemoteCacheNoWait(final IRemoteCacheAttributes cattr)
     {
-        RemoteCacheNoWait<K, V> remoteCacheNoWait;
+        final RemoteCacheNoWait<K, V> remoteCacheNoWait;
         // create a listener first and pass it to the remotecache
         // sender.
         RemoteCacheListener<K, V> listener = null;
@@ -254,14 +248,15 @@ public class RemoteCacheManager
             listener = new RemoteCacheListener<>( cattr, cacheMgr, elementSerializer );
             addRemoteCacheListener( cattr, listener );
         }
-        catch ( Exception e )
+        catch ( final IOException e )
         {
             log.error( "Problem adding listener. RemoteCacheListener = {0}",
                     listener, e );
         }
 
-        IRemoteCacheClient<K, V> remoteCacheClient =
-            new RemoteCache<>( cattr, (ICacheServiceNonLocal<K, V>) remoteService, listener, monitor );
+        @SuppressWarnings("unchecked")
+        final IRemoteCacheClient<K, V> remoteCacheClient =
+            new RemoteCache<>(cattr, (ICacheServiceNonLocal<K, V>) remoteService, listener, monitor);
         remoteCacheClient.setCacheEventLogger( cacheEventLogger );
         remoteCacheClient.setElementSerializer( elementSerializer );
 
@@ -275,21 +270,19 @@ public class RemoteCacheManager
     /** Shutdown all. */
     public void release()
     {
-        for (RemoteCacheNoWait<?, ?> c : caches.values())
-        {
+        caches.forEach((name, cache) -> {
             try
             {
-                log.info( "freeCache [{0}]", () -> c.getCacheName() );
+                log.info("freeCache [{0}]", name);
 
-                removeListenerFromCache(c);
-                c.dispose();
+                removeListenerFromCache(cache);
+                cache.dispose();
             }
-            catch ( IOException ex )
+            catch ( final IOException ex )
             {
-                log.error( "Problem releasing {0}", c.getCacheName(), ex );
+                log.error("Problem releasing {0}", name, ex);
             }
-        }
-
+        });
         caches.clear();
     }
 
@@ -306,17 +299,13 @@ public class RemoteCacheManager
         log.info( "Fixing caches. ICacheServiceNonLocal {0} | IRemoteCacheObserver {1}",
                 remoteService, remoteWatch );
 
-        for (RemoteCacheNoWait<?, ?> c : caches.values())
-        {
-            if (c.getStatus() == CacheStatus.ERROR)
-            {
-                c.fixCache( remoteService );
-            }
-        }
+        caches.values().stream()
+            .filter(cache -> cache.getStatus() == CacheStatus.ERROR)
+            .forEach(cache -> cache.fixCache(remoteService));
 
         if ( log.isInfoEnabled() )
         {
-            String msg = "Remote connection to " + registry + " resumed.";
+            final String msg = "Remote connection to " + registry + " resumed.";
             if ( cacheEventLogger != null )
             {
                 cacheEventLogger.logApplicationEvent( "RemoteCacheManager", "fix", msg );
@@ -337,7 +326,7 @@ public class RemoteCacheManager
         {
             lookupRemoteService();
         }
-        catch (IOException e)
+        catch (final IOException e)
         {
             log.error("Could not find server", e);
             canFix = false;

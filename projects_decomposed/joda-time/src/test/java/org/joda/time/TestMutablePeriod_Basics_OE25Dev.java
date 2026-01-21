@@ -73,7 +73,7 @@ public class TestMutablePeriod_Basics_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestMutablePeriod_Basics_OE25Dev.class);
+        return new TestSuite(TestMutablePeriod_Basics.class);
     }
 
     public TestMutablePeriod_Basics_OE25Dev(String name) {

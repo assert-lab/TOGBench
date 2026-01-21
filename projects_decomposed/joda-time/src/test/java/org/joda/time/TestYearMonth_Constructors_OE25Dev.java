@@ -60,7 +60,7 @@ public class TestYearMonth_Constructors_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestYearMonth_Constructors_OE25Dev.class);
+        return new TestSuite(TestYearMonth_Constructors.class);
     }
 
     public TestYearMonth_Constructors_OE25Dev(String name) {

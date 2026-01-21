@@ -61,7 +61,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestLocalDateTime_Properties_OE25Dev.class);
+        return new TestSuite(TestLocalDateTime_Properties.class);
     }
 
     public TestLocalDateTime_Properties_OE25Dev(String name) {
@@ -714,7 +714,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYear_1_oe() {
         LocalDateTime test = new LocalDateTime(1972, 6, 9, 10, 20, 30, 40);
-        assertEquals(test.getChronology().year(), test.year().getField());
+        assertSame(test.getChronology().year(), test.year().getField());
     }
 
     public void testPropertyGetYear_2_oe() {
@@ -735,7 +735,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.year().getLocalDateTime());
+        assertSame(test, test.year().getLocalDateTime());
     }
 
     public void testPropertyGetYear_5_oe() {
@@ -973,7 +973,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMonth_1_oe() {
         LocalDateTime test = new LocalDateTime(1972, 6, 9, 10, 20, 30, 40);
-        assertEquals(test.getChronology().monthOfYear(), test.monthOfYear().getField());
+        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
     }
 
     public void testPropertyGetMonth_2_oe() {
@@ -994,7 +994,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.monthOfYear().getLocalDateTime());
+        assertSame(test, test.monthOfYear().getLocalDateTime());
     }
 
     public void testPropertyGetMonth_5_oe() {
@@ -1273,7 +1273,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDay_1_oe() {
         LocalDateTime test = new LocalDateTime(1972, 6, 9, 10, 20, 30, 40);
-        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
     }
 
     public void testPropertyGetDay_2_oe() {
@@ -1294,7 +1294,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.dayOfMonth().getLocalDateTime());
+        assertSame(test, test.dayOfMonth().getLocalDateTime());
     }
 
     public void testPropertyGetDay_5_oe() {
@@ -1822,7 +1822,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetHour_1_oe() {
         LocalDateTime test = new LocalDateTime(2005, 6, 9, 10, 20, 30, 40);
-        assertEquals(test.getChronology().hourOfDay(), test.hourOfDay().getField());
+        assertSame(test.getChronology().hourOfDay(), test.hourOfDay().getField());
     }
 
     public void testPropertyGetHour_2_oe() {
@@ -1843,7 +1843,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.hourOfDay().getLocalDateTime());
+        assertSame(test, test.hourOfDay().getLocalDateTime());
     }
 
     public void testPropertyGetHour_5_oe() {
@@ -2081,7 +2081,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMinute_1_oe() {
         LocalDateTime test = new LocalDateTime(2005, 6, 9, 10, 20, 30, 40);
-        assertEquals(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
+        assertSame(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
     }
 
     public void testPropertyGetMinute_2_oe() {
@@ -2102,7 +2102,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.minuteOfHour().getLocalDateTime());
+        assertSame(test, test.minuteOfHour().getLocalDateTime());
     }
 
     public void testPropertyGetMinute_5_oe() {
@@ -2340,7 +2340,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetSecond_1_oe() {
         LocalDateTime test = new LocalDateTime(2005, 6, 9, 10, 20, 30, 40);
-        assertEquals(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
+        assertSame(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
     }
 
     public void testPropertyGetSecond_2_oe() {
@@ -2361,7 +2361,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.secondOfMinute().getLocalDateTime());
+        assertSame(test, test.secondOfMinute().getLocalDateTime());
     }
 
     public void testPropertyGetSecond_5_oe() {
@@ -2599,7 +2599,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMilli_1_oe() {
         LocalDateTime test = new LocalDateTime(2005, 6, 9, 10, 20, 30, 40);
-        assertEquals(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
+        assertSame(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
     }
 
     public void testPropertyGetMilli_2_oe() {
@@ -2620,7 +2620,7 @@ public class TestLocalDateTime_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.millisOfSecond().getLocalDateTime());
+        assertSame(test, test.millisOfSecond().getLocalDateTime());
     }
 
     public void testPropertyGetMilli_5_oe() {

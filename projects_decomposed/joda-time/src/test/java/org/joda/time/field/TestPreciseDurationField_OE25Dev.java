@@ -45,7 +45,7 @@ public class TestPreciseDurationField_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestPreciseDurationField_OE25Dev.class);
+        return new TestSuite(TestPreciseDurationField.class);
     }
 
     public TestPreciseDurationField_OE25Dev(String name) {

@@ -53,12 +53,12 @@ public class StandardSerializerUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        StandardSerializer serializer = new StandardSerializer();
+        final StandardSerializer serializer = new StandardSerializer();
 
-        String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231";
+        final String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231";
 
         // DO WORK
-        String after = (String) serializer.deSerialize( serializer.serialize( before ), null );
+        final String after = (String) serializer.deSerialize( serializer.serialize( before ), null );
 
         // VERIFY
         assertEquals( "Before and after should be the same.", before, after );
@@ -68,15 +68,15 @@ public class StandardSerializerUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        StandardSerializer serializer = new StandardSerializer();
+        final StandardSerializer serializer = new StandardSerializer();
 
-        String before = null;
+        final String before = null;
 
         // DO WORK
-        byte[] serialized = serializer.serialize( before );
+        final byte[] serialized = serializer.serialize( before );
         //System.out.println( "testNullInput " + serialized );
 
-        String after = (String) serializer.deSerialize( serialized, null );
+        final String after = (String) serializer.deSerialize( serialized, null );
         //System.out.println( "testNullInput " + after );
 
         // VERIFY
@@ -87,19 +87,19 @@ public class StandardSerializerUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        StandardSerializer serializer = new StandardSerializer();
+        final StandardSerializer serializer = new StandardSerializer();
 
-        String string = "This is my big string ABCDEFGH";
-        StringBuilder sb = new StringBuilder();
+        final String string = "This is my big string ABCDEFGH";
+        final StringBuilder sb = new StringBuilder();
         sb.append( string );
         for ( int i = 0; i < 4; i++ )
         {
             sb.append( " " + i + sb.toString() ); // big string
         }
-        String before = sb.toString();
+        final String before = sb.toString();
 
         // DO WORK
-        String after = (String) serializer.deSerialize( serializer.serialize( before ), null );
+        final String after = (String) serializer.deSerialize( serializer.serialize( before ), null );
 
         // VERIFY
         assertEquals( "Before and after should be the same.", before, after );

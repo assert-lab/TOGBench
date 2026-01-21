@@ -19,7 +19,6 @@
 package org.apache.commons.jcs3.jcache.extras.loader;
 
 import org.apache.commons.jcs3.jcache.extras.InternalCacheRule;
-import org.apache.commons.jcs3.jcache.extras.loader.CacheLoaderAdapter;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -71,7 +70,7 @@ public class CacheLoaderAdapterTest_OE25Dev
         // removed other assertion
 
         count.decrementAndGet();
-        cache.loadAll(new HashSet<String>(asList("a", "b")), true, null);
+        cache.loadAll(new HashSet<>(asList("a", "b")), true, null);
         int retries = 100;
         while (retries-- > 0 && count.get() != 2)
         {
@@ -94,7 +93,7 @@ public class CacheLoaderAdapterTest_OE25Dev
         // removed other assertion
 
         count.decrementAndGet();
-        cache.loadAll(new HashSet<String>(asList("a", "b")), true, null);
+        cache.loadAll(new HashSet<>(asList("a", "b")), true, null);
         int retries = 100;
         while (retries-- > 0 && count.get() != 2)
         {
@@ -118,7 +117,7 @@ public class CacheLoaderAdapterTest_OE25Dev
         // removed other assertion
 
         count.decrementAndGet();
-        cache.loadAll(new HashSet<String>(asList("a", "b")), true, null);
+        cache.loadAll(new HashSet<>(asList("a", "b")), true, null);
         int retries = 100;
         while (retries-- > 0 && count.get() != 2)
         {
@@ -143,7 +142,7 @@ public class CacheLoaderAdapterTest_OE25Dev
         // removed other assertion
 
         count.decrementAndGet();
-        cache.loadAll(new HashSet<String>(asList("a", "b")), true, null);
+        cache.loadAll(new HashSet<>(asList("a", "b")), true, null);
         int retries = 100;
         while (retries-- > 0 && count.get() != 2)
         {

@@ -37,7 +37,6 @@ public abstract class AbstractJCSWorkerHelper<V> implements JCSWorkerHelper<V>
      */
     public AbstractJCSWorkerHelper()
     {
-        super();
     }
 
     /**
@@ -53,7 +52,7 @@ public abstract class AbstractJCSWorkerHelper<V> implements JCSWorkerHelper<V>
      * @param isFinished
      */
     @Override
-    public void setFinished( boolean isFinished )
+    public void setFinished( final boolean isFinished )
     {
         finished.set(isFinished);
     }

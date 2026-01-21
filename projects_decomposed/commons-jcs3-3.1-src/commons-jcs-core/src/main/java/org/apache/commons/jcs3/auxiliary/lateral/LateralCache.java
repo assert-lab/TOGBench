@@ -25,7 +25,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.jcs3.auxiliary.AbstractAuxiliaryCacheEventLogging;
-import org.apache.commons.jcs3.auxiliary.AuxiliaryCacheAttributes;
 import org.apache.commons.jcs3.auxiliary.lateral.behavior.ILateralCacheAttributes;
 import org.apache.commons.jcs3.engine.CacheInfo;
 import org.apache.commons.jcs3.engine.CacheStatus;
@@ -66,7 +65,7 @@ public class LateralCache<K, V>
      * @param lateral
      * @param monitor
      */
-    public LateralCache( ILateralCacheAttributes cattr, ICacheServiceNonLocal<K, V> lateral, LateralCacheMonitor monitor )
+    public LateralCache( final ILateralCacheAttributes cattr, final ICacheServiceNonLocal<K, V> lateral, final LateralCacheMonitor monitor )
     {
         this.cacheName = cattr.getCacheName();
         this.lateralCacheAttributes = cattr;
@@ -78,11 +77,13 @@ public class LateralCache<K, V>
      * Constructor for the LateralCache object
      * <p>
      * @param cattr
+     *
+     * @deprecated Causes NPE
      */
-    public LateralCache( ILateralCacheAttributes cattr )
+    @Deprecated
+    public LateralCache( final ILateralCacheAttributes cattr )
     {
-        this.cacheName = cattr.getCacheName();
-        this.lateralCacheAttributes = cattr;
+        this(cattr, null, null);
     }
 
     /**
@@ -92,7 +93,7 @@ public class LateralCache<K, V>
      * @throws IOException
      */
     @Override
-    protected void processUpdate( ICacheElement<K, V> ce )
+    protected void processUpdate( final ICacheElement<K, V> ce )
         throws IOException
     {
         try
@@ -104,7 +105,7 @@ public class LateralCache<K, V>
                 lateralCacheService.update( ce, CacheInfo.listenerId );
             }
         }
-        catch ( IOException ex )
+        catch ( final IOException ex )
         {
             handleException( ex, "Failed to put [" + ce.getKey() + "] to " + ce.getCacheName() + "@" + lateralCacheAttributes );
         }
@@ -118,24 +119,24 @@ public class LateralCache<K, V>
      * @throws IOException
      */
     @Override
-    protected ICacheElement<K, V> processGet( K key )
+    protected ICacheElement<K, V> processGet( final K key )
         throws IOException
     {
         ICacheElement<K, V> obj = null;
 
-        if ( this.lateralCacheAttributes.getPutOnlyMode() )
+        if ( !this.lateralCacheAttributes.getPutOnlyMode() )
         {
-            return null;
+            try
+            {
+                obj = lateralCacheService.get( cacheName, key );
+            }
+            catch ( final Exception e )
+            {
+                log.error( e );
+                handleException( e, "Failed to get [" + key + "] from " + lateralCacheAttributes.getCacheName() + "@" + lateralCacheAttributes );
+            }
         }
-        try
-        {
-            obj = lateralCacheService.get( cacheName, key );
-        }
-        catch ( Exception e )
-        {
-            log.error( e );
-            handleException( e, "Failed to get [" + key + "] from " + lateralCacheAttributes.getCacheName() + "@" + lateralCacheAttributes );
-        }
+
         return obj;
     }
 
@@ -146,23 +147,25 @@ public class LateralCache<K, V>
      * @throws IOException
      */
     @Override
-    protected Map<K, ICacheElement<K, V>> processGetMatching( String pattern )
+    protected Map<K, ICacheElement<K, V>> processGetMatching( final String pattern )
         throws IOException
     {
-        if ( this.lateralCacheAttributes.getPutOnlyMode() )
+        Map<K, ICacheElement<K, V>> map = Collections.emptyMap();
+
+        if ( !this.lateralCacheAttributes.getPutOnlyMode() )
         {
-            return Collections.emptyMap();
+            try
+            {
+                return lateralCacheService.getMatching( cacheName, pattern );
+            }
+            catch ( final IOException e )
+            {
+                log.error( e );
+                handleException( e, "Failed to getMatching [" + pattern + "] from " + lateralCacheAttributes.getCacheName() + "@" + lateralCacheAttributes );
+            }
         }
-        try
-        {
-            return lateralCacheService.getMatching( cacheName, pattern );
-        }
-        catch ( IOException e )
-        {
-            log.error( e );
-            handleException( e, "Failed to getMatching [" + pattern + "] from " + lateralCacheAttributes.getCacheName() + "@" + lateralCacheAttributes );
-            return Collections.emptyMap();
-        }
+
+        return map;
     }
 
     /**
@@ -177,7 +180,7 @@ public class LateralCache<K, V>
         {
             return lateralCacheService.getKeySet( cacheName );
         }
-        catch ( IOException ex )
+        catch ( final IOException ex )
         {
             handleException( ex, "Failed to get key set from " + lateralCacheAttributes.getCacheName() + "@"
                 + lateralCacheAttributes );
@@ -194,7 +197,7 @@ public class LateralCache<K, V>
      * @throws IOException
      */
     @Override
-    protected boolean processRemove( K key )
+    protected boolean processRemove( final K key )
         throws IOException
     {
         log.debug( "removing key: {0}", key );
@@ -203,7 +206,7 @@ public class LateralCache<K, V>
         {
             lateralCacheService.remove( cacheName, key, CacheInfo.listenerId );
         }
-        catch ( IOException ex )
+        catch ( final IOException ex )
         {
             handleException( ex, "Failed to remove " + key + " from " + lateralCacheAttributes.getCacheName() + "@" + lateralCacheAttributes );
         }
@@ -224,7 +227,7 @@ public class LateralCache<K, V>
         {
             lateralCacheService.removeAll( cacheName, CacheInfo.listenerId );
         }
-        catch ( IOException ex )
+        catch ( final IOException ex )
         {
             handleException( ex, "Failed to remove all from " + lateralCacheAttributes.getCacheName() + "@" + lateralCacheAttributes );
         }
@@ -241,16 +244,12 @@ public class LateralCache<K, V>
     {
         log.debug( "Disposing of lateral cache" );
 
-        ///* HELP: This section did nothing but generate compilation warnings.
-        // TODO: may limit this functionality. It is dangerous.
-        // asmuts -- Added functionality to help with warnings. I'm not getting
-        // any.
         try
         {
             lateralCacheService.dispose( this.lateralCacheAttributes.getCacheName() );
             // Should remove connection
         }
-        catch ( IOException ex )
+        catch ( final IOException ex )
         {
             log.error( "Couldn't dispose", ex );
             handleException( ex, "Failed to dispose " + lateralCacheAttributes.getCacheName() );
@@ -308,7 +307,7 @@ public class LateralCache<K, V>
      * @param msg
      * @throws IOException
      */
-    private void handleException( Exception ex, String msg )
+    private void handleException( final Exception ex, final String msg )
         throws IOException
     {
         log.error( "Disabling lateral cache due to error {0}", msg, ex );
@@ -332,23 +331,23 @@ public class LateralCache<K, V>
      * <p>
      * @param restoredLateral
      */
-    public void fixCache( ICacheServiceNonLocal<K, V> restoredLateral )
+    public void fixCache( final ICacheServiceNonLocal<K, V> restoredLateral )
     {
-        if ( this.lateralCacheService != null && this.lateralCacheService instanceof ZombieCacheServiceNonLocal )
+        if ( this.lateralCacheService instanceof ZombieCacheServiceNonLocal )
         {
-            ZombieCacheServiceNonLocal<K, V> zombie = (ZombieCacheServiceNonLocal<K, V>) this.lateralCacheService;
+            final ZombieCacheServiceNonLocal<K, V> zombie = (ZombieCacheServiceNonLocal<K, V>) this.lateralCacheService;
             this.lateralCacheService = restoredLateral;
             try
             {
                 zombie.propagateEvents( restoredLateral );
             }
-            catch ( Exception e )
+            catch ( final Exception e )
             {
                 try
                 {
                     handleException( e, "Problem propagating events from Zombie Queue to new Lateral Service." );
                 }
-                catch ( IOException e1 )
+                catch ( final IOException e1 )
                 {
                     // swallow, since this is just expected kick back.  Handle always throws
                 }
@@ -375,7 +374,7 @@ public class LateralCache<K, V>
      * @return Returns the AuxiliaryCacheAttributes.
      */
     @Override
-    public AuxiliaryCacheAttributes getAuxiliaryCacheAttributes()
+    public ILateralCacheAttributes getAuxiliaryCacheAttributes()
     {
         return lateralCacheAttributes;
     }
@@ -386,7 +385,7 @@ public class LateralCache<K, V>
     @Override
     public String toString()
     {
-        StringBuilder buf = new StringBuilder();
+        final StringBuilder buf = new StringBuilder();
         buf.append( "\n LateralCache " );
         buf.append( "\n Cache Name [" + lateralCacheAttributes.getCacheName() + "]" );
         buf.append( "\n cattr =  [" + lateralCacheAttributes + "]" );
@@ -410,7 +409,7 @@ public class LateralCache<K, V>
     @Override
     public IStats getStatistics()
     {
-        IStats stats = new Stats();
+        final IStats stats = new Stats();
         stats.setTypeName( "LateralCache" );
         return stats;
     }

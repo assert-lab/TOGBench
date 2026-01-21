@@ -39,16 +39,16 @@ public class PurgatoryElementUnitTest_OE25Dev
     public void testSpoolable_normal_1_oe()
     {
         // SETUP
-        String cacheName = "myCacheName";
-        String key = "myKey";
-        String value = "myValue";
-        IElementAttributes elementAttributes = new ElementAttributes();
-        ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
-        PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
+        final String cacheName = "myCacheName";
+        final String key = "myKey";
+        final String value = "myValue";
+        final IElementAttributes elementAttributes = new ElementAttributes();
+        final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
+        final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
         purgatoryElement.setSpoolable( false );
 
         // DO WORK
-        boolean result = purgatoryElement.isSpoolable();
+        final boolean result = purgatoryElement.isSpoolable();
 
         // VERIFY
         assertFalse( "Should not be spoolable.", result );
@@ -57,17 +57,17 @@ public class PurgatoryElementUnitTest_OE25Dev
     public void testElementAttributes_normal_1_oe()
     {
         // SETUP
-        String cacheName = "myCacheName";
-        String key = "myKey";
-        String value = "myValue";
-        IElementAttributes elementAttributes = new ElementAttributes();
+        final String cacheName = "myCacheName";
+        final String key = "myKey";
+        final String value = "myValue";
+        final IElementAttributes elementAttributes = new ElementAttributes();
 
-        ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value );
-        PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
+        final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value );
+        final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
         purgatoryElement.setElementAttributes( elementAttributes );
 
         // DO WORK
-        IElementAttributes result = cacheElement.getElementAttributes();
+        final IElementAttributes result = cacheElement.getElementAttributes();
 
         // VERIFY
         assertEquals( "Should have set the attributes on the element", elementAttributes, result );
@@ -76,15 +76,15 @@ public class PurgatoryElementUnitTest_OE25Dev
     public void testToString_normal_1_oe()
     {
         // SETUP
-        String cacheName = "myCacheName";
-        String key = "myKey";
-        String value = "myValue";
-        IElementAttributes elementAttributes = new ElementAttributes();
-        ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
-        PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
+        final String cacheName = "myCacheName";
+        final String key = "myKey";
+        final String value = "myValue";
+        final IElementAttributes elementAttributes = new ElementAttributes();
+        final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
+        final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
 
         // DO WORK
-        String result = purgatoryElement.toString();
+        final String result = purgatoryElement.toString();
 
         // VERIFY
         assertTrue( "Should have the cacheName.", result.indexOf( cacheName ) != -1 );
@@ -93,15 +93,15 @@ public class PurgatoryElementUnitTest_OE25Dev
     public void testToString_normal_2_oe()
     {
         // SETUP
-        String cacheName = "myCacheName";
-        String key = "myKey";
-        String value = "myValue";
-        IElementAttributes elementAttributes = new ElementAttributes();
-        ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
-        PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
+        final String cacheName = "myCacheName";
+        final String key = "myKey";
+        final String value = "myValue";
+        final IElementAttributes elementAttributes = new ElementAttributes();
+        final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
+        final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
 
         // DO WORK
-        String result = purgatoryElement.toString();
+        final String result = purgatoryElement.toString();
 
         // VERIFY
         // removed other assertion
@@ -111,15 +111,15 @@ public class PurgatoryElementUnitTest_OE25Dev
     public void testToString_normal_3_oe()
     {
         // SETUP
-        String cacheName = "myCacheName";
-        String key = "myKey";
-        String value = "myValue";
-        IElementAttributes elementAttributes = new ElementAttributes();
-        ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
-        PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
+        final String cacheName = "myCacheName";
+        final String key = "myKey";
+        final String value = "myValue";
+        final IElementAttributes elementAttributes = new ElementAttributes();
+        final ICacheElement<String, String> cacheElement = new CacheElement<>( cacheName, key, value, elementAttributes );
+        final PurgatoryElement<String, String> purgatoryElement = new PurgatoryElement<>( cacheElement );
 
         // DO WORK
-        String result = purgatoryElement.toString();
+        final String result = purgatoryElement.toString();
 
         // VERIFY
         // removed other assertion

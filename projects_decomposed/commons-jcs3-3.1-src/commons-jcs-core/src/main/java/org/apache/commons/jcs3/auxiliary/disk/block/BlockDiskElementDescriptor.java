@@ -24,11 +24,12 @@ import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * This represents an element on disk. This is used when we persist the keys. We only store the
  * block addresses in memory. We don't need the length here, since all the blocks are the same size
- * receyle bin.
+ * recycle bin.
  * <p>
  * @author Aaron Smuts
  */
@@ -45,9 +46,32 @@ public class BlockDiskElementDescriptor<K>
     private int[] blocks;
 
     /**
+     * Default constructor
+     */
+    public BlockDiskElementDescriptor()
+    {
+        super();
+    }
+
+    /**
+     * Constructor
+     *
+     * @param key the key
+     * @param blocks the data
+     *
+     * @since 3.1
+     */
+    public BlockDiskElementDescriptor(K key, int[] blocks)
+    {
+        super();
+        this.key = key;
+        this.blocks = blocks;
+    }
+
+    /**
      * @param key The key to set.
      */
-    public void setKey( K key )
+    public void setKey( final K key )
     {
         this.key = key;
     }
@@ -63,7 +87,7 @@ public class BlockDiskElementDescriptor<K>
     /**
      * @param blocks The blocks to set.
      */
-    public void setBlocks( int[] blocks )
+    public void setBlocks( final int[] blocks )
     {
         this.blocks = blocks;
     }
@@ -86,16 +110,13 @@ public class BlockDiskElementDescriptor<K>
     @Override
     public String toString()
     {
-        StringBuilder buf = new StringBuilder();
+        final StringBuilder buf = new StringBuilder();
         buf.append( "\nBlockDiskElementDescriptor" );
         buf.append( "\n key [" + this.getKey() + "]" );
         buf.append( "\n blocks [" );
         if ( this.getBlocks() != null )
         {
-            for ( int i = 0; i < blocks.length; i++ )
-            {
-                buf.append( this.getBlocks()[i] );
-            }
+            Arrays.stream(this.getBlocks()).forEach(buf::append);
         }
         buf.append( "]" );
         return buf.toString();
@@ -109,7 +130,7 @@ public class BlockDiskElementDescriptor<K>
      */
     @Override
     @SuppressWarnings("unchecked") // Need cast to K
-    public void readExternal( ObjectInput input )
+    public void readExternal( final ObjectInput input )
         throws IOException, ClassNotFoundException
     {
         this.key = (K) input.readObject();
@@ -123,7 +144,7 @@ public class BlockDiskElementDescriptor<K>
      * @see java.io.Externalizable#writeExternal(java.io.ObjectOutput)
      */
     @Override
-    public void writeExternal( ObjectOutput output )
+    public void writeExternal( final ObjectOutput output )
         throws IOException
     {
         output.writeObject( this.key );

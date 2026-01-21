@@ -21,10 +21,16 @@ package org.apache.commons.jcs3.engine.control;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
@@ -57,7 +63,6 @@ import org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThread;
 import org.apache.commons.jcs3.engine.stats.CacheStats;
 import org.apache.commons.jcs3.engine.stats.StatElement;
 import org.apache.commons.jcs3.engine.stats.behavior.ICacheStats;
-import org.apache.commons.jcs3.engine.stats.behavior.IStatElement;
 import org.apache.commons.jcs3.engine.stats.behavior.IStats;
 import org.apache.commons.jcs3.log.Log;
 import org.apache.commons.jcs3.log.LogManager;
@@ -81,8 +86,7 @@ public class CompositeCache<K, V>
     private IElementEventQueue elementEventQ;
 
     /** Auxiliary caches. */
-    @SuppressWarnings("unchecked") // OK because this is an empty array
-    private AuxiliaryCache<K, V>[] auxCaches = new AuxiliaryCache[0];
+    private CopyOnWriteArrayList<AuxiliaryCache<K, V>> auxCaches = new CopyOnWriteArrayList<>();
 
     /** is this alive? */
     private final AtomicBoolean alive;
@@ -112,7 +116,7 @@ public class CompositeCache<K, V>
     private final AtomicLong missCountExpired;
 
     /** Cache manager. */
-    private CompositeCacheManager cacheManager = null;
+    private CompositeCacheManager cacheManager;
 
     /**
      * The cache hub can only have one memory cache. This could be made more flexible in the future,
@@ -131,17 +135,17 @@ public class CompositeCache<K, V>
      * @param cattr The cache attribute
      * @param attr The default element attributes
      */
-    public CompositeCache(ICompositeCacheAttributes cattr, IElementAttributes attr)
+    public CompositeCache(final ICompositeCacheAttributes cattr, final IElementAttributes attr)
     {
         this.attr = attr;
         this.cacheAttr = cattr;
         this.alive = new AtomicBoolean(true);
-        this.updateCount = new AtomicLong(0);
-        this.removeCount = new AtomicLong(0);
-        this.hitCountRam = new AtomicLong(0);
-        this.hitCountAux = new AtomicLong(0);
-        this.missCountNotFound = new AtomicLong(0);
-        this.missCountExpired = new AtomicLong(0);
+        this.updateCount = new AtomicLong();
+        this.removeCount = new AtomicLong();
+        this.hitCountRam = new AtomicLong();
+        this.hitCountAux = new AtomicLong();
+        this.missCountNotFound = new AtomicLong();
+        this.missCountExpired = new AtomicLong();
 
         createMemoryCache(cattr);
 
@@ -154,7 +158,7 @@ public class CompositeCache<K, V>
      *
      * @param queue
      */
-    public void setElementEventQueue(IElementEventQueue queue)
+    public void setElementEventQueue(final IElementEventQueue queue)
     {
         this.elementEventQ = queue;
     }
@@ -164,7 +168,7 @@ public class CompositeCache<K, V>
      *
      * @param manager
      */
-    public void setCompositeCacheManager(CompositeCacheManager manager)
+    public void setCompositeCacheManager(final CompositeCacheManager manager)
     {
         this.cacheManager = manager;
     }
@@ -173,7 +177,7 @@ public class CompositeCache<K, V>
      * @see org.apache.commons.jcs3.engine.behavior.IRequireScheduler#setScheduledExecutorService(java.util.concurrent.ScheduledExecutorService)
      */
     @Override
-    public void setScheduledExecutorService(ScheduledExecutorService scheduledExecutor)
+    public void setScheduledExecutorService(final ScheduledExecutorService scheduledExecutor)
     {
         if (cacheAttr.isUseMemoryShrinker())
         {
@@ -181,26 +185,61 @@ public class CompositeCache<K, V>
                     new ShrinkerThread<>(this), 0, cacheAttr.getShrinkerIntervalSeconds(),
                     TimeUnit.SECONDS);
         }
+
+        if (memCache instanceof IRequireScheduler)
+        {
+            ((IRequireScheduler) memCache).setScheduledExecutorService(scheduledExecutor);
+        }
+    }
+
+    /**
+     * This sets the list of auxiliary caches for this region.
+     * It filters out null caches
+     * <p>
+     * @param auxCaches
+     * @since 3.1
+     */
+    public void setAuxCaches(final List<AuxiliaryCache<K, V>> auxCaches)
+    {
+        this.auxCaches = auxCaches.stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.toCollection(CopyOnWriteArrayList::new));
     }
 
     /**
      * This sets the list of auxiliary caches for this region.
      * <p>
      * @param auxCaches
+     * @deprecated Use List method
      */
-    public void setAuxCaches(AuxiliaryCache<K, V>[] auxCaches)
+    @Deprecated
+    public void setAuxCaches(final AuxiliaryCache<K, V>[] auxCaches)
     {
-        this.auxCaches = auxCaches;
+        setAuxCaches(Arrays.asList(auxCaches));
+    }
+
+    /**
+     * Get the list of auxiliary caches for this region.
+     * <p>
+     * @return a list of auxiliary caches, may be empty, never null
+     * @since 3.1
+     */
+    public List<AuxiliaryCache<K, V>> getAuxCacheList()
+    {
+        return this.auxCaches;
     }
 
     /**
      * Get the list of auxiliary caches for this region.
      * <p>
      * @return an array of auxiliary caches, may be empty, never null
+     * @deprecated Use List method
      */
+    @SuppressWarnings("unchecked") // No generic arrays in Java
+    @Deprecated
     public AuxiliaryCache<K, V>[] getAuxCaches()
     {
-        return this.auxCaches;
+        return getAuxCacheList().toArray(new AuxiliaryCache[0]);
     }
 
     /**
@@ -210,7 +249,7 @@ public class CompositeCache<K, V>
      * @throws IOException
      */
     @Override
-    public void update(ICacheElement<K, V> ce)
+    public void update(final ICacheElement<K, V> ce)
         throws IOException
     {
         update(ce, false);
@@ -222,7 +261,7 @@ public class CompositeCache<K, V>
      * @param ce
      * @throws IOException
      */
-    public void localUpdate(ICacheElement<K, V> ce)
+    public void localUpdate(final ICacheElement<K, V> ce)
         throws IOException
     {
         update(ce, true);
@@ -236,7 +275,7 @@ public class CompositeCache<K, V>
      * @param localOnly Whether the operation should be restricted to local auxiliaries.
      * @throws IOException
      */
-    protected void update(ICacheElement<K, V> cacheElement, boolean localOnly)
+    protected void update(final ICacheElement<K, V> cacheElement, final boolean localOnly)
         throws IOException
     {
 
@@ -246,12 +285,12 @@ public class CompositeCache<K, V>
             throw new IllegalArgumentException("key must not end with " + NAME_COMPONENT_DELIMITER
                 + " for a put operation");
         }
-        else if (cacheElement.getKey() instanceof GroupId)
+        if (cacheElement.getKey() instanceof GroupId)
         {
             throw new IllegalArgumentException("key cannot be a GroupId " + " for a put operation");
         }
 
-        log.debug("Updating memory cache {0}", () -> cacheElement.getKey());
+        log.debug("Updating memory cache {0}", cacheElement::getKey);
 
         updateCount.incrementAndGet();
         memCache.update(cacheElement);
@@ -277,7 +316,7 @@ public class CompositeCache<K, V>
      * @param localOnly
      * @throws IOException
      */
-    protected void updateAuxiliaries(ICacheElement<K, V> cacheElement, boolean localOnly)
+    protected void updateAuxiliaries(final ICacheElement<K, V> cacheElement, final boolean localOnly)
         throws IOException
     {
         // UPDATE AUXILLIARY CACHES
@@ -285,7 +324,7 @@ public class CompositeCache<K, V>
         // more can be added if future auxiliary caches don't fit the model
         // You could run a database cache as either a remote or a local disk.
         // The types would describe the purpose.
-        if (auxCaches.length > 0)
+        if (!auxCaches.isEmpty())
         {
             log.debug("Updating auxiliary caches");
         }
@@ -294,7 +333,7 @@ public class CompositeCache<K, V>
             log.debug("No auxiliary cache to update");
         }
 
-        for (ICache<K, V> aux : auxCaches)
+        for (final ICache<K, V> aux : auxCaches)
         {
             if (aux == null)
             {
@@ -308,7 +347,7 @@ public class CompositeCache<K, V>
                 // SEND TO REMOTE STORE
                 case REMOTE_CACHE:
                     log.debug("ce.getElementAttributes().getIsRemote() = {0}",
-                        () -> cacheElement.getElementAttributes().getIsRemote());
+                        cacheElement.getElementAttributes()::getIsRemote);
 
                     if (cacheElement.getElementAttributes().getIsRemote() && !localOnly)
                     {
@@ -320,7 +359,7 @@ public class CompositeCache<K, V>
                             log.debug("Updated remote store for {0} {1}",
                                     cacheElement.getKey(), cacheElement);
                         }
-                        catch (IOException ex)
+                        catch (final IOException ex)
                         {
                             log.error("Failure in updateExclude", ex);
                         }
@@ -331,26 +370,26 @@ public class CompositeCache<K, V>
                 case LATERAL_CACHE:
                     // lateral can't do the checking since it is dependent on the
                     // cache region restrictions
-                    log.debug("lateralcache in aux list: cattr {0}", () -> cacheAttr.isUseLateral());
+                    log.debug("lateralcache in aux list: cattr {0}", cacheAttr::isUseLateral);
                     if (cacheAttr.isUseLateral() && cacheElement.getElementAttributes().getIsLateral() && !localOnly)
                     {
                         // DISTRIBUTE LATERALLY
                         // Currently always multicast even if the value is
                         // unchanged, to cause the cache item to move to the front.
                         aux.update(cacheElement);
-                        log.debug("updated lateral cache for {0}", () -> cacheElement.getKey());
+                        log.debug("updated lateral cache for {0}", cacheElement::getKey);
                     }
                     break;
 
                 // update disk if the usage pattern permits
                 case DISK_CACHE:
-                    log.debug("diskcache in aux list: cattr {0}", () -> cacheAttr.isUseDisk());
+                    log.debug("diskcache in aux list: cattr {0}", cacheAttr::isUseDisk);
                     if (cacheAttr.isUseDisk()
                         && cacheAttr.getDiskUsagePattern() == DiskUsagePattern.UPDATE
                         && cacheElement.getElementAttributes().getIsSpool())
                     {
                         aux.update(cacheElement);
-                        log.debug("updated disk cache for {0}", () -> cacheElement.getKey());
+                        log.debug("updated disk cache for {0}", cacheElement::getKey);
                     }
                     break;
 
@@ -369,7 +408,7 @@ public class CompositeCache<K, V>
      * <p>
      * @param ce The CacheElement
      */
-    public void spoolToDisk(ICacheElement<K, V> ce)
+    public void spoolToDisk(final ICacheElement<K, V> ce)
     {
         // if the item is not spoolable, return
         if (!ce.getElementAttributes().getIsSpool())
@@ -382,9 +421,9 @@ public class CompositeCache<K, V>
         boolean diskAvailable = false;
 
         // SPOOL TO DISK.
-        for (ICache<K, V> aux : auxCaches)
+        for (final ICache<K, V> aux : auxCaches)
         {
-            if (aux != null && aux.getCacheType() == CacheType.DISK_CACHE)
+            if (aux.getCacheType() == CacheType.DISK_CACHE)
             {
                 diskAvailable = true;
 
@@ -396,7 +435,7 @@ public class CompositeCache<K, V>
                         handleElementEvent(ce, ElementEventType.SPOOLED_DISK_AVAILABLE);
                         aux.update(ce);
                     }
-                    catch (IOException ex)
+                    catch (final IOException ex)
                     {
                         // impossible case.
                         log.error("Problem spooling item to disk cache.", ex);
@@ -404,7 +443,7 @@ public class CompositeCache<K, V>
                     }
 
                     log.debug("spoolToDisk done for: {0} on disk cache[{1}]",
-                            () -> ce.getKey(), () -> aux.getCacheName());
+                            ce::getKey, aux::getCacheName);
                 }
                 else
                 {
@@ -428,7 +467,7 @@ public class CompositeCache<K, V>
      * @see org.apache.commons.jcs3.engine.behavior.ICache#get(Object)
      */
     @Override
-    public ICacheElement<K, V> get(K key)
+    public ICacheElement<K, V> get(final K key)
     {
         return get(key, false);
     }
@@ -439,7 +478,7 @@ public class CompositeCache<K, V>
      * @param key
      * @return ICacheElement
      */
-    public ICacheElement<K, V> localGet(K key)
+    public ICacheElement<K, V> localGet(final K key)
     {
         return get(key, true);
     }
@@ -455,7 +494,7 @@ public class CompositeCache<K, V>
      * @param localOnly
      * @return ICacheElement
      */
-    protected ICacheElement<K, V> get(K key, boolean localOnly)
+    protected ICacheElement<K, V> get(final K key, final boolean localOnly)
     {
         ICacheElement<K, V> element = null;
 
@@ -493,63 +532,60 @@ public class CompositeCache<K, V>
             {
                 // Item not found in memory. If local invocation look in aux
                 // caches, even if not local look in disk auxiliaries
-                for (AuxiliaryCache<K, V> aux : auxCaches)
+                for (final AuxiliaryCache<K, V> aux : auxCaches)
                 {
-                    if (aux != null)
+                    final CacheType cacheType = aux.getCacheType();
+
+                    if (!localOnly || cacheType == CacheType.DISK_CACHE)
                     {
-                        CacheType cacheType = aux.getCacheType();
+                        log.debug("Attempting to get from aux [{0}] which is of type: {1}",
+                                aux::getCacheName, () -> cacheType);
 
-                        if (!localOnly || cacheType == CacheType.DISK_CACHE)
+                        try
                         {
-                            log.debug("Attempting to get from aux [{0}] which is of type: {1}",
-                                    () -> aux.getCacheName(), () -> cacheType);
+                            element = aux.get(key);
+                        }
+                        catch (final IOException e)
+                        {
+                            log.error("Error getting from aux", e);
+                        }
+                    }
 
-                            try
-                            {
-                                element = aux.get(key);
-                            }
-                            catch (IOException e)
-                            {
-                                log.error("Error getting from aux", e);
-                            }
+                    log.debug("Got CacheElement: {0}", element);
+
+                    // Item found in one of the auxiliary caches.
+                    if (element != null)
+                    {
+                        if (isExpired(element))
+                        {
+                            log.debug("{0} - Aux cache[{1}] hit, but element expired.",
+                                    () -> cacheAttr.getCacheName(), aux::getCacheName);
+
+                            // This will tell the remotes to remove the item
+                            // based on the element's expiration policy. The elements attributes
+                            // associated with the item when it created govern its behavior
+                            // everywhere.
+                            doExpires(element);
+                            element = null;
+                        }
+                        else
+                        {
+                            log.debug("{0} - Aux cache[{1}] hit.",
+                                    () -> cacheAttr.getCacheName(), aux::getCacheName);
+
+                            // Update counters
+                            hitCountAux.incrementAndGet();
+                            copyAuxiliaryRetrievedItemToMemory(element);
                         }
 
-                        log.debug("Got CacheElement: {0}", element);
+                        found = true;
 
-                        // Item found in one of the auxiliary caches.
-                        if (element != null)
-                        {
-                            if (isExpired(element))
-                            {
-                                log.debug("{0} - Aux cache[{1}] hit, but element expired.",
-                                        () -> cacheAttr.getCacheName(), () -> aux.getCacheName());
-
-                                // This will tell the remotes to remove the item
-                                // based on the element's expiration policy. The elements attributes
-                                // associated with the item when it created govern its behavior
-                                // everywhere.
-                                doExpires(element);
-                                element = null;
-                            }
-                            else
-                            {
-                                log.debug("{0} - Aux cache[{1}] hit.",
-                                        () -> cacheAttr.getCacheName(), () -> aux.getCacheName());
-
-                                // Update counters
-                                hitCountAux.incrementAndGet();
-                                copyAuxiliaryRetrievedItemToMemory(element);
-                            }
-
-                            found = true;
-
-                            break;
-                        }
+                        break;
                     }
                 }
             }
         }
-        catch (IOException e)
+        catch (final IOException e)
         {
             log.error("Problem encountered getting element.", e);
         }
@@ -569,7 +605,7 @@ public class CompositeCache<K, V>
         return element;
     }
 
-    protected void doExpires(ICacheElement<K, V> element)
+    protected void doExpires(final ICacheElement<K, V> element)
     {
         missCountExpired.incrementAndGet();
         remove(element.getKey());
@@ -583,7 +619,7 @@ public class CompositeCache<K, V>
      *         data in cache for any of these keys
      */
     @Override
-    public Map<K, ICacheElement<K, V>> getMultiple(Set<K> keys)
+    public Map<K, ICacheElement<K, V>> getMultiple(final Set<K> keys)
     {
         return getMultiple(keys, false);
     }
@@ -596,7 +632,7 @@ public class CompositeCache<K, V>
      * @return a map of K key to ICacheElement&lt;K, V&gt; element, or an empty map if there is no
      *         data in cache for any of these keys
      */
-    public Map<K, ICacheElement<K, V>> localGetMultiple(Set<K> keys)
+    public Map<K, ICacheElement<K, V>> localGetMultiple(final Set<K> keys)
     {
         return getMultiple(keys, true);
     }
@@ -613,9 +649,9 @@ public class CompositeCache<K, V>
      * @param localOnly
      * @return ICacheElement
      */
-    protected Map<K, ICacheElement<K, V>> getMultiple(Set<K> keys, boolean localOnly)
+    protected Map<K, ICacheElement<K, V>> getMultiple(final Set<K> keys, final boolean localOnly)
     {
-        Map<K, ICacheElement<K, V>> elements = new HashMap<>();
+        final Map<K, ICacheElement<K, V>> elements = new HashMap<>();
 
         log.debug("get: key = {0}, localOnly = {1}", keys, localOnly);
 
@@ -627,11 +663,11 @@ public class CompositeCache<K, V>
             // If fewer than all items were found in memory, then keep looking.
             if (elements.size() != keys.size())
             {
-                Set<K> remainingKeys = pruneKeysFound(keys, elements);
+                final Set<K> remainingKeys = pruneKeysFound(keys, elements);
                 elements.putAll(getMultipleFromAuxiliaryCaches(remainingKeys, localOnly));
             }
         }
-        catch (IOException e)
+        catch (final IOException e)
         {
             log.error("Problem encountered getting elements.", e);
         }
@@ -655,12 +691,12 @@ public class CompositeCache<K, V>
      * @return the elements found in the memory cache
      * @throws IOException
      */
-    private Map<K, ICacheElement<K, V>> getMultipleFromMemory(Set<K> keys)
+    private Map<K, ICacheElement<K, V>> getMultipleFromMemory(final Set<K> keys)
         throws IOException
     {
-        Map<K, ICacheElement<K, V>> elementsFromMemory = memCache.getMultiple(keys);
+        final Map<K, ICacheElement<K, V>> elementsFromMemory = memCache.getMultiple(keys);
         elementsFromMemory.entrySet().removeIf(entry -> {
-            ICacheElement<K, V> element = entry.getValue();
+            final ICacheElement<K, V> element = entry.getValue();
             if (isExpired(element))
             {
                 log.debug("{0} - Memory cache hit, but element expired",
@@ -669,14 +705,11 @@ public class CompositeCache<K, V>
                 doExpires(element);
                 return true;
             }
-            else
-            {
-                log.debug("{0} - Memory cache hit", () -> cacheAttr.getCacheName());
+            log.debug("{0} - Memory cache hit", () -> cacheAttr.getCacheName());
 
-                // Update counters
-                hitCountRam.incrementAndGet();
-                return false;
-            }
+            // Update counters
+            hitCountRam.incrementAndGet();
+            return false;
         });
 
         return elementsFromMemory;
@@ -690,50 +723,44 @@ public class CompositeCache<K, V>
      * @return the elements found in the auxiliary caches
      * @throws IOException
      */
-    private Map<K, ICacheElement<K, V>> getMultipleFromAuxiliaryCaches(Set<K> keys, boolean localOnly)
+    private Map<K, ICacheElement<K, V>> getMultipleFromAuxiliaryCaches(final Set<K> keys, final boolean localOnly)
         throws IOException
     {
-        Map<K, ICacheElement<K, V>> elements = new HashMap<>();
+        final Map<K, ICacheElement<K, V>> elements = new HashMap<>();
         Set<K> remainingKeys = new HashSet<>(keys);
 
-        for (AuxiliaryCache<K, V> aux : auxCaches)
+        for (final AuxiliaryCache<K, V> aux : auxCaches)
         {
-            if (aux != null)
+            final Map<K, ICacheElement<K, V>> elementsFromAuxiliary =
+                new HashMap<>();
+
+            final CacheType cacheType = aux.getCacheType();
+
+            if (!localOnly || cacheType == CacheType.DISK_CACHE)
             {
-                Map<K, ICacheElement<K, V>> elementsFromAuxiliary =
-                    new HashMap<>();
+                log.debug("Attempting to get from aux [{0}] which is of type: {1}",
+                        aux::getCacheName, () -> cacheType);
 
-                CacheType cacheType = aux.getCacheType();
-
-                if (!localOnly || cacheType == CacheType.DISK_CACHE)
+                try
                 {
-                    log.debug("Attempting to get from aux [{0}] which is of type: {1}",
-                            () -> aux.getCacheName(), () -> cacheType);
-
-                    try
-                    {
-                        elementsFromAuxiliary.putAll(aux.getMultiple(remainingKeys));
-                    }
-                    catch (IOException e)
-                    {
-                        log.error("Error getting from aux", e);
-                    }
+                    elementsFromAuxiliary.putAll(aux.getMultiple(remainingKeys));
                 }
-
-                log.debug("Got CacheElements: {0}", elementsFromAuxiliary);
-
-                processRetrievedElements(aux, elementsFromAuxiliary);
-                elements.putAll(elementsFromAuxiliary);
-
-                if (elements.size() == keys.size())
+                catch (final IOException e)
                 {
-                    break;
-                }
-                else
-                {
-                    remainingKeys = pruneKeysFound(keys, elements);
+                    log.error("Error getting from aux", e);
                 }
             }
+
+            log.debug("Got CacheElements: {0}", elementsFromAuxiliary);
+
+            processRetrievedElements(aux, elementsFromAuxiliary);
+            elements.putAll(elementsFromAuxiliary);
+
+            if (elements.size() == keys.size())
+            {
+                break;
+            }
+            remainingKeys = pruneKeysFound(keys, elements);
         }
 
         return elements;
@@ -747,7 +774,7 @@ public class CompositeCache<K, V>
      *         data in cache for any matching keys
      */
     @Override
-    public Map<K, ICacheElement<K, V>> getMatching(String pattern)
+    public Map<K, ICacheElement<K, V>> getMatching(final String pattern)
     {
         return getMatching(pattern, false);
     }
@@ -760,7 +787,7 @@ public class CompositeCache<K, V>
      * @return a map of K key to ICacheElement&lt;K, V&gt; element, or an empty map if there is no
      *         data in cache for any matching keys
      */
-    public Map<K, ICacheElement<K, V>> localGetMatching(String pattern)
+    public Map<K, ICacheElement<K, V>> localGetMatching(final String pattern)
     {
         return getMatching(pattern, true);
     }
@@ -778,7 +805,7 @@ public class CompositeCache<K, V>
      * @return a map of K key to ICacheElement&lt;K, V&gt; element, or an empty map if there is no
      *         data in cache for any matching keys
      */
-    protected Map<K, ICacheElement<K, V>> getMatching(String pattern, boolean localOnly)
+    protected Map<K, ICacheElement<K, V>> getMatching(final String pattern, final boolean localOnly)
     {
         log.debug("get: pattern [{0}], localOnly = {1}", pattern, localOnly);
 
@@ -788,12 +815,12 @@ public class CompositeCache<K, V>
                     getMatchingFromMemory(pattern).entrySet().stream(),
                     getMatchingFromAuxiliaryCaches(pattern, localOnly).entrySet().stream())
                     .collect(Collectors.toMap(
-                            entry -> entry.getKey(),
-                            entry -> entry.getValue(),
+                            Entry::getKey,
+                            Entry::getValue,
                             // Prefer memory entries
                             (mem, aux) -> mem));
         }
-        catch (IOException e)
+        catch (final IOException e)
         {
             log.error("Problem encountered getting elements.", e);
         }
@@ -810,13 +837,13 @@ public class CompositeCache<K, V>
      *         data in cache for any matching keys
      * @throws IOException
      */
-    protected Map<K, ICacheElement<K, V>> getMatchingFromMemory(String pattern)
+    protected Map<K, ICacheElement<K, V>> getMatchingFromMemory(final String pattern)
         throws IOException
     {
         // find matches in key array
         // this avoids locking the memory cache, but it uses more memory
-        Set<K> keyArray = memCache.getKeySet();
-        Set<K> matchingKeys = getKeyMatcher().getMatchingKeysFromArray(pattern, keyArray);
+        final Set<K> keyArray = memCache.getKeySet();
+        final Set<K> matchingKeys = getKeyMatcher().getMatchingKeysFromArray(pattern, keyArray);
 
         // call get multiple
         return getMultipleFromMemory(matchingKeys);
@@ -834,41 +861,38 @@ public class CompositeCache<K, V>
      *         data in cache for any matching keys
      * @throws IOException
      */
-    private Map<K, ICacheElement<K, V>> getMatchingFromAuxiliaryCaches(String pattern, boolean localOnly)
+    private Map<K, ICacheElement<K, V>> getMatchingFromAuxiliaryCaches(final String pattern, final boolean localOnly)
         throws IOException
     {
-        Map<K, ICacheElement<K, V>> elements = new HashMap<>();
+        final Map<K, ICacheElement<K, V>> elements = new HashMap<>();
 
-        for (int i = auxCaches.length - 1; i >= 0; i--)
+        for (ListIterator<AuxiliaryCache<K, V>> i = auxCaches.listIterator(auxCaches.size()); i.hasPrevious();)
         {
-            AuxiliaryCache<K, V> aux = auxCaches[i];
+            final AuxiliaryCache<K, V> aux = i.previous();
 
-            if (aux != null)
+            final Map<K, ICacheElement<K, V>> elementsFromAuxiliary =
+                new HashMap<>();
+
+            final CacheType cacheType = aux.getCacheType();
+
+            if (!localOnly || cacheType == CacheType.DISK_CACHE)
             {
-                Map<K, ICacheElement<K, V>> elementsFromAuxiliary =
-                    new HashMap<>();
+                log.debug("Attempting to get from aux [{0}] which is of type: {1}",
+                        aux::getCacheName, () -> cacheType);
 
-                CacheType cacheType = aux.getCacheType();
-
-                if (!localOnly || cacheType == CacheType.DISK_CACHE)
+                try
                 {
-                    log.debug("Attempting to get from aux [{0}] which is of type: {1}",
-                            () -> aux.getCacheName(), () -> cacheType);
-
-                    try
-                    {
-                        elementsFromAuxiliary.putAll(aux.getMatching(pattern));
-                    }
-                    catch (IOException e)
-                    {
-                        log.error("Error getting from aux", e);
-                    }
-
-                    log.debug("Got CacheElements: {0}", elementsFromAuxiliary);
-
-                    processRetrievedElements(aux, elementsFromAuxiliary);
-                    elements.putAll(elementsFromAuxiliary);
+                    elementsFromAuxiliary.putAll(aux.getMatching(pattern));
                 }
+                catch (final IOException e)
+                {
+                    log.error("Error getting from aux", e);
+                }
+
+                log.debug("Got CacheElements: {0}", elementsFromAuxiliary);
+
+                processRetrievedElements(aux, elementsFromAuxiliary);
+                elements.putAll(elementsFromAuxiliary);
             }
         }
 
@@ -882,11 +906,11 @@ public class CompositeCache<K, V>
      * @param elementsFromAuxiliary
      * @throws IOException
      */
-    private void processRetrievedElements(AuxiliaryCache<K, V> aux, Map<K, ICacheElement<K, V>> elementsFromAuxiliary)
+    private void processRetrievedElements(final AuxiliaryCache<K, V> aux, final Map<K, ICacheElement<K, V>> elementsFromAuxiliary)
         throws IOException
     {
         elementsFromAuxiliary.entrySet().removeIf(entry -> {
-            ICacheElement<K, V> element = entry.getValue();
+            final ICacheElement<K, V> element = entry.getValue();
 
             // Item found in one of the auxiliary caches.
             if (element != null)
@@ -894,7 +918,7 @@ public class CompositeCache<K, V>
                 if (isExpired(element))
                 {
                     log.debug("{0} - Aux cache[{1}] hit, but element expired.",
-                            () -> cacheAttr.getCacheName(), () -> aux.getCacheName());
+                            () -> cacheAttr.getCacheName(), aux::getCacheName);
 
                     // This will tell the remote caches to remove the item
                     // based on the element's expiration policy. The elements attributes
@@ -903,22 +927,19 @@ public class CompositeCache<K, V>
                     doExpires(element);
                     return true;
                 }
-                else
-                {
-                    log.debug("{0} - Aux cache[{1}] hit.",
-                            () -> cacheAttr.getCacheName(), () -> aux.getCacheName());
+                log.debug("{0} - Aux cache[{1}] hit.",
+                        () -> cacheAttr.getCacheName(), aux::getCacheName);
 
-                    // Update counters
-                    hitCountAux.incrementAndGet();
-                    try
-                    {
-                        copyAuxiliaryRetrievedItemToMemory(element);
-                    }
-                    catch (IOException e)
-                    {
-                        log.error("{0} failed to copy element to memory {1}",
-                                cacheAttr.getCacheName(), element, e);
-                    }
+                // Update counters
+                hitCountAux.incrementAndGet();
+                try
+                {
+                    copyAuxiliaryRetrievedItemToMemory(element);
+                }
+                catch (final IOException e)
+                {
+                    log.error("{0} failed to copy element to memory {1}",
+                            cacheAttr.getCacheName(), element, e);
                 }
             }
 
@@ -933,7 +954,7 @@ public class CompositeCache<K, V>
      * @param element
      * @throws IOException
      */
-    private void copyAuxiliaryRetrievedItemToMemory(ICacheElement<K, V> element)
+    private void copyAuxiliaryRetrievedItemToMemory(final ICacheElement<K, V> element)
         throws IOException
     {
         if (memCache.getCacheAttributes().getMaxObjects() > 0)
@@ -954,9 +975,9 @@ public class CompositeCache<K, V>
      * @return the original set of cache keys, minus any cache keys present in the map keys of the
      *         foundElements map
      */
-    private Set<K> pruneKeysFound(Set<K> keys, Map<K, ICacheElement<K, V>> foundElements)
+    private Set<K> pruneKeysFound(final Set<K> keys, final Map<K, ICacheElement<K, V>> foundElements)
     {
-        Set<K> remainingKeys = new HashSet<>(keys);
+        final Set<K> remainingKeys = new HashSet<>(keys);
         remainingKeys.removeAll(foundElements.keySet());
 
         return remainingKeys;
@@ -979,29 +1000,21 @@ public class CompositeCache<K, V>
      *
      * @return A set of the key type
      */
-    public Set<K> getKeySet(boolean localOnly)
+    public Set<K> getKeySet(final boolean localOnly)
     {
-        HashSet<K> allKeys = new HashSet<>();
-
-        allKeys.addAll(memCache.getKeySet());
-        for (AuxiliaryCache<K, V> aux : auxCaches)
-        {
-            if (aux != null)
-            {
-                if(!localOnly || aux.getCacheType() == CacheType.DISK_CACHE)
+        return Stream.concat(memCache.getKeySet().stream(), auxCaches.stream()
+            .filter(aux -> !localOnly || aux.getCacheType() == CacheType.DISK_CACHE)
+            .flatMap(aux -> {
+                try
                 {
-                    try
-                    {
-                        allKeys.addAll(aux.getKeySet());
-                    }
-                    catch (IOException e)
-                    {
-                        // ignore
-                    }
+                    return aux.getKeySet().stream();
                 }
-            }
-        }
-        return allKeys;
+                catch (final IOException e)
+                {
+                    return Stream.of();
+                }
+            }))
+            .collect(Collectors.toSet());
     }
 
     /**
@@ -1012,7 +1025,7 @@ public class CompositeCache<K, V>
      * @see org.apache.commons.jcs3.engine.behavior.ICache#remove(Object)
      */
     @Override
-    public boolean remove(K key)
+    public boolean remove(final K key)
     {
         return remove(key, false);
     }
@@ -1023,7 +1036,7 @@ public class CompositeCache<K, V>
      * @param key
      * @return true if the item was already in the cache.
      */
-    public boolean localRemove(K key)
+    public boolean localRemove(final K key)
     {
         return remove(key, true);
     }
@@ -1045,7 +1058,7 @@ public class CompositeCache<K, V>
      * @param localOnly
      * @return true if the item was in the cache, else false
      */
-    protected boolean remove(K key, boolean localOnly)
+    protected boolean remove(final K key, final boolean localOnly)
     {
         removeCount.incrementAndGet();
 
@@ -1055,20 +1068,20 @@ public class CompositeCache<K, V>
         {
             removed = memCache.remove(key);
         }
-        catch (IOException e)
+        catch (final IOException e)
         {
             log.error(e);
         }
 
         // Removes from all auxiliary caches.
-        for (ICache<K, V> aux : auxCaches)
+        for (final ICache<K, V> aux : auxCaches)
         {
             if (aux == null)
             {
                 continue;
             }
 
-            CacheType cacheType = aux.getCacheType();
+            final CacheType cacheType = aux.getCacheType();
 
             // for now let laterals call remote remove but not vice versa
             if (localOnly && (cacheType == CacheType.REMOTE_CACHE || cacheType == CacheType.LATERAL_CACHE))
@@ -1079,7 +1092,7 @@ public class CompositeCache<K, V>
             {
                 log.debug("Removing {0} from cacheType {1}", key, cacheType);
 
-                boolean b = aux.remove(key);
+                final boolean b = aux.remove(key);
 
                 // Don't take the remote removal into account.
                 if (!removed && cacheType != CacheType.REMOTE_CACHE)
@@ -1087,7 +1100,7 @@ public class CompositeCache<K, V>
                     removed = b;
                 }
             }
-            catch (IOException ex)
+            catch (final IOException ex)
             {
                 log.error("Failure removing from aux", ex);
             }
@@ -1127,7 +1140,7 @@ public class CompositeCache<K, V>
      *            looping.
      * @throws IOException
      */
-    protected void removeAll(boolean localOnly)
+    protected void removeAll(final boolean localOnly)
         throws IOException
     {
         try
@@ -1136,29 +1149,27 @@ public class CompositeCache<K, V>
 
             log.debug("Removed All keys from the memory cache.");
         }
-        catch (IOException ex)
+        catch (final IOException ex)
         {
             log.error("Trouble updating memory cache.", ex);
         }
 
         // Removes from all auxiliary disk caches.
-        for (ICache<K, V> aux : auxCaches)
-        {
-            if (aux != null && (aux.getCacheType() == CacheType.DISK_CACHE || !localOnly))
-            {
+        auxCaches.stream()
+            .filter(aux -> aux.getCacheType() == CacheType.DISK_CACHE || !localOnly)
+            .forEach(aux -> {
                 try
                 {
                     log.debug("Removing All keys from cacheType {0}",
-                            () -> aux.getCacheType());
+                            aux::getCacheType);
 
                     aux.removeAll();
                 }
-                catch (IOException ex)
+                catch (final IOException ex)
                 {
-                    log.error("Failure removing all from aux", ex);
+                    log.error("Failure removing all from aux " + aux, ex);
                 }
-            }
-        }
+            });
     }
 
     /**
@@ -1177,16 +1188,16 @@ public class CompositeCache<K, V>
      * <p>
      * @param fromRemote
      */
-    public void dispose(boolean fromRemote)
+    public void dispose(final boolean fromRemote)
     {
          // If already disposed, return immediately
-        if (alive.compareAndSet(true, false) == false)
+        if (!alive.compareAndSet(true, false))
         {
             return;
         }
 
         log.info("In DISPOSE, [{0}] fromRemote [{1}]",
-                () -> this.cacheAttr.getCacheName(), () -> fromRemote);
+                this.cacheAttr::getCacheName, () -> fromRemote);
 
         // Remove us from the cache managers list
         // This will call us back but exit immediately
@@ -1210,7 +1221,7 @@ public class CompositeCache<K, V>
 
         // Dispose of each auxiliary cache, Remote auxiliaries will be
         // skipped if 'fromRemote' is true.
-        for (ICache<K, V> aux : auxCaches)
+        for (final ICache<K, V> aux : auxCaches)
         {
             try
             {
@@ -1222,13 +1233,14 @@ public class CompositeCache<K, V>
                     || fromRemote && aux.getCacheType() == CacheType.REMOTE_CACHE)
                 {
                     log.info("In DISPOSE, [{0}] SKIPPING auxiliary [{1}] fromRemote [{2}]",
-                            () -> this.cacheAttr.getCacheName(), () -> aux.getCacheName(),
+                            this.cacheAttr::getCacheName,
+                            () -> aux == null ? "null" : aux.getCacheName(),
                             () -> fromRemote);
                     continue;
                 }
 
                 log.info("In DISPOSE, [{0}] auxiliary [{1}]",
-                        () -> this.cacheAttr.getCacheName(), () -> aux.getCacheName());
+                        this.cacheAttr::getCacheName, aux::getCacheName);
 
                 // IT USED TO BE THE CASE THAT (If the auxiliary is not a lateral, or the cache
                 // attributes
@@ -1238,30 +1250,30 @@ public class CompositeCache<K, V>
                 // the disk cache is in a situation to not get items on a put.
                 if (aux.getCacheType() == CacheType.DISK_CACHE)
                 {
-                    int numToFree = memCache.getSize();
+                    final int numToFree = memCache.getSize();
                     memCache.freeElements(numToFree);
 
                     log.info("In DISPOSE, [{0}] put {1} into auxiliary [{2}]",
-                            () -> this.cacheAttr.getCacheName(), () -> numToFree,
-                            () -> aux.getCacheName());
+                            this.cacheAttr::getCacheName, () -> numToFree,
+                            aux::getCacheName);
                 }
 
                 // Dispose of the auxiliary
                 aux.dispose();
             }
-            catch (IOException ex)
+            catch (final IOException ex)
             {
                 log.error("Failure disposing of aux.", ex);
             }
         }
 
         log.info("In DISPOSE, [{0}] disposing of memory cache.",
-                () -> this.cacheAttr.getCacheName());
+                this.cacheAttr::getCacheName);
         try
         {
             memCache.dispose();
         }
-        catch (IOException ex)
+        catch (final IOException ex)
         {
             log.error("Failure disposing of memCache", ex);
         }
@@ -1274,35 +1286,30 @@ public class CompositeCache<K, V>
      */
     public void save()
     {
-        if (alive.compareAndSet(true, false) == false)
+        if (!alive.get())
         {
             return;
         }
 
-        for (ICache<K, V> aux : auxCaches)
-        {
-            try
-            {
-                if (aux.getStatus() == CacheStatus.ALIVE)
-                {
-                    for (K key : memCache.getKeySet())
-                    {
-                        ICacheElement<K, V> ce = memCache.get(key);
-
-                        if (ce != null)
+        auxCaches.stream()
+            .filter(aux -> aux.getStatus() == CacheStatus.ALIVE)
+            .forEach(aux -> {
+                memCache.getKeySet().stream()
+                    .map(this::localGet)
+                    .filter(Objects::nonNull)
+                    .forEach(ce -> {
+                        try
                         {
                             aux.update(ce);
                         }
-                    }
-                }
-            }
-            catch (IOException ex)
-            {
-                log.error("Failure saving aux caches.", ex);
-            }
-        }
+                        catch (IOException e)
+                        {
+                            log.warn("Failure saving element {0} to aux {1}.", ce, aux, e);
+                        }
+                    });
+            });
 
-        log.debug("Called save for [{0}]", () -> cacheAttr.getCacheName());
+        log.debug("Called save for [{0}]", cacheAttr::getCacheName);
     }
 
     /**
@@ -1357,27 +1364,21 @@ public class CompositeCache<K, V>
      */
     public ICacheStats getStatistics()
     {
-        ICacheStats stats = new CacheStats();
+        final ICacheStats stats = new CacheStats();
         stats.setRegionName(this.getCacheName());
 
         // store the composite cache stats first
-        ArrayList<IStatElement<?>> elems = new ArrayList<>();
-
-        elems.add(new StatElement<>("HitCountRam", Long.valueOf(getHitCountRam())));
-        elems.add(new StatElement<>("HitCountAux", Long.valueOf(getHitCountAux())));
-
-        stats.setStatElements(elems);
+        stats.setStatElements(Arrays.asList(
+                new StatElement<>("HitCountRam", Long.valueOf(getHitCountRam())),
+                new StatElement<>("HitCountAux", Long.valueOf(getHitCountAux()))));
 
         // memory + aux, memory is not considered an auxiliary internally
-        int total = auxCaches.length + 1;
-        ArrayList<IStats> auxStats = new ArrayList<>(total);
+        final ArrayList<IStats> auxStats = new ArrayList<>(auxCaches.size() + 1);
 
         auxStats.add(getMemoryCache().getStatistics());
-
-        for (AuxiliaryCache<K, V> aux : auxCaches)
-        {
-            auxStats.add(aux.getStatistics());
-        }
+        auxStats.addAll(auxCaches.stream()
+                .map(AuxiliaryCache::getStatistics)
+                .collect(Collectors.toList()));
 
         // store the auxiliary stats
         stats.setAuxiliaryCacheStats(auxStats);
@@ -1416,7 +1417,7 @@ public class CompositeCache<K, V>
      * <p>
      * @param attr
      */
-    public void setElementAttributes(IElementAttributes attr)
+    public void setElementAttributes(final IElementAttributes attr)
     {
         this.attr = attr;
     }
@@ -1436,7 +1437,7 @@ public class CompositeCache<K, V>
      * <p>
      * @param cattr The new ICompositeCacheAttributes value
      */
-    public void setCacheAttributes(ICompositeCacheAttributes cattr)
+    public void setCacheAttributes(final ICompositeCacheAttributes cattr)
     {
         this.cacheAttr = cattr;
         // need a better way to do this, what if it is in error
@@ -1451,10 +1452,10 @@ public class CompositeCache<K, V>
      * @throws CacheException
      * @throws IOException
      */
-    public IElementAttributes getElementAttributes(K key)
+    public IElementAttributes getElementAttributes(final K key)
         throws CacheException, IOException
     {
-        ICacheElement<K, V> ce = get(key);
+        final ICacheElement<K, V> ce = get(key);
         if (ce == null)
         {
             throw new ObjectNotFoundException("key " + key + " is not found");
@@ -1469,7 +1470,7 @@ public class CompositeCache<K, V>
      *
      * @return true if the element is expired
      */
-    public boolean isExpired(ICacheElement<K, V> element)
+    public boolean isExpired(final ICacheElement<K, V> element)
     {
         return isExpired(element, System.currentTimeMillis(),
                 ElementEventType.EXCEEDED_MAXLIFE_ONREQUEST,
@@ -1486,30 +1487,30 @@ public class CompositeCache<K, V>
      *
      * @return true if the element is expired
      */
-    public boolean isExpired(ICacheElement<K, V> element, long timestamp,
-            ElementEventType eventMaxlife, ElementEventType eventIdle)
+    public boolean isExpired(final ICacheElement<K, V> element, final long timestamp,
+            final ElementEventType eventMaxlife, final ElementEventType eventIdle)
     {
         try
         {
-            IElementAttributes attributes = element.getElementAttributes();
+            final IElementAttributes attributes = element.getElementAttributes();
 
             if (!attributes.getIsEternal())
             {
                 // Remove if maxLifeSeconds exceeded
-                long maxLifeSeconds = attributes.getMaxLife();
-                long createTime = attributes.getCreateTime();
+                final long maxLifeSeconds = attributes.getMaxLife();
+                final long createTime = attributes.getCreateTime();
 
                 final long timeFactorForMilliseconds = attributes.getTimeFactorForMilliseconds();
 
                 if (maxLifeSeconds != -1 && (timestamp - createTime) > (maxLifeSeconds * timeFactorForMilliseconds))
                 {
-                    log.debug("Exceeded maxLife: {0}", () -> element.getKey());
+                    log.debug("Exceeded maxLife: {0}", element::getKey);
 
                     handleElementEvent(element, eventMaxlife);
                     return true;
                 }
-                long idleTime = attributes.getIdleTime();
-                long lastAccessTime = attributes.getLastAccessTime();
+                final long idleTime = attributes.getIdleTime();
+                final long lastAccessTime = attributes.getLastAccessTime();
 
                 // Remove if maxIdleTime exceeded
                 // If you have a 0 size memory cache, then the last access will
@@ -1517,14 +1518,14 @@ public class CompositeCache<K, V>
                 // you will need to set the idle time to -1.
                 if (idleTime != -1 && timestamp - lastAccessTime > idleTime * timeFactorForMilliseconds)
                 {
-                    log.debug("Exceeded maxIdle: {0}", () -> element.getKey());
+                    log.debug("Exceeded maxIdle: {0}", element::getKey);
 
                     handleElementEvent(element, eventIdle);
                     return true;
                 }
             }
         }
-        catch (Exception e)
+        catch (final Exception e)
         {
             log.error("Error determining expiration period, expiring", e);
             return true;
@@ -1542,25 +1543,25 @@ public class CompositeCache<K, V>
      * @param element the item
      * @param eventType the event type
      */
-    public void handleElementEvent(ICacheElement<K, V> element, ElementEventType eventType)
+    public void handleElementEvent(final ICacheElement<K, V> element, final ElementEventType eventType)
     {
-        ArrayList<IElementEventHandler> eventHandlers = element.getElementAttributes().getElementEventHandlers();
+        final ArrayList<IElementEventHandler> eventHandlers = element.getElementAttributes().getElementEventHandlers();
         if (eventHandlers != null)
         {
             log.debug("Element Handlers are registered.  Create event type {0}", eventType);
             if (elementEventQ == null)
             {
-                log.warn("No element event queue available for cache {0}", getCacheName());
+                log.warn("No element event queue available for cache {0}", this::getCacheName);
                 return;
             }
-            IElementEvent<ICacheElement<K, V>> event = new ElementEvent<>(element, eventType);
-            for (IElementEventHandler hand : eventHandlers)
+            final IElementEvent<ICacheElement<K, V>> event = new ElementEvent<>(element, eventType);
+            for (final IElementEventHandler hand : eventHandlers)
             {
                 try
                 {
                    elementEventQ.addElementEvent(hand, event);
                 }
-                catch (IOException e)
+                catch (final IOException e)
                 {
                     log.error("Trouble adding element event to queue", e);
                 }
@@ -1575,19 +1576,21 @@ public class CompositeCache<K, V>
      * <p>
      * @param cattr
      */
-    private void createMemoryCache(ICompositeCacheAttributes cattr)
+    private void createMemoryCache(final ICompositeCacheAttributes cattr)
     {
         if (memCache == null)
         {
             try
             {
-                Class<?> c = Class.forName(cattr.getMemoryCacheName());
+                final Class<?> c = Class.forName(cattr.getMemoryCacheName());
                 @SuppressWarnings("unchecked") // Need cast
-                IMemoryCache<K, V> newInstance = (IMemoryCache<K, V>) c.newInstance();
+                final
+                IMemoryCache<K, V> newInstance =
+                    (IMemoryCache<K, V>) c.getDeclaredConstructor().newInstance();
                 memCache = newInstance;
                 memCache.initialize(this);
             }
-            catch (Exception e)
+            catch (final Exception e)
             {
                 log.warn("Failed to init mem cache, using: LRUMemoryCache", e);
 
@@ -1662,7 +1665,7 @@ public class CompositeCache<K, V>
      * @param keyMatcher
      */
     @Override
-    public void setKeyMatcher(IKeyMatcher<K> keyMatcher)
+    public void setKeyMatcher(final IKeyMatcher<K> keyMatcher)
     {
         if (keyMatcher != null)
         {

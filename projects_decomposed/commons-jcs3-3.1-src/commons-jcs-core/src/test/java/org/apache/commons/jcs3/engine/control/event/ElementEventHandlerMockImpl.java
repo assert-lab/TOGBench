@@ -32,31 +32,31 @@ public class ElementEventHandlerMockImpl
     implements IElementEventHandler
 {
     /** Times called. */
-    private int callCount = 0;
+    private int callCount;
 
     /** The logger */
     private static final Log log = LogManager.getLog( ElementEventHandlerMockImpl.class );
 
     /** ELEMENT_EVENT_SPOOLED_DISK_AVAILABLE */
-    private int spoolCount = 0;
+    private int spoolCount;
 
     /** ELEMENT_EVENT_SPOOLED_NOT_ALLOWED */
-    private int spoolNotAllowedCount = 0;
+    private int spoolNotAllowedCount;
 
     /** ELEMENT_EVENT_SPOOLED_DISK_NOT_AVAILABLE */
-    private int spoolNoDiskCount = 0;
+    private int spoolNoDiskCount;
 
     /** ELEMENT_EVENT_EXCEEDED_MAXLIFE_BACKGROUND */
-    private int exceededMaxLifeBackgroundCount = 0;
+    private int exceededMaxLifeBackgroundCount;
 
     /** ELEMENT_EVENT_EXCEEDED_IDLETIME_BACKGROUND */
-    private int exceededIdleTimeBackgroundCount = 0;
+    private int exceededIdleTimeBackgroundCount;
 
     /**
      * @param event
      */
     @Override
-    public synchronized <T> void handleElementEvent( IElementEvent<T> event )
+    public synchronized <T> void handleElementEvent( final IElementEvent<T> event )
     {
         setCallCount( getCallCount() + 1 );
 
@@ -91,7 +91,7 @@ public class ElementEventHandlerMockImpl
     /**
      * @param spoolCount The spoolCount to set.
      */
-    public void setSpoolCount( int spoolCount )
+    public void setSpoolCount( final int spoolCount )
     {
         this.spoolCount = spoolCount;
     }
@@ -107,7 +107,7 @@ public class ElementEventHandlerMockImpl
     /**
      * @param spoolNotAllowedCount The spoolNotAllowedCount to set.
      */
-    public void setSpoolNotAllowedCount( int spoolNotAllowedCount )
+    public void setSpoolNotAllowedCount( final int spoolNotAllowedCount )
     {
         this.spoolNotAllowedCount = spoolNotAllowedCount;
     }
@@ -123,7 +123,7 @@ public class ElementEventHandlerMockImpl
     /**
      * @param spoolNoDiskCount The spoolNoDiskCount to set.
      */
-    public void setSpoolNoDiskCount( int spoolNoDiskCount )
+    public void setSpoolNoDiskCount( final int spoolNoDiskCount )
     {
         this.spoolNoDiskCount = spoolNoDiskCount;
     }
@@ -139,7 +139,7 @@ public class ElementEventHandlerMockImpl
     /**
      * @param exceededMaxLifeBackground The exceededMaxLifeBackground to set.
      */
-    public void setExceededMaxLifeBackgroundCount( int exceededMaxLifeBackground )
+    public void setExceededMaxLifeBackgroundCount( final int exceededMaxLifeBackground )
     {
         this.exceededMaxLifeBackgroundCount = exceededMaxLifeBackground;
     }
@@ -155,7 +155,7 @@ public class ElementEventHandlerMockImpl
     /**
      * @param callCount The callCount to set.
      */
-    public void setCallCount( int callCount )
+    public void setCallCount( final int callCount )
     {
         this.callCount = callCount;
     }
@@ -171,7 +171,7 @@ public class ElementEventHandlerMockImpl
     /**
      * @param exceededIdleTimeBackground The exceededIdleTimeBackground to set.
      */
-    public void setExceededIdleTimeBackgroundCount( int exceededIdleTimeBackground )
+    public void setExceededIdleTimeBackgroundCount( final int exceededIdleTimeBackground )
     {
         this.exceededIdleTimeBackgroundCount = exceededIdleTimeBackground;
     }

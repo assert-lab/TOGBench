@@ -36,22 +36,21 @@ import org.junit.Test;
  * Test that dump() methods work on the JDK classes
  */
 public class JDKClassDumpTestCase {
-    // removing this test case as it fails
 
-    // @Test
-    // public void testPerformance() throws Exception {
-    //     final File javaLib = new File(System.getProperty("java.home") + "/lib");
-    //     javaLib.listFiles((FileFilter) file -> {
-    //         if (file.getName().endsWith(".jar")) {
-    //             try {
-    //                 testJar(file);
-    //             } catch (final Exception e) {
-    //                 Assert.fail(e.getMessage());
-    //             }
-    //         }
-    //         return false;
-    //     });
-    // }
+    @Test
+    public void testPerformance() throws Exception {
+        final File javaLib = new File(System.getProperty("java.home") + "/lib");
+        javaLib.listFiles((FileFilter) file -> {
+            if (file.getName().endsWith(".jar")) {
+                try {
+                    testJar(file);
+                } catch (final Exception e) {
+                    Assert.fail(e.getMessage());
+                }
+            }
+            return false;
+        });
+    }
 
 
     private void testJar(final File file) throws Exception {

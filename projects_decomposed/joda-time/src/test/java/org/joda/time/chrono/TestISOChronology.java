@@ -96,44 +96,44 @@ public class TestISOChronology extends TestCase {
     //-----------------------------------------------------------------------
     public void testFactoryUTC() {
         assertEquals(DateTimeZone.UTC, ISOChronology.getInstanceUTC().getZone());
-        assertEquals(ISOChronology.class, ISOChronology.getInstanceUTC().getClass());
+        assertSame(ISOChronology.class, ISOChronology.getInstanceUTC().getClass());
     }
 
     public void testFactory() {
         assertEquals(LONDON, ISOChronology.getInstance().getZone());
-        assertEquals(ISOChronology.class, ISOChronology.getInstance().getClass());
+        assertSame(ISOChronology.class, ISOChronology.getInstance().getClass());
     }
 
     public void testFactory_Zone() {
         assertEquals(TOKYO, ISOChronology.getInstance(TOKYO).getZone());
         assertEquals(PARIS, ISOChronology.getInstance(PARIS).getZone());
         assertEquals(LONDON, ISOChronology.getInstance(null).getZone());
-        assertEquals(ISOChronology.class, ISOChronology.getInstance(TOKYO).getClass());
+        assertSame(ISOChronology.class, ISOChronology.getInstance(TOKYO).getClass());
     }
 
     //-----------------------------------------------------------------------
     public void testEquality() {
-        assertEquals(ISOChronology.getInstance(TOKYO), ISOChronology.getInstance(TOKYO));
-        assertEquals(ISOChronology.getInstance(LONDON), ISOChronology.getInstance(LONDON));
-        assertEquals(ISOChronology.getInstance(PARIS), ISOChronology.getInstance(PARIS));
-        assertEquals(ISOChronology.getInstanceUTC(), ISOChronology.getInstanceUTC());
-        assertEquals(ISOChronology.getInstance(), ISOChronology.getInstance(LONDON));
+        assertSame(ISOChronology.getInstance(TOKYO), ISOChronology.getInstance(TOKYO));
+        assertSame(ISOChronology.getInstance(LONDON), ISOChronology.getInstance(LONDON));
+        assertSame(ISOChronology.getInstance(PARIS), ISOChronology.getInstance(PARIS));
+        assertSame(ISOChronology.getInstanceUTC(), ISOChronology.getInstanceUTC());
+        assertSame(ISOChronology.getInstance(), ISOChronology.getInstance(LONDON));
     }
 
     public void testWithUTC() {
-        assertEquals(ISOChronology.getInstanceUTC(), ISOChronology.getInstance(LONDON).withUTC());
-        assertEquals(ISOChronology.getInstanceUTC(), ISOChronology.getInstance(TOKYO).withUTC());
-        assertEquals(ISOChronology.getInstanceUTC(), ISOChronology.getInstanceUTC().withUTC());
-        assertEquals(ISOChronology.getInstanceUTC(), ISOChronology.getInstance().withUTC());
+        assertSame(ISOChronology.getInstanceUTC(), ISOChronology.getInstance(LONDON).withUTC());
+        assertSame(ISOChronology.getInstanceUTC(), ISOChronology.getInstance(TOKYO).withUTC());
+        assertSame(ISOChronology.getInstanceUTC(), ISOChronology.getInstanceUTC().withUTC());
+        assertSame(ISOChronology.getInstanceUTC(), ISOChronology.getInstance().withUTC());
     }
 
     public void testWithZone() {
-        assertEquals(ISOChronology.getInstance(TOKYO), ISOChronology.getInstance(TOKYO).withZone(TOKYO));
-        assertEquals(ISOChronology.getInstance(LONDON), ISOChronology.getInstance(TOKYO).withZone(LONDON));
-        assertEquals(ISOChronology.getInstance(PARIS), ISOChronology.getInstance(TOKYO).withZone(PARIS));
-        assertEquals(ISOChronology.getInstance(LONDON), ISOChronology.getInstance(TOKYO).withZone(null));
-        assertEquals(ISOChronology.getInstance(PARIS), ISOChronology.getInstance().withZone(PARIS));
-        assertEquals(ISOChronology.getInstance(PARIS), ISOChronology.getInstanceUTC().withZone(PARIS));
+        assertSame(ISOChronology.getInstance(TOKYO), ISOChronology.getInstance(TOKYO).withZone(TOKYO));
+        assertSame(ISOChronology.getInstance(LONDON), ISOChronology.getInstance(TOKYO).withZone(LONDON));
+        assertSame(ISOChronology.getInstance(PARIS), ISOChronology.getInstance(TOKYO).withZone(PARIS));
+        assertSame(ISOChronology.getInstance(LONDON), ISOChronology.getInstance(TOKYO).withZone(null));
+        assertSame(ISOChronology.getInstance(PARIS), ISOChronology.getInstance().withZone(PARIS));
+        assertSame(ISOChronology.getInstance(PARIS), ISOChronology.getInstanceUTC().withZone(PARIS));
     }
 
     public void testToString() {

@@ -37,21 +37,11 @@
     <url>https://gitbox.apache.org/repos/asf?p=commons-jcs.git</url>
     <tag>commons-jcs3-3.1-rc2</tag>
   </scm>
-  <properties>
 
-
-  </properties>
   <!-- NOTE: These dependency declarations are only required to sort this project to the 
        end of the line in the multimodule build. 
   -->
   <dependencies>
-
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>4.12</version>
-      <scope>test</scope>
-    </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-jcs3-core</artifactId>

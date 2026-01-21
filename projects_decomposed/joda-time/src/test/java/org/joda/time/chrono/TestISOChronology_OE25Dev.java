@@ -64,7 +64,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestISOChronology_OE25Dev.class);
+        return new TestSuite(TestISOChronology.class);
     }
 
     public TestISOChronology_OE25Dev(String name) {
@@ -160,7 +160,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
 
     public void testFactoryUTC_2_oe() {
         // removed other assertion
-        assertEquals(ISOChronology.class, ISOChronology.getInstanceUTC().getClass());
+        assertSame(ISOChronology.class, ISOChronology.getInstanceUTC().getClass());
     }
 
     public void testFactory_1_oe() {
@@ -169,7 +169,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
 
     public void testFactory_2_oe() {
         // removed other assertion
-        assertEquals(ISOChronology.class, ISOChronology.getInstance().getClass());
+        assertSame(ISOChronology.class, ISOChronology.getInstance().getClass());
     }
 
     public void testFactory_Zone_1_oe() {
@@ -191,29 +191,29 @@ public class TestISOChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(ISOChronology.class, ISOChronology.getInstance(TOKYO).getClass());
+        assertSame(ISOChronology.class, ISOChronology.getInstance(TOKYO).getClass());
     }
 
     public void testEquality_1_oe() {
-        assertEquals(ISOChronology.getInstance(TOKYO), ISOChronology.getInstance(TOKYO));
+        assertSame(ISOChronology.getInstance(TOKYO), ISOChronology.getInstance(TOKYO));
     }
 
     public void testEquality_2_oe() {
         // removed other assertion
-        assertEquals(ISOChronology.getInstance(LONDON), ISOChronology.getInstance(LONDON));
+        assertSame(ISOChronology.getInstance(LONDON), ISOChronology.getInstance(LONDON));
     }
 
     public void testEquality_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals(ISOChronology.getInstance(PARIS), ISOChronology.getInstance(PARIS));
+        assertSame(ISOChronology.getInstance(PARIS), ISOChronology.getInstance(PARIS));
     }
 
     public void testEquality_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(ISOChronology.getInstanceUTC(), ISOChronology.getInstanceUTC());
+        assertSame(ISOChronology.getInstanceUTC(), ISOChronology.getInstanceUTC());
     }
 
     public void testEquality_5_oe() {
@@ -221,51 +221,51 @@ public class TestISOChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(ISOChronology.getInstance(), ISOChronology.getInstance(LONDON));
+        assertSame(ISOChronology.getInstance(), ISOChronology.getInstance(LONDON));
     }
 
     public void testWithUTC_1_oe() {
-        assertEquals(ISOChronology.getInstanceUTC(), ISOChronology.getInstance(LONDON).withUTC());
+        assertSame(ISOChronology.getInstanceUTC(), ISOChronology.getInstance(LONDON).withUTC());
     }
 
     public void testWithUTC_2_oe() {
         // removed other assertion
-        assertEquals(ISOChronology.getInstanceUTC(), ISOChronology.getInstance(TOKYO).withUTC());
+        assertSame(ISOChronology.getInstanceUTC(), ISOChronology.getInstance(TOKYO).withUTC());
     }
 
     public void testWithUTC_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals(ISOChronology.getInstanceUTC(), ISOChronology.getInstanceUTC().withUTC());
+        assertSame(ISOChronology.getInstanceUTC(), ISOChronology.getInstanceUTC().withUTC());
     }
 
     public void testWithUTC_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(ISOChronology.getInstanceUTC(), ISOChronology.getInstance().withUTC());
+        assertSame(ISOChronology.getInstanceUTC(), ISOChronology.getInstance().withUTC());
     }
 
     public void testWithZone_1_oe() {
-        assertEquals(ISOChronology.getInstance(TOKYO), ISOChronology.getInstance(TOKYO).withZone(TOKYO));
+        assertSame(ISOChronology.getInstance(TOKYO), ISOChronology.getInstance(TOKYO).withZone(TOKYO));
     }
 
     public void testWithZone_2_oe() {
         // removed other assertion
-        assertEquals(ISOChronology.getInstance(LONDON), ISOChronology.getInstance(TOKYO).withZone(LONDON));
+        assertSame(ISOChronology.getInstance(LONDON), ISOChronology.getInstance(TOKYO).withZone(LONDON));
     }
 
     public void testWithZone_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals(ISOChronology.getInstance(PARIS), ISOChronology.getInstance(TOKYO).withZone(PARIS));
+        assertSame(ISOChronology.getInstance(PARIS), ISOChronology.getInstance(TOKYO).withZone(PARIS));
     }
 
     public void testWithZone_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(ISOChronology.getInstance(LONDON), ISOChronology.getInstance(TOKYO).withZone(null));
+        assertSame(ISOChronology.getInstance(LONDON), ISOChronology.getInstance(TOKYO).withZone(null));
     }
 
     public void testWithZone_5_oe() {
@@ -273,7 +273,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(ISOChronology.getInstance(PARIS), ISOChronology.getInstance().withZone(PARIS));
+        assertSame(ISOChronology.getInstance(PARIS), ISOChronology.getInstance().withZone(PARIS));
     }
 
     public void testWithZone_6_oe() {
@@ -282,7 +282,7 @@ public class TestISOChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(ISOChronology.getInstance(PARIS), ISOChronology.getInstanceUTC().withZone(PARIS));
+        assertSame(ISOChronology.getInstance(PARIS), ISOChronology.getInstanceUTC().withZone(PARIS));
     }
 
     public void testToString_1_oe() {

@@ -34,16 +34,16 @@ public class MockCacheEventLogger
     implements ICacheEventLogger
 {
     /** times called */
-    public int applicationEventCalls = 0;
+    public int applicationEventCalls;
 
     /** times called */
-    public int startICacheEventCalls = 0;
+    public int startICacheEventCalls;
 
     /** times called */
-    public int endICacheEventCalls = 0;
+    public int endICacheEventCalls;
 
     /** times called */
-    public int errorEventCalls = 0;
+    public int errorEventCalls;
 
     /** list of messages */
     public List<String> errorMessages = new ArrayList<>();
@@ -54,7 +54,7 @@ public class MockCacheEventLogger
      * @param optionalDetails
      */
     @Override
-    public void logApplicationEvent( String source, String eventName, String optionalDetails )
+    public void logApplicationEvent( final String source, final String eventName, final String optionalDetails )
     {
         applicationEventCalls++;
     }
@@ -63,7 +63,7 @@ public class MockCacheEventLogger
      * @param event
      */
     @Override
-    public <T> void logICacheEvent( ICacheEvent<T> event )
+    public <T> void logICacheEvent( final ICacheEvent<T> event )
     {
         endICacheEventCalls++;
     }
@@ -74,7 +74,7 @@ public class MockCacheEventLogger
      * @param errorMessage
      */
     @Override
-    public void logError( String source, String eventName, String errorMessage )
+    public void logError( final String source, final String eventName, final String errorMessage )
     {
         errorEventCalls++;
         errorMessages.add( errorMessage );
@@ -89,8 +89,8 @@ public class MockCacheEventLogger
      * @return ICacheEvent
      */
     @Override
-    public <T> ICacheEvent<T> createICacheEvent( String source, String region,
-            String eventName, String optionalDetails, T key )
+    public <T> ICacheEvent<T> createICacheEvent( final String source, final String region,
+            final String eventName, final String optionalDetails, final T key )
     {
         startICacheEventCalls++;
         return new CacheEvent<>();

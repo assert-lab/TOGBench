@@ -55,7 +55,7 @@ public class TestReadableIntervalConverter_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestReadableIntervalConverter_OE25Dev.class);
+        return new TestSuite(TestReadableIntervalConverter.class);
     }
 
     public TestReadableIntervalConverter_OE25Dev(String name) {

@@ -32,7 +32,7 @@ public class InvalidHandleException
     public InvalidHandleException()
     {
         // nothing
-        super();
+
     }
 
     /**
@@ -40,7 +40,7 @@ public class InvalidHandleException
      * <p>
      * @param message
      */
-    public InvalidHandleException( String message )
+    public InvalidHandleException( final String message )
     {
         super( message );
     }

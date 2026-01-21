@@ -30,7 +30,7 @@ public class JCSLightLoadUnitTest
     extends TestCase
 {
     /** number to use for the test */
-    private static int items = 20000;
+    private static final int items = 20000;
 
     /**
      * Test setup
@@ -51,7 +51,7 @@ public class JCSLightLoadUnitTest
     public void testSimpleLoad()
         throws Exception
     {
-        CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "testCache1" );
         //        ICompositeCacheAttributes cattr = jcs.getCacheAttributes();
         //        cattr.setMaxObjects( 20002 );
         //        jcs.setCacheAttributes( cattr );
@@ -63,7 +63,7 @@ public class JCSLightLoadUnitTest
 
         for ( int i = items; i > 0; i-- )
         {
-            String res = jcs.get( i + ":key" );
+            final String res = jcs.get( i + ":key" );
             assertNotNull( "[" + i + ":key] should not be null", res );
         }
 

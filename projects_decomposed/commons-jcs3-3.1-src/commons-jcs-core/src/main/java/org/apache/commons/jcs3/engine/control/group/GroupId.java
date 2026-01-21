@@ -20,6 +20,7 @@ package org.apache.commons.jcs3.engine.control.group;
  */
 
 import java.io.Serializable;
+import java.util.Objects;
 
 /**
  * Used to avoid name conflict when group cache items are mixed with non-group cache items in the
@@ -37,16 +38,13 @@ public class GroupId
     /** the name of the region. */
     public final String cacheName;
 
-    /** Cached toString value. */
-    private String toString;
-
     /**
      * Constructor for the GroupId object
      * <p>
      * @param cacheName
      * @param groupName
      */
-    public GroupId( String cacheName, String groupName )
+    public GroupId( final String cacheName, final String groupName )
     {
         this.cacheName = cacheName;
         this.groupName = groupName;
@@ -66,38 +64,33 @@ public class GroupId
      * @return cacheName.equals( g.cacheName ) &amp;&amp;groupName.equals( g.groupName );
      */
     @Override
-    public boolean equals( Object obj )
+    public boolean equals( final Object obj )
     {
-        if ( obj == null || !( obj instanceof GroupId ) )
+        if (!(obj instanceof GroupId))
         {
             return false;
         }
-        GroupId g = (GroupId) obj;
+        final GroupId g = (GroupId) obj;
         return cacheName.equals( g.cacheName ) && groupName.equals( g.groupName );
     }
 
     /**
-     * @return cacheName.hashCode() + groupName.hashCode();
+     * @return Objects.hash(cacheName, groupName);
      */
     @Override
     public int hashCode()
     {
-        return cacheName.hashCode() + groupName.hashCode();
+        return Objects.hash(cacheName, groupName);
     }
 
     /**
-     * Caches the value.
-     * <p>
-     * @return debugging string.
+     * Convert to string
+     *
+     * @return the string representation of this ID.
      */
     @Override
     public String toString()
     {
-        if ( toString == null )
-        {
-            toString = "[groupId=" + cacheName + ", " + groupName + ']';
-        }
-
-        return toString;
+        return String.format("[groupId=%s, %s]", cacheName, groupName);
     }
 }

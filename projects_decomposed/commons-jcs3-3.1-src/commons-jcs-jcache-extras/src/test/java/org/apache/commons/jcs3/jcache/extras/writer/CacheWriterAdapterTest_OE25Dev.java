@@ -19,7 +19,6 @@
 package org.apache.commons.jcs3.jcache.extras.writer;
 
 import org.apache.commons.jcs3.jcache.extras.InternalCacheRule;
-import org.apache.commons.jcs3.jcache.extras.writer.CacheWriterAdapter;
 import org.junit.Rule;
 import org.junit.Test;
 
@@ -41,7 +40,7 @@ public class CacheWriterAdapterTest_OE25Dev
     @Rule
     public final InternalCacheRule rule = new InternalCacheRule(this);
 
-    private final Map<String, String> copy = new HashMap<String, String>();
+    private final Map<String, String> copy = new HashMap<>();
     private final Configuration<?, ?> config = new MutableConfiguration<String, String>()
             .setStoreByValue(false).setReadThrough(true)
             .setCacheWriterFactory(new CacheWriterAdapter<String, String>()
@@ -125,7 +124,7 @@ public class CacheWriterAdapterTest_OE25Dev
             put("b", "c");
         }});
         // removed other assertion
-        cache.removeAll(new HashSet<String>(asList("a", "b")));
+        cache.removeAll(new HashSet<>(asList("a", "b")));
         assertTrue(copy.isEmpty());
     }
 

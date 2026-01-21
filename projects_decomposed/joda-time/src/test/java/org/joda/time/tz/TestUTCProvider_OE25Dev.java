@@ -38,7 +38,7 @@ public class TestUTCProvider_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestUTCProvider_OE25Dev.class);
+        return new TestSuite(TestUTCProvider.class);
     }
 
     public TestUTCProvider_OE25Dev(String name) {
@@ -88,7 +88,7 @@ public class TestUTCProvider_OE25Dev extends TestCase {
 
     public void testGetZone_String_1_oe() throws Exception {
         Provider p = new UTCProvider();
-        assertEquals(DateTimeZone.UTC, p.getZone("UTC"));
+        assertSame(DateTimeZone.UTC, p.getZone("UTC"));
     }
 
     public void testGetZone_String_2_oe() throws Exception {

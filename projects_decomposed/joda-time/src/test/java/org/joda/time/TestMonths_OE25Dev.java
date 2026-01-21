@@ -38,7 +38,7 @@ public class TestMonths_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestMonths_OE25Dev.class);
+        return new TestSuite(TestMonths.class);
     }
 
     public TestMonths_OE25Dev(String name) {
@@ -241,25 +241,25 @@ public class TestMonths_OE25Dev extends TestCase {
     }
 
     public void testFactory_months_int_1_oe() {
-        assertEquals(Months.ZERO, Months.months(0));
+        assertSame(Months.ZERO, Months.months(0));
     }
 
     public void testFactory_months_int_2_oe() {
         // removed other assertion
-        assertEquals(Months.ONE, Months.months(1));
+        assertSame(Months.ONE, Months.months(1));
     }
 
     public void testFactory_months_int_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.TWO, Months.months(2));
+        assertSame(Months.TWO, Months.months(2));
     }
 
     public void testFactory_months_int_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.THREE, Months.months(3));
+        assertSame(Months.THREE, Months.months(3));
     }
 
     public void testFactory_months_int_5_oe() {
@@ -267,7 +267,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.FOUR, Months.months(4));
+        assertSame(Months.FOUR, Months.months(4));
     }
 
     public void testFactory_months_int_6_oe() {
@@ -276,7 +276,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.FIVE, Months.months(5));
+        assertSame(Months.FIVE, Months.months(5));
     }
 
     public void testFactory_months_int_7_oe() {
@@ -286,7 +286,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.SIX, Months.months(6));
+        assertSame(Months.SIX, Months.months(6));
     }
 
     public void testFactory_months_int_8_oe() {
@@ -297,7 +297,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.SEVEN, Months.months(7));
+        assertSame(Months.SEVEN, Months.months(7));
     }
 
     public void testFactory_months_int_9_oe() {
@@ -309,7 +309,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.EIGHT, Months.months(8));
+        assertSame(Months.EIGHT, Months.months(8));
     }
 
     public void testFactory_months_int_10_oe() {
@@ -322,7 +322,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.NINE, Months.months(9));
+        assertSame(Months.NINE, Months.months(9));
     }
 
     public void testFactory_months_int_11_oe() {
@@ -336,7 +336,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.TEN, Months.months(10));
+        assertSame(Months.TEN, Months.months(10));
     }
 
     public void testFactory_months_int_12_oe() {
@@ -351,7 +351,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.ELEVEN, Months.months(11));
+        assertSame(Months.ELEVEN, Months.months(11));
     }
 
     public void testFactory_months_int_13_oe() {
@@ -367,7 +367,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.TWELVE, Months.months(12));
+        assertSame(Months.TWELVE, Months.months(12));
     }
 
     public void testFactory_months_int_14_oe() {
@@ -384,7 +384,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.MAX_VALUE, Months.months(Integer.MAX_VALUE));
+        assertSame(Months.MAX_VALUE, Months.months(Integer.MAX_VALUE));
     }
 
     public void testFactory_months_int_15_oe() {
@@ -402,7 +402,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Months.MIN_VALUE, Months.months(Integer.MIN_VALUE));
+        assertSame(Months.MIN_VALUE, Months.months(Integer.MIN_VALUE));
     }
 
     public void testFactory_months_int_16_oe() {
@@ -904,7 +904,7 @@ public class TestMonths_OE25Dev extends TestCase {
         Months result = (Months) ois.readObject();
         ois.close();
         
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlus_int_1_oe() {
@@ -1068,7 +1068,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.multipliedBy(1));
+        assertSame(test, test.multipliedBy(1));
     }
 
     public void testDividedBy_int_1_oe() {
@@ -1124,7 +1124,7 @@ public class TestMonths_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.dividedBy(1));
+        assertSame(test, test.dividedBy(1));
     }
 
     public void testNegated_1_oe() {

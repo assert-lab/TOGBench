@@ -33,98 +33,98 @@ import org.junit.Test;
  */
 public class PropertySetterUnitTest_OE25Dev
 {
-    enum EnumTest { ONE, TWO, THREE };
+    enum EnumTest { ONE, TWO, THREE }
 
     @Test
     public void testConvertArg_1_oe()
     {
-        PropertySetter ps = new PropertySetter(this);
-        Object s = ps.convertArg("test", String.class);
+        final PropertySetter ps = new PropertySetter(this);
+        final Object s = ps.convertArg("test", String.class);
         assertEquals("Should be a string", "test", s);
     }
 
     @Test
     public void testConvertArg_2_oe()
     {
-        PropertySetter ps = new PropertySetter(this);
-        Object s = ps.convertArg("test", String.class);
+        final PropertySetter ps = new PropertySetter(this);
+        final Object s = ps.convertArg("test", String.class);
         // removed other assertion
 
-        Object i = ps.convertArg("1", Integer.TYPE);
+        final Object i = ps.convertArg("1", Integer.TYPE);
         assertEquals("Should be an integer", Integer.valueOf(1), i);
     }
 
     @Test
     public void testConvertArg_3_oe()
     {
-        PropertySetter ps = new PropertySetter(this);
-        Object s = ps.convertArg("test", String.class);
+        final PropertySetter ps = new PropertySetter(this);
+        final Object s = ps.convertArg("test", String.class);
         // removed other assertion
 
-        Object i = ps.convertArg("1", Integer.TYPE);
+        final Object i = ps.convertArg("1", Integer.TYPE);
         // removed other assertion
 
-        Object l = ps.convertArg("1", Long.TYPE);
+        final Object l = ps.convertArg("1", Long.TYPE);
         assertEquals("Should be a long", Long.valueOf(1), l);
     }
 
     @Test
     public void testConvertArg_4_oe()
     {
-        PropertySetter ps = new PropertySetter(this);
-        Object s = ps.convertArg("test", String.class);
+        final PropertySetter ps = new PropertySetter(this);
+        final Object s = ps.convertArg("test", String.class);
         // removed other assertion
 
-        Object i = ps.convertArg("1", Integer.TYPE);
+        final Object i = ps.convertArg("1", Integer.TYPE);
         // removed other assertion
 
-        Object l = ps.convertArg("1", Long.TYPE);
+        final Object l = ps.convertArg("1", Long.TYPE);
         // removed other assertion
 
-        Object b = ps.convertArg("true", Boolean.TYPE);
+        final Object b = ps.convertArg("true", Boolean.TYPE);
         assertEquals("Should be a boolean", Boolean.TRUE, b);
     }
 
     @Test
     public void testConvertArg_5_oe()
     {
-        PropertySetter ps = new PropertySetter(this);
-        Object s = ps.convertArg("test", String.class);
+        final PropertySetter ps = new PropertySetter(this);
+        final Object s = ps.convertArg("test", String.class);
         // removed other assertion
 
-        Object i = ps.convertArg("1", Integer.TYPE);
+        final Object i = ps.convertArg("1", Integer.TYPE);
         // removed other assertion
 
-        Object l = ps.convertArg("1", Long.TYPE);
+        final Object l = ps.convertArg("1", Long.TYPE);
         // removed other assertion
 
-        Object b = ps.convertArg("true", Boolean.TYPE);
+        final Object b = ps.convertArg("true", Boolean.TYPE);
         // removed other assertion
 
-        Object e = ps.convertArg("TWO", EnumTest.class);
+        final Object e = ps.convertArg("TWO", EnumTest.class);
         assertEquals("Should be an enum", EnumTest.TWO, e);
     }
 
     @Test
     public void testConvertArg_6_oe()
     {
-        PropertySetter ps = new PropertySetter(this);
-        Object s = ps.convertArg("test", String.class);
+        final PropertySetter ps = new PropertySetter(this);
+        final Object s = ps.convertArg("test", String.class);
         // removed other assertion
 
-        Object i = ps.convertArg("1", Integer.TYPE);
+        final Object i = ps.convertArg("1", Integer.TYPE);
         // removed other assertion
 
-        Object l = ps.convertArg("1", Long.TYPE);
+        final Object l = ps.convertArg("1", Long.TYPE);
         // removed other assertion
 
-        Object b = ps.convertArg("true", Boolean.TYPE);
+        final Object b = ps.convertArg("true", Boolean.TYPE);
         // removed other assertion
 
-        Object e = ps.convertArg("TWO", EnumTest.class);
+        final Object e = ps.convertArg("TWO", EnumTest.class);
         // removed other assertion
 
-        Object f = ps.convertArg("test.conf", File.class);
+        final Object f = ps.convertArg("test.conf", File.class);
         assertTrue("Should be a file", f instanceof File);
     }
 

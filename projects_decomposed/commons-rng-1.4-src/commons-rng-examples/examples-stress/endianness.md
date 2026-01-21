@@ -120,7 +120,7 @@ application.
 
 The `stdin2testu01` application is able to read the input binary data and convert it to human
 readable format when run with the argument `raw32`. Details of how to build the `stdin2testu01`
-application are provided in the [stress test](stress_test.md) page.
+application are provided in the [stress test](./stress_test.md) page.
 
 The platform endianess is auto-detected by the Java application. To run the bridge test
 use the following command:

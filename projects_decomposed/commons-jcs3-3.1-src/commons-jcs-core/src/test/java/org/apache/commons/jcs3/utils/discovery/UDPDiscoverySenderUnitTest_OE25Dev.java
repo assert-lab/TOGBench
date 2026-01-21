@@ -3,6 +3,7 @@ package org.apache.commons.jcs3.utils.discovery;
 import java.util.ArrayList;
 
 import org.apache.commons.jcs3.utils.discovery.UDPDiscoveryMessage.BroadcastType;
+import org.apache.commons.jcs3.utils.serialization.StandardSerializer;
 
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -60,8 +61,13 @@ public class UDPDiscoverySenderUnitTest_OE25Dev
         throws Exception
     {
         super.setUp();
+
         receiver = new UDPDiscoveryReceiver( null, null, ADDRESS, PORT );
-        sender = new UDPDiscoverySender( ADDRESS, PORT, 0 );
+        receiver.setSerializer(new StandardSerializer());
+        final Thread t = new Thread( receiver );
+        t.start();
+
+        sender = new UDPDiscoverySender(null, ADDRESS, PORT, 1, new StandardSerializer());
     }
 
     /**
@@ -100,14 +106,14 @@ public class UDPDiscoverySenderUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        ArrayList<String> cacheNames = new ArrayList<>();
+        final ArrayList<String> cacheNames = new ArrayList<>();
 
         // DO WORK
         sender.passiveBroadcast( SENDING_HOST, SENDING_PORT, cacheNames, 1L );
 
         // VERIFY
         // grab the sent message
-        Object obj = receiver.waitForMessage() ;
+        final Object obj = receiver.waitForMessage() ;
 
         assertTrue( "unexpected crap received", obj instanceof UDPDiscoveryMessage );
     }
@@ -116,18 +122,18 @@ public class UDPDiscoverySenderUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        ArrayList<String> cacheNames = new ArrayList<>();
+        final ArrayList<String> cacheNames = new ArrayList<>();
 
         // DO WORK
         sender.passiveBroadcast( SENDING_HOST, SENDING_PORT, cacheNames, 1L );
 
         // VERIFY
         // grab the sent message
-        Object obj = receiver.waitForMessage() ;
+        final Object obj = receiver.waitForMessage() ;
 
         // removed other assertion
 
-        UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
+        final UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
         // disabled test because of JCS-89
         // assertEquals( "wrong host", SENDING_HOST, msg.getHost() );
         assertEquals( "wrong port", SENDING_PORT, msg.getPort() );
@@ -137,18 +143,18 @@ public class UDPDiscoverySenderUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        ArrayList<String> cacheNames = new ArrayList<>();
+        final ArrayList<String> cacheNames = new ArrayList<>();
 
         // DO WORK
         sender.passiveBroadcast( SENDING_HOST, SENDING_PORT, cacheNames, 1L );
 
         // VERIFY
         // grab the sent message
-        Object obj = receiver.waitForMessage() ;
+        final Object obj = receiver.waitForMessage() ;
 
         // removed other assertion
 
-        UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
+        final UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
         // disabled test because of JCS-89
         // assertEquals( "wrong host", SENDING_HOST, msg.getHost() );
         // removed other assertion
@@ -159,14 +165,14 @@ public class UDPDiscoverySenderUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        ArrayList<String> cacheNames = new ArrayList<>();
+        final ArrayList<String> cacheNames = new ArrayList<>();
 
         // DO WORK
         sender.removeBroadcast( SENDING_HOST, SENDING_PORT, cacheNames, 1L );
 
         // VERIFY
         // grab the sent message
-        Object obj = receiver.waitForMessage();
+        final Object obj = receiver.waitForMessage();
 
         assertTrue( "unexpected crap received", obj instanceof UDPDiscoveryMessage );
     }
@@ -175,18 +181,18 @@ public class UDPDiscoverySenderUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        ArrayList<String> cacheNames = new ArrayList<>();
+        final ArrayList<String> cacheNames = new ArrayList<>();
 
         // DO WORK
         sender.removeBroadcast( SENDING_HOST, SENDING_PORT, cacheNames, 1L );
 
         // VERIFY
         // grab the sent message
-        Object obj = receiver.waitForMessage();
+        final Object obj = receiver.waitForMessage();
 
         // removed other assertion
 
-        UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
+        final UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
         // disabled test because of JCS-89
         // assertEquals( "wrong host", SENDING_HOST, msg.getHost() );
         assertEquals( "wrong port", SENDING_PORT, msg.getPort() );
@@ -196,18 +202,18 @@ public class UDPDiscoverySenderUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        ArrayList<String> cacheNames = new ArrayList<>();
+        final ArrayList<String> cacheNames = new ArrayList<>();
 
         // DO WORK
         sender.removeBroadcast( SENDING_HOST, SENDING_PORT, cacheNames, 1L );
 
         // VERIFY
         // grab the sent message
-        Object obj = receiver.waitForMessage();
+        final Object obj = receiver.waitForMessage();
 
         // removed other assertion
 
-        UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
+        final UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
         // disabled test because of JCS-89
         // assertEquals( "wrong host", SENDING_HOST, msg.getHost() );
         // removed other assertion
@@ -222,7 +228,7 @@ public class UDPDiscoverySenderUnitTest_OE25Dev
 
         // VERIFY
         // grab the sent message
-        Object obj = receiver.waitForMessage();
+        final Object obj = receiver.waitForMessage();
 
         assertTrue( "unexpected crap received", obj instanceof UDPDiscoveryMessage );
     }
@@ -235,11 +241,11 @@ public class UDPDiscoverySenderUnitTest_OE25Dev
 
         // VERIFY
         // grab the sent message
-        Object obj = receiver.waitForMessage();
+        final Object obj = receiver.waitForMessage();
 
         // removed other assertion
 
-        UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
+        final UDPDiscoveryMessage msg = (UDPDiscoveryMessage) obj;
         assertEquals( "wrong message type", BroadcastType.REQUEST, msg.getMessageType() );
     }
 

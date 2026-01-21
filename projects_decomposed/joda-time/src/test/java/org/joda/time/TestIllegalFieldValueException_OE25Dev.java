@@ -35,7 +35,7 @@ public class TestIllegalFieldValueException_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestIllegalFieldValueException_OE25Dev.class);
+        return new TestSuite(TestIllegalFieldValueException.class);
     }
 
     public TestIllegalFieldValueException_OE25Dev(String name) {

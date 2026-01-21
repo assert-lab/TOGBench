@@ -84,18 +84,18 @@ public class AdminBeanUnitTest_OE25Dev
     public void testGetRegionInfo_1_oe()
         throws Exception
     {
-        String regionName = "myRegion";
-        CacheAccess<String, String> cache = JCS.getInstance( regionName );
+        final String regionName = "myRegion";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
 
         cache.put( "key", "value" );
 
-        JCSAdminBean admin = new JCSAdminBean();
+        final JCSAdminBean admin = new JCSAdminBean();
 
-        List<CacheRegionInfo> regions = admin.buildCacheInfo();
+        final List<CacheRegionInfo> regions = admin.buildCacheInfo();
 
         boolean foundRegion = false;
 
-        for (CacheRegionInfo info : regions)
+        for (final CacheRegionInfo info : regions)
         {
 
             if ( info.getCacheName().equals( regionName ) )
@@ -110,18 +110,18 @@ public class AdminBeanUnitTest_OE25Dev
     public void testGetRegionInfo_2_oe()
         throws Exception
     {
-        String regionName = "myRegion";
-        CacheAccess<String, String> cache = JCS.getInstance( regionName );
+        final String regionName = "myRegion";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
 
         cache.put( "key", "value" );
 
-        JCSAdminBean admin = new JCSAdminBean();
+        final JCSAdminBean admin = new JCSAdminBean();
 
-        List<CacheRegionInfo> regions = admin.buildCacheInfo();
+        final List<CacheRegionInfo> regions = admin.buildCacheInfo();
 
         boolean foundRegion = false;
 
-        for (CacheRegionInfo info : regions)
+        for (final CacheRegionInfo info : regions)
         {
 
             if ( info.getCacheName().equals( regionName ) )
@@ -138,18 +138,18 @@ public class AdminBeanUnitTest_OE25Dev
     public void testGetRegionInfo_3_oe()
         throws Exception
     {
-        String regionName = "myRegion";
-        CacheAccess<String, String> cache = JCS.getInstance( regionName );
+        final String regionName = "myRegion";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
 
         cache.put( "key", "value" );
 
-        JCSAdminBean admin = new JCSAdminBean();
+        final JCSAdminBean admin = new JCSAdminBean();
 
-        List<CacheRegionInfo> regions = admin.buildCacheInfo();
+        final List<CacheRegionInfo> regions = admin.buildCacheInfo();
 
         boolean foundRegion = false;
 
-        for (CacheRegionInfo info : regions)
+        for (final CacheRegionInfo info : regions)
         {
 
             if ( info.getCacheName().equals( regionName ) )
@@ -168,124 +168,124 @@ public class AdminBeanUnitTest_OE25Dev
     public void testGetElementForRegionInfo_1_oe()
         throws Exception
     {
-        String regionName = "myRegion";
-        CacheAccess<String, String> cache = JCS.getInstance( regionName );
+        final String regionName = "myRegion";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
 
         // clear the region
         cache.clear();
 
-        String key = "myKey";
+        final String key = "myKey";
         cache.put( key, "value" );
 
-        JCSAdminBean admin = new JCSAdminBean();
+        final JCSAdminBean admin = new JCSAdminBean();
 
-        List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
+        final List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
         assertEquals( "Wrong number of elements in the region.", 1, elements.size() );
     }
 
     public void testGetElementForRegionInfo_2_oe()
         throws Exception
     {
-        String regionName = "myRegion";
-        CacheAccess<String, String> cache = JCS.getInstance( regionName );
+        final String regionName = "myRegion";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
 
         // clear the region
         cache.clear();
 
-        String key = "myKey";
+        final String key = "myKey";
         cache.put( key, "value" );
 
-        JCSAdminBean admin = new JCSAdminBean();
+        final JCSAdminBean admin = new JCSAdminBean();
 
-        List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
+        final List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
         // removed other assertion
 
-        CacheElementInfo elementInfo = elements.get(0);
+        final CacheElementInfo elementInfo = elements.get(0);
         assertEquals( "Wrong key." + elementInfo, key, elementInfo.getKey() );
     }
 
     public void testRemove_1_oe()
         throws Exception
     {
-        JCSAdminBean admin = new JCSAdminBean();
+        final JCSAdminBean admin = new JCSAdminBean();
 
-        String regionName = "myRegion";
-        CacheAccess<String, String> cache = JCS.getInstance( regionName );
+        final String regionName = "myRegion";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
 
         // clear the region
         cache.clear();
         admin.clearRegion( regionName );
 
-        String key = "myKey";
+        final String key = "myKey";
         cache.put( key, "value" );
 
-        List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
+        final List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
         assertEquals( "Wrong number of elements in the region.", 1, elements.size() );
     }
 
     public void testRemove_2_oe()
         throws Exception
     {
-        JCSAdminBean admin = new JCSAdminBean();
+        final JCSAdminBean admin = new JCSAdminBean();
 
-        String regionName = "myRegion";
-        CacheAccess<String, String> cache = JCS.getInstance( regionName );
+        final String regionName = "myRegion";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
 
         // clear the region
         cache.clear();
         admin.clearRegion( regionName );
 
-        String key = "myKey";
+        final String key = "myKey";
         cache.put( key, "value" );
 
-        List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
+        final List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
         // removed other assertion
 
-        CacheElementInfo elementInfo = elements.get(0);
+        final CacheElementInfo elementInfo = elements.get(0);
         assertEquals( "Wrong key.", key, elementInfo.getKey() );
     }
 
     public void testRemove_3_oe()
         throws Exception
     {
-        JCSAdminBean admin = new JCSAdminBean();
+        final JCSAdminBean admin = new JCSAdminBean();
 
-        String regionName = "myRegion";
-        CacheAccess<String, String> cache = JCS.getInstance( regionName );
+        final String regionName = "myRegion";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
 
         // clear the region
         cache.clear();
         admin.clearRegion( regionName );
 
-        String key = "myKey";
+        final String key = "myKey";
         cache.put( key, "value" );
 
-        List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
+        final List<CacheElementInfo> elements = admin.buildElementInfo( regionName );
         // removed other assertion
 
-        CacheElementInfo elementInfo = elements.get(0);
+        final CacheElementInfo elementInfo = elements.get(0);
         // removed other assertion
 
         admin.removeItem( regionName, key );
 
-        List<CacheElementInfo> elements2 = admin.buildElementInfo( regionName );
+        final List<CacheElementInfo> elements2 = admin.buildElementInfo( regionName );
         assertEquals( "Wrong number of elements in the region after remove.", 0, elements2.size() );
     }
 
     public void testClearAll_1_oe()
         throws Exception
     {
-        JCSAdminBean admin = new JCSAdminBean();
+        final JCSAdminBean admin = new JCSAdminBean();
 
-        String regionName = "myRegion";
-        CacheAccess<String, String> cache = JCS.getInstance( regionName );
+        final String regionName = "myRegion";
+        final CacheAccess<String, String> cache = JCS.getInstance( regionName );
 
-        String key = "myKey";
+        final String key = "myKey";
         cache.put( key, "value" );
 
         admin.clearAllRegions();
 
-        List<CacheElementInfo> elements2 = admin.buildElementInfo( regionName );
+        final List<CacheElementInfo> elements2 = admin.buildElementInfo( regionName );
         assertEquals( "Wrong number of elements in the region after remove.", 0, elements2.size() );
     }
 

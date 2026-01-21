@@ -49,7 +49,7 @@ public class TestBasePartial_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestBasePartial_OE25Dev.class);
+        return new TestSuite(TestBasePartial.class);
     }
 
     public TestBasePartial_OE25Dev(String name) {

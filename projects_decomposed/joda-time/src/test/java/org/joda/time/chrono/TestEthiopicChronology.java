@@ -99,44 +99,44 @@ public class TestEthiopicChronology extends TestCase {
     //-----------------------------------------------------------------------
     public void testFactoryUTC() {
         assertEquals(DateTimeZone.UTC, EthiopicChronology.getInstanceUTC().getZone());
-        assertEquals(EthiopicChronology.class, EthiopicChronology.getInstanceUTC().getClass());
+        assertSame(EthiopicChronology.class, EthiopicChronology.getInstanceUTC().getClass());
     }
 
     public void testFactory() {
         assertEquals(LONDON, EthiopicChronology.getInstance().getZone());
-        assertEquals(EthiopicChronology.class, EthiopicChronology.getInstance().getClass());
+        assertSame(EthiopicChronology.class, EthiopicChronology.getInstance().getClass());
     }
 
     public void testFactory_Zone() {
         assertEquals(TOKYO, EthiopicChronology.getInstance(TOKYO).getZone());
         assertEquals(PARIS, EthiopicChronology.getInstance(PARIS).getZone());
         assertEquals(LONDON, EthiopicChronology.getInstance(null).getZone());
-        assertEquals(EthiopicChronology.class, EthiopicChronology.getInstance(TOKYO).getClass());
+        assertSame(EthiopicChronology.class, EthiopicChronology.getInstance(TOKYO).getClass());
     }
 
     //-----------------------------------------------------------------------
     public void testEquality() {
-        assertEquals(EthiopicChronology.getInstance(TOKYO), EthiopicChronology.getInstance(TOKYO));
-        assertEquals(EthiopicChronology.getInstance(LONDON), EthiopicChronology.getInstance(LONDON));
-        assertEquals(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstance(PARIS));
-        assertEquals(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstanceUTC());
-        assertEquals(EthiopicChronology.getInstance(), EthiopicChronology.getInstance(LONDON));
+        assertSame(EthiopicChronology.getInstance(TOKYO), EthiopicChronology.getInstance(TOKYO));
+        assertSame(EthiopicChronology.getInstance(LONDON), EthiopicChronology.getInstance(LONDON));
+        assertSame(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstance(PARIS));
+        assertSame(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstanceUTC());
+        assertSame(EthiopicChronology.getInstance(), EthiopicChronology.getInstance(LONDON));
     }
 
     public void testWithUTC() {
-        assertEquals(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstance(LONDON).withUTC());
-        assertEquals(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstance(TOKYO).withUTC());
-        assertEquals(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstanceUTC().withUTC());
-        assertEquals(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstance().withUTC());
+        assertSame(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstance(LONDON).withUTC());
+        assertSame(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstance(TOKYO).withUTC());
+        assertSame(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstanceUTC().withUTC());
+        assertSame(EthiopicChronology.getInstanceUTC(), EthiopicChronology.getInstance().withUTC());
     }
 
     public void testWithZone() {
-        assertEquals(EthiopicChronology.getInstance(TOKYO), EthiopicChronology.getInstance(TOKYO).withZone(TOKYO));
-        assertEquals(EthiopicChronology.getInstance(LONDON), EthiopicChronology.getInstance(TOKYO).withZone(LONDON));
-        assertEquals(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstance(TOKYO).withZone(PARIS));
-        assertEquals(EthiopicChronology.getInstance(LONDON), EthiopicChronology.getInstance(TOKYO).withZone(null));
-        assertEquals(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstance().withZone(PARIS));
-        assertEquals(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstanceUTC().withZone(PARIS));
+        assertSame(EthiopicChronology.getInstance(TOKYO), EthiopicChronology.getInstance(TOKYO).withZone(TOKYO));
+        assertSame(EthiopicChronology.getInstance(LONDON), EthiopicChronology.getInstance(TOKYO).withZone(LONDON));
+        assertSame(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstance(TOKYO).withZone(PARIS));
+        assertSame(EthiopicChronology.getInstance(LONDON), EthiopicChronology.getInstance(TOKYO).withZone(null));
+        assertSame(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstance().withZone(PARIS));
+        assertSame(EthiopicChronology.getInstance(PARIS), EthiopicChronology.getInstanceUTC().withZone(PARIS));
     }
 
     public void testToString() {
@@ -309,6 +309,94 @@ public class TestEthiopicChronology extends TestCase {
             new DateTime(-1, 13, 5, 0, 0, 0, 0, ETHIOPIC_UTC);
             fail();
         } catch (IllegalArgumentException ex) {}
+    }
+
+    //-----------------------------------------------------------------------
+    /**
+     * Tests era, year, monthOfYear, dayOfMonth and dayOfWeek.
+     */
+    public void testCalendar() {
+        if (TestAll.FAST) {
+            return;
+        }
+        System.out.println("\nTestEthiopicChronology.testCalendar");
+        DateTime epoch = new DateTime(1, 1, 1, 0, 0, 0, 0, ETHIOPIC_UTC);
+        long millis = epoch.getMillis();
+        long end = new DateTime(3000, 1, 1, 0, 0, 0, 0, ISO_UTC).getMillis();
+        DateTimeField dayOfWeek = ETHIOPIC_UTC.dayOfWeek();
+        DateTimeField dayOfYear = ETHIOPIC_UTC.dayOfYear();
+        DateTimeField dayOfMonth = ETHIOPIC_UTC.dayOfMonth();
+        DateTimeField monthOfYear = ETHIOPIC_UTC.monthOfYear();
+        DateTimeField year = ETHIOPIC_UTC.year();
+        DateTimeField yearOfEra = ETHIOPIC_UTC.yearOfEra();
+        DateTimeField era = ETHIOPIC_UTC.era();
+        int expectedDOW = new DateTime(8, 8, 29, 0, 0, 0, 0, JULIAN_UTC).getDayOfWeek();
+        int expectedDOY = 1;
+        int expectedDay = 1;
+        int expectedMonth = 1;
+        int expectedYear = 1;
+        while (millis < end) {
+            int dowValue = dayOfWeek.get(millis);
+            int doyValue = dayOfYear.get(millis);
+            int dayValue = dayOfMonth.get(millis);
+            int monthValue = monthOfYear.get(millis);
+            int yearValue = year.get(millis);
+            int yearOfEraValue = yearOfEra.get(millis);
+            int monthLen = dayOfMonth.getMaximumValue(millis);
+            if (monthValue < 1 || monthValue > 13) {
+                fail("Bad month: " + millis);
+            }
+            
+            // test era
+            assertEquals(1, era.get(millis));
+            assertEquals("EE", era.getAsText(millis));
+            assertEquals("EE", era.getAsShortText(millis));
+            
+            // test date
+            assertEquals(expectedYear, yearValue);
+            assertEquals(expectedYear, yearOfEraValue);
+            assertEquals(expectedMonth, monthValue);
+            assertEquals(expectedDay, dayValue);
+            assertEquals(expectedDOW, dowValue);
+            assertEquals(expectedDOY, doyValue);
+            
+            // test leap year
+            assertEquals(yearValue % 4 == 3, year.isLeap(millis));
+            
+            // test month length
+            if (monthValue == 13) {
+                assertEquals(yearValue % 4 == 3, monthOfYear.isLeap(millis));
+                if (yearValue % 4 == 3) {
+                    assertEquals(6, monthLen);
+                } else {
+                    assertEquals(5, monthLen);
+                }
+            } else {
+                assertEquals(30, monthLen);
+            }
+            
+            // recalculate date
+            expectedDOW = (((expectedDOW + 1) - 1) % 7) + 1;
+            expectedDay++;
+            expectedDOY++;
+            if (expectedDay == 31 && expectedMonth < 13) {
+                expectedDay = 1;
+                expectedMonth++;
+            } else if (expectedMonth == 13) {
+                if (expectedYear % 4 == 3 && expectedDay == 7) {
+                    expectedDay = 1;
+                    expectedMonth = 1;
+                    expectedYear++;
+                    expectedDOY = 1;
+                } else if (expectedYear % 4 != 3 && expectedDay == 6) {
+                    expectedDay = 1;
+                    expectedMonth = 1;
+                    expectedYear++;
+                    expectedDOY = 1;
+                }
+            }
+            millis += SKIP;
+        }
     }
 
     public void testSampleDate() {

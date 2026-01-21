@@ -49,7 +49,7 @@ public class TestLongConverter_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestLongConverter_OE25Dev.class);
+        return new TestSuite(TestLongConverter.class);
     }
 
     public TestLongConverter_OE25Dev(String name) {

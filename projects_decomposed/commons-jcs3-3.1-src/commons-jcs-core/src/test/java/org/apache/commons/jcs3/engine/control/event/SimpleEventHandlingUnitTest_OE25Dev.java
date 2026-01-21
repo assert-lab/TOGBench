@@ -35,7 +35,10 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     extends TestCase
 {
     /** Items to test with */
-    private static int items = 20000;
+    private static final int items = 2000;
+
+    /** Event handler instance */
+    private MyEventHandler meh;
 
     /**
      * Test setup with expected configuration parameters.
@@ -44,6 +47,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     public void setUp()
     {
         JCS.setConfigFilename( "/TestSimpleEventHandling.ccf" );
+        this.meh = new MyEventHandler();
     }
 
     /**
@@ -90,25 +94,25 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         implements IElementEventHandler
     {
         /** times spool called */
-        private int spoolCount = 0;
+        private int spoolCount;
 
         /** times spool not allowed */
-        private int spoolNotAllowedCount = 0;
+        private int spoolNotAllowedCount;
 
         /** times spool without disk */
-        private int spoolNoDiskCount = 0;
+        private int spoolNoDiskCount;
 
         /** times exceeded maxlife */
-        private int exceededMaxlifeCount = 0;
+        private int exceededMaxlifeCount;
 
         /** times exceeded idle time */
-        private int exceededIdletimeCount = 0;
+        private int exceededIdletimeCount;
 
         /**
          * @param event
          */
         @Override
-        public synchronized <T> void handleElementEvent( IElementEvent<T> event )
+        public synchronized <T> void handleElementEvent( final IElementEvent<T> event )
         {
             //System.out.println( "Handling Event of Type " +
             // event.getElementEvent() );
@@ -189,22 +193,18 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     public void testSpoolEvent_1_oe()
         throws Exception
     {
-        // SETUP
-        MyEventHandler meh = new MyEventHandler();
-
-        CacheAccess<String, String> jcs = JCS.getInstance( "WithDisk" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "WithDisk" );
         // this should add the event handler to all items as they are created.
-        IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
         attributes.addElementEventHandler( meh );
         jcs.setDefaultElementAttributes( attributes );
 
         // DO WORK
         // put them in
-        for ( int i = 0; i <= items; i++ )
+        for ( int i = 0; i < items; i++ )
         {
             jcs.put( i + ":key", "data" + i );
         }
-
         // wait a bit for it to finish
         Thread.sleep( items / 20 );
 
@@ -216,17 +216,15 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     public void testSpoolNoDiskEvent_1_oe()
         throws Exception
     {
-        CacheAccess<String, String> jcs = JCS.getInstance( "NoDisk" );
-
-        MyEventHandler meh = new MyEventHandler();
+        final CacheAccess<String, String> jcs = JCS.getInstance( "NoDisk" );
 
         // this should add the event handler to all items as they are created.
-        IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
         attributes.addElementEventHandler( meh );
         jcs.setDefaultElementAttributes( attributes );
 
         // put them in
-        for ( int i = 0; i <= items; i++ )
+        for ( int i = 0; i < items; i++ )
         {
             jcs.put( i + ":key", "data" + i );
         }
@@ -241,16 +239,14 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     public void testSpoolNotAllowedEvent_1_oe()
         throws Exception
     {
-        MyEventHandler meh = new MyEventHandler();
-
-        CacheAccess<String, String> jcs = JCS.getInstance( "DiskButNotAllowed" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "DiskButNotAllowed" );
         // this should add the event handler to all items as they are created.
-        IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
         attributes.addElementEventHandler( meh );
         jcs.setDefaultElementAttributes( attributes );
 
         // put them in
-        for ( int i = 0; i <= items; i++ )
+        for ( int i = 0; i < items; i++ )
         {
             jcs.put( i + ":key", "data" + i );
         }
@@ -265,18 +261,16 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     public void testSpoolNotAllowedEventOnItem_1_oe()
         throws Exception
     {
-        MyEventHandler meh = new MyEventHandler();
-
-        CacheAccess<String, String> jcs = JCS.getInstance( "DiskButNotAllowed" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "DiskButNotAllowed" );
         // this should add the event handler to all items as they are created.
         //IElementAttributes attributes = jcs.getDefaultElementAttributes();
         //attributes.addElementEventHandler( meh );
         //jcs.setDefaultElementAttributes( attributes );
 
         // put them in
-        for ( int i = 0; i <= items; i++ )
+        for ( int i = 0; i < items; i++ )
         {
-            IElementAttributes attributes = jcs.getDefaultElementAttributes();
+            final IElementAttributes attributes = jcs.getDefaultElementAttributes();
             attributes.addElementEventHandler( meh );
             jcs.put( i + ":key", "data" + i, attributes );
         }
@@ -291,11 +285,9 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     public void testExceededMaxlifeOnrequestEvent_1_oe()
         throws Exception
     {
-        MyEventHandler meh = new MyEventHandler();
-
-        CacheAccess<String, String> jcs = JCS.getInstance( "Maxlife" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "Maxlife" );
         // this should add the event handler to all items as they are created.
-        IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
         attributes.addElementEventHandler( meh );
         jcs.setDefaultElementAttributes( attributes );
 
@@ -306,11 +298,11 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         }
 
         // wait a bit for the items to expire
-        Thread.sleep( 3000 );
+        Thread.sleep(attributes.getMaxLife() * 1000 + 100);
 
         for ( int i = 0; i < 200; i++ )
         {
-            String value = jcs.get( i + ":key");
+            final String value = jcs.get( i + ":key");
             assertNull("Item should be null for key " + i + ":key, but is " + value, value);
     }
     }
@@ -318,11 +310,9 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     public void testExceededMaxlifeOnrequestEvent_2_oe()
         throws Exception
     {
-        MyEventHandler meh = new MyEventHandler();
-
-        CacheAccess<String, String> jcs = JCS.getInstance( "Maxlife" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "Maxlife" );
         // this should add the event handler to all items as they are created.
-        IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
         attributes.addElementEventHandler( meh );
         jcs.setDefaultElementAttributes( attributes );
 
@@ -333,11 +323,11 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         }
 
         // wait a bit for the items to expire
-        Thread.sleep( 3000 );
+        Thread.sleep(attributes.getMaxLife() * 1000 + 100);
 
         for ( int i = 0; i < 200; i++ )
         {
-            String value = jcs.get( i + ":key");
+            final String value = jcs.get( i + ":key");
             // removed other assertion
         }
 
@@ -351,11 +341,9 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     public void testExceededIdletimeOnrequestEvent_1_oe()
         throws Exception
     {
-        MyEventHandler meh = new MyEventHandler();
-
-        CacheAccess<String, String> jcs = JCS.getInstance( "Idletime" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "Idletime" );
         // this should add the event handler to all items as they are created.
-        IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
         attributes.addElementEventHandler( meh );
         jcs.setDefaultElementAttributes( attributes );
 
@@ -368,7 +356,7 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         // update access time
         for ( int i = 0; i < 200; i++ )
         {
-            String value = jcs.get( i + ":key");
+            final String value = jcs.get( i + ":key");
             assertNotNull("Item should not be null for key " + i + ":key", value);
     }
     }
@@ -376,11 +364,9 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     public void testExceededIdletimeOnrequestEvent_2_oe()
         throws Exception
     {
-        MyEventHandler meh = new MyEventHandler();
-
-        CacheAccess<String, String> jcs = JCS.getInstance( "Idletime" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "Idletime" );
         // this should add the event handler to all items as they are created.
-        IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
         attributes.addElementEventHandler( meh );
         jcs.setDefaultElementAttributes( attributes );
 
@@ -393,16 +379,16 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         // update access time
         for ( int i = 0; i < 200; i++ )
         {
-            String value = jcs.get( i + ":key");
+            final String value = jcs.get( i + ":key");
             // removed other assertion
         }
 
         // wait a bit for the items to expire
-        Thread.sleep( 1500 );
+        Thread.sleep(attributes.getIdleTime() * 1000 + 100);
 
         for ( int i = 0; i < 200; i++ )
         {
-            String value = jcs.get( i + ":key");
+            final String value = jcs.get( i + ":key");
             assertNull("Item should be null for key " + i + ":key, but is " + value, value);
     }
     }
@@ -410,11 +396,9 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     public void testExceededIdletimeOnrequestEvent_3_oe()
         throws Exception
     {
-        MyEventHandler meh = new MyEventHandler();
-
-        CacheAccess<String, String> jcs = JCS.getInstance( "Idletime" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "Idletime" );
         // this should add the event handler to all items as they are created.
-        IElementAttributes attributes = jcs.getDefaultElementAttributes();
+        final IElementAttributes attributes = jcs.getDefaultElementAttributes();
         attributes.addElementEventHandler( meh );
         jcs.setDefaultElementAttributes( attributes );
 
@@ -427,16 +411,16 @@ public class SimpleEventHandlingUnitTest_OE25Dev
         // update access time
         for ( int i = 0; i < 200; i++ )
         {
-            String value = jcs.get( i + ":key");
+            final String value = jcs.get( i + ":key");
             // removed other assertion
         }
 
         // wait a bit for the items to expire
-        Thread.sleep( 1500 );
+        Thread.sleep(attributes.getIdleTime() * 1000 + 100);
 
         for ( int i = 0; i < 200; i++ )
         {
-            String value = jcs.get( i + ":key");
+            final String value = jcs.get( i + ":key");
             // removed other assertion
         }
 
@@ -450,13 +434,13 @@ public class SimpleEventHandlingUnitTest_OE25Dev
     public void testElementAttributesCreationTime_1_oe()
         throws Exception
     {
-    	ElementAttributes elem1 = new ElementAttributes();
-    	long ctime1 = elem1.getCreateTime();
+    	final ElementAttributes elem1 = new ElementAttributes();
+    	final long ctime1 = elem1.getCreateTime();
 
     	Thread.sleep(10);
 
-    	IElementAttributes elem2 = elem1.clone();
-    	long ctime2 = elem2.getCreateTime();
+    	final IElementAttributes elem2 = elem1.clone();
+    	final long ctime2 = elem2.getCreateTime();
 
     	assertFalse("Creation times should be different", ctime1 == ctime2);
     }

@@ -19,38 +19,25 @@ package org.apache.commons.jcs3.utils.discovery;
  * under the License.
  */
 
-import java.util.HashSet;
-import java.util.Set;
-
-import org.apache.commons.jcs3.log.Log;
-import org.apache.commons.jcs3.log.LogManager;
-
 /**
  * This class periodically check the lastHeardFrom time on the services.
  * <p>
  * If they exceed the configurable limit, it removes them from the set.
  * <p>
  * @author Aaron Smuts
+ * @deprecated Functionality moved to UDPDiscoveryService
  */
+@Deprecated
 public class UDPCleanupRunner
     implements Runnable
 {
-    /** log instance */
-    private static final Log log = LogManager.getLog( UDPCleanupRunner.class );
-
     /** UDP discovery service */
     private final UDPDiscoveryService discoveryService;
-
-    /** default for max idle time, in seconds */
-    private static final long DEFAULT_MAX_IDLE_TIME_SECONDS = 180;
-
-    /** The configured max idle time, in seconds */
-    private final long maxIdleTimeSeconds = DEFAULT_MAX_IDLE_TIME_SECONDS;
 
     /**
      * @param service UDPDiscoveryService
      */
-    public UDPCleanupRunner( UDPDiscoveryService service )
+    public UDPCleanupRunner( final UDPDiscoveryService service )
     {
         this.discoveryService = service;
     }
@@ -64,29 +51,6 @@ public class UDPCleanupRunner
     @Override
     public void run()
     {
-        long now = System.currentTimeMillis();
-
-        // iterate through the set
-        // it is thread safe
-        // TODO this should get a copy.  you can't simply remove from this.
-        // the listeners need to be notified.
-        Set<DiscoveredService> toRemove = new HashSet<>();
-        // can't remove via the iterator. must remove directly
-        for (DiscoveredService service : discoveryService.getDiscoveredServices())
-        {
-            if ( ( now - service.getLastHearFromTime() ) > ( maxIdleTimeSeconds * 1000 ) )
-            {
-                log.info( "Removing service, since we haven't heard from it in "
-                        + "{0} seconds. service = {1}", maxIdleTimeSeconds, service );
-                toRemove.add( service );
-            }
-        }
-
-        // remove the bad ones
-        for (DiscoveredService service : toRemove)
-        {
-            // call this so the listeners get notified
-            discoveryService.removeDiscoveredService( service );
-        }
+        discoveryService.cleanup();
     }
 }

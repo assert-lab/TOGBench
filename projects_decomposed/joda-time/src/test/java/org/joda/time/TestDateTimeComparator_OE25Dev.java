@@ -46,7 +46,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDateTimeComparator_OE25Dev.class);
+        return new TestSuite(TestDateTimeComparator.class);
     }
 
     public TestDateTimeComparator_OE25Dev(String name) {
@@ -446,7 +446,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         
-        assertEquals(DateTimeComparator.getDateOnlyInstance(), DateTimeComparator.getDateOnlyInstance());
+        assertSame(DateTimeComparator.getDateOnlyInstance(), DateTimeComparator.getDateOnlyInstance());
     }
 
     public void testStaticGetTimeOnlyInstance_1_oe() {
@@ -473,7 +473,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         
-        assertEquals(DateTimeComparator.getTimeOnlyInstance(), DateTimeComparator.getTimeOnlyInstance());
+        assertSame(DateTimeComparator.getTimeOnlyInstance(), DateTimeComparator.getTimeOnlyInstance());
     }
 
     public void testStaticGetInstanceLower_1_oe() {
@@ -501,7 +501,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         // removed other assertion
         
         c = DateTimeComparator.getInstance(null);
-        assertEquals(DateTimeComparator.getInstance(), c);
+        assertSame(DateTimeComparator.getInstance(), c);
     }
 
     public void testStaticGetInstanceLowerUpper_1_oe() {
@@ -567,7 +567,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         // removed other assertion
         
         c = DateTimeComparator.getInstance(null, null);
-        assertEquals(DateTimeComparator.getInstance(), c);
+        assertSame(DateTimeComparator.getInstance(), c);
     }
 
     public void testStaticGetInstanceLowerUpper_8_oe() {
@@ -585,7 +585,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         // removed other assertion
         
         c = DateTimeComparator.getInstance(DateTimeFieldType.dayOfYear(), null);
-        assertEquals(DateTimeComparator.getDateOnlyInstance(), c);
+        assertSame(DateTimeComparator.getDateOnlyInstance(), c);
     }
 
     public void testStaticGetInstanceLowerUpper_9_oe() {
@@ -606,7 +606,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         // removed other assertion
         
         c = DateTimeComparator.getInstance(null, DateTimeFieldType.dayOfYear());
-        assertEquals(DateTimeComparator.getTimeOnlyInstance(), c);
+        assertSame(DateTimeComparator.getTimeOnlyInstance(), c);
     }
 
     public void testNullNowCheckedOnce_1_oe() {
@@ -895,7 +895,7 @@ public class TestDateTimeComparator_OE25Dev extends TestCase {
         DateTimeComparator result = (DateTimeComparator) ois.readObject();
         ois.close();
         
-        assertEquals(c, result);
+        assertSame(c, result);
     }
 
     public void testBasicComps1_1_oe() {

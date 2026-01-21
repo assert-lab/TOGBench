@@ -80,11 +80,11 @@ public class TestTimeOfDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetHour() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(test.getChronology().hourOfDay(), test.hourOfDay().getField());
+        assertSame(test.getChronology().hourOfDay(), test.hourOfDay().getField());
         assertEquals("hourOfDay", test.hourOfDay().getName());
         assertEquals("Property[hourOfDay]", test.hourOfDay().toString());
-        assertEquals(test, test.hourOfDay().getReadablePartial());
-        assertEquals(test, test.hourOfDay().getTimeOfDay());
+        assertSame(test, test.hourOfDay().getReadablePartial());
+        assertSame(test, test.hourOfDay().getTimeOfDay());
         assertEquals(10, test.hourOfDay().get());
         assertEquals("10", test.hourOfDay().getAsString());
         assertEquals("10", test.hourOfDay().getAsText());
@@ -233,11 +233,11 @@ public class TestTimeOfDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMinute() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
+        assertSame(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
         assertEquals("minuteOfHour", test.minuteOfHour().getName());
         assertEquals("Property[minuteOfHour]", test.minuteOfHour().toString());
-        assertEquals(test, test.minuteOfHour().getReadablePartial());
-        assertEquals(test, test.minuteOfHour().getTimeOfDay());
+        assertSame(test, test.minuteOfHour().getReadablePartial());
+        assertSame(test, test.minuteOfHour().getTimeOfDay());
         assertEquals(20, test.minuteOfHour().get());
         assertEquals("20", test.minuteOfHour().getAsString());
         assertEquals("20", test.minuteOfHour().getAsText());
@@ -405,11 +405,11 @@ public class TestTimeOfDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetSecond() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
+        assertSame(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
         assertEquals("secondOfMinute", test.secondOfMinute().getName());
         assertEquals("Property[secondOfMinute]", test.secondOfMinute().toString());
-        assertEquals(test, test.secondOfMinute().getReadablePartial());
-        assertEquals(test, test.secondOfMinute().getTimeOfDay());
+        assertSame(test, test.secondOfMinute().getReadablePartial());
+        assertSame(test, test.secondOfMinute().getTimeOfDay());
         assertEquals(30, test.secondOfMinute().get());
         assertEquals("30", test.secondOfMinute().getAsString());
         assertEquals("30", test.secondOfMinute().getAsText());
@@ -571,11 +571,11 @@ public class TestTimeOfDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMilli() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
+        assertSame(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
         assertEquals("millisOfSecond", test.millisOfSecond().getName());
         assertEquals("Property[millisOfSecond]", test.millisOfSecond().toString());
-        assertEquals(test, test.millisOfSecond().getReadablePartial());
-        assertEquals(test, test.millisOfSecond().getTimeOfDay());
+        assertSame(test, test.millisOfSecond().getReadablePartial());
+        assertSame(test, test.millisOfSecond().getTimeOfDay());
         assertEquals(40, test.millisOfSecond().get());
         assertEquals("40", test.millisOfSecond().getAsString());
         assertEquals("40", test.millisOfSecond().getAsText());

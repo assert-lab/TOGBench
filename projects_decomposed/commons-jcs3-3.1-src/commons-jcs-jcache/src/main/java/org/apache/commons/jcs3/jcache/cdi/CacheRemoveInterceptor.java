@@ -38,7 +38,7 @@ import javax.interceptor.InvocationContext;
 public class CacheRemoveInterceptor implements Serializable
 {
     /**
-     * 
+     *
      */
     private static final long serialVersionUID = -7441959527908682219L;
     @Inject
@@ -73,12 +73,9 @@ public class CacheRemoveInterceptor implements Serializable
         }
         catch (final Throwable t)
         {
-            if (afterInvocation)
+            if (afterInvocation && helper.isIncluded(t.getClass(), cacheRemove.evictFor(), cacheRemove.noEvictFor()))
             {
-                if (helper.isIncluded(t.getClass(), cacheRemove.evictFor(), cacheRemove.noEvictFor()))
-                {
-                    cache.remove(cacheKey);
-                }
+                cache.remove(cacheKey);
             }
 
             throw t;

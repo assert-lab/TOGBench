@@ -24,7 +24,6 @@ import java.net.UnknownHostException;
 import java.util.Properties;
 
 import org.apache.commons.jcs3.auxiliary.remote.RemoteUtils;
-import org.apache.commons.jcs3.auxiliary.remote.server.RemoteCacheServer;
 import org.apache.commons.jcs3.log.Log;
 import org.apache.commons.jcs3.log.LogManager;
 import org.apache.commons.jcs3.utils.net.HostNameUtil;
@@ -48,7 +47,7 @@ public class RemoteCacheServerStartupUtil
      * @param propsFileName
      * @return RemoteCacheServer
      */
-    public static <K, V> RemoteCacheServer<K, V> startServerUsingProperties( String propsFileName )
+    public static <K, V> RemoteCacheServer<K, V> startServerUsingProperties( final String propsFileName )
     {
         // TODO load from props file or get as init param or get from jndi, or
         // all three
@@ -59,20 +58,20 @@ public class RemoteCacheServerStartupUtil
         {
             props = RemoteUtils.loadProps(propsFileName);
         }
-        catch (IOException e)
+        catch (final IOException e)
         {
             log.error( "Problem loading configuration from " + propsFileName, e);
         }
 
         if ( props != null )
         {
-            String portS = props.getProperty( "registry.port", String.valueOf( DEFAULT_REGISTRY_PORT ) );
+            final String portS = props.getProperty( "registry.port", String.valueOf( DEFAULT_REGISTRY_PORT ) );
 
             try
             {
                 registryPort = Integer.parseInt( portS );
             }
-            catch ( NumberFormatException e )
+            catch ( final NumberFormatException e )
             {
                 log.error( "Problem converting port to an int.", e );
             }
@@ -81,7 +80,7 @@ public class RemoteCacheServerStartupUtil
         // we will always use the local machine for the registry
         try
         {
-            String registryHost = HostNameUtil.getLocalHostAddress();
+            final String registryHost = HostNameUtil.getLocalHostAddress();
 
             if ( log.isDebugEnabled() )
             {
@@ -98,12 +97,12 @@ public class RemoteCacheServerStartupUtil
             {
                 RemoteCacheServerFactory.startup( registryHost, registryPort, props );
             }
-            catch ( IOException e )
+            catch ( final IOException e )
             {
                 log.error( "Problem starting remote cache server.", e );
             }
         }
-        catch ( UnknownHostException e )
+        catch ( final UnknownHostException e )
         {
             log.error( "Could not get local address to use for the registry!", e );
         }

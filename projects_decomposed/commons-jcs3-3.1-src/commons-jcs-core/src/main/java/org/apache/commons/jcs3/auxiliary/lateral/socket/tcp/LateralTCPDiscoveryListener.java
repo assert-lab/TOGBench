@@ -24,13 +24,13 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import org.apache.commons.jcs3.auxiliary.AuxiliaryCache;
-import org.apache.commons.jcs3.auxiliary.AuxiliaryCacheAttributes;
-import org.apache.commons.jcs3.auxiliary.lateral.LateralCacheAttributes;
 import org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWait;
 import org.apache.commons.jcs3.auxiliary.lateral.LateralCacheNoWaitFacade;
 import org.apache.commons.jcs3.auxiliary.lateral.socket.tcp.behavior.ITCPLateralCacheAttributes;
 import org.apache.commons.jcs3.engine.behavior.ICompositeCacheManager;
+import org.apache.commons.jcs3.engine.behavior.IElementSerializer;
+import org.apache.commons.jcs3.engine.control.CompositeCacheManager;
+import org.apache.commons.jcs3.engine.logging.behavior.ICacheEventLogger;
 import org.apache.commons.jcs3.log.Log;
 import org.apache.commons.jcs3.log.LogManager;
 import org.apache.commons.jcs3.utils.discovery.DiscoveredService;
@@ -65,18 +65,46 @@ public class LateralTCPDiscoveryListener
     private final String factoryName;
 
     /** Reference to the cache manager for auxiliary cache access */
-    private final ICompositeCacheManager cacheManager;
+    private final CompositeCacheManager cacheManager;
+
+    /** Reference to the cache event logger for auxiliary cache creation */
+    private final ICacheEventLogger cacheEventLogger;
+
+    /** Reference to the cache element serializer for auxiliary cache creation */
+    private final IElementSerializer elementSerializer;
 
     /**
      * This plugs into the udp discovery system. It will receive add and remove events.
      * <p>
      * @param factoryName the name of the related cache factory
      * @param cacheManager the global cache manager
+     * @deprecated Use constructor with four parameters
      */
-    protected LateralTCPDiscoveryListener( String factoryName, ICompositeCacheManager cacheManager )
+    @Deprecated
+    protected LateralTCPDiscoveryListener( final String factoryName, final ICompositeCacheManager cacheManager )
+    {
+        this(factoryName, (CompositeCacheManager) cacheManager, null, null);
+    }
+
+    /**
+     * This plugs into the udp discovery system. It will receive add and remove events.
+     * <p>
+     * @param factoryName the name of the related cache factory
+     * @param cacheManager the global cache manager
+     * @param cacheEventLogger Reference to the cache event logger for auxiliary cache creation
+     * @param elementSerializer Reference to the cache element serializer for auxiliary cache
+     * creation
+     * @since 3.1
+     */
+    protected LateralTCPDiscoveryListener( final String factoryName,
+            final CompositeCacheManager cacheManager,
+            final ICacheEventLogger cacheEventLogger,
+            final IElementSerializer elementSerializer)
     {
         this.factoryName = factoryName;
         this.cacheManager = cacheManager;
+        this.cacheEventLogger = cacheEventLogger;
+        this.elementSerializer = elementSerializer;
     }
 
     /**
@@ -89,9 +117,9 @@ public class LateralTCPDiscoveryListener
      * @param facade - facade (for region) =&gt; multiple lateral clients.
      * @return true if the facade was not already registered.
      */
-    public boolean addNoWaitFacade( String cacheName, LateralCacheNoWaitFacade<?, ?> facade )
+    public boolean addNoWaitFacade( final String cacheName, final LateralCacheNoWaitFacade<?, ?> facade )
     {
-        boolean isNew = !containsNoWaitFacade( cacheName );
+        final boolean isNew = !containsNoWaitFacade( cacheName );
 
         // override or put anew, it doesn't matter
         facades.put( cacheName, facade );
@@ -106,7 +134,7 @@ public class LateralTCPDiscoveryListener
      * @param cacheName - facades are for a region
      * @return do we contain the no wait. true if so
      */
-    public boolean containsNoWaitFacade( String cacheName )
+    public boolean containsNoWaitFacade( final String cacheName )
     {
         return facades.containsKey( cacheName );
     }
@@ -118,9 +146,10 @@ public class LateralTCPDiscoveryListener
      * @param noWait - is this no wait in the facade
      * @return do we contain the no wait. true if so
      */
-    public <K, V> boolean containsNoWait( String cacheName, LateralCacheNoWait<K, V> noWait )
+    public <K, V> boolean containsNoWait( final String cacheName, final LateralCacheNoWait<K, V> noWait )
     {
         @SuppressWarnings("unchecked") // Need to cast because of common map for all facades
+        final
         LateralCacheNoWaitFacade<K, V> facade =
             (LateralCacheNoWaitFacade<K, V>)facades.get( noWait.getCacheName() );
 
@@ -144,29 +173,43 @@ public class LateralTCPDiscoveryListener
      * @return true if we found the no wait and added it. False if the no wait was not present or if
      *         we already had it.
      */
-    protected <K, V> boolean addNoWait( LateralCacheNoWait<K, V> noWait )
+    protected <K, V> boolean addNoWait( final LateralCacheNoWait<K, V> noWait )
     {
         @SuppressWarnings("unchecked") // Need to cast because of common map for all facades
+        final
         LateralCacheNoWaitFacade<K, V> facade =
             (LateralCacheNoWaitFacade<K, V>)facades.get( noWait.getCacheName() );
         log.debug( "addNoWait > Got facade for {0} = {1}", noWait.getCacheName(), facade );
 
+        return addNoWait(noWait, facade);
+    }
+
+    /**
+     * When a broadcast is received from the UDP Discovery receiver, for each cacheName in the
+     * message, the add no wait will be called here.
+     * <p>
+     * @param noWait the no wait
+     * @param facade the related facade
+     * @return true if we found the no wait and added it. False if the no wait was not present or if
+     *         we already had it.
+     * @since 3.1
+     */
+    protected <K, V> boolean addNoWait(final LateralCacheNoWait<K, V> noWait,
+            final LateralCacheNoWaitFacade<K, V> facade)
+    {
         if ( facade != null )
         {
-            boolean isNew = facade.addNoWait( noWait );
+            final boolean isNew = facade.addNoWait( noWait );
             log.debug( "Called addNoWait, isNew = {0}", isNew );
             return isNew;
         }
-        else
+        if ( knownDifferentlyConfiguredRegions.addIfAbsent( noWait.getCacheName() ) )
         {
-            if ( knownDifferentlyConfiguredRegions.addIfAbsent( noWait.getCacheName() ) )
-            {
-                log.info( "addNoWait > Different nodes are configured differently "
-                        + "or region [{0}] is not yet used on this side.",
-                        () -> noWait.getCacheName() );
-            }
-            return false;
+            log.info( "addNoWait > Different nodes are configured differently "
+                    + "or region [{0}] is not yet used on this side.",
+                    noWait::getCacheName);
         }
+        return false;
     }
 
     /**
@@ -176,29 +219,42 @@ public class LateralTCPDiscoveryListener
      * @param noWait
      * @return true if we found the no wait and removed it. False if the no wait was not present.
      */
-    protected <K, V> boolean removeNoWait( LateralCacheNoWait<K, V> noWait )
+    protected <K, V> boolean removeNoWait( final LateralCacheNoWait<K, V> noWait )
     {
         @SuppressWarnings("unchecked") // Need to cast because of common map for all facades
+        final
         LateralCacheNoWaitFacade<K, V> facade =
             (LateralCacheNoWaitFacade<K, V>)facades.get( noWait.getCacheName() );
         log.debug( "removeNoWait > Got facade for {0} = {1}", noWait.getCacheName(), facade);
 
+        return removeNoWait(facade, noWait.getCacheName(), noWait.getIdentityKey());
+    }
+
+    /**
+     * Remove the item from the no wait list.
+     * <p>
+     * @param facade
+     * @param cacheName
+     * @param tcpServer
+     * @return true if we found the no wait and removed it. False if the no wait was not present.
+     * @since 3.1
+     */
+    protected <K, V> boolean removeNoWait(final LateralCacheNoWaitFacade<K, V> facade,
+            final String cacheName, final String tcpServer)
+    {
         if ( facade != null )
         {
-            boolean removed = facade.removeNoWait( noWait );
+            final boolean removed = facade.removeNoWait(tcpServer);
             log.debug( "Called removeNoWait, removed {0}", removed );
             return removed;
         }
-        else
+        if (knownDifferentlyConfiguredRegions.addIfAbsent(cacheName))
         {
-            if ( knownDifferentlyConfiguredRegions.addIfAbsent( noWait.getCacheName() ) )
-            {
-                log.info( "addNoWait > Different nodes are configured differently "
-                        + "or region [{0}] is not yet used on this side.",
-                        () -> noWait.getCacheName() );
-            }
-            return false;
+            log.info( "addNoWait > Different nodes are configured differently "
+                    + "or region [{0}] is not yet used on this side.",
+                    cacheName);
         }
+        return false;
     }
 
     /**
@@ -218,40 +274,46 @@ public class LateralTCPDiscoveryListener
      * @param service
      */
     @Override
-    public void addDiscoveredService( DiscoveredService service )
+    public void addDiscoveredService( final DiscoveredService service )
     {
         // get a cache and add it to the no waits
         // the add method should not add the same.
         // we need the listener port from the original config.
-        ArrayList<String> regions = service.getCacheNames();
-        String serverAndPort = service.getServiceAddress() + ":" + service.getServicePort();
+        final ArrayList<String> regions = service.getCacheNames();
+        final String serverAndPort = service.getServiceAddress() + ":" + service.getServicePort();
 
         if ( regions != null )
         {
             // for each region get the cache
-            for (String cacheName : regions)
+            for (final String cacheName : regions)
             {
-                AuxiliaryCache<?, ?> ic = cacheManager.getAuxiliaryCache(factoryName, cacheName);
-
-                log.debug( "Got cache, ic = {0}", ic );
+                final LateralCacheNoWaitFacade<?, ?> facade = facades.get(cacheName);
+                log.debug( "Got cache facade {0}", facade );
 
                 // add this to the nowaits for this cachename
-                if ( ic != null )
+                if (facade != null)
                 {
-                    AuxiliaryCacheAttributes aca = ic.getAuxiliaryCacheAttributes();
-                    if (aca instanceof ITCPLateralCacheAttributes)
+                    // skip caches already there
+                    if (facade.containsNoWait(serverAndPort))
                     {
-                        ITCPLateralCacheAttributes lca = (ITCPLateralCacheAttributes)aca;
-                        if (lca.getTransmissionType() != LateralCacheAttributes.Type.TCP
-                            || !serverAndPort.equals(lca.getTcpServer()) )
-                        {
-                            // skip caches not belonging to this service
-                            continue;
-                        }
+                        continue;
                     }
 
-                    addNoWait( (LateralCacheNoWait<?, ?>) ic );
-                    log.debug( "Called addNoWait for cacheName [{0}]", cacheName );
+                    final ITCPLateralCacheAttributes lca =
+                            (ITCPLateralCacheAttributes) facade.getAuxiliaryCacheAttributes().clone();
+                    lca.setTcpServer(serverAndPort);
+
+                    LateralTCPCacheFactory factory =
+                            (LateralTCPCacheFactory) cacheManager.registryFacGet(factoryName);
+
+                    LateralCacheNoWait<?, ?> noWait =
+                            factory.createCacheNoWait(lca, cacheEventLogger, elementSerializer);
+                    factory.monitorCache(noWait);
+
+                    if (addNoWait(noWait))
+                    {
+                        log.debug("Added NoWait for cacheName [{0}] at {1}", cacheName, serverAndPort);
+                    }
                 }
             }
         }
@@ -270,40 +332,26 @@ public class LateralTCPDiscoveryListener
      * @param service
      */
     @Override
-    public void removeDiscoveredService( DiscoveredService service )
+    public void removeDiscoveredService( final DiscoveredService service )
     {
         // get a cache and add it to the no waits
         // the add method should not add the same.
         // we need the listener port from the original config.
-        ArrayList<String> regions = service.getCacheNames();
-        String serverAndPort = service.getServiceAddress() + ":" + service.getServicePort();
+        final ArrayList<String> regions = service.getCacheNames();
+        final String serverAndPort = service.getServiceAddress() + ":" + service.getServicePort();
 
         if ( regions != null )
         {
             // for each region get the cache
-            for (String cacheName : regions)
+            for (final String cacheName : regions)
             {
-                AuxiliaryCache<?, ?> ic = cacheManager.getAuxiliaryCache(factoryName, cacheName);
+                final LateralCacheNoWaitFacade<?, ?> facade = facades.get(cacheName);
+                log.debug( "Got cache facade {0}", facade );
 
-                log.debug( "Got cache, ic = {0}", ic );
-
-                // remove this to the nowaits for this cachename
-                if ( ic != null )
+                // remove this from the nowaits for this cachename
+                if (facade != null && removeNoWait(facade, cacheName, serverAndPort))
                 {
-                    AuxiliaryCacheAttributes aca = ic.getAuxiliaryCacheAttributes();
-                    if (aca instanceof ITCPLateralCacheAttributes)
-                    {
-                        ITCPLateralCacheAttributes lca = (ITCPLateralCacheAttributes)aca;
-                        if (lca.getTransmissionType() != LateralCacheAttributes.Type.TCP
-                            || !serverAndPort.equals(lca.getTcpServer()) )
-                        {
-                            // skip caches not belonging to this service
-                            continue;
-                        }
-                    }
-
-                    removeNoWait( (LateralCacheNoWait<?, ?>) ic );
-                    log.debug( "Called removeNoWait for cacheName [{0}]", cacheName );
+                    log.debug("Removed NoWait for cacheName [{0}] at {1}", cacheName, serverAndPort);
                 }
             }
         }

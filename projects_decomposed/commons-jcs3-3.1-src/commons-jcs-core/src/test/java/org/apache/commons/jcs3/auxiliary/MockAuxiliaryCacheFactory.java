@@ -19,7 +19,6 @@ package org.apache.commons.jcs3.auxiliary;
  * under the License.
  */
 
-import org.apache.commons.jcs3.auxiliary.AbstractAuxiliaryCacheFactory;
 import org.apache.commons.jcs3.engine.behavior.ICompositeCacheManager;
 import org.apache.commons.jcs3.engine.behavior.IElementSerializer;
 import org.apache.commons.jcs3.engine.logging.behavior.ICacheEventLogger;
@@ -42,10 +41,10 @@ public class MockAuxiliaryCacheFactory
      */
     @Override
     public <K, V> AuxiliaryCache<K, V>
-        createCache( AuxiliaryCacheAttributes attr, ICompositeCacheManager cacheMgr,
-           ICacheEventLogger cacheEventLogger, IElementSerializer elementSerializer )
+        createCache( final AuxiliaryCacheAttributes attr, final ICompositeCacheManager cacheMgr,
+           final ICacheEventLogger cacheEventLogger, final IElementSerializer elementSerializer )
     {
-        MockAuxiliaryCache<K, V> auxCache = new MockAuxiliaryCache<>();
+        final MockAuxiliaryCache<K, V> auxCache = new MockAuxiliaryCache<>();
         auxCache.setCacheEventLogger( cacheEventLogger );
         auxCache.setElementSerializer( elementSerializer );
         return auxCache;
@@ -64,7 +63,7 @@ public class MockAuxiliaryCacheFactory
      * @param s
      */
     @Override
-    public void setName( String s )
+    public void setName( final String s )
     {
         this.name = s;
     }

@@ -112,7 +112,7 @@ public class CacheTest
         cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
         {
             /**
-             * 
+             *
              */
             private static final long serialVersionUID = -8253611067837660184L;
 
@@ -143,7 +143,7 @@ public class CacheTest
         cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
         {
             /**
-             * 
+             *
              */
             private static final long serialVersionUID = 74774789357823553L;
 
@@ -174,7 +174,7 @@ public class CacheTest
         cache.registerCacheEntryListener(new CacheEntryListenerConfiguration<String, String>()
         {
             /**
-             * 
+             *
              */
             private static final long serialVersionUID = 2442816458182278519L;
 
@@ -226,7 +226,7 @@ public class CacheTest
         cacheManager.createCache("default", new CompleteConfiguration<Object, Object>()
         {
             /**
-             * 
+             *
              */
             private static final long serialVersionUID = -4598329777808827966L;
 
@@ -266,13 +266,13 @@ public class CacheTest
                 return () -> new CacheLoader<Object, Object>()
                 {
                     @Override
-                    public Object load(Object key) throws CacheLoaderException
+                    public Object load(final Object key) throws CacheLoaderException
                     {
                         return "super";
                     }
 
                     @Override
-                    public Map<Object, Object> loadAll(Iterable<?> keys) throws CacheLoaderException
+                    public Map<Object, Object> loadAll(final Iterable<?> keys) throws CacheLoaderException
                     {
                         return null;
                     }

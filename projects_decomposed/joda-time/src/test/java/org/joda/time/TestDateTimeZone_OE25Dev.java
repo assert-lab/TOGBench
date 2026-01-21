@@ -145,7 +145,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDateTimeZone_OE25Dev.class);
+        return new TestSuite(TestDateTimeZone.class);
     }
 
     public TestDateTimeZone_OE25Dev(String name) {
@@ -493,7 +493,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         DateTimeZone.setDefault(PARIS);
-        assertEquals(PARIS, DateTimeZone.getDefault());
+        assertSame(PARIS, DateTimeZone.getDefault());
     }
 
     public void testForID_String_1_oe() {
@@ -514,7 +514,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forID("UTC");
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
     }
 
     public void testForID_String_4_oe() {
@@ -527,7 +527,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forID("+00:00");
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
     }
 
     public void testForID_String_5_oe() {
@@ -543,7 +543,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forID("+00");
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
     }
 
     public void testForID_String_6_oe() {
@@ -788,7 +788,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
     }
 
     public void testForOffsetMillis_int_1_oe() {
-        assertEquals(DateTimeZone.UTC, DateTimeZone.forOffsetMillis(0));
+        assertSame(DateTimeZone.UTC, DateTimeZone.forOffsetMillis(0));
     }
 
     public void testForOffsetMillis_int_2_oe() {
@@ -842,7 +842,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         
         DateTimeZone zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("Europe/London"));
         // removed other assertion
-        assertEquals(DateTimeZone.UTC, DateTimeZone.forTimeZone(TimeZone.getTimeZone("UTC")));
+        assertSame(DateTimeZone.UTC, DateTimeZone.forTimeZone(TimeZone.getTimeZone("UTC")));
     }
 
     public void testForTimeZone_TimeZone_4_oe() {
@@ -853,7 +853,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("+00:00"));
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
     }
 
     public void testForTimeZone_TimeZone_5_oe() {
@@ -867,7 +867,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+00:00"));
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
     }
 
     public void testForTimeZone_TimeZone_6_oe() {
@@ -884,7 +884,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+00:00"));
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
     }
 
     public void testForTimeZone_TimeZone_7_oe() {
@@ -904,7 +904,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+00"));
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
     }
 
     public void testForTimeZone_TimeZone_8_oe() {
@@ -1692,6 +1692,95 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         assertEquals("British Summer Time", zone.getName(TEST_TIME_SUMMER, Locale.ENGLISH));
+    }
+
+    public void testGetName_berlin_english_1_oe() {
+      DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
+      if (JDK9) {
+          assertEquals("Central European Standard Time", berlin.getName(TEST_TIME_WINTER, Locale.ENGLISH));
+    }
+    }
+
+    public void testGetName_berlin_english_2_oe() {
+      DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
+      if (JDK9) {
+          // removed other assertion
+      } else {
+          assertEquals("Central European Time", berlin.getName(TEST_TIME_WINTER, Locale.ENGLISH));
+    }
+    }
+
+    public void testGetName_berlin_english_3_oe() {
+      DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
+      if (JDK9) {
+          // removed other assertion
+      } else {
+          // removed other assertion
+      }
+      assertEquals("Central European Summer Time", berlin.getName(TEST_TIME_SUMMER, Locale.ENGLISH));
+    }
+
+    public void testGetName_berlin_german_1_oe() {
+        DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
+        if (JDK9) {
+            assertEquals("Mitteleurop\u00e4ische Normalzeit", berlin.getName(TEST_TIME_WINTER, Locale.GERMAN));
+    }
+    }
+
+    public void testGetName_berlin_german_2_oe() {
+        DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
+        if (JDK9) {
+            // removed other assertion
+            assertEquals("Mitteleurop\u00e4ische Sommerzeit", berlin.getName(TEST_TIME_SUMMER, Locale.GERMAN));
+    }
+    }
+
+    public void testGetName_berlin_german_3_oe() {
+        DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
+        if (JDK9) {
+            // removed other assertion
+            // removed other assertion
+        } else if (JDK6PLUS) {
+            assertEquals("Mitteleurop\u00e4ische Zeit", berlin.getName(TEST_TIME_WINTER, Locale.GERMAN));
+    }
+    }
+
+    public void testGetName_berlin_german_4_oe() {
+        DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
+        if (JDK9) {
+            // removed other assertion
+            // removed other assertion
+        } else if (JDK6PLUS) {
+            // removed other assertion
+            assertEquals("Mitteleurop\u00e4ische Sommerzeit", berlin.getName(TEST_TIME_SUMMER, Locale.GERMAN));
+    }
+    }
+
+    public void testGetName_berlin_german_5_oe() {
+        DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
+        if (JDK9) {
+            // removed other assertion
+            // removed other assertion
+        } else if (JDK6PLUS) {
+            // removed other assertion
+            // removed other assertion
+        } else {
+            assertEquals("Zentraleurop\u00e4ische Zeit", berlin.getName(TEST_TIME_WINTER, Locale.GERMAN));
+    }
+    }
+
+    public void testGetName_berlin_german_6_oe() {
+        DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
+        if (JDK9) {
+            // removed other assertion
+            // removed other assertion
+        } else if (JDK6PLUS) {
+            // removed other assertion
+            // removed other assertion
+        } else {
+            // removed other assertion
+            assertEquals("Zentraleurop\u00e4ische Sommerzeit", berlin.getName(TEST_TIME_SUMMER, Locale.GERMAN));
+    }
     }
 
     public void testGetNameProviderName_1_oe() {
@@ -5189,7 +5278,7 @@ public class TestDateTimeZone_OE25Dev extends TestCase {
         DateTimeZone result = (DateTimeZone) ois.readObject();
         ois.close();
         
-        assertEquals(zone, result);
+        assertSame(zone, result);
     }
 
     public void testSerialization2_1_oe() throws Exception {

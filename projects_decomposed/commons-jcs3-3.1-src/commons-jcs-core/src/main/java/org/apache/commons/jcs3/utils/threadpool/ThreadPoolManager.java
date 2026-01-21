@@ -80,7 +80,7 @@ public class ThreadPoolManager
      * You can specify the properties to be used to configure the thread pool. Setting this post
      * initialization will have no effect.
      */
-    private static volatile Properties props = null;
+    private static volatile Properties props;
 
     /** Map of names to pools. */
     private final ConcurrentHashMap<String, ExecutorService> pools;
@@ -113,7 +113,7 @@ public class ThreadPoolManager
      * @param threadNamePrefix prefix for the thread names of the pool
      * @return A ThreadPool wrapper
      */
-    public ExecutorService createPool( PoolConfiguration config, String threadNamePrefix)
+    public ExecutorService createPool( final PoolConfiguration config, final String threadNamePrefix)
     {
     	return createPool(config, threadNamePrefix, Thread.NORM_PRIORITY);
     }
@@ -126,7 +126,7 @@ public class ThreadPoolManager
      * @param threadPriority the priority of the created threads
      * @return A ThreadPool wrapper
      */
-    public ExecutorService createPool( PoolConfiguration config, String threadNamePrefix, int threadPriority )
+    public ExecutorService createPool( final PoolConfiguration config, final String threadNamePrefix, final int threadPriority )
     {
         BlockingQueue<Runnable> queue = null;
         if ( config.isUseBoundary() )
@@ -140,7 +140,7 @@ public class ThreadPoolManager
             queue = new LinkedBlockingQueue<>();
         }
 
-        ThreadPoolExecutor pool = new ThreadPoolExecutor(
+        final ThreadPoolExecutor pool = new ThreadPoolExecutor(
             config.getStartUpSize(),
             config.getMaximumPoolSize(),
             config.getKeepAliveTime(),
@@ -183,13 +183,12 @@ public class ThreadPoolManager
      * @param threadPriority the priority of the created threads
      * @return A ScheduledExecutorService
      */
-    public ScheduledExecutorService createSchedulerPool( PoolConfiguration config, String threadNamePrefix, int threadPriority )
+    public ScheduledExecutorService createSchedulerPool( final PoolConfiguration config, final String threadNamePrefix, final int threadPriority )
     {
-    	ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(
-    			config.getMaximumPoolSize(),
-    			new DaemonThreadFactory(threadNamePrefix, threadPriority));
 
-        return scheduler;
+        return Executors.newScheduledThreadPool(
+                config.getMaximumPoolSize(),
+                new DaemonThreadFactory(threadNamePrefix, threadPriority));
     }
 
     /**
@@ -208,30 +207,30 @@ public class ThreadPoolManager
      */
     public static void dispose()
     {
-        for ( Iterator<Map.Entry<String, ExecutorService>> i =
+        for ( final Iterator<Map.Entry<String, ExecutorService>> i =
                 getInstance().pools.entrySet().iterator(); i.hasNext(); )
         {
-            Map.Entry<String, ExecutorService> entry = i.next();
+            final Map.Entry<String, ExecutorService> entry = i.next();
             try
             {
                 entry.getValue().shutdownNow();
             }
-            catch (Throwable t)
+            catch (final Throwable t)
             {
                 log.warn("Failed to close pool {0}", entry.getKey(), t);
             }
             i.remove();
         }
 
-        for ( Iterator<Map.Entry<String, ScheduledExecutorService>> i =
+        for ( final Iterator<Map.Entry<String, ScheduledExecutorService>> i =
                 getInstance().schedulerPools.entrySet().iterator(); i.hasNext(); )
         {
-            Map.Entry<String, ScheduledExecutorService> entry = i.next();
+            final Map.Entry<String, ScheduledExecutorService> entry = i.next();
             try
             {
                 entry.getValue().shutdownNow();
             }
-            catch (Throwable t)
+            catch (final Throwable t)
             {
                 log.warn("Failed to close pool {0}", entry.getKey(), t);
             }
@@ -248,15 +247,13 @@ public class ThreadPoolManager
      * @param name
      * @return The executor service configured for the name.
      */
-    public ExecutorService getExecutorService( String name )
+    public ExecutorService getExecutorService( final String name )
     {
-    	ExecutorService pool = pools.computeIfAbsent(name, key -> {
+    	return pools.computeIfAbsent(name, key -> {
             log.debug( "Creating pool for name [{0}]", key );
-            PoolConfiguration config = loadConfig( PROP_NAME_ROOT + "." + key, defaultConfig );
+            final PoolConfiguration config = loadConfig( PROP_NAME_ROOT + "." + key, defaultConfig );
             return createPool( config, "JCS-ThreadPoolManager-" + key + "-" );
     	});
-
-        return pool;
     }
 
     /**
@@ -268,16 +265,14 @@ public class ThreadPoolManager
      * @param name
      * @return The scheduler pool configured for the name.
      */
-    public ScheduledExecutorService getSchedulerPool( String name )
+    public ScheduledExecutorService getSchedulerPool( final String name )
     {
-    	ScheduledExecutorService pool = schedulerPools.computeIfAbsent(name, key -> {
+    	return schedulerPools.computeIfAbsent(name, key -> {
             log.debug( "Creating scheduler pool for name [{0}]", key );
-            PoolConfiguration config = loadConfig( PROP_NAME_SCHEDULER_ROOT + "." + key,
+            final PoolConfiguration config = loadConfig( PROP_NAME_SCHEDULER_ROOT + "." + key,
                     defaultSchedulerConfig );
             return createSchedulerPool( config, "JCS-ThreadPoolManager-" + key + "-", Thread.NORM_PRIORITY );
     	});
-
-        return pool;
     }
 
     /**
@@ -296,7 +291,7 @@ public class ThreadPoolManager
      * <p>
      * @param props The props to set.
      */
-    public static void setProps( Properties props )
+    public static void setProps( final Properties props )
     {
         ThreadPoolManager.props = props;
     }
@@ -326,9 +321,9 @@ public class ThreadPoolManager
      * @param defaultPoolConfiguration the default configuration
      * @return PoolConfiguration
      */
-    private PoolConfiguration loadConfig( String root, PoolConfiguration defaultPoolConfiguration )
+    private PoolConfiguration loadConfig( final String root, final PoolConfiguration defaultPoolConfiguration )
     {
-        PoolConfiguration config = defaultPoolConfiguration.clone();
+        final PoolConfiguration config = defaultPoolConfiguration.clone();
         PropertySetter.setProperties( config, props, root + "." );
 
         log.debug( "{0} PoolConfiguration = {1}", root, config );

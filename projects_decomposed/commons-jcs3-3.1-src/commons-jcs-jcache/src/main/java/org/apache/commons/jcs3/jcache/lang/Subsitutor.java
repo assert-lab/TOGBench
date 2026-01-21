@@ -23,7 +23,7 @@ public interface Subsitutor
 {
     String substitute(String value);
 
-    public static class Helper {
+    class Helper {
         public static final Subsitutor INSTANCE;
         static {
             Subsitutor value = null;
@@ -35,8 +35,7 @@ public interface Subsitutor
             {
                 try
                 {
-                    value = Subsitutor.class.cast(
-                            Subsitutor.class.getClassLoader().loadClass(name).newInstance());
+                    value = (Subsitutor) Subsitutor.class.getClassLoader().loadClass(name).getDeclaredConstructor().newInstance();
                     value.substitute("${java.version}"); // ensure it works
                 }
                 catch (final Throwable e) // not Exception otherwise NoClassDefFoundError

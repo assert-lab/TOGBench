@@ -1,5 +1,7 @@
 package org.apache.commons.jcs3.utils.serialization;
 
+import java.io.IOException;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -21,14 +23,20 @@ package org.apache.commons.jcs3.utils.serialization;
 
 import junit.framework.TestCase;
 
-import java.io.IOException;
-
 /**
  * Tests the compressing serializer.
  */
 public class CompressingSerializerUnitTest
     extends TestCase
 {
+    private CompressingSerializer serializer;
+
+    @Override
+    protected void setUp() throws Exception
+    {
+        this.serializer = new CompressingSerializer();
+    }
+
     /**
      * Verify that we don't get any erorrs for null input.
      * <p>
@@ -38,11 +46,8 @@ public class CompressingSerializerUnitTest
     public void testDeserialize_NullInput()
         throws IOException, ClassNotFoundException
     {
-        // SETUP
-        CompressingSerializer serializer = new CompressingSerializer();
-
         // DO WORK
-        Object result = serializer.deSerialize( null, null );
+        final Object result = serializer.deSerialize( null, null );
 
         // VERIFY
         assertNull( "Should have nothing.", result );
@@ -58,12 +63,9 @@ public class CompressingSerializerUnitTest
     public void testSimpleBackAndForth()
         throws Exception
     {
-        // SETUP
-        CompressingSerializer serializer = new CompressingSerializer();
-
         // DO WORK
-        String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231";
-        String after = (String) serializer.deSerialize( serializer.serialize( before ), null );
+        final String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231";
+        final String after = (String) serializer.deSerialize( serializer.serialize( before ), null );
 
         // VERIFY
         assertEquals( "Before and after should be the same.", before, after );
@@ -77,14 +79,11 @@ public class CompressingSerializerUnitTest
     public void testSerialize_NullInput()
         throws Exception
     {
-        // SETUP
-        CompressingSerializer serializer = new CompressingSerializer();
-
-        String before = null;
+        final String before = null;
 
         // DO WORK
-        byte[] serialized = serializer.serialize( before );
-        String after = (String) serializer.deSerialize( serialized, null );
+        final byte[] serialized = serializer.serialize( before );
+        final String after = (String) serializer.deSerialize( serialized, null );
 
         // VERIFY
         assertNull( "Should have nothing. after =" + after, after );
@@ -98,19 +97,16 @@ public class CompressingSerializerUnitTest
     public void testSerialize_CompareCompressedAndUncompressed()
         throws Exception
     {
-        // SETUP
-        CompressingSerializer serializer = new CompressingSerializer();
-
         // I hate for loops.
-        String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdssaf dsaf sadf dsaf dsaf dsaf "
+        final String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdssaf dsaf sadf dsaf dsaf dsaf "
             + "dsafdsa fdsaf dsaf dsafdsa dsaf dsaf dsaf dsaf dsafdsa76f dsa798f dsa6fdsa 087f  "
             + "gh 987dsahb dsahbuhbfnui nufdsa hbv87 f8vhdsgbnfv h8fdg8dfjvn8fdwgj fdsgjb9fdsjbv"
             + "jvhjv hg98f-dsaghj j9fdsb gfsb 9fdshjbgb987fdsbfdwgh ujbhjbhb hbfdsgh fdshb "
             + "Ofdsgyfesgyfdsafdsafsa333 31231";
 
         // DO WORK
-        byte[] compressed = serializer.serialize( before );
-        byte[] nonCompressed = new StandardSerializer().serialize( before );
+        final byte[] compressed = serializer.serialize( before );
+        final byte[] nonCompressed = new StandardSerializer().serialize( before );
 
         // VERIFY
         assertTrue( "Compressed should be smaller. compressed size = " + compressed.length + "nonCompressed size = "

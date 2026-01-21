@@ -39,7 +39,7 @@ public class TestPreciseDateTimeField_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestPreciseDateTimeField_OE25Dev.class);
+        return new TestSuite(TestPreciseDateTimeField.class);
     }
 
     public TestPreciseDateTimeField_OE25Dev(String name) {

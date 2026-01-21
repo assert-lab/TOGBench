@@ -18,14 +18,15 @@
  */
 package org.apache.commons.jcs3.jcache;
 
-import javax.cache.integration.CacheLoader;
-import javax.cache.integration.CacheLoaderException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.cache.integration.CacheLoader;
+import javax.cache.integration.CacheLoaderException;
+
 public class NoLoader<K, V> implements CacheLoader<K, V>
 {
-    public static final NoLoader INSTANCE = new NoLoader();
+    public static final NoLoader<?, ?> INSTANCE = new NoLoader<>();
 
     private NoLoader()
     {
@@ -33,7 +34,7 @@ public class NoLoader<K, V> implements CacheLoader<K, V>
     }
 
     @Override
-    public V load(K key) throws CacheLoaderException
+    public V load(final K key) throws CacheLoaderException
     {
         return null;
     }

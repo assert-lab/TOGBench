@@ -1075,97 +1075,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         checkEvict(false);
     }
 
-    // @Test
-    // @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    // public void testEviction() throws Exception {
-    //     genericObjectPool.setMaxIdle(500);
-    //     genericObjectPool.setMaxTotal(500);
-    //     genericObjectPool.setNumTestsPerEvictionRun(100);
-    //     genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
-    //     genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
-    //     genericObjectPool.setTestWhileIdle(true);
-
-    //     final String[] active = new String[500];
-    //     for (int i = 0; i < 500; i++) {
-    //         active[i] = genericObjectPool.borrowObject();
-    //     }
-    //     for (int i = 0; i < 500; i++) {
-    //         genericObjectPool.returnObject(active[i]);
-    //     }
-
-    //     Waiter.sleepQuietly(1000L);
-    //     assertTrue(genericObjectPool.getNumIdle() < 500,"Should be less than 500 idle, found " + genericObjectPool.getNumIdle());
-    //     Waiter.sleepQuietly(600L);
-    //     assertTrue(genericObjectPool.getNumIdle() < 400,"Should be less than 400 idle, found " + genericObjectPool.getNumIdle());
-    //     Waiter.sleepQuietly(600L);
-    //     assertTrue(genericObjectPool.getNumIdle() < 300,"Should be less than 300 idle, found " + genericObjectPool.getNumIdle());
-    //     Waiter.sleepQuietly(600L);
-    //     assertTrue(genericObjectPool.getNumIdle() < 200,"Should be less than 200 idle, found " + genericObjectPool.getNumIdle());
-    //     Waiter.sleepQuietly(600L);
-    //     assertTrue(genericObjectPool.getNumIdle() < 100,"Should be less than 100 idle, found " + genericObjectPool.getNumIdle());
-    //     Waiter.sleepQuietly(600L);
-    //     assertEquals(0,genericObjectPool.getNumIdle(),"Should be zero idle, found " + genericObjectPool.getNumIdle());
-
-    //     for (int i = 0; i < 500; i++) {
-    //         active[i] = genericObjectPool.borrowObject();
-    //     }
-    //     for (int i = 0; i < 500; i++) {
-    //         genericObjectPool.returnObject(active[i]);
-    //     }
-
-    //     Waiter.sleepQuietly(1000L);
-    //     assertTrue(genericObjectPool.getNumIdle() < 500,"Should be less than 500 idle, found " + genericObjectPool.getNumIdle());
-    //     Waiter.sleepQuietly(600L);
-    //     assertTrue(genericObjectPool.getNumIdle() < 400,"Should be less than 400 idle, found " + genericObjectPool.getNumIdle());
-    //     Waiter.sleepQuietly(600L);
-    //     assertTrue(genericObjectPool.getNumIdle() < 300,"Should be less than 300 idle, found " + genericObjectPool.getNumIdle());
-    //     Waiter.sleepQuietly(600L);
-    //     assertTrue(genericObjectPool.getNumIdle() < 200,"Should be less than 200 idle, found " + genericObjectPool.getNumIdle());
-    //     Waiter.sleepQuietly(600L);
-    //     assertTrue(genericObjectPool.getNumIdle() < 100,"Should be less than 100 idle, found " + genericObjectPool.getNumIdle());
-    //     Waiter.sleepQuietly(600L);
-    //     assertEquals(0,genericObjectPool.getNumIdle(),"Should be zero idle, found " + genericObjectPool.getNumIdle());
-    // }
-
-    // @Test
-    // @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    // public void testEvictionInvalid() throws Exception {
-
-    //     try (final GenericObjectPool<Object> invalidFactoryPool = new GenericObjectPool<>(new InvalidFactory())) {
-
-    //         invalidFactoryPool.setMaxIdle(1);
-    //         invalidFactoryPool.setMaxTotal(1);
-    //         invalidFactoryPool.setTestOnBorrow(false);
-    //         invalidFactoryPool.setTestOnReturn(false);
-    //         invalidFactoryPool.setTestWhileIdle(true);
-    //         invalidFactoryPool.setMinEvictableIdleTime(Duration.ofSeconds(100));
-    //         invalidFactoryPool.setNumTestsPerEvictionRun(1);
-
-    //         final Object p = invalidFactoryPool.borrowObject();
-    //         invalidFactoryPool.returnObject(p);
-
-    //         // Run eviction in a separate thread
-    //         final Thread t = new EvictionThread<>(invalidFactoryPool);
-    //         t.start();
-
-    //         // Sleep to make sure evictor has started
-    //         Thread.sleep(300);
-
-    //         try {
-    //             invalidFactoryPool.borrowObject(1);
-    //         } catch (final NoSuchElementException nsee) {
-    //             // Ignore
-    //         }
-
-    //         // Make sure evictor has finished
-    //         Thread.sleep(1000);
-
-    //         // Should have an empty pool
-    //         assertEquals( 0, invalidFactoryPool.getNumIdle(),"Idle count different than expected.");
-    //         assertEquals( 0, invalidFactoryPool.getNumActive(),"Total count different than expected.");
-    //     }
-    // }
-
     /**
      * Test to make sure evictor visits least recently used objects first,
      * regardless of FIFO/LIFO.
@@ -1195,11 +1104,11 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
      *
      * @throws Exception May occur in some failure modes
      */
-    // @Test
-    // public void testEvictorVisiting() throws Exception {
-    //     checkEvictorVisiting(true);
-    //     checkEvictorVisiting(false);
-    // }
+    @Test
+    public void testEvictorVisiting() throws Exception {
+        checkEvictorVisiting(true);
+        checkEvictorVisiting(false);
+    }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
@@ -1256,69 +1165,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         runTestThreads(5, 10, 50, genericObjectPool);
     }
 
-    // @Test
-    // @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    // @SuppressWarnings("rawtypes")
-    // public void testMaxTotalUnderLoad() {
-    //     // Config
-    //     final int numThreads = 199; // And main thread makes a round 200.
-    //     final int numIter = 20;
-    //     final int delay = 25;
-    //     final int maxTotal = 10;
-
-    //     simpleFactory.setMaxTotal(maxTotal);
-    //     genericObjectPool.setMaxTotal(maxTotal);
-    //     genericObjectPool.setBlockWhenExhausted(true);
-    //     genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(-1));
-
-    //     // Start threads to borrow objects
-    //     final TestThread[] threads = new TestThread[numThreads];
-    //     for(int i=0;i<numThreads;i++) {
-    //         // Factor of 2 on iterations so main thread does work whilst other
-    //         // threads are running. Factor of 2 on delay so average delay for
-    //         // other threads == actual delay for main thread
-    //         threads[i] = new TestThread<>(genericObjectPool, numIter * 2, delay * 2);
-    //         final Thread t = new Thread(threads[i]);
-    //         t.start();
-    //     }
-    //     // Give the threads a chance to start doing some work
-    //     Waiter.sleepQuietly(5000);
-
-    //     for (int i = 0; i < numIter; i++) {
-    //         String obj = null;
-    //         try {
-    //             Waiter.sleepQuietly(delay);
-    //             obj = genericObjectPool.borrowObject();
-    //             // Under load, observed numActive > maxTotal
-    //             if (genericObjectPool.getNumActive() > genericObjectPool.getMaxTotal()) {
-    //                 throw new IllegalStateException("Too many active objects");
-    //             }
-    //             Waiter.sleepQuietly(delay);
-    //         } catch (final Exception e) {
-    //             // Shouldn't happen
-    //             e.printStackTrace();
-    //             fail("Exception on borrow");
-    //         } finally {
-    //             if (obj != null) {
-    //                 try {
-    //                     genericObjectPool.returnObject(obj);
-    //                 } catch (final Exception e) {
-    //                     // Ignore
-    //                 }
-    //             }
-    //         }
-    //     }
-
-    //     for (int i = 0; i < numThreads; i++) {
-    //         while(!(threads[i]).complete()) {
-    //             Waiter.sleepQuietly(500L);
-    //         }
-    //         if(threads[i].failed()) {
-    //             fail("Thread " + i + " failed: " + threads[i].error.toString());
-    //         }
-    //     }
-    // }
-
     /*
      * Test multi-threaded pool access.
      * Multiple threads, but maxTotal only allows half the threads to succeed.
@@ -1327,41 +1173,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
      * TestPerUserPoolDataSource.testMultipleThreads2()
      * Let's see if the this fails on Continuum too!
      */
-
-    // @Test
-    // @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    // public void testMinIdle() throws Exception {
-    //     genericObjectPool.setMaxIdle(500);
-    //     genericObjectPool.setMinIdle(5);
-    //     genericObjectPool.setMaxTotal(10);
-    //     genericObjectPool.setNumTestsPerEvictionRun(0);
-    //     genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
-    //     genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
-    //     genericObjectPool.setTestWhileIdle(true);
-
-    //     Waiter.sleepQuietly(150L);
-    //     assertEquals(5, genericObjectPool.getNumIdle(), "Should be 5 idle, found " + genericObjectPool.getNumIdle());
-
-    //     final String[] active = new String[5];
-    //     active[0] = genericObjectPool.borrowObject();
-
-    //     Waiter.sleepQuietly(150L);
-    //     assertEquals(5, genericObjectPool.getNumIdle(), "Should be 5 idle, found " + genericObjectPool.getNumIdle());
-
-    //     for (int i = 1; i < 5; i++) {
-    //         active[i] = genericObjectPool.borrowObject();
-    //     }
-
-    //     Waiter.sleepQuietly(150L);
-    //     assertEquals(5, genericObjectPool.getNumIdle(), "Should be 5 idle, found " + genericObjectPool.getNumIdle());
-
-    //     for (int i = 0; i < 5; i++) {
-    //         genericObjectPool.returnObject(active[i]);
-    //     }
-
-    //     Waiter.sleepQuietly(150L);
-    //     assertEquals(10, genericObjectPool.getNumIdle(), "Should be 10 idle, found " + genericObjectPool.getNumIdle());
-    // }
 
     /**
      * Verifies that returning an object twice (without borrow in between) causes ISE
@@ -1447,44 +1258,6 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
         genericObjectPool.setConfig(expected);
         assertConfiguration(expected,genericObjectPool);
     }
-
-    // @Test
-    // @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    // public void testStartAndStopEvictor() throws Exception {
-    //     // set up pool without evictor
-    //     genericObjectPool.setMaxIdle(6);
-    //     genericObjectPool.setMaxTotal(6);
-    //     genericObjectPool.setNumTestsPerEvictionRun(6);
-    //     genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(100));
-
-    //     for (int j = 0; j < 2; j++) {
-    //         // populate the pool
-    //         {
-    //             final String[] active = new String[6];
-    //             for (int i = 0; i < 6; i++) {
-    //                 active[i] = genericObjectPool.borrowObject();
-    //             }
-    //             for (int i = 0; i < 6; i++) {
-    //                 genericObjectPool.returnObject(active[i]);
-    //             }
-    //         }
-
-    //         // note that it stays populated
-    //         assertEquals(6,genericObjectPool.getNumIdle(),"Should have 6 idle");
-
-    //         // start the evictor
-    //         genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(50));
-
-    //         // wait a second (well, .2 seconds)
-    //         Waiter.sleepQuietly(200L);
-
-    //         // assert that the evictor has cleared out the pool
-    //         assertEquals(0,genericObjectPool.getNumIdle(),"Should have 0 idle");
-
-    //         // stop the evictor
-    //         genericObjectPool.startEvictor(Duration.ZERO);
-    //     }
-    // }
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
@@ -4747,6 +4520,527 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_1_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMaxTotal(500);
+        genericObjectPool.setNumTestsPerEvictionRun(100);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String[] active = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        assertTrue(genericObjectPool.getNumIdle() < 500,"Should be less than 500 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_2_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMaxTotal(500);
+        genericObjectPool.setNumTestsPerEvictionRun(100);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String[] active = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(genericObjectPool.getNumIdle() < 400,"Should be less than 400 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_3_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMaxTotal(500);
+        genericObjectPool.setNumTestsPerEvictionRun(100);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String[] active = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(genericObjectPool.getNumIdle() < 300,"Should be less than 300 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_4_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMaxTotal(500);
+        genericObjectPool.setNumTestsPerEvictionRun(100);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String[] active = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(genericObjectPool.getNumIdle() < 200,"Should be less than 200 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_5_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMaxTotal(500);
+        genericObjectPool.setNumTestsPerEvictionRun(100);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String[] active = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(genericObjectPool.getNumIdle() < 100,"Should be less than 100 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_6_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMaxTotal(500);
+        genericObjectPool.setNumTestsPerEvictionRun(100);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String[] active = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertEquals(0,genericObjectPool.getNumIdle(),"Should be zero idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_7_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMaxTotal(500);
+        genericObjectPool.setNumTestsPerEvictionRun(100);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String[] active = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        assertTrue(genericObjectPool.getNumIdle() < 500,"Should be less than 500 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_8_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMaxTotal(500);
+        genericObjectPool.setNumTestsPerEvictionRun(100);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String[] active = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(genericObjectPool.getNumIdle() < 400,"Should be less than 400 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_9_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMaxTotal(500);
+        genericObjectPool.setNumTestsPerEvictionRun(100);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String[] active = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(genericObjectPool.getNumIdle() < 300,"Should be less than 300 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_10_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMaxTotal(500);
+        genericObjectPool.setNumTestsPerEvictionRun(100);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String[] active = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(genericObjectPool.getNumIdle() < 200,"Should be less than 200 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_11_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMaxTotal(500);
+        genericObjectPool.setNumTestsPerEvictionRun(100);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String[] active = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertTrue(genericObjectPool.getNumIdle() < 100,"Should be less than 100 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEviction_12_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMaxTotal(500);
+        genericObjectPool.setNumTestsPerEvictionRun(100);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(250));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(500));
+        genericObjectPool.setTestWhileIdle(true);
+
+        final String[] active = new String[500];
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+
+        for (int i = 0; i < 500; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+        for (int i = 0; i < 500; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(1000L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        // removed other assertion
+        Waiter.sleepQuietly(600L);
+        assertEquals(0,genericObjectPool.getNumIdle(),"Should be zero idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEvictionInvalid_1_oe() throws Exception {
+
+        try (final GenericObjectPool<Object> invalidFactoryPool = new GenericObjectPool<>(new InvalidFactory())) {
+
+            invalidFactoryPool.setMaxIdle(1);
+            invalidFactoryPool.setMaxTotal(1);
+            invalidFactoryPool.setTestOnBorrow(false);
+            invalidFactoryPool.setTestOnReturn(false);
+            invalidFactoryPool.setTestWhileIdle(true);
+            invalidFactoryPool.setMinEvictableIdleTime(Duration.ofSeconds(100));
+            invalidFactoryPool.setNumTestsPerEvictionRun(1);
+
+            final Object p = invalidFactoryPool.borrowObject();
+            invalidFactoryPool.returnObject(p);
+
+            // Run eviction in a separate thread
+            final Thread t = new EvictionThread<>(invalidFactoryPool);
+            t.start();
+
+            // Sleep to make sure evictor has started
+            Thread.sleep(300);
+
+            try {
+                invalidFactoryPool.borrowObject(1);
+            } catch (final NoSuchElementException nsee) {
+                // Ignore
+            }
+
+            // Make sure evictor has finished
+            Thread.sleep(1000);
+
+            // Should have an empty pool
+            assertEquals( 0, invalidFactoryPool.getNumIdle(),"Idle count different than expected.");
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testEvictionInvalid_2_oe() throws Exception {
+
+        try (final GenericObjectPool<Object> invalidFactoryPool = new GenericObjectPool<>(new InvalidFactory())) {
+
+            invalidFactoryPool.setMaxIdle(1);
+            invalidFactoryPool.setMaxTotal(1);
+            invalidFactoryPool.setTestOnBorrow(false);
+            invalidFactoryPool.setTestOnReturn(false);
+            invalidFactoryPool.setTestWhileIdle(true);
+            invalidFactoryPool.setMinEvictableIdleTime(Duration.ofSeconds(100));
+            invalidFactoryPool.setNumTestsPerEvictionRun(1);
+
+            final Object p = invalidFactoryPool.borrowObject();
+            invalidFactoryPool.returnObject(p);
+
+            // Run eviction in a separate thread
+            final Thread t = new EvictionThread<>(invalidFactoryPool);
+            t.start();
+
+            // Sleep to make sure evictor has started
+            Thread.sleep(300);
+
+            try {
+                invalidFactoryPool.borrowObject(1);
+            } catch (final NoSuchElementException nsee) {
+                // Ignore
+            }
+
+            // Make sure evictor has finished
+            Thread.sleep(1000);
+
+            // Should have an empty pool
+            // removed other assertion
+            assertEquals( 0, invalidFactoryPool.getNumActive(),"Total count different than expected.");
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testEvictionPolicy_1_oe() throws Exception {
         genericObjectPool.setMaxIdle(500);
         genericObjectPool.setMaxTotal(500);
@@ -6149,6 +6443,115 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
 
     @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    @SuppressWarnings("rawtypes")
+    public void testMaxTotalUnderLoad_1_oe() {
+        // Config
+        final int numThreads = 199; // And main thread makes a round 200.
+        final int numIter = 20;
+        final int delay = 25;
+        final int maxTotal = 10;
+
+        simpleFactory.setMaxTotal(maxTotal);
+        genericObjectPool.setMaxTotal(maxTotal);
+        genericObjectPool.setBlockWhenExhausted(true);
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(-1));
+
+        // Start threads to borrow objects
+        final TestThread[] threads = new TestThread[numThreads];
+        for(int i=0;i<numThreads;i++) {
+            // Factor of 2 on iterations so main thread does work whilst other
+            // threads are running. Factor of 2 on delay so average delay for
+            // other threads == actual delay for main thread
+            threads[i] = new TestThread<>(genericObjectPool, numIter * 2, delay * 2);
+            final Thread t = new Thread(threads[i]);
+            t.start();
+        }
+        // Give the threads a chance to start doing some work
+        Waiter.sleepQuietly(5000);
+
+        for (int i = 0; i < numIter; i++) {
+            String obj = null;
+            try {
+                Waiter.sleepQuietly(delay);
+                obj = genericObjectPool.borrowObject();
+                // Under load, observed numActive > maxTotal
+                if (genericObjectPool.getNumActive() > genericObjectPool.getMaxTotal()) {
+                    throw new IllegalStateException("Too many active objects");
+                }
+                Waiter.sleepQuietly(delay);
+            } catch (final Exception e) {
+                // Shouldn't happen
+                e.printStackTrace();
+                fail("Exception on borrow");
+    }
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    @SuppressWarnings("rawtypes")
+    public void testMaxTotalUnderLoad_2_oe() {
+        // Config
+        final int numThreads = 199; // And main thread makes a round 200.
+        final int numIter = 20;
+        final int delay = 25;
+        final int maxTotal = 10;
+
+        simpleFactory.setMaxTotal(maxTotal);
+        genericObjectPool.setMaxTotal(maxTotal);
+        genericObjectPool.setBlockWhenExhausted(true);
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(-1));
+
+        // Start threads to borrow objects
+        final TestThread[] threads = new TestThread[numThreads];
+        for(int i=0;i<numThreads;i++) {
+            // Factor of 2 on iterations so main thread does work whilst other
+            // threads are running. Factor of 2 on delay so average delay for
+            // other threads == actual delay for main thread
+            threads[i] = new TestThread<>(genericObjectPool, numIter * 2, delay * 2);
+            final Thread t = new Thread(threads[i]);
+            t.start();
+        }
+        // Give the threads a chance to start doing some work
+        Waiter.sleepQuietly(5000);
+
+        for (int i = 0; i < numIter; i++) {
+            String obj = null;
+            try {
+                Waiter.sleepQuietly(delay);
+                obj = genericObjectPool.borrowObject();
+                // Under load, observed numActive > maxTotal
+                if (genericObjectPool.getNumActive() > genericObjectPool.getMaxTotal()) {
+                    throw new IllegalStateException("Too many active objects");
+                }
+                Waiter.sleepQuietly(delay);
+            } catch (final Exception e) {
+                // Shouldn't happen
+                e.printStackTrace();
+                // removed other assertion
+            } finally {
+                if (obj != null) {
+                    try {
+                        genericObjectPool.returnObject(obj);
+                    } catch (final Exception e) {
+                        // Ignore
+                    }
+                }
+            }
+        }
+
+        for (int i = 0; i < numThreads; i++) {
+            while(!(threads[i]).complete()) {
+                Waiter.sleepQuietly(500L);
+            }
+            if(threads[i].failed()) {
+                fail("Thread " + i + " failed: " + threads[i].error.toString());
+    }
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testMaxTotalZero_1_oe() throws Exception {
         genericObjectPool.setMaxTotal(0);
         genericObjectPool.setBlockWhenExhausted(false);
@@ -6200,6 +6603,105 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             }
         }
         assertEquals(wtt.length / 2, failed,"Expected half the threads to fail");
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdle_1_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMinIdle(5);
+        genericObjectPool.setMaxTotal(10);
+        genericObjectPool.setNumTestsPerEvictionRun(0);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        genericObjectPool.setTestWhileIdle(true);
+
+        Waiter.sleepQuietly(150L);
+        assertEquals(5, genericObjectPool.getNumIdle(), "Should be 5 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdle_2_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMinIdle(5);
+        genericObjectPool.setMaxTotal(10);
+        genericObjectPool.setNumTestsPerEvictionRun(0);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        genericObjectPool.setTestWhileIdle(true);
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        final String[] active = new String[5];
+        active[0] = genericObjectPool.borrowObject();
+
+        Waiter.sleepQuietly(150L);
+        assertEquals(5, genericObjectPool.getNumIdle(), "Should be 5 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdle_3_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMinIdle(5);
+        genericObjectPool.setMaxTotal(10);
+        genericObjectPool.setNumTestsPerEvictionRun(0);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        genericObjectPool.setTestWhileIdle(true);
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        final String[] active = new String[5];
+        active[0] = genericObjectPool.borrowObject();
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        for (int i = 1; i < 5; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+
+        Waiter.sleepQuietly(150L);
+        assertEquals(5, genericObjectPool.getNumIdle(), "Should be 5 idle, found " + genericObjectPool.getNumIdle());
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testMinIdle_4_oe() throws Exception {
+        genericObjectPool.setMaxIdle(500);
+        genericObjectPool.setMinIdle(5);
+        genericObjectPool.setMaxTotal(10);
+        genericObjectPool.setNumTestsPerEvictionRun(0);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(50));
+        genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(100));
+        genericObjectPool.setTestWhileIdle(true);
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        final String[] active = new String[5];
+        active[0] = genericObjectPool.borrowObject();
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        for (int i = 1; i < 5; i++) {
+            active[i] = genericObjectPool.borrowObject();
+        }
+
+        Waiter.sleepQuietly(150L);
+        // removed other assertion
+
+        for (int i = 0; i < 5; i++) {
+            genericObjectPool.returnObject(active[i]);
+        }
+
+        Waiter.sleepQuietly(150L);
+        assertEquals(10, genericObjectPool.getNumIdle(), "Should be 10 idle, found " + genericObjectPool.getNumIdle());
     }
 
     @Test
@@ -8658,6 +9160,67 @@ public class TestGenericObjectPool_OE25Dev extends TestBaseObjectPool {
             // removed other assertion
             genericObjectPool.setBlockWhenExhausted(false);
             assertFalse(genericObjectPool.getBlockWhenExhausted());
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testStartAndStopEvictor_1_oe() throws Exception {
+        // set up pool without evictor
+        genericObjectPool.setMaxIdle(6);
+        genericObjectPool.setMaxTotal(6);
+        genericObjectPool.setNumTestsPerEvictionRun(6);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+
+        for (int j = 0; j < 2; j++) {
+            // populate the pool
+            {
+                final String[] active = new String[6];
+                for (int i = 0; i < 6; i++) {
+                    active[i] = genericObjectPool.borrowObject();
+                }
+                for (int i = 0; i < 6; i++) {
+                    genericObjectPool.returnObject(active[i]);
+                }
+            }
+
+            // note that it stays populated
+            assertEquals(6,genericObjectPool.getNumIdle(),"Should have 6 idle");
+    }
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testStartAndStopEvictor_2_oe() throws Exception {
+        // set up pool without evictor
+        genericObjectPool.setMaxIdle(6);
+        genericObjectPool.setMaxTotal(6);
+        genericObjectPool.setNumTestsPerEvictionRun(6);
+        genericObjectPool.setMinEvictableIdleTime(Duration.ofMillis(100));
+
+        for (int j = 0; j < 2; j++) {
+            // populate the pool
+            {
+                final String[] active = new String[6];
+                for (int i = 0; i < 6; i++) {
+                    active[i] = genericObjectPool.borrowObject();
+                }
+                for (int i = 0; i < 6; i++) {
+                    genericObjectPool.returnObject(active[i]);
+                }
+            }
+
+            // note that it stays populated
+            // removed other assertion
+
+            // start the evictor
+            genericObjectPool.setTimeBetweenEvictionRuns(Duration.ofMillis(50));
+
+            // wait a second (well, .2 seconds)
+            Waiter.sleepQuietly(200L);
+
+            // assert that the evictor has cleared out the pool
+            assertEquals(0,genericObjectPool.getNumIdle(),"Should have 0 idle");
     }
     }
 

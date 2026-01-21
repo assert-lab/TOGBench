@@ -1608,6 +1608,23 @@ http_8_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getUrlEncodedWithPercent_1_oe
+http_8_2,"  @Test
+  public void getUrlEncodedWithPercent_2_oe() throws Exception {
+    String unencoded = ""/%"";
+    final AtomicReference<String> path = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        path.set(request.getPathInfo());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(encode(url + unencoded));
+    // removed other assertion
+    assertEquals(unencoded, path.get());
+  }
+",HttpRequestTest::getUrlEncodedWithPercent_2_oe
 http_9_1,"  @Test
   public void deleteEmpty_1_oe() throws Exception {
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -4588,13 +4605,32 @@ http_74_1,"  @Test
   }
 ",HttpRequestTest::httpTrust_1_oe
 http_75_1,"  @Test
+  public void verifierAccepts_1_oe() {
+    HttpRequest request = get(""https://localhost"");
+    HttpsURLConnection connection = (HttpsURLConnection) request
+        .getConnection();
+    request.trustAllHosts();
+    assertNotNull(connection.getHostnameVerifier());
+  }
+",HttpRequestTest::verifierAccepts_1_oe
+http_75_2,"  @Test
+  public void verifierAccepts_2_oe() {
+    HttpRequest request = get(""https://localhost"");
+    HttpsURLConnection connection = (HttpsURLConnection) request
+        .getConnection();
+    request.trustAllHosts();
+    // removed other assertion
+    assertTrue(connection.getHostnameVerifier().verify(null, null));
+  }
+",HttpRequestTest::verifierAccepts_2_oe
+http_76_1,"  @Test
   public void singleVerifier_1_oe() {
     HttpRequest request1 = get(""https://localhost"").trustAllHosts();
     HttpRequest request2 = get(""https://localhost"").trustAllHosts();
     assertNotNull(((HttpsURLConnection) request1.getConnection()) .getHostnameVerifier());
   }
 ",HttpRequestTest::singleVerifier_1_oe
-http_75_2,"  @Test
+http_76_2,"  @Test
   public void singleVerifier_2_oe() {
     HttpRequest request1 = get(""https://localhost"").trustAllHosts();
     HttpRequest request2 = get(""https://localhost"").trustAllHosts();
@@ -4602,7 +4638,7 @@ http_75_2,"  @Test
     assertNotNull(((HttpsURLConnection) request2.getConnection()) .getHostnameVerifier());
   }
 ",HttpRequestTest::singleVerifier_2_oe
-http_75_3,"  @Test
+http_76_3,"  @Test
   public void singleVerifier_3_oe() {
     HttpRequest request1 = get(""https://localhost"").trustAllHosts();
     HttpRequest request2 = get(""https://localhost"").trustAllHosts();
@@ -4611,14 +4647,14 @@ http_75_3,"  @Test
     assertEquals( ((HttpsURLConnection) request1.getConnection()).getHostnameVerifier(), ((HttpsURLConnection) request2.getConnection()).getHostnameVerifier());
   }
 ",HttpRequestTest::singleVerifier_3_oe
-http_76_1,"  @Test
+http_77_1,"  @Test
   public void singleSslSocketFactory_1_oe() {
     HttpRequest request1 = get(""https://localhost"").trustAllCerts();
     HttpRequest request2 = get(""https://localhost"").trustAllCerts();
     assertNotNull(((HttpsURLConnection) request1.getConnection()) .getSSLSocketFactory());
   }
 ",HttpRequestTest::singleSslSocketFactory_1_oe
-http_76_2,"  @Test
+http_77_2,"  @Test
   public void singleSslSocketFactory_2_oe() {
     HttpRequest request1 = get(""https://localhost"").trustAllCerts();
     HttpRequest request2 = get(""https://localhost"").trustAllCerts();
@@ -4626,7 +4662,7 @@ http_76_2,"  @Test
     assertNotNull(((HttpsURLConnection) request2.getConnection()) .getSSLSocketFactory());
   }
 ",HttpRequestTest::singleSslSocketFactory_2_oe
-http_76_3,"  @Test
+http_77_3,"  @Test
   public void singleSslSocketFactory_3_oe() {
     HttpRequest request1 = get(""https://localhost"").trustAllCerts();
     HttpRequest request2 = get(""https://localhost"").trustAllCerts();
@@ -4635,7 +4671,7 @@ http_76_3,"  @Test
     assertEquals( ((HttpsURLConnection) request1.getConnection()).getSSLSocketFactory(), ((HttpsURLConnection) request2.getConnection()).getSSLSocketFactory());
   }
 ",HttpRequestTest::singleSslSocketFactory_3_oe
-http_77_3,"  @Test
+http_78_3,"  @Test
   public void sendErrorReadStream_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4669,7 +4705,7 @@ http_77_3,"  @Test
   }
   }
 ",HttpRequestTest::sendErrorReadStream_3_oe
-http_78_3,"  @Test
+http_79_3,"  @Test
   public void sendErrorCloseStream_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4702,7 +4738,7 @@ http_78_3,"  @Test
   }
   }
 ",HttpRequestTest::sendErrorCloseStream_3_oe
-http_79_1,"  @Test
+http_80_1,"  @Test
   public void getToOutputCode_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4716,7 +4752,7 @@ http_79_1,"  @Test
     assertEquals(HTTP_OK, code.get());
   }
 ",HttpRequestTest::getToOutputCode_1_oe
-http_80_2,"  @Test
+http_81_2,"  @Test
   public void getToOutputBody_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4735,7 +4771,7 @@ http_80_2,"  @Test
     assertEquals(""hello world"", body.get());
   }
 ",HttpRequestTest::getToOutputBody_2_oe
-http_81_2,"  @Test
+http_82_2,"  @Test
   public void getToOutputBodyWithCharset_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4754,7 +4790,7 @@ http_81_2,"  @Test
     assertEquals(""hello world"", body.get());
   }
 ",HttpRequestTest::getToOutputBodyWithCharset_2_oe
-http_82_1,"  @Test
+http_83_1,"  @Test
   public void getGzipped_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4788,7 +4824,7 @@ http_82_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getGzipped_1_oe
-http_82_2,"  @Test
+http_83_2,"  @Test
   public void getGzipped_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4823,7 +4859,7 @@ http_82_2,"  @Test
     assertEquals(""hello compressed"", request.body(CHARSET_UTF8));
   }
 ",HttpRequestTest::getGzipped_2_oe
-http_83_1,"  @Test
+http_84_1,"  @Test
   public void getNonGzippedWithUncompressEnabled_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4840,7 +4876,7 @@ http_83_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getNonGzippedWithUncompressEnabled_1_oe
-http_83_2,"  @Test
+http_84_2,"  @Test
   public void getNonGzippedWithUncompressEnabled_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4858,7 +4894,7 @@ http_83_2,"  @Test
     assertEquals(""hello not compressed"", request.body(CHARSET_UTF8));
   }
 ",HttpRequestTest::getNonGzippedWithUncompressEnabled_2_oe
-http_84_1,"  @Test
+http_85_1,"  @Test
   public void getHeaders_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4873,7 +4909,7 @@ http_84_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getHeaders_1_oe
-http_84_2,"  @Test
+http_85_2,"  @Test
   public void getHeaders_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4890,7 +4926,7 @@ http_84_2,"  @Test
     assertNotNull(values);
   }
 ",HttpRequestTest::getHeaders_2_oe
-http_84_3,"  @Test
+http_85_3,"  @Test
   public void getHeaders_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4908,7 +4944,7 @@ http_84_3,"  @Test
     assertEquals(2, values.length);
   }
 ",HttpRequestTest::getHeaders_3_oe
-http_84_4,"  @Test
+http_85_4,"  @Test
   public void getHeaders_4_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4927,7 +4963,7 @@ http_84_4,"  @Test
     assertTrue(Arrays.asList(values).contains(""1""));
   }
 ",HttpRequestTest::getHeaders_4_oe
-http_84_5,"  @Test
+http_85_5,"  @Test
   public void getHeaders_5_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4947,7 +4983,7 @@ http_84_5,"  @Test
     assertTrue(Arrays.asList(values).contains(""2""));
   }
 ",HttpRequestTest::getHeaders_5_oe
-http_85_1,"  @Test
+http_86_1,"  @Test
   public void getEmptyHeaders_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4960,7 +4996,7 @@ http_85_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getEmptyHeaders_1_oe
-http_85_2,"  @Test
+http_86_2,"  @Test
   public void getEmptyHeaders_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4975,7 +5011,7 @@ http_85_2,"  @Test
     assertNotNull(values);
   }
 ",HttpRequestTest::getEmptyHeaders_2_oe
-http_85_3,"  @Test
+http_86_3,"  @Test
   public void getEmptyHeaders_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -4991,7 +5027,7 @@ http_85_3,"  @Test
     assertEquals(0, values.length);
   }
 ",HttpRequestTest::getEmptyHeaders_3_oe
-http_86_1,"  @Test
+http_87_1,"  @Test
   public void getSingleParameter_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5005,7 +5041,7 @@ http_86_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getSingleParameter_1_oe
-http_86_2,"  @Test
+http_87_2,"  @Test
   public void getSingleParameter_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5020,7 +5056,7 @@ http_86_2,"  @Test
     assertEquals(""d"", request.parameter(""a"", ""c""));
   }
 ",HttpRequestTest::getSingleParameter_2_oe
-http_87_1,"  @Test
+http_88_1,"  @Test
   public void getMultipleParameters_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5034,7 +5070,7 @@ http_87_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getMultipleParameters_1_oe
-http_87_2,"  @Test
+http_88_2,"  @Test
   public void getMultipleParameters_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5049,7 +5085,7 @@ http_87_2,"  @Test
     assertEquals(""d"", request.parameter(""a"", ""c""));
   }
 ",HttpRequestTest::getMultipleParameters_2_oe
-http_87_3,"  @Test
+http_88_3,"  @Test
   public void getMultipleParameters_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5065,7 +5101,7 @@ http_87_3,"  @Test
     assertEquals(""f"", request.parameter(""a"", ""e""));
   }
 ",HttpRequestTest::getMultipleParameters_3_oe
-http_88_1,"  @Test
+http_89_1,"  @Test
   public void getSingleParameterQuoted_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5079,7 +5115,7 @@ http_88_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getSingleParameterQuoted_1_oe
-http_88_2,"  @Test
+http_89_2,"  @Test
   public void getSingleParameterQuoted_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5094,7 +5130,7 @@ http_88_2,"  @Test
     assertEquals(""d"", request.parameter(""a"", ""c""));
   }
 ",HttpRequestTest::getSingleParameterQuoted_2_oe
-http_89_1,"  @Test
+http_90_1,"  @Test
   public void getMultipleParametersQuoted_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5108,7 +5144,7 @@ http_89_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getMultipleParametersQuoted_1_oe
-http_89_2,"  @Test
+http_90_2,"  @Test
   public void getMultipleParametersQuoted_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5123,7 +5159,7 @@ http_89_2,"  @Test
     assertEquals(""d"", request.parameter(""a"", ""c""));
   }
 ",HttpRequestTest::getMultipleParametersQuoted_2_oe
-http_89_3,"  @Test
+http_90_3,"  @Test
   public void getMultipleParametersQuoted_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5139,7 +5175,7 @@ http_89_3,"  @Test
     assertEquals(""f"", request.parameter(""a"", ""e""));
   }
 ",HttpRequestTest::getMultipleParametersQuoted_3_oe
-http_90_1,"  @Test
+http_91_1,"  @Test
   public void getMissingParameter_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5153,7 +5189,7 @@ http_90_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getMissingParameter_1_oe
-http_90_2,"  @Test
+http_91_2,"  @Test
   public void getMissingParameter_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5168,7 +5204,7 @@ http_90_2,"  @Test
     assertNull(request.parameter(""a"", ""e""));
   }
 ",HttpRequestTest::getMissingParameter_2_oe
-http_91_1,"  @Test
+http_92_1,"  @Test
   public void getParameterFromMissingHeader_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5182,7 +5218,7 @@ http_91_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getParameterFromMissingHeader_1_oe
-http_91_2,"  @Test
+http_92_2,"  @Test
   public void getParameterFromMissingHeader_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5197,7 +5233,7 @@ http_91_2,"  @Test
     assertNull(request.parameter(""b"", ""c""));
   }
 ",HttpRequestTest::getParameterFromMissingHeader_2_oe
-http_91_3,"  @Test
+http_92_3,"  @Test
   public void getParameterFromMissingHeader_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5213,7 +5249,7 @@ http_91_3,"  @Test
     assertTrue(request.parameters(""b"").isEmpty());
   }
 ",HttpRequestTest::getParameterFromMissingHeader_3_oe
-http_92_1,"  @Test
+http_93_1,"  @Test
   public void getEmptyParameter_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5227,7 +5263,7 @@ http_92_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getEmptyParameter_1_oe
-http_92_2,"  @Test
+http_93_2,"  @Test
   public void getEmptyParameter_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5242,7 +5278,7 @@ http_92_2,"  @Test
     assertNull(request.parameter(""a"", ""c""));
   }
 ",HttpRequestTest::getEmptyParameter_2_oe
-http_92_3,"  @Test
+http_93_3,"  @Test
   public void getEmptyParameter_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5258,7 +5294,7 @@ http_92_3,"  @Test
     assertTrue(request.parameters(""a"").isEmpty());
   }
 ",HttpRequestTest::getEmptyParameter_3_oe
-http_93_1,"  @Test
+http_94_1,"  @Test
   public void getEmptyParameters_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5272,7 +5308,7 @@ http_93_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getEmptyParameters_1_oe
-http_93_2,"  @Test
+http_94_2,"  @Test
   public void getEmptyParameters_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5287,7 +5323,7 @@ http_93_2,"  @Test
     assertNull(request.parameter(""a"", ""c""));
   }
 ",HttpRequestTest::getEmptyParameters_2_oe
-http_93_3,"  @Test
+http_94_3,"  @Test
   public void getEmptyParameters_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5303,7 +5339,7 @@ http_93_3,"  @Test
     assertTrue(request.parameters(""a"").isEmpty());
   }
 ",HttpRequestTest::getEmptyParameters_3_oe
-http_94_1,"  @Test
+http_95_1,"  @Test
   public void getParameters_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5317,7 +5353,7 @@ http_94_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getParameters_1_oe
-http_94_2,"  @Test
+http_95_2,"  @Test
   public void getParameters_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5333,7 +5369,7 @@ http_94_2,"  @Test
     assertNotNull(params);
   }
 ",HttpRequestTest::getParameters_2_oe
-http_94_3,"  @Test
+http_95_3,"  @Test
   public void getParameters_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5350,7 +5386,7 @@ http_94_3,"  @Test
     assertEquals(2, params.size());
   }
 ",HttpRequestTest::getParameters_3_oe
-http_94_4,"  @Test
+http_95_4,"  @Test
   public void getParameters_4_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5368,7 +5404,7 @@ http_94_4,"  @Test
     assertEquals(""c"", params.get(""b""));
   }
 ",HttpRequestTest::getParameters_4_oe
-http_94_5,"  @Test
+http_95_5,"  @Test
   public void getParameters_5_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5387,7 +5423,7 @@ http_94_5,"  @Test
     assertEquals(""e"", params.get(""d""));
   }
 ",HttpRequestTest::getParameters_5_oe
-http_95_1,"  @Test
+http_96_1,"  @Test
   public void getQuotedParameters_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5401,7 +5437,7 @@ http_95_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getQuotedParameters_1_oe
-http_95_2,"  @Test
+http_96_2,"  @Test
   public void getQuotedParameters_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5417,7 +5453,7 @@ http_95_2,"  @Test
     assertNotNull(params);
   }
 ",HttpRequestTest::getQuotedParameters_2_oe
-http_95_3,"  @Test
+http_96_3,"  @Test
   public void getQuotedParameters_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5434,7 +5470,7 @@ http_95_3,"  @Test
     assertEquals(2, params.size());
   }
 ",HttpRequestTest::getQuotedParameters_3_oe
-http_95_4,"  @Test
+http_96_4,"  @Test
   public void getQuotedParameters_4_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5452,7 +5488,7 @@ http_95_4,"  @Test
     assertEquals(""c"", params.get(""b""));
   }
 ",HttpRequestTest::getQuotedParameters_4_oe
-http_95_5,"  @Test
+http_96_5,"  @Test
   public void getQuotedParameters_5_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5471,7 +5507,7 @@ http_95_5,"  @Test
     assertEquals(""e"", params.get(""d""));
   }
 ",HttpRequestTest::getQuotedParameters_5_oe
-http_96_1,"  @Test
+http_97_1,"  @Test
   public void getMixQuotedParameters_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5485,7 +5521,7 @@ http_96_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getMixQuotedParameters_1_oe
-http_96_2,"  @Test
+http_97_2,"  @Test
   public void getMixQuotedParameters_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5501,7 +5537,7 @@ http_96_2,"  @Test
     assertNotNull(params);
   }
 ",HttpRequestTest::getMixQuotedParameters_2_oe
-http_96_3,"  @Test
+http_97_3,"  @Test
   public void getMixQuotedParameters_3_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5518,7 +5554,7 @@ http_96_3,"  @Test
     assertEquals(2, params.size());
   }
 ",HttpRequestTest::getMixQuotedParameters_3_oe
-http_96_4,"  @Test
+http_97_4,"  @Test
   public void getMixQuotedParameters_4_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5536,7 +5572,7 @@ http_96_4,"  @Test
     assertEquals(""c"", params.get(""b""));
   }
 ",HttpRequestTest::getMixQuotedParameters_4_oe
-http_96_5,"  @Test
+http_97_5,"  @Test
   public void getMixQuotedParameters_5_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5555,7 +5591,7 @@ http_96_5,"  @Test
     assertEquals(""e"", params.get(""d""));
   }
 ",HttpRequestTest::getMixQuotedParameters_5_oe
-http_97_1,"  @Test
+http_98_1,"  @Test
   public void missingDateHeader_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5567,7 +5603,7 @@ http_97_1,"  @Test
     assertEquals(1234L, get(url).dateHeader(""missing"", 1234L));
   }
 ",HttpRequestTest::missingDateHeader_1_oe
-http_98_1,"  @Test
+http_99_1,"  @Test
   public void malformedDateHeader_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5580,7 +5616,7 @@ http_98_1,"  @Test
     assertEquals(1234L, get(url).dateHeader(""malformed"", 1234L));
   }
 ",HttpRequestTest::malformedDateHeader_1_oe
-http_99_1,"  @Test
+http_100_1,"  @Test
   public void missingIntHeader_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5592,7 +5628,7 @@ http_99_1,"  @Test
     assertEquals(4321, get(url).intHeader(""missing"", 4321));
   }
 ",HttpRequestTest::missingIntHeader_1_oe
-http_100_1,"  @Test
+http_101_1,"  @Test
   public void malformedIntHeader_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -5605,7 +5641,7 @@ http_100_1,"  @Test
     assertEquals(4321, get(url).intHeader(""malformed"", 4321));
   }
 ",HttpRequestTest::malformedIntHeader_1_oe
-http_101_1,"  @Test
+http_102_1,"  @Test
   public void postFormAsEntries_1_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -5626,7 +5662,7 @@ http_101_1,"  @Test
     assertEquals(HTTP_OK, code);
   }
 ",HttpRequestTest::postFormAsEntries_1_oe
-http_101_2,"  @Test
+http_102_2,"  @Test
   public void postFormAsEntries_2_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -5648,7 +5684,7 @@ http_101_2,"  @Test
     assertEquals(""name=user&number=100"", body.get());
   }
 ",HttpRequestTest::postFormAsEntries_2_oe
-http_102_1,"  @Test
+http_103_1,"  @Test
   public void postFormEntryWithNullValue_1_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -5668,7 +5704,7 @@ http_102_1,"  @Test
     assertEquals(HTTP_OK, code);
   }
 ",HttpRequestTest::postFormEntryWithNullValue_1_oe
-http_102_2,"  @Test
+http_103_2,"  @Test
   public void postFormEntryWithNullValue_2_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -5689,7 +5725,7 @@ http_102_2,"  @Test
     assertEquals(""name="", body.get());
   }
 ",HttpRequestTest::postFormEntryWithNullValue_2_oe
-http_103_1,"  @Test
+http_104_1,"  @Test
   public void postWithMappedQueryParams_1_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -5710,7 +5746,7 @@ http_103_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::postWithMappedQueryParams_1_oe
-http_103_2,"  @Test
+http_104_2,"  @Test
   public void postWithMappedQueryParams_2_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -5732,7 +5768,7 @@ http_103_2,"  @Test
     assertEquals(""POST"", method.get());
   }
 ",HttpRequestTest::postWithMappedQueryParams_2_oe
-http_103_3,"  @Test
+http_104_3,"  @Test
   public void postWithMappedQueryParams_3_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -5755,7 +5791,7 @@ http_103_3,"  @Test
     assertEquals(""user"", outputParams.get(""name""));
   }
 ",HttpRequestTest::postWithMappedQueryParams_3_oe
-http_103_4,"  @Test
+http_104_4,"  @Test
   public void postWithMappedQueryParams_4_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -5779,7 +5815,7 @@ http_103_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::postWithMappedQueryParams_4_oe
-http_104_1,"  @Test
+http_105_1,"  @Test
   public void postWithVaragsQueryParams_1_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -5797,7 +5833,7 @@ http_104_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::postWithVaragsQueryParams_1_oe
-http_104_2,"  @Test
+http_105_2,"  @Test
   public void postWithVaragsQueryParams_2_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -5816,7 +5852,7 @@ http_104_2,"  @Test
     assertEquals(""POST"", method.get());
   }
 ",HttpRequestTest::postWithVaragsQueryParams_2_oe
-http_104_3,"  @Test
+http_105_3,"  @Test
   public void postWithVaragsQueryParams_3_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -5836,7 +5872,7 @@ http_104_3,"  @Test
     assertEquals(""user"", outputParams.get(""name""));
   }
 ",HttpRequestTest::postWithVaragsQueryParams_3_oe
-http_104_4,"  @Test
+http_105_4,"  @Test
   public void postWithVaragsQueryParams_4_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -5857,7 +5893,7 @@ http_104_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::postWithVaragsQueryParams_4_oe
-http_105_1,"  @Test
+http_106_1,"  @Test
   public void postWithEscapedMappedQueryParams_1_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -5878,7 +5914,7 @@ http_105_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::postWithEscapedMappedQueryParams_1_oe
-http_105_2,"  @Test
+http_106_2,"  @Test
   public void postWithEscapedMappedQueryParams_2_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -5900,7 +5936,7 @@ http_105_2,"  @Test
     assertEquals(""POST"", method.get());
   }
 ",HttpRequestTest::postWithEscapedMappedQueryParams_2_oe
-http_105_3,"  @Test
+http_106_3,"  @Test
   public void postWithEscapedMappedQueryParams_3_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -5923,7 +5959,7 @@ http_105_3,"  @Test
     assertEquals(""us er"", outputParams.get(""name""));
   }
 ",HttpRequestTest::postWithEscapedMappedQueryParams_3_oe
-http_105_4,"  @Test
+http_106_4,"  @Test
   public void postWithEscapedMappedQueryParams_4_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -5947,7 +5983,175 @@ http_105_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::postWithEscapedMappedQueryParams_4_oe
-http_106_1,"  @Test
+http_107_1,"  @Test
+  public void postWithEscapedVarargsQueryParams_1_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, true, ""name"", ""us er"", ""number"", ""100"");
+    assertTrue(request.ok());
+  }
+",HttpRequestTest::postWithEscapedVarargsQueryParams_1_oe
+http_107_2,"  @Test
+  public void postWithEscapedVarargsQueryParams_2_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, true, ""name"", ""us er"", ""number"", ""100"");
+    // removed other assertion
+    assertEquals(""POST"", method.get());
+  }
+",HttpRequestTest::postWithEscapedVarargsQueryParams_2_oe
+http_107_3,"  @Test
+  public void postWithEscapedVarargsQueryParams_3_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, true, ""name"", ""us er"", ""number"", ""100"");
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""us er"", outputParams.get(""name""));
+  }
+",HttpRequestTest::postWithEscapedVarargsQueryParams_3_oe
+http_107_4,"  @Test
+  public void postWithEscapedVarargsQueryParams_4_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, true, ""name"", ""us er"", ""number"", ""100"");
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""100"", outputParams.get(""number""));
+  }
+",HttpRequestTest::postWithEscapedVarargsQueryParams_4_oe
+http_108_1,"  @Test
+  public void postWithNumericQueryParams_1_oe() throws Exception {
+    Map<Object, Object> inputParams = new HashMap<Object, Object>();
+    inputParams.put(1, 2);
+    inputParams.put(3, 4);
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""1"", request.getParameter(""1""));
+        outputParams.put(""3"", request.getParameter(""3""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, inputParams, false);
+    assertTrue(request.ok());
+  }
+",HttpRequestTest::postWithNumericQueryParams_1_oe
+http_108_2,"  @Test
+  public void postWithNumericQueryParams_2_oe() throws Exception {
+    Map<Object, Object> inputParams = new HashMap<Object, Object>();
+    inputParams.put(1, 2);
+    inputParams.put(3, 4);
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""1"", request.getParameter(""1""));
+        outputParams.put(""3"", request.getParameter(""3""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, inputParams, false);
+    // removed other assertion
+    assertEquals(""POST"", method.get());
+  }
+",HttpRequestTest::postWithNumericQueryParams_2_oe
+http_108_3,"  @Test
+  public void postWithNumericQueryParams_3_oe() throws Exception {
+    Map<Object, Object> inputParams = new HashMap<Object, Object>();
+    inputParams.put(1, 2);
+    inputParams.put(3, 4);
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""1"", request.getParameter(""1""));
+        outputParams.put(""3"", request.getParameter(""3""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, inputParams, false);
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""2"", outputParams.get(""1""));
+  }
+",HttpRequestTest::postWithNumericQueryParams_3_oe
+http_108_4,"  @Test
+  public void postWithNumericQueryParams_4_oe() throws Exception {
+    Map<Object, Object> inputParams = new HashMap<Object, Object>();
+    inputParams.put(1, 2);
+    inputParams.put(3, 4);
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""1"", request.getParameter(""1""));
+        outputParams.put(""3"", request.getParameter(""3""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, inputParams, false);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""4"", outputParams.get(""3""));
+  }
+",HttpRequestTest::postWithNumericQueryParams_4_oe
+http_109_1,"  @Test
   public void getWithMappedQueryParams_1_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -5968,7 +6172,7 @@ http_106_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getWithMappedQueryParams_1_oe
-http_106_2,"  @Test
+http_109_2,"  @Test
   public void getWithMappedQueryParams_2_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -5990,7 +6194,7 @@ http_106_2,"  @Test
     assertEquals(""GET"", method.get());
   }
 ",HttpRequestTest::getWithMappedQueryParams_2_oe
-http_106_3,"  @Test
+http_109_3,"  @Test
   public void getWithMappedQueryParams_3_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -6013,7 +6217,7 @@ http_106_3,"  @Test
     assertEquals(""user"", outputParams.get(""name""));
   }
 ",HttpRequestTest::getWithMappedQueryParams_3_oe
-http_106_4,"  @Test
+http_109_4,"  @Test
   public void getWithMappedQueryParams_4_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -6037,7 +6241,7 @@ http_106_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::getWithMappedQueryParams_4_oe
-http_107_1,"  @Test
+http_110_1,"  @Test
   public void getWithVarargsQueryParams_1_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6055,7 +6259,7 @@ http_107_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getWithVarargsQueryParams_1_oe
-http_107_2,"  @Test
+http_110_2,"  @Test
   public void getWithVarargsQueryParams_2_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6074,7 +6278,7 @@ http_107_2,"  @Test
     assertEquals(""GET"", method.get());
   }
 ",HttpRequestTest::getWithVarargsQueryParams_2_oe
-http_107_3,"  @Test
+http_110_3,"  @Test
   public void getWithVarargsQueryParams_3_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6094,7 +6298,7 @@ http_107_3,"  @Test
     assertEquals(""user"", outputParams.get(""name""));
   }
 ",HttpRequestTest::getWithVarargsQueryParams_3_oe
-http_107_4,"  @Test
+http_110_4,"  @Test
   public void getWithVarargsQueryParams_4_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6115,7 +6319,7 @@ http_107_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::getWithVarargsQueryParams_4_oe
-http_108_1,"  @Test
+http_111_1,"  @Test
   public void getWithEscapedMappedQueryParams_1_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -6136,7 +6340,7 @@ http_108_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getWithEscapedMappedQueryParams_1_oe
-http_108_2,"  @Test
+http_111_2,"  @Test
   public void getWithEscapedMappedQueryParams_2_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -6158,7 +6362,7 @@ http_108_2,"  @Test
     assertEquals(""GET"", method.get());
   }
 ",HttpRequestTest::getWithEscapedMappedQueryParams_2_oe
-http_108_3,"  @Test
+http_111_3,"  @Test
   public void getWithEscapedMappedQueryParams_3_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -6181,7 +6385,7 @@ http_108_3,"  @Test
     assertEquals(""us er"", outputParams.get(""name""));
   }
 ",HttpRequestTest::getWithEscapedMappedQueryParams_3_oe
-http_108_4,"  @Test
+http_111_4,"  @Test
   public void getWithEscapedMappedQueryParams_4_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -6205,7 +6409,7 @@ http_108_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::getWithEscapedMappedQueryParams_4_oe
-http_109_1,"  @Test
+http_112_1,"  @Test
   public void getWithEscapedVarargsQueryParams_1_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6223,7 +6427,7 @@ http_109_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::getWithEscapedVarargsQueryParams_1_oe
-http_109_2,"  @Test
+http_112_2,"  @Test
   public void getWithEscapedVarargsQueryParams_2_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6242,7 +6446,7 @@ http_109_2,"  @Test
     assertEquals(""GET"", method.get());
   }
 ",HttpRequestTest::getWithEscapedVarargsQueryParams_2_oe
-http_109_3,"  @Test
+http_112_3,"  @Test
   public void getWithEscapedVarargsQueryParams_3_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6262,7 +6466,7 @@ http_109_3,"  @Test
     assertEquals(""us er"", outputParams.get(""name""));
   }
 ",HttpRequestTest::getWithEscapedVarargsQueryParams_3_oe
-http_109_4,"  @Test
+http_112_4,"  @Test
   public void getWithEscapedVarargsQueryParams_4_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6283,7 +6487,7 @@ http_109_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::getWithEscapedVarargsQueryParams_4_oe
-http_110_1,"  @Test
+http_113_1,"  @Test
   public void deleteWithMappedQueryParams_1_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -6304,7 +6508,7 @@ http_110_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::deleteWithMappedQueryParams_1_oe
-http_110_2,"  @Test
+http_113_2,"  @Test
   public void deleteWithMappedQueryParams_2_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -6326,7 +6530,7 @@ http_110_2,"  @Test
     assertEquals(""DELETE"", method.get());
   }
 ",HttpRequestTest::deleteWithMappedQueryParams_2_oe
-http_110_3,"  @Test
+http_113_3,"  @Test
   public void deleteWithMappedQueryParams_3_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -6349,7 +6553,7 @@ http_110_3,"  @Test
     assertEquals(""user"", outputParams.get(""name""));
   }
 ",HttpRequestTest::deleteWithMappedQueryParams_3_oe
-http_110_4,"  @Test
+http_113_4,"  @Test
   public void deleteWithMappedQueryParams_4_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -6373,7 +6577,7 @@ http_110_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::deleteWithMappedQueryParams_4_oe
-http_111_1,"  @Test
+http_114_1,"  @Test
   public void deleteWithVarargsQueryParams_1_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6391,7 +6595,7 @@ http_111_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::deleteWithVarargsQueryParams_1_oe
-http_111_2,"  @Test
+http_114_2,"  @Test
   public void deleteWithVarargsQueryParams_2_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6410,7 +6614,7 @@ http_111_2,"  @Test
     assertEquals(""DELETE"", method.get());
   }
 ",HttpRequestTest::deleteWithVarargsQueryParams_2_oe
-http_111_3,"  @Test
+http_114_3,"  @Test
   public void deleteWithVarargsQueryParams_3_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6430,7 +6634,7 @@ http_111_3,"  @Test
     assertEquals(""user"", outputParams.get(""name""));
   }
 ",HttpRequestTest::deleteWithVarargsQueryParams_3_oe
-http_111_4,"  @Test
+http_114_4,"  @Test
   public void deleteWithVarargsQueryParams_4_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6451,7 +6655,7 @@ http_111_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::deleteWithVarargsQueryParams_4_oe
-http_112_1,"  @Test
+http_115_1,"  @Test
   public void deleteWithEscapedMappedQueryParams_1_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -6472,7 +6676,7 @@ http_112_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::deleteWithEscapedMappedQueryParams_1_oe
-http_112_2,"  @Test
+http_115_2,"  @Test
   public void deleteWithEscapedMappedQueryParams_2_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -6494,7 +6698,54 @@ http_112_2,"  @Test
     assertEquals(""DELETE"", method.get());
   }
 ",HttpRequestTest::deleteWithEscapedMappedQueryParams_2_oe
-http_113_1,"  @Test
+http_115_3,"  @Test
+  public void deleteWithEscapedMappedQueryParams_3_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""us er"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url, inputParams, true);
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""us er"", outputParams.get(""name""));
+  }
+",HttpRequestTest::deleteWithEscapedMappedQueryParams_3_oe
+http_115_4,"  @Test
+  public void deleteWithEscapedMappedQueryParams_4_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""us er"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url, inputParams, true);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""100"", outputParams.get(""number""));
+  }
+",HttpRequestTest::deleteWithEscapedMappedQueryParams_4_oe
+http_116_1,"  @Test
   public void deleteWithEscapedVarargsQueryParams_1_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6512,7 +6763,7 @@ http_113_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::deleteWithEscapedVarargsQueryParams_1_oe
-http_113_2,"  @Test
+http_116_2,"  @Test
   public void deleteWithEscapedVarargsQueryParams_2_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6531,7 +6782,48 @@ http_113_2,"  @Test
     assertEquals(""DELETE"", method.get());
   }
 ",HttpRequestTest::deleteWithEscapedVarargsQueryParams_2_oe
-http_114_1,"  @Test
+http_116_3,"  @Test
+  public void deleteWithEscapedVarargsQueryParams_3_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url, true, ""name"", ""us er"", ""number"", ""100"");
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""us er"", outputParams.get(""name""));
+  }
+",HttpRequestTest::deleteWithEscapedVarargsQueryParams_3_oe
+http_116_4,"  @Test
+  public void deleteWithEscapedVarargsQueryParams_4_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url, true, ""name"", ""us er"", ""number"", ""100"");
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""100"", outputParams.get(""number""));
+  }
+",HttpRequestTest::deleteWithEscapedVarargsQueryParams_4_oe
+http_117_1,"  @Test
   public void putWithMappedQueryParams_1_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -6552,7 +6844,7 @@ http_114_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::putWithMappedQueryParams_1_oe
-http_114_2,"  @Test
+http_117_2,"  @Test
   public void putWithMappedQueryParams_2_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -6574,7 +6866,7 @@ http_114_2,"  @Test
     assertEquals(""PUT"", method.get());
   }
 ",HttpRequestTest::putWithMappedQueryParams_2_oe
-http_114_3,"  @Test
+http_117_3,"  @Test
   public void putWithMappedQueryParams_3_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -6597,7 +6889,7 @@ http_114_3,"  @Test
     assertEquals(""user"", outputParams.get(""name""));
   }
 ",HttpRequestTest::putWithMappedQueryParams_3_oe
-http_114_4,"  @Test
+http_117_4,"  @Test
   public void putWithMappedQueryParams_4_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""user"");
@@ -6621,7 +6913,85 @@ http_114_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::putWithMappedQueryParams_4_oe
-http_115_1,"  @Test
+http_118_1,"  @Test
+  public void putWithVarargsQueryParams_1_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url, false, ""name"", ""user"", ""number"", ""100"");
+    assertTrue(request.ok());
+  }
+",HttpRequestTest::putWithVarargsQueryParams_1_oe
+http_118_2,"  @Test
+  public void putWithVarargsQueryParams_2_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url, false, ""name"", ""user"", ""number"", ""100"");
+    // removed other assertion
+    assertEquals(""PUT"", method.get());
+  }
+",HttpRequestTest::putWithVarargsQueryParams_2_oe
+http_118_3,"  @Test
+  public void putWithVarargsQueryParams_3_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url, false, ""name"", ""user"", ""number"", ""100"");
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""user"", outputParams.get(""name""));
+  }
+",HttpRequestTest::putWithVarargsQueryParams_3_oe
+http_118_4,"  @Test
+  public void putWithVarargsQueryParams_4_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url, false, ""name"", ""user"", ""number"", ""100"");
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""100"", outputParams.get(""number""));
+  }
+",HttpRequestTest::putWithVarargsQueryParams_4_oe
+http_119_1,"  @Test
   public void putWithEscapedMappedQueryParams_1_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -6642,7 +7012,7 @@ http_115_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::putWithEscapedMappedQueryParams_1_oe
-http_115_2,"  @Test
+http_119_2,"  @Test
   public void putWithEscapedMappedQueryParams_2_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -6664,7 +7034,7 @@ http_115_2,"  @Test
     assertEquals(""PUT"", method.get());
   }
 ",HttpRequestTest::putWithEscapedMappedQueryParams_2_oe
-http_115_3,"  @Test
+http_119_3,"  @Test
   public void putWithEscapedMappedQueryParams_3_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -6684,10 +7054,34 @@ http_115_3,"  @Test
     HttpRequest request = put(url, inputParams, true);
     // removed other assertion
     // removed other assertion
-    assertEquals(""100"", outputParams.get(""number""));
+    assertEquals(""us er"", outputParams.get(""name""));
   }
 ",HttpRequestTest::putWithEscapedMappedQueryParams_3_oe
-http_116_1,"  @Test
+http_119_4,"  @Test
+  public void putWithEscapedMappedQueryParams_4_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""us er"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url, inputParams, true);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""100"", outputParams.get(""number""));
+  }
+",HttpRequestTest::putWithEscapedMappedQueryParams_4_oe
+http_120_1,"  @Test
   public void putWithEscapedVarargsQueryParams_1_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6705,7 +7099,7 @@ http_116_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::putWithEscapedVarargsQueryParams_1_oe
-http_116_2,"  @Test
+http_120_2,"  @Test
   public void putWithEscapedVarargsQueryParams_2_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6724,7 +7118,7 @@ http_116_2,"  @Test
     assertEquals(""PUT"", method.get());
   }
 ",HttpRequestTest::putWithEscapedVarargsQueryParams_2_oe
-http_116_3,"  @Test
+http_120_3,"  @Test
   public void putWithEscapedVarargsQueryParams_3_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6744,7 +7138,7 @@ http_116_3,"  @Test
     assertEquals(""us er"", outputParams.get(""name""));
   }
 ",HttpRequestTest::putWithEscapedVarargsQueryParams_3_oe
-http_116_4,"  @Test
+http_120_4,"  @Test
   public void putWithEscapedVarargsQueryParams_4_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6765,7 +7159,97 @@ http_116_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::putWithEscapedVarargsQueryParams_4_oe
-http_117_1,"  @Test
+http_121_1,"  @Test
+  public void headWithMappedQueryParams_1_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""user"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url, inputParams, false);
+    assertTrue(request.ok());
+  }
+",HttpRequestTest::headWithMappedQueryParams_1_oe
+http_121_2,"  @Test
+  public void headWithMappedQueryParams_2_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""user"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url, inputParams, false);
+    // removed other assertion
+    assertEquals(""HEAD"", method.get());
+  }
+",HttpRequestTest::headWithMappedQueryParams_2_oe
+http_121_3,"  @Test
+  public void headWithMappedQueryParams_3_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""user"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url, inputParams, false);
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""user"", outputParams.get(""name""));
+  }
+",HttpRequestTest::headWithMappedQueryParams_3_oe
+http_121_4,"  @Test
+  public void headWithMappedQueryParams_4_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""user"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url, inputParams, false);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""100"", outputParams.get(""number""));
+  }
+",HttpRequestTest::headWithMappedQueryParams_4_oe
+http_122_1,"  @Test
   public void headWithVaragsQueryParams_1_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6783,7 +7267,7 @@ http_117_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::headWithVaragsQueryParams_1_oe
-http_117_2,"  @Test
+http_122_2,"  @Test
   public void headWithVaragsQueryParams_2_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6802,7 +7286,7 @@ http_117_2,"  @Test
     assertEquals(""HEAD"", method.get());
   }
 ",HttpRequestTest::headWithVaragsQueryParams_2_oe
-http_117_3,"  @Test
+http_122_3,"  @Test
   public void headWithVaragsQueryParams_3_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6822,7 +7306,7 @@ http_117_3,"  @Test
     assertEquals(""user"", outputParams.get(""name""));
   }
 ",HttpRequestTest::headWithVaragsQueryParams_3_oe
-http_117_4,"  @Test
+http_122_4,"  @Test
   public void headWithVaragsQueryParams_4_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6843,7 +7327,7 @@ http_117_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::headWithVaragsQueryParams_4_oe
-http_118_1,"  @Test
+http_123_1,"  @Test
   public void headWithEscapedMappedQueryParams_1_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -6864,7 +7348,7 @@ http_118_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::headWithEscapedMappedQueryParams_1_oe
-http_118_2,"  @Test
+http_123_2,"  @Test
   public void headWithEscapedMappedQueryParams_2_oe() throws Exception {
     Map<String, String> inputParams = new HashMap<String, String>();
     inputParams.put(""name"", ""us er"");
@@ -6886,7 +7370,54 @@ http_118_2,"  @Test
     assertEquals(""HEAD"", method.get());
   }
 ",HttpRequestTest::headWithEscapedMappedQueryParams_2_oe
-http_119_1,"  @Test
+http_123_3,"  @Test
+  public void headWithEscapedMappedQueryParams_3_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""us er"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url, inputParams, true);
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""us er"", outputParams.get(""name""));
+  }
+",HttpRequestTest::headWithEscapedMappedQueryParams_3_oe
+http_123_4,"  @Test
+  public void headWithEscapedMappedQueryParams_4_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""us er"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url, inputParams, true);
+    // removed other assertion
+    // removed other assertion
+    // removed other assertion
+    assertEquals(""100"", outputParams.get(""number""));
+  }
+",HttpRequestTest::headWithEscapedMappedQueryParams_4_oe
+http_124_1,"  @Test
   public void headWithEscapedVarargsQueryParams_1_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6904,7 +7435,7 @@ http_119_1,"  @Test
     assertTrue(request.ok());
   }
 ",HttpRequestTest::headWithEscapedVarargsQueryParams_1_oe
-http_119_2,"  @Test
+http_124_2,"  @Test
   public void headWithEscapedVarargsQueryParams_2_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6923,7 +7454,7 @@ http_119_2,"  @Test
     assertEquals(""HEAD"", method.get());
   }
 ",HttpRequestTest::headWithEscapedVarargsQueryParams_2_oe
-http_119_3,"  @Test
+http_124_3,"  @Test
   public void headWithEscapedVarargsQueryParams_3_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6943,7 +7474,7 @@ http_119_3,"  @Test
     assertEquals(""us er"", outputParams.get(""name""));
   }
 ",HttpRequestTest::headWithEscapedVarargsQueryParams_3_oe
-http_119_4,"  @Test
+http_124_4,"  @Test
   public void headWithEscapedVarargsQueryParams_4_oe() throws Exception {
     final Map<String, String> outputParams = new HashMap<String, String>();
     final AtomicReference<String> method = new AtomicReference<String>();
@@ -6964,39 +7495,39 @@ http_119_4,"  @Test
     assertEquals(""100"", outputParams.get(""number""));
   }
 ",HttpRequestTest::headWithEscapedVarargsQueryParams_4_oe
-http_120_1,"  @Test
+http_125_1,"  @Test
   public void appendMappedQueryParamsWithNoPath_1_oe() throws Exception {
     assertEquals( ""http://test.com/?a=b"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", ""b"")));
   }
 ",HttpRequestTest::appendMappedQueryParamsWithNoPath_1_oe
-http_121_1,"  @Test
+http_126_1,"  @Test
   public void appendVarargsQueryParmasWithNoPath_1_oe() throws Exception {
     assertEquals(""http://test.com/?a=b"", HttpRequest.append(""http://test.com"", ""a"", ""b""));
   }
 ",HttpRequestTest::appendVarargsQueryParmasWithNoPath_1_oe
-http_122_1,"  @Test
+http_127_1,"  @Test
   public void appendMappedQueryParamsWithPath_1_oe() throws Exception {
     assertEquals( ""http://test.com/segment1?a=b"", HttpRequest.append(""http://test.com/segment1"", Collections.singletonMap(""a"", ""b"")));
   }
 ",HttpRequestTest::appendMappedQueryParamsWithPath_1_oe
-http_122_2,"  @Test
+http_127_2,"  @Test
   public void appendMappedQueryParamsWithPath_2_oe() throws Exception {
     // removed other assertion
     assertEquals( ""http://test.com/?a=b"", HttpRequest.append(""http://test.com/"", Collections.singletonMap(""a"", ""b"")));
   }
 ",HttpRequestTest::appendMappedQueryParamsWithPath_2_oe
-http_123_1,"  @Test
+http_128_1,"  @Test
   public void appendVarargsQueryParamsWithPath_1_oe() throws Exception {
     assertEquals(""http://test.com/segment1?a=b"", HttpRequest.append(""http://test.com/segment1"", ""a"", ""b""));
   }
 ",HttpRequestTest::appendVarargsQueryParamsWithPath_1_oe
-http_123_2,"  @Test
+http_128_2,"  @Test
   public void appendVarargsQueryParamsWithPath_2_oe() throws Exception {
     // removed other assertion
     assertEquals(""http://test.com/?a=b"", HttpRequest.append(""http://test.com/"", ""a"", ""b""));
   }
 ",HttpRequestTest::appendVarargsQueryParamsWithPath_2_oe
-http_124_1,"  @Test
+http_129_1,"  @Test
   public void appendMultipleMappedQueryParams_1_oe() throws Exception {
     Map<String, Object> params = new LinkedHashMap<String, Object>();
     params.put(""a"", ""b"");
@@ -7004,32 +7535,32 @@ http_124_1,"  @Test
     assertEquals(""http://test.com/1?a=b&c=d"", HttpRequest.append(""http://test.com/1"", params));
   }
 ",HttpRequestTest::appendMultipleMappedQueryParams_1_oe
-http_125_1,"  @Test
+http_130_1,"  @Test
   public void appendMultipleVarargsQueryParams_1_oe() throws Exception {
     assertEquals(""http://test.com/1?a=b&c=d"", HttpRequest.append(""http://test.com/1"", ""a"", ""b"", ""c"", ""d""));
   }
 ",HttpRequestTest::appendMultipleVarargsQueryParams_1_oe
-http_126_1,"  @Test
+http_131_1,"  @Test
   public void appendNullMappedQueryParams_1_oe() throws Exception {
     assertEquals(""http://test.com/1"", HttpRequest.append(""http://test.com/1"", (Map<?, ?>) null));
   }
 ",HttpRequestTest::appendNullMappedQueryParams_1_oe
-http_127_1,"  @Test
+http_132_1,"  @Test
   public void appendNullVaragsQueryParams_1_oe() throws Exception {
     assertEquals(""http://test.com/1"", HttpRequest.append(""http://test.com/1"", (Object[]) null));
   }
 ",HttpRequestTest::appendNullVaragsQueryParams_1_oe
-http_128_1,"  @Test
+http_133_1,"  @Test
   public void appendEmptyMappedQueryParams_1_oe() throws Exception {
     assertEquals( ""http://test.com/1"", HttpRequest.append(""http://test.com/1"", Collections.<String, String> emptyMap()));
   }
 ",HttpRequestTest::appendEmptyMappedQueryParams_1_oe
-http_129_1,"  @Test
+http_134_1,"  @Test
   public void appendEmptyVarargsQueryParams_1_oe() throws Exception {
     assertEquals(""http://test.com/1"", HttpRequest.append(""http://test.com/1"", new Object[0]));
   }
 ",HttpRequestTest::appendEmptyVarargsQueryParams_1_oe
-http_130_1,"  @Test
+http_135_1,"  @Test
   public void appendWithNullMappedQueryParamValues_1_oe() throws Exception {
     Map<String, Object> params = new LinkedHashMap<String, Object>();
     params.put(""a"", null);
@@ -7037,62 +7568,62 @@ http_130_1,"  @Test
     assertEquals(""http://test.com/1?a=&b="", HttpRequest.append(""http://test.com/1"", params));
   }
 ",HttpRequestTest::appendWithNullMappedQueryParamValues_1_oe
-http_131_1,"  @Test
+http_136_1,"  @Test
   public void appendWithNullVaragsQueryParamValues_1_oe() throws Exception {
     assertEquals(""http://test.com/1?a=&b="", HttpRequest.append(""http://test.com/1"", ""a"", null, ""b"", null));
   }
 ",HttpRequestTest::appendWithNullVaragsQueryParamValues_1_oe
-http_132_1,"  @Test
+http_137_1,"  @Test
   public void appendMappedQueryParamsWithExistingQueryStart_1_oe() {
     assertEquals( ""http://test.com/1?a=b"", HttpRequest.append(""http://test.com/1?"", Collections.singletonMap(""a"", ""b"")));
   }
 ",HttpRequestTest::appendMappedQueryParamsWithExistingQueryStart_1_oe
-http_133_1,"  @Test
+http_138_1,"  @Test
   public void appendVarargsQueryParamsWithExistingQueryStart_1_oe() {
     assertEquals(""http://test.com/1?a=b"", HttpRequest.append(""http://test.com/1?"", ""a"", ""b""));
   }
 ",HttpRequestTest::appendVarargsQueryParamsWithExistingQueryStart_1_oe
-http_134_1,"  @Test
+http_139_1,"  @Test
   public void appendMappedQueryParamsWithExistingParams_1_oe() {
     assertEquals( ""http://test.com/1?a=b&c=d"", HttpRequest.append(""http://test.com/1?a=b"", Collections.singletonMap(""c"", ""d"")));
   }
 ",HttpRequestTest::appendMappedQueryParamsWithExistingParams_1_oe
-http_134_2,"  @Test
+http_139_2,"  @Test
   public void appendMappedQueryParamsWithExistingParams_2_oe() {
     // removed other assertion
     assertEquals( ""http://test.com/1?a=b&c=d"", HttpRequest.append(""http://test.com/1?a=b&"", Collections.singletonMap(""c"", ""d"")));
   }
 ",HttpRequestTest::appendMappedQueryParamsWithExistingParams_2_oe
-http_135_1,"  @Test
+http_140_1,"  @Test
   public void appendWithVarargsQueryParamsWithExistingParams_1_oe() {
     assertEquals(""http://test.com/1?a=b&c=d"", HttpRequest.append(""http://test.com/1?a=b"", ""c"", ""d""));
   }
 ",HttpRequestTest::appendWithVarargsQueryParamsWithExistingParams_1_oe
-http_135_2,"  @Test
+http_140_2,"  @Test
   public void appendWithVarargsQueryParamsWithExistingParams_2_oe() {
     // removed other assertion
     assertEquals(""http://test.com/1?a=b&c=d"", HttpRequest.append(""http://test.com/1?a=b&"", ""c"", ""d""));
   }
 ",HttpRequestTest::appendWithVarargsQueryParamsWithExistingParams_2_oe
-http_136_1,"  @Test
+http_141_1,"  @Test
   public void appendArrayQueryParams_1_oe() throws Exception {
     assertEquals( ""http://test.com/?foo[]=bar&foo[]=baz"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""foo"", new String[] { ""bar"", ""baz"" })));
   }
 ",HttpRequestTest::appendArrayQueryParams_1_oe
-http_136_2,"  @Test
+http_141_2,"  @Test
   public void appendArrayQueryParams_2_oe() throws Exception {
     // removed other assertion
     assertEquals( ""http://test.com/?a[]=1&a[]=2"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", new int[] { 1, 2 })));
   }
 ",HttpRequestTest::appendArrayQueryParams_2_oe
-http_136_3,"  @Test
+http_141_3,"  @Test
   public void appendArrayQueryParams_3_oe() throws Exception {
     // removed other assertion
     // removed other assertion
     assertEquals( ""http://test.com/?a[]=1"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", new int[] { 1 })));
   }
 ",HttpRequestTest::appendArrayQueryParams_3_oe
-http_136_4,"  @Test
+http_141_4,"  @Test
   public void appendArrayQueryParams_4_oe() throws Exception {
     // removed other assertion
     // removed other assertion
@@ -7100,7 +7631,7 @@ http_136_4,"  @Test
     assertEquals( ""http://test.com/?"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", new int[] { })));
   }
 ",HttpRequestTest::appendArrayQueryParams_4_oe
-http_136_5,"  @Test
+http_141_5,"  @Test
   public void appendArrayQueryParams_5_oe() throws Exception {
     // removed other assertion
     // removed other assertion
@@ -7109,25 +7640,25 @@ http_136_5,"  @Test
     assertEquals( ""http://test.com/?foo[]=bar&foo[]=baz&a[]=1&a[]=2"", HttpRequest.append(""http://test.com"", ""foo"", new String[] { ""bar"", ""baz"" }, ""a"", new int[] { 1, 2 }));
   }
 ",HttpRequestTest::appendArrayQueryParams_5_oe
-http_137_1,"  @Test
+http_142_1,"  @Test
   public void appendListQueryParams_1_oe() throws Exception {
     assertEquals( ""http://test.com/?foo[]=bar&foo[]=baz"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""foo"", Arrays.asList(new String[] { ""bar"", ""baz"" }))));
   }
 ",HttpRequestTest::appendListQueryParams_1_oe
-http_137_2,"  @Test
+http_142_2,"  @Test
   public void appendListQueryParams_2_oe() throws Exception {
     // removed other assertion
     assertEquals( ""http://test.com/?a[]=1&a[]=2"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", Arrays.asList(new Integer[] { 1, 2 }))));
   }
 ",HttpRequestTest::appendListQueryParams_2_oe
-http_137_3,"  @Test
+http_142_3,"  @Test
   public void appendListQueryParams_3_oe() throws Exception {
     // removed other assertion
     // removed other assertion
     assertEquals( ""http://test.com/?a[]=1"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", Arrays.asList(new Integer[] { 1 }))));
   }
 ",HttpRequestTest::appendListQueryParams_3_oe
-http_137_4,"  @Test
+http_142_4,"  @Test
   public void appendListQueryParams_4_oe() throws Exception {
     // removed other assertion
     // removed other assertion
@@ -7135,7 +7666,7 @@ http_137_4,"  @Test
     assertEquals( ""http://test.com/?"", HttpRequest.append(""http://test.com"", Collections.singletonMap(""a"", Arrays.asList(new Integer[] { }))));
   }
 ",HttpRequestTest::appendListQueryParams_4_oe
-http_137_5,"  @Test
+http_142_5,"  @Test
   public void appendListQueryParams_5_oe() throws Exception {
     // removed other assertion
     // removed other assertion
@@ -7144,7 +7675,7 @@ http_137_5,"  @Test
     assertEquals( ""http://test.com/?foo[]=bar&foo[]=baz&a[]=1&a[]=2"", HttpRequest.append(""http://test.com"", ""foo"", Arrays.asList(new String[] { ""bar"", ""baz"" }), ""a"", Arrays.asList(new Integer[] { 1, 2 })));
   }
 ",HttpRequestTest::appendListQueryParams_5_oe
-http_138_1,"  @Test
+http_143_1,"  @Test
   public void serverErrorCode_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -7157,7 +7688,7 @@ http_138_1,"  @Test
     assertNotNull(request);
   }
 ",HttpRequestTest::serverErrorCode_1_oe
-http_138_2,"  @Test
+http_143_2,"  @Test
   public void serverErrorCode_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -7171,7 +7702,7 @@ http_138_2,"  @Test
     assertTrue(request.serverError());
   }
 ",HttpRequestTest::serverErrorCode_2_oe
-http_139_1,"  @Test
+http_144_1,"  @Test
   public void badRequestCode_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -7184,7 +7715,7 @@ http_139_1,"  @Test
     assertNotNull(request);
   }
 ",HttpRequestTest::badRequestCode_1_oe
-http_139_2,"  @Test
+http_144_2,"  @Test
   public void badRequestCode_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -7198,7 +7729,7 @@ http_139_2,"  @Test
     assertTrue(request.badRequest());
   }
 ",HttpRequestTest::badRequestCode_2_oe
-http_140_1,"  @Test
+http_145_1,"  @Test
   public void notModifiedCode_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -7211,7 +7742,7 @@ http_140_1,"  @Test
     assertNotNull(request);
   }
 ",HttpRequestTest::notModifiedCode_1_oe
-http_140_2,"  @Test
+http_145_2,"  @Test
   public void notModifiedCode_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -7225,7 +7756,7 @@ http_140_2,"  @Test
     assertTrue(request.notModified());
   }
 ",HttpRequestTest::notModifiedCode_2_oe
-http_141_1,"  @Test
+http_146_1,"  @Test
   public void sendReceiveWithoutCode_1_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7246,7 +7777,7 @@ http_141_1,"  @Test
     assertEquals(""world"", request.send(""hello"").body());
   }
 ",HttpRequestTest::sendReceiveWithoutCode_1_oe
-http_141_2,"  @Test
+http_146_2,"  @Test
   public void sendReceiveWithoutCode_2_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7268,7 +7799,7 @@ http_141_2,"  @Test
     assertEquals(""hello"", body.get());
   }
 ",HttpRequestTest::sendReceiveWithoutCode_2_oe
-http_142_1,"  @Test
+http_147_1,"  @Test
   public void sendHeadersWithoutCode_1_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7287,7 +7818,7 @@ http_142_1,"  @Test
     assertEquals(""v1"", headers.get(""h1"").get(0));
   }
 ",HttpRequestTest::sendHeadersWithoutCode_1_oe
-http_142_2,"  @Test
+http_147_2,"  @Test
   public void sendHeadersWithoutCode_2_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7307,7 +7838,7 @@ http_142_2,"  @Test
     assertEquals(""v2"", headers.get(""h2"").get(0));
   }
 ",HttpRequestTest::sendHeadersWithoutCode_2_oe
-http_142_3,"  @Test
+http_147_3,"  @Test
   public void sendHeadersWithoutCode_3_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7328,7 +7859,7 @@ http_142_3,"  @Test
     assertEquals(""hello"", body.get());
   }
 ",HttpRequestTest::sendHeadersWithoutCode_3_oe
-http_143_1,"  @Test
+http_148_1,"  @Test
   public void sendDateHeaderWithoutCode_1_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7345,7 +7876,7 @@ http_143_1,"  @Test
     assertEquals(1000, request.send(""hello"").date());
   }
 ",HttpRequestTest::sendDateHeaderWithoutCode_1_oe
-http_143_2,"  @Test
+http_148_2,"  @Test
   public void sendDateHeaderWithoutCode_2_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7363,7 +7894,7 @@ http_143_2,"  @Test
     assertEquals(""hello"", body.get());
   }
 ",HttpRequestTest::sendDateHeaderWithoutCode_2_oe
-http_144_1,"  @Test
+http_149_1,"  @Test
   public void sendIntHeaderWithoutCode_1_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7380,7 +7911,7 @@ http_144_1,"  @Test
     assertEquals(9876, request.send(""hello"").intHeader(""Width""));
   }
 ",HttpRequestTest::sendIntHeaderWithoutCode_1_oe
-http_144_2,"  @Test
+http_149_2,"  @Test
   public void sendIntHeaderWithoutCode_2_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7398,7 +7929,7 @@ http_144_2,"  @Test
     assertEquals(""hello"", body.get());
   }
 ",HttpRequestTest::sendIntHeaderWithoutCode_2_oe
-http_145_1,"  @Test
+http_150_1,"  @Test
   public void customConnectionFactory_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -7424,7 +7955,7 @@ http_145_1,"  @Test
     assertEquals(200, code);
   }
 ",HttpRequestTest::customConnectionFactory_1_oe
-http_146_1,"  @Test
+http_151_1,"  @Test
   public void nullConnectionFactory_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -7439,7 +7970,7 @@ http_146_1,"  @Test
     assertEquals(200, code);
   }
 ",HttpRequestTest::nullConnectionFactory_1_oe
-http_147_1,"  @Test
+http_152_1,"  @Test
   public void streamOfEmptyOkResponse_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -7451,7 +7982,7 @@ http_147_1,"  @Test
     assertEquals("""", get(url).body());
   }
 ",HttpRequestTest::streamOfEmptyOkResponse_1_oe
-http_148_1,"  @Test
+http_153_1,"  @Test
   public void bodyOfEmptyErrorResponse_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -7463,7 +7994,7 @@ http_148_1,"  @Test
     assertEquals("""", get(url).body());
   }
 ",HttpRequestTest::bodyOfEmptyErrorResponse_1_oe
-http_149_1,"  @Test
+http_154_1,"  @Test
   public void bodyOfNonEmptyErrorResponse_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -7480,7 +8011,7 @@ http_149_1,"  @Test
     assertEquals(""error"", get(url).body());
   }
 ",HttpRequestTest::bodyOfNonEmptyErrorResponse_1_oe
-http_150_3,"  @Test
+http_155_3,"  @Test
   public void uploadProgressSend_3_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7505,7 +8036,7 @@ http_150_3,"  @Test
     assertEquals(file.length(), tx.get());
   }
 ",HttpRequestTest::uploadProgressSend_3_oe
-http_151_3,"  @Test
+http_156_3,"  @Test
   public void uploadProgressSendInputStream_3_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7530,7 +8061,7 @@ http_151_3,"  @Test
     assertEquals(file.length(), tx.get());
   }
 ",HttpRequestTest::uploadProgressSendInputStream_3_oe
-http_152_3,"  @Test
+http_157_3,"  @Test
   public void uploadProgressSendByteArray_3_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7554,7 +8085,7 @@ http_152_3,"  @Test
     assertEquals(bytes.length, tx.get());
   }
 ",HttpRequestTest::uploadProgressSendByteArray_3_oe
-http_153_3,"  @Test
+http_158_3,"  @Test
   public void uploadProgressSendReader_3_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7579,7 +8110,7 @@ http_153_3,"  @Test
     assertEquals(file.length(), tx.get());
   }
 ",HttpRequestTest::uploadProgressSendReader_3_oe
-http_154_1,"  @Test
+http_159_1,"  @Test
   public void nullUploadProgress_1_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -7596,7 +8127,7 @@ http_154_1,"  @Test
     assertEquals(HTTP_OK, code);
   }
 ",HttpRequestTest::nullUploadProgress_1_oe
-http_154_2,"  @Test
+http_159_2,"  @Test
   public void nullUploadProgress_2_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {

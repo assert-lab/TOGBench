@@ -34,10 +34,10 @@ public class JCSvsCommonsLRUMapPerformanceTest_OE25Dev
     extends TestCase
 {
     /** jcs / commons */
-    float ratioPut = 0;
+    float ratioPut;
 
     /** jcs / commons */
-    float ratioGet = 0;
+    float ratioGet;
 
     /** goal */
     float target = 1.0f;
@@ -75,7 +75,7 @@ public class JCSvsCommonsLRUMapPerformanceTest_OE25Dev
 
         try
         {
-            Map<String, String> cache = new LRUMap<>( tries );
+            final Map<String, String> cache = new LRUMap<>( tries );
 
             for ( int j = 0; j < loops; j++ )
             {
@@ -105,7 +105,7 @@ public class JCSvsCommonsLRUMapPerformanceTest_OE25Dev
                 // /////////////////////////////////////////////////////////////
                 cache2Name = "Commons  ";
                 // or LRUMapJCS
-                Map<String, String> cache2 = new org.apache.commons.collections4.map.LRUMap<>( tries );
+                final Map<String, String> cache2 = new org.apache.commons.collections4.map.LRUMap<>( tries );
                 // cache2Name = "Hashtable";
                 // Hashtable cache2 = new Hashtable();
                 start = System.currentTimeMillis();
@@ -134,16 +134,16 @@ public class JCSvsCommonsLRUMapPerformanceTest_OE25Dev
             }
 
         }
-        catch ( Exception e )
+        catch ( final Exception e )
         {
             e.printStackTrace( System.out );
             System.out.println( e );
         }
 
-        long putAvJCS = putTotalJCS / loops;
-        long getAvJCS = getTotalJCS / loops;
-        long putAvHashtable = putTotalHashtable / loops;
-        long getAvHashtable = getTotalHashtable / loops;
+        final long putAvJCS = putTotalJCS / loops;
+        final long getAvJCS = getTotalJCS / loops;
+        final long putAvHashtable = putTotalHashtable / loops;
+        final long getAvHashtable = getTotalHashtable / loops;
 
         System.out.println( "Finished " + loops + " loops of " + tries + " gets and puts" );
 
@@ -165,7 +165,7 @@ public class JCSvsCommonsLRUMapPerformanceTest_OE25Dev
     public void testSimpleLoad_1_oe()
         throws Exception
     {
-        Log log = LogManager.getLog( LRUMap.class );
+        final Log log = LogManager.getLog( LRUMap.class );
         if ( log.isDebugEnabled() )
         {
             System.out.println( "The log level must be at info or above for the a performance test." );
@@ -179,7 +179,7 @@ public class JCSvsCommonsLRUMapPerformanceTest_OE25Dev
     public void testSimpleLoad_2_oe()
         throws Exception
     {
-        Log log = LogManager.getLog( LRUMap.class );
+        final Log log = LogManager.getLog( LRUMap.class );
         if ( log.isDebugEnabled() )
         {
             System.out.println( "The log level must be at info or above for the a performance test." );

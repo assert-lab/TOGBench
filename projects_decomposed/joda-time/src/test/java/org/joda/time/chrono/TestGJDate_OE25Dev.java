@@ -32,7 +32,7 @@ public class TestGJDate_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestGJDate_OE25Dev.class);
+        return new TestSuite(TestGJDate.class);
     }
 
     public TestGJDate_OE25Dev(String name) {

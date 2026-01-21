@@ -29,7 +29,6 @@ public class ConfigurationException
     /** Constructor for the ConfigurationException object */
     public ConfigurationException()
     {
-        super();
     }
 
     /**
@@ -37,7 +36,7 @@ public class ConfigurationException
      * <p>
      * @param message
      */
-    public ConfigurationException( String message )
+    public ConfigurationException( final String message )
     {
         super( message );
     }

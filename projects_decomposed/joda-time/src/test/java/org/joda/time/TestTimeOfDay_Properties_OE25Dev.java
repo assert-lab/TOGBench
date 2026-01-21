@@ -56,7 +56,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestTimeOfDay_Properties_OE25Dev.class);
+        return new TestSuite(TestTimeOfDay_Properties.class);
     }
 
     public TestTimeOfDay_Properties_OE25Dev(String name) {
@@ -546,7 +546,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetHour_1_oe() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(test.getChronology().hourOfDay(), test.hourOfDay().getField());
+        assertSame(test.getChronology().hourOfDay(), test.hourOfDay().getField());
     }
 
     public void testPropertyGetHour_2_oe() {
@@ -567,7 +567,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.hourOfDay().getReadablePartial());
+        assertSame(test, test.hourOfDay().getReadablePartial());
     }
 
     public void testPropertyGetHour_5_oe() {
@@ -576,7 +576,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.hourOfDay().getTimeOfDay());
+        assertSame(test, test.hourOfDay().getTimeOfDay());
     }
 
     public void testPropertyGetHour_6_oe() {
@@ -824,7 +824,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMinute_1_oe() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
+        assertSame(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
     }
 
     public void testPropertyGetMinute_2_oe() {
@@ -845,7 +845,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.minuteOfHour().getReadablePartial());
+        assertSame(test, test.minuteOfHour().getReadablePartial());
     }
 
     public void testPropertyGetMinute_5_oe() {
@@ -854,7 +854,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.minuteOfHour().getTimeOfDay());
+        assertSame(test, test.minuteOfHour().getTimeOfDay());
     }
 
     public void testPropertyGetMinute_6_oe() {
@@ -1102,7 +1102,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetSecond_1_oe() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
+        assertSame(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
     }
 
     public void testPropertyGetSecond_2_oe() {
@@ -1123,7 +1123,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.secondOfMinute().getReadablePartial());
+        assertSame(test, test.secondOfMinute().getReadablePartial());
     }
 
     public void testPropertyGetSecond_5_oe() {
@@ -1132,7 +1132,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.secondOfMinute().getTimeOfDay());
+        assertSame(test, test.secondOfMinute().getTimeOfDay());
     }
 
     public void testPropertyGetSecond_6_oe() {
@@ -1380,7 +1380,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMilli_1_oe() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
-        assertEquals(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
+        assertSame(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
     }
 
     public void testPropertyGetMilli_2_oe() {
@@ -1401,7 +1401,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.millisOfSecond().getReadablePartial());
+        assertSame(test, test.millisOfSecond().getReadablePartial());
     }
 
     public void testPropertyGetMilli_5_oe() {
@@ -1410,7 +1410,7 @@ public class TestTimeOfDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.millisOfSecond().getTimeOfDay());
+        assertSame(test, test.millisOfSecond().getTimeOfDay());
     }
 
     public void testPropertyGetMilli_6_oe() {

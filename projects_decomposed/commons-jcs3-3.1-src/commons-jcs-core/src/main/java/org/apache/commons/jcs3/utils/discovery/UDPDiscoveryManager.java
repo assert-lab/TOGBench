@@ -23,9 +23,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 import org.apache.commons.jcs3.engine.behavior.ICompositeCacheManager;
+import org.apache.commons.jcs3.engine.behavior.IElementSerializer;
 import org.apache.commons.jcs3.engine.behavior.IProvideScheduler;
 import org.apache.commons.jcs3.log.Log;
 import org.apache.commons.jcs3.log.LogManager;
+import org.apache.commons.jcs3.utils.serialization.StandardSerializer;
 
 /**
  * This manages UDPDiscovery Services. We should end up with one service per Lateral Cache Manager
@@ -39,7 +41,7 @@ public class UDPDiscoveryManager
     private static final Log log = LogManager.getLog( UDPDiscoveryManager.class );
 
     /** Singleton instance */
-    private static UDPDiscoveryManager INSTANCE = new UDPDiscoveryManager();
+    private static final UDPDiscoveryManager INSTANCE = new UDPDiscoveryManager();
 
     /** Known services */
     private final ConcurrentMap<String, UDPDiscoveryService> services = new ConcurrentHashMap<>();
@@ -60,32 +62,62 @@ public class UDPDiscoveryManager
         return INSTANCE;
     }
 
+
     /**
      * Creates a service for the address and port if one doesn't exist already.
      * <p>
-     * We need to key this using the listener port too. TODO think of making one discovery service
-     * work for multiple types of clients.
+     * We need to key this using the listener port too.
+     * TODO think of making one discovery service work for multiple types of clients.
      * <p>
      * @param discoveryAddress
      * @param discoveryPort
      * @param servicePort
      * @param cacheMgr
      * @return UDPDiscoveryService
+     * @deprecated Specify serializer implementation explicitly, allow to specify udpTTL
      */
-    public UDPDiscoveryService getService( String discoveryAddress, int discoveryPort, int servicePort,
-                                                        ICompositeCacheManager cacheMgr )
+    @Deprecated
+    public UDPDiscoveryService getService( final String discoveryAddress, final int discoveryPort, final int servicePort,
+                                                        final ICompositeCacheManager cacheMgr )
     {
-        String key = discoveryAddress + ":" + discoveryPort + ":" + servicePort;
+        return getService(discoveryAddress, discoveryPort, null, servicePort, 0,
+                cacheMgr, new StandardSerializer());
+    }
 
-        UDPDiscoveryService service = services.computeIfAbsent(key, k -> {
+    /**
+     * Creates a service for the address and port if one doesn't exist already.
+     * <p>
+     * We need to key this using the listener port too.
+     * TODO think of making one discovery service work for multiple types of clients.
+     * <p>
+     * @param discoveryAddress
+     * @param discoveryPort
+     * @param serviceAddress
+     * @param servicePort
+     * @param updTTL
+     * @param cacheMgr
+     * @param serializer
+     *
+     * @return UDPDiscoveryService
+     * @since 3.1
+     */
+    public UDPDiscoveryService getService( final String discoveryAddress, final int discoveryPort,
+            final String serviceAddress, final int servicePort, final int updTTL,
+            final ICompositeCacheManager cacheMgr, final IElementSerializer serializer )
+    {
+        final String key = String.join(":", discoveryAddress, String.valueOf(discoveryPort), String.valueOf(servicePort));
+
+        final UDPDiscoveryService service = services.computeIfAbsent(key, k -> {
             log.info( "Creating service for address:port:servicePort [{0}]", key );
 
-            UDPDiscoveryAttributes attributes = new UDPDiscoveryAttributes();
-            attributes.setUdpDiscoveryAddr( discoveryAddress );
-            attributes.setUdpDiscoveryPort( discoveryPort );
-            attributes.setServicePort( servicePort );
+            final UDPDiscoveryAttributes attributes = new UDPDiscoveryAttributes();
+            attributes.setUdpDiscoveryAddr(discoveryAddress);
+            attributes.setUdpDiscoveryPort(discoveryPort);
+            attributes.setServiceAddress(serviceAddress);
+            attributes.setServicePort(servicePort);
+            attributes.setUdpTTL(updTTL);
 
-            UDPDiscoveryService newService = new UDPDiscoveryService( attributes );
+            final UDPDiscoveryService newService = new UDPDiscoveryService(attributes, serializer);
 
             // register for shutdown notification
             cacheMgr.registerShutdownObserver( newService );

@@ -48,7 +48,7 @@ import org.apache.commons.jcs3.log.LogManager;
 public class JndiDataSourceFactory implements DataSourceFactory
 {
     /** The log. */
-    private static Log log = LogManager.getLog(JndiDataSourceFactory.class);
+    private static final Log log = LogManager.getLog(JndiDataSourceFactory.class);
 
     /** The name of the factory. */
     private String name;
@@ -60,13 +60,13 @@ public class JndiDataSourceFactory implements DataSourceFactory
     private Context ctx;
 
     /** A locally cached copy of the DataSource */
-    private DataSource ds = null;
+    private DataSource ds;
 
     /** Time of last actual lookup action */
-    private long lastLookup = 0;
+    private long lastLookup;
 
     /** Time between two lookups */
-    private long ttl = 0; // ms
+    private long ttl; // ms
 
     /**
      * @return the name of the factory.
@@ -83,7 +83,7 @@ public class JndiDataSourceFactory implements DataSourceFactory
     @Override
 	public DataSource getDataSource() throws SQLException
     {
-        long time = System.currentTimeMillis();
+        final long time = System.currentTimeMillis();
 
         if (ds == null || time - lastLookup > ttl)
         {
@@ -95,7 +95,7 @@ public class JndiDataSourceFactory implements DataSourceFactory
                 }
                 lastLookup = time;
             }
-            catch (NamingException e)
+            catch (final NamingException e)
             {
                 throw new SQLException(e);
             }
@@ -108,7 +108,7 @@ public class JndiDataSourceFactory implements DataSourceFactory
      * @see org.apache.commons.jcs3.auxiliary.disk.jdbc.dsfactory.DataSourceFactory#initialize(JDBCDiskCacheAttributes)
      */
     @Override
-	public void initialize(JDBCDiskCacheAttributes config) throws SQLException
+	public void initialize(final JDBCDiskCacheAttributes config) throws SQLException
     {
     	this.name = config.getConnectionPoolName();
         initJNDI(config);
@@ -120,7 +120,7 @@ public class JndiDataSourceFactory implements DataSourceFactory
      * @param config where to read the settings from
      * @throws SQLException if a property set fails
      */
-    private void initJNDI(JDBCDiskCacheAttributes config) throws SQLException
+    private void initJNDI(final JDBCDiskCacheAttributes config) throws SQLException
     {
         log.debug("Starting initJNDI");
 
@@ -132,7 +132,7 @@ public class JndiDataSourceFactory implements DataSourceFactory
             this.ttl = config.getJndiTTL();
             log.debug("Time between context lookups: {0}", ttl);
 
-    		Hashtable<String, Object> env = new Hashtable<>();
+    		final Hashtable<String, Object> env = new Hashtable<>();
             ctx = new InitialContext(env);
 
             if (log.isTraceEnabled())
@@ -141,7 +141,7 @@ public class JndiDataSourceFactory implements DataSourceFactory
             	debugCtx(ctx);
             }
         }
-        catch (NamingException e)
+        catch (final NamingException e)
         {
             throw new SQLException(e);
         }
@@ -162,10 +162,10 @@ public class JndiDataSourceFactory implements DataSourceFactory
      * @param ctx the context
      * @throws NamingException
      */
-    private void debugCtx(Context ctx) throws NamingException
+    private void debugCtx(final Context ctx) throws NamingException
     {
         log.trace("InitialContext -------------------------------");
-        Map<?, ?> env = ctx.getEnvironment();
+        final Map<?, ?> env = ctx.getEnvironment();
         log.trace("Environment properties: {0}", env.size());
         env.forEach((key, value) -> log.trace("    {0}: {1}", key, value));
         log.trace("----------------------------------------------");

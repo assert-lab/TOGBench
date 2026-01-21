@@ -139,7 +139,7 @@ public class TestInterval_Basics extends TestCase {
 
     public void testGetDuration2() {
         Interval test = new Interval(TEST_TIME1, TEST_TIME1);
-        assertEquals(Duration.ZERO, test.toDuration());
+        assertSame(Duration.ZERO, test.toDuration());
     }
 
     public void testGetDuration3() {
@@ -985,7 +985,7 @@ public class TestInterval_Basics extends TestCase {
     public void testToInterval1() {
         Interval test = new Interval(TEST_TIME1, TEST_TIME2, COPTIC_PARIS);
         Interval result = test.toInterval();
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -1076,7 +1076,7 @@ public class TestInterval_Basics extends TestCase {
     public void testWithChronology3() {
         Interval base = new Interval(TEST_TIME1, TEST_TIME2, COPTIC_PARIS);
         Interval test = base.withChronology(COPTIC_PARIS);
-        assertEquals(base, test);
+        assertSame(base, test);
     }
 
     //-----------------------------------------------------------------------
@@ -1097,7 +1097,7 @@ public class TestInterval_Basics extends TestCase {
     public void testWithStartMillis_long3() {
         Interval base = new Interval(TEST_TIME1, TEST_TIME2, COPTIC_PARIS);
         Interval test = base.withStartMillis(TEST_TIME1);
-        assertEquals(base, test);
+        assertSame(base, test);
     }
 
     //-----------------------------------------------------------------------
@@ -1139,7 +1139,7 @@ public class TestInterval_Basics extends TestCase {
     public void testWithEndMillis_long3() {
         Interval base = new Interval(TEST_TIME1, TEST_TIME2, COPTIC_PARIS);
         Interval test = base.withEndMillis(TEST_TIME2);
-        assertEquals(base, test);
+        assertSame(base, test);
     }
 
     //-----------------------------------------------------------------------
@@ -1192,7 +1192,7 @@ public class TestInterval_Basics extends TestCase {
         Interval base = new Interval(TEST_TIME_NOW, TEST_TIME2, COPTIC_PARIS);
         Interval test = base.withDurationAfterStart(base.toDuration());
         
-        assertEquals(base, test);
+        assertSame(base, test);
     }
 
     //-----------------------------------------------------------------------
@@ -1224,7 +1224,7 @@ public class TestInterval_Basics extends TestCase {
         Interval base = new Interval(TEST_TIME_NOW, TEST_TIME2, COPTIC_PARIS);
         Interval test = base.withDurationBeforeEnd(base.toDuration());
         
-        assertEquals(base, test);
+        assertSame(base, test);
     }
 
     //-----------------------------------------------------------------------

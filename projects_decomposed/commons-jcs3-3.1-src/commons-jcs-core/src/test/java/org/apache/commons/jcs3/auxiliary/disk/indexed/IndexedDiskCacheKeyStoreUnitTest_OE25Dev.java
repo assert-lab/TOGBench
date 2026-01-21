@@ -57,27 +57,27 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
     public void testStoreKeys_1_oe()
         throws Exception
     {
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testStoreKeys" );
         cattr.setMaxKeySize( 100 );
         cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
-        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
         disk.processRemoveAll();
 
-        int cnt = 25;
+        final int cnt = 25;
         for ( int i = 0; i < cnt; i++ )
         {
-            IElementAttributes eAttr = new ElementAttributes();
+            final IElementAttributes eAttr = new ElementAttributes();
             eAttr.setIsSpool( true );
-            ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
             element.setElementAttributes( eAttr );
             disk.processUpdate( element );
         }
 
         for ( int i = 0; i < cnt; i++ )
         {
-            ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            final ICacheElement<String, String> element = disk.processGet( "key:" + i );
             assertNotNull( "presave, Should have received an element.", element );
     }
     }
@@ -85,27 +85,27 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
     public void testStoreKeys_2_oe()
         throws Exception
     {
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testStoreKeys" );
         cattr.setMaxKeySize( 100 );
         cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
-        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
         disk.processRemoveAll();
 
-        int cnt = 25;
+        final int cnt = 25;
         for ( int i = 0; i < cnt; i++ )
         {
-            IElementAttributes eAttr = new ElementAttributes();
+            final IElementAttributes eAttr = new ElementAttributes();
             eAttr.setIsSpool( true );
-            ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
             element.setElementAttributes( eAttr );
             disk.processUpdate( element );
         }
 
         for ( int i = 0; i < cnt; i++ )
         {
-            ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            final ICacheElement<String, String> element = disk.processGet( "key:" + i );
             // removed other assertion
             assertEquals( "presave, element is wrong.", "data:" + i, element.getVal() );
     }
@@ -114,27 +114,27 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
     public void testStoreKeys_3_oe()
         throws Exception
     {
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testStoreKeys" );
         cattr.setMaxKeySize( 100 );
         cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
-        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
         disk.processRemoveAll();
 
-        int cnt = 25;
+        final int cnt = 25;
         for ( int i = 0; i < cnt; i++ )
         {
-            IElementAttributes eAttr = new ElementAttributes();
+            final IElementAttributes eAttr = new ElementAttributes();
             eAttr.setIsSpool( true );
-            ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
             element.setElementAttributes( eAttr );
             disk.processUpdate( element );
         }
 
         for ( int i = 0; i < cnt; i++ )
         {
-            ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            final ICacheElement<String, String> element = disk.processGet( "key:" + i );
             // removed other assertion
             // removed other assertion
         }
@@ -149,27 +149,27 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
     public void testStoreKeys_4_oe()
         throws Exception
     {
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testStoreKeys" );
         cattr.setMaxKeySize( 100 );
         cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
-        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
         disk.processRemoveAll();
 
-        int cnt = 25;
+        final int cnt = 25;
         for ( int i = 0; i < cnt; i++ )
         {
-            IElementAttributes eAttr = new ElementAttributes();
+            final IElementAttributes eAttr = new ElementAttributes();
             eAttr.setIsSpool( true );
-            ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
             element.setElementAttributes( eAttr );
             disk.processUpdate( element );
         }
 
         for ( int i = 0; i < cnt; i++ )
         {
-            ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            final ICacheElement<String, String> element = disk.processGet( "key:" + i );
             // removed other assertion
             // removed other assertion
         }
@@ -182,7 +182,7 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
 
         for ( int i = 0; i < cnt; i++ )
         {
-            ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            final ICacheElement<String, String> element = disk.processGet( "key:" + i );
             assertNotNull( "postsave, Should have received an element.", element );
     }
     }
@@ -190,27 +190,27 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
     public void testStoreKeys_5_oe()
         throws Exception
     {
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testStoreKeys" );
         cattr.setMaxKeySize( 100 );
         cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
-        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
         disk.processRemoveAll();
 
-        int cnt = 25;
+        final int cnt = 25;
         for ( int i = 0; i < cnt; i++ )
         {
-            IElementAttributes eAttr = new ElementAttributes();
+            final IElementAttributes eAttr = new ElementAttributes();
             eAttr.setIsSpool( true );
-            ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
             element.setElementAttributes( eAttr );
             disk.processUpdate( element );
         }
 
         for ( int i = 0; i < cnt; i++ )
         {
-            ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            final ICacheElement<String, String> element = disk.processGet( "key:" + i );
             // removed other assertion
             // removed other assertion
         }
@@ -223,7 +223,7 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
 
         for ( int i = 0; i < cnt; i++ )
         {
-            ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            final ICacheElement<String, String> element = disk.processGet( "key:" + i );
             // removed other assertion
             assertEquals( "postsave, element is wrong.", "data:" + i, element.getVal() );
     }
@@ -232,66 +232,66 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
     public void testOptiimize_1_oe()
         throws Exception
     {
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testOptimize" );
         cattr.setMaxKeySize( 100 );
         cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
-        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
         disk.processRemoveAll();
 
-        int cnt = 25;
+        final int cnt = 25;
         for ( int i = 0; i < cnt; i++ )
         {
-            IElementAttributes eAttr = new ElementAttributes();
+            final IElementAttributes eAttr = new ElementAttributes();
             eAttr.setIsSpool( true );
-            ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
             element.setElementAttributes( eAttr );
             disk.processUpdate( element );
         }
 
-        long preAddRemoveSize = disk.getDataFileSize();
+        final long preAddRemoveSize = disk.getDataFileSize();
 
-        IElementAttributes eAttr = new ElementAttributes();
+        final IElementAttributes eAttr = new ElementAttributes();
         eAttr.setIsSpool( true );
-        ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
+        final ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
         elementSetup.setElementAttributes( eAttr );
         disk.processUpdate( elementSetup );
 
-        ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
+        final ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
         assertNotNull( "postsave, Should have received an element.", elementRet );
     }
 
     public void testOptiimize_2_oe()
         throws Exception
     {
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testOptimize" );
         cattr.setMaxKeySize( 100 );
         cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
-        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
         disk.processRemoveAll();
 
-        int cnt = 25;
+        final int cnt = 25;
         for ( int i = 0; i < cnt; i++ )
         {
-            IElementAttributes eAttr = new ElementAttributes();
+            final IElementAttributes eAttr = new ElementAttributes();
             eAttr.setIsSpool( true );
-            ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
             element.setElementAttributes( eAttr );
             disk.processUpdate( element );
         }
 
-        long preAddRemoveSize = disk.getDataFileSize();
+        final long preAddRemoveSize = disk.getDataFileSize();
 
-        IElementAttributes eAttr = new ElementAttributes();
+        final IElementAttributes eAttr = new ElementAttributes();
         eAttr.setIsSpool( true );
-        ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
+        final ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
         elementSetup.setElementAttributes( eAttr );
         disk.processUpdate( elementSetup );
 
-        ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
+        final ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
         // removed other assertion
         assertEquals( "postsave, element is wrong.", "data:" + "A", elementRet.getVal() );
     }
@@ -299,42 +299,42 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
     public void testOptiimize_3_oe()
         throws Exception
     {
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testOptimize" );
         cattr.setMaxKeySize( 100 );
         cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
-        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
         disk.processRemoveAll();
 
-        int cnt = 25;
+        final int cnt = 25;
         for ( int i = 0; i < cnt; i++ )
         {
-            IElementAttributes eAttr = new ElementAttributes();
+            final IElementAttributes eAttr = new ElementAttributes();
             eAttr.setIsSpool( true );
-            ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
             element.setElementAttributes( eAttr );
             disk.processUpdate( element );
         }
 
-        long preAddRemoveSize = disk.getDataFileSize();
+        final long preAddRemoveSize = disk.getDataFileSize();
 
-        IElementAttributes eAttr = new ElementAttributes();
+        final IElementAttributes eAttr = new ElementAttributes();
         eAttr.setIsSpool( true );
-        ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
+        final ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
         elementSetup.setElementAttributes( eAttr );
         disk.processUpdate( elementSetup );
 
-        ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
+        final ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
         // removed other assertion
         // removed other assertion
 
         disk.remove( "key:" + "A" );
 
-        long preSize = disk.getDataFileSize();
+        final long preSize = disk.getDataFileSize();
         // synchronous versoin
         disk.optimizeFile(); //deoptimizeRealTime();
-        long postSize = disk.getDataFileSize();
+        final long postSize = disk.getDataFileSize();
 
         assertTrue( "Should be smaller. postsize="+postSize+" preSize="+preSize, postSize < preSize );
     }
@@ -342,42 +342,42 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
     public void testOptiimize_4_oe()
         throws Exception
     {
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testOptimize" );
         cattr.setMaxKeySize( 100 );
         cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
-        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
         disk.processRemoveAll();
 
-        int cnt = 25;
+        final int cnt = 25;
         for ( int i = 0; i < cnt; i++ )
         {
-            IElementAttributes eAttr = new ElementAttributes();
+            final IElementAttributes eAttr = new ElementAttributes();
             eAttr.setIsSpool( true );
-            ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
             element.setElementAttributes( eAttr );
             disk.processUpdate( element );
         }
 
-        long preAddRemoveSize = disk.getDataFileSize();
+        final long preAddRemoveSize = disk.getDataFileSize();
 
-        IElementAttributes eAttr = new ElementAttributes();
+        final IElementAttributes eAttr = new ElementAttributes();
         eAttr.setIsSpool( true );
-        ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
+        final ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
         elementSetup.setElementAttributes( eAttr );
         disk.processUpdate( elementSetup );
 
-        ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
+        final ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
         // removed other assertion
         // removed other assertion
 
         disk.remove( "key:" + "A" );
 
-        long preSize = disk.getDataFileSize();
+        final long preSize = disk.getDataFileSize();
         // synchronous versoin
         disk.optimizeFile(); //deoptimizeRealTime();
-        long postSize = disk.getDataFileSize();
+        final long postSize = disk.getDataFileSize();
 
         // removed other assertion
         assertEquals( "Should be the same size after optimization as before add and remove.", preAddRemoveSize, postSize );
@@ -386,49 +386,49 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
     public void testOptiimize_5_oe()
         throws Exception
     {
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testOptimize" );
         cattr.setMaxKeySize( 100 );
         cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
-        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
         disk.processRemoveAll();
 
-        int cnt = 25;
+        final int cnt = 25;
         for ( int i = 0; i < cnt; i++ )
         {
-            IElementAttributes eAttr = new ElementAttributes();
+            final IElementAttributes eAttr = new ElementAttributes();
             eAttr.setIsSpool( true );
-            ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
             element.setElementAttributes( eAttr );
             disk.processUpdate( element );
         }
 
-        long preAddRemoveSize = disk.getDataFileSize();
+        final long preAddRemoveSize = disk.getDataFileSize();
 
-        IElementAttributes eAttr = new ElementAttributes();
+        final IElementAttributes eAttr = new ElementAttributes();
         eAttr.setIsSpool( true );
-        ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
+        final ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
         elementSetup.setElementAttributes( eAttr );
         disk.processUpdate( elementSetup );
 
-        ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
+        final ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
         // removed other assertion
         // removed other assertion
 
         disk.remove( "key:" + "A" );
 
-        long preSize = disk.getDataFileSize();
+        final long preSize = disk.getDataFileSize();
         // synchronous versoin
         disk.optimizeFile(); //deoptimizeRealTime();
-        long postSize = disk.getDataFileSize();
+        final long postSize = disk.getDataFileSize();
 
         // removed other assertion
         // removed other assertion
 
         for ( int i = 0; i < cnt; i++ )
         {
-            ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            final ICacheElement<String, String> element = disk.processGet( "key:" + i );
             assertNotNull( "postsave, Should have received an element.", element );
     }
     }
@@ -436,49 +436,49 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
     public void testOptiimize_6_oe()
         throws Exception
     {
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testOptimize" );
         cattr.setMaxKeySize( 100 );
         cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
-        IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
 
         disk.processRemoveAll();
 
-        int cnt = 25;
+        final int cnt = 25;
         for ( int i = 0; i < cnt; i++ )
         {
-            IElementAttributes eAttr = new ElementAttributes();
+            final IElementAttributes eAttr = new ElementAttributes();
             eAttr.setIsSpool( true );
-            ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
             element.setElementAttributes( eAttr );
             disk.processUpdate( element );
         }
 
-        long preAddRemoveSize = disk.getDataFileSize();
+        final long preAddRemoveSize = disk.getDataFileSize();
 
-        IElementAttributes eAttr = new ElementAttributes();
+        final IElementAttributes eAttr = new ElementAttributes();
         eAttr.setIsSpool( true );
-        ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
+        final ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
         elementSetup.setElementAttributes( eAttr );
         disk.processUpdate( elementSetup );
 
-        ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
+        final ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
         // removed other assertion
         // removed other assertion
 
         disk.remove( "key:" + "A" );
 
-        long preSize = disk.getDataFileSize();
+        final long preSize = disk.getDataFileSize();
         // synchronous versoin
         disk.optimizeFile(); //deoptimizeRealTime();
-        long postSize = disk.getDataFileSize();
+        final long postSize = disk.getDataFileSize();
 
         // removed other assertion
         // removed other assertion
 
         for ( int i = 0; i < cnt; i++ )
         {
-            ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            final ICacheElement<String, String> element = disk.processGet( "key:" + i );
             // removed other assertion
             assertEquals( "postsave, element is wrong.", "data:" + i, element.getVal() );
     }

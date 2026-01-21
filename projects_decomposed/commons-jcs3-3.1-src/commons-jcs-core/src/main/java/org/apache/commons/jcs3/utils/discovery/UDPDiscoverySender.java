@@ -24,12 +24,15 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.InetAddress;
 import java.net.MulticastSocket;
+import java.net.NetworkInterface;
 import java.util.ArrayList;
 
 import org.apache.commons.jcs3.engine.CacheInfo;
+import org.apache.commons.jcs3.engine.behavior.IElementSerializer;
 import org.apache.commons.jcs3.log.Log;
 import org.apache.commons.jcs3.log.LogManager;
 import org.apache.commons.jcs3.utils.discovery.UDPDiscoveryMessage.BroadcastType;
+import org.apache.commons.jcs3.utils.net.HostNameUtil;
 import org.apache.commons.jcs3.utils.serialization.StandardSerializer;
 
 /**
@@ -52,7 +55,7 @@ public class UDPDiscoverySender implements AutoCloseable
     private final int multicastPort;
 
     /** Used to serialize messages */
-    private final StandardSerializer serializer = new StandardSerializer();
+    private final IElementSerializer serializer;
 
     /**
      * Constructor for the UDPDiscoverySender object
@@ -65,14 +68,61 @@ public class UDPDiscoverySender implements AutoCloseable
      * @param port
      * @param udpTTL the Datagram packet time-to-live
      * @throws IOException
+     * @deprecated Specify serializer implementation explicitly
      */
-    public UDPDiscoverySender( String host, int port, int udpTTL )
+    @Deprecated
+    public UDPDiscoverySender( final String host, final int port, final int udpTTL )
+        throws IOException
+    {
+        this(null, host, port, udpTTL, new StandardSerializer());
+    }
+
+    /**
+     * Constructor for the UDPDiscoverySender object
+     * <p>
+     * This sender can be used to send multiple messages.
+     * <p>
+     * When you are done sending, you should destroy the socket sender.
+     * <p>
+     * @param udpDiscoveryAttributes configuration object
+     * @param serializer the Serializer to use when sending messages
+     * @throws IOException
+     * @since 3.1
+     */
+    public UDPDiscoverySender(final UDPDiscoveryAttributes udpDiscoveryAttributes, final IElementSerializer serializer)
+        throws IOException
+    {
+        this(udpDiscoveryAttributes.getUdpDiscoveryInterface(),
+            udpDiscoveryAttributes.getUdpDiscoveryAddr(),
+            udpDiscoveryAttributes.getUdpDiscoveryPort(),
+            udpDiscoveryAttributes.getUdpTTL(),
+            serializer);
+    }
+
+    /**
+     * Constructor for the UDPDiscoverySender object
+     * <p>
+     * This sender can be used to send multiple messages.
+     * <p>
+     * When you are done sending, you should destroy the socket sender.
+     * <p>
+     * @param mcastInterface the Multicast interface name to use, if null, try to autodetect
+     * @param host
+     * @param port
+     * @param udpTTL the Datagram packet time-to-live
+     * @param serializer the Serializer to use when sending messages
+     * @throws IOException
+     * @since 3.1
+     */
+    public UDPDiscoverySender(final String mcastInterface, final String host,
+            final int port, final int udpTTL, IElementSerializer serializer)
         throws IOException
     {
         try
         {
             log.debug( "Constructing socket for sender on port [{0}]", port );
             localSocket = new MulticastSocket( port );
+
             if (udpTTL > 0)
             {
                 log.debug( "Setting datagram TTL to [{0}]", udpTTL );
@@ -81,14 +131,32 @@ public class UDPDiscoverySender implements AutoCloseable
 
             // Remote address.
             multicastAddress = InetAddress.getByName( host );
+
+            // Use dedicated interface if specified
+            NetworkInterface multicastInterface = null;
+            if (mcastInterface != null)
+            {
+                multicastInterface = NetworkInterface.getByName(mcastInterface);
+            }
+            else
+            {
+                multicastInterface = HostNameUtil.getMulticastNetworkInterface();
+            }
+            if (multicastInterface != null)
+            {
+                log.info("Sending multicast via network interface {0}",
+                        multicastInterface::getDisplayName);
+                localSocket.setNetworkInterface(multicastInterface);
+            }
         }
-        catch ( IOException e )
+        catch ( final IOException e )
         {
             log.error( "Could not bind to multicast address [{0}]", host, e );
             throw e;
         }
 
         this.multicastPort = port;
+        this.serializer = serializer;
     }
 
     /**
@@ -109,7 +177,7 @@ public class UDPDiscoverySender implements AutoCloseable
      * @param message
      * @throws IOException
      */
-    public void send( UDPDiscoveryMessage message )
+    public void send( final UDPDiscoveryMessage message )
         throws IOException
     {
         if ( this.localSocket == null )
@@ -125,23 +193,15 @@ public class UDPDiscoverySender implements AutoCloseable
         log.debug( "sending UDPDiscoveryMessage, address [{0}], port [{1}], "
                 + "message = {2}", multicastAddress, multicastPort, message );
 
-        try
-        {
-            final byte[] bytes = serializer.serialize( message );
+        final byte[] bytes = serializer.serialize( message );
 
-            // put the byte array in a packet
-            final DatagramPacket packet = new DatagramPacket( bytes, bytes.length, multicastAddress, multicastPort );
+        // put the byte array in a packet
+        final DatagramPacket packet = new DatagramPacket( bytes, bytes.length, multicastAddress, multicastPort );
 
-            log.debug( "Sending DatagramPacket. bytes.length [{0}] to {1}:{2}",
-                    bytes.length, multicastAddress, multicastPort );
+        log.debug( "Sending DatagramPacket with {0} bytes to {1}:{2}",
+                bytes.length, multicastAddress, multicastPort );
 
-            localSocket.send( packet );
-        }
-        catch ( IOException e )
-        {
-            log.error( "Error sending message", e );
-            throw e;
-        }
+        localSocket.send( packet );
     }
 
     /**
@@ -155,7 +215,9 @@ public class UDPDiscoverySender implements AutoCloseable
     {
         log.debug( "sending requestBroadcast" );
 
-        UDPDiscoveryMessage message = new UDPDiscoveryMessage();
+        final UDPDiscoveryMessage message = new UDPDiscoveryMessage();
+        message.setHost(multicastAddress.getHostAddress());
+        message.setPort(multicastPort);
         message.setRequesterId( CacheInfo.listenerId );
         message.setMessageType( BroadcastType.REQUEST );
         send( message );
@@ -170,7 +232,7 @@ public class UDPDiscoverySender implements AutoCloseable
      * @param cacheNames
      * @throws IOException
      */
-    public void passiveBroadcast( String host, int port, ArrayList<String> cacheNames )
+    public void passiveBroadcast( final String host, final int port, final ArrayList<String> cacheNames )
         throws IOException
     {
         passiveBroadcast( host, port, cacheNames, CacheInfo.listenerId );
@@ -185,12 +247,12 @@ public class UDPDiscoverySender implements AutoCloseable
      * @param listenerId
      * @throws IOException
      */
-    protected void passiveBroadcast( String host, int port, ArrayList<String> cacheNames, long listenerId )
+    protected void passiveBroadcast( final String host, final int port, final ArrayList<String> cacheNames, final long listenerId )
         throws IOException
     {
         log.debug( "sending passiveBroadcast" );
 
-        UDPDiscoveryMessage message = new UDPDiscoveryMessage();
+        final UDPDiscoveryMessage message = new UDPDiscoveryMessage();
         message.setHost( host );
         message.setPort( port );
         message.setCacheNames( cacheNames );
@@ -209,7 +271,7 @@ public class UDPDiscoverySender implements AutoCloseable
      * @param cacheNames names of the cache regions
      * @throws IOException on error
      */
-    public void removeBroadcast( String host, int port, ArrayList<String> cacheNames )
+    public void removeBroadcast( final String host, final int port, final ArrayList<String> cacheNames )
         throws IOException
     {
         removeBroadcast( host, port, cacheNames, CacheInfo.listenerId );
@@ -224,12 +286,12 @@ public class UDPDiscoverySender implements AutoCloseable
      * @param listenerId listener ID
      * @throws IOException on error
      */
-    protected void removeBroadcast( String host, int port, ArrayList<String> cacheNames, long listenerId )
+    protected void removeBroadcast( final String host, final int port, final ArrayList<String> cacheNames, final long listenerId )
         throws IOException
     {
         log.debug( "sending removeBroadcast" );
 
-        UDPDiscoveryMessage message = new UDPDiscoveryMessage();
+        final UDPDiscoveryMessage message = new UDPDiscoveryMessage();
         message.setHost( host );
         message.setPort( port );
         message.setCacheNames( cacheNames );
@@ -244,8 +306,9 @@ public class UDPDiscoverySender implements AutoCloseable
  * <p>
  * @author asmuts
  * @created January 15, 2002
+ * @deprecated No longer used
  */
-
+@Deprecated
 class MyByteArrayOutputStream
     extends ByteArrayOutputStream
 {

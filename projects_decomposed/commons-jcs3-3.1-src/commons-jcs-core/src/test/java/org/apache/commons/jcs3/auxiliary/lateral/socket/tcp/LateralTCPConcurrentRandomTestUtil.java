@@ -1,5 +1,14 @@
 package org.apache.commons.jcs3.auxiliary.lateral.socket.tcp;
 
+import java.util.Random;
+
+import org.apache.commons.jcs3.JCS;
+import org.apache.commons.jcs3.access.CacheAccess;
+import org.apache.commons.jcs3.auxiliary.lateral.LateralCacheAttributes;
+import org.apache.commons.jcs3.engine.CacheElement;
+import org.apache.commons.jcs3.engine.behavior.ICacheElement;
+import org.apache.commons.jcs3.utils.serialization.StandardSerializer;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -21,13 +30,6 @@ package org.apache.commons.jcs3.auxiliary.lateral.socket.tcp;
 
 import junit.framework.TestCase;
 
-import java.util.Random;
-
-import org.apache.commons.jcs3.JCS;
-import org.apache.commons.jcs3.access.CacheAccess;
-import org.apache.commons.jcs3.engine.CacheElement;
-import org.apache.commons.jcs3.engine.behavior.ICacheElement;
-
 /**
  * @author Aaron Smuts
  */
@@ -35,7 +37,7 @@ public class LateralTCPConcurrentRandomTestUtil
     extends TestCase
 {
     /** Should we write out. */
-    private static boolean isSysOut = false;
+    private static final boolean isSysOut = false;
     //private static boolean isSysOut = true;
 
     /**
@@ -43,7 +45,7 @@ public class LateralTCPConcurrentRandomTestUtil
      *
      * @param testName
      */
-    public LateralTCPConcurrentRandomTestUtil( String testName )
+    public LateralTCPConcurrentRandomTestUtil( final String testName )
     {
         super( testName );
     }
@@ -71,35 +73,36 @@ public class LateralTCPConcurrentRandomTestUtil
      * @throws Exception
      *                If an error occurs
      */
-    public void runTestForRegion( String region, int range, int numOps, int testNum )
+    public void runTestForRegion( final String region, final int range, final int numOps, final int testNum )
         throws Exception
     {
-        boolean show = true;//false;
+        final boolean show = true;//false;
 
-        CacheAccess<String, String> cache = JCS.getInstance( region );
+        final CacheAccess<String, String> cache = JCS.getInstance( region );
 
-        TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
+        final TCPLateralCacheAttributes lattr2 = new TCPLateralCacheAttributes();
         lattr2.setTcpListenerPort( 1103 );
-        lattr2.setTransmissionTypeName( "TCP" );
+        lattr2.setTransmissionType(LateralCacheAttributes.Type.TCP);
         lattr2.setTcpServer( "localhost:1102" );
 
         // this service will put and remove using the lateral to
         // the cache instance above
         // the cache thinks it is different since the listenerid is different
-        LateralTCPService<String, String> service = new LateralTCPService<>( lattr2 );
+        final LateralTCPService<String, String> service =
+                new LateralTCPService<>(lattr2,  new StandardSerializer());
         service.setListenerId( 123456 );
 
         try
         {
             for ( int i = 1; i < numOps; i++ )
             {
-                Random ran = new Random( i );
-                int n = ran.nextInt( 4 );
-                int kn = ran.nextInt( range );
-                String key = "key" + kn;
+                final Random ran = new Random( i );
+                final int n = ran.nextInt( 4 );
+                final int kn = ran.nextInt( range );
+                final String key = "key" + kn;
                 if ( n == 1 )
                 {
-                    ICacheElement<String, String> element = new CacheElement<>( region, key, region + ":data" + i
+                    final ICacheElement<String, String> element = new CacheElement<>( region, key, region + ":data" + i
                         + " junk asdfffffffadfasdfasf " + kn + ":" + n );
                     service.update( element );
                     if ( show )
@@ -122,13 +125,13 @@ public class LateralTCPConcurrentRandomTestUtil
                     // slightly greater chance of get
                     try
                     {
-                        Object obj = service.get( region, key );
+                        final Object obj = service.get( region, key );
                         if ( show && obj != null )
                         {
                             p( obj.toString() );
                         }
                     }
-                    catch ( Exception e )
+                    catch ( final Exception e )
                     {
                         // consider failing, some timeouts are expected
                         e.printStackTrace();
@@ -143,25 +146,25 @@ public class LateralTCPConcurrentRandomTestUtil
             }
             p( "Finished random cycle of " + numOps );
         }
-        catch ( Exception e )
+        catch ( final Exception e )
         {
             p( e.toString() );
             e.printStackTrace( System.out );
             throw e;
         }
 
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
-        String key = "testKey" + testNum;
-        String data = "testData" + testNum;
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final String key = "testKey" + testNum;
+        final String data = "testData" + testNum;
         jcs.put( key, data );
-        String value = jcs.get( key );
+        final String value = jcs.get( key );
         assertEquals( "Couldn't put normally.", data, value );
 
         // make sure the items we can find are in the correct region.
         for ( int i = 1; i < numOps; i++ )
         {
-            String keyL = "key" + i;
-            String dataL = jcs.get( keyL );
+            final String keyL = "key" + i;
+            final String dataL = jcs.get( keyL );
             if ( dataL != null )
             {
                 assertTrue( "Incorrect region detected.", dataL.startsWith( region ) );
@@ -186,7 +189,7 @@ public class LateralTCPConcurrentRandomTestUtil
     /**
      * @param s string to print
      */
-    public static void p( String s )
+    public static void p( final String s )
     {
         if ( isSysOut )
         {

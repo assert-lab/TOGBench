@@ -43,29 +43,28 @@ public class IndexedDiskCacheOptimizationUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        int removeCount = 50;
+        final int removeCount = 50;
 
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testOptimization" );
         cattr.setMaxKeySize( removeCount * 2 );
         cattr.setOptimizeAtRemoveCount( removeCount );
         cattr.setDiskPath( "target/test-sandbox/testOptimization" );
-        IndexedDiskCache<Integer, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<Integer, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
 
         disk.removeAll();
 
-        int numberToInsert = removeCount * 3;
-        ICacheElement<Integer, DiskTestObject>[] elements = DiskTestObjectUtil
+        final int numberToInsert = removeCount * 3;
+        final ICacheElement<Integer, DiskTestObject>[] elements = DiskTestObjectUtil
             .createCacheElementsWithTestObjectsOfVariableSizes( numberToInsert, cattr.getCacheName() );
 
-        for ( int i = 0; i < elements.length; i++ )
-        {
-            disk.processUpdate( elements[i] );
+        for (final ICacheElement<Integer, DiskTestObject> element : elements) {
+            disk.processUpdate( element );
         }
 
 
         Thread.sleep( 1000 );
-        long sizeBeforeRemove = disk.getDataFileSize();
+        final long sizeBeforeRemove = disk.getDataFileSize();
         // System.out.println( "file sizeBeforeRemove " + sizeBeforeRemove );
         // System.out.println( "totalSize inserted " + DiskTestObjectUtil.totalSize( elements, numberToInsert ) );
 
@@ -79,8 +78,8 @@ public class IndexedDiskCacheOptimizationUnitTest_OE25Dev
 
         disk.optimizeFile();
         // VERIFY
-        long sizeAfterRemove = disk.getDataFileSize();
-        long expectedSizeAfterRemove = DiskTestObjectUtil.totalSize( elements, removeCount, elements.length );
+        final long sizeAfterRemove = disk.getDataFileSize();
+        final long expectedSizeAfterRemove = DiskTestObjectUtil.totalSize( elements, removeCount, elements.length );
 
         // test is prone to failure for timing reasons.
         if ( expectedSizeAfterRemove != sizeAfterRemove )
@@ -95,29 +94,28 @@ public class IndexedDiskCacheOptimizationUnitTest_OE25Dev
         throws Exception
     {
         // SETUP
-        int removeCount = 50;
+        final int removeCount = 50;
 
-        IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         cattr.setCacheName( "testOptimization" );
         cattr.setMaxKeySize( removeCount * 2 );
         cattr.setOptimizeAtRemoveCount( removeCount );
         cattr.setDiskPath( "target/test-sandbox/testOptimization" );
-        IndexedDiskCache<Integer, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
+        final IndexedDiskCache<Integer, DiskTestObject> disk = new IndexedDiskCache<>( cattr );
 
         disk.removeAll();
 
-        int numberToInsert = removeCount * 3;
-        ICacheElement<Integer, DiskTestObject>[] elements = DiskTestObjectUtil
+        final int numberToInsert = removeCount * 3;
+        final ICacheElement<Integer, DiskTestObject>[] elements = DiskTestObjectUtil
             .createCacheElementsWithTestObjectsOfVariableSizes( numberToInsert, cattr.getCacheName() );
 
-        for ( int i = 0; i < elements.length; i++ )
-        {
-            disk.processUpdate( elements[i] );
+        for (final ICacheElement<Integer, DiskTestObject> element : elements) {
+            disk.processUpdate( element );
         }
 
 
         Thread.sleep( 1000 );
-        long sizeBeforeRemove = disk.getDataFileSize();
+        final long sizeBeforeRemove = disk.getDataFileSize();
         // System.out.println( "file sizeBeforeRemove " + sizeBeforeRemove );
         // System.out.println( "totalSize inserted " + DiskTestObjectUtil.totalSize( elements, numberToInsert ) );
 
@@ -131,8 +129,8 @@ public class IndexedDiskCacheOptimizationUnitTest_OE25Dev
 
         disk.optimizeFile();
         // VERIFY
-        long sizeAfterRemove = disk.getDataFileSize();
-        long expectedSizeAfterRemove = DiskTestObjectUtil.totalSize( elements, removeCount, elements.length );
+        final long sizeAfterRemove = disk.getDataFileSize();
+        final long expectedSizeAfterRemove = DiskTestObjectUtil.totalSize( elements, removeCount, elements.length );
 
         // test is prone to failure for timing reasons.
         if ( expectedSizeAfterRemove != sizeAfterRemove )

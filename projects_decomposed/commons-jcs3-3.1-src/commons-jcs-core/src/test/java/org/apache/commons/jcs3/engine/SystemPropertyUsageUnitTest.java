@@ -37,7 +37,7 @@ public class SystemPropertyUsageUnitTest
     private static final String JCS_DEFAULT_CACHEATTRIBUTES_MAX_OBJECTS = "jcs.default.cacheattributes.MaxObjects";
     private static final int testValue = 6789;
 
-    private CompositeCacheManager manager = null;
+    private CompositeCacheManager manager;
 
     @Override
     protected void setUp() throws Exception
@@ -75,7 +75,7 @@ public class SystemPropertyUsageUnitTest
 
         JCS.setConfigFilename( "/TestSystemPropertyUsage.ccf" );
 
-        CacheAccess<String, String> jcs = JCS.getInstance( "someCacheNotInFile" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "someCacheNotInFile" );
 
         manager = CompositeCacheManager.getInstance();
 
@@ -95,11 +95,11 @@ public class SystemPropertyUsageUnitTest
 
         manager = CompositeCacheManager.getUnconfiguredInstance();
 
-        Properties props = PropertyLoader.loadProperties( "TestSystemPropertyUsage.ccf" );
+        final Properties props = PropertyLoader.loadProperties( "TestSystemPropertyUsage.ccf" );
 
         manager.configure( props, false );
 
-        CacheAccess<String, String> jcs = JCS.getInstance( "someCacheNotInFile" );
+        final CacheAccess<String, String> jcs = JCS.getInstance( "someCacheNotInFile" );
 
         assertEquals( "System property value should not be reflected",
                       Integer.parseInt( props.getProperty( JCS_DEFAULT_CACHEATTRIBUTES_MAX_OBJECTS ) ),

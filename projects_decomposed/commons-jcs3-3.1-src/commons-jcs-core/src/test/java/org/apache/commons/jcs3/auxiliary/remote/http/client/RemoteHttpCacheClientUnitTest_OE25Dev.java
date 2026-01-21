@@ -88,19 +88,19 @@ public class RemoteHttpCacheClientUnitTest_OE25Dev
         throws IOException
     {
         // SETUP
-        RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
-        RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
 
-        MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
         client.setRemoteDispatcher( mockDispatcher );
 
-        String cacheName = "test";
-        String key = "key";
+        final String cacheName = "test";
+        final String key = "key";
 
         mockDispatcher.setupRemoteCacheResponse = null;
 
         // DO WORK
-        ICacheElement<String, String> result = client.get( cacheName, key );
+        final ICacheElement<String, String> result = client.get( cacheName, key );
 
         // VERIFY
         assertNull( "Wrong result.", result );
@@ -110,19 +110,19 @@ public class RemoteHttpCacheClientUnitTest_OE25Dev
         throws IOException
     {
         // SETUP
-        RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
-        RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
 
-        MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
         client.setRemoteDispatcher( mockDispatcher );
 
-        String cacheName = "test";
-        String key = "key";
+        final String cacheName = "test";
+        final String key = "key";
 
         mockDispatcher.setupRemoteCacheResponse = null;
 
         // DO WORK
-        ICacheElement<String, String> result = client.get( cacheName, key );
+        final ICacheElement<String, String> result = client.get( cacheName, key );
 
         // VERIFY
         // removed other assertion
@@ -133,24 +133,24 @@ public class RemoteHttpCacheClientUnitTest_OE25Dev
         throws IOException
     {
         // SETUP
-        RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
-        RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
 
-        MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
         client.setRemoteDispatcher( mockDispatcher );
 
-        String cacheName = "test";
-        String key = "key";
+        final String cacheName = "test";
+        final String key = "key";
 
-        ICacheElement<String, String> expected = new CacheElement<>( cacheName, key, "value" );
-        RemoteCacheResponse<ICacheElement<String, String>> remoteHttpCacheResponse =
+        final ICacheElement<String, String> expected = new CacheElement<>( cacheName, key, "value" );
+        final RemoteCacheResponse<ICacheElement<String, String>> remoteHttpCacheResponse =
             new RemoteCacheResponse<>();
         remoteHttpCacheResponse.setPayload( expected );
 
         mockDispatcher.setupRemoteCacheResponse = remoteHttpCacheResponse;
 
         // DO WORK
-        ICacheElement<String, String> result = client.get( cacheName, key );
+        final ICacheElement<String, String> result = client.get( cacheName, key );
 
         // VERIFY
         assertEquals( "Wrong result.", expected, result );
@@ -160,24 +160,24 @@ public class RemoteHttpCacheClientUnitTest_OE25Dev
         throws IOException
     {
         // SETUP
-        RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
-        RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
 
-        MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
         client.setRemoteDispatcher( mockDispatcher );
 
-        String cacheName = "test";
-        String key = "key";
+        final String cacheName = "test";
+        final String key = "key";
 
-        ICacheElement<String, String> expected = new CacheElement<>( cacheName, key, "value" );
-        RemoteCacheResponse<ICacheElement<String, String>> remoteHttpCacheResponse =
+        final ICacheElement<String, String> expected = new CacheElement<>( cacheName, key, "value" );
+        final RemoteCacheResponse<ICacheElement<String, String>> remoteHttpCacheResponse =
             new RemoteCacheResponse<>();
         remoteHttpCacheResponse.setPayload( expected );
 
         mockDispatcher.setupRemoteCacheResponse = remoteHttpCacheResponse;
 
         // DO WORK
-        ICacheElement<String, String> result = client.get( cacheName, key );
+        final ICacheElement<String, String> result = client.get( cacheName, key );
 
         // VERIFY
         // removed other assertion
@@ -188,26 +188,26 @@ public class RemoteHttpCacheClientUnitTest_OE25Dev
         throws IOException
     {
         // SETUP
-        RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
-        RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
 
-        MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
         client.setRemoteDispatcher( mockDispatcher );
 
-        String cacheName = "test";
-        String pattern = "key";
+        final String cacheName = "test";
+        final String pattern = "key";
 
-        ICacheElement<String, String> expected = new CacheElement<>( cacheName, "key", "value" );
-        Map<String, ICacheElement<String, String>> expectedMap = new HashMap<>();
+        final ICacheElement<String, String> expected = new CacheElement<>( cacheName, "key", "value" );
+        final Map<String, ICacheElement<String, String>> expectedMap = new HashMap<>();
         expectedMap.put( "key", expected );
-        RemoteCacheResponse<Map<String, ICacheElement<String, String>>> remoteHttpCacheResponse =
+        final RemoteCacheResponse<Map<String, ICacheElement<String, String>>> remoteHttpCacheResponse =
             new RemoteCacheResponse<>();
         remoteHttpCacheResponse.setPayload( expectedMap );
 
         mockDispatcher.setupRemoteCacheResponse = remoteHttpCacheResponse;
 
         // DO WORK
-        Map<String, ICacheElement<String, String>> result = client.getMatching( cacheName, pattern );
+        final Map<String, ICacheElement<String, String>> result = client.getMatching( cacheName, pattern );
 
         // VERIFY
         assertEquals( "Wrong result.", expected, result.get( "key" ) );
@@ -217,26 +217,26 @@ public class RemoteHttpCacheClientUnitTest_OE25Dev
         throws IOException
     {
         // SETUP
-        RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
-        RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
 
-        MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
         client.setRemoteDispatcher( mockDispatcher );
 
-        String cacheName = "test";
-        String pattern = "key";
+        final String cacheName = "test";
+        final String pattern = "key";
 
-        ICacheElement<String, String> expected = new CacheElement<>( cacheName, "key", "value" );
-        Map<String, ICacheElement<String, String>> expectedMap = new HashMap<>();
+        final ICacheElement<String, String> expected = new CacheElement<>( cacheName, "key", "value" );
+        final Map<String, ICacheElement<String, String>> expectedMap = new HashMap<>();
         expectedMap.put( "key", expected );
-        RemoteCacheResponse<Map<String, ICacheElement<String, String>>> remoteHttpCacheResponse =
+        final RemoteCacheResponse<Map<String, ICacheElement<String, String>>> remoteHttpCacheResponse =
             new RemoteCacheResponse<>();
         remoteHttpCacheResponse.setPayload( expectedMap );
 
         mockDispatcher.setupRemoteCacheResponse = remoteHttpCacheResponse;
 
         // DO WORK
-        Map<String, ICacheElement<String, String>> result = client.getMatching( cacheName, pattern );
+        final Map<String, ICacheElement<String, String>> result = client.getMatching( cacheName, pattern );
 
         // VERIFY
         // removed other assertion
@@ -247,26 +247,26 @@ public class RemoteHttpCacheClientUnitTest_OE25Dev
         throws IOException
     {
         // SETUP
-        RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
-        RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
 
-        MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
         client.setRemoteDispatcher( mockDispatcher );
 
-        String cacheName = "test";
-        Set<String> keys = Collections.emptySet();
+        final String cacheName = "test";
+        final Set<String> keys = Collections.emptySet();
 
-        ICacheElement<String, String> expected = new CacheElement<>( cacheName, "key", "value" );
-        Map<String, ICacheElement<String, String>> expectedMap = new HashMap<>();
+        final ICacheElement<String, String> expected = new CacheElement<>( cacheName, "key", "value" );
+        final Map<String, ICacheElement<String, String>> expectedMap = new HashMap<>();
         expectedMap.put( "key", expected );
-        RemoteCacheResponse<Map<String, ICacheElement<String, String>>> remoteHttpCacheResponse =
+        final RemoteCacheResponse<Map<String, ICacheElement<String, String>>> remoteHttpCacheResponse =
             new RemoteCacheResponse<>();
         remoteHttpCacheResponse.setPayload( expectedMap );
 
         mockDispatcher.setupRemoteCacheResponse = remoteHttpCacheResponse;
 
         // DO WORK
-        Map<String, ICacheElement<String, String>> result = client.getMultiple( cacheName, keys );
+        final Map<String, ICacheElement<String, String>> result = client.getMultiple( cacheName, keys );
 
         // VERIFY
         assertEquals( "Wrong result.", expected, result.get( "key" ) );
@@ -276,26 +276,26 @@ public class RemoteHttpCacheClientUnitTest_OE25Dev
         throws IOException
     {
         // SETUP
-        RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
-        RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
 
-        MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
         client.setRemoteDispatcher( mockDispatcher );
 
-        String cacheName = "test";
-        Set<String> keys = Collections.emptySet();
+        final String cacheName = "test";
+        final Set<String> keys = Collections.emptySet();
 
-        ICacheElement<String, String> expected = new CacheElement<>( cacheName, "key", "value" );
-        Map<String, ICacheElement<String, String>> expectedMap = new HashMap<>();
+        final ICacheElement<String, String> expected = new CacheElement<>( cacheName, "key", "value" );
+        final Map<String, ICacheElement<String, String>> expectedMap = new HashMap<>();
         expectedMap.put( "key", expected );
-        RemoteCacheResponse<Map<String, ICacheElement<String, String>>> remoteHttpCacheResponse =
+        final RemoteCacheResponse<Map<String, ICacheElement<String, String>>> remoteHttpCacheResponse =
             new RemoteCacheResponse<>();
         remoteHttpCacheResponse.setPayload( expectedMap );
 
         mockDispatcher.setupRemoteCacheResponse = remoteHttpCacheResponse;
 
         // DO WORK
-        Map<String, ICacheElement<String, String>> result = client.getMultiple( cacheName, keys );
+        final Map<String, ICacheElement<String, String>> result = client.getMultiple( cacheName, keys );
 
         // VERIFY
         // removed other assertion
@@ -306,14 +306,14 @@ public class RemoteHttpCacheClientUnitTest_OE25Dev
         throws IOException
     {
         // SETUP
-        RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
-        RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
 
-        MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
         client.setRemoteDispatcher( mockDispatcher );
 
-        String cacheName = "test";
-        String key = "key";
+        final String cacheName = "test";
+        final String key = "key";
 
         // DO WORK
         client.remove( cacheName, key );
@@ -326,13 +326,13 @@ public class RemoteHttpCacheClientUnitTest_OE25Dev
         throws IOException
     {
         // SETUP
-        RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
-        RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
 
-        MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
         client.setRemoteDispatcher( mockDispatcher );
 
-        String cacheName = "test";
+        final String cacheName = "test";
 
         // DO WORK
         client.removeAll( cacheName );
@@ -345,15 +345,15 @@ public class RemoteHttpCacheClientUnitTest_OE25Dev
         throws IOException
     {
         // SETUP
-        RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
-        RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
 
-        MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
         client.setRemoteDispatcher( mockDispatcher );
 
-        String cacheName = "test";
+        final String cacheName = "test";
 
-        ICacheElement<String, String> element = new CacheElement<>( cacheName, "key", "value" );
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, "key", "value" );
 
         // DO WORK
         client.update( element );
@@ -366,13 +366,13 @@ public class RemoteHttpCacheClientUnitTest_OE25Dev
         throws IOException
     {
         // SETUP
-        RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
-        RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
+        final RemoteHttpCacheAttributes attributes = new RemoteHttpCacheAttributes();
+        final RemoteHttpCacheClient<String, String> client = new RemoteHttpCacheClient<>( attributes );
 
-        MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
+        final MockRemoteCacheDispatcher mockDispatcher = new MockRemoteCacheDispatcher();
         client.setRemoteDispatcher( mockDispatcher );
 
-        String cacheName = "test";
+        final String cacheName = "test";
 
         // DO WORK
         client.dispose( cacheName );

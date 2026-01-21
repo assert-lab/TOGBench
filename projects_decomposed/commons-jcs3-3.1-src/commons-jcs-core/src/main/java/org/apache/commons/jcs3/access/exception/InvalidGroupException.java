@@ -31,7 +31,6 @@ public class InvalidGroupException
     /** Constructor for the InvalidGroupException object */
     public InvalidGroupException()
     {
-        super();
     }
 
     /**
@@ -39,7 +38,7 @@ public class InvalidGroupException
      * <p>
      * @param message
      */
-    public InvalidGroupException( String message )
+    public InvalidGroupException( final String message )
     {
         super( message );
     }

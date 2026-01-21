@@ -83,7 +83,7 @@ public class TestMutableDateTime_Basics_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestMutableDateTime_Basics_OE25Dev.class);
+        return new TestSuite(TestMutableDateTime_Basics.class);
     }
 
     public TestMutableDateTime_Basics_OE25Dev(String name) {
@@ -2866,14 +2866,14 @@ public class TestMutableDateTime_Basics_OE25Dev extends TestCase {
     public void testToDateTimeISO_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, PARIS);
         DateTime result = test.toDateTimeISO();
-        assertEquals(DateTime.class, result.getClass());
+        assertSame(DateTime.class, result.getClass());
     }
 
     public void testToDateTimeISO_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, PARIS);
         DateTime result = test.toDateTimeISO();
         // removed other assertion
-        assertEquals(ISOChronology.class, result.getChronology().getClass());
+        assertSame(ISOChronology.class, result.getChronology().getClass());
     }
 
     public void testToDateTimeISO_3_oe() {
@@ -3216,14 +3216,14 @@ public class TestMutableDateTime_Basics_OE25Dev extends TestCase {
     public void testToMutableDateTimeISO_1_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, PARIS);
         MutableDateTime result = test.toMutableDateTimeISO();
-        assertEquals(MutableDateTime.class, result.getClass());
+        assertSame(MutableDateTime.class, result.getClass());
     }
 
     public void testToMutableDateTimeISO_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1, PARIS);
         MutableDateTime result = test.toMutableDateTimeISO();
         // removed other assertion
-        assertEquals(ISOChronology.class, result.getChronology().getClass());
+        assertSame(ISOChronology.class, result.getChronology().getClass());
     }
 
     public void testToMutableDateTimeISO_3_oe() {

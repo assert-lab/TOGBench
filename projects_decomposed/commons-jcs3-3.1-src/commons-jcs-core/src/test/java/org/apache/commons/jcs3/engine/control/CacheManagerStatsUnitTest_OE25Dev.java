@@ -41,7 +41,7 @@ public class CacheManagerStatsUnitTest_OE25Dev
 
     public void testSimpleGetStats_1_oe() throws Exception
     {
-        CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
+        final CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
 
         // 1 miss, 1 hit, 1 put
         cache.get( "testKey" );
@@ -52,8 +52,8 @@ public class CacheManagerStatsUnitTest_OE25Dev
         cache.get( "testKey" );
         cache.get( "testKey" );
 
-        CompositeCacheManager mgr = CompositeCacheManager.getInstance();
-        String statsString = mgr.getStats();
+        final CompositeCacheManager mgr = CompositeCacheManager.getInstance();
+        final String statsString = mgr.getStats();
 
 //        System.out.println( statsString );
 
@@ -62,7 +62,7 @@ public class CacheManagerStatsUnitTest_OE25Dev
 
     public void testSimpleGetStats_2_oe() throws Exception
     {
-        CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
+        final CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
 
         // 1 miss, 1 hit, 1 put
         cache.get( "testKey" );
@@ -73,8 +73,8 @@ public class CacheManagerStatsUnitTest_OE25Dev
         cache.get( "testKey" );
         cache.get( "testKey" );
 
-        CompositeCacheManager mgr = CompositeCacheManager.getInstance();
-        String statsString = mgr.getStats();
+        final CompositeCacheManager mgr = CompositeCacheManager.getInstance();
+        final String statsString = mgr.getStats();
 
 //        System.out.println( statsString );
 
@@ -84,7 +84,7 @@ public class CacheManagerStatsUnitTest_OE25Dev
 
     public void testSimpleGetStats_3_oe() throws Exception
     {
-        CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
+        final CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
 
         // 1 miss, 1 hit, 1 put
         cache.get( "testKey" );
@@ -95,8 +95,8 @@ public class CacheManagerStatsUnitTest_OE25Dev
         cache.get( "testKey" );
         cache.get( "testKey" );
 
-        CompositeCacheManager mgr = CompositeCacheManager.getInstance();
-        String statsString = mgr.getStats();
+        final CompositeCacheManager mgr = CompositeCacheManager.getInstance();
+        final String statsString = mgr.getStats();
 
 //        System.out.println( statsString );
 

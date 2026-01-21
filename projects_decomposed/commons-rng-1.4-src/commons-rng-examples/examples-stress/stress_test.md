@@ -125,7 +125,7 @@ generators should be tested using `stdin64`. This also requires that the Commons
 application is run in 64-bit output mode.
 
 If using a alternative test suite the endian format expected by the test suite must be verified.
-More details of how to do this are provided in the [endianness](endianness.md) page.
+More details of how to do this are provided in the [endianness](./endianness.md) page.
 
 Running on Linux/MacOS
 ----------------------

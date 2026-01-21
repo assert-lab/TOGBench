@@ -51,10 +51,10 @@ public class DefaultFileSystemManagerTest_OE25Dev {
      * @throws FileSystemException
      */
 
-    // @Test
-    // public void testCreateBz2FileSystem() throws FileSystemException {
-    //     testCreateFileSystem("src/test/resources/test-data/bla.txt.bz2", Bzip2FileObject.class);
-    // }
+    @Test
+    public void testCreateBz2FileSystem() throws FileSystemException {
+        testCreateFileSystem("src/test/resources/test-data/bla.txt.bz2", Bzip2FileObject.class);
+    }
 
     private void testCreateFileSystem(final String path, Class<?> clazz) throws FileSystemException {
         FileSystemManager manager = VFS.getManager();
@@ -70,10 +70,10 @@ public class DefaultFileSystemManagerTest_OE25Dev {
         testCreateFileSystem("src/test/resources/test-data/好.txt.gz", GzipFileObject.class);
     }
 
-    // @Test
-    // public void testCreateJarFileSystem() throws FileSystemException {
-    //     testCreateFileSystem("src/test/resources/test-data/nested.jar", JarFileObject.class);
-    // }
+    @Test
+    public void testCreateJarFileSystem() throws FileSystemException {
+        testCreateFileSystem("src/test/resources/test-data/nested.jar", JarFileObject.class);
+    }
 
     @Test
     public void testCreateZipFileSystem() throws FileSystemException {

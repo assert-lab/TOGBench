@@ -23,6 +23,7 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Enumeration;
 /*
  * or more contributor license agreements.  See the NOTICE file
@@ -41,6 +42,7 @@ import java.util.Enumeration;
  * specific language governing permissions and limitations
  * under the License.
  */
+import java.util.List;
 
 import org.apache.commons.jcs3.log.Log;
 import org.apache.commons.jcs3.log.LogManager;
@@ -63,17 +65,9 @@ public class HostNameUtil
      */
     public static String getLocalHostAddress() throws UnknownHostException
     {
-        try
-        {
-            String hostAddress = getLocalHostLANAddress().getHostAddress();
-            log.debug( "hostAddress = [{0}]", hostAddress );
-            return hostAddress;
-        }
-        catch ( UnknownHostException e1 )
-        {
-            log.error( "Couldn't get localhost address", e1 );
-            throw e1;
-        }
+        final String hostAddress = getLocalHostLANAddress().getHostAddress();
+        log.debug( "hostAddress = [{0}]", hostAddress );
+        return hostAddress;
     }
 
     /**
@@ -103,29 +97,56 @@ public class HostNameUtil
      * <p>
      * @return InetAddress
      * @throws UnknownHostException If the LAN address of the machine cannot be found.
+     * @since 3.1
      */
     public static InetAddress getLocalHostLANAddress()
         throws UnknownHostException
     {
+        return getLocalHostLANAddresses().stream().findFirst().orElse(null);
+    }
+
+    /**
+     * Returns all <code>InetAddress</code> objects encapsulating what are most likely the machine's
+     * LAN IP addresses.
+     * <p>
+     * This method will scan all IP addresses on all network interfaces on the host machine to
+     * determine the IP addresses most likely to be the machine's LAN addresses.
+     * <p>
+     * @return List<InetAddress>
+     * @throws UnknownHostException If the LAN address of the machine cannot be found.
+     */
+    public static List<InetAddress> getLocalHostLANAddresses()
+        throws UnknownHostException
+    {
+        List<InetAddress> addresses = new ArrayList<>();
+
         try
         {
             InetAddress candidateAddress = null;
             // Iterate all NICs (network interface cards)...
-            for ( Enumeration<NetworkInterface> ifaces = NetworkInterface.getNetworkInterfaces(); ifaces.hasMoreElements(); )
+            final Enumeration<NetworkInterface> ifaces = NetworkInterface.getNetworkInterfaces();
+            while ( ifaces.hasMoreElements() )
             {
-                NetworkInterface iface = ifaces.nextElement();
-                // Iterate all IP addresses assigned to each card...
-                for ( Enumeration<InetAddress> inetAddrs = iface.getInetAddresses(); inetAddrs.hasMoreElements(); )
+                final NetworkInterface iface = ifaces.nextElement();
+
+                // Skip loopback interfaces
+                if (iface.isLoopback() || !iface.isUp())
                 {
-                    InetAddress inetAddr = inetAddrs.nextElement();
+                    continue;
+                }
+
+                // Iterate all IP addresses assigned to each card...
+                for ( final Enumeration<InetAddress> inetAddrs = iface.getInetAddresses(); inetAddrs.hasMoreElements(); )
+                {
+                    final InetAddress inetAddr = inetAddrs.nextElement();
                     if ( !inetAddr.isLoopbackAddress() )
                     {
-                        if ( inetAddr.isSiteLocalAddress() )
+                        if (inetAddr.isSiteLocalAddress())
                         {
-                            // Found non-loopback site-local address. Return it immediately...
-                            return inetAddr;
+                            // Found non-loopback site-local address.
+                            addresses.add(inetAddr);
                         }
-                        else if ( candidateAddress == null )
+                        if ( candidateAddress == null )
                         {
                             // Found non-loopback address, but not necessarily site-local.
                             // Store it as a candidate to be returned if site-local address is not subsequently found...
@@ -136,30 +157,34 @@ public class HostNameUtil
                     }
                 }
             }
-            if ( candidateAddress != null )
+            if (candidateAddress != null && addresses.isEmpty())
             {
                 // We did not find a site-local address, but we found some other non-loopback address.
                 // Server might have a non-site-local address assigned to its NIC (or it might be running
                 // IPv6 which deprecates the "site-local" concept).
-                // Return this non-loopback candidate address...
-                return candidateAddress;
+                addresses.add(candidateAddress);
             }
             // At this point, we did not find a non-loopback address.
             // Fall back to returning whatever InetAddress.getLocalHost() returns...
-            InetAddress jdkSuppliedAddress = InetAddress.getLocalHost();
-            if ( jdkSuppliedAddress == null )
+            if (addresses.isEmpty())
             {
-                throw new UnknownHostException( "The JDK InetAddress.getLocalHost() method unexpectedly returned null." );
+                final InetAddress jdkSuppliedAddress = InetAddress.getLocalHost();
+                if ( jdkSuppliedAddress == null )
+                {
+                    throw new UnknownHostException( "The JDK InetAddress.getLocalHost() method unexpectedly returned null." );
+                }
+                addresses.add(jdkSuppliedAddress);
             }
-            return jdkSuppliedAddress;
         }
-        catch ( SocketException e )
+        catch ( final SocketException e )
         {
-            UnknownHostException unknownHostException = new UnknownHostException( "Failed to determine LAN address: "
+            final UnknownHostException unknownHostException = new UnknownHostException( "Failed to determine LAN address: "
                 + e );
             unknownHostException.initCause( e );
             throw unknownHostException;
         }
+
+        return addresses;
     }
 
     /**
@@ -171,14 +196,14 @@ public class HostNameUtil
      */
     public static NetworkInterface getMulticastNetworkInterface() throws SocketException
     {
-        Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+        final Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
         while (networkInterfaces.hasMoreElements())
         {
-            NetworkInterface networkInterface = networkInterfaces.nextElement();
-            Enumeration<InetAddress> addressesFromNetworkInterface = networkInterface.getInetAddresses();
+            final NetworkInterface networkInterface = networkInterfaces.nextElement();
+            final Enumeration<InetAddress> addressesFromNetworkInterface = networkInterface.getInetAddresses();
             while (addressesFromNetworkInterface.hasMoreElements())
             {
-                InetAddress inetAddress = addressesFromNetworkInterface.nextElement();
+                final InetAddress inetAddress = addressesFromNetworkInterface.nextElement();
                 if (inetAddress.isSiteLocalAddress()
                         && !inetAddress.isAnyLocalAddress()
                         && !inetAddress.isLinkLocalAddress()

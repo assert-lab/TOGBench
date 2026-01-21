@@ -35,7 +35,6 @@ public class LRUMap<K, V> extends AbstractLRUMap<K, V>
 
     public LRUMap()
     {
-        super();
     }
 
     /**
@@ -43,7 +42,7 @@ public class LRUMap<K, V> extends AbstractLRUMap<K, V>
      * @param maxObjects
      *            maximum number to keep in the map
      */
-    public LRUMap(int maxObjects)
+    public LRUMap(final int maxObjects)
     {
         this();
         this.maxObjects = maxObjects;

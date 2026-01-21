@@ -31,10 +31,10 @@ public class StatElement<V>
     private static final long serialVersionUID = -2982373725267618092L;
 
     /** name of the stat */
-    private String name = null;
+    private String name;
 
     /** the data */
-    private V data = null;
+    private V data;
 
     /**
      * Constructor
@@ -42,9 +42,8 @@ public class StatElement<V>
      * @param name
      * @param data
      */
-    public StatElement(String name, V data)
+    public StatElement(final String name, final V data)
     {
-        super();
         this.name = name;
         this.data = data;
     }
@@ -64,7 +63,7 @@ public class StatElement<V>
      * @param name
      */
     @Override
-    public void setName( String name )
+    public void setName( final String name )
     {
         this.name = name;
     }
@@ -86,7 +85,7 @@ public class StatElement<V>
      * @param data
      */
     @Override
-    public void setData( V data )
+    public void setData( final V data )
     {
         this.data = data;
     }
@@ -97,7 +96,7 @@ public class StatElement<V>
     @Override
     public String toString()
     {
-        StringBuilder buf = new StringBuilder();
+        final StringBuilder buf = new StringBuilder();
         buf.append( name ).append(" = ").append( data );
         return buf.toString();
     }

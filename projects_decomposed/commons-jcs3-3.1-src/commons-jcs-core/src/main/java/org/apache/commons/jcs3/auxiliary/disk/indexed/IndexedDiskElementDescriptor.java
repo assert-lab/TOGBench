@@ -43,7 +43,7 @@ public class IndexedDiskElementDescriptor
      * @param pos
      * @param len
      */
-    public IndexedDiskElementDescriptor( long pos, int len )
+    public IndexedDiskElementDescriptor( final long pos, final int len )
     {
         this.pos = pos;
         this.len = len;
@@ -55,7 +55,7 @@ public class IndexedDiskElementDescriptor
     @Override
     public String toString()
     {
-        StringBuilder buf = new StringBuilder();
+        final StringBuilder buf = new StringBuilder();
         buf.append( "[DED: " );
         buf.append( " pos = " + pos );
         buf.append( " len = " + len );
@@ -76,15 +76,15 @@ public class IndexedDiskElementDescriptor
      * @see java.lang.Object#equals(java.lang.Object)
      */
     @Override
-    public boolean equals(Object o)
+    public boolean equals(final Object o)
     {
     	if (o == null)
     	{
     		return false;
     	}
-    	else if (o instanceof IndexedDiskElementDescriptor)
+        if (o instanceof IndexedDiskElementDescriptor)
         {
-    		IndexedDiskElementDescriptor ided = (IndexedDiskElementDescriptor)o;
+    		final IndexedDiskElementDescriptor ided = (IndexedDiskElementDescriptor)o;
             return pos == ided.pos && len == ided.len;
         }
 
@@ -98,35 +98,19 @@ public class IndexedDiskElementDescriptor
      * @return int
      */
     @Override
-    public int compareTo( IndexedDiskElementDescriptor o )
+    public int compareTo( final IndexedDiskElementDescriptor o )
     {
         if ( o == null )
         {
             return 1;
         }
 
-        if ( o.len == len )
+        int lenCompare = Integer.compare(len, o.len);
+        if (lenCompare == 0)
         {
-        	if ( o.pos == pos )
-        	{
-        		return 0;
-        	}
-        	else if ( o.pos < pos )
-        	{
-        		return -1;
-        	}
-        	else
-        	{
-        		return 1;
-        	}
+            return Long.compare(o.pos, pos);
         }
-        else if ( o.len > len )
-        {
-            return -1;
-        }
-        else
-        {
-            return 1;
-        }
+
+        return lenCompare;
     }
 }

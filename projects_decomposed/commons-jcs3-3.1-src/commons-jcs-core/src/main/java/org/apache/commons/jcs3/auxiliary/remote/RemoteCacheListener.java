@@ -22,6 +22,7 @@ package org.apache.commons.jcs3.auxiliary.remote;
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.apache.commons.jcs3.auxiliary.remote.behavior.IRemoteCacheAttributes;
 import org.apache.commons.jcs3.auxiliary.remote.behavior.IRemoteCacheConstants;
@@ -45,7 +46,7 @@ public class RemoteCacheListener<K, V>
     private static final Log log = LogManager.getLog( RemoteCacheListener.class );
 
     /** Has this client been shutdown. */
-    private boolean disposed = false;
+    private AtomicBoolean disposed;
 
     /**
      * Only need one since it does work for all regions, just reference by multiple region names.
@@ -57,9 +58,12 @@ public class RemoteCacheListener<K, V>
      * @param cacheMgr the cache hub
      * @param elementSerializer a custom serializer
      */
-    public RemoteCacheListener( IRemoteCacheAttributes irca, ICompositeCacheManager cacheMgr, IElementSerializer elementSerializer )
+    public RemoteCacheListener( final IRemoteCacheAttributes irca,
+                                final ICompositeCacheManager cacheMgr,
+                                final IElementSerializer elementSerializer )
     {
         super( irca, cacheMgr, elementSerializer );
+        disposed = new AtomicBoolean(false);
 
         // Export this remote object to make it available to receive incoming
         // calls.
@@ -67,7 +71,7 @@ public class RemoteCacheListener<K, V>
         {
             UnicastRemoteObject.exportObject( this, irca.getLocalPort() );
         }
-        catch ( RemoteException ex )
+        catch ( final RemoteException ex )
         {
             log.error( "Problem exporting object.", ex );
             throw new IllegalStateException( ex.getMessage() );
@@ -83,19 +87,18 @@ public class RemoteCacheListener<K, V>
     public synchronized void dispose()
         throws IOException
     {
-        if ( !disposed )
+        if (disposed.compareAndSet(false, true))
         {
             log.info( "Unexporting listener." );
             try
             {
                 UnicastRemoteObject.unexportObject( this, true );
             }
-            catch ( RemoteException ex )
+            catch ( final RemoteException ex )
             {
                 log.error( "Problem unexporting the listener.", ex );
                 throw new IllegalStateException( ex.getMessage() );
             }
-            disposed = true;
         }
     }
 
@@ -107,7 +110,7 @@ public class RemoteCacheListener<K, V>
     @Override
     public String toString()
     {
-        StringBuilder buf = new StringBuilder();
+        final StringBuilder buf = new StringBuilder();
         buf.append( "\n RemoteCacheListener: " );
         buf.append( super.toString() );
         return buf.toString();

@@ -21,6 +21,7 @@ package org.apache.commons.jcs3.engine.control.event;
 
 import java.io.IOException;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.apache.commons.jcs3.engine.control.event.behavior.IElementEvent;
 import org.apache.commons.jcs3.engine.control.event.behavior.IElementEventHandler;
@@ -28,8 +29,8 @@ import org.apache.commons.jcs3.engine.control.event.behavior.IElementEventQueue;
 import org.apache.commons.jcs3.log.Log;
 import org.apache.commons.jcs3.log.LogManager;
 import org.apache.commons.jcs3.utils.threadpool.PoolConfiguration;
-import org.apache.commons.jcs3.utils.threadpool.ThreadPoolManager;
 import org.apache.commons.jcs3.utils.threadpool.PoolConfiguration.WhenBlockedPolicy;
+import org.apache.commons.jcs3.utils.threadpool.ThreadPoolManager;
 
 /**
  * An event queue is used to propagate ordered cache events to one and only one target listener.
@@ -43,10 +44,10 @@ public class ElementEventQueue
     private static final Log log = LogManager.getLog( ElementEventQueue.class );
 
     /** shutdown or not */
-    private boolean destroyed = false;
+    private final AtomicBoolean destroyed = new AtomicBoolean(false);
 
     /** The worker thread pool. */
-    private ExecutorService queueProcessor;
+    private final ExecutorService queueProcessor;
 
     /**
      * Constructor for the ElementEventQueue object
@@ -65,15 +66,10 @@ public class ElementEventQueue
     @Override
     public void dispose()
     {
-        if ( !destroyed )
+        if (destroyed.compareAndSet(false, true))
         {
-            destroyed = true;
-
-            // synchronize on queue so the thread will not wait forever,
-            // and then interrupt the QueueProcessor
-            queueProcessor.shutdownNow();
-            queueProcessor = null;
-
+            // Pool will be shut down by the ThreadPoolManager
+            // queueProcessor.shutdownNow();
             log.info( "Element event queue destroyed: {0}", this );
         }
     }
@@ -85,23 +81,19 @@ public class ElementEventQueue
      * @throws IOException
      */
     @Override
-    public <T> void addElementEvent( IElementEventHandler hand, IElementEvent<T> event )
+    public <T> void addElementEvent( final IElementEventHandler hand, final IElementEvent<T> event )
         throws IOException
     {
 
-        log.debug( "Adding Event Handler to QUEUE, !destroyed = {0}", !destroyed );
+        log.debug("Adding Event Handler to QUEUE, !destroyed = {0}", !destroyed.get());
 
-        if (destroyed)
+        if (destroyed.get())
         {
             log.warn("Event submitted to disposed element event queue {0}", event);
         }
         else
         {
-            ElementEventRunner runner = new ElementEventRunner( hand, event );
-
-            log.debug( "runner = {0}", runner );
-
-            queueProcessor.execute(runner);
+            queueProcessor.execute(() -> hand.handleElementEvent(event));
         }
     }
 
@@ -109,14 +101,15 @@ public class ElementEventQueue
 
     /**
      * Retries before declaring failure.
+     * @deprecated No longer used
      */
+    @Deprecated
     protected abstract class AbstractElementEventRunner
         implements Runnable
     {
         /**
          * Main processing method for the AbstractElementEvent object
          */
-        @SuppressWarnings("synthetic-access")
         @Override
         public void run()
         {
@@ -125,7 +118,7 @@ public class ElementEventQueue
                 doRun();
                 // happy and done.
             }
-            catch ( IOException e )
+            catch ( final IOException e )
             {
                 // Too bad. The handler has problems.
                 log.warn( "Giving up element event handling {0}", ElementEventQueue.this, e );
@@ -139,46 +132,5 @@ public class ElementEventQueue
          */
         protected abstract void doRun()
             throws IOException;
-    }
-
-    /**
-     * ElementEventRunner.
-     */
-    private class ElementEventRunner
-        extends AbstractElementEventRunner
-    {
-        /** the handler */
-        private final IElementEventHandler hand;
-
-        /** event */
-        private final IElementEvent<?> event;
-
-        /**
-         * Constructor for the PutEvent object.
-         * <p>
-         * @param hand
-         * @param event
-         * @throws IOException
-         */
-        @SuppressWarnings("synthetic-access")
-        ElementEventRunner( IElementEventHandler hand, IElementEvent<?> event )
-            throws IOException
-        {
-            log.debug( "Constructing {0}", this );
-            this.hand = hand;
-            this.event = event;
-        }
-
-        /**
-         * Tells the handler to handle the event.
-         * <p>
-         * @throws IOException
-         */
-        @Override
-        protected void doRun()
-            throws IOException
-        {
-            hand.handleElementEvent( event );
-        }
     }
 }

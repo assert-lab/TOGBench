@@ -56,7 +56,7 @@ public class TestLocalDate_Properties_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestLocalDate_Properties_OE25Dev.class);
+        return new TestSuite(TestLocalDate_Properties.class);
     }
 
     public TestLocalDate_Properties_OE25Dev(String name) {
@@ -349,7 +349,7 @@ public class TestLocalDate_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYear_1_oe() {
         LocalDate test = new LocalDate(1972, 6, 9);
-        assertEquals(test.getChronology().year(), test.year().getField());
+        assertSame(test.getChronology().year(), test.year().getField());
     }
 
     public void testPropertyGetYear_2_oe() {
@@ -370,7 +370,7 @@ public class TestLocalDate_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.year().getLocalDate());
+        assertSame(test, test.year().getLocalDate());
     }
 
     public void testPropertyGetYear_5_oe() {
@@ -608,7 +608,7 @@ public class TestLocalDate_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMonth_1_oe() {
         LocalDate test = new LocalDate(1972, 6, 9);
-        assertEquals(test.getChronology().monthOfYear(), test.monthOfYear().getField());
+        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
     }
 
     public void testPropertyGetMonth_2_oe() {
@@ -629,7 +629,7 @@ public class TestLocalDate_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.monthOfYear().getLocalDate());
+        assertSame(test, test.monthOfYear().getLocalDate());
     }
 
     public void testPropertyGetMonth_5_oe() {
@@ -908,7 +908,7 @@ public class TestLocalDate_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDay_1_oe() {
         LocalDate test = new LocalDate(1972, 6, 9);
-        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
     }
 
     public void testPropertyGetDay_2_oe() {
@@ -929,7 +929,7 @@ public class TestLocalDate_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.dayOfMonth().getLocalDate());
+        assertSame(test, test.dayOfMonth().getLocalDate());
     }
 
     public void testPropertyGetDay_5_oe() {

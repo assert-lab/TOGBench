@@ -21,9 +21,7 @@ package org.apache.commons.jcs3.auxiliary.disk.indexed;
 
 import java.util.Map;
 
-import junit.framework.Test;
 import junit.framework.TestCase;
-import junit.framework.TestSuite;
 
 /**
  * This ensures that the jcs version of the LRU map is as fast as the commons
@@ -36,10 +34,10 @@ public class LRUMapSizeVsCount
     extends TestCase
 {
     /** The put put ration after the test */
-    double ratioPut = 0;
+    double ratioPut;
 
     /** The ratio after the test */
-    double ratioGet = 0;
+    double ratioGet;
 
     /** put size / count  ratio */
     float targetPut = 1.2f;
@@ -56,19 +54,9 @@ public class LRUMapSizeVsCount
     /**
      * @param testName
      */
-    public LRUMapSizeVsCount( String testName )
+    public LRUMapSizeVsCount( final String testName )
     {
         super( testName );
-    }
-
-    /**
-     * A unit test suite for JUnit
-     * <p>
-     * @return The test suite
-     */
-    public static Test suite()
-    {
-        return new TestSuite( LRUMapSizeVsCount.class );
     }
 
     /**
@@ -110,14 +98,14 @@ public class LRUMapSizeVsCount
 
         try
         {
-        	IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        	final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
         	cattr.setName("junit");
         	cattr.setCacheName("junit");
         	cattr.setDiskPath(".");
-        	IndexedDiskCache<String, String> idc = new IndexedDiskCache<>(cattr);
+        	final IndexedDiskCache<String, String> idc = new IndexedDiskCache<>(cattr);
 
-			Map<String, IndexedDiskElementDescriptor> cacheCount = idc.new LRUMapCountLimited( tries );
-			Map<String, IndexedDiskElementDescriptor> cacheSize = idc.new LRUMapSizeLimited( tries/1024/2 );
+			final Map<String, IndexedDiskElementDescriptor> cacheCount = idc.new LRUMapCountLimited( tries );
+			final Map<String, IndexedDiskElementDescriptor> cacheSize = idc.new LRUMapSizeLimited( tries/1024/2 );
 
             for ( int j = 0; j < loops; j++ )
             {
@@ -180,16 +168,16 @@ public class LRUMapSizeVsCount
                 System.out.println( "\n" );
             }
         }
-        catch ( Exception e )
+        catch ( final Exception e )
         {
             e.printStackTrace( System.out );
             System.out.println( e );
         }
 
-        long putAvCount = putTotalCount / loops;
-        long getAvCount = getTotalCount / loops;
-        long putAvSize = putTotalSize / loops;
-        long getAvSize = getTotalSize / loops;
+        final long putAvCount = putTotalCount / loops;
+        final long getAvCount = getTotalCount / loops;
+        final long putAvSize = putTotalSize / loops;
+        final long getAvSize = getTotalSize / loops;
 
         System.out.println( "Finished " + loops + " loops of " + tries + " gets and puts" );
 
@@ -221,16 +209,5 @@ public class LRUMapSizeVsCount
         ratioPut = (minTimeSizeGet * 1.0) / minTimeCountGet;
         System.out.println( cache2Name.trim() + " puts took " + ratioPut + " times the " + cacheName.trim() + ", the goal is <" + targetGet
             + "x" );
-
     }
-
-    /**
-     * @param args
-     */
-    public static void main( String args[] )
-    {
-    	LRUMapSizeVsCount test = new LRUMapSizeVsCount( "command" );
-        test.doWork();
-    }
-
 }

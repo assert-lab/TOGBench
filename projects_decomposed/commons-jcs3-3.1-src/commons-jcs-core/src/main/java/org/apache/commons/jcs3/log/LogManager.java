@@ -30,7 +30,7 @@ public class LogManager
     /**
      * The name of log subsystem
      */
-    private static String logSystem = null;
+    private static String logSystem;
 
     /** Log systems currently known */
     public static final String LOGSYSTEM_JAVA_UTIL_LOGGING = "jul";
@@ -51,14 +51,14 @@ public class LogManager
          */
         private static LogFactory createLogFactory()
         {
-            ServiceLoader<LogFactory> factories = ServiceLoader.load(LogFactory.class);
+            final ServiceLoader<LogFactory> factories = ServiceLoader.load(LogFactory.class);
             if (LogManager.logSystem == null)
             {
                 LogManager.logSystem = System.getProperty("jcs.logSystem",
                         LOGSYSTEM_JAVA_UTIL_LOGGING);
             }
 
-            for (LogFactory factory : factories)
+            for (final LogFactory factory : factories)
             {
                 if (logSystem.equalsIgnoreCase(factory.getName()))
                 {
@@ -75,7 +75,7 @@ public class LogManager
      *
      * @param logSystem the logSystem to set
      */
-    public static void setLogSystem(String logSystem)
+    public static void setLogSystem(final String logSystem)
     {
         LogManager.logSystem = logSystem;
     }
@@ -135,7 +135,7 @@ public class LogManager
     /**
      * Returns the root logger.
      *
-     * @return the root logger, named {@link LogFactory.ROOT_LOGGER_NAME}.
+     * @return the root logger, named {@link LogFactory#ROOT_LOGGER_NAME}.
      */
     public static Log getRootLogger()
     {

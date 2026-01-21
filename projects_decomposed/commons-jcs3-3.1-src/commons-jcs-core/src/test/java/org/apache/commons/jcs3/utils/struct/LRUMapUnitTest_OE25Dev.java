@@ -65,8 +65,8 @@ public class LRUMapUnitTest_OE25Dev
 
     public void testPutWithSizeLimit_1_oe()
     {
-        int size = 10;
-        Map<String, String> cache = new LRUMap<>( size );
+        final int size = 10;
+        final Map<String, String> cache = new LRUMap<>( size );
 
         for ( int i = 0; i < size; i++ )
         {
@@ -75,15 +75,15 @@ public class LRUMapUnitTest_OE25Dev
 
         for ( int i = 0; i < size; i++ )
         {
-            String data = cache.get( "key:" + i );
+            final String data = cache.get( "key:" + i );
             assertEquals( "Data is wrong.", "data:" + i, data );
     }
     }
 
     public void testPutWithNoSizeLimit_1_oe()
     {
-        int size = 10;
-        Map<String, String> cache = new LRUMap<>( );
+        final int size = 10;
+        final Map<String, String> cache = new LRUMap<>( );
 
         for ( int i = 0; i < size; i++ )
         {
@@ -92,59 +92,59 @@ public class LRUMapUnitTest_OE25Dev
 
         for ( int i = 0; i < size; i++ )
         {
-            String data = cache.get( "key:" + i );
+            final String data = cache.get( "key:" + i );
             assertEquals( "Data is wrong.", "data:" + i, data );
     }
     }
 
     public void testPutAndRemove_1_oe()
     {
-        int size = 10;
-        Map<String, String> cache = new LRUMap<>( size );
+        final int size = 10;
+        final Map<String, String> cache = new LRUMap<>( size );
 
         cache.put( "key:" + 1, "data:" + 1 );
-        String data = cache.remove( "key:" + 1 );
+        final String data = cache.remove( "key:" + 1 );
         assertEquals( "Data is wrong.", "data:" + 1, data );
     }
 
     public void testRemoveEmpty_1_oe()
     {
-        int size = 10;
-        Map<String, String> cache = new LRUMap<>( size );
+        final int size = 10;
+        final Map<String, String> cache = new LRUMap<>( size );
 
-        Object returned = cache.remove( "key:" + 1 );
+        final Object returned = cache.remove( "key:" + 1 );
         assertNull( "Shouldn't hvae anything.", returned );
     }
 
     public void testGetEntrySet_1_oe()
     {
-        int size = 10;
-        Map<String, String> cache = new LRUMap<>( size );
+        final int size = 10;
+        final Map<String, String> cache = new LRUMap<>( size );
 
         for ( int i = 0; i < size; i++ )
         {
             cache.put( "key:" + i, "data:" + i );
         }
 
-        Set<Entry<String, String>> entries = cache.entrySet();
+        final Set<Entry<String, String>> entries = cache.entrySet();
         assertEquals( "Set contains the wrong number of items.", size, entries.size() );
     }
 
     public void testGetEntrySet_2_oe()
     {
-        int size = 10;
-        Map<String, String> cache = new LRUMap<>( size );
+        final int size = 10;
+        final Map<String, String> cache = new LRUMap<>( size );
 
         for ( int i = 0; i < size; i++ )
         {
             cache.put( "key:" + i, "data:" + i );
         }
 
-        Set<Entry<String, String>> entries = cache.entrySet();
+        final Set<Entry<String, String>> entries = cache.entrySet();
         // removed other assertion
 
         // check minimal correctness
-        for (Entry<String, String> data : entries)
+        for (final Entry<String, String> data : entries)
         {
             assertTrue( "Data is wrong.", data.getValue().indexOf( "data:") != -1  );
     }

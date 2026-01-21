@@ -1,0 +1,742 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.geometry.spherical.twod;
+
+import java.util.List;
+
+import org.apache.commons.geometry.core.GeometryTestUtils;
+import org.apache.commons.geometry.core.RegionLocation;
+import org.apache.commons.geometry.core.partitioning.Split;
+import org.apache.commons.geometry.core.partitioning.SplitLocation;
+import org.apache.commons.geometry.euclidean.threed.Vector3D;
+import org.apache.commons.geometry.spherical.SphericalTestUtils;
+import org.apache.commons.geometry.spherical.oned.AngularInterval;
+import org.apache.commons.numbers.angle.Angle;
+import org.apache.commons.numbers.core.Precision;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+class GreatArcTest_OE25Dev {
+
+    private static final double TEST_EPS = 1e-10;
+
+    private static final Precision.DoubleEquivalence TEST_PRECISION =
+            Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
+
+    @Test
+    void testFromPoints_usesShortestPath() {
+        // act/assert
+        SphericalTestUtils.assertVectorsEqual(
+                Vector3D.Unit.MINUS_Y,
+                GreatCircles.arcFromPoints(
+                        Point2S.PLUS_I,
+                        Point2S.of(Math.PI, Angle.PI_OVER_TWO - 1e-5),
+                        TEST_PRECISION).getCircle().getPole(), TEST_EPS);
+
+        SphericalTestUtils.assertVectorsEqual(
+                Vector3D.Unit.PLUS_Y,
+                GreatCircles.arcFromPoints(
+                        Point2S.PLUS_I,
+                        Point2S.of(Math.PI, Angle.PI_OVER_TWO + 1e-5),
+                        TEST_PRECISION).getCircle().getPole(), TEST_EPS);
+    }
+
+    @Test
+    void testGetMidPoint() {
+        // arrange
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
+                AngularInterval.Convex.of(0.8 * Math.PI, 0.9 * Math.PI, TEST_PRECISION));
+
+        // act/assert
+        SphericalTestUtils.assertPointsEqual(Point2S.of(0.85 * Math.PI, 0.5 * Math.PI), arc.getMidPoint(), TEST_EPS);
+    }
+
+    @Test
+    void testReverse() {
+        // arrange
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.MINUS_I, TEST_PRECISION),
+                AngularInterval.Convex.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION));
+
+        // act
+        final GreatArc result = arc.reverse();
+
+        // assert
+        checkGreatCircle(result.getCircle(), Vector3D.Unit.MINUS_Z, Vector3D.Unit.PLUS_Y);
+
+        checkArc(result, Point2S.MINUS_J, Point2S.MINUS_I);
+    }
+
+    @Test
+    void testTransform() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.MINUS_I, TEST_PRECISION)
+                .arc(Math.PI, -Angle.PI_OVER_TWO);
+
+        final Transform2S t = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO)
+                .reflect(Point2S.of(-0.25 * Math.PI,  Angle.PI_OVER_TWO));
+
+        // act
+        final GreatArc result = arc.transform(t);
+
+        // assert
+        checkArc(result, Point2S.PLUS_I, Point2S.PLUS_J);
+    }
+
+    @Test
+    void testToString_full() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION).span();
+
+        // act
+        final String str = arc.toString();
+
+        // assert
+        GeometryTestUtils.assertContains("GreatArc[", str);
+        GeometryTestUtils.assertContains("full= true", str);
+        GeometryTestUtils.assertContains("circle= GreatCircle[", str);
+    }
+
+    @Test
+    void testToString_notFull() {
+        // arrange
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
+                AngularInterval.Convex.of(1, 2, TEST_PRECISION));
+
+        // act
+        final String str = arc.toString();
+
+        // assert
+        GeometryTestUtils.assertContains("GreatArc[", str);
+        GeometryTestUtils.assertContains("start= (", str);
+        GeometryTestUtils.assertContains("end= (", str);
+    }
+
+    private static void checkClassify(final GreatArc arc, final RegionLocation loc, final Point2S... pts) {
+        for (final Point2S pt : pts) {
+            Assertions.assertEquals(loc, arc.classify(pt), "Unexpected location for point " + pt);
+        }
+    }
+
+    private static void checkArc(final GreatArc arc, final Point2S start, final Point2S end) {
+        SphericalTestUtils.assertPointsEq(start, arc.getStartPoint(), TEST_EPS);
+        SphericalTestUtils.assertPointsEq(end, arc.getEndPoint(), TEST_EPS);
+
+        checkClassify(arc, RegionLocation.BOUNDARY, start, end);
+
+        final Point2S mid = arc.getCircle().toSpace(arc.getInterval().getMidPoint());
+
+        checkClassify(arc, RegionLocation.INSIDE, mid);
+        checkClassify(arc, RegionLocation.OUTSIDE, mid.antipodal());
+
+        Assertions.assertEquals(start.distance(end), arc.getSize(), TEST_EPS);
+        SphericalTestUtils.assertPointsEq(mid, arc.getCentroid(), TEST_EPS);
+    }
+
+    private static void checkGreatCircle(final GreatCircle circle, final Vector3D pole, final Vector3D x) {
+        SphericalTestUtils.assertVectorsEqual(pole, circle.getPole(), TEST_EPS);
+        SphericalTestUtils.assertVectorsEqual(x, circle.getU(), TEST_EPS);
+        SphericalTestUtils.assertVectorsEqual(pole.cross(x), circle.getV(), TEST_EPS);
+    }
+
+    @Test
+    void testFromInterval_full_1_oe() {
+        // act
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
+                AngularInterval.full());
+
+        // assert
+        Assertions.assertTrue(arc.isFull());
+    }
+
+    @Test
+    void testFromInterval_full_2_oe() {
+        // act
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
+                AngularInterval.full());
+
+        // assert
+        // removed other assertion
+        Assertions.assertFalse(arc.isEmpty());
+    }
+
+    @Test
+    void testFromInterval_full_3_oe() {
+        // act
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
+                AngularInterval.full());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(arc.isFinite());
+    }
+
+    @Test
+    void testFromInterval_full_4_oe() {
+        // act
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
+                AngularInterval.full());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(arc.isInfinite());
+    }
+
+    @Test
+    void testFromInterval_full_5_oe() {
+        // act
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
+                AngularInterval.full());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertNull(arc.getStartPoint());
+    }
+
+    @Test
+    void testFromInterval_full_6_oe() {
+        // act
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
+                AngularInterval.full());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(arc.getEndPoint());
+    }
+
+    @Test
+    void testFromInterval_full_7_oe() {
+        // act
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
+                AngularInterval.full());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(Angle.TWO_PI, arc.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testFromInterval_full_8_oe() {
+        // act
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
+                AngularInterval.full());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(arc.getCentroid());
+    }
+
+    @Test
+    void testFromInterval_partial_1_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION),
+                AngularInterval.Convex.of(Angle.PI_OVER_TWO, 1.5 * Math.PI, TEST_PRECISION));
+
+        // assert
+        Assertions.assertFalse(arc.isFull());
+    }
+
+    @Test
+    void testFromInterval_partial_2_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION),
+                AngularInterval.Convex.of(Angle.PI_OVER_TWO, 1.5 * Math.PI, TEST_PRECISION));
+
+        // assert
+        // removed other assertion
+        Assertions.assertFalse(arc.isEmpty());
+    }
+
+    @Test
+    void testFromInterval_partial_3_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION),
+                AngularInterval.Convex.of(Angle.PI_OVER_TWO, 1.5 * Math.PI, TEST_PRECISION));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(arc.isFinite());
+    }
+
+    @Test
+    void testFromInterval_partial_4_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION),
+                AngularInterval.Convex.of(Angle.PI_OVER_TWO, 1.5 * Math.PI, TEST_PRECISION));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(arc.isInfinite());
+    }
+
+    @Test
+    void testFromPoints_1_oe() {
+        // arrange
+        final Point2S start = Point2S.PLUS_I;
+        final Point2S end = Point2S.MINUS_K;
+
+        // act
+        final GreatArc arc = GreatCircles.arcFromPoints(start, end, TEST_PRECISION);
+
+        // assert
+        Assertions.assertFalse(arc.isFull());
+    }
+
+    @Test
+    void testFromPoints_2_oe() {
+        // arrange
+        final Point2S start = Point2S.PLUS_I;
+        final Point2S end = Point2S.MINUS_K;
+
+        // act
+        final GreatArc arc = GreatCircles.arcFromPoints(start, end, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        Assertions.assertFalse(arc.isEmpty());
+    }
+
+    @Test
+    void testFromPoints_3_oe() {
+        // arrange
+        final Point2S start = Point2S.PLUS_I;
+        final Point2S end = Point2S.MINUS_K;
+
+        // act
+        final GreatArc arc = GreatCircles.arcFromPoints(start, end, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(arc.isFinite());
+    }
+
+    @Test
+    void testFromPoints_4_oe() {
+        // arrange
+        final Point2S start = Point2S.PLUS_I;
+        final Point2S end = Point2S.MINUS_K;
+
+        // act
+        final GreatArc arc = GreatCircles.arcFromPoints(start, end, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(arc.isInfinite());
+    }
+
+    @Test
+    void testFromPoints_almostPi_1_oe() {
+        // arrange
+        final Point2S start = Point2S.PLUS_J;
+        final Point2S end = Point2S.of(1.5 * Math.PI, Angle.PI_OVER_TWO - 1e-5);
+
+        // act
+        final GreatArc arc = GreatCircles.arcFromPoints(start, end, TEST_PRECISION);
+
+        // assert
+        Assertions.assertFalse(arc.isFull());
+    }
+
+    @Test
+    void testFromPoints_almostPi_2_oe() {
+        // arrange
+        final Point2S start = Point2S.PLUS_J;
+        final Point2S end = Point2S.of(1.5 * Math.PI, Angle.PI_OVER_TWO - 1e-5);
+
+        // act
+        final GreatArc arc = GreatCircles.arcFromPoints(start, end, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        Assertions.assertFalse(arc.isEmpty());
+    }
+
+    @Test
+    void testFromPoints_almostPi_3_oe() {
+        // arrange
+        final Point2S start = Point2S.PLUS_J;
+        final Point2S end = Point2S.of(1.5 * Math.PI, Angle.PI_OVER_TWO - 1e-5);
+
+        // act
+        final GreatArc arc = GreatCircles.arcFromPoints(start, end, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertTrue(arc.isFinite());
+    }
+
+    @Test
+    void testFromPoints_almostPi_4_oe() {
+        // arrange
+        final Point2S start = Point2S.PLUS_J;
+        final Point2S end = Point2S.of(1.5 * Math.PI, Angle.PI_OVER_TWO - 1e-5);
+
+        // act
+        final GreatArc arc = GreatCircles.arcFromPoints(start, end, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(arc.isInfinite());
+    }
+
+    @Test
+    void testFromPoints_invalidPoints_1_oe() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.of(1e-12, Angle.PI_OVER_TWO), TEST_PRECISION));
+    }
+
+    @Test
+    void testFromPoints_invalidPoints_2_oe() {
+        // act/assert
+        // removed other assertion
+        Assertions.assertThrows(IllegalArgumentException.class, () -> GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.MINUS_I, TEST_PRECISION));
+    }
+
+    @Test
+    void testToConvex_1_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.MINUS_I, TEST_PRECISION),
+                AngularInterval.Convex.of(0.0, Math.PI, TEST_PRECISION));
+
+        // act
+        final List<GreatArc> result = arc.toConvex();
+
+        // assert
+        Assertions.assertEquals(1, result.size());
+    }
+
+    @Test
+    void testToConvex_2_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.MINUS_I, TEST_PRECISION),
+                AngularInterval.Convex.of(0.0, Math.PI, TEST_PRECISION));
+
+        // act
+        final List<GreatArc> result = arc.toConvex();
+
+        // assert
+        // removed other assertion
+        Assertions.assertSame(arc, result.get(0));
+    }
+
+    @Test
+    void testGetMidPoint_full_1_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
+                AngularInterval.full());
+
+        // act/assert
+        Assertions.assertNull(arc.getMidPoint());
+    }
+
+    @Test
+    void testReverse_full_1_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.arcFromInterval(
+                GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.MINUS_I, TEST_PRECISION),
+                AngularInterval.full());
+
+        // act
+        final GreatArc result = arc.reverse();
+
+        // assert
+        checkGreatCircle(result.getCircle(), Vector3D.Unit.MINUS_Z, Vector3D.Unit.PLUS_Y);
+
+        Assertions.assertTrue(result.isFull());
+    }
+
+    @Test
+    void testSplit_full_1_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION).span();
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
+
+        // act
+        final Split<GreatArc> split = arc.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+    }
+
+    @Test
+    void testSplit_full_2_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION).span();
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
+
+        // act
+        final Split<GreatArc> split = arc.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final GreatArc minus = split.getMinus();
+        Assertions.assertSame(arc.getCircle(), minus.getCircle());
+    }
+
+    @Test
+    void testSplit_full_3_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION).span();
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(-1, 0, 1), TEST_PRECISION);
+
+        // act
+        final Split<GreatArc> split = arc.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final GreatArc minus = split.getMinus();
+        // removed other assertion
+        checkArc(minus, Point2S.PLUS_J, Point2S.MINUS_J);
+        checkClassify(minus, RegionLocation.OUTSIDE, Point2S.PLUS_I);
+        checkClassify(minus, RegionLocation.INSIDE, Point2S.MINUS_I);
+
+        final GreatArc plus = split.getPlus();
+        Assertions.assertSame(arc.getCircle(), plus.getCircle());
+    }
+
+    @Test
+    void testSplit_both_1_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
+                .arc(Angle.PI_OVER_TWO, Math.PI);
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(0, 1, 1), TEST_PRECISION);
+
+        // act
+        final Split<GreatArc> split = arc.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+    }
+
+    @Test
+    void testSplit_both_2_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
+                .arc(Angle.PI_OVER_TWO, Math.PI);
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(0, 1, 1), TEST_PRECISION);
+
+        // act
+        final Split<GreatArc> split = arc.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final GreatArc minus = split.getMinus();
+        Assertions.assertSame(arc.getCircle(), minus.getCircle());
+    }
+
+    @Test
+    void testSplit_both_3_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
+                .arc(Angle.PI_OVER_TWO, Math.PI);
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.of(0, 1, 1), TEST_PRECISION);
+
+        // act
+        final Split<GreatArc> split = arc.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final GreatArc minus = split.getMinus();
+        // removed other assertion
+        checkArc(minus, Point2S.of(0, 0), Point2S.of(1.5 * Math.PI, 0.25 * Math.PI));
+
+        final GreatArc plus = split.getPlus();
+        Assertions.assertSame(arc.getCircle(), plus.getCircle());
+    }
+
+    @Test
+    void testSplit_minus_1_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
+                .arc(Angle.PI_OVER_TWO, Math.PI);
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+
+        // act
+        final Split<GreatArc> split = arc.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+    }
+
+    @Test
+    void testSplit_minus_2_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
+                .arc(Angle.PI_OVER_TWO, Math.PI);
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+
+        // act
+        final Split<GreatArc> split = arc.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final GreatArc minus = split.getMinus();
+        Assertions.assertSame(arc, minus);
+    }
+
+    @Test
+    void testSplit_minus_3_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
+                .arc(Angle.PI_OVER_TWO, Math.PI);
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+
+        // act
+        final Split<GreatArc> split = arc.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final GreatArc minus = split.getMinus();
+        // removed other assertion
+
+        final GreatArc plus = split.getPlus();
+        Assertions.assertNull(plus);
+    }
+
+    @Test
+    void testSplit_plus_1_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
+                .arc(Angle.PI_OVER_TWO, Math.PI);
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.Unit.from(-1, 0, -1), TEST_PRECISION);
+
+        // act
+        final Split<GreatArc> split = arc.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
+    }
+
+    @Test
+    void testSplit_plus_2_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
+                .arc(Angle.PI_OVER_TWO, Math.PI);
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.Unit.from(-1, 0, -1), TEST_PRECISION);
+
+        // act
+        final Split<GreatArc> split = arc.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final GreatArc minus = split.getMinus();
+        Assertions.assertNull(minus);
+    }
+
+    @Test
+    void testSplit_plus_3_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
+                .arc(Angle.PI_OVER_TWO, Math.PI);
+        final GreatCircle splitter = GreatCircles.fromPole(Vector3D.Unit.from(-1, 0, -1), TEST_PRECISION);
+
+        // act
+        final Split<GreatArc> split = arc.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final GreatArc minus = split.getMinus();
+        // removed other assertion
+
+        final GreatArc plus = split.getPlus();
+        Assertions.assertSame(arc, plus);
+    }
+
+    @Test
+    void testSplit_parallelAndAntiparallel_1_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION).span();
+
+        // act/assert
+        Assertions.assertEquals(SplitLocation.NEITHER, arc.split(GreatCircles.fromPole(Vector3D.Unit.PLUS_Z, TEST_PRECISION)).getLocation());
+    }
+
+    @Test
+    void testSplit_parallelAndAntiparallel_2_oe() {
+        // arrange
+        final GreatArc arc = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION).span();
+
+        // act/assert
+        // removed other assertion
+        Assertions.assertEquals(SplitLocation.NEITHER, arc.split(GreatCircles.fromPole(Vector3D.Unit.MINUS_Z, TEST_PRECISION)).getLocation());
+    }
+
+}

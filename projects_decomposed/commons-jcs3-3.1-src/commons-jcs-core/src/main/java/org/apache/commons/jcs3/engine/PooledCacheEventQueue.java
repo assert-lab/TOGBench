@@ -49,14 +49,11 @@ public class PooledCacheEventQueue<K, V>
     /** The logger. */
     private static final Log log = LogManager.getLog( PooledCacheEventQueue.class );
 
-    /** The type of event queue */
-    private static final QueueType queueType = QueueType.POOLED;
-
     /** The Thread Pool to execute events with. */
-    protected ExecutorService pool = null;
+    protected ExecutorService pool;
 
     /** The Thread Pool queue */
-    protected BlockingQueue<Runnable> queue = null;
+    protected BlockingQueue<Runnable> queue;
 
     /**
      * Constructor for the CacheEventQueue object
@@ -68,8 +65,8 @@ public class PooledCacheEventQueue<K, V>
      * @param waitBeforeRetry
      * @param threadPoolName
      */
-    public PooledCacheEventQueue( ICacheListener<K, V> listener, long listenerId, String cacheName, int maxFailure,
-                                  int waitBeforeRetry, String threadPoolName )
+    public PooledCacheEventQueue( final ICacheListener<K, V> listener, final long listenerId, final String cacheName, final int maxFailure,
+                                  final int waitBeforeRetry, final String threadPoolName )
     {
         initialize( listener, listenerId, cacheName, maxFailure, waitBeforeRetry, threadPoolName );
     }
@@ -84,14 +81,12 @@ public class PooledCacheEventQueue<K, V>
      * @param waitBeforeRetry
      * @param threadPoolName
      */
-    protected void initialize( ICacheListener<K, V> listener, long listenerId, String cacheName, int maxFailure,
-                            int waitBeforeRetry, String threadPoolName )
+    protected void initialize( final ICacheListener<K, V> listener, final long listenerId, final String cacheName, final int maxFailure,
+                            final int waitBeforeRetry, final String threadPoolName )
     {
         super.initialize(listener, listenerId, cacheName, maxFailure, waitBeforeRetry);
 
-        // this will share the same pool with other event queues by default.
-        pool = ThreadPoolManager.getInstance().getExecutorService(
-                (threadPoolName == null) ? "cache_event_queue" : threadPoolName );
+        pool = createPool(threadPoolName);
 
         if (pool instanceof ThreadPoolExecutor)
         {
@@ -100,12 +95,26 @@ public class PooledCacheEventQueue<K, V>
     }
 
     /**
+     * Create the thread pool.
+     * <p>
+     * @param threadPoolName
+     * @since 3.1
+     */
+    protected ExecutorService createPool(final String threadPoolName)
+    {
+        // this will share the same pool with other event queues by default.
+        return ThreadPoolManager.getInstance().getExecutorService(
+                (threadPoolName == null) ? "cache_event_queue" : threadPoolName );
+    }
+
+    /**
      * @return the queue type
      */
     @Override
     public QueueType getQueueType()
     {
-        return queueType;
+        /** The type of queue -- there are pooled and single */
+        return QueueType.POOLED;
     }
 
     /**
@@ -117,7 +126,6 @@ public class PooledCacheEventQueue<K, V>
         if ( isWorking() )
         {
             setWorking(false);
-            pool.shutdownNow();
             log.info( "Cache event queue destroyed: {0}", this );
         }
     }
@@ -128,7 +136,7 @@ public class PooledCacheEventQueue<K, V>
      * @param event
      */
     @Override
-    protected void put( AbstractCacheEvent event )
+    protected void put( final AbstractCacheEvent event )
     {
         pool.execute( event );
     }
@@ -139,10 +147,10 @@ public class PooledCacheEventQueue<K, V>
     @Override
     public IStats getStatistics()
     {
-        IStats stats = new Stats();
+        final IStats stats = new Stats();
         stats.setTypeName( "Pooled Cache Event Queue" );
 
-        ArrayList<IStatElement<?>> elems = new ArrayList<>();
+        final ArrayList<IStatElement<?>> elems = new ArrayList<>();
 
         elems.add(new StatElement<>( "Working", Boolean.valueOf(isWorking()) ) );
         elems.add(new StatElement<>( "Empty", Boolean.valueOf(this.isEmpty()) ) );
@@ -183,9 +191,6 @@ public class PooledCacheEventQueue<K, V>
         {
             return 0;
         }
-        else
-        {
-            return queue.size();
-        }
+        return queue.size();
     }
 }

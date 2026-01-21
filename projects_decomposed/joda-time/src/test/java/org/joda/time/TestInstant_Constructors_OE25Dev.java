@@ -61,7 +61,7 @@ public class TestInstant_Constructors_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestInstant_Constructors_OE25Dev.class);
+        return new TestSuite(TestInstant_Constructors.class);
     }
 
     public TestInstant_Constructors_OE25Dev(String name) {

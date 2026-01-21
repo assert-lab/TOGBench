@@ -86,7 +86,7 @@ public class JCSConcurrentCacheAccessUnitTest_OE25Dev extends TestCase
     	@Override
 		public void run()
 		{
-			String name = getName();
+			final String name = getName();
 
 			for (int idx = 0; idx < LOOPS; idx++)
 			{
@@ -119,7 +119,7 @@ public class JCSConcurrentCacheAccessUnitTest_OE25Dev extends TestCase
 		                    {
 								Thread.sleep(1000);
 							}
-		                    catch (InterruptedException e)
+		                    catch (final InterruptedException e)
 							{
 								// continue
 							}
@@ -137,7 +137,7 @@ public class JCSConcurrentCacheAccessUnitTest_OE25Dev extends TestCase
 		        {
 					cache.putInGroup(Integer.valueOf(idx), group, String.valueOf(idx));
 				}
-		        catch (CacheException e)
+		        catch (final CacheException e)
 		        {
 		        	// continue
 				}
@@ -159,7 +159,7 @@ public class JCSConcurrentCacheAccessUnitTest_OE25Dev extends TestCase
     public void testConcurrentAccess_1_oe()
         throws Exception
     {
-    	Worker[] worker = new Worker[THREADS];
+    	final Worker[] worker = new Worker[THREADS];
 
         for (int i = 0; i < THREADS; i++)
         {
@@ -178,7 +178,7 @@ public class JCSConcurrentCacheAccessUnitTest_OE25Dev extends TestCase
     public void testConcurrentAccess_2_oe()
         throws Exception
     {
-    	Worker[] worker = new Worker[THREADS];
+    	final Worker[] worker = new Worker[THREADS];
 
         for (int i = 0; i < THREADS; i++)
         {
@@ -192,7 +192,7 @@ public class JCSConcurrentCacheAccessUnitTest_OE25Dev extends TestCase
         }
 
         // removed other assertion
-        for (String msg : valueMismatchList)
+        for (final String msg : valueMismatchList)
         {
             System.out.println(msg);
         }

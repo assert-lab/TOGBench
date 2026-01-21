@@ -38,7 +38,7 @@ public class TestDurationFieldType_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDurationFieldType_OE25Dev.class);
+        return new TestSuite(TestDurationFieldType.class);
     }
 
     public TestDurationFieldType_OE25Dev(String name) {
@@ -58,7 +58,7 @@ public class TestDurationFieldType_OE25Dev extends TestCase {
     //-----------------------------------------------------------------------
     private void assertSerialization(DurationFieldType type) throws Exception {
         DurationFieldType result = doSerialization(type);
-        assertEquals(type, result);
+        assertSame(type, result);
     }
 
     private DurationFieldType doSerialization(DurationFieldType type) throws Exception {

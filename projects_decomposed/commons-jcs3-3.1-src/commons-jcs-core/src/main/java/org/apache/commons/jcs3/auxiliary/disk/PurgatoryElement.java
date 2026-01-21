@@ -30,13 +30,14 @@ import org.apache.commons.jcs3.engine.behavior.IElementAttributes;
  * been written to disk.
  */
 public class PurgatoryElement<K, V>
-    extends CacheElement<K, V>
+    extends CacheElement<K, V> // Remove this superclass in next major release
+//    implements ICacheElement<K, V>
 {
     /** Don't change */
     private static final long serialVersionUID = -8152034342684135628L;
 
     /** Is the element ready to be spooled? */
-    private boolean spoolable = false;
+    private boolean spoolable;
 
     /** Wrapped cache Element */
     private final ICacheElement<K, V> cacheElement;
@@ -46,11 +47,9 @@ public class PurgatoryElement<K, V>
      *
      * @param cacheElement CacheElement
      */
-    public PurgatoryElement( ICacheElement<K, V> cacheElement )
+    public PurgatoryElement( final ICacheElement<K, V> cacheElement )
     {
-        super(cacheElement.getCacheName(),
-                cacheElement.getKey(), cacheElement.getVal(),
-                cacheElement.getElementAttributes());
+        super(cacheElement.getCacheName(), cacheElement.getKey(), cacheElement.getVal());
         this.cacheElement = cacheElement;
     }
 
@@ -69,7 +68,7 @@ public class PurgatoryElement<K, V>
      *
      * @param spoolable The new spoolable value
      */
-    public void setSpoolable( boolean spoolable )
+    public void setSpoolable( final boolean spoolable )
     {
         this.spoolable = spoolable;
     }
@@ -131,7 +130,7 @@ public class PurgatoryElement<K, V>
      * @see ICacheElement#setElementAttributes
      */
     @Override
-    public void setElementAttributes( IElementAttributes attr )
+    public void setElementAttributes( final IElementAttributes attr )
     {
         cacheElement.setElementAttributes( attr );
     }
@@ -142,7 +141,7 @@ public class PurgatoryElement<K, V>
     @Override
     public String toString()
     {
-        StringBuilder buf = new StringBuilder();
+        final StringBuilder buf = new StringBuilder();
         buf.append( "[PurgatoryElement: " );
         buf.append( " isSpoolable = " + isSpoolable() );
         buf.append( " CacheElement = " + getCacheElement() );

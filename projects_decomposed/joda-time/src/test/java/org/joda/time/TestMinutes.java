@@ -65,12 +65,12 @@ public class TestMinutes extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testFactory_minutes_int() {
-        assertEquals(Minutes.ZERO, Minutes.minutes(0));
-        assertEquals(Minutes.ONE, Minutes.minutes(1));
-        assertEquals(Minutes.TWO, Minutes.minutes(2));
-        assertEquals(Minutes.THREE, Minutes.minutes(3));
-        assertEquals(Minutes.MAX_VALUE, Minutes.minutes(Integer.MAX_VALUE));
-        assertEquals(Minutes.MIN_VALUE, Minutes.minutes(Integer.MIN_VALUE));
+        assertSame(Minutes.ZERO, Minutes.minutes(0));
+        assertSame(Minutes.ONE, Minutes.minutes(1));
+        assertSame(Minutes.TWO, Minutes.minutes(2));
+        assertSame(Minutes.THREE, Minutes.minutes(3));
+        assertSame(Minutes.MAX_VALUE, Minutes.minutes(Integer.MAX_VALUE));
+        assertSame(Minutes.MIN_VALUE, Minutes.minutes(Integer.MIN_VALUE));
         assertEquals(-1, Minutes.minutes(-1).getMinutes());
         assertEquals(4, Minutes.minutes(4).getMinutes());
     }
@@ -209,7 +209,7 @@ public class TestMinutes extends TestCase {
         Minutes result = (Minutes) ois.readObject();
         ois.close();
         
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -329,7 +329,7 @@ public class TestMinutes extends TestCase {
         assertEquals(6, test.multipliedBy(3).getMinutes());
         assertEquals(2, test.getMinutes());
         assertEquals(-6, test.multipliedBy(-3).getMinutes());
-        assertEquals(test, test.multipliedBy(1));
+        assertSame(test, test.multipliedBy(1));
         
         Minutes halfMax = Minutes.minutes(Integer.MAX_VALUE / 2 + 1);
         try {
@@ -348,7 +348,7 @@ public class TestMinutes extends TestCase {
         assertEquals(3, test.dividedBy(4).getMinutes());
         assertEquals(2, test.dividedBy(5).getMinutes());
         assertEquals(2, test.dividedBy(6).getMinutes());
-        assertEquals(test, test.dividedBy(1));
+        assertSame(test, test.dividedBy(1));
         
         try {
             Minutes.ONE.dividedBy(0);

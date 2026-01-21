@@ -85,11 +85,11 @@ public class TestYearMonthDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetYear() {
         YearMonthDay test = new YearMonthDay(1972, 6, 9);
-        assertEquals(test.getChronology().year(), test.year().getField());
+        assertSame(test.getChronology().year(), test.year().getField());
         assertEquals("year", test.year().getName());
         assertEquals("Property[year]", test.year().toString());
-        assertEquals(test, test.year().getReadablePartial());
-        assertEquals(test, test.year().getYearMonthDay());
+        assertSame(test, test.year().getReadablePartial());
+        assertSame(test, test.year().getYearMonthDay());
         assertEquals(1972, test.year().get());
         assertEquals("1972", test.year().getAsString());
         assertEquals("1972", test.year().getAsText());
@@ -196,11 +196,11 @@ public class TestYearMonthDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMonth() {
         YearMonthDay test = new YearMonthDay(1972, 6, 9);
-        assertEquals(test.getChronology().monthOfYear(), test.monthOfYear().getField());
+        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
         assertEquals("monthOfYear", test.monthOfYear().getName());
         assertEquals("Property[monthOfYear]", test.monthOfYear().toString());
-        assertEquals(test, test.monthOfYear().getReadablePartial());
-        assertEquals(test, test.monthOfYear().getYearMonthDay());
+        assertSame(test, test.monthOfYear().getReadablePartial());
+        assertSame(test, test.monthOfYear().getYearMonthDay());
         assertEquals(6, test.monthOfYear().get());
         assertEquals("6", test.monthOfYear().getAsString());
         assertEquals("June", test.monthOfYear().getAsText());
@@ -341,11 +341,11 @@ public class TestYearMonthDay_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetDay() {
         YearMonthDay test = new YearMonthDay(1972, 6, 9);
-        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
         assertEquals("dayOfMonth", test.dayOfMonth().getName());
         assertEquals("Property[dayOfMonth]", test.dayOfMonth().toString());
-        assertEquals(test, test.dayOfMonth().getReadablePartial());
-        assertEquals(test, test.dayOfMonth().getYearMonthDay());
+        assertSame(test, test.dayOfMonth().getReadablePartial());
+        assertSame(test, test.dayOfMonth().getYearMonthDay());
         assertEquals(9, test.dayOfMonth().get());
         assertEquals("9", test.dayOfMonth().getAsString());
         assertEquals("9", test.dayOfMonth().getAsText());

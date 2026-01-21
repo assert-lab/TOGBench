@@ -51,9 +51,9 @@ public class RemoteHttpCacheService<K, V>
      * @param remoteHttpCacheServerAttributes
      * @param cacheEventLogger
      */
-    public RemoteHttpCacheService( ICompositeCacheManager cacheManager,
-                                   RemoteHttpCacheServerAttributes remoteHttpCacheServerAttributes,
-                                   ICacheEventLogger cacheEventLogger )
+    public RemoteHttpCacheService( final ICompositeCacheManager cacheManager,
+                                   final RemoteHttpCacheServerAttributes remoteHttpCacheServerAttributes,
+                                   final ICacheEventLogger cacheEventLogger )
     {
         super( cacheManager, cacheEventLogger );
         setEventLogSourceName( EVENT_LOG_SOURCE_NAME );
@@ -72,20 +72,17 @@ public class RemoteHttpCacheService<K, V>
      * @throws IOException
      */
     @Override
-    public ICacheElement<K, V> processGet( String cacheName, K key, long requesterId )
+    public ICacheElement<K, V> processGet( final String cacheName, final K key, final long requesterId )
         throws IOException
     {
-        CompositeCache<K, V> cache = getCacheManager().getCache( cacheName );
+        final CompositeCache<K, V> cache = getCacheManager().getCache( cacheName );
 
-        boolean keepLocal = !remoteHttpCacheServerAttributes.isAllowClusterGet();
+        final boolean keepLocal = !remoteHttpCacheServerAttributes.isAllowClusterGet();
         if ( keepLocal )
         {
             return cache.localGet( key );
         }
-        else
-        {
-            return cache.get( key );
-        }
+        return cache.get( key );
     }
 
     /**
@@ -101,20 +98,17 @@ public class RemoteHttpCacheService<K, V>
      * @throws IOException
      */
     @Override
-    public Map<K, ICacheElement<K, V>> processGetMultiple( String cacheName, Set<K> keys, long requesterId )
+    public Map<K, ICacheElement<K, V>> processGetMultiple( final String cacheName, final Set<K> keys, final long requesterId )
         throws IOException
     {
-        CompositeCache<K, V> cache = getCacheManager().getCache( cacheName );
+        final CompositeCache<K, V> cache = getCacheManager().getCache( cacheName );
 
-        boolean keepLocal = !remoteHttpCacheServerAttributes.isAllowClusterGet();
+        final boolean keepLocal = !remoteHttpCacheServerAttributes.isAllowClusterGet();
         if ( keepLocal )
         {
             return cache.localGetMultiple( keys );
         }
-        else
-        {
-            return cache.getMultiple( keys );
-        }
+        return cache.getMultiple( keys );
     }
 
     /**
@@ -130,20 +124,17 @@ public class RemoteHttpCacheService<K, V>
      * @throws IOException
      */
     @Override
-    public Map<K, ICacheElement<K, V>> processGetMatching( String cacheName, String pattern, long requesterId )
+    public Map<K, ICacheElement<K, V>> processGetMatching( final String cacheName, final String pattern, final long requesterId )
         throws IOException
     {
-        CompositeCache<K, V> cache = getCacheManager().getCache( cacheName );
+        final CompositeCache<K, V> cache = getCacheManager().getCache( cacheName );
 
-        boolean keepLocal = !remoteHttpCacheServerAttributes.isAllowClusterGet();
+        final boolean keepLocal = !remoteHttpCacheServerAttributes.isAllowClusterGet();
         if ( keepLocal )
         {
             return cache.localGetMatching( pattern );
         }
-        else
-        {
-            return cache.getMatching( pattern );
-        }
+        return cache.getMatching( pattern );
     }
 
     /**
@@ -157,12 +148,12 @@ public class RemoteHttpCacheService<K, V>
      * @throws IOException
      */
     @Override
-    public void processUpdate( ICacheElement<K, V> item, long requesterId )
+    public void processUpdate( final ICacheElement<K, V> item, final long requesterId )
         throws IOException
     {
-        CompositeCache<K, V> cache = getCacheManager().getCache( item.getCacheName() );
+        final CompositeCache<K, V> cache = getCacheManager().getCache( item.getCacheName() );
 
-        boolean keepLocal = !remoteHttpCacheServerAttributes.isLocalClusterConsistency();
+        final boolean keepLocal = !remoteHttpCacheServerAttributes.isLocalClusterConsistency();
         if ( keepLocal )
         {
             cache.localUpdate( item );
@@ -185,12 +176,12 @@ public class RemoteHttpCacheService<K, V>
      * @throws IOException
      */
     @Override
-    public void processRemove( String cacheName, K key, long requesterId )
+    public void processRemove( final String cacheName, final K key, final long requesterId )
         throws IOException
     {
-        CompositeCache<K, V> cache = getCacheManager().getCache( cacheName );
+        final CompositeCache<K, V> cache = getCacheManager().getCache( cacheName );
 
-        boolean keepLocal = !remoteHttpCacheServerAttributes.isLocalClusterConsistency();
+        final boolean keepLocal = !remoteHttpCacheServerAttributes.isLocalClusterConsistency();
         if ( keepLocal )
         {
             cache.localRemove( key );
@@ -212,12 +203,12 @@ public class RemoteHttpCacheService<K, V>
      * @throws IOException
      */
     @Override
-    public void processRemoveAll( String cacheName, long requesterId )
+    public void processRemoveAll( final String cacheName, final long requesterId )
         throws IOException
     {
-        CompositeCache<K, V> cache = getCacheManager().getCache( cacheName );
+        final CompositeCache<K, V> cache = getCacheManager().getCache( cacheName );
 
-        boolean keepLocal = !remoteHttpCacheServerAttributes.isLocalClusterConsistency();
+        final boolean keepLocal = !remoteHttpCacheServerAttributes.isLocalClusterConsistency();
         if ( keepLocal )
         {
             cache.localRemoveAll();
@@ -236,10 +227,10 @@ public class RemoteHttpCacheService<K, V>
      * @throws IOException
      */
     @Override
-    public void processDispose( String cacheName, long requesterId )
+    public void processDispose( final String cacheName, final long requesterId )
         throws IOException
     {
-        CompositeCache<K, V> cache = getCacheManager().getCache( cacheName );
+        final CompositeCache<K, V> cache = getCacheManager().getCache( cacheName );
         cache.dispose();
     }
 
@@ -262,7 +253,7 @@ public class RemoteHttpCacheService<K, V>
      * @return requesterId + ""
      */
     @Override
-    protected String getExtraInfoForRequesterId( long requesterId )
+    protected String getExtraInfoForRequesterId( final long requesterId )
     {
         return requesterId + "";
     }

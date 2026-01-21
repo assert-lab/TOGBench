@@ -43,11 +43,11 @@ public class CacheManagerBean implements Bean<CacheManager>, PassivationCapable
         manager = cacheManager;
         id = getClass().getName() + "-" + hashCode();
 
-        types = new HashSet<Type>();
+        types = new HashSet<>();
         types.add(CacheManager.class);
         types.add(Object.class);
 
-        qualifiers = new HashSet<Annotation>();
+        qualifiers = new HashSet<>();
         qualifiers.add(DefaultLiteral.INSTANCE);
         qualifiers.add(AnyLiteral.INSTANCE);
     }
@@ -107,13 +107,13 @@ public class CacheManagerBean implements Bean<CacheManager>, PassivationCapable
     }
 
     @Override
-    public CacheManager create(CreationalContext<CacheManager> cacheManagerCreationalContext)
+    public CacheManager create(final CreationalContext<CacheManager> cacheManagerCreationalContext)
     {
         return manager;
     }
 
     @Override
-    public void destroy(CacheManager cacheManager, CreationalContext<CacheManager> cacheManagerCreationalContext)
+    public void destroy(final CacheManager cacheManager, final CreationalContext<CacheManager> cacheManagerCreationalContext)
     {
         manager.close();
     }

@@ -12,3 +12,17 @@ bcel_62_1,"    public void testPerformance_1_oe() {
     }
     }
 ",PerformanceTest::testPerformance_1_oe
+bcel_89_1,"    @Test
+    public void testPerformance_1_oe() throws Exception {
+        final File javaLib = new File(System.getProperty(""java.home"") + ""/lib"");
+        javaLib.listFiles((FileFilter) file -> {
+            if (file.getName().endsWith("".jar"")) {
+                try {
+                    testJar(file);
+                } catch (final Exception e) {
+                    Assert.fail(e.getMessage());
+    }
+    }
+    }
+    }
+",JDKClassDumpTestCase::testPerformance_1_oe

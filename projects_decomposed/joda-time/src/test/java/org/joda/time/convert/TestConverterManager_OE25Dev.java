@@ -112,7 +112,7 @@ public class TestConverterManager_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestConverterManager_OE25Dev.class);
+        return new TestSuite(TestConverterManager.class);
     }
 
     public TestConverterManager_OE25Dev(String name) {

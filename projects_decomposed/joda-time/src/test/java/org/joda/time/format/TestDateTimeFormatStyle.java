@@ -129,7 +129,7 @@ public class TestDateTimeFormatStyle extends TestCase {
     public void testForStyle_shortDate() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("S-");
-        assertEquals(g, f);
+        assertSame(g, f);
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateInstance(DateFormat.SHORT, UK).format(dt.toDate());
         assertEquals(expect, f.print(dt));
@@ -146,7 +146,7 @@ public class TestDateTimeFormatStyle extends TestCase {
     public void testForStyle_shortTime() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-S");
-        assertEquals(g, f);
+        assertSame(g, f);
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getTimeInstance(DateFormat.SHORT, UK).format(dt.toDate());
         assertEquals(expect, f.print(dt));
@@ -167,7 +167,7 @@ public class TestDateTimeFormatStyle extends TestCase {
     public void testForStyle_shortDateTime() throws Exception {
         DateTimeFormatter f = DateTimeFormat.shortDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("SS");
-        assertEquals(g, f);
+        assertSame(g, f);
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT, UK).format(dt.toDate());
         assertEquals(expect, f.print(dt));
@@ -185,7 +185,7 @@ public class TestDateTimeFormatStyle extends TestCase {
     public void testForStyle_mediumDate() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("M-");
-        assertEquals(g, f);
+        assertSame(g, f);
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateInstance(DateFormat.MEDIUM, UK).format(dt.toDate());
         assertEquals(expect, f.print(dt));
@@ -198,7 +198,7 @@ public class TestDateTimeFormatStyle extends TestCase {
     public void testForStyle_mediumTime() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-M");
-        assertEquals(g, f);
+        assertSame(g, f);
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getTimeInstance(DateFormat.MEDIUM, UK).format(dt.toDate());
         assertEquals(expect, f.print(dt));
@@ -211,7 +211,7 @@ public class TestDateTimeFormatStyle extends TestCase {
     public void testForStyle_mediumDateTime() throws Exception {
         DateTimeFormatter f = DateTimeFormat.mediumDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("MM");
-        assertEquals(g, f);
+        assertSame(g, f);
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM, UK).format(dt.toDate());
         assertEquals(expect, f.print(dt));
@@ -225,7 +225,7 @@ public class TestDateTimeFormatStyle extends TestCase {
     public void testForStyle_longDate() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("L-");
-        assertEquals(g, f);
+        assertSame(g, f);
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateInstance(DateFormat.LONG, UK).format(dt.toDate());
         assertEquals(expect, f.print(dt));
@@ -238,7 +238,7 @@ public class TestDateTimeFormatStyle extends TestCase {
     public void testForStyle_longTime() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-L");
-        assertEquals(g, f);
+        assertSame(g, f);
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getTimeInstance(DateFormat.LONG, UK).format(dt.toDate());
         assertEquals(expect, f.print(dt));
@@ -251,7 +251,7 @@ public class TestDateTimeFormatStyle extends TestCase {
     public void testForStyle_longDateTime() throws Exception {
         DateTimeFormatter f = DateTimeFormat.longDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("LL");
-        assertEquals(g, f);
+        assertSame(g, f);
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, UK).format(dt.toDate());
         assertEquals(expect, f.print(dt));
@@ -265,7 +265,7 @@ public class TestDateTimeFormatStyle extends TestCase {
     public void testForStyle_fullDate() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullDate();
         DateTimeFormatter g = DateTimeFormat.forStyle("F-");
-        assertEquals(g, f);
+        assertSame(g, f);
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateInstance(DateFormat.FULL, UK).format(dt.toDate());
         assertEquals(expect, f.print(dt));
@@ -278,7 +278,7 @@ public class TestDateTimeFormatStyle extends TestCase {
     public void testForStyle_fullTime() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("-F");
-        assertEquals(g, f);
+        assertSame(g, f);
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getTimeInstance(DateFormat.FULL, UK).format(dt.toDate());
         assertEquals(expect, f.print(dt));
@@ -291,7 +291,7 @@ public class TestDateTimeFormatStyle extends TestCase {
     public void testForStyle_fullDateTime() throws Exception {
         DateTimeFormatter f = DateTimeFormat.fullDateTime();
         DateTimeFormatter g = DateTimeFormat.forStyle("FF");
-        assertEquals(g, f);
+        assertSame(g, f);
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 0);
         String expect = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.FULL, UK).format(dt.toDate());
         assertEquals(expect, f.print(dt));

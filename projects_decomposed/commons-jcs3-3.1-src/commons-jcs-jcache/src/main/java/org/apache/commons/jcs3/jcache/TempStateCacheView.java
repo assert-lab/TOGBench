@@ -44,8 +44,8 @@ public class TempStateCacheView<K, V> implements Cache<K, V>
     private final JCSCache<K, V> cache;
     private final Map<K, V> put = new HashMap<>();
     private final Collection<K> remove = new LinkedList<>();
-    private boolean removeAll = false;
-    private boolean clear = false;
+    private boolean removeAll;
+    private boolean clear;
 
     public TempStateCacheView(final JCSCache<K, V> entries)
     {
@@ -273,7 +273,7 @@ public class TempStateCacheView<K, V> implements Cache<K, V>
     }
 
     @Override
-    public <T> Map<K, EntryProcessorResult<T>> invokeAll(Set<? extends K> keys, final EntryProcessor<K, V, T> entryProcessor,
+    public <T> Map<K, EntryProcessorResult<T>> invokeAll(final Set<? extends K> keys, final EntryProcessor<K, V, T> entryProcessor,
             final Object... arguments)
     {
         return cache.invokeAll(keys, entryProcessor, arguments);

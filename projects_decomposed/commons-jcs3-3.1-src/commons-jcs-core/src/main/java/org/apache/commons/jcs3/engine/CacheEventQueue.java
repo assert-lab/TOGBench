@@ -1,5 +1,7 @@
 package org.apache.commons.jcs3.engine;
 
+import java.util.concurrent.ExecutorService;
+
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -21,8 +23,8 @@ package org.apache.commons.jcs3.engine;
 
 import org.apache.commons.jcs3.engine.behavior.ICacheListener;
 import org.apache.commons.jcs3.utils.threadpool.PoolConfiguration;
-import org.apache.commons.jcs3.utils.threadpool.ThreadPoolManager;
 import org.apache.commons.jcs3.utils.threadpool.PoolConfiguration.WhenBlockedPolicy;
+import org.apache.commons.jcs3.utils.threadpool.ThreadPoolManager;
 
 /**
  * An event queue is used to propagate ordered cache events to one and only one target listener.
@@ -30,9 +32,6 @@ import org.apache.commons.jcs3.utils.threadpool.PoolConfiguration.WhenBlockedPol
 public class CacheEventQueue<K, V>
     extends PooledCacheEventQueue<K, V>
 {
-    /** The type of queue -- there are pooled and single */
-    private static final QueueType queueType = QueueType.SINGLE;
-
     /**
      * Constructs with the specified listener and the cache name.
      * <p>
@@ -40,7 +39,7 @@ public class CacheEventQueue<K, V>
      * @param listenerId
      * @param cacheName
      */
-    public CacheEventQueue( ICacheListener<K, V> listener, long listenerId, String cacheName )
+    public CacheEventQueue( final ICacheListener<K, V> listener, final long listenerId, final String cacheName )
     {
         this( listener, listenerId, cacheName, 10, 500 );
     }
@@ -54,32 +53,25 @@ public class CacheEventQueue<K, V>
      * @param maxFailure
      * @param waitBeforeRetry
      */
-    public CacheEventQueue( ICacheListener<K, V> listener, long listenerId, String cacheName, int maxFailure,
-                            int waitBeforeRetry )
+    public CacheEventQueue( final ICacheListener<K, V> listener, final long listenerId, final String cacheName, final int maxFailure,
+                            final int waitBeforeRetry )
     {
         super( listener, listenerId, cacheName, maxFailure, waitBeforeRetry, null );
     }
 
     /**
-     * Initializes the queue.
+     * Create the thread pool.
      * <p>
-     * @param listener
-     * @param listenerId
-     * @param cacheName
-     * @param maxFailure
-     * @param waitBeforeRetry
      * @param threadPoolName
+     * @since 3.1
      */
     @Override
-    protected void initialize( ICacheListener<K, V> listener, long listenerId, String cacheName, int maxFailure,
-                            int waitBeforeRetry, String threadPoolName )
+    protected ExecutorService createPool(final String threadPoolName)
     {
-        super.initialize(listener, listenerId, cacheName, maxFailure, waitBeforeRetry);
-
         // create a default pool with one worker thread to mimic the SINGLE queue behavior
-        pool = ThreadPoolManager.getInstance().createPool(
-        		new PoolConfiguration(false, 0, 1, 0, getWaitToDieMillis(), WhenBlockedPolicy.RUN, 0),
-        		"CacheEventQueue.QProcessor-" + getCacheName());
+        return ThreadPoolManager.getInstance().createPool(
+                new PoolConfiguration(false, 0, 1, 1, getWaitToDieMillis(), WhenBlockedPolicy.BLOCK, 1),
+                "CacheEventQueue.QProcessor-" + getCacheName());
     }
 
     /**
@@ -90,6 +82,7 @@ public class CacheEventQueue<K, V>
     @Override
     public QueueType getQueueType()
     {
-        return queueType;
+        /** The type of queue -- there are pooled and single */
+        return QueueType.SINGLE;
     }
 }

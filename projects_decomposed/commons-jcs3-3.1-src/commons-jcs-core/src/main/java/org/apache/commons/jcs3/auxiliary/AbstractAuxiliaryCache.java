@@ -22,6 +22,7 @@ package org.apache.commons.jcs3.auxiliary;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -54,7 +55,7 @@ public abstract class AbstractAuxiliaryCache<K, V>
      * @return a map of K key to ICacheElement&lt;K, V&gt; element, or an empty map if there is no
      *         data in cache for any of these keys
      */
-    protected Map<K, ICacheElement<K, V>> processGetMultiple(Set<K> keys) throws IOException
+    protected Map<K, ICacheElement<K, V>> processGetMultiple(final Set<K> keys) throws IOException
     {
         if (keys != null)
         {
@@ -64,14 +65,14 @@ public abstract class AbstractAuxiliaryCache<K, V>
                     {
                         return get(key);
                     }
-                    catch (IOException e)
+                    catch (final IOException e)
                     {
                         return null;
                     }
                 })
-                .filter(element -> element != null)
+                .filter(Objects::nonNull)
                 .collect(Collectors.toMap(
-                        element -> element.getKey(),
+                        ICacheElement::getKey,
                         element -> element));
         }
 
@@ -95,13 +96,13 @@ public abstract class AbstractAuxiliaryCache<K, V>
      * @param eventName
      * @return ICacheEvent
      */
-    protected ICacheEvent<K> createICacheEvent( ICacheElement<K, V> item, String eventName )
+    protected ICacheEvent<K> createICacheEvent( final ICacheElement<K, V> item, final String eventName )
     {
         if ( cacheEventLogger == null )
         {
             return new CacheEvent<>();
         }
-        String diskLocation = getEventLoggingExtraInfo();
+        final String diskLocation = getEventLoggingExtraInfo();
         String regionName = null;
         K key = null;
         if ( item != null )
@@ -121,13 +122,13 @@ public abstract class AbstractAuxiliaryCache<K, V>
      * @param eventName
      * @return ICacheEvent
      */
-    protected <T> ICacheEvent<T> createICacheEvent( String regionName, T key, String eventName )
+    protected <T> ICacheEvent<T> createICacheEvent( final String regionName, final T key, final String eventName )
     {
         if ( cacheEventLogger == null )
         {
             return new CacheEvent<>();
         }
-        String diskLocation = getEventLoggingExtraInfo();
+        final String diskLocation = getEventLoggingExtraInfo();
         return cacheEventLogger.createICacheEvent( getAuxiliaryCacheAttributes().getName(), regionName, eventName,
                                                    diskLocation, key );
 
@@ -138,7 +139,7 @@ public abstract class AbstractAuxiliaryCache<K, V>
      * <p>
      * @param cacheEvent
      */
-    protected <T> void logICacheEvent( ICacheEvent<T> cacheEvent )
+    protected <T> void logICacheEvent( final ICacheEvent<T> cacheEvent )
     {
         if ( cacheEventLogger != null )
         {
@@ -153,7 +154,7 @@ public abstract class AbstractAuxiliaryCache<K, V>
      * @param eventName
      * @param optionalDetails
      */
-    protected void logApplicationEvent( String source, String eventName, String optionalDetails )
+    protected void logApplicationEvent( final String source, final String eventName, final String optionalDetails )
     {
         if ( cacheEventLogger != null )
         {
@@ -168,7 +169,7 @@ public abstract class AbstractAuxiliaryCache<K, V>
      * @param eventName
      * @param errorMessage
      */
-    protected void logError( String source, String eventName, String errorMessage )
+    protected void logError( final String source, final String eventName, final String errorMessage )
     {
         if ( cacheEventLogger != null )
         {
@@ -189,7 +190,7 @@ public abstract class AbstractAuxiliaryCache<K, V>
      * @param cacheEventLogger
      */
     @Override
-    public void setCacheEventLogger( ICacheEventLogger cacheEventLogger )
+    public void setCacheEventLogger( final ICacheEventLogger cacheEventLogger )
     {
         this.cacheEventLogger = cacheEventLogger;
     }
@@ -213,7 +214,7 @@ public abstract class AbstractAuxiliaryCache<K, V>
      * @param elementSerializer
      */
     @Override
-    public void setElementSerializer( IElementSerializer elementSerializer )
+    public void setElementSerializer( final IElementSerializer elementSerializer )
     {
         if ( elementSerializer != null )
         {
@@ -237,7 +238,7 @@ public abstract class AbstractAuxiliaryCache<K, V>
      * @param keyMatcher
      */
     @Override
-    public void setKeyMatcher( IKeyMatcher<K> keyMatcher )
+    public void setKeyMatcher( final IKeyMatcher<K> keyMatcher )
     {
         if ( keyMatcher != null )
         {

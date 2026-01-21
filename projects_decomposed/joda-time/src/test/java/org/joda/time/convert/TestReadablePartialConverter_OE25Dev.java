@@ -55,7 +55,7 @@ public class TestReadablePartialConverter_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestReadablePartialConverter_OE25Dev.class);
+        return new TestSuite(TestReadablePartialConverter.class);
     }
 
     public TestReadablePartialConverter_OE25Dev(String name) {

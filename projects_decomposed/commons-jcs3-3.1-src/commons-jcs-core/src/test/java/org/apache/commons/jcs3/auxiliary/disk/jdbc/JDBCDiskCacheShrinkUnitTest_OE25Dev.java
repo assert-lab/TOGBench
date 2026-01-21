@@ -51,17 +51,17 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
     {
         System.setProperty( "hsqldb.cache_scale", "8" );
 
-        String rafroot = "target";
-        Properties p = new Properties();
-        String driver = p.getProperty( "driver", "org.hsqldb.jdbcDriver" );
-        String url = p.getProperty( "url", "jdbc:hsqldb:" );
-        String database = p.getProperty( "database", rafroot + "/JDBCDiskCacheShrinkUnitTest" );
-        String user = p.getProperty( "user", "sa" );
-        String password = p.getProperty( "password", "" );
+        final String rafroot = "target";
+        final Properties p = new Properties();
+        final String driver = p.getProperty( "driver", "org.hsqldb.jdbcDriver" );
+        final String url = p.getProperty( "url", "jdbc:hsqldb:" );
+        final String database = p.getProperty( "database", rafroot + "/JDBCDiskCacheShrinkUnitTest" );
+        final String user = p.getProperty( "user", "sa" );
+        final String password = p.getProperty( "password", "" );
 
         new org.hsqldb.jdbcDriver();
         Class.forName( driver ).newInstance();
-        Connection cConn = DriverManager.getConnection( url + database, user, password );
+        final Connection cConn = DriverManager.getConnection( url + database, user, password );
 
         HsqlSetupTableUtil.setupTABLE( cConn, "JCS_STORE_SHRINK" );
     }
@@ -99,10 +99,10 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
     public void testExpireInBackground_1_oe()
         throws Exception
     {
-        String regionExpire = "expire1Second";
-        int items = 200;
+        final String regionExpire = "expire1Second";
+        final int items = 200;
 
-        CacheAccess<String, String> jcsExpire = JCS.getInstance( regionExpire );
+        final CacheAccess<String, String> jcsExpire = JCS.getInstance( regionExpire );
 
 //        System.out.println( "BEFORE PUT \n" + jcsExpire.getStats() );
 
@@ -131,10 +131,10 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
     public void testDidNotExpire_1_oe()
         throws CacheException, InterruptedException
     {
-        String region = "expire100Second";
-        int items = 200;
+        final String region = "expire100Second";
+        final int items = 200;
 
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
 //        System.out.println( "BEFORE PUT \n" + jcs.getStats() );
 
@@ -155,7 +155,7 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
 
         for ( int i = 0; i <= items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
 
             assertEquals( "key = [" + i + ":key] value = [" + value + "]", region + " data " + i, value );
     }
@@ -165,10 +165,10 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
     public void testDidNotExpire_2_oe()
         throws CacheException, InterruptedException
     {
-        String region = "expire100Second";
-        int items = 200;
+        final String region = "expire100Second";
+        final int items = 200;
 
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
 //        System.out.println( "BEFORE PUT \n" + jcs.getStats() );
 
@@ -189,7 +189,7 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
 
         for ( int i = 0; i <= items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
 
             // removed other assertion
         }
@@ -213,10 +213,10 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
     public void testDidNotExpireEternal_1_oe()
         throws CacheException, InterruptedException
     {
-        String region = "eternal";
-        int items = 200;
+        final String region = "eternal";
+        final int items = 200;
 
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
 //        System.out.println( "BEFORE PUT \n" + jcs.getStats() );
 
@@ -237,7 +237,7 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
 
         for ( int i = 0; i <= items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
 
             assertEquals( "key = [" + i + ":key] value = [" + value + "]", region + " data " + i, value );
     }
@@ -247,10 +247,10 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
     public void testDidNotExpireEternal_2_oe()
         throws CacheException, InterruptedException
     {
-        String region = "eternal";
-        int items = 200;
+        final String region = "eternal";
+        final int items = 200;
 
-        CacheAccess<String, String> jcs = JCS.getInstance( region );
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
 
 //        System.out.println( "BEFORE PUT \n" + jcs.getStats() );
 
@@ -271,7 +271,7 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
 
         for ( int i = 0; i <= items; i++ )
         {
-            String value = jcs.get( i + ":key" );
+            final String value = jcs.get( i + ":key" );
 
             // removed other assertion
         }

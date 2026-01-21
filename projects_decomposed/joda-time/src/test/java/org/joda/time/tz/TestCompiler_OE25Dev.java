@@ -42,7 +42,7 @@ public class TestCompiler_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestCompiler_OE25Dev.class);
+        return new TestSuite(TestCompiler.class);
     }
 
     static final String AMERICA_LOS_ANGELES_FILE =

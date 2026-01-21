@@ -21,11 +21,8 @@ package org.apache.commons.jcs3.auxiliary.remote;
 
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
-import java.util.StringTokenizer;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 import org.apache.commons.jcs3.auxiliary.AbstractAuxiliaryCacheFactory;
 import org.apache.commons.jcs3.auxiliary.AuxiliaryCache;
@@ -51,9 +48,6 @@ public class RemoteCacheFactory
     /** Contains mappings of RemoteLocation instance to RemoteCacheManager instance. */
     private ConcurrentMap<RemoteLocation, RemoteCacheManager> managers;
 
-    /** Lock for initialization of manager instances */
-    private Lock managerLock;
-
     /**
      * For LOCAL clients we get a handle to all the failovers, but we do not register a listener
      * with them. We create the RemoteCacheManager, but we do not get a cache.
@@ -69,62 +63,55 @@ public class RemoteCacheFactory
      */
     @Override
     public <K, V> AuxiliaryCache<K, V> createCache(
-            AuxiliaryCacheAttributes iaca, ICompositeCacheManager cacheMgr,
-           ICacheEventLogger cacheEventLogger, IElementSerializer elementSerializer )
+            final AuxiliaryCacheAttributes iaca, final ICompositeCacheManager cacheMgr,
+           final ICacheEventLogger cacheEventLogger, final IElementSerializer elementSerializer )
     {
-        RemoteCacheAttributes rca = (RemoteCacheAttributes) iaca;
+        final RemoteCacheAttributes rca = (RemoteCacheAttributes) iaca;
 
-        ArrayList<RemoteCacheNoWait<K,V>> noWaits = new ArrayList<>();
+        final ArrayList<RemoteCacheNoWait<K,V>> noWaits = new ArrayList<>();
 
         switch (rca.getRemoteType())
         {
             case LOCAL:
                 // a list to be turned into an array of failover server information
-                ArrayList<RemoteLocation> failovers = new ArrayList<>();
+                final ArrayList<RemoteLocation> failovers = new ArrayList<>();
 
                 // not necessary if a failover list is defined
                 // REGISTER PRIMARY LISTENER
                 // if it is a primary
-                boolean primaryDefined = false;
                 if ( rca.getRemoteLocation() != null )
                 {
-                    primaryDefined = true;
-
                     failovers.add( rca.getRemoteLocation() );
-                    RemoteCacheManager rcm = getManager( rca, cacheMgr, cacheEventLogger, elementSerializer );
-                    RemoteCacheNoWait<K,V> ic = rcm.getCache( rca );
-                    noWaits.add( ic );
+                    final RemoteCacheManager rcm = getManager( rca, cacheMgr, cacheEventLogger, elementSerializer );
+                    noWaits.add(rcm.getCache(rca));
                 }
 
                 // GET HANDLE BUT DONT REGISTER A LISTENER FOR FAILOVERS
-                String failoverList = rca.getFailoverServers();
+                final String failoverList = rca.getFailoverServers();
                 if ( failoverList != null )
                 {
-                    StringTokenizer fit = new StringTokenizer( failoverList, "," );
-                    int fCnt = 0;
-                    while ( fit.hasMoreTokens() )
+                    final String[] failoverServers = failoverList.split("\\s*,\\s*");
+                    for (String server : failoverServers)
                     {
-                        fCnt++;
-
-                        String server = fit.nextToken();
-                        RemoteLocation location = RemoteLocation.parseServerAndPort(server);
+                        final RemoteLocation location = RemoteLocation.parseServerAndPort(server);
 
                         if (location != null)
                         {
                             failovers.add( location );
-                            rca.setRemoteLocation(location);
-                            RemoteCacheManager rcm = getManager( rca, cacheMgr, cacheEventLogger, elementSerializer );
+                            final RemoteCacheAttributes frca = (RemoteCacheAttributes) rca.clone();
+                            frca.setRemoteLocation(location);
+                            final RemoteCacheManager rcm = getManager( frca, cacheMgr, cacheEventLogger, elementSerializer );
 
                             // add a listener if there are none, need to tell rca what
                             // number it is at
-                            if (!primaryDefined && fCnt == 1 || noWaits.size() <= 0)
+                            if (noWaits.isEmpty())
                             {
-                                RemoteCacheNoWait<K,V> ic = rcm.getCache( rca );
-                                noWaits.add( ic );
+                                frca.setFailoverIndex(0);
+                                noWaits.add(rcm.getCache(frca));
                             }
                         }
                     }
-                    // end while
+                    // end for
                 }
                 // end if failoverList != null
 
@@ -133,30 +120,25 @@ public class RemoteCacheFactory
 
             case CLUSTER:
                 // REGISTER LISTENERS FOR EACH SYSTEM CLUSTERED CACHEs
-                StringTokenizer it = new StringTokenizer( rca.getClusterServers(), "," );
-                while ( it.hasMoreElements() )
+                final String[] clusterServers = rca.getClusterServers().split("\\s*,\\s*");
+                for (String server: clusterServers)
                 {
-                    String server = (String) it.nextElement();
-                    RemoteLocation location = RemoteLocation.parseServerAndPort(server);
+                    final RemoteLocation location = RemoteLocation.parseServerAndPort(server);
 
                     if (location != null)
                     {
-                        rca.setRemoteLocation(location);
-                        RemoteCacheManager rcm = getManager( rca, cacheMgr, cacheEventLogger, elementSerializer );
-                        rca.setRemoteType( RemoteType.CLUSTER );
-                        RemoteCacheNoWait<K,V> ic = rcm.getCache( rca );
-                        noWaits.add( ic );
+                        final RemoteCacheAttributes crca = (RemoteCacheAttributes) rca.clone();
+                        crca.setRemoteLocation(location);
+                        final RemoteCacheManager rcm = getManager( crca, cacheMgr, cacheEventLogger, elementSerializer );
+                        crca.setRemoteType( RemoteType.CLUSTER );
+                        noWaits.add(rcm.getCache(crca));
                     }
                 }
                 break;
         }
 
-        RemoteCacheNoWaitFacade<K, V> rcnwf =
-            new RemoteCacheNoWaitFacade<>(noWaits, rca, cacheEventLogger, elementSerializer, this );
-
-        return rcnwf;
+        return new RemoteCacheNoWaitFacade<>(noWaits, rca, cacheEventLogger, elementSerializer, this);
     }
-
     // end createCache
 
     /**
@@ -168,17 +150,15 @@ public class RemoteCacheFactory
      *
      * @return The instance value or null if no such manager exists
      */
-    public RemoteCacheManager getManager( IRemoteCacheAttributes cattr )
+    public RemoteCacheManager getManager( final IRemoteCacheAttributes cattr )
     {
-        if ( cattr.getRemoteLocation() == null )
+        final RemoteCacheAttributes rca = (RemoteCacheAttributes) cattr.clone();
+        if (rca.getRemoteLocation() == null)
         {
-            cattr.setRemoteLocation("", Registry.REGISTRY_PORT);
+            rca.setRemoteLocation("", Registry.REGISTRY_PORT);
         }
 
-        RemoteLocation loc = cattr.getRemoteLocation();
-        RemoteCacheManager ins = managers.get( loc );
-
-        return ins;
+        return managers.get(rca.getRemoteLocation());
     }
 
     /**
@@ -189,40 +169,31 @@ public class RemoteCacheFactory
      * If the connection cannot be established, zombie objects will be used for future recovery
      * purposes.
      * <p>
-     * @param cattr
-     * @param cacheMgr
-     * @param cacheEventLogger
-     * @param elementSerializer
+     * @param cattr the cache configuration object
+     * @param cacheMgr the cache manager
+     * @param cacheEventLogger the event logger
+     * @param elementSerializer the serializer to use for sending and receiving
+     *
      * @return The instance value, never null
      */
-    public RemoteCacheManager getManager( IRemoteCacheAttributes cattr, ICompositeCacheManager cacheMgr,
-                                                  ICacheEventLogger cacheEventLogger,
-                                                  IElementSerializer elementSerializer )
+    public RemoteCacheManager getManager( final IRemoteCacheAttributes cattr,
+                                          final ICompositeCacheManager cacheMgr,
+                                          final ICacheEventLogger cacheEventLogger,
+                                          final IElementSerializer elementSerializer )
     {
-        RemoteCacheManager ins = getManager( cattr );
-
-        if ( ins == null )
+        final RemoteCacheAttributes rca = (RemoteCacheAttributes) cattr.clone();
+        if (rca.getRemoteLocation() == null)
         {
-            managerLock.lock();
-
-            try
-            {
-                ins = managers.get( cattr.getRemoteLocation() );
-
-                if (ins == null)
-                {
-                    ins = new RemoteCacheManager( cattr, cacheMgr, monitor, cacheEventLogger, elementSerializer);
-                    managers.put( cattr.getRemoteLocation(), ins );
-                    monitor.addManager(ins);
-                }
-            }
-            finally
-            {
-                managerLock.unlock();
-            }
+            rca.setRemoteLocation("", Registry.REGISTRY_PORT);
         }
 
-        return ins;
+        return managers.computeIfAbsent(rca.getRemoteLocation(), key -> {
+
+            RemoteCacheManager manager = new RemoteCacheManager(rca, cacheMgr, monitor, cacheEventLogger, elementSerializer);
+            monitor.addManager(manager);
+
+            return manager;
+        });
     }
 
 	/**
@@ -234,7 +205,6 @@ public class RemoteCacheFactory
 		super.initialize();
 
 		managers = new ConcurrentHashMap<>();
-		managerLock = new ReentrantLock();
 
         monitor = new RemoteCacheMonitor();
         monitor.setDaemon(true);
@@ -246,11 +216,7 @@ public class RemoteCacheFactory
 	@Override
 	public void dispose()
 	{
-		for (RemoteCacheManager manager : managers.values())
-		{
-			manager.release();
-		}
-
+		managers.values().forEach(RemoteCacheManager::release);
 		managers.clear();
 
         if (monitor != null)
@@ -260,7 +226,7 @@ public class RemoteCacheFactory
             {
                 monitor.join(5000);
             }
-            catch (InterruptedException e)
+            catch (final InterruptedException e)
             {
                 // swallow
             }

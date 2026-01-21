@@ -86,11 +86,11 @@ public class TestPartial_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetHour() {
         Partial test = new Partial(TYPES, VALUES);
-        assertEquals(test.getChronology().hourOfDay(), test.property(DateTimeFieldType.hourOfDay()).getField());
+        assertSame(test.getChronology().hourOfDay(), test.property(DateTimeFieldType.hourOfDay()).getField());
         assertEquals("hourOfDay", test.property(DateTimeFieldType.hourOfDay()).getName());
         assertEquals("Property[hourOfDay]", test.property(DateTimeFieldType.hourOfDay()).toString());
-        assertEquals(test, test.property(DateTimeFieldType.hourOfDay()).getReadablePartial());
-        assertEquals(test, test.property(DateTimeFieldType.hourOfDay()).getPartial());
+        assertSame(test, test.property(DateTimeFieldType.hourOfDay()).getReadablePartial());
+        assertSame(test, test.property(DateTimeFieldType.hourOfDay()).getPartial());
         assertEquals(10, test.property(DateTimeFieldType.hourOfDay()).get());
         assertEquals("10", test.property(DateTimeFieldType.hourOfDay()).getAsString());
         assertEquals("10", test.property(DateTimeFieldType.hourOfDay()).getAsText());
@@ -239,11 +239,11 @@ public class TestPartial_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMinute() {
         Partial test = new Partial(TYPES, VALUES);
-        assertEquals(test.getChronology().minuteOfHour(), test.property(DateTimeFieldType.minuteOfHour()).getField());
+        assertSame(test.getChronology().minuteOfHour(), test.property(DateTimeFieldType.minuteOfHour()).getField());
         assertEquals("minuteOfHour", test.property(DateTimeFieldType.minuteOfHour()).getName());
         assertEquals("Property[minuteOfHour]", test.property(DateTimeFieldType.minuteOfHour()).toString());
-        assertEquals(test, test.property(DateTimeFieldType.minuteOfHour()).getReadablePartial());
-        assertEquals(test, test.property(DateTimeFieldType.minuteOfHour()).getPartial());
+        assertSame(test, test.property(DateTimeFieldType.minuteOfHour()).getReadablePartial());
+        assertSame(test, test.property(DateTimeFieldType.minuteOfHour()).getPartial());
         assertEquals(20, test.property(DateTimeFieldType.minuteOfHour()).get());
         assertEquals("20", test.property(DateTimeFieldType.minuteOfHour()).getAsString());
         assertEquals("20", test.property(DateTimeFieldType.minuteOfHour()).getAsText());

@@ -38,7 +38,7 @@ public class TestBuilder_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestBuilder_OE25Dev.class);
+        return new TestSuite(TestBuilder.class);
     }
 
     static final DateTimeFormatter OFFSET_FORMATTER = new DateTimeFormatterBuilder()

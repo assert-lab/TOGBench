@@ -24,7 +24,7 @@ import java.util.function.Supplier;
  * All logging operations, except configuration, are done through this interface.
  *
  * <p>
- * The canonical way to obtain a Logger for a class is through {@link LogManager#getLog()}.
+ * The canonical way to obtain a Logger for a class is through {@link LogManager#getLog(String)}}.
  * Typically, each class should get its own Log named after its fully qualified class name
  * </p>
  *
@@ -275,7 +275,6 @@ public interface Log
      *
      * @param message the message to log; the format depends on the message factory.
      * @param params parameters to the message.
-     * @see #getMessageFactory()
      */
     void trace(String message, Object... params);
 
@@ -318,7 +317,6 @@ public interface Log
      *
      * @param message the message to log; the format depends on the message factory.
      * @param params parameters to the message.
-     * @see #getMessageFactory()
      */
     void warn(String message, Object... params);
 

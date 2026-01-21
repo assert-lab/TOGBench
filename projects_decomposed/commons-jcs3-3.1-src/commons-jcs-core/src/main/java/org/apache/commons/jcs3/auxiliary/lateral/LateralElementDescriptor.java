@@ -52,9 +52,9 @@ public class LateralElementDescriptor<K, V>
     public int valHashCode = -1;
 
     /** Constructor for the LateralElementDescriptor object */
+    @Deprecated // Not used
     public LateralElementDescriptor()
     {
-        super();
     }
 
     /**
@@ -62,9 +62,78 @@ public class LateralElementDescriptor<K, V>
      * <p>
      * @param ce ICacheElement&lt;K, V&gt; payload
      */
-    public LateralElementDescriptor( ICacheElement<K, V> ce )
+    public LateralElementDescriptor( final ICacheElement<K, V> ce )
     {
         this.ce = ce;
+    }
+
+    /**
+     * Constructor for the LateralElementDescriptor object
+     * <p>
+     * @param ce ICacheElement&lt;K, V&gt; payload
+     * @param command operation requested by the client
+     * @since 3.1
+     */
+    public LateralElementDescriptor( final ICacheElement<K, V> ce, LateralCommand command)
+    {
+        this(ce);
+        this.command = command;
+    }
+
+    /**
+     * Constructor for the LateralElementDescriptor object
+     * <p>
+     * @param ce ICacheElement&lt;K, V&gt; payload
+     * @param command operation requested by the client
+     * @param requesterId id of the the source of the request
+     * @since 3.1
+     */
+    public LateralElementDescriptor( final ICacheElement<K, V> ce, LateralCommand command, long requesterId)
+    {
+        this(ce, command);
+        this.requesterId = requesterId;
+    }
+
+    /**
+     * Return payload
+     *
+     * @return the ce
+     * @since 3.1
+     */
+    public ICacheElement<K, V> getPayload()
+    {
+        return ce;
+    }
+
+    /**
+     * Return id of the the source of the request
+     *
+     * @return the requesterId
+     * @since 3.1
+     */
+    public long getRequesterId()
+    {
+        return requesterId;
+    }
+
+    /**
+     * Return operation requested by the client
+     *
+     * @return the command
+     * @since 3.1
+     */
+    public LateralCommand getCommand()
+    {
+        return command;
+    }
+
+    /**
+     * @return the valHashCode
+     * @since 3.1
+     */
+    public int getValHashCode()
+    {
+        return valHashCode;
     }
 
     /**
@@ -73,7 +142,7 @@ public class LateralElementDescriptor<K, V>
     @Override
     public String toString()
     {
-        StringBuilder buf = new StringBuilder();
+        final StringBuilder buf = new StringBuilder();
         buf.append( "\n LateralElementDescriptor " );
         buf.append( "\n command = [" + this.command + "]" );
         buf.append( "\n valHashCode = [" + this.valHashCode + "]" );

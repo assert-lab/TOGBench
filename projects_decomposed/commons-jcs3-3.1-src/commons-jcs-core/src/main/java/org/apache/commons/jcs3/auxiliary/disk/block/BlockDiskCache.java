@@ -26,6 +26,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -46,6 +47,7 @@ import org.apache.commons.jcs3.engine.stats.behavior.IStatElement;
 import org.apache.commons.jcs3.engine.stats.behavior.IStats;
 import org.apache.commons.jcs3.log.Log;
 import org.apache.commons.jcs3.log.LogManager;
+import org.apache.commons.jcs3.utils.serialization.StandardSerializer;
 
 /**
  * There is one BlockDiskCache per region. It manages the key and data store.
@@ -90,9 +92,9 @@ public class BlockDiskCache<K, V>
      * <p>
      * @param cacheAttributes
      */
-    public BlockDiskCache( BlockDiskCacheAttributes cacheAttributes )
+    public BlockDiskCache( final BlockDiskCacheAttributes cacheAttributes )
     {
-        this( cacheAttributes, null );
+        this( cacheAttributes, new StandardSerializer() );
     }
 
     /**
@@ -101,7 +103,7 @@ public class BlockDiskCache<K, V>
      * @param cacheAttributes
      * @param elementSerializer used if supplied, the super's super will not set a null
      */
-    public BlockDiskCache( BlockDiskCacheAttributes cacheAttributes, IElementSerializer elementSerializer )
+    public BlockDiskCache( final BlockDiskCacheAttributes cacheAttributes, final IElementSerializer elementSerializer )
     {
         super( cacheAttributes );
         setElementSerializer( elementSerializer );
@@ -133,9 +135,9 @@ public class BlockDiskCache<K, V>
 
             keyStore = new BlockDiskKeyStore<>( this.blockDiskCacheAttributes, this );
 
-            boolean alright = verifyDisk();
+            final boolean alright = verifyDisk();
 
-            if ( keyStore.size() == 0 || !alright )
+            if ( keyStore.isEmpty() || !alright )
             {
                 this.reset();
             }
@@ -144,7 +146,7 @@ public class BlockDiskCache<K, V>
             setAlive(true);
             log.info("{0}: Block Disk Cache is alive.", logCacheName);
         }
-        catch ( IOException e )
+        catch ( final IOException e )
         {
             log.error("{0}: Failure initializing for fileName: {1} and root directory: {2}",
                     logCacheName, fileName, rootDirectory, e);
@@ -155,7 +157,7 @@ public class BlockDiskCache<K, V>
      * @see org.apache.commons.jcs3.engine.behavior.IRequireScheduler#setScheduledExecutorService(java.util.concurrent.ScheduledExecutorService)
      */
     @Override
-    public void setScheduledExecutorService(ScheduledExecutorService scheduledExecutor)
+    public void setScheduledExecutorService(final ScheduledExecutorService scheduledExecutor)
     {
         // add this region to the persistence thread.
         // TODO we might need to stagger this a bit.
@@ -189,13 +191,13 @@ public class BlockDiskCache<K, V>
                 .forEach(entry -> {
                     try
                     {
-                        Object data = this.dataFile.read(entry.getValue());
+                        final Object data = this.dataFile.read(entry.getValue());
                         if ( data == null )
                         {
                             throw new IOException("Data is null");
                         }
                     }
-                    catch (IOException | ClassNotFoundException e)
+                    catch (final IOException | ClassNotFoundException e)
                     {
                         throw new RuntimeException(logCacheName
                                 + " Couldn't find data for key [" + entry.getKey() + "]", e);
@@ -203,7 +205,7 @@ public class BlockDiskCache<K, V>
                 });
             alright = true;
         }
-        catch ( Exception e )
+        catch ( final Exception e )
         {
             log.warn("{0}: Problem verifying disk.", logCacheName, e);
             alright = false;
@@ -224,7 +226,7 @@ public class BlockDiskCache<K, V>
     @Override
     public Set<K> getKeySet() throws IOException
     {
-        HashSet<K> keys = new HashSet<>();
+        final HashSet<K> keys = new HashSet<>();
 
         storageLock.readLock().lock();
 
@@ -248,7 +250,7 @@ public class BlockDiskCache<K, V>
      *         data in cache matching keys
      */
     @Override
-    public Map<K, ICacheElement<K, V>> processGetMatching( String pattern )
+    public Map<K, ICacheElement<K, V>> processGetMatching( final String pattern )
     {
         Set<K> keyArray = null;
         storageLock.readLock().lock();
@@ -261,18 +263,16 @@ public class BlockDiskCache<K, V>
             storageLock.readLock().unlock();
         }
 
-        Set<K> matchingKeys = getKeyMatcher().getMatchingKeysFromArray( pattern, keyArray );
+        final Set<K> matchingKeys = getKeyMatcher().getMatchingKeysFromArray( pattern, keyArray );
 
-        Map<K, ICacheElement<K, V>> elements = matchingKeys.stream()
+        return matchingKeys.stream()
             .collect(Collectors.toMap(
                     key -> key,
-                    key -> processGet( key ))).entrySet().stream()
+                    this::processGet)).entrySet().stream()
                 .filter(entry -> entry.getValue() != null)
                 .collect(Collectors.toMap(
-                        entry -> entry.getKey(),
-                        entry -> entry.getValue()));
-
-        return elements;
+                        Entry::getKey,
+                        Entry::getValue));
     }
 
     /**
@@ -299,7 +299,7 @@ public class BlockDiskCache<K, V>
      * @see org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCache#get(Object)
      */
     @Override
-    protected ICacheElement<K, V> processGet( K key )
+    protected ICacheElement<K, V> processGet( final K key )
     {
         if ( !isAlive() )
         {
@@ -316,7 +316,7 @@ public class BlockDiskCache<K, V>
         {
             storageLock.readLock().lock();
             try {
-                int[] ded = this.keyStore.get( key );
+                final int[] ded = this.keyStore.get( key );
                 if ( ded != null )
                 {
                     object = this.dataFile.read( ded );
@@ -326,12 +326,12 @@ public class BlockDiskCache<K, V>
             }
 
         }
-        catch ( IOException ioe )
+        catch ( final IOException ioe )
         {
             log.error("{0}: Failure getting from disk--IOException, key = {1}", logCacheName, key, ioe );
             reset();
         }
-        catch ( Exception e )
+        catch ( final Exception e )
         {
             log.error("{0}: Failure getting from disk, key = {1}", logCacheName, key, e );
         }
@@ -350,12 +350,12 @@ public class BlockDiskCache<K, V>
      * @see org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCache#update(ICacheElement)
      */
     @Override
-    protected void processUpdate( ICacheElement<K, V> element )
+    protected void processUpdate( final ICacheElement<K, V> element )
     {
         if ( !isAlive() )
         {
             log.debug("{0}: No longer alive; aborting put of key = {1}",
-                    () -> logCacheName, () -> element.getKey());
+                    () -> logCacheName, element::getKey);
             return;
         }
 
@@ -373,14 +373,14 @@ public class BlockDiskCache<K, V>
                 this.dataFile.freeBlocks( old );
             }
 
-            int[] blocks = this.dataFile.write( element );
+            final int[] blocks = this.dataFile.write( element );
 
             this.keyStore.put( element.getKey(), blocks );
 
             log.debug("{0}: Put to file [{1}] key [{2}]", () -> logCacheName,
-                    () -> fileName, () -> element.getKey());
+                    () -> fileName, element::getKey);
         }
-        catch ( IOException e )
+        catch ( final IOException e )
         {
             log.error("{0}: Failure updating element, key: {1} old: {2}",
                     logCacheName, element.getKey(), Arrays.toString(old), e);
@@ -391,7 +391,7 @@ public class BlockDiskCache<K, V>
         }
 
         log.debug("{0}: Storing element on disk, key: {1}", () -> logCacheName,
-                () -> element.getKey() );
+                element::getKey);
     }
 
     /**
@@ -403,7 +403,7 @@ public class BlockDiskCache<K, V>
      * @see org.apache.commons.jcs3.auxiliary.disk.AbstractDiskCache#remove(Object)
      */
     @Override
-    protected boolean processRemove( K key )
+    protected boolean processRemove( final K key )
     {
         if ( !isAlive() )
         {
@@ -431,7 +431,7 @@ public class BlockDiskCache<K, V>
                 removed = performSingleKeyRemoval(key);
             }
         }
-        catch ( Exception e )
+        catch ( final Exception e )
         {
             log.error("{0}: Problem removing element.", logCacheName, e );
             reset = true;
@@ -459,10 +459,10 @@ public class BlockDiskCache<K, V>
      * @param key
      * @return true if an element was removed
      */
-    private boolean performGroupRemoval(GroupId key)
+    private boolean performGroupRemoval(final GroupId key)
     {
         // remove all keys of the same name group.
-        List<K> itemsToRemove = keyStore.keySet()
+        final List<K> itemsToRemove = keyStore.keySet()
                 .stream()
                 .filter(k -> k instanceof GroupAttrName && ((GroupAttrName<?>) k).groupId.equals(key))
                 .collect(Collectors.toList());
@@ -470,7 +470,7 @@ public class BlockDiskCache<K, V>
         // remove matches.
         // Don't add to recycle bin here
         // https://issues.apache.org/jira/browse/JCS-67
-        itemsToRemove.forEach(fullKey -> performSingleKeyRemoval(fullKey));
+        itemsToRemove.forEach(this::performSingleKeyRemoval);
         // TODO this needs to update the remove count separately
 
         return !itemsToRemove.isEmpty();
@@ -486,10 +486,10 @@ public class BlockDiskCache<K, V>
      * @param key
      * @return true if there was a match
      */
-    private boolean performPartialKeyRemoval(String key)
+    private boolean performPartialKeyRemoval(final String key)
     {
         // remove all keys of the same name hierarchy.
-        List<K> itemsToRemove = keyStore.keySet()
+        final List<K> itemsToRemove = keyStore.keySet()
                 .stream()
                 .filter(k -> k instanceof String && k.toString().startsWith(key))
                 .collect(Collectors.toList());
@@ -497,17 +497,17 @@ public class BlockDiskCache<K, V>
         // remove matches.
         // Don't add to recycle bin here
         // https://issues.apache.org/jira/browse/JCS-67
-        itemsToRemove.forEach(fullKey -> performSingleKeyRemoval(fullKey));
+        itemsToRemove.forEach(this::performSingleKeyRemoval);
         // TODO this needs to update the remove count separately
 
         return !itemsToRemove.isEmpty();
     }
 
 
-	private boolean performSingleKeyRemoval(K key) {
-		boolean removed;
+	private boolean performSingleKeyRemoval(final K key) {
+		final boolean removed;
 		// remove single item.
-		int[] ded = this.keyStore.remove( key );
+		final int[] ded = this.keyStore.remove( key );
 		removed = ded != null;
 		if ( removed )
 		{
@@ -539,14 +539,14 @@ public class BlockDiskCache<K, V>
     @Override
     public void processDispose()
     {
-        Thread t = new Thread(this::disposeInternal, "BlockDiskCache-DisposalThread" );
+        final Thread t = new Thread(this::disposeInternal, "BlockDiskCache-DisposalThread" );
         t.start();
         // wait up to 60 seconds for dispose and then quit if not done.
         try
         {
             t.join( 60 * 1000 );
         }
-        catch ( InterruptedException ex )
+        catch ( final InterruptedException ex )
         {
             log.error("{0}: Interrupted while waiting for disposal thread to finish.",
                     logCacheName, ex );
@@ -580,12 +580,8 @@ public class BlockDiskCache<K, V>
                 log.debug("{0}: Closing files, base filename: {1}", logCacheName, fileName );
                 dataFile.close();
                 // dataFile = null;
-
-                // TOD make a close
-                // keyFile.close();
-                // keyFile = null;
             }
-            catch ( IOException e )
+            catch ( final IOException e )
             {
                 log.error("{0}: Failure closing files in dispose, filename: {1}",
                         logCacheName, fileName, e );
@@ -611,9 +607,9 @@ public class BlockDiskCache<K, V>
     }
 
     /**
-     * Reset effectively clears the disk cache, creating new files, recyclebins, and keymaps.
+     * Reset effectively clears the disk cache, creating new files, recycle bins, and keymaps.
      * <p>
-     * It can be used to handle errors by last resort, force content update, or removeall.
+     * It can be used to handle errors by last resort, force content update, or remove all.
      */
     private void reset()
     {
@@ -630,7 +626,7 @@ public class BlockDiskCache<K, V>
                 dataFile.reset();
             }
         }
-        catch ( IOException e )
+        catch ( final IOException e )
         {
             log.error("{0}: Failure resetting state", logCacheName, e );
         }
@@ -645,7 +641,7 @@ public class BlockDiskCache<K, V>
      * <p>
      * @param blocksToFree
      */
-    protected void freeBlocks( int[] blocksToFree )
+    protected void freeBlocks( final int[] blocksToFree )
     {
         this.dataFile.freeBlocks( blocksToFree );
     }
@@ -658,10 +654,10 @@ public class BlockDiskCache<K, V>
     @Override
     public IStats getStatistics()
     {
-        IStats stats = new Stats();
+        final IStats stats = new Stats();
         stats.setTypeName( "Block Disk Cache" );
 
-        ArrayList<IStatElement<?>> elems = new ArrayList<>();
+        final ArrayList<IStatElement<?>> elems = new ArrayList<>();
 
         elems.add(new StatElement<>( "Is Alive", Boolean.valueOf(isAlive()) ) );
         elems.add(new StatElement<>( "Key Map Size", Integer.valueOf(this.keyStore.size()) ) );
@@ -672,7 +668,7 @@ public class BlockDiskCache<K, V>
             {
                 elems.add(new StatElement<>( "Data File Length", Long.valueOf(this.dataFile.length()) ) );
             }
-            catch ( IOException e )
+            catch ( final IOException e )
             {
                 log.error( e );
             }
@@ -688,7 +684,7 @@ public class BlockDiskCache<K, V>
         }
 
         // get the stats from the super too
-        IStats sStats = super.getStatistics();
+        final IStats sStats = super.getStatistics();
         elems.addAll(sStats.getStatElements());
 
         stats.setStatElements( elems );

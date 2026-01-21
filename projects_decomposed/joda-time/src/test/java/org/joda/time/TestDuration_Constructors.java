@@ -120,7 +120,7 @@ public class TestDuration_Constructors extends TestCase {
         assertEquals(2L * 24L * 60L * 60L * 1000L, test.getMillis());
         
         test = Duration.standardDays(0);
-        assertEquals(Duration.ZERO, test);
+        assertSame(Duration.ZERO, test);
     }
 
     //-----------------------------------------------------------------------
@@ -132,7 +132,7 @@ public class TestDuration_Constructors extends TestCase {
         assertEquals(2L * 60L * 60L * 1000L, test.getMillis());
         
         test = Duration.standardHours(0);
-        assertEquals(Duration.ZERO, test);
+        assertSame(Duration.ZERO, test);
     }
 
     //-----------------------------------------------------------------------
@@ -144,7 +144,7 @@ public class TestDuration_Constructors extends TestCase {
         assertEquals(2L * 60L * 1000L, test.getMillis());
         
         test = Duration.standardMinutes(0);
-        assertEquals(Duration.ZERO, test);
+        assertSame(Duration.ZERO, test);
     }
 
     //-----------------------------------------------------------------------
@@ -156,7 +156,7 @@ public class TestDuration_Constructors extends TestCase {
         assertEquals(2L * 1000L, test.getMillis());
         
         test = Duration.standardSeconds(0);
-        assertEquals(Duration.ZERO, test);
+        assertSame(Duration.ZERO, test);
     }
 
     //-----------------------------------------------------------------------
@@ -168,7 +168,7 @@ public class TestDuration_Constructors extends TestCase {
         assertEquals(2L, test.getMillis());
         
         test = Duration.millis(0);
-        assertEquals(Duration.ZERO, test);
+        assertSame(Duration.ZERO, test);
     }
 
     //-----------------------------------------------------------------------

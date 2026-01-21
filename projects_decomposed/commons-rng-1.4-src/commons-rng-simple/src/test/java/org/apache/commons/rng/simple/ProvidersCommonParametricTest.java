@@ -157,17 +157,17 @@ class ProvidersCommonParametricTest {
         Assertions.assertEquals(5, nonNativeSeedCount);
     }
 
-    // @ParameterizedTest
-    // @MethodSource("getProvidersTestData")
-    // void testNullSeed(ProvidersList.Data data) {
-    //     final RandomSource originalSource = data.getSource();
-    //     final Object[] originalArgs = data.getArgs();
-    //     // Note: This is the only test that explicitly calls RandomSource.create() with no other arguments.
-    //     final UniformRandomProvider rng = originalArgs == null ?
-    //         originalSource.create() :
-    //         originalSource.create(null, originalArgs);
-    //     checkNextIntegerInRange(rng, 10, 10000);
-    // }
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testNullSeed(ProvidersList.Data data) {
+        final RandomSource originalSource = data.getSource();
+        final Object[] originalArgs = data.getArgs();
+        // Note: This is the only test that explicitly calls RandomSource.create() with no other arguments.
+        final UniformRandomProvider rng = originalArgs == null ?
+            originalSource.create() :
+            originalSource.create(null, originalArgs);
+        checkNextIntegerInRange(rng, 10, 10000);
+    }
 
     @ParameterizedTest
     @MethodSource("getProvidersTestData")
@@ -223,15 +223,15 @@ class ProvidersCommonParametricTest {
         checkNextIntegerInRange(rng, 10, 10000);
     }
 
-    // @ParameterizedTest
-    // @MethodSource("getProvidersTestData")
-    // void testRandomSourceCreateSeed(ProvidersList.Data data) {
-    //     final RandomSource originalSource = data.getSource();
-    //     final Object[] originalArgs = data.getArgs();
-    //     final byte[] seed = originalSource.createSeed();
-    //     final UniformRandomProvider rng = originalSource.create(seed, originalArgs);
-    //     checkNextIntegerInRange(rng, 10, 10000);
-    // }
+    @ParameterizedTest
+    @MethodSource("getProvidersTestData")
+    void testRandomSourceCreateSeed(ProvidersList.Data data) {
+        final RandomSource originalSource = data.getSource();
+        final Object[] originalArgs = data.getArgs();
+        final byte[] seed = originalSource.createSeed();
+        final UniformRandomProvider rng = originalSource.create(seed, originalArgs);
+        checkNextIntegerInRange(rng, 10, 10000);
+    }
 
     @ParameterizedTest
     @MethodSource("getProvidersTestData")

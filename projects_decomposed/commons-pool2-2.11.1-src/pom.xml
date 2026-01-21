@@ -258,8 +258,6 @@
       <!-- Don't run this test by default - it uses lots of memory -->
       <param>org.apache.commons.pool2.impl.TestSoftRefOutOfMemory</param>
 
-      <!-- TestGenericObjectPool -->
-      <param>org.apache.commons.pool2.impl.TestGenericObjectPool</param>
     </excludedTestClassPatterns>
             <environmentVariables>
               <environment>test</environment>
@@ -368,7 +366,6 @@
                 <exclude>**/Test*$*.java</exclude>
                 <!-- Don't run this test by default - it uses lots of memory -->
                 <exclude>**/TestSoftRefOutOfMemory.java</exclude>
-                <exclude>org/apache/commons/pool2/impl/TestGenericObjectPool.java</exclude>
               </excludes>
             </configuration>
           </plugin>

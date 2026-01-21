@@ -28,18 +28,6 @@ import static org.testng.Assert.fail;
 
 public class TextMessageTest_OE25Dev extends AbstractBasicWebSocketTest {
 
-  // @Test(timeOut = 60000, expectedExceptions = {UnknownHostException.class, ConnectException.class})
-  // public void onFailureTest() throws Throwable {
-  //   try (AsyncHttpClient c = asyncHttpClient()) {
-  //     c.prepareGet("ws://abcdefg").execute(new WebSocketUpgradeHandler.Builder().build()).get();
-  //   } catch (ExecutionException e) {
-
-  //     String expectedMessage = "DNS name not found";
-  //     assertTrue(e.getCause().toString().contains(expectedMessage));
-  //     throw e.getCause();
-  //   }
-  // }
-
   @Test(timeOut = 60000)
   public void onOpen_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
@@ -92,6 +80,17 @@ public class TextMessageTest_OE25Dev extends AbstractBasicWebSocketTest {
         // removed other assertion
       }
       assertTrue(websocket != null);
+  }
+  }
+
+  @Test(timeOut = 60000, expectedExceptions = {UnknownHostException.class, ConnectException.class})
+  public void onFailureTest_1_oe() throws Throwable {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      c.prepareGet("ws://abcdefg").execute(new WebSocketUpgradeHandler.Builder().build()).get();
+    } catch (ExecutionException e) {
+
+      String expectedMessage = "DNS name not found";
+      assertTrue(e.getCause().toString().contains(expectedMessage));
   }
   }
 

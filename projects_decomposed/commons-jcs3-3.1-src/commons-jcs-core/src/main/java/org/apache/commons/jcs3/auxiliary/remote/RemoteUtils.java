@@ -19,14 +19,15 @@ package org.apache.commons.jcs3.auxiliary.remote;
  * under the License.
  */
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
@@ -48,7 +49,6 @@ public class RemoteUtils
     /** No instances please. */
     private RemoteUtils()
     {
-        super();
     }
 
     /**
@@ -81,12 +81,12 @@ public class RemoteUtils
             registry = LocateRegistry.createRegistry(port);
             log.info("createRegistry> Created the registry on port {0}", port);
         }
-        catch (RemoteException e)
+        catch (final RemoteException e)
         {
             log.warn("createRegistry> Problem creating registry. It may already be started.",
                     e);
         }
-        catch (Throwable t)
+        catch (final Throwable t)
         {
             log.error("createRegistry> Problem creating registry.", t);
         }
@@ -97,7 +97,7 @@ public class RemoteUtils
             {
                 registry = LocateRegistry.getRegistry(port);
             }
-            catch (RemoteException e)
+            catch (final RemoteException e)
             {
                 log.error("createRegistry> Problem getting a registry reference.", e);
             }
@@ -112,29 +112,27 @@ public class RemoteUtils
      * <p>
      *
      * @param propFile
-     * @return The properties object for the file
+     * @return The properties object for the file, never null
      * @throws IOException
      */
-    public static Properties loadProps(String propFile)
+    public static Properties loadProps(final String propFile)
             throws IOException
     {
         InputStream is = RemoteUtils.class.getResourceAsStream(propFile);
 
-        if (null == is) // not found in class path
+        // Try root of class path
+        if (null == is && !propFile.startsWith("/"))
         {
-            // Try root of class path
-            if (propFile != null && !propFile.startsWith("/"))
-            {
-                is = RemoteUtils.class.getResourceAsStream("/" + propFile);
-            }
+            is = RemoteUtils.class.getResourceAsStream("/" + propFile);
         }
 
         if (null == is) // not found in class path
         {
-            if (new File(propFile).exists())
+            Path propPath = Paths.get(propFile);
+            if (Files.exists(propPath))
             {
                 // file found
-                is = new FileInputStream(propFile);
+                is = Files.newInputStream(propPath);
             }
             else
             {
@@ -143,22 +141,22 @@ public class RemoteUtils
             }
         }
 
-        Properties props = new Properties();
+        final Properties props = new Properties();
         try
         {
             props.load(is);
-            log.debug("props.size={0}", () -> props.size());
+            log.debug("props.size={0}", props::size);
 
             if (log.isTraceEnabled())
             {
-                StringBuilder buf = new StringBuilder();
+                final StringBuilder buf = new StringBuilder();
                 props.forEach((key, value)
                         -> buf.append('\n').append(key).append(" = ").append(value));
                 log.trace(buf.toString());
             }
 
         }
-        catch (IOException ex)
+        catch (final IOException ex)
         {
             log.error("Error loading remote properties, for file name "
                     + "[{0}]", propFile, ex);
@@ -195,10 +193,10 @@ public class RemoteUtils
                 RMISocketFactory.setSocketFactory(new RMISocketFactory()
                 {
                     @Override
-                    public Socket createSocket(String host, int port)
+                    public Socket createSocket(final String host, final int port)
                             throws IOException
                     {
-                        Socket socket = new Socket();
+                        final Socket socket = new Socket();
                         socket.setSoTimeout(timeoutMillis);
                         socket.setSoLinger(false, 0);
                         socket.connect(new InetSocketAddress(host, port), timeoutMillis);
@@ -206,7 +204,7 @@ public class RemoteUtils
                     }
 
                     @Override
-                    public ServerSocket createServerSocket(int port)
+                    public ServerSocket createServerSocket(final int port)
                             throws IOException
                     {
                         return new ServerSocket(port);
@@ -214,15 +212,15 @@ public class RemoteUtils
                 });
             }
         }
-        catch (IOException e)
+        catch (final IOException e)
         {
             // Only try to do it once. Otherwise we
             // Generate errors for each region on construction.
-            RMISocketFactory factoryInUse = RMISocketFactory.getSocketFactory();
+            final RMISocketFactory factoryInUse = RMISocketFactory.getSocketFactory();
             if (factoryInUse != null && !factoryInUse.getClass().getName().startsWith("org.apache.commons.jcs3"))
             {
                 log.info("Could not create new custom socket factory. {0} Factory in use = {1}",
-                        () -> e.getMessage(), () -> RMISocketFactory.getSocketFactory());
+                        e::getMessage, RMISocketFactory::getSocketFactory);
             }
         }
     }
@@ -258,7 +256,6 @@ public class RemoteUtils
         { // TODO improve this check? See also JCS-133
             return "//[" + registryHost.replaceFirst("%", "%25") + "]:" + registryPort + "/" + serviceName;
         }
-        final String registryURL = "//" + registryHost + ":" + registryPort + "/" + serviceName;
-        return registryURL;
+        return "//" + registryHost + ":" + registryPort + "/" + serviceName;
     }
 }

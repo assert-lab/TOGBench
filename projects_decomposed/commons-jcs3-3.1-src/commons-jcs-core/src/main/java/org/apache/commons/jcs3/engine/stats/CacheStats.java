@@ -37,10 +37,10 @@ public class CacheStats
     private static final long serialVersionUID = 529914708798168590L;
 
     /** The region */
-    private String regionName = null;
+    private String regionName;
 
     /** What that auxiliaries are reporting. */
-    private List<IStats> auxStats = null;
+    private List<IStats> auxStats;
 
     /**
      * Stats are for a region, though auxiliary data may be for more.
@@ -59,7 +59,7 @@ public class CacheStats
      * @param name - The region name
      */
     @Override
-    public void setRegionName( String name )
+    public void setRegionName( final String name )
     {
         regionName = name;
     }
@@ -77,7 +77,7 @@ public class CacheStats
      * @param stats
      */
     @Override
-    public void setAuxiliaryCacheStats( List<IStats> stats )
+    public void setAuxiliaryCacheStats( final List<IStats> stats )
     {
         auxStats = stats;
     }
@@ -88,13 +88,13 @@ public class CacheStats
     @Override
     public String toString()
     {
-        StringBuilder buf = new StringBuilder();
+        final StringBuilder buf = new StringBuilder();
 
         buf.append( "Region Name = " + regionName );
 
         if ( getStatElements() != null )
         {
-            for ( Object stat : getStatElements() )
+            for ( final Object stat : getStatElements() )
             {
                 buf.append( "\n" );
                 buf.append( stat );
@@ -103,7 +103,7 @@ public class CacheStats
 
         if ( auxStats != null )
         {
-            for ( Object auxStat : auxStats )
+            for ( final Object auxStat : auxStats )
             {
                 buf.append( "\n" );
                 buf.append( "---------------------------" );
