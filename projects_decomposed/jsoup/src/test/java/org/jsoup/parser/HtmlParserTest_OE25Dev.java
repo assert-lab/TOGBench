@@ -2282,162 +2282,172 @@ public class HtmlParserTest_OE25Dev {
         assertEquals(h, p.outerHtml());
         }
 
-    @Test public void handlesInvalidStartTags() {
-        String h = "<div>Hello < There <&amp;></div>"; // parse to <div {#text=Hello < There <&>}>
+    @Test public void handlesUnknownTags() {
+        String h = "<div><foo title=bar>Hello<foo title=qux>there</foo></div>";
         Document doc = Jsoup.parse_1_oe(h);
-        assertEquals("Hello < There <&>", doc.select("div").first().text());
+        Elements foos = doc.select("foo");
+        assertEquals(2, foos.size());
         }
 
-    @Test public void handlesUnknownInlineTags() {
-        String h = "<p><cust>Test</cust></p><p><cust><cust>Test</cust></cust></p>";
-        Document doc = Jsoup.parseBodyFragment_1_oe(h);
-        String out = doc.body().html();
-        assertEquals(h, TextUtil.stripNewlines(out));
-        }
-
-    @Test public void parseBodyIsIndexNoAttributes() {
-        // https://github.com/jhy/jsoup/issues/1404
-        String expectedHtml = "<form>\n" +
-            " <hr><label>This is a searchable index. Enter search keywords: <input name=\"isindex\"></label>\n" +
-            " <hr>\n" +
-            "</form>";
-        Document doc = Jsoup.parse_1_oe("<isindex>");
-        assertEquals(expectedHtml, doc.body().html());
-        }
-
-    @Test public void parseBodyIsIndexNoAttributes() {
-        // https://github.com/jhy/jsoup/issues/1404
-        String expectedHtml = "<form>\n" +
-            " <hr><label>This is a searchable index. Enter search keywords: <input name=\"isindex\"></label>\n" +
-            " <hr>\n" +
-            "</form>";
-        Document doc = Jsoup.parse_2_oe("<isindex>");
+    @Test public void handlesUnknownTags() {
+        String h = "<div><foo title=bar>Hello<foo title=qux>there</foo></div>";
+        Document doc = Jsoup.parse_2_oe(h);
+        Elements foos = doc.select("foo");
         // removed other assertion
-
-        doc = Jsoup.parseBodyFragment("<isindex>");
-        assertEquals(expectedHtml, doc.body().html());
+        assertEquals("bar", foos.first().attr("title"));
         }
 
-    @Test public void parseBodyIsIndexNoAttributes() {
-        // https://github.com/jhy/jsoup/issues/1404
-        String expectedHtml = "<form>\n" +
-            " <hr><label>This is a searchable index. Enter search keywords: <input name=\"isindex\"></label>\n" +
-            " <hr>\n" +
-            "</form>";
-        Document doc = Jsoup.parse_3_oe("<isindex>");
+    @Test public void handlesUnknownTags() {
+        String h = "<div><foo title=bar>Hello<foo title=qux>there</foo></div>";
+        Document doc = Jsoup.parse_3_oe(h);
+        Elements foos = doc.select("foo");
         // removed other assertion
-
-        doc = Jsoup.parseBodyFragment("<isindex>");
         // removed other assertion
-
-        doc = Jsoup.parseBodyFragment("<table><input></table>");
-        assertEquals("<input>\n<table></table>", doc.body().html());
+        assertEquals("qux", foos.last().attr("title"));
         }
 
-    @Test public void handlesKnownEmptyBlocks() {
-        // if a known tag, allow self closing outside of spec, but force an end tag. unknown tags can be self closing.
-        String h = "<div id='1' /><script src='/foo' /><div id=2><img /><img></div><a id=3 /><i /><foo /><foo>One</foo> <hr /> hr text <hr> hr text two";
+    @Test public void handlesUnknownTags() {
+        String h = "<div><foo title=bar>Hello<foo title=qux>there</foo></div>";
+        Document doc = Jsoup.parse_4_oe(h);
+        Elements foos = doc.select("foo");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("there", foos.last().text());
+        }
+
+    @Test public void parsesBodyFragment() {
+        String h = "<!-- comment --><p><a href='foo'>One</a></p>";
+        Document doc = Jsoup.parseBodyFragment_1_oe(h, "http://example.com");
+        assertEquals("<body><!-- comment --><p><a href=\"foo\">One</a></p></body>", TextUtil.stripNewlines(doc.body().outerHtml()));
+        }
+
+    @Test public void parsesBodyFragment() {
+        String h = "<!-- comment --><p><a href='foo'>One</a></p>";
+        Document doc = Jsoup.parseBodyFragment_2_oe(h, "http://example.com");
+        // removed other assertion
+        assertEquals("http://example.com/foo", doc.select("a").first().absUrl("href"));
+        }
+
+    @Test public void handlesUnknownNamespaceTags() {
+        // note that the first foo:bar should not really be allowed to be self closing, if parsed in html mode.
+        String h = "<foo:bar id='1' /><abc:def id=2>Foo<p>Hello</p></abc:def><foo:bar>There</foo:bar>";
         Document doc = Jsoup.parse_1_oe(h);
-        assertEquals("<div id=\"1\"></div><script src=\"/foo\"></script><div id=\"2\"><img><img></div><a id=\"3\"></a><i></i><foo /><foo>One</foo><hr> hr text <hr> hr text two", TextUtil.stripNewlines(doc.body().html()));
+        assertEquals("<foo:bar id=\"1\" /><abc:def id=\"2\">Foo<p>Hello</p></abc:def><foo:bar>There</foo:bar>", TextUtil.stripNewlines(doc.body().html()));
         }
 
-    @Test public void handlesKnownEmptyStyle() {
-        String h = "<html><head><style /><meta name=foo></head><body>One</body></html>";
+    @Test public void handlesKnownEmptyNoFrames() {
+        String h = "<html><head><noframes /><meta name=foo></head><body>One</body></html>";
         Document doc = Jsoup.parse_1_oe(h);
-        assertEquals("<html><head><style></style><meta name=\"foo\"></head><body>One</body></html>", TextUtil.stripNewlines(doc.html()));
+        assertEquals("<html><head><noframes></noframes><meta name=\"foo\"></head><body>One</body></html>", TextUtil.stripNewlines(doc.html()));
         }
 
-    @Test public void handlesKnownEmptyIframe() {
-        String h = "<p>One</p><iframe id=1 /><p>Two";
+    @Test public void handlesKnownEmptyTitle() {
+        String h = "<html><head><title /><meta name=foo></head><body>One</body></html>";
         Document doc = Jsoup.parse_1_oe(h);
-        assertEquals("<html><head></head><body><p>One</p><iframe id=\"1\"></iframe><p>Two</p></body></html>", TextUtil.stripNewlines(doc.html()));
+        assertEquals("<html><head><title></title><meta name=\"foo\"></head><body>One</body></html>", TextUtil.stripNewlines(doc.html()));
         }
 
-    @Test public void handlesMultiClosingBody() {
-        String h = "<body><p>Hello</body><p>there</p></body></body></html><p>now";
+    @Test public void handlesSolidusAtAttributeEnd() {
+        // this test makes sure [<a href=/>link</a>] is parsed as [<a href="/">link</a>], not [<a href="" /><a>link</a>]
+        String h = "<a href=/>link</a>";
         Document doc = Jsoup.parse_1_oe(h);
-        assertEquals(3, doc.select("p").size());
+        assertEquals("<a href=\"/\">link</a>", doc.body().html());
         }
 
-    @Test public void handlesMultiClosingBody() {
-        String h = "<body><p>Hello</body><p>there</p></body></body></html><p>now";
+    @Test public void handlesUnclosedDefinitionLists() {
+        // jsoup used to create a <dl>, but that's not to spec
+        String h = "<dt>Foo<dd>Bar<dt>Qux<dd>Zug";
+        Document doc = Jsoup.parse_1_oe(h);
+        assertEquals(0, doc.select("dl").size()); // no auto dl;
+        }
+
+    @Test public void handlesUnclosedDefinitionLists() {
+        // jsoup used to create a <dl>, but that's not to spec
+        String h = "<dt>Foo<dd>Bar<dt>Qux<dd>Zug";
         Document doc = Jsoup.parse_2_oe(h);
         // removed other assertion
-        assertEquals(3, doc.body().children().size());
+        assertEquals(4, doc.select("dt, dd").size());
         }
 
-    @Test public void handlesBlocksInDefinitions() {
-        // per the spec, dt and dd are inline, but in practise are block
-        String h = "<dl><dt><div id=1>Term</div></dt><dd><div id=2>Def</div></dd></dl>";
-        Document doc = Jsoup.parse_1_oe(h);
-        assertEquals("dt", doc.select("#1").first().parent().tagName());
-        }
-
-    @Test public void handlesBlocksInDefinitions() {
-        // per the spec, dt and dd are inline, but in practise are block
-        String h = "<dl><dt><div id=1>Term</div></dt><dd><div id=2>Def</div></dd></dl>";
-        Document doc = Jsoup.parse_2_oe(h);
-        // removed other assertion
-        assertEquals("dd", doc.select("#2").first().parent().tagName());
-        }
-
-    @Test public void handlesBlocksInDefinitions() {
-        // per the spec, dt and dd are inline, but in practise are block
-        String h = "<dl><dt><div id=1>Term</div></dt><dd><div id=2>Def</div></dd></dl>";
+    @Test public void handlesUnclosedDefinitionLists() {
+        // jsoup used to create a <dl>, but that's not to spec
+        String h = "<dt>Foo<dd>Bar<dt>Qux<dd>Zug";
         Document doc = Jsoup.parse_3_oe(h);
         // removed other assertion
         // removed other assertion
-        assertEquals("<dl><dt><div id=\"1\">Term</div></dt><dd><div id=\"2\">Def</div></dd></dl>", TextUtil.stripNewlines(doc.body().html()));
+        Elements dts = doc.select("dt");
+        assertEquals(2, dts.size());
         }
 
-    @Test public void ignoresContentAfterFrameset() {
-        String h = "<html><head><title>One</title></head><frameset><frame /><frame /></frameset><table></table></html>";
+    @Test public void handlesUnclosedDefinitionLists() {
+        // jsoup used to create a <dl>, but that's not to spec
+        String h = "<dt>Foo<dd>Bar<dt>Qux<dd>Zug";
+        Document doc = Jsoup.parse_4_oe(h);
+        // removed other assertion
+        // removed other assertion
+        Elements dts = doc.select("dt");
+        // removed other assertion
+        assertEquals("Zug", dts.get(1).nextElementSibling().text());
+        }
+
+    @Test public void handlesFrames() {
+        String h = "<html><head><script></script><noscript></noscript></head><frameset><frame src=foo></frame><frame src=foo></frameset></html>";
         Document doc = Jsoup.parse_1_oe(h);
-        assertEquals("<html><head><title>One</title></head><frameset><frame><frame></frameset></html>", TextUtil.stripNewlines(doc.html()));
+        assertEquals("<html><head><script></script><noscript></noscript></head><frameset><frame src=\"foo\"><frame src=\"foo\"></frameset></html>", TextUtil.stripNewlines(doc.html()));
         }
 
-    @Test public void handlesBaseWithoutHref() {
-        String h = "<head><base target='_blank'></head><body><a href=/foo>Test</a></body>";
-        Document doc = Jsoup.parse_1_oe(h, "http://example.com/");
+    @Test public void handlesJavadocFont() {
+        String h = "<TD BGCOLOR=\"#EEEEFF\" CLASS=\"NavBarCell1\">    <A HREF=\"deprecated-list.html\"><FONT CLASS=\"NavBarFont1\"><B>Deprecated</B></FONT></A>&nbsp;</TD>";
+        Document doc = Jsoup.parse_1_oe(h);
         Element a = doc.select("a").first();
-        assertEquals("/foo", a.attr("href"));
+        assertEquals("Deprecated", a.text());
         }
 
-    @Test public void handlesBaseWithoutHref() {
-        String h = "<head><base target='_blank'></head><body><a href=/foo>Test</a></body>";
-        Document doc = Jsoup.parse_2_oe(h, "http://example.com/");
+    @Test public void handlesJavadocFont() {
+        String h = "<TD BGCOLOR=\"#EEEEFF\" CLASS=\"NavBarCell1\">    <A HREF=\"deprecated-list.html\"><FONT CLASS=\"NavBarFont1\"><B>Deprecated</B></FONT></A>&nbsp;</TD>";
+        Document doc = Jsoup.parse_2_oe(h);
         Element a = doc.select("a").first();
         // removed other assertion
-        assertEquals("http://example.com/foo", a.attr("abs:href"));
+        assertEquals("font", a.child(0).tagName());
         }
 
-    @Test public void normalisesEmptyDocument() {
-        Document doc = Jsoup.parse_1_oe("");
-        assertEquals("<html><head></head><body></body></html>", TextUtil.stripNewlines(doc.html()));
+    @Test public void handlesJavadocFont() {
+        String h = "<TD BGCOLOR=\"#EEEEFF\" CLASS=\"NavBarCell1\">    <A HREF=\"deprecated-list.html\"><FONT CLASS=\"NavBarFont1\"><B>Deprecated</B></FONT></A>&nbsp;</TD>";
+        Document doc = Jsoup.parse_3_oe(h);
+        Element a = doc.select("a").first();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("b", a.child(0).child(0).tagName());
         }
 
-    @Test public void normalisedBodyAfterContent() {
-        Document doc = Jsoup.parse_1_oe("<font face=Arial><body class=name><div>One</div></body></font>");
-        assertEquals("<html><head></head><body class=\"name\"><font face=\"Arial\"><div>One</div></font></body></html>", TextUtil.stripNewlines(doc.html()));
+    @Test public void normalisesDocument() {
+        String h = "<!doctype html>One<html>Two<head>Three<link></head>Four<body>Five </body>Six </html>Seven ";
+        Document doc = Jsoup.parse_1_oe(h);
+        assertEquals("<!doctype html><html><head></head><body>OneTwoThree<link>FourFive Six Seven</body></html>", TextUtil.stripNewlines(doc.html()));
         }
 
-    @Test public void testHgroup() {
-        // jsoup used to not allow hgroup in h{n}, but that's not in spec, and browsers are OK
-        Document doc = Jsoup.parse_1_oe("<h1>Hello <h2>There <hgroup><h1>Another<h2>headline</hgroup> <hgroup><h1>More</h1><p>stuff</p></hgroup>");
-        assertEquals("<h1>Hello</h1><h2>There <hgroup><h1>Another</h1><h2>headline</h2></hgroup><hgroup><h1>More</h1><p>stuff</p></hgroup></h2>", TextUtil.stripNewlines(doc.body().html()));
+    @Test public void normalisesHeadlessBody() {
+        Document doc = Jsoup.parse_1_oe("<html><body><span class=\"foo\">bar</span>");
+        assertEquals("<html><head></head><body><span class=\"foo\">bar</span></body></html>", TextUtil.stripNewlines(doc.html()));
         }
 
-    @Test public void testHeaderContents() {
-        // h* tags (h1 .. h9) in browsers can handle any internal content other than other h*. which is not per any
-        // spec, which defines them as containing phrasing content only. so, reality over theory.
-        Document doc = Jsoup.parse_1_oe("<h1>Hello <div>There</div> now</h1> <h2>More <h3>Content</h3></h2>");
-        assertEquals("<h1>Hello <div>There</div> now</h1><h2>More</h2><h3>Content</h3>", TextUtil.stripNewlines(doc.body().html()));
+    @Test public void findsCharsetInMalformedMeta() {
+        String h = "<meta http-equiv=Content-Type content=text/html; charset=gb2312>";
+        // example cited for reason of html5's <meta charset> element
+        Document doc = Jsoup.parse_1_oe(h);
+        assertEquals("gb2312", doc.select("meta").attr("charset"));
         }
 
-    @Test public void testNoImagesInNoScriptInHead() {
-        // jsoup used to allow, but against spec if parsing with noscript
-        Document doc = Jsoup.parse_1_oe("<html><head><noscript><img src='foo'></noscript></head><body><p>Hello</p></body></html>");
-        assertEquals("<html><head><noscript>&lt;img src=\"foo\"&gt;</noscript></head><body><p>Hello</p></body></html>", TextUtil.stripNewlines(doc.html()));
+    @Test public void testRelaxedTags() {
+        Document doc = Jsoup.parse_1_oe("<abc_def id=1>Hello</abc_def> <abc-def>There</abc-def>");
+        assertEquals("<abc_def id=\"1\">Hello</abc_def> <abc-def>There</abc-def>", TextUtil.stripNewlines(doc.body().html()));
+        }
+
+    @Test public void testSpanContents() {
+        // like h1 tags, the spec says SPAN is phrasing only, but browsers and publisher treat span as a block tag
+        Document doc = Jsoup.parse_1_oe("<span>Hello <div>there</div> <span>now</span></span>");
+        assertEquals("<span>Hello <div>there</div> <span>now</span></span>", TextUtil.stripNewlines(doc.body().html()));
         }
 
     @Test public void testAFlowContents() {

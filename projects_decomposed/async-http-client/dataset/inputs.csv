@@ -10138,38 +10138,7 @@ async_150_2,"  @Test
   }
   }
 ",DigestAuthTest::digestAuthNegativeTest_2_oe
-async_151_1,"  @Test
-  public void nonPreemptiveProxyAuthWithPlainHttpTarget_1_oe() throws IOException, InterruptedException, ExecutionException {
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      String targetUrl = ""http://localhost:"" + httpPort + ""/foo/bar"";
-      Request request = get(targetUrl)
-              .setProxyServer(proxyServer(""127.0.0.1"", proxyPort).setRealm(realm(AuthScheme.BASIC, ""johndoe"", ""pass"")))
-              // .setRealm(realm(AuthScheme.BASIC, ""user"", ""passwd""))
-              .build();
-      Future<Response> responseFuture = client.executeRequest(request);
-      Response response = responseFuture.get();
-
-      Assert.assertEquals(response.getStatusCode(), HttpServletResponse.SC_OK);
-  }
-  }
-",BasicHttpProxyToHttpTest::nonPreemptiveProxyAuthWithPlainHttpTarget_1_oe
-async_151_2,"  @Test
-  public void nonPreemptiveProxyAuthWithPlainHttpTarget_2_oe() throws IOException, InterruptedException, ExecutionException {
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      String targetUrl = ""http://localhost:"" + httpPort + ""/foo/bar"";
-      Request request = get(targetUrl)
-              .setProxyServer(proxyServer(""127.0.0.1"", proxyPort).setRealm(realm(AuthScheme.BASIC, ""johndoe"", ""pass"")))
-              // .setRealm(realm(AuthScheme.BASIC, ""user"", ""passwd""))
-              .build();
-      Future<Response> responseFuture = client.executeRequest(request);
-      Response response = responseFuture.get();
-
-      // removed other assertion
-      Assert.assertEquals(""/foo/bar"", response.getHeader(""X-pathInfo""));
-  }
-  }
-",BasicHttpProxyToHttpTest::nonPreemptiveProxyAuthWithPlainHttpTarget_2_oe
-async_152_1,"  @Test(groups = ""online"", enabled = false)
+async_151_1,"  @Test(groups = ""online"", enabled = false)
   public void redirected302Test_1_oe() throws Exception {
     isSet.getAndSet(false);
     try (AsyncHttpClient c = asyncHttpClient()) {
@@ -10179,7 +10148,7 @@ async_152_1,"  @Test(groups = ""online"", enabled = false)
   }
   }
 ",PerRequestRelative302Test::redirected302Test_1_oe
-async_152_2,"  @Test(groups = ""online"", enabled = false)
+async_151_2,"  @Test(groups = ""online"", enabled = false)
   public void redirected302Test_2_oe() throws Exception {
     isSet.getAndSet(false);
     try (AsyncHttpClient c = asyncHttpClient()) {
@@ -10190,7 +10159,7 @@ async_152_2,"  @Test(groups = ""online"", enabled = false)
   }
   }
 ",PerRequestRelative302Test::redirected302Test_2_oe
-async_152_3,"  @Test(groups = ""online"", enabled = false)
+async_151_3,"  @Test(groups = ""online"", enabled = false)
   public void redirected302Test_3_oe() throws Exception {
     isSet.getAndSet(false);
     try (AsyncHttpClient c = asyncHttpClient()) {
@@ -10206,7 +10175,7 @@ async_152_3,"  @Test(groups = ""online"", enabled = false)
   }
   }
 ",PerRequestRelative302Test::redirected302Test_3_oe
-async_153_1,"  @Test(groups = ""online"", enabled = false)
+async_152_1,"  @Test(groups = ""online"", enabled = false)
   public void notRedirected302Test_1_oe() throws Exception {
     isSet.getAndSet(false);
     try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
@@ -10215,7 +10184,7 @@ async_153_1,"  @Test(groups = ""online"", enabled = false)
   }
   }
 ",PerRequestRelative302Test::notRedirected302Test_1_oe
-async_153_2,"  @Test(groups = ""online"", enabled = false)
+async_152_2,"  @Test(groups = ""online"", enabled = false)
   public void notRedirected302Test_2_oe() throws Exception {
     isSet.getAndSet(false);
     try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
@@ -10225,7 +10194,7 @@ async_153_2,"  @Test(groups = ""online"", enabled = false)
   }
   }
 ",PerRequestRelative302Test::notRedirected302Test_2_oe
-async_154_1,"  @Test(groups = ""online"", enabled = false)
+async_153_1,"  @Test(groups = ""online"", enabled = false)
   public void redirected302InvalidTest_1_oe() throws Exception {
     isSet.getAndSet(false);
     Exception e = null;
@@ -10239,7 +10208,7 @@ async_154_1,"  @Test(groups = ""online"", enabled = false)
     assertNotNull(e);
   }
 ",PerRequestRelative302Test::redirected302InvalidTest_1_oe
-async_154_2,"  @Test(groups = ""online"", enabled = false)
+async_153_2,"  @Test(groups = ""online"", enabled = false)
   public void redirected302InvalidTest_2_oe() throws Exception {
     isSet.getAndSet(false);
     Exception e = null;
@@ -10255,7 +10224,7 @@ async_154_2,"  @Test(groups = ""online"", enabled = false)
     assertTrue(cause instanceof ConnectException);
   }
 ",PerRequestRelative302Test::redirected302InvalidTest_2_oe
-async_154_3,"  @Test(groups = ""online"", enabled = false)
+async_153_3,"  @Test(groups = ""online"", enabled = false)
   public void redirected302InvalidTest_3_oe() throws Exception {
     isSet.getAndSet(false);
     Exception e = null;
@@ -10272,7 +10241,7 @@ async_154_3,"  @Test(groups = ""online"", enabled = false)
     assertTrue(cause.getMessage().contains("":"" + port2));
   }
 ",PerRequestRelative302Test::redirected302InvalidTest_3_oe
-async_155_1,"  @Test(enabled = false)
+async_154_1,"  @Test(enabled = false)
   public void relativeLocationUrl_1_oe() throws Exception {
     isSet.getAndSet(false);
 
@@ -10282,7 +10251,7 @@ async_155_1,"  @Test(enabled = false)
   }
   }
 ",PerRequestRelative302Test::relativeLocationUrl_1_oe
-async_155_2,"  @Test(enabled = false)
+async_154_2,"  @Test(enabled = false)
   public void relativeLocationUrl_2_oe() throws Exception {
     isSet.getAndSet(false);
 
@@ -10293,7 +10262,7 @@ async_155_2,"  @Test(enabled = false)
   }
   }
 ",PerRequestRelative302Test::relativeLocationUrl_2_oe
-async_155_3,"  @Test(enabled = false)
+async_154_3,"  @Test(enabled = false)
   public void relativeLocationUrl_3_oe() throws Exception {
     isSet.getAndSet(false);
 
@@ -10305,7 +10274,7 @@ async_155_3,"  @Test(enabled = false)
   }
   }
 ",PerRequestRelative302Test::relativeLocationUrl_3_oe
-async_156_1,"@Test
+async_155_1,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_1_oe() {
@@ -10313,7 +10282,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_1_oe
-async_156_2,"@Test
+async_155_2,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_2_oe() {
@@ -10326,7 +10295,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_2_oe
-async_156_3,"@Test
+async_155_3,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_3_oe() {
@@ -10344,7 +10313,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_3_oe
-async_156_4,"@Test
+async_155_4,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_4_oe() {
@@ -10367,7 +10336,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_4_oe
-async_156_5,"@Test
+async_155_5,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_5_oe() {
@@ -10395,7 +10364,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_5_oe
-async_156_6,"@Test
+async_155_6,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_6_oe() {
@@ -10428,7 +10397,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_6_oe
-async_156_7,"@Test
+async_155_7,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_7_oe() {
@@ -10466,7 +10435,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_7_oe
-async_156_8,"@Test
+async_155_8,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_8_oe() {
@@ -10509,7 +10478,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_8_oe
-async_156_9,"@Test
+async_155_9,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_9_oe() {
@@ -10557,7 +10526,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_9_oe
-async_156_10,"@Test
+async_155_10,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_10_oe() {
@@ -10610,7 +10579,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_10_oe
-async_156_11,"@Test
+async_155_11,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_11_oe() {
@@ -10668,7 +10637,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_11_oe
-async_156_12,"@Test
+async_155_12,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_12_oe() {
@@ -10731,7 +10700,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_12_oe
-async_156_13,"@Test
+async_155_13,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_13_oe() {
@@ -10799,7 +10768,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_13_oe
-async_156_14,"@Test
+async_155_14,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_14_oe() {
@@ -10872,7 +10841,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_14_oe
-async_156_15,"@Test
+async_155_15,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_15_oe() {
@@ -10950,7 +10919,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_15_oe
-async_156_16,"@Test
+async_155_16,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_16_oe() {
@@ -11033,7 +11002,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_16_oe
-async_156_17,"@Test
+async_155_17,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_17_oe() {
@@ -11121,7 +11090,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_17_oe
-async_156_18,"@Test
+async_155_18,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_18_oe() {
@@ -11214,7 +11183,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_18_oe
-async_156_19,"@Test
+async_155_19,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_19_oe() {
@@ -11312,7 +11281,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_19_oe
-async_156_20,"@Test
+async_155_20,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_20_oe() {
@@ -11415,7 +11384,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_20_oe
-async_156_22,"@Test
+async_155_22,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_22_oe() {
@@ -11531,7 +11500,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_22_oe
-async_156_24,"@Test
+async_155_24,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_24_oe() {
@@ -11663,7 +11632,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_24_oe
-async_156_26,"@Test
+async_155_26,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_26_oe() {
@@ -11811,7 +11780,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_26_oe
-async_157_1,"  @Test
+async_156_1,"  @Test
   public void testClone_1_oe() {
     Realm orig = basicAuthRealm(""user"", ""pass"").setCharset(UTF_16)
             .setUsePreemptiveAuth(true)
@@ -11822,7 +11791,7 @@ async_157_1,"  @Test
     assertEquals(clone.getPrincipal(), orig.getPrincipal());
   }
 ",RealmTest::testClone_1_oe
-async_157_2,"  @Test
+async_156_2,"  @Test
   public void testClone_2_oe() {
     Realm orig = basicAuthRealm(""user"", ""pass"").setCharset(UTF_16)
             .setUsePreemptiveAuth(true)
@@ -11834,7 +11803,7 @@ async_157_2,"  @Test
     assertEquals(clone.getPassword(), orig.getPassword());
   }
 ",RealmTest::testClone_2_oe
-async_157_3,"  @Test
+async_156_3,"  @Test
   public void testClone_3_oe() {
     Realm orig = basicAuthRealm(""user"", ""pass"").setCharset(UTF_16)
             .setUsePreemptiveAuth(true)
@@ -11847,7 +11816,7 @@ async_157_3,"  @Test
     assertEquals(clone.getCharset(), orig.getCharset());
   }
 ",RealmTest::testClone_3_oe
-async_157_4,"  @Test
+async_156_4,"  @Test
   public void testClone_4_oe() {
     Realm orig = basicAuthRealm(""user"", ""pass"").setCharset(UTF_16)
             .setUsePreemptiveAuth(true)
@@ -11861,7 +11830,7 @@ async_157_4,"  @Test
     assertEquals(clone.isUsePreemptiveAuth(), orig.isUsePreemptiveAuth());
   }
 ",RealmTest::testClone_4_oe
-async_157_5,"  @Test
+async_156_5,"  @Test
   public void testClone_5_oe() {
     Realm orig = basicAuthRealm(""user"", ""pass"").setCharset(UTF_16)
             .setUsePreemptiveAuth(true)
@@ -11876,7 +11845,7 @@ async_157_5,"  @Test
     assertEquals(clone.getRealmName(), orig.getRealmName());
   }
 ",RealmTest::testClone_5_oe
-async_157_6,"  @Test
+async_156_6,"  @Test
   public void testClone_6_oe() {
     Realm orig = basicAuthRealm(""user"", ""pass"").setCharset(UTF_16)
             .setUsePreemptiveAuth(true)
@@ -11892,7 +11861,7 @@ async_157_6,"  @Test
     assertEquals(clone.getAlgorithm(), orig.getAlgorithm());
   }
 ",RealmTest::testClone_6_oe
-async_157_7,"  @Test
+async_156_7,"  @Test
   public void testClone_7_oe() {
     Realm orig = basicAuthRealm(""user"", ""pass"").setCharset(UTF_16)
             .setUsePreemptiveAuth(true)
@@ -11909,7 +11878,7 @@ async_157_7,"  @Test
     assertEquals(clone.getScheme(), orig.getScheme());
   }
 ",RealmTest::testClone_7_oe
-async_158_1,"  @Test
+async_157_1,"  @Test
   public void testStrongDigest_1_oe() throws Exception {
     String user = ""user"";
     String pass = ""pass"";
@@ -11935,7 +11904,7 @@ async_158_1,"  @Test
     assertEquals(orig.getResponse(), expectedResponse);
   }
 ",RealmTest::testStrongDigest_1_oe
-async_166_1,"  @Test
+async_165_1,"  @Test
   public void basicByteBufferTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       File largeFile = createTempFile(1024 * 100 * 10);
@@ -11954,7 +11923,7 @@ async_166_1,"  @Test
   }
   }
 ",ByteBufferCapacityTest::basicByteBufferTest_1_oe
-async_166_2,"  @Test
+async_165_2,"  @Test
   public void basicByteBufferTest_2_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       File largeFile = createTempFile(1024 * 100 * 10);
@@ -11974,7 +11943,7 @@ async_166_2,"  @Test
   }
   }
 ",ByteBufferCapacityTest::basicByteBufferTest_2_oe
-async_166_3,"  @Test
+async_165_3,"  @Test
   public void basicByteBufferTest_3_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       File largeFile = createTempFile(1024 * 100 * 10);
@@ -11995,7 +11964,7 @@ async_166_3,"  @Test
   }
   }
 ",ByteBufferCapacityTest::basicByteBufferTest_3_oe
-async_166_4,"  @Test
+async_165_4,"  @Test
   public void basicByteBufferTest_4_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       File largeFile = createTempFile(1024 * 100 * 10);
@@ -12017,7 +11986,7 @@ async_166_4,"  @Test
   }
   }
 ",ByteBufferCapacityTest::basicByteBufferTest_4_oe
-async_167_1,"  @Test(timeOut = 10 * 60 * 1000)
+async_166_1,"  @Test(timeOut = 10 * 60 * 1000)
   public void rc10kProblem_1_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient ahc = asyncHttpClient(config().setMaxConnectionsPerHost(C1K).setKeepAlive(true))) {
       List<Future<Integer>> resps = new ArrayList<>(C1K);
@@ -12033,7 +12002,7 @@ async_167_1,"  @Test(timeOut = 10 * 60 * 1000)
   }
   }
 ",RC1KTest::rc10kProblem_1_oe
-async_167_2,"  @Test(timeOut = 10 * 60 * 1000)
+async_166_2,"  @Test(timeOut = 10 * 60 * 1000)
   public void rc10kProblem_2_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient ahc = asyncHttpClient(config().setMaxConnectionsPerHost(C1K).setKeepAlive(true))) {
       List<Future<Integer>> resps = new ArrayList<>(C1K);
@@ -12050,7 +12019,7 @@ async_167_2,"  @Test(timeOut = 10 * 60 * 1000)
   }
   }
 ",RC1KTest::rc10kProblem_2_oe
-async_168_1,"  @Test
+async_167_1,"  @Test
   public void testQueryParameters_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.prepareGet(""http://localhost:"" + port1).addQueryParam(""a"", ""1"").addQueryParam(""b"", ""2"").execute();
@@ -12059,7 +12028,7 @@ async_168_1,"  @Test
   }
   }
 ",QueryParametersTest::testQueryParameters_1_oe
-async_168_2,"  @Test
+async_167_2,"  @Test
   public void testQueryParameters_2_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.prepareGet(""http://localhost:"" + port1).addQueryParam(""a"", ""1"").addQueryParam(""b"", ""2"").execute();
@@ -12069,7 +12038,7 @@ async_168_2,"  @Test
   }
   }
 ",QueryParametersTest::testQueryParameters_2_oe
-async_168_3,"  @Test
+async_167_3,"  @Test
   public void testQueryParameters_3_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.prepareGet(""http://localhost:"" + port1).addQueryParam(""a"", ""1"").addQueryParam(""b"", ""2"").execute();
@@ -12080,7 +12049,7 @@ async_168_3,"  @Test
   }
   }
 ",QueryParametersTest::testQueryParameters_3_oe
-async_168_4,"  @Test
+async_167_4,"  @Test
   public void testQueryParameters_4_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.prepareGet(""http://localhost:"" + port1).addQueryParam(""a"", ""1"").addQueryParam(""b"", ""2"").execute();
@@ -12092,7 +12061,7 @@ async_168_4,"  @Test
   }
   }
 ",QueryParametersTest::testQueryParameters_4_oe
-async_169_1,"  @Test
+async_168_1,"  @Test
   public void testUrlRequestParametersEncoding_1_oe() throws IOException, ExecutionException, InterruptedException {
     String URL = getTargetUrl() + ""?q="";
     String REQUEST_PARAM = ""github github \ngithub"";
@@ -12106,7 +12075,7 @@ async_169_1,"  @Test
   }
   }
 ",QueryParametersTest::testUrlRequestParametersEncoding_1_oe
-async_170_1,"  @Test
+async_169_1,"  @Test
   public void urlWithColonTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       String query = ""test:colon:"";
@@ -12116,7 +12085,7 @@ async_170_1,"  @Test
   }
   }
 ",QueryParametersTest::urlWithColonTest_1_oe
-async_206_1,"  @Test
+async_205_1,"  @Test
   public void testHEAD302_1_oe() throws IOException, InterruptedException, ExecutionException, TimeoutException {
     AsyncHttpClientConfig clientConfig = new DefaultAsyncHttpClientConfig.Builder().setFollowRedirect(true).build();
     try (AsyncHttpClient client = asyncHttpClient(clientConfig)) {
@@ -12137,7 +12106,7 @@ async_206_1,"  @Test
   }
   }
 ",Head302Test::testHEAD302_1_oe
-async_206_2,"  @Test
+async_205_2,"  @Test
   public void testHEAD302_2_oe() throws IOException, InterruptedException, ExecutionException, TimeoutException {
     AsyncHttpClientConfig clientConfig = new DefaultAsyncHttpClientConfig.Builder().setFollowRedirect(true).build();
     try (AsyncHttpClient client = asyncHttpClient(clientConfig)) {
@@ -12159,7 +12128,7 @@ async_206_2,"  @Test
   }
   }
 ",Head302Test::testHEAD302_2_oe
-async_206_3,"  @Test
+async_205_3,"  @Test
   public void testHEAD302_3_oe() throws IOException, InterruptedException, ExecutionException, TimeoutException {
     AsyncHttpClientConfig clientConfig = new DefaultAsyncHttpClientConfig.Builder().setFollowRedirect(true).build();
     try (AsyncHttpClient client = asyncHttpClient(clientConfig)) {
@@ -12183,28 +12152,28 @@ async_206_3,"  @Test
   }
   }
 ",Head302Test::testHEAD302_3_oe
-async_207_1,"  @Test
+async_206_1,"  @Test
   public void testGenerateType1Msg_1_oe() {
     NtlmEngine engine = new NtlmEngine();
     String message = engine.generateType1Msg();
     assertEquals(message, ""TlRMTVNTUAABAAAAAYIIogAAAAAoAAAAAAAAACgAAAAFASgKAAAADw=="", ""Incorrect type1 message generated"");
   }
 ",NtlmTest::testGenerateType1Msg_1_oe
-async_208_1,"  @Test(expectedExceptions = NtlmEngineException.class)
+async_207_1,"  @Test(expectedExceptions = NtlmEngineException.class)
   public void testGenerateType3MsgThrowsExceptionWhenChallengeTooShort_1_oe() {
     NtlmEngine engine = new NtlmEngine();
     engine.generateType3Msg(""username"", ""password"", ""localhost"", ""workstation"", Base64.getEncoder().encodeToString(""a"".getBytes()));
     fail(""An NtlmEngineException must have occurred as challenge length is too short"");
   }
 ",NtlmTest::testGenerateType3MsgThrowsExceptionWhenChallengeTooShort_1_oe
-async_209_1,"  @Test(expectedExceptions = NtlmEngineException.class)
+async_208_1,"  @Test(expectedExceptions = NtlmEngineException.class)
   public void testGenerateType3MsgThrowsExceptionWhenChallengeDoesNotFollowCorrectFormat_1_oe() {
     NtlmEngine engine = new NtlmEngine();
     engine.generateType3Msg(""username"", ""password"", ""localhost"", ""workstation"", Base64.getEncoder().encodeToString(""challenge"".getBytes()));
     fail(""An NtlmEngineException must have occurred as challenge format is not correct"");
   }
 ",NtlmTest::testGenerateType3MsgThrowsExceptionWhenChallengeDoesNotFollowCorrectFormat_1_oe
-async_210_1,"  @Test(expectedExceptions = NtlmEngineException.class)
+async_209_1,"  @Test(expectedExceptions = NtlmEngineException.class)
   public void testGenerateType3MsgThworsExceptionWhenType2IndicatorNotPresent_1_oe() throws IOException {
     ByteArrayOutputStream buf = new ByteArrayOutputStream();
     buf.write(""NTLMSSP"".getBytes(StandardCharsets.US_ASCII));
@@ -12221,7 +12190,7 @@ async_210_1,"  @Test(expectedExceptions = NtlmEngineException.class)
     fail(""An NtlmEngineException must have occurred as type 2 indicator is incorrect"");
   }
 ",NtlmTest::testGenerateType3MsgThworsExceptionWhenType2IndicatorNotPresent_1_oe
-async_211_1,"  @Test(expectedExceptions = NtlmEngineException.class)
+async_210_1,"  @Test(expectedExceptions = NtlmEngineException.class)
   public void testGenerateType3MsgThrowsExceptionWhenUnicodeSupportNotIndicated_1_oe() throws IOException {
     ByteArrayOutputStream buf = new ByteArrayOutputStream();
     buf.write(""NTLMSSP"".getBytes(StandardCharsets.US_ASCII));
@@ -12247,13 +12216,13 @@ async_211_1,"  @Test(expectedExceptions = NtlmEngineException.class)
     fail(""An NtlmEngineException must have occurred as unicode support is not indicated"");
   }
 ",NtlmTest::testGenerateType3MsgThrowsExceptionWhenUnicodeSupportNotIndicated_1_oe
-async_212_1,"  @Test
+async_211_1,"  @Test
   public void testGenerateType2Msg_1_oe() {
     Type2Message type2Message = new Type2Message(""TlRMTVNTUAACAAAAAAAAACgAAAABggAAU3J2Tm9uY2UAAAAAAAAAAA=="");
     Assert.assertEquals(type2Message.getMessageLength(), 40, ""This is a sample challenge that should return 40"");
   }
 ",NtlmTest::testGenerateType2Msg_1_oe
-async_213_1,"  @Test
+async_212_1,"  @Test
   public void testGenerateType3Msg_1_oe() throws IOException {
     ByteArrayOutputStream buf = new ByteArrayOutputStream();
     buf.write(""NTLMSSP"".getBytes(StandardCharsets.US_ASCII));
@@ -12280,7 +12249,7 @@ async_213_1,"  @Test
     assertEquals( type3Msg, ""TlRMTVNTUAADAAAAGAAYAEgAAAAYABgAYAAAABIAEgB4AAAAEAAQAIoAAAAWABYAmgAAAAAAAACwAAAAAQAAAgUBKAoAAAAP1g6lqqN1HZ0wSSxeQ5riQkyh7/UexwVlCPQm0SHU2vsDQm2wM6NbT2zPonPzLJL0TABPAEMAQQBMAEgATwBTAFQAdQBzAGUAcgBuAGEAbQBlAFcATwBSAEsAUwBUAEEAVABJAE8ATgA="", ""Incorrect type3 message generated"");
   }
 ",NtlmTest::testGenerateType3Msg_1_oe
-async_214_1,"  @Test
+async_213_1,"  @Test
   public void testWriteULong_1_oe() {
     // test different combinations so that different positions in the byte array will be written
     byte[] buffer = new byte[4];
@@ -12288,7 +12257,7 @@ async_214_1,"  @Test
     assertEquals(buffer, new byte[]{1, 0, 0, 0}, ""Unsigned long value 1 was not written correctly to the buffer"");
   }
 ",NtlmTest::testWriteULong_1_oe
-async_214_2,"  @Test
+async_213_2,"  @Test
   public void testWriteULong_2_oe() {
     // test different combinations so that different positions in the byte array will be written
     byte[] buffer = new byte[4];
@@ -12300,7 +12269,7 @@ async_214_2,"  @Test
     assertEquals(buffer, new byte[]{1, 1, 0, 0}, ""Unsigned long value 257 was not written correctly to the buffer"");
   }
 ",NtlmTest::testWriteULong_2_oe
-async_214_3,"  @Test
+async_213_3,"  @Test
   public void testWriteULong_3_oe() {
     // test different combinations so that different positions in the byte array will be written
     byte[] buffer = new byte[4];
@@ -12316,7 +12285,7 @@ async_214_3,"  @Test
     assertEquals(buffer, new byte[]{0, 0, 0, 1}, ""Unsigned long value 16777216 was not written correctly to the buffer"");
   }
 ",NtlmTest::testWriteULong_3_oe
-async_218_1,"  @Test
+async_217_1,"  @Test
   public void notRequestingForLongerThanReadTimeoutDoesNotCauseTimeout_1_oe() throws Throwable {
     ServletResponseHandler responseHandler = response -> {
       response.getOutputStream().write(BODY_CHUNK);
@@ -12355,7 +12324,7 @@ async_218_1,"  @Test
     assertEquals(subscriber.elements.size(), 2);
   }
 ",ReactiveStreamsErrorTest::notRequestingForLongerThanReadTimeoutDoesNotCauseTimeout_1_oe
-async_219_2,"  @Test
+async_218_2,"  @Test
   public void readTimeoutCancelsBodyStream_2_oe() throws Throwable {
     ServletResponseHandler responseHandler = response -> {
       response.getOutputStream().write(BODY_CHUNK);
@@ -12386,7 +12355,7 @@ async_219_2,"  @Test
     assertEquals(subscriber.elements.size(), 1);
   }
 ",ReactiveStreamsErrorTest::readTimeoutCancelsBodyStream_2_oe
-async_220_2,"  @Test
+async_219_2,"  @Test
   public void requestTimeoutCancelsBodyStream_2_oe() throws Throwable {
     ServletResponseHandler responseHandler = response -> {
       response.getOutputStream().write(BODY_CHUNK);
@@ -12427,7 +12396,7 @@ async_220_2,"  @Test
     assertEquals(subscriber.elements.size(), 4);
   }
 ",ReactiveStreamsErrorTest::requestTimeoutCancelsBodyStream_2_oe
-async_221_2,"  @Test
+async_220_2,"  @Test
   public void ioErrorsArePropagatedToSubscriber_2_oe() throws Throwable {
     ServletResponseHandler responseHandler = response -> {
       response.setContentLength(100);
@@ -12456,7 +12425,7 @@ async_221_2,"  @Test
   }
   }
 ",ReactiveStreamsErrorTest::ioErrorsArePropagatedToSubscriber_2_oe
-async_221_3,"  @Test
+async_220_3,"  @Test
   public void ioErrorsArePropagatedToSubscriber_3_oe() throws Throwable {
     ServletResponseHandler responseHandler = response -> {
       response.setContentLength(100);
@@ -12489,7 +12458,7 @@ async_221_3,"  @Test
     assertEquals(subscriber.error, error);
   }
 ",ReactiveStreamsErrorTest::ioErrorsArePropagatedToSubscriber_3_oe
-async_221_4,"  @Test
+async_220_4,"  @Test
   public void ioErrorsArePropagatedToSubscriber_4_oe() throws Throwable {
     ServletResponseHandler responseHandler = response -> {
       response.setContentLength(100);
@@ -12523,878 +12492,7 @@ async_221_4,"  @Test
     assertEquals(subscriber.elements.size(), 1);
   }
 ",ReactiveStreamsErrorTest::ioErrorsArePropagatedToSubscriber_4_oe
-async_222_1,"  @Test
-  public void testStreamingPutImage_1_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      assertEquals(response.getStatusCode(), 200);
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_1_oe
-async_222_2,"  @Test
-  public void testStreamingPutImage_2_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      assertEquals(response.getResponseBodyAsBytes(), LARGE_IMAGE_BYTES);
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_2_oe
-async_222_3,"  @Test
-  public void testStreamingPutImage_3_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      assertEquals(response.getStatusCode(), 200);
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_3_oe
-async_222_4,"  @Test
-  public void testStreamingPutImage_4_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      assertEquals(response.getResponseBodyAsBytes(), LARGE_IMAGE_BYTES);
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_4_oe
-async_222_5,"  @Test
-  public void testStreamingPutImage_5_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      assertEquals(response.getStatusCode(), 200, ""HTTP response was invalid on first request."");
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_5_oe
-async_222_6,"  @Test
-  public void testStreamingPutImage_6_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      assertEquals(Integer.valueOf(response.getHeader(""X-"" + CONTENT_LENGTH)).intValue(), LARGE_IMAGE_BYTES.length, ""Server side payload length invalid"");
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_6_oe
-async_222_7,"  @Test
-  public void testStreamingPutImage_7_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      assertEquals(responseBody.length, LARGE_IMAGE_BYTES.length, ""Client side payload length invalid"");
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_7_oe
-async_222_8,"  @Test
-  public void testStreamingPutImage_8_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      assertEquals(response.getHeader(CONTENT_MD5), LARGE_IMAGE_BYTES_MD5, ""Server side payload MD5 invalid"");
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_8_oe
-async_222_9,"  @Test
-  public void testStreamingPutImage_9_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      assertEquals(TestUtils.md5(responseBody), LARGE_IMAGE_BYTES_MD5, ""Client side payload MD5 invalid"");
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_9_oe
-async_222_10,"  @Test
-  public void testStreamingPutImage_10_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      assertEquals(responseBody, LARGE_IMAGE_BYTES, ""Image bytes are not equal on first attempt"");
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_10_oe
-async_222_11,"  @Test
-  public void testStreamingPutImage_11_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-
-      response = requestBuilder.execute().get();
-      assertEquals(response.getStatusCode(), 200);
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_11_oe
-async_222_12,"  @Test
-  public void testStreamingPutImage_12_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-
-      response = requestBuilder.execute().get();
-      // removed other assertion
-      responseBody = response.getResponseBodyAsBytes();
-      assertEquals(Integer.valueOf(response.getHeader(""X-"" + CONTENT_LENGTH)).intValue(), LARGE_IMAGE_BYTES.length, ""Server side payload length invalid"");
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_12_oe
-async_222_13,"  @Test
-  public void testStreamingPutImage_13_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-
-      response = requestBuilder.execute().get();
-      // removed other assertion
-      responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      assertEquals(responseBody.length, LARGE_IMAGE_BYTES.length, ""Client side payload length invalid"");
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_13_oe
-async_222_17,"  @Test
-  public void testStreamingPutImage_17_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-
-      response = requestBuilder.execute().get();
-      // removed other assertion
-      responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-
-      try {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-      } catch (AssertionError e) {
-        e.printStackTrace();
-        for (int i = 0; i < LARGE_IMAGE_BYTES.length; i++) {
-          assertEquals(responseBody[i], LARGE_IMAGE_BYTES[i], ""Invalid response byte at position "" + i);
-  }
-  }
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_17_oe
-async_222_18,"  @Test
-  public void testStreamingPutImage_18_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-
-      response = requestBuilder.execute().get();
-      // removed other assertion
-      responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-
-      try {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-      } catch (AssertionError e) {
-        e.printStackTrace();
-        for (int i = 0; i < LARGE_IMAGE_BYTES.length; i++) {
-          // removed other assertion
-        }
-        throw e;
-      }
-    }
-  }
-
-  @Test(expectedExceptions = ExecutionException.class)
-  public void testFailingStream() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Publisher<ByteBuf> failingPublisher = Flowable.error(new FailedStream());
-      client.preparePut(getTargetUrl()).setBody(failingPublisher).execute().get();
-    }
-  }
-
-  @Test
-  public void streamedResponseTest() throws Throwable {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-
-      SimpleSubscriber<HttpResponseBodyPart> subscriber = new SimpleSubscriber<>();
-      ListenableFuture<Void> future = c.preparePost(getTargetUrl())
-              .setBody(LARGE_IMAGE_BYTES).execute(new SimpleStreamedAsyncHandler(subscriber));
-
-      // block
-      future.get();
-      assertEquals(getBytes(subscriber.getElements()), LARGE_IMAGE_BYTES);
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_18_oe
-async_222_19,"  @Test
-  public void testStreamingPutImage_19_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-
-      response = requestBuilder.execute().get();
-      // removed other assertion
-      responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-
-      try {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-      } catch (AssertionError e) {
-        e.printStackTrace();
-        for (int i = 0; i < LARGE_IMAGE_BYTES.length; i++) {
-          // removed other assertion
-        }
-        throw e;
-      }
-    }
-  }
-
-  @Test(expectedExceptions = ExecutionException.class)
-  public void testFailingStream() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Publisher<ByteBuf> failingPublisher = Flowable.error(new FailedStream());
-      client.preparePut(getTargetUrl()).setBody(failingPublisher).execute().get();
-    }
-  }
-
-  @Test
-  public void streamedResponseTest() throws Throwable {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-
-      SimpleSubscriber<HttpResponseBodyPart> subscriber = new SimpleSubscriber<>();
-      ListenableFuture<Void> future = c.preparePost(getTargetUrl())
-              .setBody(LARGE_IMAGE_BYTES).execute(new SimpleStreamedAsyncHandler(subscriber));
-
-      // block
-      future.get();
-      // removed other assertion
-
-      // Run it again to check that the pipeline is in a good state
-      subscriber = new SimpleSubscriber<>();
-      future = c.preparePost(getTargetUrl()).setBody(LARGE_IMAGE_BYTES).execute(new SimpleStreamedAsyncHandler(subscriber));
-
-      future.get();
-      assertEquals(getBytes(subscriber.getElements()), LARGE_IMAGE_BYTES);
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_19_oe
-async_222_20,"  @Test
-  public void testStreamingPutImage_20_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-
-      response = requestBuilder.execute().get();
-      // removed other assertion
-      responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-
-      try {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-      } catch (AssertionError e) {
-        e.printStackTrace();
-        for (int i = 0; i < LARGE_IMAGE_BYTES.length; i++) {
-          // removed other assertion
-        }
-        throw e;
-      }
-    }
-  }
-
-  @Test(expectedExceptions = ExecutionException.class)
-  public void testFailingStream() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Publisher<ByteBuf> failingPublisher = Flowable.error(new FailedStream());
-      client.preparePut(getTargetUrl()).setBody(failingPublisher).execute().get();
-    }
-  }
-
-  @Test
-  public void streamedResponseTest() throws Throwable {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-
-      SimpleSubscriber<HttpResponseBodyPart> subscriber = new SimpleSubscriber<>();
-      ListenableFuture<Void> future = c.preparePost(getTargetUrl())
-              .setBody(LARGE_IMAGE_BYTES).execute(new SimpleStreamedAsyncHandler(subscriber));
-
-      // block
-      future.get();
-      // removed other assertion
-
-      // Run it again to check that the pipeline is in a good state
-      subscriber = new SimpleSubscriber<>();
-      future = c.preparePost(getTargetUrl()).setBody(LARGE_IMAGE_BYTES).execute(new SimpleStreamedAsyncHandler(subscriber));
-
-      future.get();
-      // removed other assertion
-
-      // Make sure a regular request still works
-      assertEquals(c.preparePost(getTargetUrl()).setBody(""Hello"").execute().get().getResponseBody(), ""Hello"");
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_20_oe
-async_222_21,"  @Test
-  public void testStreamingPutImage_21_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-
-      response = requestBuilder.execute().get();
-      // removed other assertion
-      responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-
-      try {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-      } catch (AssertionError e) {
-        e.printStackTrace();
-        for (int i = 0; i < LARGE_IMAGE_BYTES.length; i++) {
-          // removed other assertion
-        }
-        throw e;
-      }
-    }
-  }
-
-  @Test(expectedExceptions = ExecutionException.class)
-  public void testFailingStream() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Publisher<ByteBuf> failingPublisher = Flowable.error(new FailedStream());
-      client.preparePut(getTargetUrl()).setBody(failingPublisher).execute().get();
-    }
-  }
-
-  @Test
-  public void streamedResponseTest() throws Throwable {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-
-      SimpleSubscriber<HttpResponseBodyPart> subscriber = new SimpleSubscriber<>();
-      ListenableFuture<Void> future = c.preparePost(getTargetUrl())
-              .setBody(LARGE_IMAGE_BYTES).execute(new SimpleStreamedAsyncHandler(subscriber));
-
-      // block
-      future.get();
-      // removed other assertion
-
-      // Run it again to check that the pipeline is in a good state
-      subscriber = new SimpleSubscriber<>();
-      future = c.preparePost(getTargetUrl()).setBody(LARGE_IMAGE_BYTES).execute(new SimpleStreamedAsyncHandler(subscriber));
-
-      future.get();
-      // removed other assertion
-
-      // Make sure a regular request still works
-      // removed other assertion
-
-    }
-  }
-
-  @Test
-  public void cancelStreamedResponseTest() throws Throwable {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-
-      // Cancel immediately
-      c.preparePost(getTargetUrl()).setBody(LARGE_IMAGE_BYTES).execute(new CancellingStreamedAsyncProvider(0))
-              .get();
-
-      // Cancel after 1 element
-      c.preparePost(getTargetUrl()).setBody(LARGE_IMAGE_BYTES).execute(new CancellingStreamedAsyncProvider(1))
-              .get();
-
-      // Cancel after 10 elements
-      c.preparePost(getTargetUrl()).setBody(LARGE_IMAGE_BYTES).execute(new CancellingStreamedAsyncProvider(10))
-              .get();
-
-      // Make sure a regular request works
-      assertEquals(c.preparePost(getTargetUrl()).setBody(""Hello"").execute().get().getResponseBody(), ""Hello"");
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_21_oe
-async_223_1,"  @Test
+async_221_1,"  @Test
   public void testRetryingOnFailingStream_1_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final CountDownLatch streamStarted = new CountDownLatch(1); // allows us to wait until subscriber has received the first body chunk
@@ -13426,7 +12524,7 @@ async_223_1,"  @Test
   }
   }
 ",ReactiveStreamsRetryTest::testRetryingOnFailingStream_1_oe
-async_223_2,"  @Test
+async_221_2,"  @Test
   public void testRetryingOnFailingStream_2_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final CountDownLatch streamStarted = new CountDownLatch(1); // allows us to wait until subscriber has received the first body chunk
@@ -13472,7 +12570,7 @@ async_223_2,"  @Test
   }
   }
 ",ReactiveStreamsRetryTest::testRetryingOnFailingStream_2_oe
-async_224_1,"  @Test
+async_222_1,"  @Test
   public void streamedResponseLargeFileTest_1_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient()) {
       String largeFileName = ""http://localhost:"" + serverPort + ""/"" + largeFile.getName();
@@ -13482,7 +12580,7 @@ async_224_1,"  @Test
   }
   }
 ",ReactiveStreamsDownloadTest::streamedResponseLargeFileTest_1_oe
-async_225_1,"  @Test
+async_223_1,"  @Test
   public void streamedResponseSmallFileTest_1_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient()) {
       String smallFileName = ""http://localhost:"" + serverPort + ""/"" + smallFile.getName();
@@ -13493,7 +12591,7 @@ async_225_1,"  @Test
   }
   }
 ",ReactiveStreamsDownloadTest::streamedResponseSmallFileTest_1_oe
-async_226_1,"  @Test
+async_224_1,"  @Test
   public void negativeContentTypeTest_1_oe() throws Exception {
 
     AsyncHttpClientConfig config = config()
@@ -13515,7 +12613,7 @@ async_226_1,"  @Test
   }
   }
 ",BodyChunkTest::negativeContentTypeTest_1_oe
-async_226_2,"  @Test
+async_224_2,"  @Test
   public void negativeContentTypeTest_2_oe() throws Exception {
 
     AsyncHttpClientConfig config = config()
@@ -13538,7 +12636,7 @@ async_226_2,"  @Test
   }
   }
 ",BodyChunkTest::negativeContentTypeTest_2_oe
-async_227_1,"  @Test
+async_225_1,"  @Test
   public void zeroCopyPostTest_1_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicBoolean headerSent = new AtomicBoolean(false);
@@ -13565,7 +12663,7 @@ async_227_1,"  @Test
   }
   }
 ",ZeroCopyFileTest::zeroCopyPostTest_1_oe
-async_227_2,"  @Test
+async_225_2,"  @Test
   public void zeroCopyPostTest_2_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicBoolean headerSent = new AtomicBoolean(false);
@@ -13593,7 +12691,7 @@ async_227_2,"  @Test
   }
   }
 ",ZeroCopyFileTest::zeroCopyPostTest_2_oe
-async_227_3,"  @Test
+async_225_3,"  @Test
   public void zeroCopyPostTest_3_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicBoolean headerSent = new AtomicBoolean(false);
@@ -13622,7 +12720,7 @@ async_227_3,"  @Test
   }
   }
 ",ZeroCopyFileTest::zeroCopyPostTest_3_oe
-async_227_4,"  @Test
+async_225_4,"  @Test
   public void zeroCopyPostTest_4_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicBoolean headerSent = new AtomicBoolean(false);
@@ -13652,7 +12750,7 @@ async_227_4,"  @Test
   }
   }
 ",ZeroCopyFileTest::zeroCopyPostTest_4_oe
-async_227_5,"  @Test
+async_225_5,"  @Test
   public void zeroCopyPostTest_5_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicBoolean headerSent = new AtomicBoolean(false);
@@ -13683,7 +12781,7 @@ async_227_5,"  @Test
   }
   }
 ",ZeroCopyFileTest::zeroCopyPostTest_5_oe
-async_228_1,"  @Test
+async_226_1,"  @Test
   public void zeroCopyPutTest_1_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.preparePut(""http://localhost:"" + port1 + ""/"").setBody(SIMPLE_TEXT_FILE).execute();
@@ -13692,7 +12790,7 @@ async_228_1,"  @Test
   }
   }
 ",ZeroCopyFileTest::zeroCopyPutTest_1_oe
-async_228_2,"  @Test
+async_226_2,"  @Test
   public void zeroCopyPutTest_2_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.preparePut(""http://localhost:"" + port1 + ""/"").setBody(SIMPLE_TEXT_FILE).execute();
@@ -13702,7 +12800,7 @@ async_228_2,"  @Test
   }
   }
 ",ZeroCopyFileTest::zeroCopyPutTest_2_oe
-async_228_3,"  @Test
+async_226_3,"  @Test
   public void zeroCopyPutTest_3_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       Future<Response> f = client.preparePut(""http://localhost:"" + port1 + ""/"").setBody(SIMPLE_TEXT_FILE).execute();
@@ -13713,7 +12811,7 @@ async_228_3,"  @Test
   }
   }
 ",ZeroCopyFileTest::zeroCopyPutTest_3_oe
-async_229_1,"  @Test
+async_227_1,"  @Test
   public void zeroCopyFileTest_1_oe() throws IOException, ExecutionException, InterruptedException {
     File tmp = new File(System.getProperty(""java.io.tmpdir"") + File.separator + ""zeroCopy.txt"");
     tmp.deleteOnExit();
@@ -13745,7 +12843,7 @@ async_229_1,"  @Test
   }
   }
 ",ZeroCopyFileTest::zeroCopyFileTest_1_oe
-async_229_2,"  @Test
+async_227_2,"  @Test
   public void zeroCopyFileTest_2_oe() throws IOException, ExecutionException, InterruptedException {
     File tmp = new File(System.getProperty(""java.io.tmpdir"") + File.separator + ""zeroCopy.txt"");
     tmp.deleteOnExit();
@@ -13778,7 +12876,7 @@ async_229_2,"  @Test
   }
   }
 ",ZeroCopyFileTest::zeroCopyFileTest_2_oe
-async_230_1,"  @Test
+async_228_1,"  @Test
   public void zeroCopyFileWithBodyManipulationTest_1_oe() throws IOException, ExecutionException, InterruptedException {
     File tmp = new File(System.getProperty(""java.io.tmpdir"") + File.separator + ""zeroCopy.txt"");
     tmp.deleteOnExit();
@@ -13815,7 +12913,7 @@ async_230_1,"  @Test
   }
   }
 ",ZeroCopyFileTest::zeroCopyFileWithBodyManipulationTest_1_oe
-async_230_2,"  @Test
+async_228_2,"  @Test
   public void zeroCopyFileWithBodyManipulationTest_2_oe() throws IOException, ExecutionException, InterruptedException {
     File tmp = new File(System.getProperty(""java.io.tmpdir"") + File.separator + ""zeroCopy.txt"");
     tmp.deleteOnExit();
@@ -13853,7 +12951,7 @@ async_230_2,"  @Test
   }
   }
 ",ZeroCopyFileTest::zeroCopyFileWithBodyManipulationTest_2_oe
-async_231_1,"  @Test
+async_229_1,"  @Test
   public void testPutImageFile_1_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
       Response response = client.preparePut(getTargetUrl()).addBodyPart(new FilePart(""test"", LARGE_IMAGE_FILE, ""application/octet-stream"", UTF_8)).execute().get();
@@ -13861,7 +12959,7 @@ async_231_1,"  @Test
   }
   }
 ",FilePartLargeFileTest::testPutImageFile_1_oe
-async_232_1,"  @Test
+async_230_1,"  @Test
   public void testPutLargeTextFile_1_oe() throws Exception {
     File file = createTempFile(1024 * 1024);
 
@@ -13871,7 +12969,7 @@ async_232_1,"  @Test
   }
   }
 ",FilePartLargeFileTest::testPutLargeTextFile_1_oe
-async_233_1,"  @Test
+async_231_1,"  @Test
   public void testInvalidInputStream_1_oe() throws IOException, ExecutionException, InterruptedException {
 
     try (AsyncHttpClient c = asyncHttpClient()) {
@@ -13906,7 +13004,7 @@ async_233_1,"  @Test
   }
   }
 ",InputStreamTest::testInvalidInputStream_1_oe
-async_233_2,"  @Test
+async_231_2,"  @Test
   public void testInvalidInputStream_2_oe() throws IOException, ExecutionException, InterruptedException {
 
     try (AsyncHttpClient c = asyncHttpClient()) {
@@ -13942,7 +13040,7 @@ async_233_2,"  @Test
   }
   }
 ",InputStreamTest::testInvalidInputStream_2_oe
-async_233_3,"  @Test
+async_231_3,"  @Test
   public void testInvalidInputStream_3_oe() throws IOException, ExecutionException, InterruptedException {
 
     try (AsyncHttpClient c = asyncHttpClient()) {
@@ -13979,7 +13077,7 @@ async_233_3,"  @Test
   }
   }
 ",InputStreamTest::testInvalidInputStream_3_oe
-async_235_1,"  @Test
+async_233_1,"  @Test
   public void basicPutFileTest_1_oe() throws Exception {
     final AtomicReference<Throwable> throwable = new AtomicReference<>();
     final AtomicReference<HttpHeaders> hSent = new AtomicReference<>();
@@ -14028,7 +13126,7 @@ async_235_1,"  @Test
   }
   }
 ",TransferListenerTest::basicPutFileTest_1_oe
-async_235_2,"  @Test
+async_233_2,"  @Test
   public void basicPutFileTest_2_oe() throws Exception {
     final AtomicReference<Throwable> throwable = new AtomicReference<>();
     final AtomicReference<HttpHeaders> hSent = new AtomicReference<>();
@@ -14078,7 +13176,7 @@ async_235_2,"  @Test
   }
   }
 ",TransferListenerTest::basicPutFileTest_2_oe
-async_235_3,"  @Test
+async_233_3,"  @Test
   public void basicPutFileTest_3_oe() throws Exception {
     final AtomicReference<Throwable> throwable = new AtomicReference<>();
     final AtomicReference<HttpHeaders> hSent = new AtomicReference<>();
@@ -14129,7 +13227,7 @@ async_235_3,"  @Test
   }
   }
 ",TransferListenerTest::basicPutFileTest_3_oe
-async_235_4,"  @Test
+async_233_4,"  @Test
   public void basicPutFileTest_4_oe() throws Exception {
     final AtomicReference<Throwable> throwable = new AtomicReference<>();
     final AtomicReference<HttpHeaders> hSent = new AtomicReference<>();
@@ -14181,7 +13279,7 @@ async_235_4,"  @Test
   }
   }
 ",TransferListenerTest::basicPutFileTest_4_oe
-async_235_5,"  @Test
+async_233_5,"  @Test
   public void basicPutFileTest_5_oe() throws Exception {
     final AtomicReference<Throwable> throwable = new AtomicReference<>();
     final AtomicReference<HttpHeaders> hSent = new AtomicReference<>();
@@ -14234,7 +13332,7 @@ async_235_5,"  @Test
   }
   }
 ",TransferListenerTest::basicPutFileTest_5_oe
-async_235_6,"  @Test
+async_233_6,"  @Test
   public void basicPutFileTest_6_oe() throws Exception {
     final AtomicReference<Throwable> throwable = new AtomicReference<>();
     final AtomicReference<HttpHeaders> hSent = new AtomicReference<>();
@@ -14288,7 +13386,7 @@ async_235_6,"  @Test
   }
   }
 ",TransferListenerTest::basicPutFileTest_6_oe
-async_236_1,"  @Test
+async_234_1,"  @Test
   public void basicPutFileBodyGeneratorTest_1_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicReference<Throwable> throwable = new AtomicReference<>();
@@ -14335,7 +13433,7 @@ async_236_1,"  @Test
   }
   }
 ",TransferListenerTest::basicPutFileBodyGeneratorTest_1_oe
-async_236_2,"  @Test
+async_234_2,"  @Test
   public void basicPutFileBodyGeneratorTest_2_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicReference<Throwable> throwable = new AtomicReference<>();
@@ -14383,7 +13481,7 @@ async_236_2,"  @Test
   }
   }
 ",TransferListenerTest::basicPutFileBodyGeneratorTest_2_oe
-async_236_3,"  @Test
+async_234_3,"  @Test
   public void basicPutFileBodyGeneratorTest_3_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicReference<Throwable> throwable = new AtomicReference<>();
@@ -14432,7 +13530,7 @@ async_236_3,"  @Test
   }
   }
 ",TransferListenerTest::basicPutFileBodyGeneratorTest_3_oe
-async_236_4,"  @Test
+async_234_4,"  @Test
   public void basicPutFileBodyGeneratorTest_4_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicReference<Throwable> throwable = new AtomicReference<>();
@@ -14482,7 +13580,7 @@ async_236_4,"  @Test
   }
   }
 ",TransferListenerTest::basicPutFileBodyGeneratorTest_4_oe
-async_236_5,"  @Test
+async_234_5,"  @Test
   public void basicPutFileBodyGeneratorTest_5_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicReference<Throwable> throwable = new AtomicReference<>();
@@ -14533,7 +13631,7 @@ async_236_5,"  @Test
   }
   }
 ",TransferListenerTest::basicPutFileBodyGeneratorTest_5_oe
-async_236_6,"  @Test
+async_234_6,"  @Test
   public void basicPutFileBodyGeneratorTest_6_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicReference<Throwable> throwable = new AtomicReference<>();
@@ -14585,7 +13683,7 @@ async_236_6,"  @Test
   }
   }
 ",TransferListenerTest::basicPutFileBodyGeneratorTest_6_oe
-async_237_3,"  @Test
+async_235_3,"  @Test
   public void testEmptyBody_3_oe() throws IOException {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       final AtomicBoolean err = new AtomicBoolean(false);
@@ -14636,7 +13734,7 @@ async_237_3,"  @Test
   }
   }
 ",EmptyBodyTest::testEmptyBody_3_oe
-async_237_4,"  @Test
+async_235_4,"  @Test
   public void testEmptyBody_4_oe() throws IOException {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       final AtomicBoolean err = new AtomicBoolean(false);
@@ -14688,7 +13786,7 @@ async_237_4,"  @Test
   }
   }
 ",EmptyBodyTest::testEmptyBody_4_oe
-async_237_5,"  @Test
+async_235_5,"  @Test
   public void testEmptyBody_5_oe() throws IOException {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       final AtomicBoolean err = new AtomicBoolean(false);
@@ -14741,7 +13839,7 @@ async_237_5,"  @Test
   }
   }
 ",EmptyBodyTest::testEmptyBody_5_oe
-async_237_6,"  @Test
+async_235_6,"  @Test
   public void testEmptyBody_6_oe() throws IOException {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       final AtomicBoolean err = new AtomicBoolean(false);
@@ -14795,7 +13893,7 @@ async_237_6,"  @Test
   }
   }
 ",EmptyBodyTest::testEmptyBody_6_oe
-async_237_7,"  @Test
+async_235_7,"  @Test
   public void testEmptyBody_7_oe() throws IOException {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       final AtomicBoolean err = new AtomicBoolean(false);
@@ -14850,7 +13948,7 @@ async_237_7,"  @Test
   }
   }
 ",EmptyBodyTest::testEmptyBody_7_oe
-async_238_1,"  @Test
+async_236_1,"  @Test
   public void testPutEmptyBody_1_oe() throws Exception {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       Response response = ahc.preparePut(getTargetUrl()).setBody(""String"").execute().get();
@@ -14859,7 +13957,7 @@ async_238_1,"  @Test
   }
   }
 ",EmptyBodyTest::testPutEmptyBody_1_oe
-async_238_2,"  @Test
+async_236_2,"  @Test
   public void testPutEmptyBody_2_oe() throws Exception {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       Response response = ahc.preparePut(getTargetUrl()).setBody(""String"").execute().get();
@@ -14869,7 +13967,7 @@ async_238_2,"  @Test
   }
   }
 ",EmptyBodyTest::testPutEmptyBody_2_oe
-async_238_3,"  @Test
+async_236_3,"  @Test
   public void testPutEmptyBody_3_oe() throws Exception {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       Response response = ahc.preparePut(getTargetUrl()).setBody(""String"").execute().get();
@@ -14880,7 +13978,7 @@ async_238_3,"  @Test
   }
   }
 ",EmptyBodyTest::testPutEmptyBody_3_oe
-async_238_4,"  @Test
+async_236_4,"  @Test
   public void testPutEmptyBody_4_oe() throws Exception {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       Response response = ahc.preparePut(getTargetUrl()).setBody(""String"").execute().get();
@@ -14892,7 +13990,7 @@ async_238_4,"  @Test
   }
   }
 ",EmptyBodyTest::testPutEmptyBody_4_oe
-async_238_5,"  @Test
+async_236_5,"  @Test
   public void testPutEmptyBody_5_oe() throws Exception {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       Response response = ahc.preparePut(getTargetUrl()).setBody(""String"").execute().get();
@@ -14905,7 +14003,7 @@ async_238_5,"  @Test
   }
   }
 ",EmptyBodyTest::testPutEmptyBody_5_oe
-async_239_1,"  @Test
+async_237_1,"  @Test
   public void testPutImageFile_1_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
       InputStream inputStream = new BufferedInputStream(new FileInputStream(LARGE_IMAGE_FILE));
@@ -14914,7 +14012,7 @@ async_239_1,"  @Test
   }
   }
 ",InputStreamPartLargeFileTest::testPutImageFile_1_oe
-async_240_1,"  @Test
+async_238_1,"  @Test
   public void testPutImageFileUnknownSize_1_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
       InputStream inputStream = new BufferedInputStream(new FileInputStream(LARGE_IMAGE_FILE));
@@ -14923,7 +14021,7 @@ async_240_1,"  @Test
   }
   }
 ",InputStreamPartLargeFileTest::testPutImageFileUnknownSize_1_oe
-async_241_1,"  @Test
+async_239_1,"  @Test
   public void testPutLargeTextFile_1_oe() throws Exception {
     File file = createTempFile(1024 * 1024);
     InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
@@ -14935,7 +14033,7 @@ async_241_1,"  @Test
   }
   }
 ",InputStreamPartLargeFileTest::testPutLargeTextFile_1_oe
-async_242_1,"  @Test
+async_240_1,"  @Test
   public void testPutLargeTextFileUnknownSize_1_oe() throws Exception {
     File file = createTempFile(1024 * 1024);
     InputStream inputStream = new BufferedInputStream(new FileInputStream(file));
@@ -14947,14 +14045,14 @@ async_242_1,"  @Test
   }
   }
 ",InputStreamPartLargeFileTest::testPutLargeTextFileUnknownSize_1_oe
-async_243_1,"  @Test
+async_241_1,"  @Test
   public void feedNotifiesListener_1_oe() throws Exception {
     feedableBodyGenerator.feed(Unpooled.EMPTY_BUFFER, false);
     feedableBodyGenerator.feed(Unpooled.EMPTY_BUFFER, true);
     assertEquals(listener.getCalls(), 2);
   }
 ",FeedableBodyGeneratorTest::feedNotifiesListener_1_oe
-async_248_1,"  @Test
+async_246_1,"  @Test
   public void transferWithCopy_1_oe() throws Exception {
     for (int bufferLength = 1; bufferLength < MAX_MULTIPART_CONTENT_LENGTH_ESTIMATE + 1; bufferLength++) {
       try (MultipartBody multipartBody = buildMultipart()) {
@@ -14964,7 +14062,7 @@ async_248_1,"  @Test
   }
   }
 ",MultipartBodyTest::transferWithCopy_1_oe
-async_249_1,"  @Test
+async_247_1,"  @Test
   public void transferZeroCopy_1_oe() throws Exception {
     for (int bufferLength = 1; bufferLength < MAX_MULTIPART_CONTENT_LENGTH_ESTIMATE + 1; bufferLength++) {
       try (MultipartBody multipartBody = buildMultipart()) {
@@ -14974,7 +14072,7 @@ async_249_1,"  @Test
   }
   }
 ",MultipartBodyTest::transferZeroCopy_1_oe
-async_250_1,"  @Test
+async_248_1,"  @Test
   public void testSendingSmallFilesAndByteArray_1_oe() throws Exception {
     String expectedContents = ""filecontent: hello"";
     String expectedContents2 = ""gzipcontent: hello"";
@@ -15043,7 +14141,7 @@ async_250_1,"  @Test
   }
   }
 ",MultipartUploadTest::testSendingSmallFilesAndByteArray_1_oe
-async_251_1,"  @Test
+async_249_1,"  @Test
   public void testVisitStart_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(""Name"");
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[10])) {
@@ -15053,7 +14151,7 @@ async_251_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitStart_1_oe
-async_252_1,"  @Test
+async_250_1,"  @Test
   public void testVisitStartZeroSizedByteArray_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(""Name"");
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
@@ -15063,7 +14161,7 @@ async_252_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitStartZeroSizedByteArray_1_oe
-async_253_1,"  @Test
+async_251_1,"  @Test
   public void testVisitDispositionHeaderWithoutFileName_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(""Name"");
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
@@ -15073,7 +14171,7 @@ async_253_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitDispositionHeaderWithoutFileName_1_oe
-async_254_1,"  @Test
+async_252_1,"  @Test
   public void testVisitDispositionHeaderWithFileName_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(""baPart"", null, null, null, null, ""fileName"");
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
@@ -15083,7 +14181,7 @@ async_254_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitDispositionHeaderWithFileName_1_oe
-async_255_1,"  @Test
+async_253_1,"  @Test
   public void testVisitDispositionHeaderWithoutName_1_oe() {
     // with fileName
     TestFileLikePart fileLikePart = new TestFileLikePart(null, null, null, null, null, ""fileName"");
@@ -15094,7 +14192,7 @@ async_255_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitDispositionHeaderWithoutName_1_oe
-async_256_1,"  @Test
+async_254_1,"  @Test
   public void testVisitContentTypeHeaderWithCharset_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(null, ""application/test"", UTF_8, null, null);
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
@@ -15104,7 +14202,7 @@ async_256_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitContentTypeHeaderWithCharset_1_oe
-async_257_1,"  @Test
+async_255_1,"  @Test
   public void testVisitContentTypeHeaderWithoutCharset_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(null, ""application/test"");
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
@@ -15114,7 +14212,7 @@ async_257_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitContentTypeHeaderWithoutCharset_1_oe
-async_258_1,"  @Test
+async_256_1,"  @Test
   public void testVisitTransferEncodingHeader_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(null, null, null, null, ""transferEncoding"");
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
@@ -15124,7 +14222,7 @@ async_258_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitTransferEncodingHeader_1_oe
-async_259_1,"  @Test
+async_257_1,"  @Test
   public void testVisitContentIdHeader_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(null, null, null, ""contentId"");
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
@@ -15134,7 +14232,7 @@ async_259_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitContentIdHeader_1_oe
-async_260_1,"  @Test
+async_258_1,"  @Test
   public void testVisitCustomHeadersWhenNoCustomHeaders_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(null);
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
@@ -15144,7 +14242,7 @@ async_260_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitCustomHeadersWhenNoCustomHeaders_1_oe
-async_261_1,"  @Test
+async_259_1,"  @Test
   public void testVisitCustomHeaders_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(null);
     fileLikePart.addCustomHeader(""custom-header"", ""header-value"");
@@ -15155,7 +14253,7 @@ async_261_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitCustomHeaders_1_oe
-async_262_1,"  @Test
+async_260_1,"  @Test
   public void testVisitEndOfHeaders_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(null);
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
@@ -15165,7 +14263,7 @@ async_262_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitEndOfHeaders_1_oe
-async_263_1,"  @Test
+async_261_1,"  @Test
   public void testVisitPreContent_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(""Name"", ""application/test"", UTF_8, ""contentId"", ""transferEncoding"", ""fileName"");
     fileLikePart.addCustomHeader(""custom-header"", ""header-value"");
@@ -15176,7 +14274,7 @@ async_263_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitPreContent_1_oe
-async_264_1,"  @Test
+async_262_1,"  @Test
   public void testVisitPostContents_1_oe() {
     TestFileLikePart fileLikePart = new TestFileLikePart(null);
     try (TestMultipartPart multipartPart = new TestMultipartPart(fileLikePart, new byte[0])) {
@@ -15186,7 +14284,7 @@ async_264_1,"  @Test
   }
   }
 ",MultipartPartTest::testVisitPostContents_1_oe
-async_265_1,"  @Test
+async_263_1,"  @Test
   public void ntlmProxyTest_1_oe() throws IOException, InterruptedException, ExecutionException {
 
     try (AsyncHttpClient client = asyncHttpClient()) {
@@ -15197,7 +14295,7 @@ async_265_1,"  @Test
   }
   }
 ",NTLMProxyTest::ntlmProxyTest_1_oe
-async_266_1,"  @Test
+async_264_1,"  @Test
   public void testRequestProxy_1_oe() throws Exception {
 
     try (AsyncHttpClient asyncHttpClient = asyncHttpClient(config().setFollowRedirect(true).setUseInsecureTrustManager(true))) {
@@ -15207,7 +14305,7 @@ async_266_1,"  @Test
   }
   }
 ",HttpsProxyTest::testRequestProxy_1_oe
-async_267_1,"  @Test
+async_265_1,"  @Test
   public void testConfigProxy_1_oe() throws Exception {
     AsyncHttpClientConfig config = config()
             .setFollowRedirect(true)
@@ -15220,7 +14318,7 @@ async_267_1,"  @Test
   }
   }
 ",HttpsProxyTest::testConfigProxy_1_oe
-async_268_1,"  @Test
+async_266_1,"  @Test
   public void testNoDirectRequestBodyWithProxy_1_oe() throws Exception {
     AsyncHttpClientConfig config = config()
       .setFollowRedirect(true)
@@ -15233,7 +14331,7 @@ async_268_1,"  @Test
   }
   }
 ",HttpsProxyTest::testNoDirectRequestBodyWithProxy_1_oe
-async_269_1,"  @Test
+async_267_1,"  @Test
   public void testDecompressBodyWithProxy_1_oe() throws Exception {
     AsyncHttpClientConfig config = config()
       .setFollowRedirect(true)
@@ -15249,7 +14347,7 @@ async_269_1,"  @Test
   }
   }
 ",HttpsProxyTest::testDecompressBodyWithProxy_1_oe
-async_269_2,"  @Test
+async_267_2,"  @Test
   public void testDecompressBodyWithProxy_2_oe() throws Exception {
     AsyncHttpClientConfig config = config()
       .setFollowRedirect(true)
@@ -15266,7 +14364,7 @@ async_269_2,"  @Test
   }
   }
 ",HttpsProxyTest::testDecompressBodyWithProxy_2_oe
-async_270_1,"  @Test
+async_268_1,"  @Test
   public void testPooledConnectionsWithProxy_1_oe() throws Exception {
 
     try (AsyncHttpClient asyncHttpClient = asyncHttpClient(config().setFollowRedirect(true).setUseInsecureTrustManager(true).setKeepAlive(true))) {
@@ -15277,7 +14375,7 @@ async_270_1,"  @Test
   }
   }
 ",HttpsProxyTest::testPooledConnectionsWithProxy_1_oe
-async_270_2,"  @Test
+async_268_2,"  @Test
   public void testPooledConnectionsWithProxy_2_oe() throws Exception {
 
     try (AsyncHttpClient asyncHttpClient = asyncHttpClient(config().setFollowRedirect(true).setUseInsecureTrustManager(true).setKeepAlive(true))) {
@@ -15291,7 +14389,7 @@ async_270_2,"  @Test
   }
   }
 ",HttpsProxyTest::testPooledConnectionsWithProxy_2_oe
-async_271_1,"    @Test
+async_269_1,"    @Test
     public void testHttpProxy_1_oe() throws Exception {
       AsyncHttpClientConfig config = config()
         .setFollowRedirect(true)
@@ -15308,7 +14406,7 @@ async_271_1,"    @Test
     }
     }
 ",CustomHeaderProxyTest::testHttpProxy_1_oe
-async_272_1,"  @Test
+async_270_1,"  @Test
   public void testRequestLevelProxy_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       String target = ""http://localhost:1234/"";
@@ -15318,7 +14416,7 @@ async_272_1,"  @Test
   }
   }
 ",ProxyTest::testRequestLevelProxy_1_oe
-async_272_2,"  @Test
+async_270_2,"  @Test
   public void testRequestLevelProxy_2_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       String target = ""http://localhost:1234/"";
@@ -15329,7 +14427,7 @@ async_272_2,"  @Test
   }
   }
 ",ProxyTest::testRequestLevelProxy_2_oe
-async_272_3,"  @Test
+async_270_3,"  @Test
   public void testRequestLevelProxy_3_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient()) {
       String target = ""http://localhost:1234/"";
@@ -15341,7 +14439,7 @@ async_272_3,"  @Test
   }
   }
 ",ProxyTest::testRequestLevelProxy_3_oe
-async_273_1,"  @Test
+async_271_1,"  @Test
   public void testGlobalProxy_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(config().setProxyServer(proxyServer(""localhost"", port1)))) {
       String target = ""http://localhost:1234/"";
@@ -15351,7 +14449,7 @@ async_273_1,"  @Test
   }
   }
 ",ProxyTest::testGlobalProxy_1_oe
-async_273_2,"  @Test
+async_271_2,"  @Test
   public void testGlobalProxy_2_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(config().setProxyServer(proxyServer(""localhost"", port1)))) {
       String target = ""http://localhost:1234/"";
@@ -15362,7 +14460,7 @@ async_273_2,"  @Test
   }
   }
 ",ProxyTest::testGlobalProxy_2_oe
-async_273_3,"  @Test
+async_271_3,"  @Test
   public void testGlobalProxy_3_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(config().setProxyServer(proxyServer(""localhost"", port1)))) {
       String target = ""http://localhost:1234/"";
@@ -15374,7 +14472,7 @@ async_273_3,"  @Test
   }
   }
 ",ProxyTest::testGlobalProxy_3_oe
-async_274_1,"  @Test
+async_272_1,"  @Test
   public void testBothProxies_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(config().setProxyServer(proxyServer(""localhost"", port1 - 1)))) {
       String target = ""http://localhost:1234/"";
@@ -15384,7 +14482,7 @@ async_274_1,"  @Test
   }
   }
 ",ProxyTest::testBothProxies_1_oe
-async_274_2,"  @Test
+async_272_2,"  @Test
   public void testBothProxies_2_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(config().setProxyServer(proxyServer(""localhost"", port1 - 1)))) {
       String target = ""http://localhost:1234/"";
@@ -15395,7 +14493,7 @@ async_274_2,"  @Test
   }
   }
 ",ProxyTest::testBothProxies_2_oe
-async_274_3,"  @Test
+async_272_3,"  @Test
   public void testBothProxies_3_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(config().setProxyServer(proxyServer(""localhost"", port1 - 1)))) {
       String target = ""http://localhost:1234/"";
@@ -15407,7 +14505,7 @@ async_274_3,"  @Test
   }
   }
 ",ProxyTest::testBothProxies_3_oe
-async_275_1,"  @Test
+async_273_1,"  @Test
   public void testNonProxyHost_1_oe() {
 
     // // should avoid, it's in non-proxy hosts
@@ -15416,7 +14514,7 @@ async_275_1,"  @Test
     assertTrue(proxyServer.isIgnoredForHost(req.getUri().getHost()));
   }
 ",ProxyTest::testNonProxyHost_1_oe
-async_275_2,"  @Test
+async_273_2,"  @Test
   public void testNonProxyHost_2_oe() {
 
     // // should avoid, it's in non-proxy hosts
@@ -15430,7 +14528,7 @@ async_275_2,"  @Test
     assertTrue(proxyServer.isIgnoredForHost(req.getUri().getHost()));
   }
 ",ProxyTest::testNonProxyHost_2_oe
-async_275_3,"  @Test
+async_273_3,"  @Test
   public void testNonProxyHost_3_oe() {
 
     // // should avoid, it's in non-proxy hosts
@@ -15449,7 +14547,7 @@ async_275_3,"  @Test
     assertTrue(proxyServer.isIgnoredForHost(req.getUri().getHost()));
   }
 ",ProxyTest::testNonProxyHost_3_oe
-async_276_1,"  @Test
+async_274_1,"  @Test
   public void testNonProxyHostsRequestOverridesConfig_1_oe() {
 
     ProxyServer configProxy = proxyServer(""localhost"", port1 - 1).build();
@@ -15462,7 +14560,7 @@ async_276_1,"  @Test
   }
   }
 ",ProxyTest::testNonProxyHostsRequestOverridesConfig_1_oe
-async_276_2,"  @Test
+async_274_2,"  @Test
   public void testNonProxyHostsRequestOverridesConfig_2_oe() {
 
     ProxyServer configProxy = proxyServer(""localhost"", port1 - 1).build();
@@ -15477,7 +14575,7 @@ async_276_2,"  @Test
   }
   }
 ",ProxyTest::testNonProxyHostsRequestOverridesConfig_2_oe
-async_276_3,"  @Test
+async_274_3,"  @Test
   public void testNonProxyHostsRequestOverridesConfig_3_oe() {
 
     ProxyServer configProxy = proxyServer(""localhost"", port1 - 1).build();
@@ -15493,7 +14591,7 @@ async_276_3,"  @Test
   }
   }
 ",ProxyTest::testNonProxyHostsRequestOverridesConfig_3_oe
-async_277_1,"  @Test
+async_275_1,"  @Test
   public void testRequestNonProxyHost_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
 
     ProxyServer proxy = proxyServer(""localhost"", port1 - 1).setNonProxyHost(""localhost"").build();
@@ -15505,7 +14603,7 @@ async_277_1,"  @Test
   }
   }
 ",ProxyTest::testRequestNonProxyHost_1_oe
-async_277_2,"  @Test
+async_275_2,"  @Test
   public void testRequestNonProxyHost_2_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
 
     ProxyServer proxy = proxyServer(""localhost"", port1 - 1).setNonProxyHost(""localhost"").build();
@@ -15518,7 +14616,7 @@ async_277_2,"  @Test
   }
   }
 ",ProxyTest::testRequestNonProxyHost_2_oe
-async_277_3,"  @Test
+async_275_3,"  @Test
   public void testRequestNonProxyHost_3_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
 
     ProxyServer proxy = proxyServer(""localhost"", port1 - 1).setNonProxyHost(""localhost"").build();
@@ -15532,7 +14630,7 @@ async_277_3,"  @Test
   }
   }
 ",ProxyTest::testRequestNonProxyHost_3_oe
-async_278_1,"  @Test(enabled = false)
+async_276_1,"  @Test(enabled = false)
   public void testProxyProperties_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     // FIXME not threadsafe!
     Properties originalProps = new Properties();
@@ -15550,7 +14648,7 @@ async_278_1,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testProxyProperties_1_oe
-async_278_2,"  @Test(enabled = false)
+async_276_2,"  @Test(enabled = false)
   public void testProxyProperties_2_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     // FIXME not threadsafe!
     Properties originalProps = new Properties();
@@ -15569,7 +14667,7 @@ async_278_2,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testProxyProperties_2_oe
-async_278_3,"  @Test(enabled = false)
+async_276_3,"  @Test(enabled = false)
   public void testProxyProperties_3_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     // FIXME not threadsafe!
     Properties originalProps = new Properties();
@@ -15589,7 +14687,7 @@ async_278_3,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testProxyProperties_3_oe
-async_280_1,"  @Test(enabled = false)
+async_278_1,"  @Test(enabled = false)
   public void testProxyActivationProperty_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     // FIXME not threadsafe!
     Properties originalProps = new Properties();
@@ -15608,7 +14706,7 @@ async_280_1,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testProxyActivationProperty_1_oe
-async_280_2,"  @Test(enabled = false)
+async_278_2,"  @Test(enabled = false)
   public void testProxyActivationProperty_2_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     // FIXME not threadsafe!
     Properties originalProps = new Properties();
@@ -15628,7 +14726,7 @@ async_280_2,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testProxyActivationProperty_2_oe
-async_280_3,"  @Test(enabled = false)
+async_278_3,"  @Test(enabled = false)
   public void testProxyActivationProperty_3_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     // FIXME not threadsafe!
     Properties originalProps = new Properties();
@@ -15649,7 +14747,7 @@ async_280_3,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testProxyActivationProperty_3_oe
-async_282_1,"  @Test(enabled = false)
+async_280_1,"  @Test(enabled = false)
   public void testUseProxySelector_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     ProxySelector originalProxySelector = ProxySelector.getDefault();
     ProxySelector.setDefault(new ProxySelector() {
@@ -15673,7 +14771,7 @@ async_282_1,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testUseProxySelector_1_oe
-async_282_2,"  @Test(enabled = false)
+async_280_2,"  @Test(enabled = false)
   public void testUseProxySelector_2_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     ProxySelector originalProxySelector = ProxySelector.getDefault();
     ProxySelector.setDefault(new ProxySelector() {
@@ -15698,7 +14796,7 @@ async_282_2,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testUseProxySelector_2_oe
-async_282_3,"  @Test(enabled = false)
+async_280_3,"  @Test(enabled = false)
   public void testUseProxySelector_3_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     ProxySelector originalProxySelector = ProxySelector.getDefault();
     ProxySelector.setDefault(new ProxySelector() {
@@ -15724,7 +14822,7 @@ async_282_3,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testUseProxySelector_3_oe
-async_283_1,"  @Test
+async_281_1,"  @Test
   public void runSocksProxy_1_oe() throws Exception {
     new Thread(() -> {
       try {
@@ -15742,7 +14840,7 @@ async_283_1,"  @Test
   }
   }
 ",ProxyTest::runSocksProxy_1_oe
-async_284_1,"  @Test
+async_282_1,"  @Test
   public void testCancel_1_oe() {
     AsyncHandler<?> asyncHandler = mock(AsyncHandler.class);
     NettyResponseFuture<?> nettyResponseFuture = new NettyResponseFuture<>(null, asyncHandler, null, 3, null, null, null);
@@ -15751,7 +14849,7 @@ async_284_1,"  @Test
     assertTrue(result, ""Cancel should return true if the Future was cancelled successfully"");
   }
 ",NettyResponseFutureTest::testCancel_1_oe
-async_284_2,"  @Test
+async_282_2,"  @Test
   public void testCancel_2_oe() {
     AsyncHandler<?> asyncHandler = mock(AsyncHandler.class);
     NettyResponseFuture<?> nettyResponseFuture = new NettyResponseFuture<>(null, asyncHandler, null, 3, null, null, null);
@@ -15761,7 +14859,7 @@ async_284_2,"  @Test
     assertTrue(nettyResponseFuture.isCancelled(), ""isCancelled should return true for a cancelled Future"");
   }
 ",NettyResponseFutureTest::testCancel_2_oe
-async_285_1,"  @Test
+async_283_1,"  @Test
   public void testCancelOnAlreadyCancelled_1_oe() {
     AsyncHandler<?> asyncHandler = mock(AsyncHandler.class);
     NettyResponseFuture<?> nettyResponseFuture = new NettyResponseFuture<>(null, asyncHandler, null, 3, null, null, null);
@@ -15770,7 +14868,7 @@ async_285_1,"  @Test
     assertFalse(result, ""cancel should return false for an already cancelled Future"");
   }
 ",NettyResponseFutureTest::testCancelOnAlreadyCancelled_1_oe
-async_285_2,"  @Test
+async_283_2,"  @Test
   public void testCancelOnAlreadyCancelled_2_oe() {
     AsyncHandler<?> asyncHandler = mock(AsyncHandler.class);
     NettyResponseFuture<?> nettyResponseFuture = new NettyResponseFuture<>(null, asyncHandler, null, 3, null, null, null);
@@ -15780,7 +14878,7 @@ async_285_2,"  @Test
     assertTrue(nettyResponseFuture.isCancelled(), ""isCancelled should return true for a cancelled Future"");
   }
 ",NettyResponseFutureTest::testCancelOnAlreadyCancelled_2_oe
-async_286_1,"  @Test(expectedExceptions = CancellationException.class)
+async_284_1,"  @Test(expectedExceptions = CancellationException.class)
   public void testGetContentThrowsCancellationExceptionIfCancelled_1_oe() throws InterruptedException, ExecutionException {
     AsyncHandler<?> asyncHandler = mock(AsyncHandler.class);
     NettyResponseFuture<?> nettyResponseFuture = new NettyResponseFuture<>(null, asyncHandler, null, 3, null, null, null);
@@ -15789,7 +14887,7 @@ async_286_1,"  @Test(expectedExceptions = CancellationException.class)
     fail(""A CancellationException must have occurred by now as 'cancel' was called before 'get'"");
   }
 ",NettyResponseFutureTest::testGetContentThrowsCancellationExceptionIfCancelled_1_oe
-async_287_1,"  @Test
+async_285_1,"  @Test
   public void testGet_1_oe() throws Exception {
     @SuppressWarnings(""unchecked"")
     AsyncHandler<Object> asyncHandler = mock(AsyncHandler.class);
@@ -15801,7 +14899,7 @@ async_287_1,"  @Test
     assertEquals(result, value, ""The Future should return the value given by asyncHandler#onCompleted"");
   }
 ",NettyResponseFutureTest::testGet_1_oe
-async_288_1,"  @Test(expectedExceptions = ExecutionException.class)
+async_286_1,"  @Test(expectedExceptions = ExecutionException.class)
   public void testGetThrowsExceptionThrownByAsyncHandler_1_oe() throws Exception {
     AsyncHandler<?> asyncHandler = mock(AsyncHandler.class);
     when(asyncHandler.onCompleted()).thenThrow(new RuntimeException());
@@ -15811,7 +14909,7 @@ async_288_1,"  @Test(expectedExceptions = ExecutionException.class)
     fail(""An ExecutionException must have occurred by now as asyncHandler threw an exception in 'onCompleted'"");
   }
 ",NettyResponseFutureTest::testGetThrowsExceptionThrownByAsyncHandler_1_oe
-async_289_1,"  @Test(expectedExceptions = ExecutionException.class)
+async_287_1,"  @Test(expectedExceptions = ExecutionException.class)
   public void testGetThrowsExceptionOnAbort_1_oe() throws InterruptedException, ExecutionException {
     AsyncHandler<?> asyncHandler = mock(AsyncHandler.class);
     NettyResponseFuture<?> nettyResponseFuture = new NettyResponseFuture<>(null, asyncHandler, null, 3, null, null, null);
@@ -15820,7 +14918,7 @@ async_289_1,"  @Test(expectedExceptions = ExecutionException.class)
     fail(""An ExecutionException must have occurred by now as 'abort' was called before 'get'"");
   }
 ",NettyResponseFutureTest::testGetThrowsExceptionOnAbort_1_oe
-async_290_3,"  @Test
+async_288_3,"  @Test
   public void asyncPipelineTest_3_oe() throws Exception {
 
     Consumer<Channel> httpAdditionalPipelineInitializer = channel -> channel.pipeline().addBefore(""inflater"",
@@ -15847,7 +14945,7 @@ async_290_3,"  @Test
   }
   }
 ",EventPipelineTest::asyncPipelineTest_3_oe
-async_291_1,"  @Test
+async_289_1,"  @Test
   public void testRequestTimeout_1_oe() throws IOException {
     final Semaphore requestThrottle = new Semaphore(1);
 
@@ -15904,7 +15002,7 @@ async_291_1,"  @Test
   }
   }
 ",NettyRequestThrottleTimeoutTest::testRequestTimeout_1_oe
-async_291_2,"  @Test
+async_289_2,"  @Test
   public void testRequestTimeout_2_oe() throws IOException {
     final Semaphore requestThrottle = new Semaphore(1);
 
@@ -15966,7 +15064,7 @@ async_291_2,"  @Test
   }
   }
 ",NettyRequestThrottleTimeoutTest::testRequestTimeout_2_oe
-async_292_1,"    @Test
+async_290_1,"    @Test
     public void testAsyncHttpClientConnectionResetByPeer_1_oe() throws InterruptedException {
         try {
             DefaultAsyncHttpClientConfig config = new DefaultAsyncHttpClientConfig.Builder()
@@ -15982,86 +15080,7 @@ async_292_1,"    @Test
     }
     }
 ",NettyConnectionResetByPeerTest::testAsyncHttpClientConnectionResetByPeer_1_oe
-async_293_1,"  @Test
-  public void testRetryNonBlocking_1_oe() throws IOException, InterruptedException, ExecutionException {
-
-    AsyncHttpClientConfig config = config()
-            .setKeepAlive(true)
-            .setMaxConnections(100)
-            .setConnectTimeout(60000)
-            .setRequestTimeout(30000)
-            .build();
-
-    try (AsyncHttpClient client = asyncHttpClient(config)) {
-      List<ListenableFuture<Response>> res = new ArrayList<>();
-      for (int i = 0; i < 32; i++) {
-        res.add(testMethodRequest(client, 3, ""servlet"", UUID.randomUUID().toString()));
-      }
-
-      StringBuilder b = new StringBuilder();
-      for (ListenableFuture<Response> r : res) {
-        Response theres = r.get();
-        assertEquals(200, theres.getStatusCode());
-  }
-  }
-  }
-",RetryNonBlockingIssue::testRetryNonBlocking_1_oe
-async_293_2,"  @Test
-  public void testRetryNonBlocking_2_oe() throws IOException, InterruptedException, ExecutionException {
-
-    AsyncHttpClientConfig config = config()
-            .setKeepAlive(true)
-            .setMaxConnections(100)
-            .setConnectTimeout(60000)
-            .setRequestTimeout(30000)
-            .build();
-
-    try (AsyncHttpClient client = asyncHttpClient(config)) {
-      List<ListenableFuture<Response>> res = new ArrayList<>();
-      for (int i = 0; i < 32; i++) {
-        res.add(testMethodRequest(client, 3, ""servlet"", UUID.randomUUID().toString()));
-      }
-
-      StringBuilder b = new StringBuilder();
-      for (ListenableFuture<Response> r : res) {
-        Response theres = r.get();
-        // removed other assertion
-        b.append(""==============\r\n"")
-                .append(""Response Headers\r\n"");
-        HttpHeaders heads = theres.getHeaders();
-        b.append(heads).append(""\r\n"")
-                .append(""==============\r\n"");
-      }
-      System.out.println(b.toString());
-      System.out.flush();
-    }
-  }
-
-  @Test
-  public void testRetryNonBlockingAsyncConnect() throws IOException, InterruptedException, ExecutionException {
-
-    AsyncHttpClientConfig config = config()
-            .setKeepAlive(true)
-            .setMaxConnections(100)
-            .setConnectTimeout(60000)
-            .setRequestTimeout(30000)
-            .build();
-
-    try (AsyncHttpClient client = asyncHttpClient(config)) {
-      List<ListenableFuture<Response>> res = new ArrayList<>();
-      for (int i = 0; i < 32; i++) {
-        res.add(testMethodRequest(client, 3, ""servlet"", UUID.randomUUID().toString()));
-      }
-
-      StringBuilder b = new StringBuilder();
-      for (ListenableFuture<Response> r : res) {
-        Response theres = r.get();
-        assertEquals(theres.getStatusCode(), 200);
-  }
-  }
-  }
-",RetryNonBlockingIssue::testRetryNonBlocking_2_oe
-async_294_1,"  @Test
+async_291_1,"  @Test
   public void testCookieParseExpires_1_oe() {
     // e.g. ""Tue, 27 Oct 2015 12:54:24 GMT"";
     SimpleDateFormat sdf = new SimpleDateFormat(""EEE, dd MMM yyyy HH:mm:ss z"", Locale.US);
@@ -16077,7 +15096,7 @@ async_294_1,"  @Test
     assertEquals(cookies.size(), 1);
   }
 ",NettyAsyncResponseTest::testCookieParseExpires_1_oe
-async_294_2,"  @Test
+async_291_2,"  @Test
   public void testCookieParseExpires_2_oe() {
     // e.g. ""Tue, 27 Oct 2015 12:54:24 GMT"";
     SimpleDateFormat sdf = new SimpleDateFormat(""EEE, dd MMM yyyy HH:mm:ss z"", Locale.US);
@@ -16096,7 +15115,7 @@ async_294_2,"  @Test
     assertTrue(cookie.maxAge() >= 58 && cookie.maxAge() <= 60);
   }
 ",NettyAsyncResponseTest::testCookieParseExpires_2_oe
-async_295_1,"  @Test
+async_292_1,"  @Test
   public void testCookieParseMaxAge_1_oe() {
     final String cookieDef = ""efmembercheck=true; max-age=60; path=/; domain=.eclipse.org"";
 
@@ -16106,7 +15125,7 @@ async_295_1,"  @Test
     assertEquals(cookies.size(), 1);
   }
 ",NettyAsyncResponseTest::testCookieParseMaxAge_1_oe
-async_295_2,"  @Test
+async_292_2,"  @Test
   public void testCookieParseMaxAge_2_oe() {
     final String cookieDef = ""efmembercheck=true; max-age=60; path=/; domain=.eclipse.org"";
 
@@ -16119,7 +15138,7 @@ async_295_2,"  @Test
     assertEquals(cookie.maxAge(), 60);
   }
 ",NettyAsyncResponseTest::testCookieParseMaxAge_2_oe
-async_296_1,"  @Test
+async_293_1,"  @Test
   public void testCookieParseWeirdExpiresValue_1_oe() {
     final String cookieDef = ""efmembercheck=true; expires=60; path=/; domain=.eclipse.org"";
     HttpHeaders responseHeaders = new DefaultHttpHeaders().add(SET_COOKIE, cookieDef);
@@ -16129,7 +15148,7 @@ async_296_1,"  @Test
     assertEquals(cookies.size(), 1);
   }
 ",NettyAsyncResponseTest::testCookieParseWeirdExpiresValue_1_oe
-async_296_2,"  @Test
+async_293_2,"  @Test
   public void testCookieParseWeirdExpiresValue_2_oe() {
     final String cookieDef = ""efmembercheck=true; expires=60; path=/; domain=.eclipse.org"";
     HttpHeaders responseHeaders = new DefaultHttpHeaders().add(SET_COOKIE, cookieDef);
@@ -16142,7 +15161,7 @@ async_296_2,"  @Test
     assertEquals(cookie.maxAge(), Long.MIN_VALUE);
   }
 ",NettyAsyncResponseTest::testCookieParseWeirdExpiresValue_2_oe
-async_297_1,"  @Test
+async_294_1,"  @Test
   public void testSpnegoGenerateTokenWithUsernamePassword_1_oe() throws Exception {
     SpnegoEngine spnegoEngine = new SpnegoEngine(""alice"",
         ""alice"",
@@ -16156,7 +15175,7 @@ async_297_1,"  @Test
     Assert.assertNotNull(token);
   }
 ",SpnegoEngineTest::testSpnegoGenerateTokenWithUsernamePassword_1_oe
-async_297_2,"  @Test
+async_294_2,"  @Test
   public void testSpnegoGenerateTokenWithUsernamePassword_2_oe() throws Exception {
     SpnegoEngine spnegoEngine = new SpnegoEngine(""alice"",
         ""alice"",
@@ -16171,7 +15190,7 @@ async_297_2,"  @Test
     Assert.assertTrue(token.startsWith(""YII""));
   }
 ",SpnegoEngineTest::testSpnegoGenerateTokenWithUsernamePassword_2_oe
-async_298_1,"  @Test
+async_295_1,"  @Test
   public void testSpnegoGenerateTokenWithCustomLoginConfig_1_oe() throws Exception {
     Map<String, String> loginConfig = new HashMap<>();
     loginConfig.put(""useKeyTab"", ""true"");
@@ -16193,7 +15212,7 @@ async_298_1,"  @Test
     Assert.assertNotNull(token);
   }
 ",SpnegoEngineTest::testSpnegoGenerateTokenWithCustomLoginConfig_1_oe
-async_298_2,"  @Test
+async_295_2,"  @Test
   public void testSpnegoGenerateTokenWithCustomLoginConfig_2_oe() throws Exception {
     Map<String, String> loginConfig = new HashMap<>();
     loginConfig.put(""useKeyTab"", ""true"");
@@ -16216,7 +15235,7 @@ async_298_2,"  @Test
     Assert.assertTrue(token.startsWith(""YII""));
   }
 ",SpnegoEngineTest::testSpnegoGenerateTokenWithCustomLoginConfig_2_oe
-async_299_1,"  @Test
+async_296_1,"  @Test
   public void testGetCompleteServicePrincipalName_1_oe() throws Exception {
     {
       SpnegoEngine spnegoEngine = new SpnegoEngine(null,
@@ -16231,7 +15250,7 @@ async_299_1,"  @Test
   }
   }
 ",SpnegoEngineTest::testGetCompleteServicePrincipalName_1_oe
-async_299_2,"  @Test
+async_296_2,"  @Test
   public void testGetCompleteServicePrincipalName_2_oe() throws Exception {
     {
       SpnegoEngine spnegoEngine = new SpnegoEngine(null,
@@ -16257,7 +15276,7 @@ async_299_2,"  @Test
   }
   }
 ",SpnegoEngineTest::testGetCompleteServicePrincipalName_2_oe
-async_299_3,"  @Test
+async_296_3,"  @Test
   public void testGetCompleteServicePrincipalName_3_oe() throws Exception {
     {
       SpnegoEngine spnegoEngine = new SpnegoEngine(null,
@@ -16284,7 +15303,7 @@ async_299_3,"  @Test
   }
   }
 ",SpnegoEngineTest::testGetCompleteServicePrincipalName_3_oe
-async_299_4,"  @Test
+async_296_4,"  @Test
   public void testGetCompleteServicePrincipalName_4_oe() throws Exception {
     {
       SpnegoEngine spnegoEngine = new SpnegoEngine(null,
@@ -16322,7 +15341,7 @@ async_299_4,"  @Test
   }
   }
 ",SpnegoEngineTest::testGetCompleteServicePrincipalName_4_oe
-async_300_1,"  @Test
+async_297_1,"  @Test
   public void basicTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().addRequestFilter(new ThrottleRequestFilter(100)))) {
       Response response = c.preparePost(getTargetUrl()).execute().get();
@@ -16330,7 +15349,7 @@ async_300_1,"  @Test
   }
   }
 ",FilterTest::basicTest_1_oe
-async_300_2,"  @Test
+async_297_2,"  @Test
   public void basicTest_2_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().addRequestFilter(new ThrottleRequestFilter(100)))) {
       Response response = c.preparePost(getTargetUrl()).execute().get();
@@ -16339,7 +15358,7 @@ async_300_2,"  @Test
   }
   }
 ",FilterTest::basicTest_2_oe
-async_301_1,"  @Test
+async_298_1,"  @Test
   public void loadThrottleTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().addRequestFilter(new ThrottleRequestFilter(10)))) {
       List<Future<Response>> futures = new ArrayList<>();
@@ -16354,7 +15373,7 @@ async_301_1,"  @Test
   }
   }
 ",FilterTest::loadThrottleTest_1_oe
-async_301_2,"  @Test
+async_298_2,"  @Test
   public void loadThrottleTest_2_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().addRequestFilter(new ThrottleRequestFilter(10)))) {
       List<Future<Response>> futures = new ArrayList<>();
@@ -16370,7 +15389,7 @@ async_301_2,"  @Test
   }
   }
 ",FilterTest::loadThrottleTest_2_oe
-async_302_1,"  @Test
+async_299_1,"  @Test
   public void maxConnectionsText_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().addRequestFilter(new ThrottleRequestFilter(0, 1000)))) {
       c.preparePost(getTargetUrl()).execute().get();
@@ -16378,7 +15397,7 @@ async_302_1,"  @Test
   }
   }
 ",FilterTest::maxConnectionsText_1_oe
-async_302_2,"  @Test
+async_299_2,"  @Test
   public void maxConnectionsText_2_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().addRequestFilter(new ThrottleRequestFilter(0, 1000)))) {
       c.preparePost(getTargetUrl()).execute().get();
@@ -16388,7 +15407,7 @@ async_302_2,"  @Test
   }
   }
 ",FilterTest::maxConnectionsText_2_oe
-async_303_1,"  @Test
+async_300_1,"  @Test
   public void basicResponseFilterTest_1_oe() throws Exception {
 
     ResponseFilter responseFilter = new ResponseFilter() {
@@ -16404,7 +15423,7 @@ async_303_1,"  @Test
   }
   }
 ",FilterTest::basicResponseFilterTest_1_oe
-async_303_2,"  @Test
+async_300_2,"  @Test
   public void basicResponseFilterTest_2_oe() throws Exception {
 
     ResponseFilter responseFilter = new ResponseFilter() {
@@ -16421,7 +15440,7 @@ async_303_2,"  @Test
   }
   }
 ",FilterTest::basicResponseFilterTest_2_oe
-async_304_1,"  @Test
+async_301_1,"  @Test
   public void replayResponseFilterTest_1_oe() throws Exception {
 
     final AtomicBoolean replay = new AtomicBoolean(true);
@@ -16441,7 +15460,7 @@ async_304_1,"  @Test
   }
   }
 ",FilterTest::replayResponseFilterTest_1_oe
-async_304_2,"  @Test
+async_301_2,"  @Test
   public void replayResponseFilterTest_2_oe() throws Exception {
 
     final AtomicBoolean replay = new AtomicBoolean(true);
@@ -16462,7 +15481,7 @@ async_304_2,"  @Test
   }
   }
 ",FilterTest::replayResponseFilterTest_2_oe
-async_304_3,"  @Test
+async_301_3,"  @Test
   public void replayResponseFilterTest_3_oe() throws Exception {
 
     final AtomicBoolean replay = new AtomicBoolean(true);
@@ -16484,7 +15503,7 @@ async_304_3,"  @Test
   }
   }
 ",FilterTest::replayResponseFilterTest_3_oe
-async_305_1,"  @Test
+async_302_1,"  @Test
   public void replayStatusCodeResponseFilterTest_1_oe() throws Exception {
 
     final AtomicBoolean replay = new AtomicBoolean(true);
@@ -16504,7 +15523,7 @@ async_305_1,"  @Test
   }
   }
 ",FilterTest::replayStatusCodeResponseFilterTest_1_oe
-async_305_2,"  @Test
+async_302_2,"  @Test
   public void replayStatusCodeResponseFilterTest_2_oe() throws Exception {
 
     final AtomicBoolean replay = new AtomicBoolean(true);
@@ -16525,7 +15544,7 @@ async_305_2,"  @Test
   }
   }
 ",FilterTest::replayStatusCodeResponseFilterTest_2_oe
-async_305_3,"  @Test
+async_302_3,"  @Test
   public void replayStatusCodeResponseFilterTest_3_oe() throws Exception {
 
     final AtomicBoolean replay = new AtomicBoolean(true);
@@ -16547,7 +15566,7 @@ async_305_3,"  @Test
   }
   }
 ",FilterTest::replayStatusCodeResponseFilterTest_3_oe
-async_306_1,"  @Test
+async_303_1,"  @Test
   public void replayHeaderResponseFilterTest_1_oe() throws Exception {
 
     final AtomicBoolean replay = new AtomicBoolean(true);
@@ -16567,7 +15586,7 @@ async_306_1,"  @Test
   }
   }
 ",FilterTest::replayHeaderResponseFilterTest_1_oe
-async_306_2,"  @Test
+async_303_2,"  @Test
   public void replayHeaderResponseFilterTest_2_oe() throws Exception {
 
     final AtomicBoolean replay = new AtomicBoolean(true);
@@ -16588,7 +15607,7 @@ async_306_2,"  @Test
   }
   }
 ",FilterTest::replayHeaderResponseFilterTest_2_oe
-async_306_3,"  @Test
+async_303_3,"  @Test
   public void replayHeaderResponseFilterTest_3_oe() throws Exception {
 
     final AtomicBoolean replay = new AtomicBoolean(true);
@@ -16610,7 +15629,7 @@ async_306_3,"  @Test
   }
   }
 ",FilterTest::replayHeaderResponseFilterTest_3_oe
-async_307_1,"  @Test
+async_304_1,"  @Test
   public void testGetCalculateSignature_1_oe() throws NoSuchAlgorithmException, InvalidKeyException {
 
     Request request = get(""http://photos.example.net/photos"")
@@ -16631,7 +15650,7 @@ async_307_1,"  @Test
     assertEquals(signature, ""tR3+Ty81lMeYAr/Fid0kMTYa/WM="");
   }
 ",OAuthSignatureCalculatorTest::testGetCalculateSignature_1_oe
-async_308_1,"  @Test
+async_305_1,"  @Test
   public void testPostCalculateSignature_1_oe() throws UnsupportedEncodingException {
     StaticOAuthSignatureCalculator calc = //
             new StaticOAuthSignatureCalculator(//
@@ -16660,7 +15679,7 @@ async_308_1,"  @Test
     assertEquals(m.find(), true);
   }
 ",OAuthSignatureCalculatorTest::testPostCalculateSignature_1_oe
-async_308_2,"  @Test
+async_305_2,"  @Test
   public void testPostCalculateSignature_2_oe() throws UnsupportedEncodingException {
     StaticOAuthSignatureCalculator calc = //
             new StaticOAuthSignatureCalculator(//
@@ -16693,7 +15712,7 @@ async_308_2,"  @Test
     assertEquals(sig, ""wPkvxykrw+BTdCcGqKr+3I+PsiM="");
   }
 ",OAuthSignatureCalculatorTest::testPostCalculateSignature_2_oe
-async_309_1,"  @Test
+async_306_1,"  @Test
   public void testGetWithRequestBuilder_1_oe() throws UnsupportedEncodingException {
     StaticOAuthSignatureCalculator calc =
             new StaticOAuthSignatureCalculator(
@@ -16712,7 +15731,7 @@ async_309_1,"  @Test
     assertEquals(params.size(), 2);
   }
 ",OAuthSignatureCalculatorTest::testGetWithRequestBuilder_1_oe
-async_309_2,"  @Test
+async_306_2,"  @Test
   public void testGetWithRequestBuilder_2_oe() throws UnsupportedEncodingException {
     StaticOAuthSignatureCalculator calc =
             new StaticOAuthSignatureCalculator(
@@ -16744,7 +15763,7 @@ async_309_2,"  @Test
     assertEquals(m.find(), true);
   }
 ",OAuthSignatureCalculatorTest::testGetWithRequestBuilder_2_oe
-async_309_3,"  @Test
+async_306_3,"  @Test
   public void testGetWithRequestBuilder_3_oe() throws UnsupportedEncodingException {
     StaticOAuthSignatureCalculator calc =
             new StaticOAuthSignatureCalculator(
@@ -16780,7 +15799,7 @@ async_309_3,"  @Test
     assertEquals(sig, ""tR3+Ty81lMeYAr/Fid0kMTYa/WM="");
   }
 ",OAuthSignatureCalculatorTest::testGetWithRequestBuilder_3_oe
-async_309_4,"  @Test
+async_306_4,"  @Test
   public void testGetWithRequestBuilder_4_oe() throws UnsupportedEncodingException {
     StaticOAuthSignatureCalculator calc =
             new StaticOAuthSignatureCalculator(
@@ -16817,7 +15836,7 @@ async_309_4,"  @Test
     assertEquals(req.getUrl(), ""http://photos.example.net/photos?file=vacation.jpg&size=original"");
   }
 ",OAuthSignatureCalculatorTest::testGetWithRequestBuilder_4_oe
-async_310_1,"  @Test
+async_307_1,"  @Test
   public void testGetWithRequestBuilderAndQuery_1_oe() throws UnsupportedEncodingException {
     StaticOAuthSignatureCalculator calc = //
             new StaticOAuthSignatureCalculator(//
@@ -16834,7 +15853,7 @@ async_310_1,"  @Test
     assertEquals(params.size(), 2);
   }
 ",OAuthSignatureCalculatorTest::testGetWithRequestBuilderAndQuery_1_oe
-async_310_2,"  @Test
+async_307_2,"  @Test
   public void testGetWithRequestBuilderAndQuery_2_oe() throws UnsupportedEncodingException {
     StaticOAuthSignatureCalculator calc = //
             new StaticOAuthSignatureCalculator(//
@@ -16864,7 +15883,7 @@ async_310_2,"  @Test
     assertTrue(m.find());
   }
 ",OAuthSignatureCalculatorTest::testGetWithRequestBuilderAndQuery_2_oe
-async_310_3,"  @Test
+async_307_3,"  @Test
   public void testGetWithRequestBuilderAndQuery_3_oe() throws UnsupportedEncodingException {
     StaticOAuthSignatureCalculator calc = //
             new StaticOAuthSignatureCalculator(//
@@ -16898,7 +15917,7 @@ async_310_3,"  @Test
     assertEquals(sig, ""tR3+Ty81lMeYAr/Fid0kMTYa/WM="");
   }
 ",OAuthSignatureCalculatorTest::testGetWithRequestBuilderAndQuery_3_oe
-async_310_4,"  @Test
+async_307_4,"  @Test
   public void testGetWithRequestBuilderAndQuery_4_oe() throws UnsupportedEncodingException {
     StaticOAuthSignatureCalculator calc = //
             new StaticOAuthSignatureCalculator(//
@@ -16933,7 +15952,7 @@ async_310_4,"  @Test
     assertEquals(req.getUrl(), ""http://photos.example.net/photos?file=vacation.jpg&size=original"");
   }
 ",OAuthSignatureCalculatorTest::testGetWithRequestBuilderAndQuery_4_oe
-async_310_5,"  @Test
+async_307_5,"  @Test
   public void testGetWithRequestBuilderAndQuery_5_oe() throws UnsupportedEncodingException {
     StaticOAuthSignatureCalculator calc = //
             new StaticOAuthSignatureCalculator(//
@@ -16969,7 +15988,7 @@ async_310_5,"  @Test
     assertEquals( authHeader, ""OAuth oauth_consumer_key=\""dpf43f3p2l4k3l03\"", oauth_token=\""nnch734d00sl2jdk\"", oauth_signature_method=\""HMAC-SHA1\"", oauth_signature=\""tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D\"", oauth_timestamp=\""1191242096\"", oauth_nonce=\""kllo9940pd9333jh\"", oauth_version=\""1.0\"""");
   }
 ",OAuthSignatureCalculatorTest::testGetWithRequestBuilderAndQuery_5_oe
-async_311_1,"  @Test
+async_308_1,"  @Test
   public void testWithNullRequestToken_1_oe() throws NoSuchAlgorithmException {
 
     final Request request = get(""http://photos.example.net/photos?file=vacation.jpg&size=original"").build();
@@ -16988,7 +16007,7 @@ async_311_1,"  @Test
     assertEquals(signatureBaseString, ""GET&"" + ""http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26"" + ""oauth_consumer_key%3D9djdj82h48djs9d2%26"" + ""oauth_nonce%3DZLc92RAkooZcIO%252F0cctl0Q%253D%253D%26"" + ""oauth_signature_method%3DHMAC-SHA1%26"" + ""oauth_timestamp%3D137131201%26"" + ""oauth_version%3D1.0%26size%3Doriginal"");
   }
 ",OAuthSignatureCalculatorTest::testWithNullRequestToken_1_oe
-async_312_1,"  @Test
+async_309_1,"  @Test
   public void testWithStarQueryParameterValue_1_oe() throws NoSuchAlgorithmException {
     final Request request = get(""http://term.ie/oauth/example/request_token.php?testvalue=*"").build();
 
@@ -17006,7 +16025,7 @@ async_312_1,"  @Test
     assertEquals(signatureBaseString, ""GET&"" + ""http%3A%2F%2Fterm.ie%2Foauth%2Fexample%2Frequest_token.php&"" + ""oauth_consumer_key%3Dkey%26"" + ""oauth_nonce%3D6ad17f97334700f3ec2df0631d5b7511%26"" + ""oauth_signature_method%3DHMAC-SHA1%26"" + ""oauth_timestamp%3D1469019732%26"" + ""oauth_version%3D1.0%26"" + ""testvalue%3D%252A"");
   }
 ",OAuthSignatureCalculatorTest::testWithStarQueryParameterValue_1_oe
-async_313_1,"  @Test(timeOut = 60000)
+async_310_1,"  @Test(timeOut = 60000)
   public void onCloseWithCode_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17021,7 +16040,7 @@ async_313_1,"  @Test(timeOut = 60000)
   }
   }
 ",CloseCodeReasonMessageTest::onCloseWithCode_1_oe
-async_314_1,"  @Test(timeOut = 60000)
+async_311_1,"  @Test(timeOut = 60000)
   public void onCloseWithCodeServerClose_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17035,7 +16054,7 @@ async_314_1,"  @Test(timeOut = 60000)
   }
   }
 ",CloseCodeReasonMessageTest::onCloseWithCodeServerClose_1_oe
-async_315_1,"  @Test(groups = ""online"", timeOut = 60000, expectedExceptions = IllegalArgumentException.class)
+async_312_1,"  @Test(groups = ""online"", timeOut = 60000, expectedExceptions = IllegalArgumentException.class)
   public void wrongStatusCode_1_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17063,7 +16082,7 @@ async_315_1,"  @Test(groups = ""online"", timeOut = 60000, expectedExceptions = 
   }
   }
 ",CloseCodeReasonMessageTest::wrongStatusCode_1_oe
-async_316_1,"  @Test(groups = ""online"", timeOut = 60000, expectedExceptions = IOException.class)
+async_313_1,"  @Test(groups = ""online"", timeOut = 60000, expectedExceptions = IOException.class)
   public void wrongProtocolCode_1_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17091,7 +16110,7 @@ async_316_1,"  @Test(groups = ""online"", timeOut = 60000, expectedExceptions = 
   }
   }
 ",CloseCodeReasonMessageTest::wrongProtocolCode_1_oe
-async_317_1,"  @Test
+async_314_1,"  @Test
   public void echoTwoMessagesTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(2);
@@ -17137,7 +16156,7 @@ async_317_1,"  @Test
   }
   }
 ",ByteMessageTest::echoTwoMessagesTest_1_oe
-async_318_1,"  @Test
+async_315_1,"  @Test
   public void echoOnOpenMessagesTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(2);
@@ -17182,7 +16201,7 @@ async_318_1,"  @Test
   }
   }
 ",ByteMessageTest::echoOnOpenMessagesTest_1_oe
-async_319_1,"  @Test
+async_316_1,"  @Test
   public void echoFragments_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17226,7 +16245,7 @@ async_319_1,"  @Test
   }
   }
 ",ByteMessageTest::echoFragments_1_oe
-async_320_1,"  @Test(timeOut = 60000)
+async_317_1,"  @Test(timeOut = 60000)
   public void onOpen_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17256,7 +16275,7 @@ async_320_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::onOpen_1_oe
-async_321_1,"  @Test(timeOut = 60000)
+async_318_1,"  @Test(timeOut = 60000)
   public void onEmptyListenerTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       WebSocket websocket = null;
@@ -17268,7 +16287,7 @@ async_321_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::onEmptyListenerTest_1_oe
-async_321_2,"  @Test(timeOut = 60000)
+async_318_2,"  @Test(timeOut = 60000)
   public void onEmptyListenerTest_2_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       WebSocket websocket = null;
@@ -17281,7 +16300,7 @@ async_321_2,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::onEmptyListenerTest_2_oe
-async_322_1,"  @Test(timeOut = 60000, expectedExceptions = {UnknownHostException.class, ConnectException.class})
+async_319_1,"  @Test(timeOut = 60000, expectedExceptions = {UnknownHostException.class, ConnectException.class})
   public void onFailureTest_1_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient()) {
       c.prepareGet(""ws://abcdefg"").execute(new WebSocketUpgradeHandler.Builder().build()).get();
@@ -17292,7 +16311,7 @@ async_322_1,"  @Test(timeOut = 60000, expectedExceptions = {UnknownHostException
   }
   }
 ",TextMessageTest::onFailureTest_1_oe
-async_323_1,"  @Test(timeOut = 60000)
+async_320_1,"  @Test(timeOut = 60000)
   public void onTimeoutCloseTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17322,7 +16341,7 @@ async_323_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::onTimeoutCloseTest_1_oe
-async_324_1,"  @Test(timeOut = 60000)
+async_321_1,"  @Test(timeOut = 60000)
   public void onClose_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17354,7 +16373,7 @@ async_324_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::onClose_1_oe
-async_325_1,"  @Test(timeOut = 60000)
+async_322_1,"  @Test(timeOut = 60000)
   public void echoText_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17391,7 +16410,7 @@ async_325_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::echoText_1_oe
-async_326_1,"  @Test(timeOut = 60000)
+async_323_1,"  @Test(timeOut = 60000)
   public void echoDoubleListenerText_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(2);
@@ -17450,7 +16469,7 @@ async_326_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::echoDoubleListenerText_1_oe
-async_327_1,"  @Test
+async_324_1,"  @Test
   public void echoTwoMessagesTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(2);
@@ -17487,7 +16506,7 @@ async_327_1,"  @Test
   }
   }
 ",TextMessageTest::echoTwoMessagesTest_1_oe
-async_328_1,"  @Test
+async_325_1,"  @Test
   public void echoFragments_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17525,7 +16544,7 @@ async_328_1,"  @Test
   }
   }
 ",TextMessageTest::echoFragments_1_oe
-async_329_1,"  @Test(timeOut = 60000)
+async_326_1,"  @Test(timeOut = 60000)
   public void echoTextAndThenClose_1_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch textLatch = new CountDownLatch(1);
@@ -17566,7 +16585,7 @@ async_329_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::echoTextAndThenClose_1_oe
-async_330_1,"  @Test(timeOut = 60000)
+async_327_1,"  @Test(timeOut = 60000)
   public void testRedirectToWSResource_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17596,44 +16615,44 @@ async_330_1,"  @Test(timeOut = 60000)
   }
   }
 ",RedirectTest::testRedirectToWSResource_1_oe
-async_331_1,"  @Test
+async_328_1,"  @Test
   public void testExtractCharsetWithoutQuotes_1_oe() {
     Charset charset = HttpUtils.extractContentTypeCharsetAttribute(""text/html; charset=iso-8859-1"");
     assertEquals(charset, ISO_8859_1);
   }
 ",HttpUtilsTest::testExtractCharsetWithoutQuotes_1_oe
-async_332_1,"  @Test
+async_329_1,"  @Test
   public void testExtractCharsetWithSingleQuotes_1_oe() {
     Charset charset = HttpUtils.extractContentTypeCharsetAttribute(""text/html; charset='iso-8859-1'"");
     assertEquals(charset, ISO_8859_1);
   }
 ",HttpUtilsTest::testExtractCharsetWithSingleQuotes_1_oe
-async_333_1,"  @Test
+async_330_1,"  @Test
   public void testExtractCharsetWithDoubleQuotes_1_oe() {
     Charset charset = HttpUtils.extractContentTypeCharsetAttribute(""text/html; charset=\""iso-8859-1\"""");
     assertEquals(charset, ISO_8859_1);
   }
 ",HttpUtilsTest::testExtractCharsetWithDoubleQuotes_1_oe
-async_334_1,"  @Test
+async_331_1,"  @Test
   public void testExtractCharsetWithDoubleQuotesAndSpaces_1_oe() {
     Charset charset = HttpUtils.extractContentTypeCharsetAttribute(""text/html; charset= \""iso-8859-1\"" "");
     assertEquals(charset, ISO_8859_1);
   }
 ",HttpUtilsTest::testExtractCharsetWithDoubleQuotesAndSpaces_1_oe
-async_335_1,"  @Test
+async_332_1,"  @Test
   public void testExtractCharsetFallsBackToUtf8_1_oe() {
     Charset charset = HttpUtils.extractContentTypeCharsetAttribute(APPLICATION_JSON.toString());
     assertNull(charset);
   }
 ",HttpUtilsTest::testExtractCharsetFallsBackToUtf8_1_oe
-async_336_1,"  @Test
+async_333_1,"  @Test
   public void testGetHostHeader_1_oe() {
     Uri uri = Uri.create(""http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs"");
     String hostHeader = HttpUtils.hostHeader(uri);
     assertEquals(hostHeader, ""stackoverflow.com"", ""Incorrect hostHeader returned"");
   }
 ",HttpUtilsTest::testGetHostHeader_1_oe
-async_337_1,"  @Test
+async_334_1,"  @Test
   public void testDefaultFollowRedirect_1_oe() {
     Request request = Dsl.get(""http://stackoverflow.com/questions/1057564"").setVirtualHost(""example.com"").build();
     DefaultAsyncHttpClientConfig config = new DefaultAsyncHttpClientConfig.Builder().build();
@@ -17641,7 +16660,7 @@ async_337_1,"  @Test
     assertFalse(followRedirect, ""Default value of redirect should be false"");
   }
 ",HttpUtilsTest::testDefaultFollowRedirect_1_oe
-async_338_1,"  @Test
+async_335_1,"  @Test
   public void testGetFollowRedirectInRequest_1_oe() {
     Request request = Dsl.get(""http://stackoverflow.com/questions/1057564"").setFollowRedirect(true).build();
     DefaultAsyncHttpClientConfig config = new DefaultAsyncHttpClientConfig.Builder().build();
@@ -17649,7 +16668,7 @@ async_338_1,"  @Test
     assertTrue(followRedirect, ""Follow redirect must be true as set in the request"");
   }
 ",HttpUtilsTest::testGetFollowRedirectInRequest_1_oe
-async_339_1,"  @Test
+async_336_1,"  @Test
   public void testGetFollowRedirectInConfig_1_oe() {
     Request request = Dsl.get(""http://stackoverflow.com/questions/1057564"").build();
     DefaultAsyncHttpClientConfig config = new DefaultAsyncHttpClientConfig.Builder().setFollowRedirect(true).build();
@@ -17657,7 +16676,7 @@ async_339_1,"  @Test
     assertTrue(followRedirect, ""Follow redirect should be equal to value specified in config when not specified in request"");
   }
 ",HttpUtilsTest::testGetFollowRedirectInConfig_1_oe
-async_340_1,"  @Test
+async_337_1,"  @Test
   public void testGetFollowRedirectPriorityGivenToRequest_1_oe() {
     Request request = Dsl.get(""http://stackoverflow.com/questions/1057564"").setFollowRedirect(false).build();
     DefaultAsyncHttpClientConfig config = new DefaultAsyncHttpClientConfig.Builder().setFollowRedirect(true).build();
@@ -17665,73 +16684,73 @@ async_340_1,"  @Test
     assertFalse(followRedirect, ""Follow redirect value set in request should be given priority"");
   }
 ",HttpUtilsTest::testGetFollowRedirectPriorityGivenToRequest_1_oe
-async_341_1,"  @Test
+async_338_1,"  @Test
   public void computeOriginForPlainUriWithImplicitPort_1_oe() {
     assertEquals(HttpUtils.originHeader(Uri.create(""ws://foo.com/bar"")), ""http://foo.com"");
   }
 ",HttpUtilsTest::computeOriginForPlainUriWithImplicitPort_1_oe
-async_342_1,"  @Test
+async_339_1,"  @Test
   public void computeOriginForPlainUriWithDefaultPort_1_oe() {
     assertEquals(HttpUtils.originHeader(Uri.create(""ws://foo.com:80/bar"")), ""http://foo.com"");
   }
 ",HttpUtilsTest::computeOriginForPlainUriWithDefaultPort_1_oe
-async_343_1,"  @Test
+async_340_1,"  @Test
   public void computeOriginForPlainUriWithNonDefaultPort_1_oe() {
     assertEquals(HttpUtils.originHeader(Uri.create(""ws://foo.com:81/bar"")), ""http://foo.com:81"");
   }
 ",HttpUtilsTest::computeOriginForPlainUriWithNonDefaultPort_1_oe
-async_344_1,"  @Test
+async_341_1,"  @Test
   public void computeOriginForSecuredUriWithImplicitPort_1_oe() {
     assertEquals(HttpUtils.originHeader(Uri.create(""wss://foo.com/bar"")), ""https://foo.com"");
   }
 ",HttpUtilsTest::computeOriginForSecuredUriWithImplicitPort_1_oe
-async_345_1,"  @Test
+async_342_1,"  @Test
   public void computeOriginForSecuredUriWithDefaultPort_1_oe() {
     assertEquals(HttpUtils.originHeader(Uri.create(""wss://foo.com:443/bar"")), ""https://foo.com"");
   }
 ",HttpUtilsTest::computeOriginForSecuredUriWithDefaultPort_1_oe
-async_346_1,"  @Test
+async_343_1,"  @Test
   public void computeOriginForSecuredUriWithNonDefaultPort_1_oe() {
     assertEquals(HttpUtils.originHeader(Uri.create(""wss://foo.com:444/bar"")), ""https://foo.com:444"");
   }
 ",HttpUtilsTest::computeOriginForSecuredUriWithNonDefaultPort_1_oe
-async_347_1,"  @Test
+async_344_1,"  @Test
   public void testBasics_1_oe() {
     assertEquals(Utf8UrlEncoder.encodeQueryElement(""foobar""), ""foobar"");
   }
 ",Utf8UrlEncoderTest::testBasics_1_oe
-async_347_2,"  @Test
+async_344_2,"  @Test
   public void testBasics_2_oe() {
     // removed other assertion
     assertEquals(Utf8UrlEncoder.encodeQueryElement(""a&b""), ""a%26b"");
   }
 ",Utf8UrlEncoderTest::testBasics_2_oe
-async_347_3,"  @Test
+async_344_3,"  @Test
   public void testBasics_3_oe() {
     // removed other assertion
     // removed other assertion
     assertEquals(Utf8UrlEncoder.encodeQueryElement(""a+b""), ""a%2Bb"");
   }
 ",Utf8UrlEncoderTest::testBasics_3_oe
-async_348_1,"  @Test
+async_345_1,"  @Test
   public void testPercentageEncoding_1_oe() {
     assertEquals(Utf8UrlEncoder.percentEncodeQueryElement(""foobar""), ""foobar"");
   }
 ",Utf8UrlEncoderTest::testPercentageEncoding_1_oe
-async_348_2,"  @Test
+async_345_2,"  @Test
   public void testPercentageEncoding_2_oe() {
     // removed other assertion
     assertEquals(Utf8UrlEncoder.percentEncodeQueryElement(""foo*bar""), ""foo%2Abar"");
   }
 ",Utf8UrlEncoderTest::testPercentageEncoding_2_oe
-async_348_3,"  @Test
+async_345_3,"  @Test
   public void testPercentageEncoding_3_oe() {
     // removed other assertion
     // removed other assertion
     assertEquals(Utf8UrlEncoder.percentEncodeQueryElement(""foo~b_ar""), ""foo~b_ar"");
   }
 ",Utf8UrlEncoderTest::testPercentageEncoding_3_oe
-async_349_1,"  @Test
+async_346_1,"  @Test
   public void deferredSimple_1_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17744,7 +16763,7 @@ async_349_1,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimple_1_oe
-async_349_2,"  @Test
+async_346_2,"  @Test
   public void deferredSimple_2_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17758,7 +16777,7 @@ async_349_2,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimple_2_oe
-async_349_3,"  @Test
+async_346_3,"  @Test
   public void deferredSimple_3_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17773,7 +16792,7 @@ async_349_3,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimple_3_oe
-async_349_4,"  @Test
+async_346_4,"  @Test
   public void deferredSimple_4_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17791,7 +16810,7 @@ async_349_4,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimple_4_oe
-async_349_5,"  @Test
+async_346_5,"  @Test
   public void deferredSimple_5_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17815,7 +16834,7 @@ async_349_5,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimple_5_oe
-async_350_1,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
+async_347_1,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
   public void deferredSimpleWithFailure_1_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -17828,7 +16847,7 @@ async_350_1,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_1_oe
-async_350_2,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
+async_347_2,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
   public void deferredSimpleWithFailure_2_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -17842,7 +16861,7 @@ async_350_2,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_2_oe
-async_350_3,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
+async_347_3,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
   public void deferredSimpleWithFailure_3_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -17857,7 +16876,7 @@ async_350_3,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_3_oe
-async_350_4,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
+async_347_4,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
   public void deferredSimpleWithFailure_4_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -17875,7 +16894,7 @@ async_350_4,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_4_oe
-async_350_5,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
+async_347_5,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
   public void deferredSimpleWithFailure_5_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -17903,7 +16922,7 @@ async_350_5,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_5_oe
-async_351_1,"  @Test
+async_348_1,"  @Test
   public void deferredInputStreamTrick_1_oe() throws IOException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17921,7 +16940,7 @@ async_351_1,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrick_1_oe
-async_351_2,"  @Test
+async_348_2,"  @Test
   public void deferredInputStreamTrick_2_oe() throws IOException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17940,7 +16959,7 @@ async_351_2,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrick_2_oe
-async_351_3,"  @Test
+async_348_3,"  @Test
   public void deferredInputStreamTrick_3_oe() throws IOException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17960,7 +16979,7 @@ async_351_3,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrick_3_oe
-async_351_4,"  @Test
+async_348_4,"  @Test
   public void deferredInputStreamTrick_4_oe() throws IOException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17993,7 +17012,7 @@ async_351_4,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrick_4_oe
-async_352_1,"  @Test(expectedExceptions = RemotelyClosedException.class)
+async_349_1,"  @Test(expectedExceptions = RemotelyClosedException.class)
   public void deferredInputStreamTrickWithFailure_1_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -18010,7 +17029,7 @@ async_352_1,"  @Test(expectedExceptions = RemotelyClosedException.class)
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrickWithFailure_1_oe
-async_352_2,"  @Test(expectedExceptions = RemotelyClosedException.class)
+async_349_2,"  @Test(expectedExceptions = RemotelyClosedException.class)
   public void deferredInputStreamTrickWithFailure_2_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -18028,7 +17047,7 @@ async_352_2,"  @Test(expectedExceptions = RemotelyClosedException.class)
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrickWithFailure_2_oe
-async_352_3,"  @Test(expectedExceptions = RemotelyClosedException.class)
+async_349_3,"  @Test(expectedExceptions = RemotelyClosedException.class)
   public void deferredInputStreamTrickWithFailure_3_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -18047,7 +17066,7 @@ async_352_3,"  @Test(expectedExceptions = RemotelyClosedException.class)
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrickWithFailure_3_oe
-async_353_1,"  @Test(expectedExceptions = UnsupportedOperationException.class)
+async_350_1,"  @Test(expectedExceptions = UnsupportedOperationException.class)
   public void deferredInputStreamTrickWithCloseConnectionAndRetry_1_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(config().setMaxRequestRetry(1).setRequestTimeout(10000).build())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-CLOSE-CONNECTION"", Boolean.TRUE.toString());
@@ -18064,7 +17083,7 @@ async_353_1,"  @Test(expectedExceptions = UnsupportedOperationException.class)
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrickWithCloseConnectionAndRetry_1_oe
-async_353_2,"  @Test(expectedExceptions = UnsupportedOperationException.class)
+async_350_2,"  @Test(expectedExceptions = UnsupportedOperationException.class)
   public void deferredInputStreamTrickWithCloseConnectionAndRetry_2_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(config().setMaxRequestRetry(1).setRequestTimeout(10000).build())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-CLOSE-CONNECTION"", Boolean.TRUE.toString());
@@ -18082,7 +17101,7 @@ async_353_2,"  @Test(expectedExceptions = UnsupportedOperationException.class)
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrickWithCloseConnectionAndRetry_2_oe
-async_353_3,"  @Test(expectedExceptions = UnsupportedOperationException.class)
+async_350_3,"  @Test(expectedExceptions = UnsupportedOperationException.class)
   public void deferredInputStreamTrickWithCloseConnectionAndRetry_3_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(config().setMaxRequestRetry(1).setRequestTimeout(10000).build())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-CLOSE-CONNECTION"", Boolean.TRUE.toString());
@@ -18101,7 +17120,7 @@ async_353_3,"  @Test(expectedExceptions = UnsupportedOperationException.class)
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrickWithCloseConnectionAndRetry_3_oe
-async_354_1,"  @Test
+async_351_1,"  @Test
   public void testPipedStreams_1_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       PipedOutputStream pout = new PipedOutputStream();
@@ -18121,7 +17140,7 @@ async_354_1,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::testPipedStreams_1_oe
-async_355_1,"  @Test
+async_352_1,"  @Test
   public void testAdjustRange_1_oe() {
     MapResumableProcessor proc = new MapResumableProcessor();
 
@@ -18131,7 +17150,7 @@ async_355_1,"  @Test
     assertEquals(newRequest.getUri(), request.getUri());
   }
 ",ResumableAsyncHandlerTest::testAdjustRange_1_oe
-async_355_2,"  @Test
+async_352_2,"  @Test
   public void testAdjustRange_2_oe() {
     MapResumableProcessor proc = new MapResumableProcessor();
 
@@ -18143,7 +17162,7 @@ async_355_2,"  @Test
     assertNull(rangeHeader);
   }
 ",ResumableAsyncHandlerTest::testAdjustRange_2_oe
-async_355_3,"  @Test
+async_352_3,"  @Test
   public void testAdjustRange_3_oe() {
     MapResumableProcessor proc = new MapResumableProcessor();
 
@@ -18159,7 +17178,7 @@ async_355_3,"  @Test
     assertEquals(newRequest.getUri(), request.getUri());
   }
 ",ResumableAsyncHandlerTest::testAdjustRange_3_oe
-async_355_4,"  @Test
+async_352_4,"  @Test
   public void testAdjustRange_4_oe() {
     MapResumableProcessor proc = new MapResumableProcessor();
 
@@ -18177,7 +17196,7 @@ async_355_4,"  @Test
     assertEquals(rangeHeader, ""bytes=5000-"");
   }
 ",ResumableAsyncHandlerTest::testAdjustRange_4_oe
-async_356_1,"  @Test
+async_353_1,"  @Test
   public void testOnStatusReceivedOkStatus_1_oe() throws Exception {
     MapResumableProcessor processor = new MapResumableProcessor();
     ResumableAsyncHandler handler = new ResumableAsyncHandler(processor);
@@ -18188,7 +17207,7 @@ async_356_1,"  @Test
     assertEquals(state, AsyncHandler.State.CONTINUE, ""Status should be CONTINUE for a OK response"");
   }
 ",ResumableAsyncHandlerTest::testOnStatusReceivedOkStatus_1_oe
-async_357_1,"  @Test
+async_354_1,"  @Test
   public void testOnStatusReceived206Status_1_oe() throws Exception {
     MapResumableProcessor processor = new MapResumableProcessor();
     ResumableAsyncHandler handler = new ResumableAsyncHandler(processor);
@@ -18199,7 +17218,7 @@ async_357_1,"  @Test
     assertEquals(state, AsyncHandler.State.CONTINUE, ""Status should be CONTINUE for a 'Partial Content' response"");
   }
 ",ResumableAsyncHandlerTest::testOnStatusReceived206Status_1_oe
-async_358_1,"  @Test
+async_355_1,"  @Test
   public void testOnStatusReceivedOkStatusWithDecoratedAsyncHandler_1_oe() throws Exception {
     HttpResponseStatus mockResponseStatus = mock(HttpResponseStatus.class);
     when(mockResponseStatus.getStatusCode()).thenReturn(200);
@@ -18216,7 +17235,7 @@ async_358_1,"  @Test
     assertEquals(state, State.CONTINUE, ""State returned should be equal to the one returned from decoratedAsyncHandler"");
   }
 ",ResumableAsyncHandlerTest::testOnStatusReceivedOkStatusWithDecoratedAsyncHandler_1_oe
-async_359_1,"  @Test
+async_356_1,"  @Test
   public void testOnStatusReceived500Status_1_oe() throws Exception {
     MapResumableProcessor processor = new MapResumableProcessor();
     ResumableAsyncHandler handler = new ResumableAsyncHandler(processor);
@@ -18227,7 +17246,7 @@ async_359_1,"  @Test
     assertEquals(state, AsyncHandler.State.ABORT, ""State should be ABORT for Internal Server Error status"");
   }
 ",ResumableAsyncHandlerTest::testOnStatusReceived500Status_1_oe
-async_360_1,"  @Test
+async_357_1,"  @Test
   public void testOnBodyPartReceived_1_oe() throws Exception {
     ResumableAsyncHandler handler = new ResumableAsyncHandler();
     HttpResponseBodyPart bodyPart = mock(HttpResponseBodyPart.class);
@@ -18238,7 +17257,7 @@ async_360_1,"  @Test
     assertEquals(state, AsyncHandler.State.CONTINUE, ""State should be CONTINUE for a successful onBodyPartReceived"");
   }
 ",ResumableAsyncHandlerTest::testOnBodyPartReceived_1_oe
-async_361_1,"  @Test
+async_358_1,"  @Test
   public void testOnBodyPartReceivedWithResumableListenerThrowsException_1_oe() throws Exception {
     ResumableAsyncHandler handler = new ResumableAsyncHandler();
 
@@ -18251,7 +17270,7 @@ async_361_1,"  @Test
     assertEquals(state, AsyncHandler.State.ABORT, ""State should be ABORT if the resumableListener threw an exception in onBodyPartReceived"");
   }
 ",ResumableAsyncHandlerTest::testOnBodyPartReceivedWithResumableListenerThrowsException_1_oe
-async_362_1,"  @Test
+async_359_1,"  @Test
   public void testOnBodyPartReceivedWithDecoratedAsyncHandler_1_oe() throws Exception {
     HttpResponseBodyPart bodyPart = mock(HttpResponseBodyPart.class);
     when(bodyPart.getBodyPartBytes()).thenReturn(new byte[0]);
@@ -18275,7 +17294,7 @@ async_362_1,"  @Test
     assertEquals(state, State.CONTINUE, ""State should be equal to the state returned from decoratedAsyncHandler"");
   }
 ",ResumableAsyncHandlerTest::testOnBodyPartReceivedWithDecoratedAsyncHandler_1_oe
-async_363_1,"  @Test
+async_360_1,"  @Test
   public void testOnHeadersReceived_1_oe() throws Exception {
     ResumableAsyncHandler handler = new ResumableAsyncHandler();
     HttpHeaders responseHeaders = new DefaultHttpHeaders();
@@ -18283,7 +17302,7 @@ async_363_1,"  @Test
     assertEquals(status, AsyncHandler.State.CONTINUE, ""State should be CONTINUE for a successful onHeadersReceived"");
   }
 ",ResumableAsyncHandlerTest::testOnHeadersReceived_1_oe
-async_364_1,"  @Test
+async_361_1,"  @Test
   public void testOnHeadersReceivedWithDecoratedAsyncHandler_1_oe() throws Exception {
     HttpHeaders responseHeaders = new DefaultHttpHeaders();
 
@@ -18296,7 +17315,7 @@ async_364_1,"  @Test
     assertEquals(status, State.CONTINUE, ""State should be equal to the state returned from decoratedAsyncHandler"");
   }
 ",ResumableAsyncHandlerTest::testOnHeadersReceivedWithDecoratedAsyncHandler_1_oe
-async_365_1,"  @Test
+async_362_1,"  @Test
   public void testOnHeadersReceivedContentLengthMinus_1_oe() throws Exception {
     ResumableAsyncHandler handler = new ResumableAsyncHandler();
     HttpHeaders responseHeaders = new DefaultHttpHeaders();
@@ -18305,7 +17324,7 @@ async_365_1,"  @Test
     assertEquals(status, AsyncHandler.State.ABORT, ""State should be ABORT for content length -1"");
   }
 ",ResumableAsyncHandlerTest::testOnHeadersReceivedContentLengthMinus_1_oe
-async_366_1,"  @Test
+async_363_1,"  @Test
   public void testSaveLoad_1_oe() {
     PropertiesBasedResumableProcessor p = new PropertiesBasedResumableProcessor();
     p.put(""http://localhost/test.url"", 15L);
@@ -18316,7 +17335,7 @@ async_366_1,"  @Test
     assertEquals(m.size(), 2);
   }
 ",PropertiesBasedResumableProcessorTest::testSaveLoad_1_oe
-async_366_2,"  @Test
+async_363_2,"  @Test
   public void testSaveLoad_2_oe() {
     PropertiesBasedResumableProcessor p = new PropertiesBasedResumableProcessor();
     p.put(""http://localhost/test.url"", 15L);
@@ -18328,7 +17347,7 @@ async_366_2,"  @Test
     assertEquals(m.get(""http://localhost/test.url""), Long.valueOf(15L));
   }
 ",PropertiesBasedResumableProcessorTest::testSaveLoad_2_oe
-async_366_3,"  @Test
+async_363_3,"  @Test
   public void testSaveLoad_3_oe() {
     PropertiesBasedResumableProcessor p = new PropertiesBasedResumableProcessor();
     p.put(""http://localhost/test.url"", 15L);
@@ -18341,7 +17360,7 @@ async_366_3,"  @Test
     assertEquals(m.get(""http://localhost/test2.url""), Long.valueOf(50L));
   }
 ",PropertiesBasedResumableProcessorTest::testSaveLoad_3_oe
-async_367_1,"  @Test
+async_364_1,"  @Test
   public void testRemove_1_oe() {
     PropertiesBasedResumableProcessor propertiesProcessor = new PropertiesBasedResumableProcessor();
     propertiesProcessor.put(""http://localhost/test.url"", 15L);
@@ -18353,7 +17372,7 @@ async_367_1,"  @Test
     assertEquals(propertiesMap.size(), 1);
   }
 ",PropertiesBasedResumableProcessorTest::testRemove_1_oe
-async_367_2,"  @Test
+async_364_2,"  @Test
   public void testRemove_2_oe() {
     PropertiesBasedResumableProcessor propertiesProcessor = new PropertiesBasedResumableProcessor();
     propertiesProcessor.put(""http://localhost/test.url"", 15L);
@@ -18366,7 +17385,7 @@ async_367_2,"  @Test
     assertEquals(propertiesMap.get(""http://localhost/test2.url""), Long.valueOf(50L));
   }
 ",PropertiesBasedResumableProcessorTest::testRemove_2_oe
-async_368_1,"  @Test
+async_365_1,"  @Test
   public void testMaxConnectionsWithinThreads_1_oe() throws Exception {
 
     String[] urls = new String[]{getTargetUrl(), getTargetUrl()};
@@ -18412,7 +17431,7 @@ async_368_1,"  @Test
   }
   }
 ",MaxConnectionsInThreads::testMaxConnectionsWithinThreads_1_oe
-async_368_2,"  @Test
+async_365_2,"  @Test
   public void testMaxConnectionsWithinThreads_2_oe() throws Exception {
 
     String[] urls = new String[]{getTargetUrl(), getTargetUrl()};
@@ -18482,7 +17501,7 @@ async_368_2,"  @Test
   }
   }
 ",MaxConnectionsInThreads::testMaxConnectionsWithinThreads_2_oe
-async_369_1,"  @Test
+async_366_1,"  @Test
   public void testMaxTotalConnections_1_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient(config().setKeepAlive(true).setMaxConnections(1))) {
       String url = getTargetUrl();
@@ -18501,7 +17520,7 @@ async_369_1,"  @Test
   }
   }
 ",ConnectionPoolTest::testMaxTotalConnections_1_oe
-async_370_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
+async_367_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   public void testMaxTotalConnectionsException_1_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(config().setKeepAlive(true).setMaxConnections(1))) {
       String url = getTargetUrl();
@@ -18526,7 +17545,7 @@ async_370_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   }
   }
 ",ConnectionPoolTest::testMaxTotalConnectionsException_1_oe
-async_371_2,"  @Test(invocationCount = 100)
+async_368_2,"  @Test(invocationCount = 100)
   public void asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_2_oe() throws Exception {
 
     try (AsyncHttpClient client = asyncHttpClient()) {
@@ -18579,7 +17598,7 @@ async_371_2,"  @Test(invocationCount = 100)
   }
   }
 ",ConnectionPoolTest::asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_2_oe
-async_371_3,"  @Test(invocationCount = 100)
+async_368_3,"  @Test(invocationCount = 100)
   public void asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_3_oe() throws Exception {
 
     try (AsyncHttpClient client = asyncHttpClient()) {
@@ -18634,7 +17653,7 @@ async_371_3,"  @Test(invocationCount = 100)
   }
   }
 ",ConnectionPoolTest::asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_3_oe
-async_372_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
+async_369_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   public void multipleMaxConnectionOpenTest_1_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -18646,7 +17665,7 @@ async_372_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTest_1_oe
-async_372_3,"  @Test(expectedExceptions = TooManyConnectionsException.class)
+async_369_3,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   public void multipleMaxConnectionOpenTest_3_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -18669,7 +17688,7 @@ async_372_3,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTest_3_oe
-async_373_1,"  @Test
+async_370_1,"  @Test
   public void multipleMaxConnectionOpenTestWithQuery_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -18681,7 +17700,7 @@ async_373_1,"  @Test
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTestWithQuery_1_oe
-async_373_2,"  @Test
+async_370_2,"  @Test
   public void multipleMaxConnectionOpenTestWithQuery_2_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -18703,7 +17722,7 @@ async_373_2,"  @Test
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTestWithQuery_2_oe
-async_373_3,"  @Test
+async_370_3,"  @Test
   public void multipleMaxConnectionOpenTestWithQuery_3_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -18726,7 +17745,7 @@ async_373_3,"  @Test
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTestWithQuery_3_oe
-async_373_4,"  @Test
+async_370_4,"  @Test
   public void multipleMaxConnectionOpenTestWithQuery_4_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -18750,7 +17769,7 @@ async_373_4,"  @Test
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTestWithQuery_4_oe
-async_374_2,"  @Test
+async_371_2,"  @Test
   public void win7DisconnectTest_2_oe() throws Exception {
     final AtomicInteger count = new AtomicInteger(0);
 
@@ -18777,7 +17796,7 @@ async_374_2,"  @Test
   }
   }
 ",ConnectionPoolTest::win7DisconnectTest_2_oe
-async_374_3,"  @Test
+async_371_3,"  @Test
   public void win7DisconnectTest_3_oe() throws Exception {
     final AtomicInteger count = new AtomicInteger(0);
 
@@ -18805,7 +17824,7 @@ async_374_3,"  @Test
   }
   }
 ",ConnectionPoolTest::win7DisconnectTest_3_oe
-async_374_4,"  @Test
+async_371_4,"  @Test
   public void win7DisconnectTest_4_oe() throws Exception {
     final AtomicInteger count = new AtomicInteger(0);
 
@@ -18834,7 +17853,7 @@ async_374_4,"  @Test
   }
   }
 ",ConnectionPoolTest::win7DisconnectTest_4_oe
-async_374_5,"  @Test
+async_371_5,"  @Test
   public void win7DisconnectTest_5_oe() throws Exception {
     final AtomicInteger count = new AtomicInteger(0);
 
@@ -18864,7 +17883,7 @@ async_374_5,"  @Test
   }
   }
 ",ConnectionPoolTest::win7DisconnectTest_5_oe
-async_375_1,"  @Test
+async_372_1,"  @Test
   public void asyncHandlerOnThrowableTest_1_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicInteger count = new AtomicInteger();
@@ -18898,7 +17917,7 @@ async_375_1,"  @Test
   }
   }
 ",ConnectionPoolTest::asyncHandlerOnThrowableTest_1_oe
-async_376_1,"  @Test
+async_373_1,"  @Test
   public void testPooledEventsFired_1_oe() throws Exception {
     RequestBuilder request = get(""http://localhost:"" + port1 + ""/Test"");
 
@@ -18918,7 +17937,7 @@ async_376_1,"  @Test
   }
   }
 ",ConnectionPoolTest::testPooledEventsFired_1_oe
-async_377_1,"  @Test(groups = ""online"")
+async_374_1,"  @Test(groups = ""online"")
   public void testMaxTotalConnectionsExceedingException_1_oe() throws IOException {
     String[] urls = new String[]{""https://google.com"", ""https://github.com""};
 
@@ -18953,7 +17972,7 @@ async_377_1,"  @Test(groups = ""online"")
   }
   }
 ",MaxTotalConnectionTest::testMaxTotalConnectionsExceedingException_1_oe
-async_377_2,"  @Test(groups = ""online"")
+async_374_2,"  @Test(groups = ""online"")
   public void testMaxTotalConnectionsExceedingException_2_oe() throws IOException {
     String[] urls = new String[]{""https://google.com"", ""https://github.com""};
 
@@ -18989,7 +18008,7 @@ async_377_2,"  @Test(groups = ""online"")
   }
   }
 ",MaxTotalConnectionTest::testMaxTotalConnectionsExceedingException_2_oe
-async_378_1,"  @Test(groups = ""online"")
+async_375_1,"  @Test(groups = ""online"")
   public void testMaxTotalConnections_1_oe() throws Exception {
     String[] urls = new String[]{""https://www.google.com"", ""https://www.youtube.com""};
 
@@ -19031,7 +18050,7 @@ async_378_1,"  @Test(groups = ""online"")
   }
   }
 ",MaxTotalConnectionTest::testMaxTotalConnections_1_oe
-async_378_2,"  @Test(groups = ""online"")
+async_375_2,"  @Test(groups = ""online"")
   public void testMaxTotalConnections_2_oe() throws Exception {
     String[] urls = new String[]{""https://www.google.com"", ""https://www.youtube.com""};
 
@@ -19074,361 +18093,79 @@ async_378_2,"  @Test(groups = ""online"")
   }
   }
 ",MaxTotalConnectionTest::testMaxTotalConnections_2_oe
-async_379_1,"  @Test
-  public void mkcolWebDavTest1_1_oe() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      assertEquals(response.getStatusCode(), 201);
-  }
-  }
-",WebdavTest::mkcolWebDavTest1_1_oe
-async_379_2,"  @Test
-  public void mkcolWebDavTest1_2_oe() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void mkcolWebDavTest2() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl() + ""/folder2"").build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      assertEquals(response.getStatusCode(), 409);
-  }
-  }
-",WebdavTest::mkcolWebDavTest1_2_oe
-async_379_3,"  @Test
-  public void mkcolWebDavTest1_3_oe() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void mkcolWebDavTest2() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl() + ""/folder2"").build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void basicPropFindWebDavTest() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request propFindRequest = new RequestBuilder(""PROPFIND"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(propFindRequest).get();
-
-      assertEquals(response.getStatusCode(), 404);
-  }
-  }
-",WebdavTest::mkcolWebDavTest1_3_oe
-async_379_4,"  @Test
-  public void mkcolWebDavTest1_4_oe() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void mkcolWebDavTest2() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl() + ""/folder2"").build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void basicPropFindWebDavTest() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request propFindRequest = new RequestBuilder(""PROPFIND"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(propFindRequest).get();
-
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void propFindWebDavTest() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      assertEquals(response.getStatusCode(), 201);
-  }
-  }
-",WebdavTest::mkcolWebDavTest1_4_oe
-async_379_5,"  @Test
-  public void mkcolWebDavTest1_5_oe() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void mkcolWebDavTest2() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl() + ""/folder2"").build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void basicPropFindWebDavTest() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request propFindRequest = new RequestBuilder(""PROPFIND"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(propFindRequest).get();
-
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void propFindWebDavTest() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-
-      Request putRequest = put(getTargetUrl() + ""/Test.txt"").setBody(""this is a test"").build();
-      response = c.executeRequest(putRequest).get();
-      assertEquals(response.getStatusCode(), 201);
-  }
-  }
-",WebdavTest::mkcolWebDavTest1_5_oe
-async_379_6,"  @Test
-  public void mkcolWebDavTest1_6_oe() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void mkcolWebDavTest2() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl() + ""/folder2"").build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void basicPropFindWebDavTest() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request propFindRequest = new RequestBuilder(""PROPFIND"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(propFindRequest).get();
-
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void propFindWebDavTest() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-
-      Request putRequest = put(getTargetUrl() + ""/Test.txt"").setBody(""this is a test"").build();
-      response = c.executeRequest(putRequest).get();
-      // removed other assertion
-
-      Request propFindRequest = new RequestBuilder(""PROPFIND"").setUrl(getTargetUrl() + ""/Test.txt"").build();
-      response = c.executeRequest(propFindRequest).get();
-
-      assertEquals(response.getStatusCode(), 207);
-  }
-  }
-",WebdavTest::mkcolWebDavTest1_6_oe
-async_379_7,"  @Test
-  public void mkcolWebDavTest1_7_oe() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void mkcolWebDavTest2() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl() + ""/folder2"").build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void basicPropFindWebDavTest() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request propFindRequest = new RequestBuilder(""PROPFIND"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(propFindRequest).get();
-
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void propFindWebDavTest() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-
-      Request putRequest = put(getTargetUrl() + ""/Test.txt"").setBody(""this is a test"").build();
-      response = c.executeRequest(putRequest).get();
-      // removed other assertion
-
-      Request propFindRequest = new RequestBuilder(""PROPFIND"").setUrl(getTargetUrl() + ""/Test.txt"").build();
-      response = c.executeRequest(propFindRequest).get();
-
-      // removed other assertion
-      assertTrue(response.getResponseBody().contains(""HTTP/1.1 200 OK""), ""Got "" + response.getResponseBody());
-  }
-  }
-",WebdavTest::mkcolWebDavTest1_7_oe
-async_379_8,"  @Test
-  public void mkcolWebDavTest1_8_oe() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void mkcolWebDavTest2() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl() + ""/folder2"").build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void basicPropFindWebDavTest() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request propFindRequest = new RequestBuilder(""PROPFIND"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(propFindRequest).get();
-
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void propFindWebDavTest() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      // removed other assertion
-
-      Request putRequest = put(getTargetUrl() + ""/Test.txt"").setBody(""this is a test"").build();
-      response = c.executeRequest(putRequest).get();
-      // removed other assertion
-
-      Request propFindRequest = new RequestBuilder(""PROPFIND"").setUrl(getTargetUrl() + ""/Test.txt"").build();
-      response = c.executeRequest(propFindRequest).get();
-
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void propFindCompletionHandlerWebDavTest() throws InterruptedException, IOException, ExecutionException {
-    try (AsyncHttpClient c = asyncHttpClient()) {
-      Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
-      Response response = c.executeRequest(mkcolRequest).get();
-      assertEquals(response.getStatusCode(), 201);
-  }
-  }
-",WebdavTest::mkcolWebDavTest1_8_oe
-async_380_1,"  @Test
+async_376_1,"  @Test
   public void testCreateAndToUrl_1_oe() {
     String url = ""https://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
     assertEquals(uri.toUrl(), url, ""url used to create uri and url returned from toUrl do not match"");
   }
 ",UriTest::testCreateAndToUrl_1_oe
-async_381_1,"  @Test
+async_377_1,"  @Test
   public void testToUrlWithUserInfoPortPathAndQuery_1_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, ""/path/path2"", ""query=4"", null);
     assertEquals(uri.toUrl(), ""http://user@example.com:44/path/path2?query=4"", ""toUrl returned incorrect url"");
   }
 ",UriTest::testToUrlWithUserInfoPortPathAndQuery_1_oe
-async_382_1,"  @Test
+async_378_1,"  @Test
   public void testQueryWithNonRootPath_1_oe() {
     Uri uri = Uri.create(""http://hello.com/foo?query=value"");
     assertEquals(uri.getPath(), ""/foo"");
   }
 ",UriTest::testQueryWithNonRootPath_1_oe
-async_382_2,"  @Test
+async_378_2,"  @Test
   public void testQueryWithNonRootPath_2_oe() {
     Uri uri = Uri.create(""http://hello.com/foo?query=value"");
     // removed other assertion
     assertEquals(uri.getQuery(), ""query=value"");
   }
 ",UriTest::testQueryWithNonRootPath_2_oe
-async_383_1,"  @Test
+async_379_1,"  @Test
   public void testQueryWithNonRootPathAndTrailingSlash_1_oe() {
     Uri uri = Uri.create(""http://hello.com/foo/?query=value"");
     assertEquals(uri.getPath(), ""/foo/"");
   }
 ",UriTest::testQueryWithNonRootPathAndTrailingSlash_1_oe
-async_383_2,"  @Test
+async_379_2,"  @Test
   public void testQueryWithNonRootPathAndTrailingSlash_2_oe() {
     Uri uri = Uri.create(""http://hello.com/foo/?query=value"");
     // removed other assertion
     assertEquals(uri.getQuery(), ""query=value"");
   }
 ",UriTest::testQueryWithNonRootPathAndTrailingSlash_2_oe
-async_384_1,"  @Test
+async_380_1,"  @Test
   public void testQueryWithRootPath_1_oe() {
     Uri uri = Uri.create(""http://hello.com?query=value"");
     assertEquals(uri.getPath(), """");
   }
 ",UriTest::testQueryWithRootPath_1_oe
-async_384_2,"  @Test
+async_380_2,"  @Test
   public void testQueryWithRootPath_2_oe() {
     Uri uri = Uri.create(""http://hello.com?query=value"");
     // removed other assertion
     assertEquals(uri.getQuery(), ""query=value"");
   }
 ",UriTest::testQueryWithRootPath_2_oe
-async_385_1,"  @Test
+async_381_1,"  @Test
   public void testQueryWithRootPathAndTrailingSlash_1_oe() {
     Uri uri = Uri.create(""http://hello.com/?query=value"");
     assertEquals(uri.getPath(), ""/"");
   }
 ",UriTest::testQueryWithRootPathAndTrailingSlash_1_oe
-async_385_2,"  @Test
+async_381_2,"  @Test
   public void testQueryWithRootPathAndTrailingSlash_2_oe() {
     Uri uri = Uri.create(""http://hello.com/?query=value"");
     // removed other assertion
     assertEquals(uri.getQuery(), ""query=value"");
   }
 ",UriTest::testQueryWithRootPathAndTrailingSlash_2_oe
-async_386_1,"  @Test
+async_382_1,"  @Test
   public void testWithNewScheme_1_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, ""/path/path2"", ""query=4"", null);
     Uri newUri = uri.withNewScheme(""https"");
     assertEquals(newUri.getScheme(), ""https"");
   }
 ",UriTest::testWithNewScheme_1_oe
-async_386_2,"  @Test
+async_382_2,"  @Test
   public void testWithNewScheme_2_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, ""/path/path2"", ""query=4"", null);
     Uri newUri = uri.withNewScheme(""https"");
@@ -19436,14 +18173,14 @@ async_386_2,"  @Test
     assertEquals(newUri.toUrl(), ""https://user@example.com:44/path/path2?query=4"", ""toUrl returned incorrect url"");
   }
 ",UriTest::testWithNewScheme_2_oe
-async_387_1,"  @Test
+async_383_1,"  @Test
   public void testWithNewQuery_1_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, ""/path/path2"", ""query=4"", null);
     Uri newUri = uri.withNewQuery(""query2=10&query3=20"");
     assertEquals(newUri.getQuery(), ""query2=10&query3=20"");
   }
 ",UriTest::testWithNewQuery_1_oe
-async_387_2,"  @Test
+async_383_2,"  @Test
   public void testWithNewQuery_2_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, ""/path/path2"", ""query=4"", null);
     Uri newUri = uri.withNewQuery(""query2=10&query3=20"");
@@ -19451,28 +18188,28 @@ async_387_2,"  @Test
     assertEquals(newUri.toUrl(), ""http://user@example.com:44/path/path2?query2=10&query3=20"", ""toUrl returned incorrect url"");
   }
 ",UriTest::testWithNewQuery_2_oe
-async_388_1,"  @Test
+async_384_1,"  @Test
   public void testToRelativeUrl_1_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, ""/path/path2"", ""query=4"", null);
     String relativeUrl = uri.toRelativeUrl();
     assertEquals(relativeUrl, ""/path/path2?query=4"", ""toRelativeUrl returned incorrect url"");
   }
 ",UriTest::testToRelativeUrl_1_oe
-async_389_1,"  @Test
+async_385_1,"  @Test
   public void testToRelativeUrlWithEmptyPath_1_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, null, ""query=4"", null);
     String relativeUrl = uri.toRelativeUrl();
     assertEquals(relativeUrl, ""/?query=4"", ""toRelativeUrl returned incorrect url"");
   }
 ",UriTest::testToRelativeUrlWithEmptyPath_1_oe
-async_390_1,"  @Test
+async_386_1,"  @Test
   public void testGetSchemeDefaultPortHttpScheme_1_oe() {
     String url = ""https://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
     assertEquals(uri.getSchemeDefaultPort(), 443, ""schema default port should be 443 for https url"");
   }
 ",UriTest::testGetSchemeDefaultPortHttpScheme_1_oe
-async_390_2,"  @Test
+async_386_2,"  @Test
   public void testGetSchemeDefaultPortHttpScheme_2_oe() {
     String url = ""https://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
@@ -19483,14 +18220,14 @@ async_390_2,"  @Test
     assertEquals(uri2.getSchemeDefaultPort(), 80, ""schema default port should be 80 for http url"");
   }
 ",UriTest::testGetSchemeDefaultPortHttpScheme_2_oe
-async_391_1,"  @Test
+async_387_1,"  @Test
   public void testGetSchemeDefaultPortWebSocketScheme_1_oe() {
     String url = ""wss://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
     assertEquals(uri.getSchemeDefaultPort(), 443, ""schema default port should be 443 for wss url"");
   }
 ",UriTest::testGetSchemeDefaultPortWebSocketScheme_1_oe
-async_391_2,"  @Test
+async_387_2,"  @Test
   public void testGetSchemeDefaultPortWebSocketScheme_2_oe() {
     String url = ""wss://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
@@ -19501,14 +18238,14 @@ async_391_2,"  @Test
     assertEquals(uri2.getSchemeDefaultPort(), 80, ""schema default port should be 80 for ws url"");
   }
 ",UriTest::testGetSchemeDefaultPortWebSocketScheme_2_oe
-async_392_1,"  @Test
+async_388_1,"  @Test
   public void testGetExplicitPort_1_oe() {
     String url = ""http://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
     assertEquals(uri.getExplicitPort(), 80, ""getExplicitPort should return port 80 for http url when port is not specified in url"");
   }
 ",UriTest::testGetExplicitPort_1_oe
-async_392_2,"  @Test
+async_388_2,"  @Test
   public void testGetExplicitPort_2_oe() {
     String url = ""http://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
@@ -19519,7 +18256,7 @@ async_392_2,"  @Test
     assertEquals(uri2.getExplicitPort(), 8080, ""getExplicitPort should return the port given in the url"");
   }
 ",UriTest::testGetExplicitPort_2_oe
-async_393_1,"  @Test
+async_389_1,"  @Test
   public void testEquals_1_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     Uri createdUri = Uri.create(url);
@@ -19527,7 +18264,7 @@ async_393_1,"  @Test
     assertTrue(createdUri.equals(constructedUri), ""The equals method returned false for two equal urls"");
   }
 ",UriTest::testEquals_1_oe
-async_394_1,"  @Test
+async_390_1,"  @Test
   void testFragment_1_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     String fragment = ""foo"";
@@ -19536,7 +18273,7 @@ async_394_1,"  @Test
     assertEquals(fragment, uri.getFragment(), ""Fragment should be extracted"");
   }
 ",UriTest::testFragment_1_oe
-async_394_2,"  @Test
+async_390_2,"  @Test
   void testFragment_2_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     String fragment = ""foo"";
@@ -19546,7 +18283,7 @@ async_394_2,"  @Test
     assertEquals(uri.toUrl(), url, ""toUrl should return without fragment"");
   }
 ",UriTest::testFragment_2_oe
-async_394_3,"  @Test
+async_390_3,"  @Test
   void testFragment_3_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     String fragment = ""foo"";
@@ -19557,20 +18294,20 @@ async_394_3,"  @Test
     assertEquals(uri.toFullUrl(), urlWithFragment, ""toFullUrl should return with fragment"");
   }
 ",UriTest::testFragment_3_oe
-async_395_1,"  @Test
+async_391_1,"  @Test
   void testRelativeFragment_1_oe() {
     Uri uri = Uri.create(Uri.create(""http://user@hello.com:8080""), ""/level1/level2/level3?q=1#foo"");
     assertEquals(""foo"", uri.getFragment(), ""fragment should be kept when computing a relative url"");
   }
 ",UriTest::testRelativeFragment_1_oe
-async_396_1,"  @Test
+async_392_1,"  @Test
   public void testIsWebsocket_1_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     Uri uri = Uri.create(url);
     assertFalse(uri.isWebSocket(), ""isWebSocket should return false for http url"");
   }
 ",UriTest::testIsWebsocket_1_oe
-async_396_2,"  @Test
+async_392_2,"  @Test
   public void testIsWebsocket_2_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     Uri uri = Uri.create(url);
@@ -19581,7 +18318,7 @@ async_396_2,"  @Test
     assertFalse(uri.isWebSocket(), ""isWebSocket should return false for https url"");
   }
 ",UriTest::testIsWebsocket_2_oe
-async_396_3,"  @Test
+async_392_3,"  @Test
   public void testIsWebsocket_3_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     Uri uri = Uri.create(url);
@@ -19596,7 +18333,7 @@ async_396_3,"  @Test
     assertTrue(uri.isWebSocket(), ""isWebSocket should return true for ws url"");
   }
 ",UriTest::testIsWebsocket_3_oe
-async_396_4,"  @Test
+async_392_4,"  @Test
   public void testIsWebsocket_4_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     Uri uri = Uri.create(url);
@@ -19615,59 +18352,59 @@ async_396_4,"  @Test
     assertTrue(uri.isWebSocket(), ""isWebSocket should return true for wss url"");
   }
 ",UriTest::testIsWebsocket_4_oe
-async_397_1,"  @Test
+async_393_1,"  @Test
   public void testGetAuthority_1_oe() {
     Uri uri = Uri.create(""http://stackoverflow.com/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     assertEquals(uri.getAuthority(), ""stackoverflow.com:80"", ""Incorrect authority returned from getAuthority"");
   }
 ",UriTest::testGetAuthority_1_oe
-async_398_1,"  @Test
+async_394_1,"  @Test
   public void testGetAuthorityWithPortInUrl_1_oe() {
     Uri uri = Uri.create(""http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     assertEquals(uri.getAuthority(), ""stackoverflow.com:8443"", ""Incorrect authority returned from getAuthority"");
   }
 ",UriTest::testGetAuthorityWithPortInUrl_1_oe
-async_399_1,"  @Test
+async_395_1,"  @Test
   public void testGetBaseUrl_1_oe() {
     Uri uri = Uri.create(""http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     assertEquals(uri.getBaseUrl(), ""http://stackoverflow.com:8443"", ""Incorrect base URL returned from getBaseURL"");
   }
 ",UriTest::testGetBaseUrl_1_oe
-async_400_1,"  @Test
+async_396_1,"  @Test
   public void testIsSameBaseUrlReturnsFalseWhenPortDifferent_1_oe() {
     Uri uri1 = Uri.create(""http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     Uri uri2 = Uri.create(""http://stackoverflow.com:8442/questions/1057564/pretty-git-branch-graphs"");
     assertFalse(uri1.isSameBase(uri2), ""Base URLs should be different, but true was returned from isSameBase"");
   }
 ",UriTest::testIsSameBaseUrlReturnsFalseWhenPortDifferent_1_oe
-async_401_1,"  @Test
+async_397_1,"  @Test
   public void testIsSameBaseUrlReturnsFalseWhenSchemeDifferent_1_oe() {
     Uri uri1 = Uri.create(""http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     Uri uri2 = Uri.create(""ws://stackoverflow.com:8443/questions/1057564/pretty-git-branch-graphs"");
     assertFalse(uri1.isSameBase(uri2), ""Base URLs should be different, but true was returned from isSameBase"");
   }
 ",UriTest::testIsSameBaseUrlReturnsFalseWhenSchemeDifferent_1_oe
-async_402_1,"  @Test
+async_398_1,"  @Test
   public void testIsSameBaseUrlReturnsFalseWhenHostDifferent_1_oe() {
     Uri uri1 = Uri.create(""http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     Uri uri2 = Uri.create(""http://example.com:8443/questions/1057564/pretty-git-branch-graphs"");
     assertFalse(uri1.isSameBase(uri2), ""Base URLs should be different, but true was returned from isSameBase"");
   }
 ",UriTest::testIsSameBaseUrlReturnsFalseWhenHostDifferent_1_oe
-async_403_1,"  @Test
+async_399_1,"  @Test
   public void testIsSameBaseUrlReturnsTrueWhenOneUriHasDefaultPort_1_oe() {
     Uri uri1 = Uri.create(""http://stackoverflow.com:80/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     Uri uri2 = Uri.create(""http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs"");
     assertTrue(uri1.isSameBase(uri2), ""Base URLs should be same, but false was returned from isSameBase"");
   }
 ",UriTest::testIsSameBaseUrlReturnsTrueWhenOneUriHasDefaultPort_1_oe
-async_404_1,"  @Test
+async_400_1,"  @Test
   public void testGetPathWhenPathIsNonEmpty_1_oe() {
     Uri uri = Uri.create(""http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     assertEquals(uri.getNonEmptyPath(), ""/questions/17814461/jacoco-maven-testng-0-test-coverage"", ""Incorrect path returned from getNonEmptyPath"");
   }
 ",UriTest::testGetPathWhenPathIsNonEmpty_1_oe
-async_405_1,"  @Test
+async_401_1,"  @Test
   public void testGetPathWhenPathIsEmpty_1_oe() {
     Uri uri = Uri.create(""http://stackoverflow.com"");
     assertEquals(uri.getNonEmptyPath(), ""/"", ""Incorrect path returned from getNonEmptyPath"");

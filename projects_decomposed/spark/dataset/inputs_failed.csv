@@ -1,290 +1,5 @@
 id,test_prefix,test_name
-spark_7_9,"    @Test
-    public void filters_should_be_accept_type_aware_9_oe() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/protected/resource"", null, ""application/json"");
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void routes_should_be_accept_type_aware() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null, ""application/json"");
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void template_view_should_be_rendered_with_given_model_view_object() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/templateView"", null);
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testGetHi() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testGetBinaryHi() {
-        try {
-            UrlResponse response = testUtil.doMethod(""GET"", ""/binaryhi"", null);
-            Assert.assertEquals(200, response.status);
-    }
-    }
-",GenericIntegrationTest::filters_should_be_accept_type_aware_9_oe
-spark_7_10,"    @Test
-    public void filters_should_be_accept_type_aware_10_oe() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/protected/resource"", null, ""application/json"");
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void routes_should_be_accept_type_aware() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null, ""application/json"");
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void template_view_should_be_rendered_with_given_model_view_object() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/templateView"", null);
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testGetHi() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testGetBinaryHi() {
-        try {
-            UrlResponse response = testUtil.doMethod(""GET"", ""/binaryhi"", null);
-            // removed other assertion
-            Assert.assertEquals(""Hello World!"", response.body);
-    }
-    }
-",GenericIntegrationTest::filters_should_be_accept_type_aware_10_oe
-spark_7_11,"    @Test
-    public void filters_should_be_accept_type_aware_11_oe() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/protected/resource"", null, ""application/json"");
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void routes_should_be_accept_type_aware() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null, ""application/json"");
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void template_view_should_be_rendered_with_given_model_view_object() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/templateView"", null);
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testGetHi() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testGetBinaryHi() {
-        try {
-            UrlResponse response = testUtil.doMethod(""GET"", ""/binaryhi"", null);
-            // removed other assertion
-            // removed other assertion
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Test
-    public void testGetByteBufferHi() {
-        try {
-            UrlResponse response = testUtil.doMethod(""GET"", ""/bytebufferhi"", null);
-            Assert.assertEquals(200, response.status);
-    }
-    }
-",GenericIntegrationTest::filters_should_be_accept_type_aware_11_oe
-spark_7_12,"    @Test
-    public void filters_should_be_accept_type_aware_12_oe() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/protected/resource"", null, ""application/json"");
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void routes_should_be_accept_type_aware() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null, ""application/json"");
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void template_view_should_be_rendered_with_given_model_view_object() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/templateView"", null);
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testGetHi() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testGetBinaryHi() {
-        try {
-            UrlResponse response = testUtil.doMethod(""GET"", ""/binaryhi"", null);
-            // removed other assertion
-            // removed other assertion
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Test
-    public void testGetByteBufferHi() {
-        try {
-            UrlResponse response = testUtil.doMethod(""GET"", ""/bytebufferhi"", null);
-            // removed other assertion
-            Assert.assertEquals(""Hello World!"", response.body);
-    }
-    }
-",GenericIntegrationTest::filters_should_be_accept_type_aware_12_oe
-spark_7_13,"    @Test
-    public void filters_should_be_accept_type_aware_13_oe() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/protected/resource"", null, ""application/json"");
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void routes_should_be_accept_type_aware() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null, ""application/json"");
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void template_view_should_be_rendered_with_given_model_view_object() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/templateView"", null);
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testGetHi() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testGetBinaryHi() {
-        try {
-            UrlResponse response = testUtil.doMethod(""GET"", ""/binaryhi"", null);
-            // removed other assertion
-            // removed other assertion
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Test
-    public void testGetByteBufferHi() {
-        try {
-            UrlResponse response = testUtil.doMethod(""GET"", ""/bytebufferhi"", null);
-            // removed other assertion
-            // removed other assertion
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Test
-    public void testGetInputStreamHi() {
-        try {
-            UrlResponse response = testUtil.doMethod(""GET"", ""/inputstreamhi"", null);
-            Assert.assertEquals(200, response.status);
-    }
-    }
-",GenericIntegrationTest::filters_should_be_accept_type_aware_13_oe
-spark_7_14,"    @Test
-    public void filters_should_be_accept_type_aware_14_oe() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/protected/resource"", null, ""application/json"");
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void routes_should_be_accept_type_aware() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null, ""application/json"");
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void template_view_should_be_rendered_with_given_model_view_object() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/templateView"", null);
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testGetHi() throws Exception {
-        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testGetBinaryHi() {
-        try {
-            UrlResponse response = testUtil.doMethod(""GET"", ""/binaryhi"", null);
-            // removed other assertion
-            // removed other assertion
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Test
-    public void testGetByteBufferHi() {
-        try {
-            UrlResponse response = testUtil.doMethod(""GET"", ""/bytebufferhi"", null);
-            // removed other assertion
-            // removed other assertion
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    @Test
-    public void testGetInputStreamHi() {
-        try {
-            UrlResponse response = testUtil.doMethod(""GET"", ""/inputstreamhi"", null);
-            // removed other assertion
-            Assert.assertEquals(""Hello World!"", response.body);
-    }
-    }
-",GenericIntegrationTest::filters_should_be_accept_type_aware_14_oe
-spark_43_1,"    @Test
+spark_56_1,"    @Test
     public void testMultipleFilters_1_oe() {
         try {
             SparkTestUtil.UrlResponse response = http.get(""/user"");
@@ -292,7 +7,7 @@ spark_43_1,"    @Test
     }
     }
 ",MultipleFiltersTest::testMultipleFilters_1_oe
-spark_43_2,"    @Test
+spark_56_2,"    @Test
     public void testMultipleFilters_2_oe() {
         try {
             SparkTestUtil.UrlResponse response = http.get(""/user"");
@@ -301,7 +16,7 @@ spark_43_2,"    @Test
     }
     }
 ",MultipleFiltersTest::testMultipleFilters_2_oe
-spark_74_1,"    @Test
+spark_85_1,"    @Test
     public void testSession_whenHttpSessionIsNull_thenThrowException_1_oe() {
 
         try {
@@ -311,7 +26,7 @@ spark_74_1,"    @Test
     }
     }
 ",SessionTest::testSession_whenHttpSessionIsNull_thenThrowException_1_oe
-spark_75_1,"    @Test
+spark_86_1,"    @Test
     public void testSession_whenRequestIsNull_thenThrowException_1_oe() {
 
         try {
@@ -321,7 +36,7 @@ spark_75_1,"    @Test
     }
     }
 ",SessionTest::testSession_whenRequestIsNull_thenThrowException_1_oe
-spark_117_1,"    @Test
+spark_127_1,"    @Test
     public void testHELLO_1_oe() {
         try {
             SparkTestUtil.UrlResponse response = http.get(HELLO);
@@ -329,7 +44,7 @@ spark_117_1,"    @Test
     }
     }
 ",ResponseBodyTest::testHELLO_1_oe
-spark_117_2,"    @Test
+spark_127_2,"    @Test
     public void testHELLO_2_oe() {
         try {
             SparkTestUtil.UrlResponse response = http.get(HELLO);
@@ -338,7 +53,7 @@ spark_117_2,"    @Test
     }
     }
 ",ResponseBodyTest::testHELLO_2_oe
-spark_118_1,"    @Test
+spark_128_1,"    @Test
     public void testSPECIAL_1_oe() {
         try {
             SparkTestUtil.UrlResponse response = http.get(SPECIAL);
@@ -346,7 +61,7 @@ spark_118_1,"    @Test
     }
     }
 ",ResponseBodyTest::testSPECIAL_1_oe
-spark_118_2,"    @Test
+spark_128_2,"    @Test
     public void testSPECIAL_2_oe() {
         try {
             SparkTestUtil.UrlResponse response = http.get(SPECIAL);
@@ -355,7 +70,7 @@ spark_118_2,"    @Test
     }
     }
 ",ResponseBodyTest::testSPECIAL_2_oe
-spark_119_1,"    @Test
+spark_129_1,"    @Test
     public void testPORAKATIKAOKAO_1_oe() {
         try {
             SparkTestUtil.UrlResponse response = http.get(PORAKATIKAOKAO);
@@ -363,7 +78,7 @@ spark_119_1,"    @Test
     }
     }
 ",ResponseBodyTest::testPORAKATIKAOKAO_1_oe
-spark_119_2,"    @Test
+spark_129_2,"    @Test
     public void testPORAKATIKAOKAO_2_oe() {
         try {
             SparkTestUtil.UrlResponse response = http.get(PORAKATIKAOKAO);
@@ -372,7 +87,7 @@ spark_119_2,"    @Test
     }
     }
 ",ResponseBodyTest::testPORAKATIKAOKAO_2_oe
-spark_120_1,"    @Test
+spark_130_1,"    @Test
     public void testMAXIME_1_oe() {
         try {
             SparkTestUtil.UrlResponse response = http.get(MAXIME);
@@ -380,7 +95,7 @@ spark_120_1,"    @Test
     }
     }
 ",ResponseBodyTest::testMAXIME_1_oe
-spark_120_2,"    @Test
+spark_130_2,"    @Test
     public void testMAXIME_2_oe() {
         try {
             SparkTestUtil.UrlResponse response = http.get(MAXIME);
@@ -389,7 +104,7 @@ spark_120_2,"    @Test
     }
     }
 ",ResponseBodyTest::testMAXIME_2_oe
-spark_173_1,"    @Test
+spark_185_1,"    @Test
     public void testCreateSocketConnector_whenServerIsNull_thenThrowException_1_oe() {
 
         try {
@@ -398,7 +113,7 @@ spark_173_1,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSocketConnector_whenServerIsNull_thenThrowException_1_oe
-spark_174_1,"    @Test
+spark_186_1,"    @Test
     public void testCreateSocketConnector_whenHostIsNull_thenThrowException_1_oe() {
 
         Server server = new Server();
@@ -409,7 +124,7 @@ spark_174_1,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSocketConnector_whenHostIsNull_thenThrowException_1_oe
-spark_176_1,"    @Test
+spark_188_1,"    @Test
     public void testCreateSecureSocketConnector_whenServerIsNull_1_oe() {
 
         try {
@@ -418,7 +133,7 @@ spark_176_1,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenServerIsNull_1_oe
-spark_177_1,"    @Test
+spark_189_1,"    @Test
     public void testCreateSecureSocketConnector_whenHostIsNull_1_oe() {
 
         Server server = new Server();
@@ -429,7 +144,7 @@ spark_177_1,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenHostIsNull_1_oe
-spark_178_1,"    @Test
+spark_190_1,"    @Test
     public void testCreateSecureSocketConnector_whenSslStoresIsNull_1_oe() {
 
         Server server = new Server();
@@ -440,7 +155,7 @@ spark_178_1,"    @Test
     }
     }
 ",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenSslStoresIsNull_1_oe
-spark_184_1,"    @Test
+spark_196_1,"    @Test
     public void testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_1_oe() {
         try {
             new JettyServer().create(2, 0, 0);
@@ -448,7 +163,7 @@ spark_184_1,"    @Test
     }
     }
 ",JettyServerTest::testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_1_oe
-spark_186_1,"    @Test
+spark_198_1,"    @Test
     public void testCannotCreateInvalidHandlers_1_oe() {
         try {
             WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(InvalidHandler.class));
@@ -456,7 +171,7 @@ spark_186_1,"    @Test
     }
     }
 ",WebSocketCreatorFactoryTest::testCannotCreateInvalidHandlers_1_oe
-spark_187_1,"    @Test
+spark_199_1,"    @Test
     public void testCreate_whenInstantiationException_1_oe() throws Exception {
         try {
             WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(FailingHandler.class));

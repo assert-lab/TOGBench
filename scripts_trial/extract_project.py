@@ -43,12 +43,12 @@ def find_test_files(project_path: str):
                     yield os.path.join(root, f)
 
 
-def _line_has_test_annotation(line: str, in_block_comment: bool) -> bool:
-    sanitized, _ = sanitize_for_counting(line, in_block_comment)
-    s = sanitized.strip()
+def _line_has_test_annotation(sanitized_line: str) -> bool:
+    s = sanitized_line.strip()
     if not s.startswith("@"):
         return False
     return any(ann in s for ann in JUNIT_TEST_ANNOTATIONS)
+
 
 
 def extract_test_methods(file_content: str) -> List[List[str]]:
@@ -60,56 +60,69 @@ def extract_test_methods(file_content: str) -> List[List[str]]:
 
     while i < n:
         line = lines[i]
+        # Strip comments/string literals for detection, but keep raw line for output
         sanitized, in_block = sanitize_for_counting(line, in_block)
 
-        if _line_has_test_annotation(line, in_block_comment=False):
+        # ---------------------- JUnit 4/5 annotated tests ----------------------
+        if _line_has_test_annotation(sanitized):
             buf: List[str] = [line]
             i += 1
+
             brace_balance = 0
             saw_open = False
-            inner_in_block = in_block
 
             while i < n:
                 ln = lines[i]
                 buf.append(ln)
-                s2, inner_in_block = sanitize_for_counting(ln, inner_in_block)
-                opens = s2.count("{")
-                closes = s2.count("}")
+
+                # For method body boundaries we can safely use raw line text
+                opens = ln.count("{")
+                closes = ln.count("}")
                 brace_balance += opens - closes
+
                 if opens > 0:
                     saw_open = True
+
+                # Once we've seen an opening brace for this method and the balance
+                # returns to 0, we assume the method body ended.
                 if saw_open and brace_balance == 0:
                     i += 1
                     break
+
                 i += 1
 
             methods.append(buf)
             continue
 
+        # -------------------------- JUnit 3 style tests ------------------------
         if JUNIT3_TEST_HEADER.match(sanitized):
-            buf = [line]
+            buf: List[str] = [line]
             i += 1
+
             brace_balance = sanitized.count("{") - sanitized.count("}")
             saw_open = sanitized.count("{") > 0
-            inner_in_block = in_block
 
             while i < n:
                 ln = lines[i]
                 buf.append(ln)
-                s2, inner_in_block = sanitize_for_counting(ln, inner_in_block)
-                opens = s2.count("{")
-                closes = s2.count("}")
+
+                opens = ln.count("{")
+                closes = ln.count("}")
                 brace_balance += opens - closes
+
                 if opens > 0:
                     saw_open = True
+
                 if saw_open and brace_balance == 0:
                     i += 1
                     break
+
                 i += 1
 
             methods.append(buf)
             continue
 
+        # No test header/annotation on this line, move on
         i += 1
 
     return methods

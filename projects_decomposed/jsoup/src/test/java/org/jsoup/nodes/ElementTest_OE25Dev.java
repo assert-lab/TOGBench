@@ -8885,16 +8885,16 @@ public class ElementTest_OE25Dev {
         assertEquals("<p><span>One</span> <span>Two</span> <span>Three</span></p>", body.html());
         }
 
-    @Test void textnodeInBlockIndent() {
-        String html ="<div>\n{{ msg }} \n </div>\n<div>\n{{ msg }} \n </div>";
+    @Test void stripTrailing() {
+        String html = "<p> This <span>is </span>fine. </p>";
         Document doc = Jsoup.parse_1_oe(html);
-        assertEquals("<div>\n {{ msg }}\n</div>\n<div>\n {{ msg }}\n</div>", doc.body().html());
+        assertEquals("<p>This <span>is </span>fine.</p>", doc.body().html());
         }
 
-    @Test void elementIndentAndSpaceTrims() {
-        String html = "<body><div> <p> One Two </p> <a>  Hello </a><p>\nSome text \n</p>\n </div>";
+    @Test void divAInlineable() {
+        String html = "<body><div> <a>Text</a>";
         Document doc = Jsoup.parse_1_oe(html);
-        assertEquals("<div>\n" + " <p>One Two</p> <a> Hello </a>\n" + " <p>Some text</p>\n" + "</div>", doc.body().html());
+        assertEquals("<div><a>Text</a>\n</div>", doc.body().html());
         }
 
 }

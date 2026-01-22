@@ -384,6 +384,7 @@ springside4_74_17,springside4,WildcardMatcherTest,matchString_17_oe,modules/util
 springside4_75_1,springside4,WildcardMatcherTest,matchPath_1_oe,modules/utils/src/test/java/org/springside/modules/utils/text/WildcardMatcherTest.java,,,,assert,unknown
 springside4_75_2,springside4,WildcardMatcherTest,matchPath_2_oe,modules/utils/src/test/java/org/springside/modules/utils/text/WildcardMatcherTest.java,,,,assert,unknown
 springside4_75_3,springside4,WildcardMatcherTest,matchPath_3_oe,modules/utils/src/test/java/org/springside/modules/utils/text/WildcardMatcherTest.java,,,,assert,unknown
+springside4_75_4,springside4,WildcardMatcherTest,matchPath_4_oe,modules/utils/src/test/java/org/springside/modules/utils/text/WildcardMatcherTest.java,,,,assert,unknown
 springside4_76_1,springside4,TextValidatorTest,isMobileSimple_1_oe,modules/utils/src/test/java/org/springside/modules/utils/text/TextValidatorTest.java,,,,assert,unknown
 springside4_76_2,springside4,TextValidatorTest,isMobileSimple_2_oe,modules/utils/src/test/java/org/springside/modules/utils/text/TextValidatorTest.java,,,,assert,unknown
 springside4_76_3,springside4,TextValidatorTest,isMobileSimple_3_oe,modules/utils/src/test/java/org/springside/modules/utils/text/TextValidatorTest.java,,,,assert,unknown

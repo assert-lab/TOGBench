@@ -194,6 +194,69 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         }
     }
 
+    @Test
+    public void test250() throws Exception {
+        final MapContext ctx = new MapContext();
+        final HashMap<Object, Object> x = new HashMap<Object, Object>();
+        x.put(2, "123456789");
+        ctx.set("x", x);
+        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
+        String stmt = "x.2.class.name";
+        JexlScript script = engine.createScript(stmt);
+        Object result = script.execute(ctx);
+        Assert.assertEquals("java.lang.String", result);
+
+        try {
+            stmt = "x.3?.class.name";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail("Should have evaluated to null");
+        }
+        try {
+            stmt = "x?.3.class.name";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.fail("Should have thrown, fail on 3");
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.assertTrue(xany.detailedMessage().contains("3"));
+        }
+        try {
+            stmt = "x?.3?.class.name";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail("Should have evaluated to null");
+        }
+        try {
+            stmt = "y?.3.class.name";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail("Should have evaluated to null");
+        }
+        try {
+            stmt = "x?.y?.z";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail("Should have evaluated to null");
+        }
+        try {
+            stmt = "x? (x.y? (x.y.z ?: null) :null) : null";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail("Should have evaluated to null");
+        }
+    }
+
     public static class Prompt {
         private final Map<String, PromptValue> values = new HashMap<String, PromptValue>();
 
@@ -226,6 +289,87 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         public void setValue(final Object value) {
             this.value = value;
         }
+    }
+
+    @Test
+    public void test275a() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
+        final JexlContext ctxt = new MapContext();
+        JexlScript script;
+        Object result = null;
+        final Prompt p0 = new Prompt();
+        p0.set("stuff", 42);
+        ctxt.set("$in", p0);
+
+        // unprotected navigation
+        script = jexl.createScript("$in[p].intValue()", "p");
+        try {
+            result = script.execute(ctxt, "fail");
+            Assert.fail("should have thrown a " + JexlException.Property.class);
+        } catch (final JexlException xany) {
+            Assert.assertEquals(JexlException.Property.class, xany.getClass());
+        }
+        Assert.assertNull(result);
+        result = script.execute(ctxt, "stuff");
+        Assert.assertEquals(42, result);
+
+        // protected navigation
+        script = jexl.createScript("$in[p]?.intValue()", "p");
+        result = script.execute(ctxt, "fail");
+        Assert.assertNull(result);
+        result = script.execute(ctxt, "stuff");
+        Assert.assertEquals(42, result);
+
+        // unprotected navigation
+        script = jexl.createScript("$in.`${p}`.intValue()", "p");
+        try {
+            result = script.execute(ctxt, "fail");
+            Assert.fail("should have thrown a " + JexlException.Property.class);
+        } catch (final JexlException xany) {
+            Assert.assertEquals(JexlException.Property.class, xany.getClass());
+        }
+        result = script.execute(ctxt, "stuff");
+        Assert.assertEquals(42, result);
+
+        // protected navigation
+        script = jexl.createScript("$in.`${p}`?.intValue()", "p");
+        result = script.execute(ctxt, "fail");
+        Assert.assertNull(result);
+        result = script.execute(ctxt, "stuff");
+        Assert.assertEquals(42, result);
+
+    }
+     @Test
+    public void test275b() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
+        final JexlContext ctxt = new MapContext();
+        JexlScript script;
+        final Prompt p0 = new Prompt();
+        p0.set("stuff", 42);
+        ctxt.set("$in", p0);
+
+        // unprotected navigation
+        script = jexl.createScript("$in[p].intValue()", "p");
+        Object result = script.execute(ctxt, "fail");
+        Assert.assertNull(result);
+
+        result = script.execute(ctxt, "stuff");
+        Assert.assertEquals(42, result);
+
+
+        // unprotected navigation
+        script = jexl.createScript("$in.`${p}`.intValue()", "p");
+        result = script.execute(ctxt, "fail");
+        Assert.assertNull(result);
+        result = script.execute(ctxt, "stuff");
+        Assert.assertEquals(42, result);
+
+        // protected navigation
+        script = jexl.createScript("$in.`${p}`?.intValue()", "p");
+        result = script.execute(ctxt, "fail");
+        Assert.assertNull(result);
+        result = script.execute(ctxt, "stuff");
+        Assert.assertEquals(42, result);
     }
 
     @Test
@@ -1295,719 +1439,6 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         script = engine.createScript(stmt);
         result = script.execute(ctx, "querty");
         Assert.assertEquals("oops", result);
-    }
-
-    @Test
-    public void test250_1_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        Assert.assertEquals("java.lang.String", result);
-    }
-
-    @Test
-    public void test250_3_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        // removed other assertion
-
-        try {
-            stmt = "x.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.fail("Should have evaluated to null");
-    }
-    }
-
-    @Test
-    public void test250_6_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        // removed other assertion
-
-        try {
-            stmt = "x.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.assertTrue(xany.detailedMessage().contains("3"));
-    }
-    }
-
-    @Test
-    public void test250_8_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        // removed other assertion
-
-        try {
-            stmt = "x.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.fail("Should have evaluated to null");
-    }
-    }
-
-    @Test
-    public void test250_10_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        // removed other assertion
-
-        try {
-            stmt = "x.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "y?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.fail("Should have evaluated to null");
-    }
-    }
-
-    @Test
-    public void test250_12_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        // removed other assertion
-
-        try {
-            stmt = "x.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "y?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.y?.z";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.fail("Should have evaluated to null");
-    }
-    }
-
-    @Test
-    public void test250_14_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        // removed other assertion
-
-        try {
-            stmt = "x.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "y?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.y?.z";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x? (x.y? (x.y.z ?: null) :null) : null";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.fail("Should have evaluated to null");
-    }
-    }
-
-    @Test
-    public void test275a_2_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.assertEquals(JexlException.Property.class, xany.getClass());
-    }
-    }
-
-    @Test
-    public void test275a_3_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        Assert.assertNull(result);
-    }
-
-    @Test
-    public void test275a_4_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        Assert.assertEquals(42, result);
-    }
-
-    @Test
-    public void test275a_5_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in[p]?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        Assert.assertNull(result);
-    }
-
-    @Test
-    public void test275a_6_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in[p]?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        Assert.assertEquals(42, result);
-    }
-
-    @Test
-    public void test275a_8_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in[p]?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.assertEquals(JexlException.Property.class, xany.getClass());
-    }
-    }
-
-    @Test
-    public void test275a_9_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in[p]?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        result = script.execute(ctxt, "stuff");
-        Assert.assertEquals(42, result);
-    }
-
-    @Test
-    public void test275a_10_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in[p]?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in.`${p}`?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        Assert.assertNull(result);
-    }
-
-    @Test
-    public void test275a_11_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in[p]?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in.`${p}`?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        Assert.assertEquals(42, result);
-    }
-
-     @Test
-    public void test275b_1_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        Object result = script.execute(ctxt, "fail");
-        Assert.assertNull(result);
-    }
-
-     @Test
-    public void test275b_2_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        Object result = script.execute(ctxt, "fail");
-        // removed other assertion
-
-        result = script.execute(ctxt, "stuff");
-        Assert.assertEquals(42, result);
-    }
-
-     @Test
-    public void test275b_3_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        Object result = script.execute(ctxt, "fail");
-        // removed other assertion
-
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        Assert.assertNull(result);
-    }
-
-     @Test
-    public void test275b_4_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        Object result = script.execute(ctxt, "fail");
-        // removed other assertion
-
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        Assert.assertEquals(42, result);
-    }
-
-     @Test
-    public void test275b_5_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        Object result = script.execute(ctxt, "fail");
-        // removed other assertion
-
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in.`${p}`?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        Assert.assertNull(result);
-    }
-
-     @Test
-    public void test275b_6_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        Object result = script.execute(ctxt, "fail");
-        // removed other assertion
-
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in.`${p}`?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        Assert.assertEquals(42, result);
     }
 
 }

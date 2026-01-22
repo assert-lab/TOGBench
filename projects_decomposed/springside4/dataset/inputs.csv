@@ -6539,6 +6539,26 @@ springside4_75_3,"	@Test
 		assertThat(WildcardMatcher.matchPath(""/a/b/c/dd"", ""/a/**/dd"")).isTrue();
 	}
 ",WildcardMatcherTest::matchPath_3_oe
+springside4_75_4,"	@Test
+	public void matchPath_4_oe() {
+		// removed other assertion
+
+		// removed other assertion
+		// removed other assertion
+		assertThat(WildcardMatcher.matchPath(""/a/b/dd"", ""/a/*/dd"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/dd"", ""/a/*/d?"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/ddxxa"", ""/a/*/dd*"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/ddxxa"", ""/a/?/dd*"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""a/b/ddxxa"", ""a/?/dd*"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""a/b/dd"", ""**/dd"")).isTrue();
+
+		assertThat(WildcardMatcher.matchPath(""/a/b/c/dd"", ""/a/*/dd"")).isFalse();
+
+		// matchOne
+		assertThat(WildcardMatcher.matchPathOne(""/a/b/c/dd"", new String[] { ""/a/*/dd"", ""**/dd"" })).isEqualTo(1);
+		assertThat(WildcardMatcher.matchPathOne(""/a/b/c/dd"", new String[] { ""/a/**/dd"", ""**/dd"" })).isEqualTo(0);
+
+		}",WildcardMatcherTest::matchPath_4_oe
 springside4_76_1,"	@Test
 	public void isMobileSimple_1_oe() {
 		assertThat(TextValidator.isMobileSimple(null)).isFalse();

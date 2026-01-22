@@ -2330,7 +2330,7 @@ async_147_5,"  @Test
   }
   }
 ",MultipleHeaderTest::testMultipleEntityHeaders_5_oe
-async_156_21,"@Test
+async_155_21,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_21_oe() {
@@ -2444,7 +2444,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_21_oe
-async_156_23,"@Test
+async_155_23,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_23_oe() {
@@ -2574,7 +2574,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_23_oe
-async_156_25,"@Test
+async_155_25,"@Test
 public class AsyncHttpClientDefaultsTest {
 
   public void testDefaultMaxTotalConnections_25_oe() {
@@ -2720,7 +2720,7 @@ public class AsyncHttpClientDefaultsTest {
 }
 }
 ",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_25_oe
-async_159_1,"  @Test
+async_158_1,"  @Test
   public void getRootUrlWithCustomRemoteAddress_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -2732,7 +2732,7 @@ async_159_1,"  @Test
   }
   }
 ",CustomRemoteAddressTest::getRootUrlWithCustomRemoteAddress_1_oe
-async_160_1,"  @Test
+async_159_1,"  @Test
   public void postFileOverHttps_1_oe() throws Throwable {
     logger.debug("">>> postBodyOverHttps"");
     withClient(config().setSslEngineFactory(createSslEngineFactory())).run(client ->
@@ -2744,7 +2744,7 @@ async_160_1,"  @Test
   }
   }
 ",BasicHttpsTest::postFileOverHttps_1_oe
-async_160_2,"  @Test
+async_159_2,"  @Test
   public void postFileOverHttps_2_oe() throws Throwable {
     logger.debug("">>> postBodyOverHttps"");
     withClient(config().setSslEngineFactory(createSslEngineFactory())).run(client ->
@@ -2757,7 +2757,7 @@ async_160_2,"  @Test
   }
   }
 ",BasicHttpsTest::postFileOverHttps_2_oe
-async_160_3,"  @Test
+async_159_3,"  @Test
   public void postFileOverHttps_3_oe() throws Throwable {
     logger.debug("">>> postBodyOverHttps"");
     withClient(config().setSslEngineFactory(createSslEngineFactory())).run(client ->
@@ -2771,7 +2771,7 @@ async_160_3,"  @Test
   }
   }
 ",BasicHttpsTest::postFileOverHttps_3_oe
-async_161_1,"  @Test
+async_160_1,"  @Test
   public void postLargeFileOverHttps_1_oe() throws Throwable {
     logger.debug("">>> postLargeFileOverHttps"");
     withClient(config().setSslEngineFactory(createSslEngineFactory())).run(client ->
@@ -2783,7 +2783,7 @@ async_161_1,"  @Test
   }
   }
 ",BasicHttpsTest::postLargeFileOverHttps_1_oe
-async_161_2,"  @Test
+async_160_2,"  @Test
   public void postLargeFileOverHttps_2_oe() throws Throwable {
     logger.debug("">>> postLargeFileOverHttps"");
     withClient(config().setSslEngineFactory(createSslEngineFactory())).run(client ->
@@ -2796,7 +2796,7 @@ async_161_2,"  @Test
   }
   }
 ",BasicHttpsTest::postLargeFileOverHttps_2_oe
-async_161_3,"  @Test
+async_160_3,"  @Test
   public void postLargeFileOverHttps_3_oe() throws Throwable {
     logger.debug("">>> postLargeFileOverHttps"");
     withClient(config().setSslEngineFactory(createSslEngineFactory())).run(client ->
@@ -2810,7 +2810,7 @@ async_161_3,"  @Test
   }
   }
 ",BasicHttpsTest::postLargeFileOverHttps_3_oe
-async_162_1,"  @Test
+async_161_1,"  @Test
   public void multipleSequentialPostRequestsOverHttps_1_oe() throws Throwable {
     logger.debug("">>> multipleSequentialPostRequestsOverHttps"");
     withClient(config().setSslEngineFactory(createSslEngineFactory())).run(client ->
@@ -2824,7 +2824,7 @@ async_162_1,"  @Test
   }
   }
 ",BasicHttpsTest::multipleSequentialPostRequestsOverHttps_1_oe
-async_162_2,"  @Test
+async_161_2,"  @Test
   public void multipleSequentialPostRequestsOverHttps_2_oe() throws Throwable {
     logger.debug("">>> multipleSequentialPostRequestsOverHttps"");
     withClient(config().setSslEngineFactory(createSslEngineFactory())).run(client ->
@@ -2841,7 +2841,7 @@ async_162_2,"  @Test
   }
   }
 ",BasicHttpsTest::multipleSequentialPostRequestsOverHttps_2_oe
-async_163_1,"  @Test
+async_162_1,"  @Test
   public void multipleConcurrentPostRequestsOverHttpsWithDisabledKeepAliveStrategy_1_oe() throws Throwable {
     logger.debug("">>> multipleConcurrentPostRequestsOverHttpsWithDisabledKeepAliveStrategy"");
 
@@ -2863,7 +2863,7 @@ async_163_1,"  @Test
   }
   }
 ",BasicHttpsTest::multipleConcurrentPostRequestsOverHttpsWithDisabledKeepAliveStrategy_1_oe
-async_164_1,"  @Test
+async_163_1,"  @Test
   public void reconnectAfterFailedCertificationPath_1_oe() throws Throwable {
     logger.debug("">>> reconnectAfterFailedCertificationPath"");
 
@@ -2887,7 +2887,7 @@ async_164_1,"  @Test
   }
   }
 ",BasicHttpsTest::reconnectAfterFailedCertificationPath_1_oe
-async_164_2,"  @Test
+async_163_2,"  @Test
   public void reconnectAfterFailedCertificationPath_2_oe() throws Throwable {
     logger.debug("">>> reconnectAfterFailedCertificationPath"");
 
@@ -2917,7 +2917,7 @@ async_164_2,"  @Test
   }
   }
 ",BasicHttpsTest::reconnectAfterFailedCertificationPath_2_oe
-async_165_1,"  @Test
+async_164_1,"  @Test
   public void testNormalEventsFired_1_oe() throws Throwable {
     logger.debug("">>> testNormalEventsFired"");
 
@@ -2948,7 +2948,7 @@ async_165_1,"  @Test
   }
   }
 ",BasicHttpsTest::testNormalEventsFired_1_oe
-async_171_1,"  @Test
+async_170_1,"  @Test
   public void getRootUrl_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -2960,7 +2960,7 @@ async_171_1,"  @Test
   }
   }
 ",BasicHttpTest::getRootUrl_1_oe
-async_172_1,"  @Test
+async_171_1,"  @Test
   public void getUrlWithPathWithoutQuery_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -2971,7 +2971,7 @@ async_172_1,"  @Test
   }
   }
 ",BasicHttpTest::getUrlWithPathWithoutQuery_1_oe
-async_173_1,"  @Test
+async_172_1,"  @Test
   public void getUrlWithPathWithQuery_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -2981,7 +2981,7 @@ async_173_1,"  @Test
   }
   }
 ",BasicHttpTest::getUrlWithPathWithQuery_1_oe
-async_173_2,"  @Test
+async_172_2,"  @Test
   public void getUrlWithPathWithQuery_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -2995,7 +2995,7 @@ async_173_2,"  @Test
   }
   }
 ",BasicHttpTest::getUrlWithPathWithQuery_2_oe
-async_174_1,"  @Test
+async_173_1,"  @Test
   public void getUrlWithPathWithQueryParams_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3006,7 +3006,7 @@ async_174_1,"  @Test
   }
   }
 ",BasicHttpTest::getUrlWithPathWithQueryParams_1_oe
-async_175_1,"  @Test
+async_174_1,"  @Test
   public void getResponseBody_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3028,7 +3028,7 @@ async_175_1,"  @Test
   }
   }
 ",BasicHttpTest::getResponseBody_1_oe
-async_175_2,"  @Test
+async_174_2,"  @Test
   public void getResponseBody_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3052,7 +3052,7 @@ async_175_2,"  @Test
   }
   }
 ",BasicHttpTest::getResponseBody_2_oe
-async_175_3,"  @Test
+async_174_3,"  @Test
   public void getResponseBody_3_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3077,7 +3077,7 @@ async_175_3,"  @Test
   }
   }
 ",BasicHttpTest::getResponseBody_3_oe
-async_175_4,"  @Test
+async_174_4,"  @Test
   public void getResponseBody_4_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3104,7 +3104,7 @@ async_175_4,"  @Test
   }
   }
 ",BasicHttpTest::getResponseBody_4_oe
-async_176_1,"  @Test
+async_175_1,"  @Test
   public void getWithHeaders_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3125,7 +3125,7 @@ async_176_1,"  @Test
   }
   }
 ",BasicHttpTest::getWithHeaders_1_oe
-async_176_2,"  @Test
+async_175_2,"  @Test
   public void getWithHeaders_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3149,7 +3149,7 @@ async_176_2,"  @Test
   }
   }
 ",BasicHttpTest::getWithHeaders_2_oe
-async_177_1,"  @Test
+async_176_1,"  @Test
   public void postWithHeadersAndFormParams_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3175,7 +3175,7 @@ async_177_1,"  @Test
   }
   }
 ",BasicHttpTest::postWithHeadersAndFormParams_1_oe
-async_177_2,"  @Test
+async_176_2,"  @Test
   public void postWithHeadersAndFormParams_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3204,7 +3204,7 @@ async_177_2,"  @Test
   }
   }
 ",BasicHttpTest::postWithHeadersAndFormParams_2_oe
-async_178_1,"  @Test
+async_177_1,"  @Test
   public void postChineseChar_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3229,7 +3229,7 @@ async_178_1,"  @Test
   }
   }
 ",BasicHttpTest::postChineseChar_1_oe
-async_178_2,"  @Test
+async_177_2,"  @Test
   public void postChineseChar_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3262,7 +3262,7 @@ async_178_2,"  @Test
   }
   }
 ",BasicHttpTest::postChineseChar_2_oe
-async_179_1,"  @Test
+async_178_1,"  @Test
   public void headHasEmptyBody_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3277,7 +3277,7 @@ async_179_1,"  @Test
   }
   }
 ",BasicHttpTest::headHasEmptyBody_1_oe
-async_179_2,"  @Test
+async_178_2,"  @Test
   public void headHasEmptyBody_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3295,7 +3295,7 @@ async_179_2,"  @Test
   }
   }
 ",BasicHttpTest::headHasEmptyBody_2_oe
-async_180_1,"  @Test
+async_179_1,"  @Test
   public void jettyRespondsWithChunkedTransferEncoding_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3310,7 +3310,7 @@ async_180_1,"  @Test
   }
   }
 ",BasicHttpTest::jettyRespondsWithChunkedTransferEncoding_1_oe
-async_180_2,"  @Test
+async_179_2,"  @Test
   public void jettyRespondsWithChunkedTransferEncoding_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3326,7 +3326,7 @@ async_180_2,"  @Test
   }
   }
 ",BasicHttpTest::jettyRespondsWithChunkedTransferEncoding_2_oe
-async_181_1,"  @Test
+async_180_1,"  @Test
   public void getWithCookies_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3346,7 +3346,7 @@ async_181_1,"  @Test
   }
   }
 ",BasicHttpTest::getWithCookies_1_oe
-async_181_2,"  @Test
+async_180_2,"  @Test
   public void getWithCookies_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3368,7 +3368,7 @@ async_181_2,"  @Test
   }
   }
 ",BasicHttpTest::getWithCookies_2_oe
-async_181_3,"  @Test
+async_180_3,"  @Test
   public void getWithCookies_3_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3391,7 +3391,7 @@ async_181_3,"  @Test
   }
   }
 ",BasicHttpTest::getWithCookies_3_oe
-async_182_1,"  @Test
+async_181_1,"  @Test
   public void defaultRequestBodyEncodingIsUtf8_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3403,7 +3403,7 @@ async_182_1,"  @Test
   }
   }
 ",BasicHttpTest::defaultRequestBodyEncodingIsUtf8_1_oe
-async_183_1,"  @Test
+async_182_1,"  @Test
   public void postFormParametersAsBodyString_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3430,7 +3430,7 @@ async_183_1,"  @Test
   }
   }
 ",BasicHttpTest::postFormParametersAsBodyString_1_oe
-async_183_2,"  @Test
+async_182_2,"  @Test
   public void postFormParametersAsBodyString_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3460,7 +3460,7 @@ async_183_2,"  @Test
   }
   }
 ",BasicHttpTest::postFormParametersAsBodyString_2_oe
-async_184_1,"  @Test
+async_183_1,"  @Test
   public void postFormParametersAsBodyStream_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3486,7 +3486,7 @@ async_184_1,"  @Test
   }
   }
 ",BasicHttpTest::postFormParametersAsBodyStream_1_oe
-async_184_2,"  @Test
+async_183_2,"  @Test
   public void postFormParametersAsBodyStream_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3515,7 +3515,7 @@ async_184_2,"  @Test
   }
   }
 ",BasicHttpTest::postFormParametersAsBodyStream_2_oe
-async_185_1,"  @Test
+async_184_1,"  @Test
   public void putFormParametersAsBodyStream_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3542,7 +3542,7 @@ async_185_1,"  @Test
   }
   }
 ",BasicHttpTest::putFormParametersAsBodyStream_1_oe
-async_185_2,"  @Test
+async_184_2,"  @Test
   public void putFormParametersAsBodyStream_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3572,7 +3572,7 @@ async_185_2,"  @Test
   }
   }
 ",BasicHttpTest::putFormParametersAsBodyStream_2_oe
-async_186_1,"  @Test
+async_185_1,"  @Test
   public void postSingleStringPart_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3590,7 +3590,7 @@ async_186_1,"  @Test
   }
   }
 ",BasicHttpTest::postSingleStringPart_1_oe
-async_187_1,"  @Test
+async_186_1,"  @Test
   public void postWithBody_1_oe() throws Throwable {
     withClient().run(client ->
             withServer(server).run(server -> {
@@ -3605,7 +3605,7 @@ async_187_1,"  @Test
   }
   }
 ",BasicHttpTest::postWithBody_1_oe
-async_188_1,"  @Test
+async_187_1,"  @Test
   public void getVirtualHost_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3620,7 +3620,7 @@ async_188_1,"  @Test
   }
   }
 ",BasicHttpTest::getVirtualHost_1_oe
-async_188_2,"  @Test
+async_187_2,"  @Test
   public void getVirtualHost_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3639,7 +3639,7 @@ async_188_2,"  @Test
   }
   }
 ",BasicHttpTest::getVirtualHost_2_oe
-async_189_1,"  @Test
+async_188_1,"  @Test
   public void connectFailureNotifiesHandlerWithConnectException_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3657,7 +3657,7 @@ async_189_1,"  @Test
   }
   }
 ",BasicHttpTest::connectFailureNotifiesHandlerWithConnectException_1_oe
-async_189_2,"  @Test
+async_188_2,"  @Test
   public void connectFailureNotifiesHandlerWithConnectException_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3681,7 +3681,7 @@ async_189_2,"  @Test
   }
   }
 ",BasicHttpTest::connectFailureNotifiesHandlerWithConnectException_2_oe
-async_190_1,"  @Test
+async_189_1,"  @Test
   public void getEmptyBody_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3692,7 +3692,7 @@ async_190_1,"  @Test
   }
   }
 ",BasicHttpTest::getEmptyBody_1_oe
-async_191_1,"  @Test
+async_190_1,"  @Test
   public void getEmptyBodyNotifiesHandler_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3709,7 +3709,7 @@ async_191_1,"  @Test
   }
   }
 ",BasicHttpTest::getEmptyBodyNotifiesHandler_1_oe
-async_191_2,"  @Test
+async_190_2,"  @Test
   public void getEmptyBodyNotifiesHandler_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3729,7 +3729,7 @@ async_191_2,"  @Test
   }
   }
 ",BasicHttpTest::getEmptyBodyNotifiesHandler_2_oe
-async_192_1,"  @Test
+async_191_1,"  @Test
   public void exceptionInOnCompletedGetNotifiedToOnThrowable_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3757,7 +3757,7 @@ async_192_1,"  @Test
   }
   }
 ",BasicHttpTest::exceptionInOnCompletedGetNotifiedToOnThrowable_1_oe
-async_192_2,"  @Test
+async_191_2,"  @Test
   public void exceptionInOnCompletedGetNotifiedToOnThrowable_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3787,7 +3787,7 @@ async_192_2,"  @Test
   }
   }
 ",BasicHttpTest::exceptionInOnCompletedGetNotifiedToOnThrowable_2_oe
-async_193_1,"  @Test(expectedExceptions = TimeoutException.class)
+async_192_1,"  @Test(expectedExceptions = TimeoutException.class)
   public void configTimeoutNotifiesOnThrowableAndFuture_1_oe() throws Throwable {
     withClient(config().setRequestTimeout(1_000)).run(client ->
       withServer(server).run(server -> {
@@ -3821,7 +3821,7 @@ async_193_1,"  @Test(expectedExceptions = TimeoutException.class)
   }
   }
 ",BasicHttpTest::configTimeoutNotifiesOnThrowableAndFuture_1_oe
-async_193_2,"  @Test(expectedExceptions = TimeoutException.class)
+async_192_2,"  @Test(expectedExceptions = TimeoutException.class)
   public void configTimeoutNotifiesOnThrowableAndFuture_2_oe() throws Throwable {
     withClient(config().setRequestTimeout(1_000)).run(client ->
       withServer(server).run(server -> {
@@ -3857,7 +3857,7 @@ async_193_2,"  @Test(expectedExceptions = TimeoutException.class)
   }
   }
 ",BasicHttpTest::configTimeoutNotifiesOnThrowableAndFuture_2_oe
-async_193_3,"  @Test(expectedExceptions = TimeoutException.class)
+async_192_3,"  @Test(expectedExceptions = TimeoutException.class)
   public void configTimeoutNotifiesOnThrowableAndFuture_3_oe() throws Throwable {
     withClient(config().setRequestTimeout(1_000)).run(client ->
       withServer(server).run(server -> {
@@ -3894,7 +3894,7 @@ async_193_3,"  @Test(expectedExceptions = TimeoutException.class)
   }
   }
 ",BasicHttpTest::configTimeoutNotifiesOnThrowableAndFuture_3_oe
-async_194_1,"  @Test(expectedExceptions = TimeoutException.class)
+async_193_1,"  @Test(expectedExceptions = TimeoutException.class)
   public void configRequestTimeoutHappensInDueTime_1_oe() throws Throwable {
     withClient(config().setRequestTimeout(1_000)).run(client ->
       withServer(server).run(server -> {
@@ -3913,7 +3913,7 @@ async_194_1,"  @Test(expectedExceptions = TimeoutException.class)
   }
   }
 ",BasicHttpTest::configRequestTimeoutHappensInDueTime_1_oe
-async_195_1,"  @Test
+async_194_1,"  @Test
   public void getProperPathAndQueryString_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3927,7 +3927,7 @@ async_195_1,"  @Test
   }
   }
 ",BasicHttpTest::getProperPathAndQueryString_1_oe
-async_195_2,"  @Test
+async_194_2,"  @Test
   public void getProperPathAndQueryString_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3942,7 +3942,7 @@ async_195_2,"  @Test
   }
   }
 ",BasicHttpTest::getProperPathAndQueryString_2_oe
-async_196_1,"  @Test
+async_195_1,"  @Test
   public void connectionIsReusedForSequentialRequests_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3962,7 +3962,7 @@ async_196_1,"  @Test
   }
   }
 ",BasicHttpTest::connectionIsReusedForSequentialRequests_1_oe
-async_196_2,"  @Test
+async_195_2,"  @Test
   public void connectionIsReusedForSequentialRequests_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -3989,7 +3989,7 @@ async_196_2,"  @Test
   }
   }
 ",BasicHttpTest::connectionIsReusedForSequentialRequests_2_oe
-async_196_3,"  @Test
+async_195_3,"  @Test
   public void connectionIsReusedForSequentialRequests_3_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4028,7 +4028,7 @@ async_196_3,"  @Test
   }
   }
 ",BasicHttpTest::connectionIsReusedForSequentialRequests_3_oe
-async_197_1,"  @Test(expectedExceptions = MaxRedirectException.class)
+async_196_1,"  @Test(expectedExceptions = MaxRedirectException.class)
   public void reachingMaxRedirectThrowsMaxRedirectException_1_oe() throws Throwable {
     withClient(config().setMaxRedirects(1).setFollowRedirect(true)).run(client ->
       withServer(server).run(server -> {
@@ -4046,7 +4046,7 @@ async_197_1,"  @Test(expectedExceptions = MaxRedirectException.class)
   }
   }
 ",BasicHttpTest::reachingMaxRedirectThrowsMaxRedirectException_1_oe
-async_198_1,"  @Test
+async_197_1,"  @Test
   public void nonBlockingNestedRequestsFromIoThreadAreFine_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4084,7 +4084,7 @@ async_198_1,"  @Test
   }
   }
 ",BasicHttpTest::nonBlockingNestedRequestsFromIoThreadAreFine_1_oe
-async_199_1,"  @Test
+async_198_1,"  @Test
   public void optionsIsSupported_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4094,7 +4094,7 @@ async_199_1,"  @Test
   }
   }
 ",BasicHttpTest::optionsIsSupported_1_oe
-async_199_2,"  @Test
+async_198_2,"  @Test
   public void optionsIsSupported_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4105,7 +4105,7 @@ async_199_2,"  @Test
   }
   }
 ",BasicHttpTest::optionsIsSupported_2_oe
-async_200_1,"  @Test
+async_199_1,"  @Test
   public void cancellingFutureNotifiesOnThrowableWithCancellationException_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4132,7 +4132,7 @@ async_200_1,"  @Test
   }
   }
 ",BasicHttpTest::cancellingFutureNotifiesOnThrowableWithCancellationException_1_oe
-async_201_1,"  @Test
+async_200_1,"  @Test
   public void emptyResponseBodyBytesAreEmpty_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4142,7 +4142,7 @@ async_201_1,"  @Test
   }
   }
 ",BasicHttpTest::emptyResponseBodyBytesAreEmpty_1_oe
-async_201_2,"  @Test
+async_200_2,"  @Test
   public void emptyResponseBodyBytesAreEmpty_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4153,7 +4153,7 @@ async_201_2,"  @Test
   }
   }
 ",BasicHttpTest::emptyResponseBodyBytesAreEmpty_2_oe
-async_202_1,"  @Test
+async_201_1,"  @Test
   public void newConnectionEventsAreFired_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4181,7 +4181,7 @@ async_202_1,"  @Test
   }
   }
 ",BasicHttpTest::newConnectionEventsAreFired_1_oe
-async_203_1,"  @Test
+async_202_1,"  @Test
   public void requestingPlainHttpEndpointOverHttpsThrowsSslException_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4193,7 +4193,7 @@ async_203_1,"  @Test
   }
   }
 ",BasicHttpTest::requestingPlainHttpEndpointOverHttpsThrowsSslException_1_oe
-async_203_2,"  @Test
+async_202_2,"  @Test
   public void requestingPlainHttpEndpointOverHttpsThrowsSslException_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4207,7 +4207,7 @@ async_203_2,"  @Test
   }
   }
 ",BasicHttpTest::requestingPlainHttpEndpointOverHttpsThrowsSslException_2_oe
-async_203_3,"  @Test
+async_202_3,"  @Test
   public void requestingPlainHttpEndpointOverHttpsThrowsSslException_3_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4222,7 +4222,7 @@ async_203_3,"  @Test
   }
   }
 ",BasicHttpTest::requestingPlainHttpEndpointOverHttpsThrowsSslException_3_oe
-async_204_1,"  @Test
+async_203_1,"  @Test
   public void postUnboundedInputStreamAsBodyStream_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4240,7 +4240,7 @@ async_204_1,"  @Test
   }
   }
 ",BasicHttpTest::postUnboundedInputStreamAsBodyStream_1_oe
-async_204_2,"  @Test
+async_203_2,"  @Test
   public void postUnboundedInputStreamAsBodyStream_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4259,7 +4259,7 @@ async_204_2,"  @Test
   }
   }
 ",BasicHttpTest::postUnboundedInputStreamAsBodyStream_2_oe
-async_204_3,"  @Test
+async_203_3,"  @Test
   public void postUnboundedInputStreamAsBodyStream_3_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4290,7 +4290,7 @@ async_204_3,"  @Test
   }
   }
 ",BasicHttpTest::postUnboundedInputStreamAsBodyStream_3_oe
-async_204_4,"  @Test
+async_203_4,"  @Test
   public void postUnboundedInputStreamAsBodyStream_4_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4322,7 +4322,7 @@ async_204_4,"  @Test
   }
   }
 ",BasicHttpTest::postUnboundedInputStreamAsBodyStream_4_oe
-async_205_1,"  @Test
+async_204_1,"  @Test
   public void postInputStreamWithContentLengthAsBodyGenerator_1_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4340,7 +4340,7 @@ async_205_1,"  @Test
   }
   }
 ",BasicHttpTest::postInputStreamWithContentLengthAsBodyGenerator_1_oe
-async_205_2,"  @Test
+async_204_2,"  @Test
   public void postInputStreamWithContentLengthAsBodyGenerator_2_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4359,7 +4359,7 @@ async_205_2,"  @Test
   }
   }
 ",BasicHttpTest::postInputStreamWithContentLengthAsBodyGenerator_2_oe
-async_205_3,"  @Test
+async_204_3,"  @Test
   public void postInputStreamWithContentLengthAsBodyGenerator_3_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4393,7 +4393,7 @@ async_205_3,"  @Test
   }
   }
 ",BasicHttpTest::postInputStreamWithContentLengthAsBodyGenerator_3_oe
-async_205_4,"  @Test
+async_204_4,"  @Test
   public void postInputStreamWithContentLengthAsBodyGenerator_4_oe() throws Throwable {
     withClient().run(client ->
       withServer(server).run(server -> {
@@ -4428,7 +4428,7 @@ async_205_4,"  @Test
   }
   }
 ",BasicHttpTest::postInputStreamWithContentLengthAsBodyGenerator_4_oe
-async_215_1,"  @Test
+async_214_1,"  @Test
   public void timeoutWithNoStatusLineSent_1_oe() throws Throwable {
     try {
       execute(response -> Thread.sleep(5_000), bodyPublisher -> {});
@@ -4436,7 +4436,7 @@ async_215_1,"  @Test
   }
   }
 ",ReactiveStreamsErrorTest::timeoutWithNoStatusLineSent_1_oe
-async_216_1,"  @Test
+async_215_1,"  @Test
   public void neverSubscribingToResponseBodyHitsRequestTimeout_1_oe() throws Throwable {
     try {
       execute(response -> {
@@ -4453,7 +4453,7 @@ async_216_1,"  @Test
   }
   }
 ",ReactiveStreamsErrorTest::neverSubscribingToResponseBodyHitsRequestTimeout_1_oe
-async_217_1,"  @Test
+async_216_1,"  @Test
   public void readTimeoutInMiddleOfBody_1_oe() throws Throwable {
     ServletResponseHandler responseHandler = response -> {
       response.getOutputStream().write(BODY_CHUNK);
@@ -4478,7 +4478,7 @@ async_217_1,"  @Test
   }
   }
 ",ReactiveStreamsErrorTest::readTimeoutInMiddleOfBody_1_oe
-async_219_1,"  @Test
+async_218_1,"  @Test
   public void readTimeoutCancelsBodyStream_1_oe() throws Throwable {
     ServletResponseHandler responseHandler = response -> {
       response.getOutputStream().write(BODY_CHUNK);
@@ -4503,7 +4503,7 @@ async_219_1,"  @Test
   }
   }
 ",ReactiveStreamsErrorTest::readTimeoutCancelsBodyStream_1_oe
-async_220_1,"  @Test
+async_219_1,"  @Test
   public void requestTimeoutCancelsBodyStream_1_oe() throws Throwable {
     ServletResponseHandler responseHandler = response -> {
       response.getOutputStream().write(BODY_CHUNK);
@@ -4537,7 +4537,7 @@ async_220_1,"  @Test
   }
   }
 ",ReactiveStreamsErrorTest::requestTimeoutCancelsBodyStream_1_oe
-async_221_1,"  @Test
+async_220_1,"  @Test
   public void ioErrorsArePropagatedToSubscriber_1_oe() throws Throwable {
     ServletResponseHandler responseHandler = response -> {
       response.setContentLength(100);
@@ -4563,166 +4563,7 @@ async_221_1,"  @Test
   }
   }
 ",ReactiveStreamsErrorTest::ioErrorsArePropagatedToSubscriber_1_oe
-async_222_14,"  @Test
-  public void testStreamingPutImage_14_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-
-      response = requestBuilder.execute().get();
-      // removed other assertion
-      responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-
-      try {
-        assertEquals(response.getHeader(CONTENT_MD5), LARGE_IMAGE_BYTES_MD5, ""Server side payload MD5 invalid"");
-  }
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_14_oe
-async_222_15,"  @Test
-  public void testStreamingPutImage_15_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-
-      response = requestBuilder.execute().get();
-      // removed other assertion
-      responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-
-      try {
-        // removed other assertion
-        assertEquals(TestUtils.md5(responseBody), LARGE_IMAGE_BYTES_MD5, ""Client side payload MD5 invalid"");
-  }
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_15_oe
-async_222_16,"  @Test
-  public void testStreamingPutImage_16_oe() throws Exception {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createAsyncPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-
-  @Test
-  public void testAsyncStreamingPutImage() throws Exception {
-    // test that streaming works with a publisher that does not invoke onSubscription synchronously from subscribe
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      Response response = client.preparePut(getTargetUrl()).setBody(createPublisher(LARGE_IMAGE_BYTES, 2342))
-              .execute().get();
-      // removed other assertion
-      // removed other assertion
-    }
-  }
-    
-  @Test
-  public void testConnectionDoesNotGetClosed() throws Exception {
-    // test that we can stream the same request multiple times
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100 * 6000))) {
-      BoundRequestBuilder requestBuilder = client.preparePut(getTargetUrl())
-              .setBody(createPublisher(LARGE_IMAGE_BYTES, 1000))
-              .setHeader(""X-"" + CONTENT_LENGTH, LARGE_IMAGE_BYTES.length)
-              .setHeader(""X-"" + CONTENT_MD5, LARGE_IMAGE_BYTES_MD5);
-
-      Response response = requestBuilder.execute().get();
-      // removed other assertion
-
-      byte[] responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-
-      response = requestBuilder.execute().get();
-      // removed other assertion
-      responseBody = response.getResponseBodyAsBytes();
-      // removed other assertion
-      // removed other assertion
-
-      try {
-        // removed other assertion
-        // removed other assertion
-        assertEquals(responseBody, LARGE_IMAGE_BYTES, ""Image bytes weren't equal on subsequent test"");
-  }
-  }
-  }
-",ReactiveStreamsTest::testStreamingPutImage_16_oe
-async_234_1,"  @Test
+async_232_1,"  @Test
   public void basicGetTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final AtomicReference<Throwable> throwable = new AtomicReference<>();
@@ -4761,7 +4602,7 @@ async_234_1,"  @Test
   }
 
   }",TransferListenerTest::basicGetTest_1_oe
-async_234_2,"  @Test
+async_232_2,"  @Test
   public void basicGetTest_2_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final AtomicReference<Throwable> throwable = new AtomicReference<>();
@@ -4801,7 +4642,7 @@ async_234_2,"  @Test
   }
 
   }",TransferListenerTest::basicGetTest_2_oe
-async_234_3,"  @Test
+async_232_3,"  @Test
   public void basicGetTest_3_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final AtomicReference<Throwable> throwable = new AtomicReference<>();
@@ -4842,7 +4683,7 @@ async_234_3,"  @Test
   }
 
   }",TransferListenerTest::basicGetTest_3_oe
-async_234_4,"  @Test
+async_232_4,"  @Test
   public void basicGetTest_4_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final AtomicReference<Throwable> throwable = new AtomicReference<>();
@@ -4884,7 +4725,7 @@ async_234_4,"  @Test
   }
 
   }",TransferListenerTest::basicGetTest_4_oe
-async_234_5,"  @Test
+async_232_5,"  @Test
   public void basicGetTest_5_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final AtomicReference<Throwable> throwable = new AtomicReference<>();
@@ -4927,7 +4768,7 @@ async_234_5,"  @Test
   }
 
   }",TransferListenerTest::basicGetTest_5_oe
-async_234_6,"  @Test
+async_232_6,"  @Test
   public void basicGetTest_6_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final AtomicReference<Throwable> throwable = new AtomicReference<>();
@@ -4971,7 +4812,7 @@ async_234_6,"  @Test
   }
 
   }",TransferListenerTest::basicGetTest_6_oe
-async_237_1,"  @Test
+async_235_1,"  @Test
   public void testEmptyBody_1_oe() throws IOException {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       final AtomicBoolean err = new AtomicBoolean(false);
@@ -4987,7 +4828,7 @@ async_237_1,"  @Test
   }
   }
 ",EmptyBodyTest::testEmptyBody_1_oe
-async_237_2,"  @Test
+async_235_2,"  @Test
   public void testEmptyBody_2_oe() throws IOException {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       final AtomicBoolean err = new AtomicBoolean(false);
@@ -5036,7 +4877,7 @@ async_237_2,"  @Test
   }
   }
 ",EmptyBodyTest::testEmptyBody_2_oe
-async_244_1,"  @Test
+async_242_1,"  @Test
   public void readingBytesReturnsFedContentWithoutChunkBoundaries_1_oe() throws Exception {
     byte[] content = ""Test123"".getBytes(StandardCharsets.US_ASCII);
 
@@ -5050,7 +4891,7 @@ async_244_1,"  @Test
   }
   }
 ",FeedableBodyGeneratorTest::readingBytesReturnsFedContentWithoutChunkBoundaries_1_oe
-async_244_2,"  @Test
+async_242_2,"  @Test
   public void readingBytesReturnsFedContentWithoutChunkBoundaries_2_oe() throws Exception {
     byte[] content = ""Test123"".getBytes(StandardCharsets.US_ASCII);
 
@@ -5065,7 +4906,7 @@ async_244_2,"  @Test
   }
   }
 ",FeedableBodyGeneratorTest::readingBytesReturnsFedContentWithoutChunkBoundaries_2_oe
-async_245_1,"  @Test
+async_243_1,"  @Test
   public void returnZeroToSuspendStreamWhenNothingIsInQueue_1_oe() throws Exception {
     byte[] content = ""Test123"".getBytes(StandardCharsets.US_ASCII);
 
@@ -5080,7 +4921,7 @@ async_245_1,"  @Test
   }
   }
 ",FeedableBodyGeneratorTest::returnZeroToSuspendStreamWhenNothingIsInQueue_1_oe
-async_245_2,"  @Test
+async_243_2,"  @Test
   public void returnZeroToSuspendStreamWhenNothingIsInQueue_2_oe() throws Exception {
     byte[] content = ""Test123"".getBytes(StandardCharsets.US_ASCII);
 
@@ -5096,7 +4937,7 @@ async_245_2,"  @Test
   }
   }
 ",FeedableBodyGeneratorTest::returnZeroToSuspendStreamWhenNothingIsInQueue_2_oe
-async_246_1,"  @Test
+async_244_1,"  @Test
   public void testSingleRead_1_oe() throws IOException {
     final int srcArraySize = chunkSize - 1;
     final byte[] srcArray = new byte[srcArraySize];
@@ -5114,7 +4955,7 @@ async_246_1,"  @Test
   }
   }
 ",ByteArrayBodyGeneratorTest::testSingleRead_1_oe
-async_246_2,"  @Test
+async_244_2,"  @Test
   public void testSingleRead_2_oe() throws IOException {
     final int srcArraySize = chunkSize - 1;
     final byte[] srcArray = new byte[srcArraySize];
@@ -5135,7 +4976,7 @@ async_246_2,"  @Test
   }
   }
 ",ByteArrayBodyGeneratorTest::testSingleRead_2_oe
-async_247_1,"  @Test
+async_245_1,"  @Test
   public void testMultipleReads_1_oe() throws IOException {
     final int srcArraySize = (3 * chunkSize) + 42;
     final byte[] srcArray = new byte[srcArraySize];
@@ -5158,7 +4999,7 @@ async_247_1,"  @Test
   }
   }
 ",ByteArrayBodyGeneratorTest::testMultipleReads_1_oe
-async_247_2,"  @Test
+async_245_2,"  @Test
   public void testMultipleReads_2_oe() throws IOException {
     final int srcArraySize = (3 * chunkSize) + 42;
     final byte[] srcArray = new byte[srcArraySize];
@@ -5182,7 +5023,7 @@ async_247_2,"  @Test
   }
   }
 ",ByteArrayBodyGeneratorTest::testMultipleReads_2_oe
-async_278_4,"  @Test(enabled = false)
+async_276_4,"  @Test(enabled = false)
   public void testProxyProperties_4_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     // FIXME not threadsafe!
     Properties originalProps = new Properties();
@@ -5209,7 +5050,7 @@ async_278_4,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testProxyProperties_4_oe
-async_279_1,"  @Test(enabled = false)
+async_277_1,"  @Test(enabled = false)
   public void testIgnoreProxyPropertiesByDefault_1_oe() throws IOException, TimeoutException, InterruptedException {
     // FIXME not threadsafe!
     Properties originalProps = new Properties();
@@ -5229,7 +5070,7 @@ async_279_1,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testIgnoreProxyPropertiesByDefault_1_oe
-async_280_4,"  @Test(enabled = false)
+async_278_4,"  @Test(enabled = false)
   public void testProxyActivationProperty_4_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     // FIXME not threadsafe!
     Properties originalProps = new Properties();
@@ -5257,7 +5098,7 @@ async_280_4,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testProxyActivationProperty_4_oe
-async_281_1,"  @Test(enabled = false)
+async_279_1,"  @Test(enabled = false)
   public void testWildcardNonProxyHosts_1_oe() throws IOException, TimeoutException, InterruptedException {
     // FIXME not threadsafe!
     Properties originalProps = new Properties();
@@ -5277,7 +5118,7 @@ async_281_1,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testWildcardNonProxyHosts_1_oe
-async_282_4,"  @Test(enabled = false)
+async_280_4,"  @Test(enabled = false)
   public void testUseProxySelector_4_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     ProxySelector originalProxySelector = ProxySelector.getDefault();
     ProxySelector.setDefault(new ProxySelector() {
@@ -5310,7 +5151,7 @@ async_282_4,"  @Test(enabled = false)
   }
   }
 ",ProxyTest::testUseProxySelector_4_oe
-async_290_1,"  @Test
+async_288_1,"  @Test
   public void asyncPipelineTest_1_oe() throws Exception {
 
     Consumer<Channel> httpAdditionalPipelineInitializer = channel -> channel.pipeline().addBefore(""inflater"",
@@ -5330,7 +5171,7 @@ async_290_1,"  @Test
   }
   }
 ",EventPipelineTest::asyncPipelineTest_1_oe
-async_290_2,"  @Test
+async_288_2,"  @Test
   public void asyncPipelineTest_2_oe() throws Exception {
 
     Consumer<Channel> httpAdditionalPipelineInitializer = channel -> channel.pipeline().addBefore(""inflater"",
@@ -5351,7 +5192,7 @@ async_290_2,"  @Test
   }
   }
 ",EventPipelineTest::asyncPipelineTest_2_oe
-async_371_1,"  @Test(invocationCount = 100)
+async_368_1,"  @Test(invocationCount = 100)
   public void asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_1_oe() throws Exception {
 
     try (AsyncHttpClient client = asyncHttpClient()) {
@@ -5373,7 +5214,7 @@ async_371_1,"  @Test(invocationCount = 100)
   }
   }
 ",ConnectionPoolTest::asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_1_oe
-async_372_2,"  @Test(expectedExceptions = TooManyConnectionsException.class)
+async_369_2,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   public void multipleMaxConnectionOpenTest_2_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -5392,7 +5233,7 @@ async_372_2,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTest_2_oe
-async_374_1,"  @Test
+async_371_1,"  @Test
   public void win7DisconnectTest_1_oe() throws Exception {
     final AtomicInteger count = new AtomicInteger(0);
 

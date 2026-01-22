@@ -432,6 +432,18 @@ public class JSONObjectTest_OE25Dev {
      * Exercise the JSONObject write() method
      */
 /*
+    @Test
+    public void writeAppendable() {
+        String str = "{\"key1\":\"value1\",\"key2\":[1,2,3]}";
+        String expectedStr = str;
+        JSONObject jsonObject = new JSONObject(str);
+        StringBuilder stringBuilder = new StringBuilder();
+        Appendable appendable = jsonObject.write(stringBuilder);
+        String actualStr = appendable.toString();
+        assertTrue("write() expected " +expectedStr+
+                        " but found " +actualStr,
+                expectedStr.equals(actualStr));
+    }
 */
 
     /**
@@ -487,19 +499,36 @@ public class JSONObjectTest_OE25Dev {
      * Exercise the JSONObject write(Appendable, int, int) method
      */
 /*
+    @Test
+    public void write3ParamAppendable() {
+        String str0 = "{\"key1\":\"value1\",\"key2\":[1,false,3.14]}";
+        String str2 =
+                "{\n" +
+                        "   \"key1\": \"value1\",\n" +
+                        "   \"key2\": [\n" +
+                        "     1,\n" +
+                        "     false,\n" +
+                        "     3.14\n" +
+                        "   ]\n" +
+                        " }";
+        JSONObject jsonObject = new JSONObject(str0);
+        String expectedStr = str0;
+        StringBuilder stringBuilder = new StringBuilder();
+        Appendable appendable = jsonObject.write(stringBuilder,0,0);
+        String actualStr = appendable.toString();
+        assertEquals(expectedStr, actualStr);
+
+        expectedStr = str2;
+        stringBuilder = new StringBuilder();
+        appendable = jsonObject.write(stringBuilder,2,1);
+        actualStr = appendable.toString();
+        assertEquals(expectedStr, actualStr);
+    }
 */
 
     /**
      * Exercise the JSONObject equals() method
      */
-    @Test
-    public void equals() {
-        String str = "{\"key\":\"value\"}";
-        JSONObject aJsonObject = new JSONObject(str);
-        assertTrue("Same JSONObject should be equal to itself",
-                aJsonObject.equals(aJsonObject));
-        Util.checkJSONObjectMaps(aJsonObject);
-    }
 
     /**
      * JSON null is not the same as Java null. This test examines the differences
@@ -627,14 +656,56 @@ public class JSONObjectTest_OE25Dev {
     /**
     * Tests for incorrect object/array nesting. See https://github.com/stleary/JSON-java/issues/654
     */
+    @Test(expected = JSONException.class)
+    public void issue654IncorrectNestingNoKey1() {
+        JSONObject json_input = new JSONObject("{{\"a\":0}}");
+        assertNotNull(json_input);
+        fail("Expected Exception.");
+    }
 
     /**
     * Tests for incorrect object/array nesting. See https://github.com/stleary/JSON-java/issues/654
     */
+    @Test(expected = JSONException.class)
+    public void issue654IncorrectNestingNoKey2() {
+        JSONObject json_input = new JSONObject("{[\"a\"]}");
+        assertNotNull(json_input);
+        fail("Excepected Exception.");
+    }
     
     /**
     * Tests for stack overflow. See https://github.com/stleary/JSON-java/issues/654
     */
+    @Test(expected = JSONException.class)
+    public void issue654StackOverflowInputWellFormed() {
+        //String input = new String(java.util.Base64.getDecoder().decode(base64Bytes));
+        final InputStream resourceAsStream = JSONObjectTest_OE25Dev.class.getClassLoader().getResourceAsStream("Issue654WellFormedObject.json");
+        JSONTokener tokener = new JSONTokener(resourceAsStream);
+        JSONObject json_input = new JSONObject(tokener);
+        assertNotNull(json_input);
+        fail("Excepected Exception.");
+    }
+
+    @Test
+    public void testIssue682SimilarityOfJSONString() {
+        JSONObject jo1 = new JSONObject()
+                .put("a", new MyJsonString())
+                .put("b", 2);
+        JSONObject jo2 = new JSONObject()
+                .put("a", new MyJsonString())
+                .put("b", 2);
+        assertTrue(jo1.similar(jo2));
+
+        JSONObject jo3 = new JSONObject()
+                .put("a", new JSONString() {
+                    @Override
+                    public String toJSONString() {
+                        return "\"different value\"";
+                    }
+                })
+                .put("b", 2);
+        assertFalse(jo1.similar(jo3));
+    }
 
     @Test
     public void verifySimilar_1_oe() {
@@ -13818,60 +13889,10 @@ public class JSONObjectTest_OE25Dev {
     }
 
     @Test
-    public void writeAppendable_1_oe() {
-        String str = "{\"key1\":\"value1\",\"key2\":[1,2,3]}";
-        String expectedStr = str;
-        JSONObject jsonObject = new JSONObject(str);
-        StringBuilder stringBuilder = new StringBuilder();
-        Appendable appendable = jsonObject.write(stringBuilder);
-        String actualStr = appendable.toString();
-        assertTrue("write() expected " +expectedStr+ " but found " +actualStr, expectedStr.equals(actualStr));
-    }
-
-    @Test
-    public void write3ParamAppendable_1_oe() {
-        String str0 = "{\"key1\":\"value1\",\"key2\":[1,false,3.14]}";
-        String str2 =
-                "{\n" +
-                        "   \"key1\": \"value1\",\n" +
-                        "   \"key2\": [\n" +
-                        "     1,\n" +
-                        "     false,\n" +
-                        "     3.14\n" +
-                        "   ]\n" +
-                        " }";
-        JSONObject jsonObject = new JSONObject(str0);
-        String expectedStr = str0;
-        StringBuilder stringBuilder = new StringBuilder();
-        Appendable appendable = jsonObject.write(stringBuilder,0,0);
-        String actualStr = appendable.toString();
-        assertEquals(expectedStr, actualStr);
-    }
-
-    @Test
-    public void write3ParamAppendable_2_oe() {
-        String str0 = "{\"key1\":\"value1\",\"key2\":[1,false,3.14]}";
-        String str2 =
-                "{\n" +
-                        "   \"key1\": \"value1\",\n" +
-                        "   \"key2\": [\n" +
-                        "     1,\n" +
-                        "     false,\n" +
-                        "     3.14\n" +
-                        "   ]\n" +
-                        " }";
-        JSONObject jsonObject = new JSONObject(str0);
-        String expectedStr = str0;
-        StringBuilder stringBuilder = new StringBuilder();
-        Appendable appendable = jsonObject.write(stringBuilder,0,0);
-        String actualStr = appendable.toString();
-        // removed other assertion
-
-        expectedStr = str2;
-        stringBuilder = new StringBuilder();
-        appendable = jsonObject.write(stringBuilder,2,1);
-        actualStr = appendable.toString();
-        assertEquals(expectedStr, actualStr);
+    public void equals_1_oe() {
+        String str = "{\"key\":\"value\"}";
+        JSONObject aJsonObject = new JSONObject(str);
+        assertTrue("Same JSONObject should be equal to itself", aJsonObject.equals(aJsonObject));
     }
 
     @Test
@@ -16086,83 +16107,6 @@ public class JSONObjectTest_OE25Dev {
         jsonObject.put("key3", new JSONObject());
         jsonObject.clear(); //Clears the JSONObject
         assertTrue("expected jsonObject.length() == 0", jsonObject.length() == 0); //Check if its length is 0;
-    }
-
-    @Test(expected = JSONException.class)
-    public void issue654IncorrectNestingNoKey1_1_oe() {
-        JSONObject json_input = new JSONObject("{{\"a\":0}}");
-        assertNotNull(json_input);
-    }
-
-    @Test(expected = JSONException.class)
-    public void issue654IncorrectNestingNoKey1_2_oe() {
-        JSONObject json_input = new JSONObject("{{\"a\":0}}");
-        // removed other assertion
-        fail("Expected Exception.");
-    }
-
-    @Test(expected = JSONException.class)
-    public void issue654IncorrectNestingNoKey2_1_oe() {
-        JSONObject json_input = new JSONObject("{[\"a\"]}");
-        assertNotNull(json_input);
-    }
-
-    @Test(expected = JSONException.class)
-    public void issue654IncorrectNestingNoKey2_2_oe() {
-        JSONObject json_input = new JSONObject("{[\"a\"]}");
-        // removed other assertion
-        fail("Excepected Exception.");
-    }
-
-    @Test(expected = JSONException.class)
-    public void issue654StackOverflowInputWellFormed_1_oe() {
-        //String input = new String(java.util.Base64.getDecoder().decode(base64Bytes));
-        final InputStream resourceAsStream = JSONObjectTest.class.getClassLoader().getResourceAsStream("Issue654WellFormedObject.json");
-        JSONTokener tokener = new JSONTokener(resourceAsStream);
-        JSONObject json_input = new JSONObject(tokener);
-        assertNotNull(json_input);
-    }
-
-    @Test(expected = JSONException.class)
-    public void issue654StackOverflowInputWellFormed_2_oe() {
-        //String input = new String(java.util.Base64.getDecoder().decode(base64Bytes));
-        final InputStream resourceAsStream = JSONObjectTest.class.getClassLoader().getResourceAsStream("Issue654WellFormedObject.json");
-        JSONTokener tokener = new JSONTokener(resourceAsStream);
-        JSONObject json_input = new JSONObject(tokener);
-        // removed other assertion
-        fail("Excepected Exception.");
-    }
-
-    @Test
-    public void testIssue682SimilarityOfJSONString_1_oe() {
-        JSONObject jo1 = new JSONObject()
-                .put("a", new MyJsonString())
-                .put("b", 2);
-        JSONObject jo2 = new JSONObject()
-                .put("a", new MyJsonString())
-                .put("b", 2);
-        assertTrue(jo1.similar(jo2));
-    }
-
-    @Test
-    public void testIssue682SimilarityOfJSONString_2_oe() {
-        JSONObject jo1 = new JSONObject()
-                .put("a", new MyJsonString())
-                .put("b", 2);
-        JSONObject jo2 = new JSONObject()
-                .put("a", new MyJsonString())
-                .put("b", 2);
-        // removed other assertion
-
-        JSONObject jo3 = new JSONObject()
-                .put("a", new JSONString() {
-                    @Override
-                    public String toJSONString() {
-                        return "\"different value\"";
-                    }
-                })
-                .put("b", 2);
-        assertFalse(jo1.similar(jo3));
     }
 
 }

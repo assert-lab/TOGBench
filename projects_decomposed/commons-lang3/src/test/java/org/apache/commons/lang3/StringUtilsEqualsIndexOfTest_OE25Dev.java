@@ -108,6 +108,223 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
      */
 
     @Test
+    public void testLastIndexOf_String() {
+        assertEquals(-1, StringUtils.lastIndexOf(null, null));
+        assertEquals(-1, StringUtils.lastIndexOf("", null));
+        assertEquals(-1, StringUtils.lastIndexOf("", "a"));
+        assertEquals(0, StringUtils.lastIndexOf("", ""));
+        assertEquals(8, StringUtils.lastIndexOf("aabaabaa", ""));
+        assertEquals(7, StringUtils.lastIndexOf("aabaabaa", "a"));
+        assertEquals(5, StringUtils.lastIndexOf("aabaabaa", "b"));
+        assertEquals(4, StringUtils.lastIndexOf("aabaabaa", "ab"));
+
+        assertEquals(4, StringUtils.lastIndexOf(new StringBuilder("aabaabaa"), "ab"));
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        assertEquals(-1, StringUtils.lastIndexOf(null, null, 0));
+        assertEquals(-1, StringUtils.lastIndexOf(null, null, -1));
+        assertEquals(-1, StringUtils.lastIndexOf(null, "", 0));
+        assertEquals(-1, StringUtils.lastIndexOf(null, "", -1));
+        assertEquals(-1, StringUtils.lastIndexOf("", null, 0));
+        assertEquals(-1, StringUtils.lastIndexOf("", null, -1));
+        assertEquals(0, StringUtils.lastIndexOf("", "", 0));
+        assertEquals(-1, StringUtils.lastIndexOf("", "", -1));
+        assertEquals(0, StringUtils.lastIndexOf("", "", 9));
+        assertEquals(0, StringUtils.lastIndexOf("abc", "", 0));
+        assertEquals(-1, StringUtils.lastIndexOf("abc", "", -1));
+        assertEquals(3, StringUtils.lastIndexOf("abc", "", 9));
+        assertEquals(7, StringUtils.lastIndexOf("aabaabaa", "a", 8));
+        assertEquals(5, StringUtils.lastIndexOf("aabaabaa", "b", 8));
+        assertEquals(4, StringUtils.lastIndexOf("aabaabaa", "ab", 8));
+        assertEquals(2, StringUtils.lastIndexOf("aabaabaa", "b", 3));
+        assertEquals(5, StringUtils.lastIndexOf("aabaabaa", "b", 9));
+        assertEquals(-1, StringUtils.lastIndexOf("aabaabaa", "b", -1));
+        assertEquals(-1, StringUtils.lastIndexOf("aabaabaa", "b", 0));
+        assertEquals(0, StringUtils.lastIndexOf("aabaabaa", "a", 0));
+        assertEquals(-1, StringUtils.lastIndexOf("aabaabaa", "a", -1));
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        assertEquals(7, StringUtils.lastIndexOf("12345678", "8", 9));
+        assertEquals(7, StringUtils.lastIndexOf("12345678", "8", 8));
+        assertEquals(7, StringUtils.lastIndexOf("12345678", "8", 7)); // 7 is last index
+        assertEquals(-1, StringUtils.lastIndexOf("12345678", "8", 6));
+
+        assertEquals(-1, StringUtils.lastIndexOf("aabaabaa", "b", 1));
+        assertEquals(2, StringUtils.lastIndexOf("aabaabaa", "b", 2));
+        assertEquals(2, StringUtils.lastIndexOf("aabaabaa", "ba", 2));
+        assertEquals(2, StringUtils.lastIndexOf("aabaabaa", "ba", 3));
+
+        assertEquals(2, StringUtils.lastIndexOf(new StringBuilder("aabaabaa"), "b", 3));
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        assertEquals(-1, StringUtils.lastIndexOfAny(null, (CharSequence) null));   // test both types of ...
+        assertEquals(-1, StringUtils.lastIndexOfAny(null, (CharSequence[]) null)); // ... varargs invocation
+        assertEquals(-1, StringUtils.lastIndexOfAny(null)); // Missing varag
+        assertEquals(-1, StringUtils.lastIndexOfAny(null, FOOBAR_SUB_ARRAY));
+        assertEquals(-1, StringUtils.lastIndexOfAny(FOOBAR, (CharSequence) null));   // test both types of ...
+        assertEquals(-1, StringUtils.lastIndexOfAny(FOOBAR, (CharSequence[]) null)); // ... varargs invocation
+        assertEquals(-1, StringUtils.lastIndexOfAny(FOOBAR)); // Missing vararg
+        assertEquals(3, StringUtils.lastIndexOfAny(FOOBAR, FOOBAR_SUB_ARRAY));
+        assertEquals(-1, StringUtils.lastIndexOfAny(FOOBAR, new String[0]));
+        assertEquals(-1, StringUtils.lastIndexOfAny(null, new String[0]));
+        assertEquals(-1, StringUtils.lastIndexOfAny("", new String[0]));
+        assertEquals(-1, StringUtils.lastIndexOfAny(FOOBAR, new String[] {"llll"}));
+        assertEquals(6, StringUtils.lastIndexOfAny(FOOBAR, new String[] {""}));
+        assertEquals(0, StringUtils.lastIndexOfAny("", new String[] {""}));
+        assertEquals(-1, StringUtils.lastIndexOfAny("", new String[] {"a"}));
+        assertEquals(-1, StringUtils.lastIndexOfAny("", new String[] {null}));
+        assertEquals(-1, StringUtils.lastIndexOfAny(FOOBAR, new String[] {null}));
+        assertEquals(-1, StringUtils.lastIndexOfAny(null, new String[] {null}));
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase(null, null));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase("", null));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase(null, ""));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase("", "a"));
+        assertEquals(0, StringUtils.lastIndexOfIgnoreCase("", ""));
+        assertEquals(8, StringUtils.lastIndexOfIgnoreCase("aabaabaa", ""));
+        assertEquals(7, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "a"));
+        assertEquals(7, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "A"));
+        assertEquals(5, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "b"));
+        assertEquals(5, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "B"));
+        assertEquals(4, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "ab"));
+        assertEquals(4, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "AB"));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase("ab", "AAB"));
+        assertEquals(0, StringUtils.lastIndexOfIgnoreCase("aab", "AAB"));
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase(null, null, 0));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase(null, null, -1));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase(null, "", 0));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase(null, "", -1));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase("", null, 0));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase("", null, -1));
+        assertEquals(0, StringUtils.lastIndexOfIgnoreCase("", "", 0));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase("", "", -1));
+        assertEquals(0, StringUtils.lastIndexOfIgnoreCase("", "", 9));
+        assertEquals(0, StringUtils.lastIndexOfIgnoreCase("abc", "", 0));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase("abc", "", -1));
+        assertEquals(3, StringUtils.lastIndexOfIgnoreCase("abc", "", 9));
+        assertEquals(7, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "A", 8));
+        assertEquals(5, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "B", 8));
+        assertEquals(4, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "AB", 8));
+        assertEquals(2, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "B", 3));
+        assertEquals(5, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "B", 9));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "B", -1));
+        assertEquals(-1, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "B", 0));
+        assertEquals(0, StringUtils.lastIndexOfIgnoreCase("aabaabaa", "A", 0));
+        assertEquals(1, StringUtils.lastIndexOfIgnoreCase("aab", "AB", 1));
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        assertEquals(-1, StringUtils.lastOrdinalIndexOf(null, "*", 42) );
+        assertEquals(-1, StringUtils.lastOrdinalIndexOf("*", null, 42) );
+        assertEquals(0, StringUtils.lastOrdinalIndexOf("", "", 42) );
+        assertEquals(7, StringUtils.lastOrdinalIndexOf("aabaabaa", "a", 1) );
+        assertEquals(6, StringUtils.lastOrdinalIndexOf("aabaabaa", "a", 2) );
+        assertEquals(5, StringUtils.lastOrdinalIndexOf("aabaabaa", "b", 1) );
+        assertEquals(2, StringUtils.lastOrdinalIndexOf("aabaabaa", "b", 2) );
+        assertEquals(4, StringUtils.lastOrdinalIndexOf("aabaabaa", "ab", 1) );
+        assertEquals(1, StringUtils.lastOrdinalIndexOf("aabaabaa", "ab", 2) );
+        assertEquals(8, StringUtils.lastOrdinalIndexOf("aabaabaa", "", 1) );
+        assertEquals(8, StringUtils.lastOrdinalIndexOf("aabaabaa", "", 2) );
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
+        assertEquals(-1, StringUtils.ordinalIndexOf(null, null, Integer.MIN_VALUE));
+        assertEquals(-1, StringUtils.ordinalIndexOf("", null, Integer.MIN_VALUE));
+        assertEquals(-1, StringUtils.ordinalIndexOf("", "", Integer.MIN_VALUE));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "a", Integer.MIN_VALUE));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "b", Integer.MIN_VALUE));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "ab", Integer.MIN_VALUE));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "", Integer.MIN_VALUE));
+
+        assertEquals(-1, StringUtils.ordinalIndexOf(null, null, -1));
+        assertEquals(-1, StringUtils.ordinalIndexOf("", null, -1));
+        assertEquals(-1, StringUtils.ordinalIndexOf("", "", -1));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "a", -1));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "b", -1));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "ab", -1));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "", -1));
+
+        assertEquals(-1, StringUtils.ordinalIndexOf(null, null, 0));
+        assertEquals(-1, StringUtils.ordinalIndexOf("", null, 0));
+        assertEquals(-1, StringUtils.ordinalIndexOf("", "", 0));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "a", 0));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "b", 0));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "ab", 0));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "", 0));
+
+        assertEquals(-1, StringUtils.ordinalIndexOf(null, null, 1));
+        assertEquals(-1, StringUtils.ordinalIndexOf("", null, 1));
+        assertEquals(0, StringUtils.ordinalIndexOf("", "", 1));
+        assertEquals(0, StringUtils.ordinalIndexOf("aabaabaa", "a", 1));
+        assertEquals(2, StringUtils.ordinalIndexOf("aabaabaa", "b", 1));
+        assertEquals(1, StringUtils.ordinalIndexOf("aabaabaa", "ab", 1));
+        assertEquals(0, StringUtils.ordinalIndexOf("aabaabaa", "", 1));
+
+        assertEquals(-1, StringUtils.ordinalIndexOf(null, null, 2));
+        assertEquals(-1, StringUtils.ordinalIndexOf("", null, 2));
+        assertEquals(0, StringUtils.ordinalIndexOf("", "", 2));
+        assertEquals(1, StringUtils.ordinalIndexOf("aabaabaa", "a", 2));
+        assertEquals(5, StringUtils.ordinalIndexOf("aabaabaa", "b", 2));
+        assertEquals(4, StringUtils.ordinalIndexOf("aabaabaa", "ab", 2));
+        assertEquals(0, StringUtils.ordinalIndexOf("aabaabaa", "", 2));
+
+        assertEquals(-1, StringUtils.ordinalIndexOf(null, null, Integer.MAX_VALUE));
+        assertEquals(-1, StringUtils.ordinalIndexOf("", null, Integer.MAX_VALUE));
+        assertEquals(0, StringUtils.ordinalIndexOf("", "", Integer.MAX_VALUE));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "a", Integer.MAX_VALUE));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "b", Integer.MAX_VALUE));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aabaabaa", "ab", Integer.MAX_VALUE));
+        assertEquals(0, StringUtils.ordinalIndexOf("aabaabaa", "", Integer.MAX_VALUE));
+
+        assertEquals(-1, StringUtils.ordinalIndexOf("aaaaaaaaa", "a", 0));
+        assertEquals(0, StringUtils.ordinalIndexOf("aaaaaaaaa", "a", 1));
+        assertEquals(1, StringUtils.ordinalIndexOf("aaaaaaaaa", "a", 2));
+        assertEquals(2, StringUtils.ordinalIndexOf("aaaaaaaaa", "a", 3));
+        assertEquals(3, StringUtils.ordinalIndexOf("aaaaaaaaa", "a", 4));
+        assertEquals(4, StringUtils.ordinalIndexOf("aaaaaaaaa", "a", 5));
+        assertEquals(5, StringUtils.ordinalIndexOf("aaaaaaaaa", "a", 6));
+        assertEquals(6, StringUtils.ordinalIndexOf("aaaaaaaaa", "a", 7));
+        assertEquals(7, StringUtils.ordinalIndexOf("aaaaaaaaa", "a", 8));
+        assertEquals(8, StringUtils.ordinalIndexOf("aaaaaaaaa", "a", 9));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aaaaaaaaa", "a", 10));
+
+        // match at each possible position
+        assertEquals(0, StringUtils.ordinalIndexOf("aaaaaa", "aa", 1));
+        assertEquals(1, StringUtils.ordinalIndexOf("aaaaaa", "aa", 2));
+        assertEquals(2, StringUtils.ordinalIndexOf("aaaaaa", "aa", 3));
+        assertEquals(3, StringUtils.ordinalIndexOf("aaaaaa", "aa", 4));
+        assertEquals(4, StringUtils.ordinalIndexOf("aaaaaa", "aa", 5));
+        assertEquals(-1, StringUtils.ordinalIndexOf("aaaaaa", "aa", 6));
+
+        assertEquals(0, StringUtils.ordinalIndexOf("ababab", "aba", 1));
+        assertEquals(2, StringUtils.ordinalIndexOf("ababab", "aba", 2));
+        assertEquals(-1, StringUtils.ordinalIndexOf("ababab", "aba", 3));
+
+        assertEquals(0, StringUtils.ordinalIndexOf("abababab", "abab", 1));
+        assertEquals(2, StringUtils.ordinalIndexOf("abababab", "abab", 2));
+        assertEquals(4, StringUtils.ordinalIndexOf("abababab", "abab", 3));
+        assertEquals(-1, StringUtils.ordinalIndexOf("abababab", "abab", 4));
+    }
+
+    @Test
+    public void testLANG1193() {
+        assertEquals(0, StringUtils.ordinalIndexOf("abc", "ab", 1));
+    }
+
+    @Test
     // Non-overlapping test
     public void testLANG1241_1() {
         //                                          0  3  6
@@ -4101,25 +4318,185 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_String_1_oe() {
+    public void testLastIndexOf_charInt_23_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
         assertEquals(-1, StringUtils.lastIndexOf(null, null));
     }
 
     @Test
-    public void testLastIndexOf_String_2_oe() {
+    public void testLastIndexOf_charInt_24_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
         // removed other assertion
         assertEquals(-1, StringUtils.lastIndexOf("", null));
     }
 
     @Test
-    public void testLastIndexOf_String_3_oe() {
+    public void testLastIndexOf_charInt_25_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1, StringUtils.lastIndexOf("", "a"));
     }
 
     @Test
-    public void testLastIndexOf_String_4_oe() {
+    public void testLastIndexOf_charInt_26_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4127,7 +4504,47 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_String_5_oe() {
+    public void testLastIndexOf_charInt_27_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4136,7 +4553,47 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_String_6_oe() {
+    public void testLastIndexOf_charInt_28_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4146,7 +4603,47 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_String_7_oe() {
+    public void testLastIndexOf_charInt_29_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4157,7 +4654,47 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_String_8_oe() {
+    public void testLastIndexOf_charInt_30_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4169,7 +4706,47 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_String_9_oe() {
+    public void testLastIndexOf_charInt_31_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4183,25 +4760,241 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_1_oe() {
+    public void testLastIndexOf_charInt_32_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         assertEquals(-1, StringUtils.lastIndexOf(null, null, 0));
     }
 
     @Test
-    public void testLastIndexOf_StringInt_2_oe() {
+    public void testLastIndexOf_charInt_33_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         assertEquals(-1, StringUtils.lastIndexOf(null, null, -1));
     }
 
     @Test
-    public void testLastIndexOf_StringInt_3_oe() {
+    public void testLastIndexOf_charInt_34_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1, StringUtils.lastIndexOf(null, "", 0));
     }
 
     @Test
-    public void testLastIndexOf_StringInt_4_oe() {
+    public void testLastIndexOf_charInt_35_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4209,7 +5002,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_5_oe() {
+    public void testLastIndexOf_charInt_36_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4218,7 +5065,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_6_oe() {
+    public void testLastIndexOf_charInt_37_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4228,7 +5129,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_7_oe() {
+    public void testLastIndexOf_charInt_38_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4239,7 +5194,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_8_oe() {
+    public void testLastIndexOf_charInt_39_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4251,7 +5260,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_9_oe() {
+    public void testLastIndexOf_charInt_40_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4264,7 +5327,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_10_oe() {
+    public void testLastIndexOf_charInt_41_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4278,7 +5395,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_11_oe() {
+    public void testLastIndexOf_charInt_42_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4293,7 +5464,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_12_oe() {
+    public void testLastIndexOf_charInt_43_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4309,7 +5534,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_13_oe() {
+    public void testLastIndexOf_charInt_44_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4326,7 +5605,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_14_oe() {
+    public void testLastIndexOf_charInt_45_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4344,7 +5677,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_15_oe() {
+    public void testLastIndexOf_charInt_46_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4363,7 +5750,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_16_oe() {
+    public void testLastIndexOf_charInt_47_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4383,7 +5824,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_17_oe() {
+    public void testLastIndexOf_charInt_48_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4404,7 +5899,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_18_oe() {
+    public void testLastIndexOf_charInt_49_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4426,7 +5975,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_19_oe() {
+    public void testLastIndexOf_charInt_50_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4449,7 +6052,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_20_oe() {
+    public void testLastIndexOf_charInt_51_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4473,7 +6130,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_21_oe() {
+    public void testLastIndexOf_charInt_52_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4498,7 +6209,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_22_oe() {
+    public void testLastIndexOf_charInt_53_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4526,7 +6291,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_23_oe() {
+    public void testLastIndexOf_charInt_54_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4555,7 +6374,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_24_oe() {
+    public void testLastIndexOf_charInt_55_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4585,7 +6458,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_25_oe() {
+    public void testLastIndexOf_charInt_56_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4616,7 +6543,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_26_oe() {
+    public void testLastIndexOf_charInt_57_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4649,7 +6630,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_27_oe() {
+    public void testLastIndexOf_charInt_58_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4683,7 +6718,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_28_oe() {
+    public void testLastIndexOf_charInt_59_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4718,7 +6807,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_29_oe() {
+    public void testLastIndexOf_charInt_60_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4754,7 +6897,61 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOf_StringInt_30_oe() {
+    public void testLastIndexOf_charInt_61_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4792,25 +6989,393 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_1_oe() {
+    public void testLastIndexOf_charInt_62_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         assertEquals(-1, StringUtils.lastIndexOfAny(null, (CharSequence) null));   // test both types of ...;
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_2_oe() {
+    public void testLastIndexOf_charInt_63_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         assertEquals(-1, StringUtils.lastIndexOfAny(null, (CharSequence[]) null)); // ... varargs invocation;
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_3_oe() {
+    public void testLastIndexOf_charInt_64_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1, StringUtils.lastIndexOfAny(null)); // Missing varag;
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_4_oe() {
+    public void testLastIndexOf_charInt_65_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4818,7 +7383,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_5_oe() {
+    public void testLastIndexOf_charInt_66_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4827,7 +7484,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_6_oe() {
+    public void testLastIndexOf_charInt_67_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4837,7 +7586,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_7_oe() {
+    public void testLastIndexOf_charInt_68_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4848,7 +7689,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_8_oe() {
+    public void testLastIndexOf_charInt_69_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4860,7 +7793,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_9_oe() {
+    public void testLastIndexOf_charInt_70_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4873,7 +7898,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_10_oe() {
+    public void testLastIndexOf_charInt_71_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4887,7 +8004,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_11_oe() {
+    public void testLastIndexOf_charInt_72_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4902,7 +8111,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_12_oe() {
+    public void testLastIndexOf_charInt_73_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4918,7 +8219,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_13_oe() {
+    public void testLastIndexOf_charInt_74_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4935,7 +8328,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_14_oe() {
+    public void testLastIndexOf_charInt_75_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4953,7 +8438,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_15_oe() {
+    public void testLastIndexOf_charInt_76_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4972,7 +8549,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_16_oe() {
+    public void testLastIndexOf_charInt_77_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -4992,7 +8661,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_17_oe() {
+    public void testLastIndexOf_charInt_78_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5013,7 +8774,99 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfAny_StringStringArray_18_oe() {
+    public void testLastIndexOf_charInt_79_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5035,25 +8888,481 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_1_oe() {
+    public void testLastIndexOf_charInt_80_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         assertEquals(-1, StringUtils.lastIndexOfIgnoreCase(null, null));
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_2_oe() {
+    public void testLastIndexOf_charInt_81_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         assertEquals(-1, StringUtils.lastIndexOfIgnoreCase("", null));
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_3_oe() {
+    public void testLastIndexOf_charInt_82_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1, StringUtils.lastIndexOfIgnoreCase(null, ""));
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_4_oe() {
+    public void testLastIndexOf_charInt_83_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5061,7 +9370,121 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_5_oe() {
+    public void testLastIndexOf_charInt_84_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5070,7 +9493,121 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_6_oe() {
+    public void testLastIndexOf_charInt_85_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5080,7 +9617,121 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_7_oe() {
+    public void testLastIndexOf_charInt_86_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5091,7 +9742,121 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_8_oe() {
+    public void testLastIndexOf_charInt_87_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5103,7 +9868,121 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_9_oe() {
+    public void testLastIndexOf_charInt_88_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5116,7 +9995,121 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_10_oe() {
+    public void testLastIndexOf_charInt_89_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5130,7 +10123,121 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_11_oe() {
+    public void testLastIndexOf_charInt_90_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5145,7 +10252,121 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_12_oe() {
+    public void testLastIndexOf_charInt_91_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5161,7 +10382,121 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_13_oe() {
+    public void testLastIndexOf_charInt_92_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5178,7 +10513,121 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_String_14_oe() {
+    public void testLastIndexOf_charInt_93_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5196,25 +10645,553 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_1_oe() {
+    public void testLastIndexOf_charInt_94_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         assertEquals(-1, StringUtils.lastIndexOfIgnoreCase(null, null, 0));
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_2_oe() {
+    public void testLastIndexOf_charInt_95_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         assertEquals(-1, StringUtils.lastIndexOfIgnoreCase(null, null, -1));
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_3_oe() {
+    public void testLastIndexOf_charInt_96_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1, StringUtils.lastIndexOfIgnoreCase(null, "", 0));
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_4_oe() {
+    public void testLastIndexOf_charInt_97_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5222,7 +11199,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_5_oe() {
+    public void testLastIndexOf_charInt_98_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5231,7 +11340,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_6_oe() {
+    public void testLastIndexOf_charInt_99_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5241,7 +11482,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_7_oe() {
+    public void testLastIndexOf_charInt_100_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5252,7 +11625,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_8_oe() {
+    public void testLastIndexOf_charInt_101_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5264,7 +11769,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_9_oe() {
+    public void testLastIndexOf_charInt_102_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5277,7 +11914,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_10_oe() {
+    public void testLastIndexOf_charInt_103_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5291,7 +12060,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_11_oe() {
+    public void testLastIndexOf_charInt_104_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5306,7 +12207,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_12_oe() {
+    public void testLastIndexOf_charInt_105_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5322,7 +12355,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_13_oe() {
+    public void testLastIndexOf_charInt_106_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5339,7 +12504,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_14_oe() {
+    public void testLastIndexOf_charInt_107_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5357,7 +12654,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_15_oe() {
+    public void testLastIndexOf_charInt_108_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5376,7 +12805,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_16_oe() {
+    public void testLastIndexOf_charInt_109_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5396,7 +12957,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_17_oe() {
+    public void testLastIndexOf_charInt_110_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5417,7 +13110,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_18_oe() {
+    public void testLastIndexOf_charInt_111_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5439,7 +13264,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_19_oe() {
+    public void testLastIndexOf_charInt_112_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5462,7 +13419,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_20_oe() {
+    public void testLastIndexOf_charInt_113_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5486,7 +13575,139 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastIndexOfIgnoreCase_StringInt_21_oe() {
+    public void testLastIndexOf_charInt_114_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5511,25 +13732,653 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastOrdinalIndexOf_1_oe() {
+    public void testLastIndexOf_charInt_115_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
         assertEquals(-1, StringUtils.lastOrdinalIndexOf(null, "*", 42) );
     }
 
     @Test
-    public void testLastOrdinalIndexOf_2_oe() {
+    public void testLastIndexOf_charInt_116_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
         // removed other assertion
         assertEquals(-1, StringUtils.lastOrdinalIndexOf("*", null, 42) );
     }
 
     @Test
-    public void testLastOrdinalIndexOf_3_oe() {
+    public void testLastIndexOf_charInt_117_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         assertEquals(0, StringUtils.lastOrdinalIndexOf("", "", 42) );
     }
 
     @Test
-    public void testLastOrdinalIndexOf_4_oe() {
+    public void testLastIndexOf_charInt_118_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5537,7 +14386,164 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastOrdinalIndexOf_5_oe() {
+    public void testLastIndexOf_charInt_119_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5546,7 +14552,164 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastOrdinalIndexOf_6_oe() {
+    public void testLastIndexOf_charInt_120_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5556,7 +14719,164 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastOrdinalIndexOf_7_oe() {
+    public void testLastIndexOf_charInt_121_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5567,7 +14887,164 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastOrdinalIndexOf_8_oe() {
+    public void testLastIndexOf_charInt_122_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5579,7 +15056,164 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastOrdinalIndexOf_9_oe() {
+    public void testLastIndexOf_charInt_123_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5592,7 +15226,164 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastOrdinalIndexOf_10_oe() {
+    public void testLastIndexOf_charInt_124_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5606,7 +15397,164 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLastOrdinalIndexOf_11_oe() {
+    public void testLastIndexOf_charInt_125_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5621,25 +15569,713 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_1_oe() {
+    public void testLastIndexOf_charInt_126_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         assertEquals(-1, StringUtils.ordinalIndexOf(null, null, Integer.MIN_VALUE));
     }
 
     @Test
-    public void testOrdinalIndexOf_2_oe() {
+    public void testLastIndexOf_charInt_127_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         assertEquals(-1, StringUtils.ordinalIndexOf("", null, Integer.MIN_VALUE));
     }
 
     @Test
-    public void testOrdinalIndexOf_3_oe() {
+    public void testLastIndexOf_charInt_128_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         assertEquals(-1, StringUtils.ordinalIndexOf("", "", Integer.MIN_VALUE));
     }
 
     @Test
-    public void testOrdinalIndexOf_4_oe() {
+    public void testLastIndexOf_charInt_129_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5647,7 +16283,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_5_oe() {
+    public void testLastIndexOf_charInt_130_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5656,7 +16464,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_6_oe() {
+    public void testLastIndexOf_charInt_131_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5666,7 +16646,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_7_oe() {
+    public void testLastIndexOf_charInt_132_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5677,7 +16829,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_8_oe() {
+    public void testLastIndexOf_charInt_133_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5690,7 +17014,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_9_oe() {
+    public void testLastIndexOf_charInt_134_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5704,7 +17200,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_10_oe() {
+    public void testLastIndexOf_charInt_135_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5719,7 +17387,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_11_oe() {
+    public void testLastIndexOf_charInt_136_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5735,7 +17575,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_12_oe() {
+    public void testLastIndexOf_charInt_137_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5752,7 +17764,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_13_oe() {
+    public void testLastIndexOf_charInt_138_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5770,7 +17954,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_14_oe() {
+    public void testLastIndexOf_charInt_139_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5789,7 +18145,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_15_oe() {
+    public void testLastIndexOf_charInt_140_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5810,7 +18338,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_16_oe() {
+    public void testLastIndexOf_charInt_141_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5832,7 +18532,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_17_oe() {
+    public void testLastIndexOf_charInt_142_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5855,7 +18727,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_18_oe() {
+    public void testLastIndexOf_charInt_143_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5879,7 +18923,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_19_oe() {
+    public void testLastIndexOf_charInt_144_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5904,7 +19120,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_20_oe() {
+    public void testLastIndexOf_charInt_145_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5930,7 +19318,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_21_oe() {
+    public void testLastIndexOf_charInt_146_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5957,7 +19517,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_22_oe() {
+    public void testLastIndexOf_charInt_147_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -5986,7 +19718,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_23_oe() {
+    public void testLastIndexOf_charInt_148_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6016,7 +19920,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_24_oe() {
+    public void testLastIndexOf_charInt_149_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6047,7 +20123,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_25_oe() {
+    public void testLastIndexOf_charInt_150_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6079,7 +20327,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_26_oe() {
+    public void testLastIndexOf_charInt_151_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6112,7 +20532,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_27_oe() {
+    public void testLastIndexOf_charInt_152_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6146,7 +20738,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_28_oe() {
+    public void testLastIndexOf_charInt_153_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6181,7 +20945,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_29_oe() {
+    public void testLastIndexOf_charInt_154_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6218,7 +21154,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_30_oe() {
+    public void testLastIndexOf_charInt_155_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6256,7 +21364,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_31_oe() {
+    public void testLastIndexOf_charInt_156_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6295,7 +21575,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_32_oe() {
+    public void testLastIndexOf_charInt_157_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6335,7 +21787,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_33_oe() {
+    public void testLastIndexOf_charInt_158_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6376,7 +22000,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_34_oe() {
+    public void testLastIndexOf_charInt_159_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6418,7 +22214,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_35_oe() {
+    public void testLastIndexOf_charInt_160_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6461,7 +22429,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_36_oe() {
+    public void testLastIndexOf_charInt_161_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6506,7 +22646,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_37_oe() {
+    public void testLastIndexOf_charInt_162_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6552,7 +22864,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_38_oe() {
+    public void testLastIndexOf_charInt_163_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6599,7 +23083,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_39_oe() {
+    public void testLastIndexOf_charInt_164_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6647,7 +23303,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_40_oe() {
+    public void testLastIndexOf_charInt_165_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6696,7 +23524,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_41_oe() {
+    public void testLastIndexOf_charInt_166_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6746,7 +23746,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_42_oe() {
+    public void testLastIndexOf_charInt_167_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6797,7 +23969,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_43_oe() {
+    public void testLastIndexOf_charInt_168_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6850,7 +24194,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_44_oe() {
+    public void testLastIndexOf_charInt_169_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6904,7 +24420,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_45_oe() {
+    public void testLastIndexOf_charInt_170_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -6959,7 +24647,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_46_oe() {
+    public void testLastIndexOf_charInt_171_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7015,7 +24875,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_47_oe() {
+    public void testLastIndexOf_charInt_172_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7072,7 +25104,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_48_oe() {
+    public void testLastIndexOf_charInt_173_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7130,7 +25334,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_49_oe() {
+    public void testLastIndexOf_charInt_174_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7189,7 +25565,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_50_oe() {
+    public void testLastIndexOf_charInt_175_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7249,7 +25797,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_51_oe() {
+    public void testLastIndexOf_charInt_176_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7310,7 +26030,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_52_oe() {
+    public void testLastIndexOf_charInt_177_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7372,7 +26264,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_53_oe() {
+    public void testLastIndexOf_charInt_178_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7435,7 +26499,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_54_oe() {
+    public void testLastIndexOf_charInt_179_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7501,7 +26737,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_55_oe() {
+    public void testLastIndexOf_charInt_180_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7568,7 +26976,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_56_oe() {
+    public void testLastIndexOf_charInt_181_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7636,7 +27216,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_57_oe() {
+    public void testLastIndexOf_charInt_182_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7705,7 +27457,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_58_oe() {
+    public void testLastIndexOf_charInt_183_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7775,7 +27699,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_59_oe() {
+    public void testLastIndexOf_charInt_184_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7846,7 +27942,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_60_oe() {
+    public void testLastIndexOf_charInt_185_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7919,7 +28187,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_61_oe() {
+    public void testLastIndexOf_charInt_186_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -7993,7 +28433,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_62_oe() {
+    public void testLastIndexOf_charInt_187_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -8068,7 +28680,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_63_oe() {
+    public void testLastIndexOf_charInt_188_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -8145,7 +28929,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_64_oe() {
+    public void testLastIndexOf_charInt_189_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -8223,7 +29179,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_65_oe() {
+    public void testLastIndexOf_charInt_190_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -8302,7 +29430,179 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testOrdinalIndexOf_66_oe() {
+    public void testLastIndexOf_charInt_191_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -8382,28 +29682,1051 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
-    public void testLANG1193_1_oe() {
+    public void testLastIndexOf_charInt_192_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // match at each possible position
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLANG1193() {
         assertEquals(0, StringUtils.ordinalIndexOf("abc", "ab", 1));
     }
 
     @Test
+    public void testLastIndexOf_charInt_193_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // match at each possible position
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLANG1193() {
+        // removed other assertion
+    }
+
+    @Test
     // Non-overlapping test
-    public void testLANG1241_1_1_oe() {
+    public void testLANG1241_1() {
         //                                          0  3  6
         assertEquals(0, StringUtils.ordinalIndexOf("abaabaab", "ab", 1));
     }
 
     @Test
+    public void testLastIndexOf_charInt_194_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // match at each possible position
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLANG1193() {
+        // removed other assertion
+    }
+
+    @Test
     // Non-overlapping test
-    public void testLANG1241_1_2_oe() {
+    public void testLANG1241_1() {
         //                                          0  3  6
         // removed other assertion
         assertEquals(3, StringUtils.ordinalIndexOf("abaabaab", "ab", 2));
     }
 
     @Test
+    public void testLastIndexOf_charInt_195_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // match at each possible position
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLANG1193() {
+        // removed other assertion
+    }
+
+    @Test
     // Non-overlapping test
-    public void testLANG1241_1_3_oe() {
+    public void testLANG1241_1() {
         //                                          0  3  6
         // removed other assertion
         // removed other assertion
@@ -8411,23 +30734,821 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
+    public void testLastIndexOf_charInt_196_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // match at each possible position
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLANG1193() {
+        // removed other assertion
+    }
+
+    @Test
+    // Non-overlapping test
+    public void testLANG1241_1() {
+        //                                          0  3  6
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
     // Overlapping matching test
-    public void testLANG1241_2_1_oe() {
+    public void testLANG1241_2() {
         //                                          0 2 4
         assertEquals(0, StringUtils.ordinalIndexOf("abababa", "aba", 1));
     }
 
     @Test
+    public void testLastIndexOf_charInt_197_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // match at each possible position
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLANG1193() {
+        // removed other assertion
+    }
+
+    @Test
+    // Non-overlapping test
+    public void testLANG1241_1() {
+        //                                          0  3  6
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
     // Overlapping matching test
-    public void testLANG1241_2_2_oe() {
+    public void testLANG1241_2() {
         //                                          0 2 4
         // removed other assertion
         assertEquals(2, StringUtils.ordinalIndexOf("abababa", "aba", 2));
     }
 
     @Test
+    public void testLastIndexOf_charInt_198_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // match at each possible position
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLANG1193() {
+        // removed other assertion
+    }
+
+    @Test
+    // Non-overlapping test
+    public void testLANG1241_1() {
+        //                                          0  3  6
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
     // Overlapping matching test
-    public void testLANG1241_2_3_oe() {
+    public void testLANG1241_2() {
         //                                          0 2 4
         // removed other assertion
         // removed other assertion
@@ -8435,8 +31556,274 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
+    public void testLastIndexOf_charInt_199_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // match at each possible position
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLANG1193() {
+        // removed other assertion
+    }
+
+    @Test
+    // Non-overlapping test
+    public void testLANG1241_1() {
+        //                                          0  3  6
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
     // Overlapping matching test
-    public void testLANG1241_2_4_oe() {
+    public void testLANG1241_2() {
         //                                          0 2 4
         // removed other assertion
         // removed other assertion
@@ -8445,8 +31832,274 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
+    public void testLastIndexOf_charInt_200_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // match at each possible position
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLANG1193() {
+        // removed other assertion
+    }
+
+    @Test
+    // Non-overlapping test
+    public void testLANG1241_1() {
+        //                                          0  3  6
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
     // Overlapping matching test
-    public void testLANG1241_2_5_oe() {
+    public void testLANG1241_2() {
         //                                          0 2 4
         // removed other assertion
         // removed other assertion
@@ -8456,8 +32109,274 @@ public class StringUtilsEqualsIndexOfTest_OE25Dev  {
     }
 
     @Test
+    public void testLastIndexOf_charInt_201_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        //LANG-1300 addition test
+        final int CODE_POINT = 0x2070E;
+        StringBuilder builder = new StringBuilder();
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        builder.append("aaaaa");
+        // removed other assertion
+        // inner branch on the supplementary character block
+        final char[] tmp = { (char) 55361 };
+        builder = new StringBuilder();
+        builder.append(tmp);
+        // removed other assertion
+        builder.appendCodePoint(CODE_POINT);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOf_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test that fromIndex works correctly, i.e. cannot match after fromIndex
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfAny_StringStringArray() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_String() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastIndexOfIgnoreCase_StringInt() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLastOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testOrdinalIndexOf() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // match at each possible position
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
+    public void testLANG1193() {
+        // removed other assertion
+    }
+
+    @Test
+    // Non-overlapping test
+    public void testLANG1241_1() {
+        //                                          0  3  6
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+    }
+
+    @Test
     // Overlapping matching test
-    public void testLANG1241_2_6_oe() {
+    public void testLANG1241_2() {
         //                                          0 2 4
         // removed other assertion
         // removed other assertion
