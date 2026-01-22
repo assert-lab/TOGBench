@@ -19,13 +19,13 @@ import org.springside.modules.utils.base.ExceptionUtil.UncheckedException;
 public class ExceptionUtilTest_OE25Dev {
 
 	private static RuntimeException TIMEOUT_EXCEPTION = ExceptionUtil.setStackTrace(new RuntimeException("Timeout"),
-			ExceptionUtilTest.class, "hello");
+			ExceptionUtilTest_OE25Dev.class, "hello");
 
 	private static CloneableException TIMEOUT_EXCEPTION2 = new CloneableException("Timeout")
-			.setStackTrace(ExceptionUtilTest.class, "hello");
+			.setStackTrace(ExceptionUtilTest_OE25Dev.class, "hello");
 
 	private static CloneableRuntimeException TIMEOUT_EXCEPTION3 = new CloneableRuntimeException("Timeout")
-			.setStackTrace(ExceptionUtilTest.class, "hello");
+			.setStackTrace(ExceptionUtilTest_OE25Dev.class, "hello");
 
 	@Test
 	public void getStackTraceAsString() {

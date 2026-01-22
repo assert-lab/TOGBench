@@ -38,7 +38,7 @@ public class UnmodifiableSetTest_OE25Dev<E> extends AbstractSetTest<E> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableSetTest.class);
+        return BulkTest.makeSuite(UnmodifiableSetTest_OE25Dev.class);
     }
 
     //-------------------------------------------------------------------

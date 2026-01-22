@@ -111,8 +111,8 @@ public class TestPartial_Basics extends TestCase {
 
     public void testGetFieldType() {
         Partial test = createHourMinPartial();
-        assertEquals(DateTimeFieldType.hourOfDay(), test.getFieldType(0));
-        assertEquals(DateTimeFieldType.minuteOfHour(), test.getFieldType(1));
+        assertSame(DateTimeFieldType.hourOfDay(), test.getFieldType(0));
+        assertSame(DateTimeFieldType.minuteOfHour(), test.getFieldType(1));
         try {
             test.getFieldType(-1);
         } catch (IndexOutOfBoundsException ex) {}
@@ -125,15 +125,15 @@ public class TestPartial_Basics extends TestCase {
         Partial test = createHourMinPartial();
         DateTimeFieldType[] fields = test.getFieldTypes();
         assertEquals(2, fields.length);
-        assertEquals(DateTimeFieldType.hourOfDay(), fields[0]);
-        assertEquals(DateTimeFieldType.minuteOfHour(), fields[1]);
+        assertSame(DateTimeFieldType.hourOfDay(), fields[0]);
+        assertSame(DateTimeFieldType.minuteOfHour(), fields[1]);
         assertNotSame(test.getFieldTypes(), test.getFieldTypes());
     }
 
     public void testGetField() {
         Partial test = createHourMinPartial(COPTIC_PARIS);
-        assertEquals(CopticChronology.getInstanceUTC().hourOfDay(), test.getField(0));
-        assertEquals(CopticChronology.getInstanceUTC().minuteOfHour(), test.getField(1));
+        assertSame(CopticChronology.getInstanceUTC().hourOfDay(), test.getField(0));
+        assertSame(CopticChronology.getInstanceUTC().minuteOfHour(), test.getField(1));
         try {
             test.getField(-1);
         } catch (IndexOutOfBoundsException ex) {}
@@ -146,8 +146,8 @@ public class TestPartial_Basics extends TestCase {
         Partial test = createHourMinPartial(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         assertEquals(2, fields.length);
-        assertEquals(CopticChronology.getInstanceUTC().hourOfDay(), fields[0]);
-        assertEquals(CopticChronology.getInstanceUTC().minuteOfHour(), fields[1]);
+        assertSame(CopticChronology.getInstanceUTC().hourOfDay(), fields[0]);
+        assertSame(CopticChronology.getInstanceUTC().minuteOfHour(), fields[1]);
         assertNotSame(test.getFields(), test.getFields());
     }
 
@@ -330,7 +330,7 @@ public class TestPartial_Basics extends TestCase {
     public void testWithChronologyRetainFields_sameChrono() {
         Partial base = createHourMinPartial(COPTIC_PARIS);
         Partial test = base.withChronologyRetainFields(COPTIC_TOKYO);
-        assertEquals(base, test);
+        assertSame(base, test);
     }
 
     public void testWithChronologyRetainFields_nullChrono() {
@@ -447,7 +447,7 @@ public class TestPartial_Basics extends TestCase {
     public void testWith4() {
         Partial test = createHourMinPartial();
         Partial result = test.with(DateTimeFieldType.hourOfDay(), 10);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testWith_baseHasNoRange() {
@@ -545,7 +545,7 @@ public class TestPartial_Basics extends TestCase {
     public void testWithField4() {
         Partial test = createHourMinPartial();
         Partial result = test.withField(DateTimeFieldType.hourOfDay(), 10);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -579,7 +579,7 @@ public class TestPartial_Basics extends TestCase {
     public void testWithFieldAdded4() {
         Partial test = createHourMinPartial();
         Partial result = test.withFieldAdded(DurationFieldType.hours(), 0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testWithFieldAdded5() {
@@ -673,7 +673,7 @@ public class TestPartial_Basics extends TestCase {
     public void testWithFieldAddWrapped4() {
         Partial test = createHourMinPartial();
         Partial result = test.withFieldAddWrapped(DurationFieldType.hours(), 0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testWithFieldAddWrapped5() {
@@ -726,7 +726,7 @@ public class TestPartial_Basics extends TestCase {
         check(result, 15, 26);
         
         result = test.plus((ReadablePeriod) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -737,7 +737,7 @@ public class TestPartial_Basics extends TestCase {
         check(result, 9, 19);
         
         result = test.minus((ReadablePeriod) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------

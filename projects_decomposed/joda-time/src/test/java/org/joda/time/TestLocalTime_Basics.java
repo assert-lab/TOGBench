@@ -138,10 +138,10 @@ public class TestLocalTime_Basics extends TestCase {
 
     public void testGetFieldType_int() {
         LocalTime test = new LocalTime(10, 20, 30, 40);
-        assertEquals(DateTimeFieldType.hourOfDay(), test.getFieldType(0));
-        assertEquals(DateTimeFieldType.minuteOfHour(), test.getFieldType(1));
-        assertEquals(DateTimeFieldType.secondOfMinute(), test.getFieldType(2));
-        assertEquals(DateTimeFieldType.millisOfSecond(), test.getFieldType(3));
+        assertSame(DateTimeFieldType.hourOfDay(), test.getFieldType(0));
+        assertSame(DateTimeFieldType.minuteOfHour(), test.getFieldType(1));
+        assertSame(DateTimeFieldType.secondOfMinute(), test.getFieldType(2));
+        assertSame(DateTimeFieldType.millisOfSecond(), test.getFieldType(3));
         try {
             test.getFieldType(-1);
         } catch (IndexOutOfBoundsException ex) {}
@@ -153,19 +153,19 @@ public class TestLocalTime_Basics extends TestCase {
     public void testGetFieldTypes() {
         LocalTime test = new LocalTime(10, 20, 30, 40);
         DateTimeFieldType[] fields = test.getFieldTypes();
-        assertEquals(DateTimeFieldType.hourOfDay(), fields[0]);
-        assertEquals(DateTimeFieldType.minuteOfHour(), fields[1]);
-        assertEquals(DateTimeFieldType.secondOfMinute(), fields[2]);
-        assertEquals(DateTimeFieldType.millisOfSecond(), fields[3]);
+        assertSame(DateTimeFieldType.hourOfDay(), fields[0]);
+        assertSame(DateTimeFieldType.minuteOfHour(), fields[1]);
+        assertSame(DateTimeFieldType.secondOfMinute(), fields[2]);
+        assertSame(DateTimeFieldType.millisOfSecond(), fields[3]);
         assertNotSame(test.getFieldTypes(), test.getFieldTypes());
     }
 
     public void testGetField_int() {
         LocalTime test = new LocalTime(10, 20, 30, 40, COPTIC_UTC);
-        assertEquals(COPTIC_UTC.hourOfDay(), test.getField(0));
-        assertEquals(COPTIC_UTC.minuteOfHour(), test.getField(1));
-        assertEquals(COPTIC_UTC.secondOfMinute(), test.getField(2));
-        assertEquals(COPTIC_UTC.millisOfSecond(), test.getField(3));
+        assertSame(COPTIC_UTC.hourOfDay(), test.getField(0));
+        assertSame(COPTIC_UTC.minuteOfHour(), test.getField(1));
+        assertSame(COPTIC_UTC.secondOfMinute(), test.getField(2));
+        assertSame(COPTIC_UTC.millisOfSecond(), test.getField(3));
         try {
             test.getField(-1);
         } catch (IndexOutOfBoundsException ex) {}
@@ -177,10 +177,10 @@ public class TestLocalTime_Basics extends TestCase {
     public void testGetFields() {
         LocalTime test = new LocalTime(10, 20, 30, 40, COPTIC_UTC);
         DateTimeField[] fields = test.getFields();
-        assertEquals(COPTIC_UTC.hourOfDay(), fields[0]);
-        assertEquals(COPTIC_UTC.minuteOfHour(), fields[1]);
-        assertEquals(COPTIC_UTC.secondOfMinute(), fields[2]);
-        assertEquals(COPTIC_UTC.millisOfSecond(), fields[3]);
+        assertSame(COPTIC_UTC.hourOfDay(), fields[0]);
+        assertSame(COPTIC_UTC.minuteOfHour(), fields[1]);
+        assertSame(COPTIC_UTC.secondOfMinute(), fields[2]);
+        assertSame(COPTIC_UTC.millisOfSecond(), fields[3]);
         assertNotSame(test.getFields(), test.getFields());
     }
 
@@ -459,7 +459,7 @@ public class TestLocalTime_Basics extends TestCase {
     public void testWithField_DateTimeFieldType_int_4() {
         LocalTime test = new LocalTime(10, 20, 30, 40);
         LocalTime result = test.withField(DateTimeFieldType.hourOfDay(), 10);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -490,7 +490,7 @@ public class TestLocalTime_Basics extends TestCase {
     public void testWithFieldAdded_DurationFieldType_int_4() {
         LocalTime test = new LocalTime(10, 20, 30, 40);
         LocalTime result = test.withFieldAdded(DurationFieldType.hours(), 0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testWithFieldAdded_DurationFieldType_int_5() {
@@ -553,7 +553,7 @@ public class TestLocalTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plus((ReadablePeriod) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusHours_int() {
@@ -563,7 +563,7 @@ public class TestLocalTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusHours(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusMinutes_int() {
@@ -573,7 +573,7 @@ public class TestLocalTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusMinutes(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusSeconds_int() {
@@ -583,7 +583,7 @@ public class TestLocalTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusSeconds(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusMillis_int() {
@@ -593,7 +593,7 @@ public class TestLocalTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusMillis(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -604,7 +604,7 @@ public class TestLocalTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minus((ReadablePeriod) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusHours_int() {
@@ -614,7 +614,7 @@ public class TestLocalTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusHours(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusMinutes_int() {
@@ -624,7 +624,7 @@ public class TestLocalTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusMinutes(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusSeconds_int() {
@@ -634,7 +634,7 @@ public class TestLocalTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusSeconds(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusMillis_int() {
@@ -644,7 +644,7 @@ public class TestLocalTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusMillis(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------

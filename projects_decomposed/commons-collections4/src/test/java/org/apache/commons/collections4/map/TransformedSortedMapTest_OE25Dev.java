@@ -41,7 +41,7 @@ public class TransformedSortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTes
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(TransformedSortedMapTest.class);
+        return BulkTest.makeSuite(TransformedSortedMapTest_OE25Dev.class);
     }
 
     @Override

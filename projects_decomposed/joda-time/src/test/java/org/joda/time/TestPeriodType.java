@@ -451,35 +451,35 @@ public class TestPeriodType extends TestCase {
         PeriodType type = PeriodType.forFields(new DurationFieldType[] {
             DurationFieldType.years(),
         });
-        assertEquals(PeriodType.years(), type);
+        assertSame(PeriodType.years(), type);
         type = PeriodType.forFields(new DurationFieldType[] {
             DurationFieldType.months(),
         });
-        assertEquals(PeriodType.months(), type);
+        assertSame(PeriodType.months(), type);
         type = PeriodType.forFields(new DurationFieldType[] {
                 DurationFieldType.weeks(),
         });
-        assertEquals(PeriodType.weeks(), type);
+        assertSame(PeriodType.weeks(), type);
         type = PeriodType.forFields(new DurationFieldType[] {
                 DurationFieldType.days(),
         });
-        assertEquals(PeriodType.days(), type);
+        assertSame(PeriodType.days(), type);
         type = PeriodType.forFields(new DurationFieldType[] {
                 DurationFieldType.hours(),
         });
-        assertEquals(PeriodType.hours(), type);
+        assertSame(PeriodType.hours(), type);
         type = PeriodType.forFields(new DurationFieldType[] {
                 DurationFieldType.minutes(),
         });
-        assertEquals(PeriodType.minutes(), type);
+        assertSame(PeriodType.minutes(), type);
         type = PeriodType.forFields(new DurationFieldType[] {
                 DurationFieldType.seconds(),
         });
-        assertEquals(PeriodType.seconds(), type);
+        assertSame(PeriodType.seconds(), type);
         type = PeriodType.forFields(new DurationFieldType[] {
                 DurationFieldType.millis(),
         });
-        assertEquals(PeriodType.millis(), type);
+        assertSame(PeriodType.millis(), type);
     }
 
     public void testForFields2() throws Exception {

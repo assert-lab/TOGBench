@@ -53,7 +53,7 @@ public class TestReadableInstantConverter_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestReadableInstantConverter_OE25Dev.class);
+        return new TestSuite(TestReadableInstantConverter_OE25Dev_OE25Dev.class);
     }
 
     public TestReadableInstantConverter_OE25Dev(String name) {

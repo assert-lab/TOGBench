@@ -1,0 +1,253 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.sparkjava:spark-core >----------------------
+[INFO] Building Spark 2.9.3
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-maven) @ spark-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-java) @ spark-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.4.0:resources (default-resources) @ spark-core ---
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/main/resources
+[INFO] Copying 0 resource from src/main/java to target/classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ spark-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 100 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/main/java/spark/embeddedserver/jetty/websocket/WebSocketHandlerClassWrapper.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/main/java/spark/embeddedserver/jetty/websocket/WebSocketHandlerClassWrapper.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/main/java/spark/http/matching/GeneralError.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/main/java/spark/http/matching/GeneralError.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:3.4.0:testResources (default-testResources) @ spark-core ---
+[INFO] Copying 13 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ spark-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 126 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/embeddedserver/EmbeddedServersTest_OE25Dev.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/embeddedserver/EmbeddedServersTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/QueryParamsMapTest.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/QueryParamsMapTest.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/StaticFilesMemberTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/StaticFilesMemberTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[180,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[197,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[217,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[230,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[243,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[256,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[270,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[283,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[290,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[303,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[316,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[323,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[329,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[342,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[355,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[362,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[368,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[382,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[395,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[402,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[408,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[415,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[428,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[441,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[448,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[454,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[461,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[475,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[488,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[495,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[501,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[508,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[515,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[528,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[541,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[548,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[554,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[561,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[568,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[582,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[595,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[602,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[608,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[615,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[622,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[629,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[642,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[655,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[662,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[668,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[675,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[682,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[689,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[703,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[716,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[723,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[729,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[736,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[743,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[750,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[757,17] method testUnauthorized() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[770,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[783,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[790,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[796,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[803,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[810,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[817,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[824,17] method testUnauthorized() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[830,17] method testNotFound() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[843,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[856,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[863,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[869,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[876,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[883,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[890,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[897,17] method testUnauthorized() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[903,17] method testNotFound() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[909,17] method testPost() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[923,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[936,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[943,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[949,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[956,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[963,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[970,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[977,17] method testUnauthorized() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[983,17] method testNotFound() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[989,17] method testPost() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1004,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1017,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1024,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1030,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1037,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1044,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1051,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1058,17] method testUnauthorized() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1064,17] method testNotFound() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1070,17] method testPost() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  12.570 s
+[INFO] Finished at: 2026-01-22T03:28:29-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project spark-core: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[180,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[197,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[217,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[230,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[243,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[256,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[270,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[283,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[290,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[303,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[316,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[323,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[329,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[342,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[355,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[362,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[368,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[382,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[395,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[402,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[408,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[415,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[428,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[441,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[448,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[454,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[461,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[475,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[488,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[495,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[501,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[508,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[515,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[528,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[541,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[548,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[554,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[561,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[568,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[582,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[595,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[602,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[608,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[615,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[622,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[629,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[642,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[655,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[662,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[668,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[675,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[682,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[689,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[703,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[716,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[723,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[729,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[736,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[743,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[750,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[757,17] method testUnauthorized() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[770,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[783,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[790,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[796,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[803,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[810,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[817,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[824,17] method testUnauthorized() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[830,17] method testNotFound() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[843,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[856,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[863,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[869,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[876,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[883,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[890,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[897,17] method testUnauthorized() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[903,17] method testNotFound() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[909,17] method testPost() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[923,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[936,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[943,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[949,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[956,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[963,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[970,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[977,17] method testUnauthorized() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[983,17] method testNotFound() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[989,17] method testPost() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1004,17] method testXForwardedFor() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1017,17] method testHiHead() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1024,17] method testGetHiAfterFilter() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1030,17] method testGetRoot() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1037,17] method testEchoParam1() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1044,17] method testEchoParam2() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1051,17] method testEchoParamWithMaj() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1058,17] method testUnauthorized() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1064,17] method testNotFound() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/spark/src/test/java/spark/GenericSecureIntegrationTest_OE25Dev.java:[1070,17] method testPost() is already defined in class spark.GenericSecureIntegrationTest_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

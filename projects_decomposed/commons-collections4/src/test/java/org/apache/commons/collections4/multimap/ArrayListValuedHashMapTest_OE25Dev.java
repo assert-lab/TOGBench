@@ -37,7 +37,7 @@ public class ArrayListValuedHashMapTest_OE25Dev<K, V> extends AbstractMultiValue
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(ArrayListValuedHashMapTest.class);
+        return BulkTest.makeSuite(ArrayListValuedHashMapTest_OE25Dev.class);
     }
 
     // -----------------------------------------------------------------------

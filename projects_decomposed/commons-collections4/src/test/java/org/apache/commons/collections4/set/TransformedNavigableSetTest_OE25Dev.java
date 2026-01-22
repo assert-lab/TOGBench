@@ -41,7 +41,7 @@ public class TransformedNavigableSetTest_OE25Dev<E> extends AbstractNavigableSet
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(TransformedNavigableSetTest.class);
+        return BulkTest.makeSuite(TransformedNavigableSetTest_OE25Dev.class);
     }
 
     //-----------------------------------------------------------------------

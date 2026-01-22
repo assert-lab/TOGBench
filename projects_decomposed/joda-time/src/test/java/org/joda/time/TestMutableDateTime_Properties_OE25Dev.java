@@ -66,7 +66,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestMutableDateTime_Properties_OE25Dev.class);
+        return new TestSuite(TestMutableDateTime_Properties_OE25Dev_OE25Dev.class);
     }
 
     public TestMutableDateTime_Properties_OE25Dev(String name) {
@@ -128,6 +128,8 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
+    //-----------------------------------------------------------------------
+
     public void testTest_1_oe() {
         assertEquals("2002-06-09T00:00:00.000Z", new Instant(TEST_TIME_NOW).toString());
     }
@@ -145,7 +147,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetEra_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertEquals(test.getChronology().era(), test.era().getField());
+        assertSame(test.getChronology().era(), test.era().getField());
     }
 
     public void testPropertyGetEra_2_oe() {
@@ -166,7 +168,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.era().getMutableDateTime());
+        assertSame(test, test.era().getMutableDateTime());
     }
 
     public void testPropertyGetEra_5_oe() {
@@ -325,7 +327,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYearOfEra_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertEquals(test.getChronology().yearOfEra(), test.yearOfEra().getField());
+        assertSame(test.getChronology().yearOfEra(), test.yearOfEra().getField());
     }
 
     public void testPropertyGetYearOfEra_2_oe() {
@@ -451,7 +453,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetCenturyOfEra_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertEquals(test.getChronology().centuryOfEra(), test.centuryOfEra().getField());
+        assertSame(test.getChronology().centuryOfEra(), test.centuryOfEra().getField());
     }
 
     public void testPropertyGetCenturyOfEra_2_oe() {
@@ -577,7 +579,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYearOfCentury_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertEquals(test.getChronology().yearOfCentury(), test.yearOfCentury().getField());
+        assertSame(test.getChronology().yearOfCentury(), test.yearOfCentury().getField());
     }
 
     public void testPropertyGetYearOfCentury_2_oe() {
@@ -703,7 +705,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetWeekyear_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertEquals(test.getChronology().weekyear(), test.weekyear().getField());
+        assertSame(test.getChronology().weekyear(), test.weekyear().getField());
     }
 
     public void testPropertyGetWeekyear_2_oe() {
@@ -829,7 +831,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetYear_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertEquals(test.getChronology().year(), test.year().getField());
+        assertSame(test.getChronology().year(), test.year().getField());
     }
 
     public void testPropertyGetYear_2_oe() {
@@ -1051,6 +1053,357 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
         assertEquals("1960-06-09T00:00:00.000+01:00", test.toString());
     }
 
+    public void testPropertyGetMonthOfYear_1_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
+    }
+
+    public void testPropertyGetMonthOfYear_2_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        assertEquals("monthOfYear", test.monthOfYear().getName());
+    }
+
+    public void testPropertyGetMonthOfYear_3_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Property[monthOfYear]", test.monthOfYear().toString());
+    }
+
+    public void testPropertyGetMonthOfYear_4_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(6, test.monthOfYear().get());
+    }
+
+    public void testPropertyGetMonthOfYear_5_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("June", test.monthOfYear().getAsText());
+    }
+
+    public void testPropertyGetMonthOfYear_6_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("juin", test.monthOfYear().getAsText(Locale.FRENCH));
+    }
+
+    public void testPropertyGetMonthOfYear_7_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Jun", test.monthOfYear().getAsShortText());
+    }
+
+    public void testPropertyGetMonthOfYear_8_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("juin", test.monthOfYear().getAsShortText(Locale.FRENCH));
+    }
+
+    public void testPropertyGetMonthOfYear_9_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(test.getChronology().months(), test.monthOfYear().getDurationField());
+    }
+
+    public void testPropertyGetMonthOfYear_10_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(test.getChronology().years(), test.monthOfYear().getRangeDurationField());
+    }
+
+    public void testPropertyGetMonthOfYear_11_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(9, test.monthOfYear().getMaximumTextLength(null));
+    }
+
+    public void testPropertyGetMonthOfYear_12_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(3, test.monthOfYear().getMaximumShortTextLength(null));
+    }
+
+    public void testPropertyGetMonthOfYear_13_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new MutableDateTime(2004, 7, 9, 0, 0, 0, 0);
+        assertEquals("juillet", test.monthOfYear().getAsText(Locale.FRENCH));
+    }
+
+    public void testPropertyGetMonthOfYear_14_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new MutableDateTime(2004, 7, 9, 0, 0, 0, 0);
+        // removed other assertion
+        assertEquals("juil.", test.monthOfYear().getAsShortText(Locale.FRENCH));
+    }
+
+    public void testPropertyGetMonthOfYear_15_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new MutableDateTime(2004, 7, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, test.monthOfYear().getMinimumValue());
+    }
+
+    public void testPropertyGetMonthOfYear_16_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new MutableDateTime(2004, 7, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, test.monthOfYear().getMinimumValueOverall());
+    }
+
+    public void testPropertyGetMonthOfYear_17_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new MutableDateTime(2004, 7, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(12, test.monthOfYear().getMaximumValue());
+    }
+
+    public void testPropertyGetMonthOfYear_18_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new MutableDateTime(2004, 7, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(12, test.monthOfYear().getMaximumValueOverall());
+    }
+
+    public void testPropertyGetMonthOfYear_19_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new MutableDateTime(2004, 7, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, test.monthOfYear().getMinimumValue());
+    }
+
+    public void testPropertyGetMonthOfYear_20_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new MutableDateTime(2004, 7, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, test.monthOfYear().getMinimumValueOverall());
+    }
+
+    public void testPropertyGetMonthOfYear_21_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new MutableDateTime(2004, 7, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(12, test.monthOfYear().getMaximumValue());
+    }
+
+    public void testPropertyGetMonthOfYear_22_oe() {
+        MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        test = new MutableDateTime(2004, 7, 9, 0, 0, 0, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(12, test.monthOfYear().getMaximumValueOverall());
+    }
+
     public void testPropertyAddMonthOfYear_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
         test.monthOfYear().add(6);
@@ -1101,7 +1454,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDayOfMonth_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
     }
 
     public void testPropertyGetDayOfMonth_2_oe() {
@@ -1392,7 +1745,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
     public void testPropertyGetDayOfYear_1_oe() {
         // 31+29+31+30+31+9 = 161
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertEquals(test.getChronology().dayOfYear(), test.dayOfYear().getField());
+        assertSame(test.getChronology().dayOfYear(), test.dayOfYear().getField());
     }
 
     public void testPropertyGetDayOfYear_2_oe() {
@@ -1623,7 +1976,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
         // 2004-12-25 = Mon             W52
         // 2005-01-01 = Mon             W1
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertEquals(test.getChronology().weekOfWeekyear(), test.weekOfWeekyear().getField());
+        assertSame(test.getChronology().weekOfWeekyear(), test.weekOfWeekyear().getField());
     }
 
     public void testPropertyGetWeekOfWeekyear_2_oe() {
@@ -2009,7 +2362,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDayOfWeek_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 0, 0, 0, 0);
-        assertEquals(test.getChronology().dayOfWeek(), test.dayOfWeek().getField());
+        assertSame(test.getChronology().dayOfWeek(), test.dayOfWeek().getField());
     }
 
     public void testPropertyGetDayOfWeek_2_oe() {
@@ -2396,7 +2749,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetHourOfDay_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertEquals(test.getChronology().hourOfDay(), test.hourOfDay().getField());
+        assertSame(test.getChronology().hourOfDay(), test.hourOfDay().getField());
     }
 
     public void testPropertyGetHourOfDay_2_oe() {
@@ -2647,7 +3000,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMinuteOfHour_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertEquals(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
+        assertSame(test.getChronology().minuteOfHour(), test.minuteOfHour().getField());
     }
 
     public void testPropertyGetMinuteOfHour_2_oe() {
@@ -2773,7 +3126,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMinuteOfDay_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertEquals(test.getChronology().minuteOfDay(), test.minuteOfDay().getField());
+        assertSame(test.getChronology().minuteOfDay(), test.minuteOfDay().getField());
     }
 
     public void testPropertyGetMinuteOfDay_2_oe() {
@@ -2899,7 +3252,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetSecondOfMinute_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertEquals(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
+        assertSame(test.getChronology().secondOfMinute(), test.secondOfMinute().getField());
     }
 
     public void testPropertyGetSecondOfMinute_2_oe() {
@@ -3025,7 +3378,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetSecondOfDay_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertEquals(test.getChronology().secondOfDay(), test.secondOfDay().getField());
+        assertSame(test.getChronology().secondOfDay(), test.secondOfDay().getField());
     }
 
     public void testPropertyGetSecondOfDay_2_oe() {
@@ -3151,7 +3504,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMillisOfSecond_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertEquals(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
+        assertSame(test.getChronology().millisOfSecond(), test.millisOfSecond().getField());
     }
 
     public void testPropertyGetMillisOfSecond_2_oe() {
@@ -3277,7 +3630,7 @@ public class TestMutableDateTime_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetMillisOfDay_1_oe() {
         MutableDateTime test = new MutableDateTime(2004, 6, 9, 13, 23, 43, 53);
-        assertEquals(test.getChronology().millisOfDay(), test.millisOfDay().getField());
+        assertSame(test.getChronology().millisOfDay(), test.millisOfDay().getField());
     }
 
     public void testPropertyGetMillisOfDay_2_oe() {

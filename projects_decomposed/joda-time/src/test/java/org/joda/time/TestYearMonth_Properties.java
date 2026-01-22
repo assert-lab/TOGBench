@@ -84,11 +84,11 @@ public class TestYearMonth_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetYear() {
         YearMonth test = new YearMonth(1972, 6);
-        assertEquals(test.getChronology().year(), test.year().getField());
+        assertSame(test.getChronology().year(), test.year().getField());
         assertEquals("year", test.year().getName());
         assertEquals("Property[year]", test.year().toString());
-        assertEquals(test, test.year().getReadablePartial());
-        assertEquals(test, test.year().getYearMonth());
+        assertSame(test, test.year().getReadablePartial());
+        assertSame(test, test.year().getYearMonth());
         assertEquals(1972, test.year().get());
         assertEquals("1972", test.year().getAsString());
         assertEquals("1972", test.year().getAsText());
@@ -195,11 +195,11 @@ public class TestYearMonth_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetMonth() {
         YearMonth test = new YearMonth(1972, 6);
-        assertEquals(test.getChronology().monthOfYear(), test.monthOfYear().getField());
+        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
         assertEquals("monthOfYear", test.monthOfYear().getName());
         assertEquals("Property[monthOfYear]", test.monthOfYear().toString());
-        assertEquals(test, test.monthOfYear().getReadablePartial());
-        assertEquals(test, test.monthOfYear().getYearMonth());
+        assertSame(test, test.monthOfYear().getReadablePartial());
+        assertSame(test, test.monthOfYear().getYearMonth());
         assertEquals(6, test.monthOfYear().get());
         assertEquals("6", test.monthOfYear().getAsString());
         assertEquals("June", test.monthOfYear().getAsText());

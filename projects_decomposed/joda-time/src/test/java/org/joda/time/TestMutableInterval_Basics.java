@@ -132,7 +132,7 @@ public class TestMutableInterval_Basics extends TestCase {
 
     public void testGetDuration2() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME1);
-        assertEquals(Duration.ZERO, test.toDuration());
+        assertSame(Duration.ZERO, test.toDuration());
     }
 
     public void testEqualsHashCode() {

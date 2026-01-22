@@ -1,0 +1,7 @@
+id,test_prefix,test_name
+rng_64_1,"    @ParameterizedTest
+    @MethodSource(""getList"")
+    void testRestoreForeignState_1_oe(RestorableUniformRandomProvider generator) {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.restoreState(new Ran));
+    }
+",ProvidersCommonParametricTest::testRestoreForeignState_1_oe

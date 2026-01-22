@@ -39,7 +39,7 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(CursorableLinkedListTest.class);
+        return BulkTest.makeSuite(CursorableLinkedListTest_OE25Dev.class);
     }
 
     private CursorableLinkedList<E> list;
@@ -76,7 +76,7 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
     @Override
     public String[] ignoredTests() {
         final ArrayList<String> list = new ArrayList<>();
-        final String prefix = "CursorableLinkedListTest";
+        final String prefix = "CursorableLinkedListTest_OE25Dev";
         final String bulk = ".bulkTestSubList";
         final String[] ignored = new String[] {
                 ".testEmptyListSerialization",

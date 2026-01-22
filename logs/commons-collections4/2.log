@@ -1,0 +1,321 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-collections4 >---------------
+[INFO] Building Apache Commons Collections 4.4
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M2:enforce (enforce-maven-version) @ commons-collections4 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M2:enforce (enforce-maven-3) @ commons-collections4 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-collections4 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-collections4 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-collections4 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-collections4 ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-collections4 ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4
+[INFO] Storing buildNumber: 436e57711b2b4f8a4a2bcbbc6fd858d43f13414e at timestamp: 1769074212887
+[INFO] Storing buildScmBranch: jan-22-projects
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-collections4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ commons-collections4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 326 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/main/java/org/apache/commons/collections4/collection/IndexedCollection.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/main/java/org/apache/commons/collections4/collection/IndexedCollection.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/main/java/org/apache/commons/collections4/iterators/EmptyIterator.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/main/java/org/apache/commons/collections4/iterators/EmptyIterator.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.17:check (checkAPIcompatibility) @ commons-collections4 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-collections4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 179 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-collections4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 396 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/MultiValueMapTest.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/MultiValueMapTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/collection/AbstractCollectionTest.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/collection/AbstractCollectionTest.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/MultiKeyMapTest_OE25Dev.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/MultiKeyMapTest_OE25Dev.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/keyvalue/UnmodifiableMapEntryTest_OE25Dev.java:[32,8] org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest_OE25Dev is not abstract and does not override abstract method testConstructors() in org.apache.commons.collections4.keyvalue.AbstractMapEntryTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/keyvalue/DefaultMapEntryTest_OE25Dev.java:[31,8] org.apache.commons.collections4.keyvalue.DefaultMapEntryTest_OE25Dev is not abstract and does not override abstract method testConstructors() in org.apache.commons.collections4.keyvalue.AbstractMapEntryTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[951,63] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[952,44] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[953,37] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[954,44] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[955,72] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[956,53] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[957,46] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[958,53] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[959,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[983,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[996,63] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[997,44] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[998,37] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[999,44] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1000,72] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1001,53] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1002,46] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1003,53] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1004,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1028,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1030,51] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1042,63] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1043,44] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1044,37] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1045,44] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1046,72] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1047,53] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1048,46] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1049,53] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1050,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1074,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1077,51] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1089,63] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1090,44] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1091,37] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1092,44] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1093,72] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1094,53] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1095,46] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1096,53] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1097,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1121,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1125,56] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1137,63] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1138,44] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1139,37] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1140,44] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1141,72] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1142,53] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1143,46] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1144,53] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1145,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1169,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1174,52] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1186,63] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1187,44] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1188,37] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1189,44] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1190,72] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1191,53] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1192,46] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1193,53] cannot find symbol
+  symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+  location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1194,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1218,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1224,52] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1823,28] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1883,28] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1944,28] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[2006,28] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[2069,28] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[2133,28] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[INFO] 73 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.913 s
+[INFO] Finished at: 2026-01-22T03:30:21-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project commons-collections4: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/keyvalue/UnmodifiableMapEntryTest_OE25Dev.java:[32,8] org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest_OE25Dev is not abstract and does not override abstract method testConstructors() in org.apache.commons.collections4.keyvalue.AbstractMapEntryTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/keyvalue/DefaultMapEntryTest_OE25Dev.java:[31,8] org.apache.commons.collections4.keyvalue.DefaultMapEntryTest_OE25Dev is not abstract and does not override abstract method testConstructors() in org.apache.commons.collections4.keyvalue.AbstractMapEntryTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[951,63] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[952,44] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[953,37] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[954,44] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[955,72] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[956,53] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[957,46] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[958,53] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[959,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[983,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[996,63] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[997,44] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[998,37] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[999,44] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1000,72] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1001,53] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1002,46] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1003,53] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1004,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1028,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1030,51] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1042,63] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1043,44] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1044,37] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1045,44] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1046,72] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1047,53] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1048,46] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1049,53] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1050,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1074,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1077,51] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1089,63] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1090,44] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1091,37] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1092,44] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1093,72] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1094,53] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1095,46] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1096,53] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1097,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1121,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1125,56] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1137,63] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1138,44] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1139,37] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1140,44] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1141,72] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1142,53] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1143,46] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1144,53] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1145,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1169,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1174,52] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1186,63] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1187,44] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1188,37] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1189,44] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1190,72] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1191,53] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1192,46] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1193,53] cannot find symbol
+[ERROR]   symbol:   method getEntry(java.util.Iterator<java.util.Map.Entry<K,V>>,K)
+[ERROR]   location: class org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev<K,V>
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1194,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest_OE25Dev.TestBidiMapEntrySet
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1218,32] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1224,52] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1823,28] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1883,28] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[1944,28] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[2006,28] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[2069,28] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bidimap/AbstractBidiMapTest_OE25Dev.java:[2133,28] not an enclosing class: org.apache.commons.collections4.bidimap.AbstractBidiMapTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

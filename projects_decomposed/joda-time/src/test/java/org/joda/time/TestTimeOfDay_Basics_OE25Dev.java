@@ -72,7 +72,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestTimeOfDay_Basics_OE25Dev.class);
+        return new TestSuite(TestTimeOfDay_Basics_OE25Dev_OE25Dev.class);
     }
 
     public TestTimeOfDay_Basics_OE25Dev(String name) {
@@ -403,20 +403,20 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
 
     public void testGetFieldType_1_oe() {
         TimeOfDay test = new TimeOfDay(COPTIC_PARIS);
-        assertEquals(DateTimeFieldType.hourOfDay(), test.getFieldType(0));
+        assertSame(DateTimeFieldType.hourOfDay(), test.getFieldType(0));
     }
 
     public void testGetFieldType_2_oe() {
         TimeOfDay test = new TimeOfDay(COPTIC_PARIS);
         // removed other assertion
-        assertEquals(DateTimeFieldType.minuteOfHour(), test.getFieldType(1));
+        assertSame(DateTimeFieldType.minuteOfHour(), test.getFieldType(1));
     }
 
     public void testGetFieldType_3_oe() {
         TimeOfDay test = new TimeOfDay(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
-        assertEquals(DateTimeFieldType.secondOfMinute(), test.getFieldType(2));
+        assertSame(DateTimeFieldType.secondOfMinute(), test.getFieldType(2));
     }
 
     public void testGetFieldType_4_oe() {
@@ -424,20 +424,20 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(DateTimeFieldType.millisOfSecond(), test.getFieldType(3));
+        assertSame(DateTimeFieldType.millisOfSecond(), test.getFieldType(3));
     }
 
     public void testGetFieldTypes_1_oe() {
         TimeOfDay test = new TimeOfDay(COPTIC_PARIS);
         DateTimeFieldType[] fields = test.getFieldTypes();
-        assertEquals(DateTimeFieldType.hourOfDay(), fields[0]);
+        assertSame(DateTimeFieldType.hourOfDay(), fields[0]);
     }
 
     public void testGetFieldTypes_2_oe() {
         TimeOfDay test = new TimeOfDay(COPTIC_PARIS);
         DateTimeFieldType[] fields = test.getFieldTypes();
         // removed other assertion
-        assertEquals(DateTimeFieldType.minuteOfHour(), fields[1]);
+        assertSame(DateTimeFieldType.minuteOfHour(), fields[1]);
     }
 
     public void testGetFieldTypes_3_oe() {
@@ -445,7 +445,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         DateTimeFieldType[] fields = test.getFieldTypes();
         // removed other assertion
         // removed other assertion
-        assertEquals(DateTimeFieldType.secondOfMinute(), fields[2]);
+        assertSame(DateTimeFieldType.secondOfMinute(), fields[2]);
     }
 
     public void testGetFieldTypes_4_oe() {
@@ -454,7 +454,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(DateTimeFieldType.millisOfSecond(), fields[3]);
+        assertSame(DateTimeFieldType.millisOfSecond(), fields[3]);
     }
 
     public void testGetFieldTypes_5_oe() {
@@ -469,20 +469,20 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
 
     public void testGetField_1_oe() {
         TimeOfDay test = new TimeOfDay(COPTIC_PARIS);
-        assertEquals(CopticChronology.getInstanceUTC().hourOfDay(), test.getField(0));
+        assertSame(CopticChronology.getInstanceUTC().hourOfDay(), test.getField(0));
     }
 
     public void testGetField_2_oe() {
         TimeOfDay test = new TimeOfDay(COPTIC_PARIS);
         // removed other assertion
-        assertEquals(CopticChronology.getInstanceUTC().minuteOfHour(), test.getField(1));
+        assertSame(CopticChronology.getInstanceUTC().minuteOfHour(), test.getField(1));
     }
 
     public void testGetField_3_oe() {
         TimeOfDay test = new TimeOfDay(COPTIC_PARIS);
         // removed other assertion
         // removed other assertion
-        assertEquals(CopticChronology.getInstanceUTC().secondOfMinute(), test.getField(2));
+        assertSame(CopticChronology.getInstanceUTC().secondOfMinute(), test.getField(2));
     }
 
     public void testGetField_4_oe() {
@@ -490,20 +490,20 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(CopticChronology.getInstanceUTC().millisOfSecond(), test.getField(3));
+        assertSame(CopticChronology.getInstanceUTC().millisOfSecond(), test.getField(3));
     }
 
     public void testGetFields_1_oe() {
         TimeOfDay test = new TimeOfDay(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
-        assertEquals(CopticChronology.getInstanceUTC().hourOfDay(), fields[0]);
+        assertSame(CopticChronology.getInstanceUTC().hourOfDay(), fields[0]);
     }
 
     public void testGetFields_2_oe() {
         TimeOfDay test = new TimeOfDay(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
         // removed other assertion
-        assertEquals(CopticChronology.getInstanceUTC().minuteOfHour(), fields[1]);
+        assertSame(CopticChronology.getInstanceUTC().minuteOfHour(), fields[1]);
     }
 
     public void testGetFields_3_oe() {
@@ -511,7 +511,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         DateTimeField[] fields = test.getFields();
         // removed other assertion
         // removed other assertion
-        assertEquals(CopticChronology.getInstanceUTC().secondOfMinute(), fields[2]);
+        assertSame(CopticChronology.getInstanceUTC().secondOfMinute(), fields[2]);
     }
 
     public void testGetFields_4_oe() {
@@ -520,7 +520,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(CopticChronology.getInstanceUTC().millisOfSecond(), fields[3]);
+        assertSame(CopticChronology.getInstanceUTC().millisOfSecond(), fields[3]);
     }
 
     public void testGetFields_5_oe() {
@@ -1342,7 +1342,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
     public void testWithChronologyRetainFields_sameChrono_1_oe() {
         TimeOfDay base = new TimeOfDay(10, 20, 30, 40, COPTIC_PARIS);
         TimeOfDay test = base.withChronologyRetainFields(COPTIC_TOKYO);
-        assertEquals(base, test);
+        assertSame(base, test);
     }
 
     public void testWithChronologyRetainFields_nullChrono_1_oe() {
@@ -1379,7 +1379,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
     public void testWithField4_1_oe() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
         TimeOfDay result = test.withField(DateTimeFieldType.hourOfDay(), 10);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testWithFieldAdded1_1_oe() {
@@ -1400,7 +1400,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
     public void testWithFieldAdded4_1_oe() {
         TimeOfDay test = new TimeOfDay(10, 20, 30, 40);
         TimeOfDay result = test.withFieldAdded(DurationFieldType.hours(), 0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testWithFieldAdded6_1_oe() {
@@ -1528,7 +1528,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.plus((ReadablePeriod) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusHours_int_1_oe() {
@@ -1545,7 +1545,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.plusHours(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusMinutes_int_1_oe() {
@@ -1562,7 +1562,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.plusMinutes(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusSeconds_int_1_oe() {
@@ -1579,7 +1579,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.plusSeconds(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusMillis_int_1_oe() {
@@ -1596,7 +1596,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.plusMillis(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinus_RP_1_oe() {
@@ -1613,7 +1613,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.minus((ReadablePeriod) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusHours_int_1_oe() {
@@ -1630,7 +1630,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.minusHours(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusMinutes_int_1_oe() {
@@ -1647,7 +1647,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.minusMinutes(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusSeconds_int_1_oe() {
@@ -1664,7 +1664,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.minusSeconds(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusMillis_int_1_oe() {
@@ -1681,7 +1681,7 @@ public class TestTimeOfDay_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.minusMillis(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testToLocalTime_1_oe() {

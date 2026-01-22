@@ -1,0 +1,104 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------< org.asynchttpclient:async-http-client-extras-rxjava >---------
+[INFO] Building Asynchronous Http Client RxJava Extras 2.12.3
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client-extras-rxjava ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-extras-rxjava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.1:compile (default-compile) @ async-http-client-extras-rxjava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 7 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ async-http-client-extras-rxjava ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-rxjava ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/single/AsyncHttpSingleTest_OE25Dev.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/single/AsyncHttpSingleTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[33,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[49,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[66,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[84,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[100,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[117,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[135,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[151,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[168,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[186,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[202,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[219,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[237,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[256,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[276,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+  exception thrown from implicit call to close() on resource variable 'client'
+[INFO] 15 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.271 s
+[INFO] Finished at: 2026-01-22T03:27:58-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client-extras-rxjava: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[33,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[49,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[66,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[84,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[100,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[117,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[135,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[151,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[168,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[186,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[202,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[219,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[237,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[256,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/src/test/java/org/asynchttpclient/extras/rxjava/AsyncHttpObservableTest_OE25Dev.java:[276,26] unreported exception java.io.IOException; must be caught or declared to be thrown
+[ERROR]   exception thrown from implicit call to close() on resource variable 'client'
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

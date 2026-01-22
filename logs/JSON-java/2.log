@@ -1,0 +1,57 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ---------------------------< org.json:json >----------------------------
+[INFO] Building JSON in Java 20220924
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce-maven) @ json ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.4.0:resources (default-resources) @ json ---
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ json ---
+[INFO] Compiling 22 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.4.0:testResources (default-testResources) @ json ---
+[INFO] Copying 5 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ json ---
+[INFO] Compiling 56 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[5761,48] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[5782,48] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[5803,48] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[5809,37] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[13826,49] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[13846,49] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[13866,49] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[13872,38] error: incompatible types: StringBuilder cannot be converted to Writer
+[INFO] 8 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.817 s
+[INFO] Finished at: 2026-01-22T03:29:12-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:2.3.2:testCompile (default-testCompile) on project json: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[5761,48] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[5782,48] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[5803,48] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[5809,37] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[13826,49] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[13846,49] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[13866,49] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[13872,38] error: incompatible types: StringBuilder cannot be converted to Writer
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

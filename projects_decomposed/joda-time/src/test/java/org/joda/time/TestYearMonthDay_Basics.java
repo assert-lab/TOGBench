@@ -105,9 +105,9 @@ public class TestYearMonthDay_Basics extends TestCase {
 
     public void testGetFieldType() {
         YearMonthDay test = new YearMonthDay(COPTIC_PARIS);
-        assertEquals(DateTimeFieldType.year(), test.getFieldType(0));
-        assertEquals(DateTimeFieldType.monthOfYear(), test.getFieldType(1));
-        assertEquals(DateTimeFieldType.dayOfMonth(), test.getFieldType(2));
+        assertSame(DateTimeFieldType.year(), test.getFieldType(0));
+        assertSame(DateTimeFieldType.monthOfYear(), test.getFieldType(1));
+        assertSame(DateTimeFieldType.dayOfMonth(), test.getFieldType(2));
         try {
             test.getFieldType(-1);
         } catch (IndexOutOfBoundsException ex) {}
@@ -119,17 +119,17 @@ public class TestYearMonthDay_Basics extends TestCase {
     public void testGetFieldTypes() {
         YearMonthDay test = new YearMonthDay(COPTIC_PARIS);
         DateTimeFieldType[] fields = test.getFieldTypes();
-        assertEquals(DateTimeFieldType.year(), fields[0]);
-        assertEquals(DateTimeFieldType.monthOfYear(), fields[1]);
-        assertEquals(DateTimeFieldType.dayOfMonth(), fields[2]);
+        assertSame(DateTimeFieldType.year(), fields[0]);
+        assertSame(DateTimeFieldType.monthOfYear(), fields[1]);
+        assertSame(DateTimeFieldType.dayOfMonth(), fields[2]);
         assertNotSame(test.getFieldTypes(), test.getFieldTypes());
     }
 
     public void testGetField() {
         YearMonthDay test = new YearMonthDay(COPTIC_PARIS);
-        assertEquals(COPTIC_UTC.year(), test.getField(0));
-        assertEquals(COPTIC_UTC.monthOfYear(), test.getField(1));
-        assertEquals(COPTIC_UTC.dayOfMonth(), test.getField(2));
+        assertSame(COPTIC_UTC.year(), test.getField(0));
+        assertSame(COPTIC_UTC.monthOfYear(), test.getField(1));
+        assertSame(COPTIC_UTC.dayOfMonth(), test.getField(2));
         try {
             test.getField(-1);
         } catch (IndexOutOfBoundsException ex) {}
@@ -141,9 +141,9 @@ public class TestYearMonthDay_Basics extends TestCase {
     public void testGetFields() {
         YearMonthDay test = new YearMonthDay(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
-        assertEquals(COPTIC_UTC.year(), fields[0]);
-        assertEquals(COPTIC_UTC.monthOfYear(), fields[1]);
-        assertEquals(COPTIC_UTC.dayOfMonth(), fields[2]);
+        assertSame(COPTIC_UTC.year(), fields[0]);
+        assertSame(COPTIC_UTC.monthOfYear(), fields[1]);
+        assertSame(COPTIC_UTC.dayOfMonth(), fields[2]);
         assertNotSame(test.getFields(), test.getFields());
     }
 
@@ -353,7 +353,7 @@ public class TestYearMonthDay_Basics extends TestCase {
     public void testWithChronologyRetainFields_sameChrono() {
         YearMonthDay base = new YearMonthDay(2005, 6, 9, COPTIC_PARIS);
         YearMonthDay test = base.withChronologyRetainFields(COPTIC_TOKYO);
-        assertEquals(base, test);
+        assertSame(base, test);
     }
 
     public void testWithChronologyRetainFields_nullChrono() {
@@ -404,7 +404,7 @@ public class TestYearMonthDay_Basics extends TestCase {
         YearMonthDay test = new YearMonthDay(2004, 6, 9);
         YearMonthDay result = test.withField(DateTimeFieldType.year(), 2004);
         assertEquals(new YearMonthDay(2004, 6, 9), test);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -435,7 +435,7 @@ public class TestYearMonthDay_Basics extends TestCase {
     public void testWithFieldAdded4() {
         YearMonthDay test = new YearMonthDay(2004, 6, 9);
         YearMonthDay result = test.withFieldAdded(DurationFieldType.years(), 0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testWithFieldAdded5() {
@@ -454,7 +454,7 @@ public class TestYearMonthDay_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plus((ReadablePeriod) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusYears_int() {
@@ -464,7 +464,7 @@ public class TestYearMonthDay_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusYears(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusMonths_int() {
@@ -474,7 +474,7 @@ public class TestYearMonthDay_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusMonths(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusDays_int() {
@@ -484,7 +484,7 @@ public class TestYearMonthDay_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusDays(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -495,7 +495,7 @@ public class TestYearMonthDay_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minus((ReadablePeriod) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusYears_int() {
@@ -505,7 +505,7 @@ public class TestYearMonthDay_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusYears(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusMonths_int() {
@@ -515,7 +515,7 @@ public class TestYearMonthDay_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusMonths(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusDays_int() {
@@ -525,7 +525,7 @@ public class TestYearMonthDay_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusDays(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------

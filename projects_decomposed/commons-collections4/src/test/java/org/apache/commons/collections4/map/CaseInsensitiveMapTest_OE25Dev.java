@@ -36,7 +36,7 @@ public class CaseInsensitiveMapTest_OE25Dev<K, V> extends AbstractIterableMapTes
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(CaseInsensitiveMapTest.class);
+        return BulkTest.makeSuite(CaseInsensitiveMapTest_OE25Dev.class);
     }
 
     @Override

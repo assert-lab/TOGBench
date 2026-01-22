@@ -95,7 +95,7 @@ public abstract class AbstractSortedMapTest_OE25Dev<K, V> extends AbstractMapTes
         return new TestSubMap<>(this);
     }
 
-    public static abstract class TestViewMap <K, V> extends AbstractSortedMapTest<K, V> {
+    public static abstract class TestViewMap <K, V> extends AbstractSortedMapTest_OE25Dev<K, V> {
         protected final AbstractMapTest<K, V> main;
         protected final List<K> subSortedKeys = new ArrayList<>();
         protected final List<V> subSortedValues = new ArrayList<>();

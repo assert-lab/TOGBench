@@ -43,7 +43,7 @@ import static org.asynchttpclient.config.AsyncHttpClientConfigDefaults.*;
  */
 public class BasicHttpProxyToHttpsTest_OE25Dev {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(BasicHttpProxyToHttpsTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(BasicHttpProxyToHttpsTest_OE25Dev.class);
   private static final String CUSTOM_USER_AGENT = "custom-user-agent";
 
   private int httpPort;

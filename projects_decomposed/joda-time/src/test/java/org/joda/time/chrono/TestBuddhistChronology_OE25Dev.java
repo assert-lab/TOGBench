@@ -64,7 +64,7 @@ public class TestBuddhistChronology_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestBuddhistChronology_OE25Dev.class);
+        return new TestSuite(TestBuddhistChronology_OE25Dev_OE25Dev.class);
     }
 
     public TestBuddhistChronology_OE25Dev(String name) {
@@ -101,6 +101,45 @@ public class TestBuddhistChronology_OE25Dev extends TestCase {
 
     //-----------------------------------------------------------------------
 
+    public void DISABLED_testCalendar() {
+        if (TestAll.FAST) {
+            return;
+        }
+        System.out.println("\nTestBuddhistChronology.testCalendar");
+        DateTime epoch = new DateTime(1, 1, 1, 0, 0, 0, 0, BUDDHIST_UTC);
+        long millis = epoch.getMillis();
+        long end = new DateTime(3000, 1, 1, 0, 0, 0, 0, ISO_UTC).getMillis();
+        DateTimeField dayOfWeek = BUDDHIST_UTC.dayOfWeek();
+        DateTimeField weekOfWeekyear = GJ_UTC.weekOfWeekyear();
+        DateTimeField dayOfYear = BUDDHIST_UTC.dayOfYear();
+        DateTimeField dayOfMonth = BUDDHIST_UTC.dayOfMonth();
+        DateTimeField monthOfYear = BUDDHIST_UTC.monthOfYear();
+        DateTimeField year = BUDDHIST_UTC.year();
+        DateTimeField yearOfEra = BUDDHIST_UTC.yearOfEra();
+        DateTimeField era = BUDDHIST_UTC.era();
+        DateTimeField gjDayOfWeek = GJ_UTC.dayOfWeek();
+        DateTimeField gjWeekOfWeekyear = GJ_UTC.weekOfWeekyear();
+        DateTimeField gjDayOfYear = GJ_UTC.dayOfYear();
+        DateTimeField gjDayOfMonth = GJ_UTC.dayOfMonth();
+        DateTimeField gjMonthOfYear = GJ_UTC.monthOfYear();
+        DateTimeField gjYear = GJ_UTC.year();
+        while (millis < end) {
+            assertEquals(gjDayOfWeek.get(millis), dayOfWeek.get(millis));
+            assertEquals(gjDayOfYear.get(millis), dayOfYear.get(millis));
+            assertEquals(gjDayOfMonth.get(millis), dayOfMonth.get(millis));
+            assertEquals(gjMonthOfYear.get(millis), monthOfYear.get(millis));
+            assertEquals(gjWeekOfWeekyear.get(millis), weekOfWeekyear.get(millis));
+            assertEquals(1, era.get(millis));
+            int yearValue = gjYear.get(millis);
+            if (yearValue <= 0) {
+                yearValue++;
+            }
+            yearValue += 543;
+            assertEquals(yearValue, year.get(millis));
+            assertEquals(yearValue, yearOfEra.get(millis));
+            millis += SKIP;
+        }
+    }
 
     public void testFactoryUTC_1_oe() {
         assertEquals(DateTimeZone.UTC, BuddhistChronology.getInstanceUTC().getZone());
@@ -108,7 +147,7 @@ public class TestBuddhistChronology_OE25Dev extends TestCase {
 
     public void testFactoryUTC_2_oe() {
         // removed other assertion
-        assertEquals(BuddhistChronology.class, BuddhistChronology.getInstanceUTC().getClass());
+        assertSame(BuddhistChronology.class, BuddhistChronology.getInstanceUTC().getClass());
     }
 
     public void testFactory_1_oe() {
@@ -117,7 +156,7 @@ public class TestBuddhistChronology_OE25Dev extends TestCase {
 
     public void testFactory_2_oe() {
         // removed other assertion
-        assertEquals(BuddhistChronology.class, BuddhistChronology.getInstance().getClass());
+        assertSame(BuddhistChronology.class, BuddhistChronology.getInstance().getClass());
     }
 
     public void testFactory_Zone_1_oe() {
@@ -139,29 +178,29 @@ public class TestBuddhistChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(BuddhistChronology.class, BuddhistChronology.getInstance(TOKYO).getClass());
+        assertSame(BuddhistChronology.class, BuddhistChronology.getInstance(TOKYO).getClass());
     }
 
     public void testEquality_1_oe() {
-        assertEquals(BuddhistChronology.getInstance(TOKYO), BuddhistChronology.getInstance(TOKYO));
+        assertSame(BuddhistChronology.getInstance(TOKYO), BuddhistChronology.getInstance(TOKYO));
     }
 
     public void testEquality_2_oe() {
         // removed other assertion
-        assertEquals(BuddhistChronology.getInstance(LONDON), BuddhistChronology.getInstance(LONDON));
+        assertSame(BuddhistChronology.getInstance(LONDON), BuddhistChronology.getInstance(LONDON));
     }
 
     public void testEquality_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstance(PARIS));
+        assertSame(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstance(PARIS));
     }
 
     public void testEquality_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstanceUTC());
+        assertSame(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstanceUTC());
     }
 
     public void testEquality_5_oe() {
@@ -169,51 +208,51 @@ public class TestBuddhistChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(BuddhistChronology.getInstance(), BuddhistChronology.getInstance(LONDON));
+        assertSame(BuddhistChronology.getInstance(), BuddhistChronology.getInstance(LONDON));
     }
 
     public void testWithUTC_1_oe() {
-        assertEquals(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstance(LONDON).withUTC());
+        assertSame(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstance(LONDON).withUTC());
     }
 
     public void testWithUTC_2_oe() {
         // removed other assertion
-        assertEquals(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstance(TOKYO).withUTC());
+        assertSame(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstance(TOKYO).withUTC());
     }
 
     public void testWithUTC_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstanceUTC().withUTC());
+        assertSame(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstanceUTC().withUTC());
     }
 
     public void testWithUTC_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstance().withUTC());
+        assertSame(BuddhistChronology.getInstanceUTC(), BuddhistChronology.getInstance().withUTC());
     }
 
     public void testWithZone_1_oe() {
-        assertEquals(BuddhistChronology.getInstance(TOKYO), BuddhistChronology.getInstance(TOKYO).withZone(TOKYO));
+        assertSame(BuddhistChronology.getInstance(TOKYO), BuddhistChronology.getInstance(TOKYO).withZone(TOKYO));
     }
 
     public void testWithZone_2_oe() {
         // removed other assertion
-        assertEquals(BuddhistChronology.getInstance(LONDON), BuddhistChronology.getInstance(TOKYO).withZone(LONDON));
+        assertSame(BuddhistChronology.getInstance(LONDON), BuddhistChronology.getInstance(TOKYO).withZone(LONDON));
     }
 
     public void testWithZone_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstance(TOKYO).withZone(PARIS));
+        assertSame(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstance(TOKYO).withZone(PARIS));
     }
 
     public void testWithZone_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(BuddhistChronology.getInstance(LONDON), BuddhistChronology.getInstance(TOKYO).withZone(null));
+        assertSame(BuddhistChronology.getInstance(LONDON), BuddhistChronology.getInstance(TOKYO).withZone(null));
     }
 
     public void testWithZone_5_oe() {
@@ -221,7 +260,7 @@ public class TestBuddhistChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstance().withZone(PARIS));
+        assertSame(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstance().withZone(PARIS));
     }
 
     public void testWithZone_6_oe() {
@@ -230,7 +269,7 @@ public class TestBuddhistChronology_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstanceUTC().withZone(PARIS));
+        assertSame(BuddhistChronology.getInstance(PARIS), BuddhistChronology.getInstanceUTC().withZone(PARIS));
     }
 
     public void testToString_1_oe() {

@@ -40,7 +40,7 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(LRUMapTest.class);
+        return BulkTest.makeSuite(LRUMapTest_OE25Dev.class);
     }
 
     @Override

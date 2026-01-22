@@ -108,10 +108,10 @@ public class TestDateMidnight_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetEra() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().era(), test.era().getField());
+        assertSame(test.getChronology().era(), test.era().getField());
         assertEquals("era", test.era().getName());
         assertEquals("Property[era]", test.era().toString());
-        assertEquals(test, test.era().getDateMidnight());
+        assertSame(test, test.era().getDateMidnight());
         assertEquals(1, test.era().get());
         assertEquals("AD", test.era().getAsText());
         assertEquals("ap. J.-C.", test.era().getAsText(Locale.FRENCH));
@@ -128,10 +128,10 @@ public class TestDateMidnight_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetYearOfEra() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().yearOfEra(), test.yearOfEra().getField());
+        assertSame(test.getChronology().yearOfEra(), test.yearOfEra().getField());
         assertEquals("yearOfEra", test.yearOfEra().getName());
         assertEquals("Property[yearOfEra]", test.yearOfEra().toString());
-        assertEquals(test, test.yearOfEra().getDateMidnight());
+        assertSame(test, test.yearOfEra().getDateMidnight());
         assertEquals(2004, test.yearOfEra().get());
         assertEquals("2004", test.yearOfEra().getAsText());
         assertEquals("2004", test.yearOfEra().getAsText(Locale.FRENCH));
@@ -146,10 +146,10 @@ public class TestDateMidnight_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetCenturyOfEra() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().centuryOfEra(), test.centuryOfEra().getField());
+        assertSame(test.getChronology().centuryOfEra(), test.centuryOfEra().getField());
         assertEquals("centuryOfEra", test.centuryOfEra().getName());
         assertEquals("Property[centuryOfEra]", test.centuryOfEra().toString());
-        assertEquals(test, test.centuryOfEra().getDateMidnight());
+        assertSame(test, test.centuryOfEra().getDateMidnight());
         assertEquals(20, test.centuryOfEra().get());
         assertEquals("20", test.centuryOfEra().getAsText());
         assertEquals("20", test.centuryOfEra().getAsText(Locale.FRENCH));
@@ -164,10 +164,10 @@ public class TestDateMidnight_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetYearOfCentury() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().yearOfCentury(), test.yearOfCentury().getField());
+        assertSame(test.getChronology().yearOfCentury(), test.yearOfCentury().getField());
         assertEquals("yearOfCentury", test.yearOfCentury().getName());
         assertEquals("Property[yearOfCentury]", test.yearOfCentury().toString());
-        assertEquals(test, test.yearOfCentury().getDateMidnight());
+        assertSame(test, test.yearOfCentury().getDateMidnight());
         assertEquals(4, test.yearOfCentury().get());
         assertEquals("4", test.yearOfCentury().getAsText());
         assertEquals("4", test.yearOfCentury().getAsText(Locale.FRENCH));
@@ -182,10 +182,10 @@ public class TestDateMidnight_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetWeekyear() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().weekyear(), test.weekyear().getField());
+        assertSame(test.getChronology().weekyear(), test.weekyear().getField());
         assertEquals("weekyear", test.weekyear().getName());
         assertEquals("Property[weekyear]", test.weekyear().toString());
-        assertEquals(test, test.weekyear().getDateMidnight());
+        assertSame(test, test.weekyear().getDateMidnight());
         assertEquals(2004, test.weekyear().get());
         assertEquals("2004", test.weekyear().getAsText());
         assertEquals("2004", test.weekyear().getAsText(Locale.FRENCH));
@@ -200,10 +200,10 @@ public class TestDateMidnight_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetYear() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().year(), test.year().getField());
+        assertSame(test.getChronology().year(), test.year().getField());
         assertEquals("year", test.year().getName());
         assertEquals("Property[year]", test.year().toString());
-        assertEquals(test, test.year().getDateMidnight());
+        assertSame(test, test.year().getDateMidnight());
         assertEquals(2004, test.year().get());
         assertEquals("2004", test.year().getAsText());
         assertEquals("2004", test.year().getAsText(Locale.FRENCH));
@@ -219,6 +219,35 @@ public class TestDateMidnight_Properties extends TestCase {
         assertEquals(292278993, test.year().getMaximumValueOverall());
     }
 
+    //-----------------------------------------------------------------------
+    public void testPropertyGetMonthOfYear() {
+        DateMidnight test = new DateMidnight(2004, 6, 9);
+        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
+        assertEquals("monthOfYear", test.monthOfYear().getName());
+        assertEquals("Property[monthOfYear]", test.monthOfYear().toString());
+        assertSame(test, test.monthOfYear().getDateMidnight());
+        assertEquals(6, test.monthOfYear().get());
+        assertEquals("6", test.monthOfYear().getAsString());
+        assertEquals("June", test.monthOfYear().getAsText());
+        assertEquals("juin", test.monthOfYear().getAsText(Locale.FRENCH));
+        assertEquals("Jun", test.monthOfYear().getAsShortText());
+        assertEquals("juin", test.monthOfYear().getAsShortText(Locale.FRENCH));
+        assertEquals(test.getChronology().months(), test.monthOfYear().getDurationField());
+        assertEquals(test.getChronology().years(), test.monthOfYear().getRangeDurationField());
+        assertEquals(9, test.monthOfYear().getMaximumTextLength(null));
+        assertEquals(3, test.monthOfYear().getMaximumShortTextLength(null));
+        test = new DateMidnight(2004, 7, 9);
+        assertEquals("juillet", test.monthOfYear().getAsText(Locale.FRENCH));
+        assertEquals("juil.", test.monthOfYear().getAsShortText(Locale.FRENCH));
+        assertEquals(1, test.monthOfYear().getMinimumValue());
+        assertEquals(1, test.monthOfYear().getMinimumValueOverall());
+        assertEquals(12, test.monthOfYear().getMaximumValue());
+        assertEquals(12, test.monthOfYear().getMaximumValueOverall());
+        assertEquals(1, test.monthOfYear().getMinimumValue());
+        assertEquals(1, test.monthOfYear().getMinimumValueOverall());
+        assertEquals(12, test.monthOfYear().getMaximumValue());
+        assertEquals(12, test.monthOfYear().getMaximumValueOverall());
+    }
 
     public void testPropertySetMonthOfYear() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
@@ -343,10 +372,10 @@ public class TestDateMidnight_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetDayOfMonth() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
         assertEquals("dayOfMonth", test.dayOfMonth().getName());
         assertEquals("Property[dayOfMonth]", test.dayOfMonth().toString());
-        assertEquals(test, test.dayOfMonth().getDateMidnight());
+        assertSame(test, test.dayOfMonth().getDateMidnight());
         assertEquals(9, test.dayOfMonth().get());
         assertEquals("9", test.dayOfMonth().getAsText());
         assertEquals("9", test.dayOfMonth().getAsText(Locale.FRENCH));
@@ -383,10 +412,10 @@ public class TestDateMidnight_Properties extends TestCase {
     public void testPropertyGetDayOfYear() {
         // 31+29+31+30+31+9 = 161
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().dayOfYear(), test.dayOfYear().getField());
+        assertSame(test.getChronology().dayOfYear(), test.dayOfYear().getField());
         assertEquals("dayOfYear", test.dayOfYear().getName());
         assertEquals("Property[dayOfYear]", test.dayOfYear().toString());
-        assertEquals(test, test.dayOfYear().getDateMidnight());
+        assertSame(test, test.dayOfYear().getDateMidnight());
         assertEquals(161, test.dayOfYear().get());
         assertEquals("161", test.dayOfYear().getAsText());
         assertEquals("161", test.dayOfYear().getAsText(Locale.FRENCH));
@@ -404,10 +433,10 @@ public class TestDateMidnight_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetWeekOfWeekyear() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().weekOfWeekyear(), test.weekOfWeekyear().getField());
+        assertSame(test.getChronology().weekOfWeekyear(), test.weekOfWeekyear().getField());
         assertEquals("weekOfWeekyear", test.weekOfWeekyear().getName());
         assertEquals("Property[weekOfWeekyear]", test.weekOfWeekyear().toString());
-        assertEquals(test, test.weekOfWeekyear().getDateMidnight());
+        assertSame(test, test.weekOfWeekyear().getDateMidnight());
         assertEquals(24, test.weekOfWeekyear().get());
         assertEquals("24", test.weekOfWeekyear().getAsText());
         assertEquals("24", test.weekOfWeekyear().getAsText(Locale.FRENCH));
@@ -425,10 +454,10 @@ public class TestDateMidnight_Properties extends TestCase {
     //-----------------------------------------------------------------------
     public void testPropertyGetDayOfWeek() {
         DateMidnight test = new DateMidnight(2004, 6, 9);
-        assertEquals(test.getChronology().dayOfWeek(), test.dayOfWeek().getField());
+        assertSame(test.getChronology().dayOfWeek(), test.dayOfWeek().getField());
         assertEquals("dayOfWeek", test.dayOfWeek().getName());
         assertEquals("Property[dayOfWeek]", test.dayOfWeek().toString());
-        assertEquals(test, test.dayOfWeek().getDateMidnight());
+        assertSame(test, test.dayOfWeek().getDateMidnight());
         assertEquals(3, test.dayOfWeek().get());
         assertEquals("3", test.dayOfWeek().getAsString());
         assertEquals("Wednesday", test.dayOfWeek().getAsText());

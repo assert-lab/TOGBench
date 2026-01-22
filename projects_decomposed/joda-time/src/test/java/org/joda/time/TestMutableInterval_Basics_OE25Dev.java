@@ -77,7 +77,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestMutableInterval_Basics_OE25Dev.class);
+        return new TestSuite(TestMutableInterval_Basics_OE25Dev_OE25Dev.class);
     }
 
     public TestMutableInterval_Basics_OE25Dev(String name) {
@@ -221,7 +221,7 @@ public class TestMutableInterval_Basics_OE25Dev extends TestCase {
 
     public void testGetDuration2_1_oe() {
         MutableInterval test = new MutableInterval(TEST_TIME1, TEST_TIME1);
-        assertEquals(Duration.ZERO, test.toDuration());
+        assertSame(Duration.ZERO, test.toDuration());
     }
 
     public void testEqualsHashCode_1_oe() {

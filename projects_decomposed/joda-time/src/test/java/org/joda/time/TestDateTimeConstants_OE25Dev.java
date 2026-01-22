@@ -37,7 +37,7 @@ public class TestDateTimeConstants_OE25Dev extends TestCase {
      * TestSuite is a junit required method.
      */
     public static TestSuite suite() {
-        return new TestSuite(TestDateTimeConstants_OE25Dev.class);
+        return new TestSuite(TestDateTimeConstants_OE25Dev_OE25Dev.class);
     }
 
     /**

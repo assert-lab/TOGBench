@@ -21,7 +21,7 @@ python3 scripts_trial/3_rebuild_tests.py
 # run each projects' fix.sh before running mvn test
 ./scripts_trial/project_fixes.sh
 
-./scripts_trial/clean_loop.sh > compile_error_test_files.log
+# ./scripts_trial/clean_loop.sh > compile_error_test_files.log
 
 # module load maven
 

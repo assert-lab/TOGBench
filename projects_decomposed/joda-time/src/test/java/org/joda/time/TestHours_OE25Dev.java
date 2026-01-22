@@ -38,7 +38,7 @@ public class TestHours_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestHours_OE25Dev.class);
+        return new TestSuite(TestHours_OE25Dev_OE25Dev.class);
     }
 
     public TestHours_OE25Dev(String name) {
@@ -173,25 +173,25 @@ public class TestHours_OE25Dev extends TestCase {
     }
 
     public void testFactory_hours_int_1_oe() {
-        assertEquals(Hours.ZERO, Hours.hours(0));
+        assertSame(Hours.ZERO, Hours.hours(0));
     }
 
     public void testFactory_hours_int_2_oe() {
         // removed other assertion
-        assertEquals(Hours.ONE, Hours.hours(1));
+        assertSame(Hours.ONE, Hours.hours(1));
     }
 
     public void testFactory_hours_int_3_oe() {
         // removed other assertion
         // removed other assertion
-        assertEquals(Hours.TWO, Hours.hours(2));
+        assertSame(Hours.TWO, Hours.hours(2));
     }
 
     public void testFactory_hours_int_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Hours.THREE, Hours.hours(3));
+        assertSame(Hours.THREE, Hours.hours(3));
     }
 
     public void testFactory_hours_int_5_oe() {
@@ -199,7 +199,7 @@ public class TestHours_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Hours.FOUR, Hours.hours(4));
+        assertSame(Hours.FOUR, Hours.hours(4));
     }
 
     public void testFactory_hours_int_6_oe() {
@@ -208,7 +208,7 @@ public class TestHours_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Hours.FIVE, Hours.hours(5));
+        assertSame(Hours.FIVE, Hours.hours(5));
     }
 
     public void testFactory_hours_int_7_oe() {
@@ -218,7 +218,7 @@ public class TestHours_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Hours.SIX, Hours.hours(6));
+        assertSame(Hours.SIX, Hours.hours(6));
     }
 
     public void testFactory_hours_int_8_oe() {
@@ -229,7 +229,7 @@ public class TestHours_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Hours.SEVEN, Hours.hours(7));
+        assertSame(Hours.SEVEN, Hours.hours(7));
     }
 
     public void testFactory_hours_int_9_oe() {
@@ -241,7 +241,7 @@ public class TestHours_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Hours.EIGHT, Hours.hours(8));
+        assertSame(Hours.EIGHT, Hours.hours(8));
     }
 
     public void testFactory_hours_int_10_oe() {
@@ -254,7 +254,7 @@ public class TestHours_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Hours.MAX_VALUE, Hours.hours(Integer.MAX_VALUE));
+        assertSame(Hours.MAX_VALUE, Hours.hours(Integer.MAX_VALUE));
     }
 
     public void testFactory_hours_int_11_oe() {
@@ -268,7 +268,7 @@ public class TestHours_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(Hours.MIN_VALUE, Hours.hours(Integer.MIN_VALUE));
+        assertSame(Hours.MIN_VALUE, Hours.hours(Integer.MIN_VALUE));
     }
 
     public void testFactory_hours_int_12_oe() {
@@ -670,7 +670,7 @@ public class TestHours_OE25Dev extends TestCase {
         Hours result = (Hours) ois.readObject();
         ois.close();
         
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testToStandardWeeks_1_oe() {
@@ -873,7 +873,7 @@ public class TestHours_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.multipliedBy(1));
+        assertSame(test, test.multipliedBy(1));
     }
 
     public void testDividedBy_int_1_oe() {
@@ -929,7 +929,7 @@ public class TestHours_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.dividedBy(1));
+        assertSame(test, test.dividedBy(1));
     }
 
     public void testNegated_1_oe() {

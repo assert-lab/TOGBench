@@ -1,0 +1,835 @@
+id,test_prefix,test_name
+vfs_11_4,"    @Test
+    public void testRandomSetLength_4_oe() throws Exception {
+        try (FileObject file = this.createScratchFolder().resolveFile(""random_write.txt"")) {
+            file.createFile();
+            final String fileString = file.toString();
+            final RandomAccessContent ra = file.getContent().getRandomAccessContent(RandomAccessMode.READWRITE);
+
+            // Write long string
+            ra.writeBytes(TEST_DATA);
+            // removed other assertion
+
+            // Shrink to length 1
+            ra.setLength(1);
+            // removed other assertion
+            // now read 1
+            ra.seek(0);
+            // removed other assertion
+
+            try {
+                ra.readByte();
+                Assert.fail(""Expected "" + Exception.class.getName());
+    }
+    }
+    }
+",ProviderRandomSetLengthTests::testRandomSetLength_4_oe
+vfs_14_3,"    @Test
+    public void testDotJarFolderNameLayer_3_oe() throws Exception {
+        final FileObject folder = getReadFolderDir1().resolveFile(""subdir4.jar"");
+        // removed other assertion
+        // removed other assertion
+        try {
+            final FileObject ignored = getManager().createFileSystem(folder);
+            fail(""Should not be able to create a layered filesystem on a directory. "" + ignored);
+    }
+    }
+",ProviderReadTests::testDotJarFolderNameLayer_3_oe
+vfs_16_1,"    @Test
+    public void testFolderContent_1_oe() throws Exception {
+        if (getFileSystem().hasCapability(Capability.DIRECTORY_READ_CONTENT)) {
+            // test wont fail
+            return;
+        }
+
+        // Try getting the content of a folder
+        final FileObject folder = getReadFolderDir1();
+        try {
+            folder.getContent().getInputStream();
+            fail();
+    }
+    }
+",ProviderReadTests::testFolderContent_1_oe
+vfs_31_3,"    @Test
+    public void testChildren_3_oe() throws FileSystemException {
+        // Check for file
+        FileObject file = getReadFolder().resolveFile(""file1.txt"");
+        // removed other assertion
+        // removed other assertion
+        try {
+            file.getChildren();
+            fail();
+    }
+    }
+",ContentTests::testChildren_3_oe
+vfs_31_6,"    @Test
+    public void testChildren_6_oe() throws FileSystemException {
+        // Check for file
+        FileObject file = getReadFolder().resolveFile(""file1.txt"");
+        // removed other assertion
+        // removed other assertion
+        try {
+            file.getChildren();
+            // removed other assertion
+        } catch (final FileSystemException e) {
+            assertSameMessage(""vfs.provider/list-children-not-folder.error"", file, e);
+        }
+
+        // Should be able to get child by name
+        file = file.resolveFile(""some-child"");
+        // removed other assertion
+
+        // Check for unknown file
+        file = getReadFolder().resolveFile(""unknown-file"");
+        // removed other assertion
+        try {
+            file.getChildren();
+            fail();
+    }
+    }
+",ContentTests::testChildren_6_oe
+vfs_43_1,"    @Test
+    public void testUnknownContent_1_oe() throws Exception {
+
+        // Try getting the content of an unknown file
+        final FileObject unknownFile = getReadFolder().resolveFile(""unknown-file"");
+        final FileContent content = unknownFile.getContent();
+        try {
+            content.getInputStream();
+            fail();
+    }
+    }
+",ContentTests::testUnknownContent_1_oe
+vfs_43_2,"    @Test
+    public void testUnknownContent_2_oe() throws Exception {
+
+        // Try getting the content of an unknown file
+        final FileObject unknownFile = getReadFolder().resolveFile(""unknown-file"");
+        final FileContent content = unknownFile.getContent();
+        try {
+            content.getInputStream();
+            // removed other assertion
+        } catch (final FileSystemException e) {
+            assertSameMessage(""vfs.provider/read-not-file.error"", unknownFile, e);
+        }
+        try {
+            content.getSize();
+            fail();
+    }
+    }
+",ContentTests::testUnknownContent_2_oe
+vfs_51_6,"    @Test
+    public void testRelativeUriEncoding_6_oe() throws Exception {
+        // Build base dir
+        getManager().setBaseFile(getReadFolder());
+        final String path = getReadFolder().getName().getPath();
+
+        // §1 Encode ""some file""
+        FileObject file = getManager().resolveFile(""%73%6f%6d%65%20%66%69%6c%65"");
+        // removed other assertion
+
+        // §2 Encode "".""
+        file = getManager().resolveFile(""%2e"");
+        // 18-6-2005 imario@apache.org: no need to keep the ""current directory""
+        // assertEquals(path + ""/."", file.getName().getPathDecoded());
+        // removed other assertion
+
+        // §3 Encode '%'
+        file = getManager().resolveFile(""a%25"");
+        // removed other assertion
+
+        // §4 Encode /
+        file = getManager().resolveFile(""dir%2fchild"");
+        // removed other assertion
+
+        // §5 Encode \
+        file = getManager().resolveFile(""dir%5cchild"");
+        // 18-6-2005 imario@apache.org: all file separators normalized to ""/""
+        // decided to do this to get the same behavior as in §4 on windows
+        // platforms
+        // assertEquals(path + ""/dir\\child"", file.getName().getPathDecoded());
+        // removed other assertion
+
+        // §6 Use ""%"" literal
+        try {
+            getManager().resolveFile(""%"");
+            fail();
+    }
+    }
+",NamingTests::testRelativeUriEncoding_6_oe
+vfs_51_7,"    @Test
+    public void testRelativeUriEncoding_7_oe() throws Exception {
+        // Build base dir
+        getManager().setBaseFile(getReadFolder());
+        final String path = getReadFolder().getName().getPath();
+
+        // §1 Encode ""some file""
+        FileObject file = getManager().resolveFile(""%73%6f%6d%65%20%66%69%6c%65"");
+        // removed other assertion
+
+        // §2 Encode "".""
+        file = getManager().resolveFile(""%2e"");
+        // 18-6-2005 imario@apache.org: no need to keep the ""current directory""
+        // assertEquals(path + ""/."", file.getName().getPathDecoded());
+        // removed other assertion
+
+        // §3 Encode '%'
+        file = getManager().resolveFile(""a%25"");
+        // removed other assertion
+
+        // §4 Encode /
+        file = getManager().resolveFile(""dir%2fchild"");
+        // removed other assertion
+
+        // §5 Encode \
+        file = getManager().resolveFile(""dir%5cchild"");
+        // 18-6-2005 imario@apache.org: all file separators normalized to ""/""
+        // decided to do this to get the same behavior as in §4 on windows
+        // platforms
+        // assertEquals(path + ""/dir\\child"", file.getName().getPathDecoded());
+        // removed other assertion
+
+        // §6 Use ""%"" literal
+        try {
+            getManager().resolveFile(""%"");
+            // removed other assertion
+        } catch (final FileSystemException e) {
+        }
+
+        // §7 Not enough digits in encoded char
+        try {
+            getManager().resolveFile(""%5"");
+            fail();
+    }
+    }
+",NamingTests::testRelativeUriEncoding_7_oe
+vfs_51_8,"    @Test
+    public void testRelativeUriEncoding_8_oe() throws Exception {
+        // Build base dir
+        getManager().setBaseFile(getReadFolder());
+        final String path = getReadFolder().getName().getPath();
+
+        // §1 Encode ""some file""
+        FileObject file = getManager().resolveFile(""%73%6f%6d%65%20%66%69%6c%65"");
+        // removed other assertion
+
+        // §2 Encode "".""
+        file = getManager().resolveFile(""%2e"");
+        // 18-6-2005 imario@apache.org: no need to keep the ""current directory""
+        // assertEquals(path + ""/."", file.getName().getPathDecoded());
+        // removed other assertion
+
+        // §3 Encode '%'
+        file = getManager().resolveFile(""a%25"");
+        // removed other assertion
+
+        // §4 Encode /
+        file = getManager().resolveFile(""dir%2fchild"");
+        // removed other assertion
+
+        // §5 Encode \
+        file = getManager().resolveFile(""dir%5cchild"");
+        // 18-6-2005 imario@apache.org: all file separators normalized to ""/""
+        // decided to do this to get the same behavior as in §4 on windows
+        // platforms
+        // assertEquals(path + ""/dir\\child"", file.getName().getPathDecoded());
+        // removed other assertion
+
+        // §6 Use ""%"" literal
+        try {
+            getManager().resolveFile(""%"");
+            // removed other assertion
+        } catch (final FileSystemException e) {
+        }
+
+        // §7 Not enough digits in encoded char
+        try {
+            getManager().resolveFile(""%5"");
+            // removed other assertion
+        } catch (final FileSystemException e) {
+        }
+
+        // §8 Invalid digit in encoded char
+        try {
+            getManager().resolveFile(""%q"");
+            fail();
+    }
+    }
+",NamingTests::testRelativeUriEncoding_8_oe
+vfs_63_5,"    @Test
+    public void testFileCreateMismatched_5_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create a test file and folder
+        final FileObject file = scratchFolder.resolveFile(""dir1/file1.txt"");
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+
+        final FileObject folder = scratchFolder.resolveFile(""dir1/dir2"");
+        folder.createFolder();
+        // removed other assertion
+        // removed other assertion
+
+        // Attempt to create a file that already exists as a folder
+        try {
+            folder.createFile();
+            fail();
+    }
+    }
+",ProviderWriteTests::testFileCreateMismatched_5_oe
+vfs_63_6,"    @Test
+    public void testFileCreateMismatched_6_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create a test file and folder
+        final FileObject file = scratchFolder.resolveFile(""dir1/file1.txt"");
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+
+        final FileObject folder = scratchFolder.resolveFile(""dir1/dir2"");
+        folder.createFolder();
+        // removed other assertion
+        // removed other assertion
+
+        // Attempt to create a file that already exists as a folder
+        try {
+            folder.createFile();
+            // removed other assertion
+        } catch (final FileSystemException exc) {
+        }
+
+        // Attempt to create a folder that already exists as a file
+        try {
+            file.createFolder();
+            fail();
+    }
+    }
+",ProviderWriteTests::testFileCreateMismatched_6_oe
+vfs_63_7,"    @Test
+    public void testFileCreateMismatched_7_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+
+        // Create a test file and folder
+        final FileObject file = scratchFolder.resolveFile(""dir1/file1.txt"");
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+
+        final FileObject folder = scratchFolder.resolveFile(""dir1/dir2"");
+        folder.createFolder();
+        // removed other assertion
+        // removed other assertion
+
+        // Attempt to create a file that already exists as a folder
+        try {
+            folder.createFile();
+            // removed other assertion
+        } catch (final FileSystemException exc) {
+        }
+
+        // Attempt to create a folder that already exists as a file
+        try {
+            file.createFolder();
+            // removed other assertion
+        } catch (final FileSystemException exc) {
+        }
+
+        // Attempt to create a folder as a child of a file
+        final FileObject folder2 = file.resolveFile(""some-child"");
+        try {
+            folder2.createFolder();
+            fail();
+    }
+    }
+",ProviderWriteTests::testFileCreateMismatched_7_oe
+vfs_73_2,"    @Test
+    public void testUnknownURL_2_oe() throws Exception {
+        // Try getting the content of an unknown file
+        final FileObject unknownFile = getReadFolder().resolveFile(""unknown-file"");
+        // removed other assertion
+
+        final URLConnection connection = unknownFile.getURL().openConnection();
+        try {
+            connection.getInputStream();
+            fail();
+    }
+    }
+",UrlTests::testUnknownURL_2_oe
+vfs_109_2,"    @Test
+    public void testNotFoundOperation_2_oe() throws FileSystemException {
+        final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
+        manager.addOperationProvider(""file"", myop);
+        final FileObject fo = manager.toFileObject(new File("".""));
+
+        final FileOperations ops = fo.getFileOperations();
+        // removed other assertion
+
+        try {
+            final FileOperation logop = ops.getOperation(VcsLog.class);
+            fail(""Must throw but returned "" + logop);
+    }
+    }
+",BasicOperationsTestCase::testNotFoundOperation_2_oe
+vfs_132_2,"    @Test
+    public void testRootFolderExists_2_oe() throws FileSystemException {
+        final FileObject root = manager.resolveFile(""ram:///"", defaultRamFso);
+        // removed other assertion
+
+        try {
+            root.delete();
+            fail();
+    }
+    }
+",CustomRamProviderTest::testRootFolderExists_2_oe
+vfs_134_2,"    @Test
+    public void testSmallFS_2_oe() throws Exception {
+        // Small FS
+        final FileObject fo3 = manager.resolveFile(""ram:/fo3"", smallSizedFso);
+        fo3.createFile();
+        try {
+            final OutputStream os = fo3.getContent().getOutputStream();
+            os.write(new byte[10]);
+            os.close();
+        } catch (final FileSystemException e) {
+            // removed other assertion
+        }
+
+        try {
+            final OutputStream os = fo3.getContent().getOutputStream();
+            os.write(new byte[11]);
+            os.close();
+            fail(""It shouldn't save such a big file"");
+    }
+    }
+",CustomRamProviderTest::testSmallFS_2_oe
+vfs_158_3,"    @Test
+    @Ignore
+    public void testFileNameWithCharacters_3_oe() throws URISyntaxException, IOException {
+        final File file = new File(""target"", ""+# %&.txt"");
+        final String fileURL = file.toURI().toURL().toExternalForm();
+        // removed other assertion
+        // removed other assertion
+        try {
+            Files.newOutputStream(file.toPath()).close();
+            assertTrue(file.exists());
+    }
+    }
+",ConversionTestCase::testFileNameWithCharacters_3_oe
+vfs_158_4,"    @Test
+    @Ignore
+    public void testFileNameWithCharacters_4_oe() throws URISyntaxException, IOException {
+        final File file = new File(""target"", ""+# %&.txt"");
+        final String fileURL = file.toURI().toURL().toExternalForm();
+        // removed other assertion
+        // removed other assertion
+        try {
+            Files.newOutputStream(file.toPath()).close();
+            // removed other assertion
+
+            final FileSystemManager manager = VFS.getManager();
+            final FileObject fo = manager.resolveFile(fileURL);
+            assertTrue(fo.exists());
+    }
+    }
+",ConversionTestCase::testFileNameWithCharacters_4_oe
+vfs_158_5,"    @Test
+    @Ignore
+    public void testFileNameWithCharacters_5_oe() throws URISyntaxException, IOException {
+        final File file = new File(""target"", ""+# %&.txt"");
+        final String fileURL = file.toURI().toURL().toExternalForm();
+        // removed other assertion
+        // removed other assertion
+        try {
+            Files.newOutputStream(file.toPath()).close();
+            // removed other assertion
+
+            final FileSystemManager manager = VFS.getManager();
+            final FileObject fo = manager.resolveFile(fileURL);
+            // removed other assertion
+            assertEquals(file.getAbsoluteFile(), new File(new URL(fo.getURL().toExternalForm()).toURI().getPath()));
+    }
+    }
+",ConversionTestCase::testFileNameWithCharacters_5_oe
+vfs_163_1,"    @Test
+    public void testWindowsFilenameParserError_1_oe() throws Exception {
+        // check VFS-338 with 2+4 slashes we want a dedicated error
+        try {
+            final String FILE = ""file://////"";
+            final DefaultFileSystemManager manager = getManager();
+            Assert.assertNotNull(""Unexpected null manager for test "" + this, manager);
+    }
+    }
+",WindowsFileNameTests::testWindowsFilenameParserError_1_oe
+vfs_163_2,"    @Test
+    public void testWindowsFilenameParserError_2_oe() throws Exception {
+        // check VFS-338 with 2+4 slashes we want a dedicated error
+        try {
+            final String FILE = ""file://////"";
+            final DefaultFileSystemManager manager = getManager();
+            // removed other assertion
+            final FileObject fo = manager.resolveFile(FILE);
+            fail(""Windows File Parser should not allow "" + FILE + "" "" + fo);
+    }
+    }
+",WindowsFileNameTests::testWindowsFilenameParserError_2_oe
+vfs_164_1,"    @Test
+    public void testWindowsFilenameUNCStartError_1_oe() throws Exception {
+        try {
+            final String FILE = ""file://///"";
+            final DefaultFileSystemManager manager = getManager();
+            Assert.assertNotNull(""Unexpected null manager for test "" + this, manager);
+    }
+    }
+",WindowsFileNameTests::testWindowsFilenameUNCStartError_1_oe
+vfs_164_2,"    @Test
+    public void testWindowsFilenameUNCStartError_2_oe() throws Exception {
+        try {
+            final String FILE = ""file://///"";
+            final DefaultFileSystemManager manager = getManager();
+            // removed other assertion
+            final FileObject fo = manager.resolveFile(FILE);
+            fail(""Windows File Parser should not allow "" + FILE + "" "" + fo);
+    }
+    }
+",WindowsFileNameTests::testWindowsFilenameUNCStartError_2_oe
+vfs_166_1,"    @Test
+    public void testWindowsWrongRoots_1_oe() throws Exception {
+        final String[] tests = new String[] { ""file:///C:"", ""file://C:"", ""file:/C:"", ""file:C:"" };
+
+        for (final String name : tests) {
+            try {
+                final DefaultFileSystemManager manager = getManager();
+                Assert.assertNotNull(""Unexpected null manager for test "" + this, manager);
+    }
+    }
+    }
+",WindowsFileNameTests::testWindowsWrongRoots_1_oe
+vfs_166_2,"    @Test
+    public void testWindowsWrongRoots_2_oe() throws Exception {
+        final String[] tests = new String[] { ""file:///C:"", ""file://C:"", ""file:/C:"", ""file:C:"" };
+
+        for (final String name : tests) {
+            try {
+                final DefaultFileSystemManager manager = getManager();
+                // removed other assertion
+                final FileName fn = manager.resolveFile(name).getName();
+                fail(""should not accept root "" + name);
+    }
+    }
+    }
+",WindowsFileNameTests::testWindowsWrongRoots_2_oe
+vfs_172_1,"    @Test
+    public void testZipFileUseWeakRefFilesCache_1_oe() throws FileSystemException {
+
+        final File file = new File(""src/test/resources/test-data/test.zip"");
+        final String fileUri = ""zip:file:"" + file.getAbsolutePath();
+        FileObject fileObject = null;
+
+        try (StandardFileSystemManager manager = new StandardFileSystemManager()) {
+            // set file system's file cache use WeakReference, and init file system
+            @SuppressWarnings(""resource"") // Managed by the file system, no need to close.
+            final WeakRefFilesCache filesCache = new WeakRefFilesCache();
+            manager.setFilesCache(filesCache);
+            manager.init();
+
+            int cnt = 0;
+            while (cnt < 100_000) {
+                cnt++;
+
+                // resolve file, assert fileObject exist. clear fileObject to null and wait GC.
+                try {
+                    fileObject = manager.resolveFile(fileUri);
+                    Assert.assertTrue(fileObject.exists());
+    }
+    }
+    }
+    }
+",ZipFileSystemTestCase::testZipFileUseWeakRefFilesCache_1_oe
+vfs_206_1,"    @Test
+    public void testParallelCopyFromLocalFileSystem_1_oe() throws Exception {
+        final File localFile = new File(""src/test/resources/test-data/test.zip"");
+
+        final FileObject localFileObject = VFS.getManager().toFileObject(localFile);
+
+        final FileObject scratchFolder = createScratchFolder();
+
+        final List<Callable<Boolean>> tasks = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            final String fileName = ""file"" + i + ""copy.txt"";
+            tasks.add(() -> {
+                try {
+                    final FileObject fileObjectCopy = scratchFolder.resolveFile(fileName);
+
+                    assertFalse(fileObjectCopy.exists());
+    }
+    }
+    }
+    }
+",SftpMultiThreadWriteTests::testParallelCopyFromLocalFileSystem_1_oe
+vfs_206_2,"    @Test
+    public void testParallelCopyFromLocalFileSystem_2_oe() throws Exception {
+        final File localFile = new File(""src/test/resources/test-data/test.zip"");
+
+        final FileObject localFileObject = VFS.getManager().toFileObject(localFile);
+
+        final FileObject scratchFolder = createScratchFolder();
+
+        final List<Callable<Boolean>> tasks = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            final String fileName = ""file"" + i + ""copy.txt"";
+            tasks.add(() -> {
+                try {
+                    final FileObject fileObjectCopy = scratchFolder.resolveFile(fileName);
+
+                    // removed other assertion
+                    fileObjectCopy.copyFrom(localFileObject, Selectors.SELECT_SELF);
+                } catch (final Throwable e) {
+                    return false;
+                }
+                return true;
+            });
+        }
+
+        final ExecutorService service = Executors.newFixedThreadPool(10);
+        try {
+            final List<Future<Boolean>> futures = service.invokeAll(tasks);
+            assertTrue(futures.stream().allMatch(future -> { try { return future.get(5, TimeUnit.SECONDS); } catch (final Exception e) { return false; } }));
+    }
+    }
+",SftpMultiThreadWriteTests::testParallelCopyFromLocalFileSystem_2_oe
+vfs_211_1,"    @Test
+    public void testNestedJunction_1_oe() throws Exception {
+        final FileSystem fs = getManager().createVirtualFileSystem(""vfs:"").getFileSystem();
+        final FileObject baseDir = getBaseDir();
+        fs.addJunction(""/a"", baseDir);
+
+        // Nested
+        try {
+            fs.addJunction(""/a/b"", baseDir);
+            fail();
+    }
+    }
+",JunctionTests::testNestedJunction_1_oe
+vfs_211_2,"    @Test
+    public void testNestedJunction_2_oe() throws Exception {
+        final FileSystem fs = getManager().createVirtualFileSystem(""vfs:"").getFileSystem();
+        final FileObject baseDir = getBaseDir();
+        fs.addJunction(""/a"", baseDir);
+
+        // Nested
+        try {
+            fs.addJunction(""/a/b"", baseDir);
+            // removed other assertion
+        } catch (final Exception e) {
+            assertSameMessage(""vfs.impl/nested-junction.error"", ""vfs:/a/b"", e);
+        }
+
+        // At same point
+        try {
+            fs.addJunction(""/a"", baseDir);
+            fail();
+    }
+    }
+",JunctionTests::testNestedJunction_2_oe
+vfs_226_1,"    @Test
+    public void testPatternNullArgConstruction_1_oe() {
+        try {
+            new RegexFileFilter((Pattern) null);
+            fail();
+    }
+    }
+",RegexFileFilterTestCase::testPatternNullArgConstruction_1_oe
+vfs_228_1,"    @Test
+    public void testStringIOCaseNullArgConstruction_1_oe() {
+        try {
+            new RegexFileFilter((String) null, IOCase.INSENSITIVE);
+            fail();
+    }
+    }
+",RegexFileFilterTestCase::testStringIOCaseNullArgConstruction_1_oe
+vfs_229_1,"    @Test
+    public void testStringNullArgConstruction_1_oe() {
+        try {
+            new RegexFileFilter((String) null);
+            fail();
+    }
+    }
+",RegexFileFilterTestCase::testStringNullArgConstruction_1_oe
+vfs_230_1,"    @Test
+    public void testStringPatternNullArgConstruction_1_oe() {
+        try {
+            new RegexFileFilter((String) null, Pattern.CASE_INSENSITIVE);
+            fail();
+    }
+    }
+",RegexFileFilterTestCase::testStringPatternNullArgConstruction_1_oe
+vfs_299_1,"    @Test
+    public void ignore_testAddRemove_1_oe() throws Exception {
+        try (final FileObject fileObject = fileSystemManager.resolveFile(testFile.toURI().toString())) {
+            final CountingListener listener = new CountingListener();
+            final DefaultFileMonitor monitor = new DefaultFileMonitor(listener);
+            monitor.setDelay(DELAY_MILLIS);
+            try {
+                monitor.addFile(fileObject);
+                monitor.removeFile(fileObject);
+                monitor.addFile(fileObject);
+                monitor.start();
+                writeToFile(testFile);
+                Thread.sleep(DELAY_MILLIS * 3);
+                assertEquals(""Created event is only fired once"", 1, listener.created.get());
+    }
+    }
+    }
+",DefaultFileMonitorTest::ignore_testAddRemove_1_oe
+vfs_300_1,"    @Test
+    public void ignore_testStartStop_1_oe() throws Exception {
+        try (final FileObject fileObject = fileSystemManager.resolveFile(testFile.toURI().toString())) {
+            final CountingListener stoppedListener = new CountingListener();
+            final DefaultFileMonitor stoppedMonitor = new DefaultFileMonitor(stoppedListener);
+            stoppedMonitor.start();
+            try {
+                stoppedMonitor.addFile(fileObject);
+            } finally {
+                stoppedMonitor.stop();
+            }
+
+            // Variant 1: it becomes documented behavior to manually remove all files after stop() such that all
+            // listeners
+            // are removed
+            // This currently does not work, see DefaultFileMonitorTests#testAddRemove above.
+            // stoppedMonitor.removeFile(file);
+
+            // Variant 2: change behavior of stop(), which then removes all handlers.
+            // This would remove the possibility to pause watching files. Resuming watching for the same files via
+            // start();
+            // stop(); start(); would not work.
+
+            // Variant 3: introduce new method DefaultFileMonitor#close which definitely removes all resources held by
+            // DefaultFileMonitor.
+
+            final CountingListener activeListener = new CountingListener();
+            final DefaultFileMonitor activeMonitor = new DefaultFileMonitor(activeListener);
+            activeMonitor.setDelay(DELAY_MILLIS);
+            activeMonitor.addFile(fileObject);
+            activeMonitor.start();
+            try {
+                writeToFile(testFile);
+                Thread.sleep(DELAY_MILLIS * 10);
+
+                assertEquals(""The listener of the active monitor received one created event"", 1, activeListener.created.get());
+    }
+    }
+    }
+",DefaultFileMonitorTest::ignore_testStartStop_1_oe
+vfs_300_2,"    @Test
+    public void ignore_testStartStop_2_oe() throws Exception {
+        try (final FileObject fileObject = fileSystemManager.resolveFile(testFile.toURI().toString())) {
+            final CountingListener stoppedListener = new CountingListener();
+            final DefaultFileMonitor stoppedMonitor = new DefaultFileMonitor(stoppedListener);
+            stoppedMonitor.start();
+            try {
+                stoppedMonitor.addFile(fileObject);
+            } finally {
+                stoppedMonitor.stop();
+            }
+
+            // Variant 1: it becomes documented behavior to manually remove all files after stop() such that all
+            // listeners
+            // are removed
+            // This currently does not work, see DefaultFileMonitorTests#testAddRemove above.
+            // stoppedMonitor.removeFile(file);
+
+            // Variant 2: change behavior of stop(), which then removes all handlers.
+            // This would remove the possibility to pause watching files. Resuming watching for the same files via
+            // start();
+            // stop(); start(); would not work.
+
+            // Variant 3: introduce new method DefaultFileMonitor#close which definitely removes all resources held by
+            // DefaultFileMonitor.
+
+            final CountingListener activeListener = new CountingListener();
+            final DefaultFileMonitor activeMonitor = new DefaultFileMonitor(activeListener);
+            activeMonitor.setDelay(DELAY_MILLIS);
+            activeMonitor.addFile(fileObject);
+            activeMonitor.start();
+            try {
+                writeToFile(testFile);
+                Thread.sleep(DELAY_MILLIS * 10);
+
+                // removed other assertion
+                assertEquals(""The listener of the stopped monitor received no events"", 0, stoppedListener.created.get());
+    }
+    }
+    }
+",DefaultFileMonitorTest::ignore_testStartStop_2_oe
+vfs_301_1,"    @Test
+    public void testChildFileDeletedWithoutRecursiveChecking_1_oe() throws Exception {
+        writeToFile(testFile);
+        try (final FileObject fileObject = fileSystemManager.resolveFile(testDir.toURI().toURL().toString())) {
+            final DefaultFileMonitor monitor = new DefaultFileMonitor(new TestFileListener());
+            monitor.setDelay(2000);
+            monitor.setRecursive(false);
+            monitor.addFile(fileObject);
+            monitor.start();
+            try {
+                status = null;
+                Thread.sleep(DELAY_MILLIS * 5);
+                testFile.delete();
+                Thread.sleep(DELAY_MILLIS * 30);
+                assertEquals(""Event should not have occurred"", null, status);
+    }
+    }
+    }
+",DefaultFileMonitorTest::testChildFileDeletedWithoutRecursiveChecking_1_oe
+vfs_302_1,"    @Test
+    public void testFileModified_1_oe() throws Exception {
+        writeToFile(testFile);
+        try (final FileObject fileObject = fileSystemManager.resolveFile(testFile.toURI().toURL().toString())) {
+            final DefaultFileMonitor monitor = new DefaultFileMonitor(new TestFileListener());
+            // TestFileListener manipulates status
+            monitor.setDelay(DELAY_MILLIS);
+            monitor.addFile(fileObject);
+            monitor.start();
+            try {
+                // Need a long delay to insure the new timestamp doesn't truncate to be the same as
+                // the current timestammp. Java only guarantees the timestamp will be to 1 second.
+                Thread.sleep(DELAY_MILLIS * 10);
+                final long valueMillis = System.currentTimeMillis();
+                final boolean rcMillis = testFile.setLastModified(valueMillis);
+                assertTrue(""setLastModified succeeded"", rcMillis);
+    }
+    }
+    }
+",DefaultFileMonitorTest::testFileModified_1_oe
+vfs_314_1,"    @Test
+    public void testDelegatingBad_1_oe() throws Throwable {
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        try {
+            delgate.setConfigString(opts, ""http"", ""proxyPort"", ""wrong_port"");
+            fail();
+    }
+    }
+",DelegatingFileSystemOptionsBuilderTest::testDelegatingBad_1_oe
+vfs_314_4,"    @Test
+    public void testDelegatingBad_4_oe() throws Throwable {
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        try {
+            delgate.setConfigString(opts, ""http"", ""proxyPort"", ""wrong_port"");
+            // removed other assertion
+        } catch (final FileSystemException e) {
+            // removed other assertion
+            // removed other assertion
+        }
+
+        try {
+            delgate.setConfigClass(opts, ""sftp"", ""userinfo"", String.class);
+            fail();
+    }
+    }
+",DelegatingFileSystemOptionsBuilderTest::testDelegatingBad_4_oe

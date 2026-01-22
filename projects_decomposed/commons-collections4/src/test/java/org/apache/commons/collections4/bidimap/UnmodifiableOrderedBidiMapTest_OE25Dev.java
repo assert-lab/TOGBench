@@ -32,7 +32,7 @@ import org.apache.commons.collections4.Unmodifiable;
 public class UnmodifiableOrderedBidiMapTest_OE25Dev<K extends Comparable<K>, V extends Comparable<V>> extends AbstractOrderedBidiMapTest<K, V> {
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableOrderedBidiMapTest.class);
+        return BulkTest.makeSuite(UnmodifiableOrderedBidiMapTest_OE25Dev.class);
     }
 
     public UnmodifiableOrderedBidiMapTest_OE25Dev(final String testName) {
@@ -61,7 +61,7 @@ public class UnmodifiableOrderedBidiMapTest_OE25Dev<K extends Comparable<K>, V e
      */
     @Override
     public String[] ignoredTests() {
-        return new String[] {"UnmodifiableOrderedBidiMapTest.bulkTestInverseMap.bulkTestInverseMap"};
+        return new String[] {"UnmodifiableOrderedBidiMapTest_OE25Dev.bulkTestInverseMap.bulkTestInverseMap"};
     }
 
     @Override

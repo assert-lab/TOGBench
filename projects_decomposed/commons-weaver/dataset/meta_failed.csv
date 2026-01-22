@@ -1,0 +1,3 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version
+weav_25_1,commons-weaver,StaticNoArgsTest,testThrowingCheckedException1_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/StaticNoArgsTest.java,,,,assert,unknown
+weav_35_1,commons-weaver,NoArgsTest,testThrowingCheckedException1_1_oe,modules/privilizer/weaver/src/it/sample/src/test/java/org/apache/commons/weaver/privilizer/example/NoArgsTest.java,,,,assert,unknown

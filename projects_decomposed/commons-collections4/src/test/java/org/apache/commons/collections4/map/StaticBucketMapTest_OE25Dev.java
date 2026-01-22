@@ -32,7 +32,7 @@ public class StaticBucketMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(StaticBucketMapTest.class);
+        return BulkTest.makeSuite(StaticBucketMapTest_OE25Dev.class);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class StaticBucketMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K
 
     @Override
     public String[] ignoredTests() {
-        final String pre = "StaticBucketMapTest.bulkTestMap";
+        final String pre = "StaticBucketMapTest_OE25Dev.bulkTestMap";
         final String post = ".testCollectionIteratorFailFast";
         return new String[] {
             pre + "EntrySet" + post,

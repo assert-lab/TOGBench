@@ -40,7 +40,7 @@ public class PredicatedSortedBagTest_OE25Dev<T> extends AbstractSortedBagTest<T>
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(PredicatedSortedBagTest.class);
+        return BulkTest.makeSuite(PredicatedSortedBagTest_OE25Dev.class);
     }
 
     //--------------------------------------------------------------------------

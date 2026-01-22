@@ -92,7 +92,7 @@ http_72_1,"  @Test
   }
   }
 ",HttpRequestTest::receiveFile_1_oe
-http_77_1,"  @Test
+http_78_1,"  @Test
   public void sendErrorReadStream_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -108,7 +108,7 @@ http_77_1,"  @Test
   }
   }
 ",HttpRequestTest::sendErrorReadStream_1_oe
-http_77_2,"  @Test
+http_78_2,"  @Test
   public void sendErrorReadStream_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -140,7 +140,7 @@ http_77_2,"  @Test
   }
   }
 ",HttpRequestTest::sendErrorReadStream_2_oe
-http_78_1,"  @Test
+http_79_1,"  @Test
   public void sendErrorCloseStream_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -156,7 +156,7 @@ http_78_1,"  @Test
   }
   }
 ",HttpRequestTest::sendErrorCloseStream_1_oe
-http_78_2,"  @Test
+http_79_2,"  @Test
   public void sendErrorCloseStream_2_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -187,7 +187,7 @@ http_78_2,"  @Test
   }
   }
 ",HttpRequestTest::sendErrorCloseStream_2_oe
-http_80_1,"  @Test
+http_81_1,"  @Test
   public void getToOutputBody_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -203,7 +203,7 @@ http_80_1,"  @Test
   }
   }
 ",HttpRequestTest::getToOutputBody_1_oe
-http_81_1,"  @Test
+http_82_1,"  @Test
   public void getToOutputBodyWithCharset_1_oe() throws Exception {
     handler = new RequestHandler() {
 
@@ -219,7 +219,7 @@ http_81_1,"  @Test
   }
   }
 ",HttpRequestTest::getToOutputBodyWithCharset_1_oe
-http_150_1,"  @Test
+http_155_1,"  @Test
   public void uploadProgressSend_1_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -241,7 +241,7 @@ http_150_1,"  @Test
   }
   }
 ",HttpRequestTest::uploadProgressSend_1_oe
-http_150_2,"  @Test
+http_155_2,"  @Test
   public void uploadProgressSend_2_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -264,7 +264,7 @@ http_150_2,"  @Test
   }
   }
 ",HttpRequestTest::uploadProgressSend_2_oe
-http_151_1,"  @Test
+http_156_1,"  @Test
   public void uploadProgressSendInputStream_1_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -286,7 +286,7 @@ http_151_1,"  @Test
   }
   }
 ",HttpRequestTest::uploadProgressSendInputStream_1_oe
-http_151_2,"  @Test
+http_156_2,"  @Test
   public void uploadProgressSendInputStream_2_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -309,7 +309,7 @@ http_151_2,"  @Test
   }
   }
 ",HttpRequestTest::uploadProgressSendInputStream_2_oe
-http_152_1,"  @Test
+http_157_1,"  @Test
   public void uploadProgressSendByteArray_1_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -330,7 +330,7 @@ http_152_1,"  @Test
   }
   }
 ",HttpRequestTest::uploadProgressSendByteArray_1_oe
-http_152_2,"  @Test
+http_157_2,"  @Test
   public void uploadProgressSendByteArray_2_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -352,7 +352,7 @@ http_152_2,"  @Test
   }
   }
 ",HttpRequestTest::uploadProgressSendByteArray_2_oe
-http_153_1,"  @Test
+http_158_1,"  @Test
   public void uploadProgressSendReader_1_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {
@@ -372,7 +372,401 @@ http_153_1,"  @Test
   }
   }
 ",HttpRequestTest::uploadProgressSendReader_1_oe
-http_153_2,"  @Test
+http_158_2,"  @Test
+  public void uploadProgressSendReader_2_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        // removed other assertion
+        assertEquals(tx.incrementAndGet(), transferred);
+  }
+  }
+  }
+",HttpRequestTest::uploadProgressSendReader_2_oe
+http_161_1,"  @Test
+  public void malformedStringUrlCause_1_oe() {
+    try {
+      delete(""\\m/"");
+      fail(""Exception not thrown"");
+  }
+  }
+",HttpRequestTest::malformedStringUrlCause_1_oe
+http_226_1,"  @Test
+  public void postMultipart_1_oe() throws Exception {
+    final StringBuilder body = new StringBuilder();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        char[] buffer = new char[8192];
+        int read;
+        try {
+          while ((read = request.getReader().read(buffer)) != -1)
+            body.append(buffer, 0, read);
+        } catch (IOException e) {
+          fail();
+  }
+  }
+  }
+  }
+",HttpRequestTest::postMultipart_1_oe
+http_228_1,"  @Test
+  public void receiveAppendable_1_oe() throws Exception {
+    final StringBuilder body = new StringBuilder();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+  }
+  }
+  }
+  }
+",HttpRequestTest::receiveAppendable_1_oe
+http_229_1,"  @Test
+  public void receiveWriter_1_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+  }
+  }
+  }
+  }
+",HttpRequestTest::receiveWriter_1_oe
+http_230_1,"  @Test
+  public void receivePrintStream_1_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+  }
+  }
+  }
+  }
+",HttpRequestTest::receivePrintStream_1_oe
+http_231_1,"  @Test
+  public void receiveFile_1_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+  }
+  }
+  }
+  }
+",HttpRequestTest::receiveFile_1_oe
+http_236_1,"  @Test
+  public void sendErrorReadStream_1_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+  }
+  }
+  }
+  }
+",HttpRequestTest::sendErrorReadStream_1_oe
+http_236_2,"  @Test
+  public void sendErrorReadStream_2_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          // removed other assertion
+        }
+      }
+    };
+    final IOException readCause = new IOException();
+    final IOException closeCause = new IOException();
+    InputStream stream = new InputStream() {
+
+      public int read() throws IOException {
+        throw readCause;
+      }
+
+      public void close() throws IOException {
+        throw closeCause;
+      }
+    };
+    try {
+      post(url).send(stream);
+      fail(""Exception not thrown"");
+  }
+  }
+",HttpRequestTest::sendErrorReadStream_2_oe
+http_237_1,"  @Test
+  public void sendErrorCloseStream_1_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+  }
+  }
+  }
+  }
+",HttpRequestTest::sendErrorCloseStream_1_oe
+http_237_2,"  @Test
+  public void sendErrorCloseStream_2_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          // removed other assertion
+        }
+      }
+    };
+    final IOException closeCause = new IOException();
+    InputStream stream = new InputStream() {
+
+      public int read() throws IOException {
+        return -1;
+      }
+
+      public void close() throws IOException {
+        throw closeCause;
+      }
+    };
+    try {
+      post(url).ignoreCloseExceptions(false).send(stream);
+      fail(""Exception not thrown"");
+  }
+  }
+",HttpRequestTest::sendErrorCloseStream_2_oe
+http_239_1,"  @Test
+  public void getToOutputBody_1_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""hello world"");
+        } catch (IOException e) {
+          fail();
+  }
+  }
+  }
+  }
+",HttpRequestTest::getToOutputBody_1_oe
+http_240_1,"  @Test
+  public void getToOutputBodyWithCharset_1_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""hello world"");
+        } catch (IOException e) {
+          fail();
+  }
+  }
+  }
+  }
+",HttpRequestTest::getToOutputBodyWithCharset_1_oe
+http_309_1,"  @Test
+  public void uploadProgressSend_1_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    final File file = File.createTempFile(""post"", "".txt"");
+    new FileWriter(file).append(""hello"").close();
+
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        assertEquals(file.length(), total);
+  }
+  }
+  }
+",HttpRequestTest::uploadProgressSend_1_oe
+http_309_2,"  @Test
+  public void uploadProgressSend_2_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    final File file = File.createTempFile(""post"", "".txt"");
+    new FileWriter(file).append(""hello"").close();
+
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        // removed other assertion
+        assertEquals(tx.incrementAndGet(), transferred);
+  }
+  }
+  }
+",HttpRequestTest::uploadProgressSend_2_oe
+http_310_1,"  @Test
+  public void uploadProgressSendInputStream_1_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    File file = File.createTempFile(""post"", "".txt"");
+    new FileWriter(file).append(""hello"").close();
+    InputStream input = new FileInputStream(file);
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        assertEquals(-1, total);
+  }
+  }
+  }
+",HttpRequestTest::uploadProgressSendInputStream_1_oe
+http_310_2,"  @Test
+  public void uploadProgressSendInputStream_2_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    File file = File.createTempFile(""post"", "".txt"");
+    new FileWriter(file).append(""hello"").close();
+    InputStream input = new FileInputStream(file);
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        // removed other assertion
+        assertEquals(tx.incrementAndGet(), transferred);
+  }
+  }
+  }
+",HttpRequestTest::uploadProgressSendInputStream_2_oe
+http_311_1,"  @Test
+  public void uploadProgressSendByteArray_1_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    final byte[] bytes = ""hello"".getBytes(CHARSET_UTF8);
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        assertEquals(bytes.length, total);
+  }
+  }
+  }
+",HttpRequestTest::uploadProgressSendByteArray_1_oe
+http_311_2,"  @Test
+  public void uploadProgressSendByteArray_2_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    final byte[] bytes = ""hello"".getBytes(CHARSET_UTF8);
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        // removed other assertion
+        assertEquals(tx.incrementAndGet(), transferred);
+  }
+  }
+  }
+",HttpRequestTest::uploadProgressSendByteArray_2_oe
+http_312_1,"  @Test
+  public void uploadProgressSendReader_1_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        assertEquals(-1, total);
+  }
+  }
+  }
+",HttpRequestTest::uploadProgressSendReader_1_oe
+http_312_2,"  @Test
   public void uploadProgressSendReader_2_oe() throws Exception {
     final AtomicReference<String> body = new AtomicReference<String>();
     handler = new RequestHandler() {

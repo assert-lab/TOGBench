@@ -41,7 +41,7 @@ import static org.testng.Assert.assertEquals;
 
 public class ReactiveStreamsDownloadTest_OE25Dev {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(ReactiveStreamsDownloadTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(ReactiveStreamsDownloadTest_OE25Dev.class);
 
   private final int serverPort = 8080;
   private File largeFile;

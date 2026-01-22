@@ -38,7 +38,7 @@ public class TestDateTimeFieldType_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDateTimeFieldType_OE25Dev.class);
+        return new TestSuite(TestDateTimeFieldType_OE25Dev_OE25Dev.class);
     }
 
     public TestDateTimeFieldType_OE25Dev(String name) {
@@ -58,7 +58,7 @@ public class TestDateTimeFieldType_OE25Dev extends TestCase {
     //-----------------------------------------------------------------------
     private void assertSerialization(DateTimeFieldType type) throws Exception {
         DateTimeFieldType result = doSerialization(type);
-        assertEquals(type, result);
+        assertSame(type, result);
     }
 
     private DateTimeFieldType doSerialization(DateTimeFieldType type) throws Exception {
@@ -1006,7 +1006,7 @@ public class TestDateTimeFieldType_OE25Dev extends TestCase {
         DateTimeFieldType type = (DateTimeFieldType) con.newInstance(params);
         
         // removed other assertion
-        assertEquals(DurationFieldType.hours(), type.getDurationType());
+        assertSame(DurationFieldType.hours(), type.getDurationType());
     }
 
     public void test_other_5_oe() throws Exception {
@@ -1021,7 +1021,7 @@ public class TestDateTimeFieldType_OE25Dev extends TestCase {
         
         // removed other assertion
         // removed other assertion
-        assertEquals(DurationFieldType.months(), type.getRangeDurationType());
+        assertSame(DurationFieldType.months(), type.getRangeDurationType());
     }
 
     public void test_other_7_oe() throws Exception {

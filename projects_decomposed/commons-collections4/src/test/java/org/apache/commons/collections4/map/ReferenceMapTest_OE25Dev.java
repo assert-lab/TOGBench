@@ -46,7 +46,7 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(ReferenceMapTest.class);
+        return BulkTest.makeSuite(ReferenceMapTest_OE25Dev.class);
     }
 
     @Override

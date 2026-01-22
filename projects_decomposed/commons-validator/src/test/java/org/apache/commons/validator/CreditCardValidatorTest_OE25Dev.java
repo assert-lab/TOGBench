@@ -1,0 +1,240 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.validator;
+
+import junit.framework.TestCase;
+
+/**
+ * Test the CreditCardValidator class.
+ *
+ * @version $Revision$
+ * @deprecated this test can be removed when the deprecated class is removed
+ */
+@Deprecated
+public class CreditCardValidatorTest_OE25Dev extends TestCase {
+    
+    private static final String VALID_VISA = "4417123456789113";
+    private static final String VALID_SHORT_VISA = "4222222222222";
+    private static final String VALID_AMEX = "378282246310005";
+    private static final String VALID_MASTERCARD = "5105105105105100";
+    private static final String VALID_DISCOVER = "6011000990139424";
+    private static final String VALID_DINERS = "30569309025904";
+
+    /**
+     * Constructor for CreditCardValidatorTest_OE25Dev.
+     */
+    public CreditCardValidatorTest_OE25Dev(String name) {
+        super(name);
+    }
+    
+    /**
+     * Test a custom implementation of CreditCardType.
+     */
+    private class DinersClub implements CreditCardValidator.CreditCardType {
+        private static final String PREFIX = "300,301,302,303,304,305,";
+        @Override
+        public boolean matches(String card) {
+            String prefix = card.substring(0, 3) + ",";
+            return ((PREFIX.contains(prefix)) && (card.length() == 14));
+        }
+    }
+
+    public void testIsValid_1_oe() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        assertFalse(ccv.isValid(null));
+    }
+
+    public void testIsValid_2_oe() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        // removed other assertion
+        assertFalse(ccv.isValid(""));
+    }
+
+    public void testIsValid_3_oe() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        // removed other assertion
+        // removed other assertion
+        assertFalse(ccv.isValid("123456789012"));   // too short;
+    }
+
+    public void testIsValid_4_oe() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(ccv.isValid("12345678901234567890"));   // too long;
+    }
+
+    public void testIsValid_5_oe() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(ccv.isValid("4417123456789112"));
+    }
+
+    public void testIsValid_6_oe() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(ccv.isValid("4417q23456w89113"));
+    }
+
+    public void testIsValid_7_oe() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(ccv.isValid(VALID_VISA));
+    }
+
+    public void testIsValid_8_oe() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(ccv.isValid(VALID_SHORT_VISA));
+    }
+
+    public void testIsValid_9_oe() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(ccv.isValid(VALID_AMEX));
+    }
+
+    public void testIsValid_10_oe() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(ccv.isValid(VALID_MASTERCARD));
+    }
+
+    public void testIsValid_11_oe() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(ccv.isValid(VALID_DISCOVER));
+    }
+
+    public void testIsValid_12_oe() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        // disallow Visa so it should fail even with good number
+        ccv = new CreditCardValidator(CreditCardValidator.AMEX);
+        assertFalse(ccv.isValid("4417123456789113"));
+    }
+
+    public void testAddAllowedCardType_1_oe() {
+        CreditCardValidator ccv = new CreditCardValidator(CreditCardValidator.NONE);
+        // Turned off all cards so even valid numbers should fail
+        assertFalse(ccv.isValid(VALID_VISA));
+    }
+
+    public void testAddAllowedCardType_2_oe() {
+        CreditCardValidator ccv = new CreditCardValidator(CreditCardValidator.NONE);
+        // Turned off all cards so even valid numbers should fail
+        // removed other assertion
+        assertFalse(ccv.isValid(VALID_AMEX));
+    }
+
+    public void testAddAllowedCardType_3_oe() {
+        CreditCardValidator ccv = new CreditCardValidator(CreditCardValidator.NONE);
+        // Turned off all cards so even valid numbers should fail
+        // removed other assertion
+        // removed other assertion
+        assertFalse(ccv.isValid(VALID_MASTERCARD));
+    }
+
+    public void testAddAllowedCardType_4_oe() {
+        CreditCardValidator ccv = new CreditCardValidator(CreditCardValidator.NONE);
+        // Turned off all cards so even valid numbers should fail
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(ccv.isValid(VALID_DISCOVER));
+    }
+
+    public void testAddAllowedCardType_5_oe() {
+        CreditCardValidator ccv = new CreditCardValidator(CreditCardValidator.NONE);
+        // Turned off all cards so even valid numbers should fail
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        
+        // test our custom type
+        ccv.addAllowedCardType(new DinersClub());
+        assertTrue(ccv.isValid(VALID_DINERS));
+    }
+
+}

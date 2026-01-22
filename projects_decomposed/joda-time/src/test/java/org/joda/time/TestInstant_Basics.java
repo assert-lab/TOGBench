@@ -391,7 +391,7 @@ public class TestInstant_Basics extends TestCase {
     public void testToInstant() {
         Instant test = new Instant(TEST_TIME1);
         Instant result = test.toInstant();
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testToDateTime() {
@@ -404,8 +404,8 @@ public class TestInstant_Basics extends TestCase {
     public void testToDateTimeISO() {
         Instant test = new Instant(TEST_TIME1);
         DateTime result = test.toDateTimeISO();
-        assertEquals(DateTime.class, result.getClass());
-        assertEquals(ISOChronology.class, result.getChronology().getClass());
+        assertSame(DateTime.class, result.getClass());
+        assertSame(ISOChronology.class, result.getChronology().getClass());
         assertEquals(test.getMillis(), result.getMillis());
         assertEquals(ISOChronology.getInstance(), result.getChronology());
     }
@@ -453,8 +453,8 @@ public class TestInstant_Basics extends TestCase {
     public void testToMutableDateTimeISO() {
         Instant test = new Instant(TEST_TIME1);
         MutableDateTime result = test.toMutableDateTimeISO();
-        assertEquals(MutableDateTime.class, result.getClass());
-        assertEquals(ISOChronology.class, result.getChronology().getClass());
+        assertSame(MutableDateTime.class, result.getClass());
+        assertSame(ISOChronology.class, result.getChronology().getClass());
         assertEquals(test.getMillis(), result.getMillis());
         assertEquals(ISOChronology.getInstance(), result.getChronology());
     }
@@ -508,7 +508,7 @@ public class TestInstant_Basics extends TestCase {
         
         test = new Instant(TEST_TIME1);
         result = test.withMillis(TEST_TIME1);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -519,7 +519,7 @@ public class TestInstant_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.withDurationAdded(123456789L, 0);
-        assertEquals(test, result);
+        assertSame(test, result);
         
         result = test.withDurationAdded(123456789L, 2);
         expected = new Instant(TEST_TIME1 + (2L * 123456789L));
@@ -538,10 +538,10 @@ public class TestInstant_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.withDurationAdded(null, 1);
-        assertEquals(test, result);
+        assertSame(test, result);
         
         result = test.withDurationAdded(new Duration(123456789L), 0);
-        assertEquals(test, result);
+        assertSame(test, result);
         
         result = test.withDurationAdded(new Duration(123456789L), 2);
         expected = new Instant(TEST_TIME1 + (2L * 123456789L));
@@ -567,7 +567,7 @@ public class TestInstant_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plus((ReadableDuration) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
     
     //-----------------------------------------------------------------------    
@@ -585,7 +585,7 @@ public class TestInstant_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minus((ReadableDuration) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
     
     //-----------------------------------------------------------------------

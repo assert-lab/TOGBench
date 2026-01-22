@@ -55,7 +55,7 @@ public class MultipartBodyTest_OE25Dev {
   }
 
   private static File getTestfile() throws URISyntaxException {
-    final ClassLoader cl = MultipartBodyTest.class.getClassLoader();
+    final ClassLoader cl = MultipartBodyTest_OE25Dev.class.getClassLoader();
     final URL url = cl.getResource("textfile.txt");
     assertNotNull(url);
     return new File(url.toURI());

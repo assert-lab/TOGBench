@@ -71,17 +71,17 @@ public class TextMessageTest extends AbstractBasicWebSocketTest {
     }
   }
 
-  // @Test(timeOut = 60000, expectedExceptions = {UnknownHostException.class, ConnectException.class})
-  // public void onFailureTest() throws Throwable {
-  //   try (AsyncHttpClient c = asyncHttpClient()) {
-  //     c.prepareGet("ws://abcdefg").execute(new WebSocketUpgradeHandler.Builder().build()).get();
-  //   } catch (ExecutionException e) {
+  @Test(timeOut = 60000, expectedExceptions = {UnknownHostException.class, ConnectException.class})
+  public void onFailureTest() throws Throwable {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      c.prepareGet("ws://abcdefg").execute(new WebSocketUpgradeHandler.Builder().build()).get();
+    } catch (ExecutionException e) {
 
-  //     String expectedMessage = "DNS name not found";
-  //     assertTrue(e.getCause().toString().contains(expectedMessage));
-  //     throw e.getCause();
-  //   }
-  // }
+      String expectedMessage = "DNS name not found";
+      assertTrue(e.getCause().toString().contains(expectedMessage));
+      throw e.getCause();
+    }
+  }
 
   @Test(timeOut = 60000)
   public void onTimeoutCloseTest() throws Exception {

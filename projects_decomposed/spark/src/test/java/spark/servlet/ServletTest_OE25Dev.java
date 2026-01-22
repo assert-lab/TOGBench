@@ -21,7 +21,7 @@ public class ServletTest_OE25Dev {
 
     private static final String SOMEPATH = "/somepath";
     private static final int PORT = 9393;
-    private static final Logger LOGGER = LoggerFactory.getLogger(ServletTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ServletTest_OE25Dev.class);
 
     private static SparkTestUtil testUtil;
 

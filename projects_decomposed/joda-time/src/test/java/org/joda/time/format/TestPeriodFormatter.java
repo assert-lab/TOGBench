@@ -135,21 +135,21 @@ public class TestPeriodFormatter extends TestCase {
     public void testWithGetLocaleMethods() {
         PeriodFormatter f2 = f.withLocale(Locale.FRENCH);
         assertEquals(Locale.FRENCH, f2.getLocale());
-        assertEquals(f2, f2.withLocale(Locale.FRENCH));
+        assertSame(f2, f2.withLocale(Locale.FRENCH));
         
         f2 = f.withLocale(null);
         assertEquals(null, f2.getLocale());
-        assertEquals(f2, f2.withLocale(null));
+        assertSame(f2, f2.withLocale(null));
     }
 
     public void testWithGetParseTypeMethods() {
         PeriodFormatter f2 = f.withParseType(PeriodType.dayTime());
         assertEquals(PeriodType.dayTime(), f2.getParseType());
-        assertEquals(f2, f2.withParseType(PeriodType.dayTime()));
+        assertSame(f2, f2.withParseType(PeriodType.dayTime()));
         
         f2 = f.withParseType(null);
         assertEquals(null, f2.getParseType());
-        assertEquals(f2, f2.withParseType(null));
+        assertSame(f2, f2.withParseType(null));
     }
 
     public void testPrinterParserMethods() {

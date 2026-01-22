@@ -1,0 +1,243 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< org.jsoup:jsoup >---------------------------
+[INFO] Building jsoup Java HTML Parser 1.15.3
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:resources (default-resources) @ jsoup ---
+[INFO] Copying 3 resources to META-INF/
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ jsoup ---
+[INFO] Compiling 75 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/classes
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.21:check (animal-sniffer) @ jsoup ---
+[INFO] Signature version is: null
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.8:manifest (bundle-manifest) @ jsoup ---
+[INFO] No MANIFEST.MF file found, generating manifest.
+[INFO] Writing manifest: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/classes/META-INF/MANIFEST.MF
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:testResources (default-testResources) @ jsoup ---
+[INFO] Copying 70 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ jsoup ---
+[INFO] Compiling 105 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[446,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[451,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[457,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[464,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[472,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[481,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[491,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[502,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[514,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[527,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[541,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[556,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[572,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[579,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[587,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[596,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[606,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[618,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[631,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[645,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[660,23] method nextIndexOfChar() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[667,23] method nextIndexOfChar() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[675,23] method nextIndexOfChar() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[685,23] method nextIndexOfChar() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[697,23] method nextIndexOfChar() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[710,23] method nextIndexOfChar() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[724,23] method nextIndexOfUnmatched() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[729,23] method consumeToString() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[734,23] method consumeToString() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[740,23] method consumeToString() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[747,23] method consumeToString() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[755,23] method advance() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[760,23] method advance() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[767,23] method consumeLetterSequence() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[772,23] method consumeLetterSequence() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[778,23] method consumeLetterSequence() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[785,23] method consumeLetterSequence() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[793,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[798,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[804,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[811,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[819,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[828,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[838,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[849,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[861,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[874,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[888,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[903,23] method containsIgnoreCase() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[908,23] method containsIgnoreCase() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[914,23] method containsIgnoreCase() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[922,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[937,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[953,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[970,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[988,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1007,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1027,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1048,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1070,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1382,23] method canEnableAndDisableLineNumberTracking() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1387,23] method canEnableAndDisableLineNumberTracking() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1394,23] method canEnableAndDisableLineNumberTracking() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1403,23] method countsColumnsOverBufferWhenNoNewlines() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1414,23] method countsColumnsOverBufferWhenNoNewlines() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1428,23] method countsColumnsOverBufferWhenNoNewlines() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1443,23] method countsColumnsOverBufferWhenNoNewlines() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[156,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[168,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[181,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[195,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[210,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[229,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[249,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[270,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[292,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[315,23] method unescapeMultiChars() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[321,23] method unescapeMultiChars() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[329,23] method unescapeMultiChars() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[338,23] method getByName() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[342,23] method getByName() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[347,23] method getByName() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[353,23] method getByName() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[360,23] method notMissingMultis() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[366,23] method unescape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[371,23] method unescape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[378,23] method caseSensitive() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[383,23] method caseSensitive() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[391,23] method letterDigitEntities() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[399,23] method letterDigitEntities() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[408,23] method letterDigitEntities() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[419,23] method escapesGtInXmlAttributesButNotInHtml() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[431,23] method escapesGtInXmlAttributesButNotInHtml() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[921,23] method testByTag() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[927,23] method testByTag() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[934,23] method testByTag() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[942,23] method testByTag() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[951,23] method testByTag() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[963,23] method testByClass() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[968,23] method testByClass() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  6.990 s
+[INFO] Finished at: 2026-01-22T03:30:18-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project jsoup: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[446,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[451,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[457,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[464,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[472,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[481,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[491,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[502,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[514,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[527,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[541,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[556,23] method consume() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[572,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[579,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[587,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[596,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[606,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[618,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[631,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[645,23] method mark() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[660,23] method nextIndexOfChar() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[667,23] method nextIndexOfChar() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[675,23] method nextIndexOfChar() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[685,23] method nextIndexOfChar() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[697,23] method nextIndexOfChar() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[710,23] method nextIndexOfChar() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[724,23] method nextIndexOfUnmatched() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[729,23] method consumeToString() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[734,23] method consumeToString() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[740,23] method consumeToString() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[747,23] method consumeToString() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[755,23] method advance() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[760,23] method advance() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[767,23] method consumeLetterSequence() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[772,23] method consumeLetterSequence() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[778,23] method consumeLetterSequence() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[785,23] method consumeLetterSequence() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[793,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[798,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[804,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[811,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[819,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[828,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[838,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[849,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[861,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[874,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[888,23] method matches() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[903,23] method containsIgnoreCase() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[908,23] method containsIgnoreCase() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[914,23] method containsIgnoreCase() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[922,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[937,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[953,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[970,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[988,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1007,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1027,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1048,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1070,23] method cachesStrings() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1382,23] method canEnableAndDisableLineNumberTracking() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1387,23] method canEnableAndDisableLineNumberTracking() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1394,23] method canEnableAndDisableLineNumberTracking() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1403,23] method countsColumnsOverBufferWhenNoNewlines() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1414,23] method countsColumnsOverBufferWhenNoNewlines() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1428,23] method countsColumnsOverBufferWhenNoNewlines() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/CharacterReaderTest_OE25Dev.java:[1443,23] method countsColumnsOverBufferWhenNoNewlines() is already defined in class org.jsoup.parser.CharacterReaderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[156,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[168,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[181,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[195,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[210,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[229,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[249,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[270,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[292,23] method escape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[315,23] method unescapeMultiChars() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[321,23] method unescapeMultiChars() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[329,23] method unescapeMultiChars() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[338,23] method getByName() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[342,23] method getByName() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[347,23] method getByName() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[353,23] method getByName() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[360,23] method notMissingMultis() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[366,23] method unescape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[371,23] method unescape() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[378,23] method caseSensitive() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[383,23] method caseSensitive() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[391,23] method letterDigitEntities() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[399,23] method letterDigitEntities() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[408,23] method letterDigitEntities() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[419,23] method escapesGtInXmlAttributesButNotInHtml() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/EntitiesTest_OE25Dev.java:[431,23] method escapesGtInXmlAttributesButNotInHtml() is already defined in class org.jsoup.nodes.EntitiesTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[921,23] method testByTag() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[927,23] method testByTag() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[934,23] method testByTag() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[942,23] method testByTag() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[951,23] method testByTag() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[963,23] method testByClass() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/SelectorTest_OE25Dev.java:[968,23] method testByClass() is already defined in class org.jsoup.select.SelectorTest_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

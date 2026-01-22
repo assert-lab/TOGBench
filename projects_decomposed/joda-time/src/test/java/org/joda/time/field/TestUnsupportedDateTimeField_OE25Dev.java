@@ -41,7 +41,7 @@ public class TestUnsupportedDateTimeField_OE25Dev extends TestCase {
     private ReadablePartial localTime;
 
     public static TestSuite suite() {
-        return new TestSuite(TestUnsupportedDateTimeField_OE25Dev.class);
+        return new TestSuite(TestUnsupportedDateTimeField_OE25Dev_OE25Dev.class);
     }
 
     @Override
@@ -157,7 +157,7 @@ public class TestUnsupportedDateTimeField_OE25Dev extends TestCase {
         DateTimeField fieldTwo = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
-        assertEquals(fieldOne, fieldTwo);
+        assertSame(fieldOne, fieldTwo);
     }
 
     public void testDifferentDurationReturnDifferentObjects_2_oe() {
@@ -189,7 +189,7 @@ public class TestUnsupportedDateTimeField_OE25Dev extends TestCase {
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
 
-        assertEquals(fieldOne.getName(), dateTimeFieldTypeOne.getName());
+        assertSame(fieldOne.getName(), dateTimeFieldTypeOne.getName());
     }
 
     public void testAlwaysFalseReturnTypes_1_oe() {

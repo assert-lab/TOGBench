@@ -35,7 +35,7 @@ import static org.testng.Assert.*;
 
 public class ReactiveStreamsErrorTest_OE25Dev extends AbstractBasicTest {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(ReactiveStreamsErrorTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(ReactiveStreamsErrorTest_OE25Dev.class);
 
   private static final byte[] BODY_CHUNK = "someBytes".getBytes();
 

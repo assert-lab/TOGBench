@@ -16,7 +16,7 @@ import static spark.Service.ignite;
 public class ServicePortIntegrationTest_OE25Dev {
 
     private static Service service;
-    private static final Logger LOGGER = LoggerFactory.getLogger(ServicePortIntegrationTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ServicePortIntegrationTest_OE25Dev.class);
 
     @BeforeClass
     public static void setUpClass() throws Exception {

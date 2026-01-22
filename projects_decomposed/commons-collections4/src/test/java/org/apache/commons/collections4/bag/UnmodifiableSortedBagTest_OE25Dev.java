@@ -38,7 +38,7 @@ public class UnmodifiableSortedBagTest_OE25Dev<E> extends AbstractSortedBagTest<
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableSortedBagTest.class);
+        return BulkTest.makeSuite(UnmodifiableSortedBagTest_OE25Dev.class);
     }
 
     //-----------------------------------------------------------------------

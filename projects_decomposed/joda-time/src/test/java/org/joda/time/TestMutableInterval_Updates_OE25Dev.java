@@ -70,7 +70,7 @@ public class TestMutableInterval_Updates_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestMutableInterval_Updates_OE25Dev.class);
+        return new TestSuite(TestMutableInterval_Updates_OE25Dev_OE25Dev.class);
     }
 
     public TestMutableInterval_Updates_OE25Dev(String name) {

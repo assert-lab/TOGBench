@@ -15,7 +15,7 @@ import static spark.Spark.post;
 
 public class BodyAvailabilityTest_OE25Dev {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(BodyAvailabilityTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(BodyAvailabilityTest_OE25Dev.class);
 
     private static final String BODY_CONTENT = "the body content";
     

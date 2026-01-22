@@ -32,7 +32,7 @@ public class ArrayStackTest_OE25Dev<E> extends AbstractArrayListTest<E> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(ArrayStackTest.class);
+        return BulkTest.makeSuite(ArrayStackTest_OE25Dev.class);
     }
 
     @Override

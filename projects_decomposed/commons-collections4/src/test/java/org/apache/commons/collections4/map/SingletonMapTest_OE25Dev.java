@@ -39,7 +39,7 @@ public class SingletonMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V>
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(SingletonMapTest.class);
+        return BulkTest.makeSuite(SingletonMapTest_OE25Dev.class);
     }
 
     //-----------------------------------------------------------------------
@@ -55,8 +55,8 @@ public class SingletonMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V>
         // the ridiculous map above still doesn't pass these tests
         // but its not relevant, so we ignore them
         return new String[] {
-            "SingletonMapTest.bulkTestMapIterator.testEmptyMapIterator",
-            "SingletonMapTest.bulkTestOrderedMapIterator.testEmptyMapIterator",
+            "SingletonMapTest_OE25Dev.bulkTestMapIterator.testEmptyMapIterator",
+            "SingletonMapTest_OE25Dev.bulkTestOrderedMapIterator.testEmptyMapIterator",
         };
     }
 

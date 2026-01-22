@@ -1,0 +1,166 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-vfs2 >-------------------
+[INFO] Building Apache Commons VFS 2.9.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-vfs2 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-vfs2 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (vfs-jar-manifest) @ commons-vfs2 ---
+[INFO] Executing tasks
+
+main:
+    [mkdir] Created dir: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/osgi
+    [touch] Creating /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/osgi/MANIFEST.MF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-vfs2 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-vfs2 ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2
+[INFO] Storing buildNumber: 436e57711b2b4f8a4a2bcbbc6fd858d43f13414e at timestamp: 1769074100883
+[INFO] Storing buildScmBranch: jan-22-projects
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-vfs2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 4 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-vfs2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 293 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/https/HttpsFileNameParser.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/https/HttpsFileNameParser.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/AbstractFileObject.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/AbstractFileObject.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileSystemOptions.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileSystemOptions.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.2:manifest (bundle-manifest) @ commons-vfs2 ---
+[WARNING] Manifest org.apache.commons:commons-vfs2:jar:2.9.0 : Unused Import-Package instructions: [org.apache.jackrabbit.*] 
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-vfs2 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 64 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-vfs2 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 265 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/util/NHttpFileServer.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/util/NHttpFileServer.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpProviderTestCase.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpProviderTestCase.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[42,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject::exists)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[47,9] cannot find symbol
+  symbol:   method testZipParentLayer((fileObjec[...](); })
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[55,9] cannot find symbol
+  symbol:   method testZipParentLayer((fileObjec[...]ren())
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[60,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]ntent)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[65,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject::getType)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[70,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]ached)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[75,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]tOpen)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[80,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]table)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[85,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject::isFile)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[90,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]older)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[95,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]idden)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[100,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]dable)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[105,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]eable)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[INFO] 13 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.572 s
+[INFO] Finished at: 2026-01-22T03:28:36-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-vfs2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[42,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject::exists)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[47,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer((fileObjec[...](); })
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[55,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer((fileObjec[...]ren())
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[60,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]ntent)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[65,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject::getType)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[70,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]ached)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[75,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]tOpen)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[80,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]table)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[85,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject::isFile)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[90,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]older)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[95,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]idden)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[100,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]dable)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[105,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]eable)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

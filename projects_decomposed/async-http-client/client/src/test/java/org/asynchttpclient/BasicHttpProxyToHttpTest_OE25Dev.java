@@ -44,7 +44,7 @@ import static org.asynchttpclient.test.TestUtils.addHttpConnector;
  */
 public class BasicHttpProxyToHttpTest_OE25Dev {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(BasicHttpProxyToHttpTest.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(BasicHttpProxyToHttpTest_OE25Dev.class);
 
   private int httpPort;
   private int proxyPort;

@@ -42,7 +42,7 @@ import org.apache.commons.collections4.comparators.ReverseComparator;
 public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Comparable<V>> extends AbstractSortedBidiMapTest<K, V> {
 
     public static Test suite() {
-        return BulkTest.makeSuite(DualTreeBidiMap2Test.class);
+        return BulkTest.makeSuite(DualTreeBidiMap2Test_OE25Dev.class);
     }
 
     public DualTreeBidiMap2Test_OE25Dev(final String testName) {
@@ -79,7 +79,7 @@ public class DualTreeBidiMap2Test_OE25Dev<K extends Comparable<K>, V extends Com
      */
     @Override
     public String[] ignoredTests() {
-        final String recursiveTest = "DualTreeBidiMap2Test.bulkTestInverseMap.bulkTestInverseMap";
+        final String recursiveTest = "DualTreeBidiMap2Test_OE25Dev.bulkTestInverseMap.bulkTestInverseMap";
         return new String[] { recursiveTest };
     }
 

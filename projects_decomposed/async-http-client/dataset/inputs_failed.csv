@@ -5351,7 +5351,7 @@ async_290_2,"  @Test
   }
   }
 ",EventPipelineTest::asyncPipelineTest_2_oe
-async_370_1,"  @Test(invocationCount = 100)
+async_371_1,"  @Test(invocationCount = 100)
   public void asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_1_oe() throws Exception {
 
     try (AsyncHttpClient client = asyncHttpClient()) {
@@ -5373,7 +5373,7 @@ async_370_1,"  @Test(invocationCount = 100)
   }
   }
 ",ConnectionPoolTest::asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_1_oe
-async_371_2,"  @Test(expectedExceptions = TooManyConnectionsException.class)
+async_372_2,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   public void multipleMaxConnectionOpenTest_2_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -5392,7 +5392,7 @@ async_371_2,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTest_2_oe
-async_373_1,"  @Test
+async_374_1,"  @Test
   public void win7DisconnectTest_1_oe() throws Exception {
     final AtomicInteger count = new AtomicInteger(0);
 

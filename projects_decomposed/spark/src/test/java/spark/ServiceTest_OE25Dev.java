@@ -169,39 +169,25 @@ public class ServiceTest_OE25Dev {
         service.webSocket("/", null);
     }
     
-    // @Test(timeout = 300)
-    // public void stopExtinguishesServer() {
-    //     Service service = Service.ignite();
-    //     Routes routes = Mockito.mock(Routes.class);
-    //     EmbeddedServer server = Mockito.mock(EmbeddedServer.class);
-    //     service.routes = routes;
-    //     service.server = server;
-    //     service.initialized = true;
-    //     service.stop();
-    //     try {
-    //     	// yes, this is ugly and forces to set a test timeout as a precaution :(
-    //         while (service.initialized) {
-    //         	Thread.sleep(20);
-    //         }
-    //     } catch (InterruptedException e) {
-    //         Thread.currentThread().interrupt();
-    //     }
-    //     Mockito.verify(server).extinguish();
-    // }
-    
-    // @Test
-    // public void awaitStopBlocksUntilExtinguished() {
-    //     Service service = Service.ignite();
-    //     Routes routes = Mockito.mock(Routes.class);
-    //     EmbeddedServer server = Mockito.mock(EmbeddedServer.class);
-    //     service.routes = routes;
-    //     service.server = server;
-    //     service.initialized = true;
-    //     service.stop();
-    //     service.awaitStop();
-    //     Mockito.verify(server).extinguish();
-    //     assertFalse(service.initialized);
-    // }
+    @Test(timeout = 300)
+    public void stopExtinguishesServer() {
+        Service service = Service.ignite();
+        Routes routes = Mockito.mock(Routes.class);
+        EmbeddedServer server = Mockito.mock(EmbeddedServer.class);
+        service.routes = routes;
+        service.server = server;
+        service.initialized = true;
+        service.stop();
+        try {
+        	// yes, this is ugly and forces to set a test timeout as a precaution :(
+            while (service.initialized) {
+            	Thread.sleep(20);
+            }
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        Mockito.verify(server).extinguish();
+    }
     
     @WebSocket
     protected static class DummyWebSocketListener {
@@ -379,6 +365,20 @@ public class ServiceTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals("Should return trustStorePassword from SslStores", "truststorepassword", sslStores.trustStorePassword());
+    }
+
+    @Test
+    public void awaitStopBlocksUntilExtinguished_1_oe() {
+        Service service = Service.ignite();
+        Routes routes = Mockito.mock(Routes.class);
+        EmbeddedServer server = Mockito.mock(EmbeddedServer.class);
+        service.routes = routes;
+        service.server = server;
+        service.initialized = true;
+        service.stop();
+        service.awaitStop();
+        Mockito.verify(server).extinguish();
+        assertFalse(service.initialized);
     }
 
 }

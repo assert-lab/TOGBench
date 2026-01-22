@@ -36,7 +36,7 @@ public class UnmodifiableTrieTest_OE25Dev<V> extends AbstractSortedMapTest<Strin
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableTrieTest.class);
+        return BulkTest.makeSuite(UnmodifiableTrieTest_OE25Dev.class);
     }
 
     //-------------------------------------------------------------------

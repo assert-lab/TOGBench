@@ -28,7 +28,7 @@ public class JSONPointerTest_OE25Dev {
     
     static {
         @SuppressWarnings("resource")
-        InputStream resourceAsStream = JSONPointerTest.class.getClassLoader().getResourceAsStream("jsonpointer-testdoc.json");
+        InputStream resourceAsStream = JSONPointerTest_OE25Dev.class.getClassLoader().getResourceAsStream("jsonpointer-testdoc.json");
         if(resourceAsStream == null) {
             throw new ExceptionInInitializerError("Unable to locate test file. Please check your development environment configuration");
         }

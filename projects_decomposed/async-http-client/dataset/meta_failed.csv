@@ -183,6 +183,6 @@ async_281_1,async-http-client,ProxyTest,testWildcardNonProxyHosts_1_oe,client/sr
 async_282_4,async-http-client,ProxyTest,testUseProxySelector_4_oe,client/src/test/java/org/asynchttpclient/proxy/ProxyTest.java,,,,assert,unknown
 async_290_1,async-http-client,EventPipelineTest,asyncPipelineTest_1_oe,client/src/test/java/org/asynchttpclient/netty/EventPipelineTest.java,,,,assert,unknown
 async_290_2,async-http-client,EventPipelineTest,asyncPipelineTest_2_oe,client/src/test/java/org/asynchttpclient/netty/EventPipelineTest.java,,,,assert,unknown
-async_370_1,async-http-client,ConnectionPoolTest,asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_1_oe,client/src/test/java/org/asynchttpclient/channel/ConnectionPoolTest.java,,,,assert,unknown
-async_371_2,async-http-client,ConnectionPoolTest,multipleMaxConnectionOpenTest_2_oe,client/src/test/java/org/asynchttpclient/channel/ConnectionPoolTest.java,,,,assert,unknown
-async_373_1,async-http-client,ConnectionPoolTest,win7DisconnectTest_1_oe,client/src/test/java/org/asynchttpclient/channel/ConnectionPoolTest.java,,,,assert,unknown
+async_371_1,async-http-client,ConnectionPoolTest,asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_1_oe,client/src/test/java/org/asynchttpclient/channel/ConnectionPoolTest.java,,,,assert,unknown
+async_372_2,async-http-client,ConnectionPoolTest,multipleMaxConnectionOpenTest_2_oe,client/src/test/java/org/asynchttpclient/channel/ConnectionPoolTest.java,,,,assert,unknown
+async_374_1,async-http-client,ConnectionPoolTest,win7DisconnectTest_1_oe,client/src/test/java/org/asynchttpclient/channel/ConnectionPoolTest.java,,,,assert,unknown

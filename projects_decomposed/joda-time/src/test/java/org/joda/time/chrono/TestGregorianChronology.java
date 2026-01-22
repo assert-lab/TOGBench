@@ -90,19 +90,19 @@ public class TestGregorianChronology extends TestCase {
     //-----------------------------------------------------------------------
     public void testFactoryUTC() {
         assertEquals(DateTimeZone.UTC, GregorianChronology.getInstanceUTC().getZone());
-        assertEquals(GregorianChronology.class, GregorianChronology.getInstanceUTC().getClass());
+        assertSame(GregorianChronology.class, GregorianChronology.getInstanceUTC().getClass());
     }
 
     public void testFactory() {
         assertEquals(LONDON, GregorianChronology.getInstance().getZone());
-        assertEquals(GregorianChronology.class, GregorianChronology.getInstance().getClass());
+        assertSame(GregorianChronology.class, GregorianChronology.getInstance().getClass());
     }
 
     public void testFactory_Zone() {
         assertEquals(TOKYO, GregorianChronology.getInstance(TOKYO).getZone());
         assertEquals(PARIS, GregorianChronology.getInstance(PARIS).getZone());
         assertEquals(LONDON, GregorianChronology.getInstance(null).getZone());
-        assertEquals(GregorianChronology.class, GregorianChronology.getInstance(TOKYO).getClass());
+        assertSame(GregorianChronology.class, GregorianChronology.getInstance(TOKYO).getClass());
     }
 
     public void testFactory_Zone_int() {
@@ -122,27 +122,27 @@ public class TestGregorianChronology extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testEquality() {
-        assertEquals(GregorianChronology.getInstance(TOKYO), GregorianChronology.getInstance(TOKYO));
-        assertEquals(GregorianChronology.getInstance(LONDON), GregorianChronology.getInstance(LONDON));
-        assertEquals(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstance(PARIS));
-        assertEquals(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstanceUTC());
-        assertEquals(GregorianChronology.getInstance(), GregorianChronology.getInstance(LONDON));
+        assertSame(GregorianChronology.getInstance(TOKYO), GregorianChronology.getInstance(TOKYO));
+        assertSame(GregorianChronology.getInstance(LONDON), GregorianChronology.getInstance(LONDON));
+        assertSame(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstance(PARIS));
+        assertSame(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstanceUTC());
+        assertSame(GregorianChronology.getInstance(), GregorianChronology.getInstance(LONDON));
     }
 
     public void testWithUTC() {
-        assertEquals(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstance(LONDON).withUTC());
-        assertEquals(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstance(TOKYO).withUTC());
-        assertEquals(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstanceUTC().withUTC());
-        assertEquals(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstance().withUTC());
+        assertSame(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstance(LONDON).withUTC());
+        assertSame(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstance(TOKYO).withUTC());
+        assertSame(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstanceUTC().withUTC());
+        assertSame(GregorianChronology.getInstanceUTC(), GregorianChronology.getInstance().withUTC());
     }
 
     public void testWithZone() {
-        assertEquals(GregorianChronology.getInstance(TOKYO), GregorianChronology.getInstance(TOKYO).withZone(TOKYO));
-        assertEquals(GregorianChronology.getInstance(LONDON), GregorianChronology.getInstance(TOKYO).withZone(LONDON));
-        assertEquals(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstance(TOKYO).withZone(PARIS));
-        assertEquals(GregorianChronology.getInstance(LONDON), GregorianChronology.getInstance(TOKYO).withZone(null));
-        assertEquals(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstance().withZone(PARIS));
-        assertEquals(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstanceUTC().withZone(PARIS));
+        assertSame(GregorianChronology.getInstance(TOKYO), GregorianChronology.getInstance(TOKYO).withZone(TOKYO));
+        assertSame(GregorianChronology.getInstance(LONDON), GregorianChronology.getInstance(TOKYO).withZone(LONDON));
+        assertSame(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstance(TOKYO).withZone(PARIS));
+        assertSame(GregorianChronology.getInstance(LONDON), GregorianChronology.getInstance(TOKYO).withZone(null));
+        assertSame(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstance().withZone(PARIS));
+        assertSame(GregorianChronology.getInstance(PARIS), GregorianChronology.getInstanceUTC().withZone(PARIS));
     }
 
     public void testToString() {

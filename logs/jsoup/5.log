@@ -1,0 +1,243 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< org.jsoup:jsoup >---------------------------
+[INFO] Building jsoup Java HTML Parser 1.15.3
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:resources (default-resources) @ jsoup ---
+[INFO] Copying 3 resources to META-INF/
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ jsoup ---
+[INFO] Compiling 75 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/classes
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.21:check (animal-sniffer) @ jsoup ---
+[INFO] Signature version is: null
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.8:manifest (bundle-manifest) @ jsoup ---
+[INFO] No MANIFEST.MF file found, generating manifest.
+[INFO] Writing manifest: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/classes/META-INF/MANIFEST.MF
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:testResources (default-testResources) @ jsoup ---
+[INFO] Copying 70 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ jsoup ---
+[INFO] Compiling 86 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[437,23] method filter() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[444,23] method filter() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[452,23] method filter() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[461,23] method hasAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[467,23] method hasAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[474,23] method attr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[480,23] method classes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[487,23] method classes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[495,23] method classes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[508,23] method classes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[522,23] method text() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[528,23] method html() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[534,23] method setHtml() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[542,23] method setHtml() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[553,23] method before() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[559,23] method wrap() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[566,23] method unwrap() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[573,23] method unwrapKeepsSpace() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[580,23] method remove() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[588,23] method is() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[595,23] method is() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[603,23] method not() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[610,23] method not() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[618,23] method not() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[629,23] method not() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[641,23] method forms() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[647,23] method forms() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[656,23] method forms() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[666,23] method forms() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[677,23] method forms() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[689,23] method forms() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[702,23] method textNodes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[708,23] method textNodes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[715,23] method textNodes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[723,23] method nodesEmpty() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[728,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[735,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[745,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[756,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[768,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[782,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[798,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[815,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[835,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[856,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[878,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[903,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[929,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[958,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[988,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1019,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1052,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1087,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1123,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1162,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1202,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1243,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1287,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1332,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1341,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1351,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1362,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1374,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1387,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1403,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1420,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1438,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1457,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[90,23] method chompBalanced() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[99,23] method chompBalanced() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[109,23] method chompBalanced() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[120,23] method chompBalancedMatchesAsMuchAsPossible() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[127,23] method chompToIgnoreCase() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[134,23] method chompToIgnoreCase() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[145,23] method consumeToIgnoreSecondCallTest() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[152,23] method consumeToIgnoreSecondCallTest() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlTreeBuilderTest_OE25Dev.java:[49,23] method nonnullAssertions() is already defined in class org.jsoup.parser.HtmlTreeBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[85,23] method isCaseSensitive() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[91,23] method trims() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[97,23] method divSemantics() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[103,23] method divSemantics() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[110,23] method imgSemantics() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[115,23] method imgSemantics() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[121,23] method imgSemantics() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[128,23] method valueOfChecksNotNull() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[132,23] method knownTags() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[136,23] method knownTags() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[214,23] method hasAssociatedControls() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[224,23] method formDataUsesFirstAttribute() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[231,23] method actionWithNoValue() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[240,23] method formsAddedAfterParseAreFormElements() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[247,23] method formsAddedAfterParseAreFormElements() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[257,23] method usesOnForCheckboxValueIfNoValueSet() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[264,23] method usesOnForCheckboxValueIfNoValueSet() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[272,23] method removeFormElement() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[291,23] method removeFormElement() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[311,23] method removeFormElement() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[332,23] method removeFormElement() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/DocumentTest_OE25Dev.java:[313,23] method setTextPreservesDocumentStructure() is already defined in class org.jsoup.nodes.DocumentTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/DocumentTest_OE25Dev.java:[319,23] method setTextPreservesDocumentStructure() is already defined in class org.jsoup.nodes.DocumentTest_OE25Dev
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.561 s
+[INFO] Finished at: 2026-01-22T03:30:37-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project jsoup: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[437,23] method filter() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[444,23] method filter() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[452,23] method filter() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[461,23] method hasAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[467,23] method hasAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[474,23] method attr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[480,23] method classes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[487,23] method classes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[495,23] method classes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[508,23] method classes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[522,23] method text() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[528,23] method html() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[534,23] method setHtml() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[542,23] method setHtml() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[553,23] method before() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[559,23] method wrap() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[566,23] method unwrap() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[573,23] method unwrapKeepsSpace() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[580,23] method remove() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[588,23] method is() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[595,23] method is() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[603,23] method not() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[610,23] method not() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[618,23] method not() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[629,23] method not() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[641,23] method forms() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[647,23] method forms() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[656,23] method forms() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[666,23] method forms() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[677,23] method forms() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[689,23] method forms() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[702,23] method textNodes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[708,23] method textNodes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[715,23] method textNodes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[723,23] method nodesEmpty() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[728,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[735,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[745,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[756,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[768,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[782,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[798,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[815,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[835,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[856,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[878,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[903,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[929,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[958,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[988,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1019,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1052,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1087,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1123,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1162,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1202,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1243,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1287,23] method siblings() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1332,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1341,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1351,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1362,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1374,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1387,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1403,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1420,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1438,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[1457,23] method eachAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[90,23] method chompBalanced() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[99,23] method chompBalanced() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[109,23] method chompBalanced() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[120,23] method chompBalancedMatchesAsMuchAsPossible() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[127,23] method chompToIgnoreCase() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[134,23] method chompToIgnoreCase() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[145,23] method consumeToIgnoreSecondCallTest() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokenQueueTest_OE25Dev.java:[152,23] method consumeToIgnoreSecondCallTest() is already defined in class org.jsoup.parser.TokenQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlTreeBuilderTest_OE25Dev.java:[49,23] method nonnullAssertions() is already defined in class org.jsoup.parser.HtmlTreeBuilderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[85,23] method isCaseSensitive() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[91,23] method trims() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[97,23] method divSemantics() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[103,23] method divSemantics() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[110,23] method imgSemantics() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[115,23] method imgSemantics() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[121,23] method imgSemantics() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[128,23] method valueOfChecksNotNull() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[132,23] method knownTags() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TagTest_OE25Dev.java:[136,23] method knownTags() is already defined in class org.jsoup.parser.TagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[214,23] method hasAssociatedControls() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[224,23] method formDataUsesFirstAttribute() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[231,23] method actionWithNoValue() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[240,23] method formsAddedAfterParseAreFormElements() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[247,23] method formsAddedAfterParseAreFormElements() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[257,23] method usesOnForCheckboxValueIfNoValueSet() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[264,23] method usesOnForCheckboxValueIfNoValueSet() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[272,23] method removeFormElement() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[291,23] method removeFormElement() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[311,23] method removeFormElement() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/FormElementTest_OE25Dev.java:[332,23] method removeFormElement() is already defined in class org.jsoup.nodes.FormElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/DocumentTest_OE25Dev.java:[313,23] method setTextPreservesDocumentStructure() is already defined in class org.jsoup.nodes.DocumentTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/DocumentTest_OE25Dev.java:[319,23] method setTextPreservesDocumentStructure() is already defined in class org.jsoup.nodes.DocumentTest_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

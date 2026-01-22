@@ -37,7 +37,7 @@ public class TestCachedDateTimeZone_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestCachedDateTimeZone_OE25Dev.class);
+        return new TestSuite(TestCachedDateTimeZone_OE25Dev_OE25Dev.class);
     }
 
     private DateTimeZone originalDateTimeZone = null;
@@ -62,7 +62,7 @@ public class TestCachedDateTimeZone_OE25Dev extends TestCase {
     public void test_caching_1_oe() throws Exception {
         CachedDateTimeZone zone1 = CachedDateTimeZone.forZone(DateTimeZone.forID("Europe/Paris"));
         CachedDateTimeZone zone2 = CachedDateTimeZone.forZone(DateTimeZone.forID("Europe/Paris"));
-        assertEquals(zone1, zone2);
+        assertSame(zone1, zone2);
     }
 
     public void testSerialization_1_oe() throws Exception {

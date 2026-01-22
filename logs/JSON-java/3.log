@@ -1,0 +1,314 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ---------------------------< org.json:json >----------------------------
+[INFO] Building JSON in Java 20220924
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce-maven) @ json ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.4.0:resources (default-resources) @ json ---
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ json ---
+[INFO] Compiling 22 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.4.0:testResources (default-testResources) @ json ---
+[INFO] Copying 5 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ json ---
+[INFO] Compiling 54 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ json ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.json.junit.CookieListTest_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 s - in org.json.junit.CookieListTest_OE25Dev
+[INFO] Running org.json.junit.XMLTest_OE25Dev
+[INFO] Tests run: 97, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s - in org.json.junit.XMLTest_OE25Dev
+[INFO] Running org.json.junit.HTTPTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.json.junit.HTTPTest_OE25Dev
+[INFO] Running org.json.junit.EnumTest_OE25Dev
+[INFO] Tests run: 82, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s - in org.json.junit.EnumTest_OE25Dev
+[INFO] Running org.json.junit.JSONObjectLocaleTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.JSONObjectLocaleTest_OE25Dev
+[INFO] Running org.json.junit.PropertyTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.json.junit.PropertyTest_OE25Dev
+[INFO] Running org.json.junit.JSONStringTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.json.junit.JSONStringTest_OE25Dev
+[INFO] Running org.json.junit.JSONPointerTest_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.json.junit.JSONPointerTest_OE25Dev
+[INFO] Running org.json.junit.XMLConfigurationTest_OE25Dev
+[INFO] Tests run: 84, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in org.json.junit.XMLConfigurationTest_OE25Dev
+[INFO] Running org.json.junit.JSONStringerTest_OE25Dev
+[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in org.json.junit.JSONStringerTest_OE25Dev
+[INFO] Running org.json.junit.CookieTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.json.junit.CookieTest_OE25Dev
+[INFO] Running org.json.junit.JSONTokenerTest_OE25Dev
+[ERROR] Tests run: 51, Failures: 4, Errors: 43, Skipped: 0, Time elapsed: 0.057 s <<< FAILURE! - in org.json.junit.JSONTokenerTest_OE25Dev
+[ERROR] testNextBackComboWithNewLines_10_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0.014 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_10_oe(JSONTokenerTest_OE25Dev.java:378)
+
+[ERROR] testNextBackComboWithNewLines_11_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0.01 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_11_oe(JSONTokenerTest_OE25Dev.java:399)
+
+[ERROR] testNextBackComboWithNewLines_12_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_12_oe(JSONTokenerTest_OE25Dev.java:422)
+
+[ERROR] testNextBackComboWithNewLines_13_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_13_oe(JSONTokenerTest_OE25Dev.java:446)
+
+[ERROR] testNextBackComboWithNewLines_14_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_14_oe(JSONTokenerTest_OE25Dev.java:471)
+
+[ERROR] testNextBackComboWithNewLines_15_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_15_oe(JSONTokenerTest_OE25Dev.java:497)
+
+[ERROR] testNextBackComboWithNewLines_16_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_16_oe(JSONTokenerTest_OE25Dev.java:526)
+
+[ERROR] testNextBackComboWithNewLines_17_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_17_oe(JSONTokenerTest_OE25Dev.java:556)
+
+[ERROR] testNextBackComboWithNewLines_18_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_18_oe(JSONTokenerTest_OE25Dev.java:587)
+
+[ERROR] testNextBackComboWithNewLines_19_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_19_oe(JSONTokenerTest_OE25Dev.java:619)
+
+[ERROR] testNextBackComboWithNewLines_20_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_20_oe(JSONTokenerTest_OE25Dev.java:652)
+
+[ERROR] testNextBackComboWithNewLines_21_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_21_oe(JSONTokenerTest_OE25Dev.java:686)
+
+[ERROR] testNextBackComboWithNewLines_22_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_22_oe(JSONTokenerTest_OE25Dev.java:721)
+
+[ERROR] testNextBackComboWithNewLines_23_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_23_oe(JSONTokenerTest_OE25Dev.java:758)
+
+[ERROR] testNextBackComboWithNewLines_24_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_24_oe(JSONTokenerTest_OE25Dev.java:796)
+
+[ERROR] testNextBackComboWithNewLines_25_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_25_oe(JSONTokenerTest_OE25Dev.java:835)
+
+[ERROR] testNextBackComboWithNewLines_26_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_26_oe(JSONTokenerTest_OE25Dev.java:876)
+
+[ERROR] testNextBackComboWithNewLines_27_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_27_oe(JSONTokenerTest_OE25Dev.java:918)
+
+[ERROR] testNextBackComboWithNewLines_28_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_28_oe(JSONTokenerTest_OE25Dev.java:961)
+
+[ERROR] testNextBackComboWithNewLines_29_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_29_oe(JSONTokenerTest_OE25Dev.java:1005)
+
+[ERROR] testNextBackComboWithNewLines_30_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_30_oe(JSONTokenerTest_OE25Dev.java:1050)
+
+[ERROR] testNextBackComboWithNewLines_31_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_31_oe(JSONTokenerTest_OE25Dev.java:1101)
+
+[ERROR] testNextBackComboWithNewLines_32_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_32_oe(JSONTokenerTest_OE25Dev.java:1153)
+
+[ERROR] testNextBackComboWithNewLines_33_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_33_oe(JSONTokenerTest_OE25Dev.java:1206)
+
+[ERROR] testNextBackComboWithNewLines_34_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_34_oe(JSONTokenerTest_OE25Dev.java:1260)
+
+[ERROR] testNextBackComboWithNewLines_35_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_35_oe(JSONTokenerTest_OE25Dev.java:1315)
+
+[ERROR] testNextBackComboWithNewLines_36_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_36_oe(JSONTokenerTest_OE25Dev.java:1373)
+
+[ERROR] testNextBackComboWithNewLines_37_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_37_oe(JSONTokenerTest_OE25Dev.java:1432)
+
+[ERROR] testNextBackComboWithNewLines_38_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_38_oe(JSONTokenerTest_OE25Dev.java:1492)
+
+[ERROR] testNextBackComboWithNewLines_39_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_39_oe(JSONTokenerTest_OE25Dev.java:1553)
+
+[ERROR] testNextBackComboWithNewLines_40_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0.011 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_40_oe(JSONTokenerTest_OE25Dev.java:1615)
+
+[ERROR] testNextBackComboWithNewLines_41_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_41_oe(JSONTokenerTest_OE25Dev.java:1678)
+
+[ERROR] testNextBackComboWithNewLines_42_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0.001 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_42_oe(JSONTokenerTest_OE25Dev.java:1742)
+
+[ERROR] testNextBackComboWithNewLines_43_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_43_oe(JSONTokenerTest_OE25Dev.java:1807)
+
+[ERROR] testNextBackComboWithNewLines_44_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_44_oe(JSONTokenerTest_OE25Dev.java:1873)
+
+[ERROR] testNextBackComboWithNewLines_45_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_45_oe(JSONTokenerTest_OE25Dev.java:1942)
+
+[ERROR] testNextBackComboWithNewLines_46_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_46_oe(JSONTokenerTest_OE25Dev.java:2012)
+
+[ERROR] testNextBackComboWithNewLines_47_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_47_oe(JSONTokenerTest_OE25Dev.java:2083)
+
+[ERROR] testNextBackComboWithNewLines_48_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_48_oe(JSONTokenerTest_OE25Dev.java:2157)
+
+[ERROR] testNextBackComboWithNewLines_49_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_49_oe(JSONTokenerTest_OE25Dev.java:2232)
+
+[ERROR] testNextBackComboWithNewLines_50_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0.003 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_50_oe(JSONTokenerTest_OE25Dev.java:2308)
+
+[ERROR] testNextBackComboWithNewLines_51_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_51_oe(JSONTokenerTest_OE25Dev.java:2386)
+
+[ERROR] testNextBackComboWithNewLines_3_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:< at [1 [character 2] line 1]> but was:< at [0 [character 1] line 1]>
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_3_oe(JSONTokenerTest_OE25Dev.java:266)
+
+[ERROR] testNextBackComboWithNewLines_6_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:< at [8 [character 0 line 2]]> but was:< at [7 [character 8 line 1]]>
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_6_oe(JSONTokenerTest_OE25Dev.java:308)
+
+[ERROR] testNextBackComboWithNewLines_7_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: expected:<65> but was:<10>
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_7_oe(JSONTokenerTest_OE25Dev.java:324)
+
+[ERROR] testNextBackComboWithNewLines_8_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:< at [9 [character 1 line 2]]> but was:< at [7 [character 8 line 1]]>
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_8_oe(JSONTokenerTest_OE25Dev.java:341)
+
+[ERROR] testNextBackComboWithNewLines_9_oe(org.json.junit.JSONTokenerTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+org.json.JSONException: Stepping back two steps is not supported
+	at org.json.junit.JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_9_oe(JSONTokenerTest_OE25Dev.java:359)
+
+[INFO] Running org.json.junit.CDLTest_OE25Dev
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.json.junit.CDLTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_3_oe:266 expected:< at [1 [character 2] line 1]> but was:< at [0 [character 1] line 1]>
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_6_oe:308 expected:< at [8 [character 0 line 2]]> but was:< at [7 [character 8 line 1]]>
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_7_oe:324 expected:<65> but was:<10>
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_8_oe:341 expected:< at [9 [character 1 line 2]]> but was:< at [7 [character 8 line 1]]>
+[ERROR] Errors: 
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_10_oe:378 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_11_oe:399 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_12_oe:422 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_13_oe:446 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_14_oe:471 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_15_oe:497 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_16_oe:526 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_17_oe:556 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_18_oe:587 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_19_oe:619 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_20_oe:652 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_21_oe:686 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_22_oe:721 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_23_oe:758 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_24_oe:796 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_25_oe:835 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_26_oe:876 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_27_oe:918 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_28_oe:961 » JSON Steppin...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_29_oe:1005 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_30_oe:1050 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_31_oe:1101 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_32_oe:1153 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_33_oe:1206 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_34_oe:1260 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_35_oe:1315 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_36_oe:1373 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_37_oe:1432 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_38_oe:1492 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_39_oe:1553 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_40_oe:1615 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_41_oe:1678 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_42_oe:1742 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_43_oe:1807 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_44_oe:1873 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_45_oe:1942 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_46_oe:2012 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_47_oe:2083 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_48_oe:2157 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_49_oe:2232 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_50_oe:2308 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_51_oe:2386 » JSON Steppi...
+[ERROR]   JSONTokenerTest_OE25Dev.testNextBackComboWithNewLines_9_oe:359 » JSON Stepping...
+[INFO] 
+[ERROR] Tests run: 504, Failures: 4, Errors: 43, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  7.747 s
+[INFO] Finished at: 2026-01-22T03:29:21-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project json: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

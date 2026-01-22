@@ -170,7 +170,7 @@ public class TestDateTimeZone extends TestCase {
         assertNotNull(DateTimeZone.getDefault());
         
         DateTimeZone.setDefault(PARIS);
-        assertEquals(PARIS, DateTimeZone.getDefault());
+        assertSame(PARIS, DateTimeZone.getDefault());
         
         try {
             DateTimeZone.setDefault(null);
@@ -203,13 +203,13 @@ public class TestDateTimeZone extends TestCase {
         assertEquals("Europe/London", zone.getID());
         
         zone = DateTimeZone.forID("UTC");
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forID("+00:00");
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forID("+00");
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forID("+01:23");
         assertEquals("+01:23", zone.getID());
@@ -358,7 +358,7 @@ public class TestDateTimeZone extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testForOffsetMillis_int() {
-        assertEquals(DateTimeZone.UTC, DateTimeZone.forOffsetMillis(0));
+        assertSame(DateTimeZone.UTC, DateTimeZone.forOffsetMillis(0));
         assertEquals(DateTimeZone.forID("+23:59:59.999"), DateTimeZone.forOffsetMillis((24 * 60 * 60 * 1000) - 1));
         assertEquals(DateTimeZone.forID("+03:00"), DateTimeZone.forOffsetMillis(3 * 60 * 60 * 1000));
         assertEquals(DateTimeZone.forID("-02:00"), DateTimeZone.forOffsetMillis(-2 * 60 * 60 * 1000));
@@ -374,19 +374,19 @@ public class TestDateTimeZone extends TestCase {
         
         DateTimeZone zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("Europe/London"));
         assertEquals("Europe/London", zone.getID());
-        assertEquals(DateTimeZone.UTC, DateTimeZone.forTimeZone(TimeZone.getTimeZone("UTC")));
+        assertSame(DateTimeZone.UTC, DateTimeZone.forTimeZone(TimeZone.getTimeZone("UTC")));
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("+00:00"));
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+00:00"));
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+00:00"));
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+00"));
-        assertEquals(DateTimeZone.UTC, zone);
+        assertSame(DateTimeZone.UTC, zone);
         
         zone = DateTimeZone.forTimeZone(TimeZone.getTimeZone("GMT+01:23"));
         assertEquals("+01:23", zone.getID());
@@ -498,7 +498,7 @@ public class TestDateTimeZone extends TestCase {
         
             Provider prov = new MockOKProvider();
             DateTimeZone.setProvider(prov);
-            assertEquals(prov, DateTimeZone.getProvider());
+            assertSame(prov, DateTimeZone.getProvider());
             assertEquals(2, DateTimeZone.getAvailableIDs().size());
             assertTrue(DateTimeZone.getAvailableIDs().contains("UTC"));
             assertTrue(DateTimeZone.getAvailableIDs().contains("Europe/London"));
@@ -655,7 +655,7 @@ public class TestDateTimeZone extends TestCase {
         
             provider = new MockOKButNullNameProvider();
             DateTimeZone.setNameProvider(provider);
-            assertEquals(provider, DateTimeZone.getNameProvider());
+            assertSame(provider, DateTimeZone.getNameProvider());
             
             assertEquals("+00:00", DateTimeZone.UTC.getShortName(TEST_TIME_SUMMER));
             assertEquals("+00:00", DateTimeZone.UTC.getName(TEST_TIME_SUMMER));
@@ -824,6 +824,30 @@ public class TestDateTimeZone extends TestCase {
         assertEquals("British Summer Time", zone.getName(TEST_TIME_SUMMER));
         assertEquals("Greenwich Mean Time", zone.getName(TEST_TIME_WINTER));
         assertEquals("British Summer Time", zone.getName(TEST_TIME_SUMMER, Locale.ENGLISH));
+    }
+
+    public void testGetName_berlin_english() {
+      DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
+      if (JDK9) {
+          assertEquals("Central European Standard Time", berlin.getName(TEST_TIME_WINTER, Locale.ENGLISH));
+      } else {
+          assertEquals("Central European Time", berlin.getName(TEST_TIME_WINTER, Locale.ENGLISH));
+      }
+      assertEquals("Central European Summer Time", berlin.getName(TEST_TIME_SUMMER, Locale.ENGLISH));
+    }
+
+    public void testGetName_berlin_german() {
+        DateTimeZone berlin = DateTimeZone.forID("Europe/Berlin");
+        if (JDK9) {
+            assertEquals("Mitteleurop\u00e4ische Normalzeit", berlin.getName(TEST_TIME_WINTER, Locale.GERMAN));
+            assertEquals("Mitteleurop\u00e4ische Sommerzeit", berlin.getName(TEST_TIME_SUMMER, Locale.GERMAN));
+        } else if (JDK6PLUS) {
+            assertEquals("Mitteleurop\u00e4ische Zeit", berlin.getName(TEST_TIME_WINTER, Locale.GERMAN));
+            assertEquals("Mitteleurop\u00e4ische Sommerzeit", berlin.getName(TEST_TIME_SUMMER, Locale.GERMAN));
+        } else {
+            assertEquals("Zentraleurop\u00e4ische Zeit", berlin.getName(TEST_TIME_WINTER, Locale.GERMAN));
+            assertEquals("Zentraleurop\u00e4ische Sommerzeit", berlin.getName(TEST_TIME_SUMMER, Locale.GERMAN));
+        }
     }
 
     public void testGetNameProviderName() {
@@ -1228,7 +1252,7 @@ public class TestDateTimeZone extends TestCase {
         DateTimeZone result = (DateTimeZone) ois.readObject();
         ois.close();
         
-        assertEquals(zone, result);
+        assertSame(zone, result);
     }
 
     //-----------------------------------------------------------------------

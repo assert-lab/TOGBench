@@ -17281,7 +17281,18 @@ async_321_2,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::onEmptyListenerTest_2_oe
-async_322_1,"  @Test(timeOut = 60000)
+async_322_1,"  @Test(timeOut = 60000, expectedExceptions = {UnknownHostException.class, ConnectException.class})
+  public void onFailureTest_1_oe() throws Throwable {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      c.prepareGet(""ws://abcdefg"").execute(new WebSocketUpgradeHandler.Builder().build()).get();
+    } catch (ExecutionException e) {
+
+      String expectedMessage = ""DNS name not found"";
+      assertTrue(e.getCause().toString().contains(expectedMessage));
+  }
+  }
+",TextMessageTest::onFailureTest_1_oe
+async_323_1,"  @Test(timeOut = 60000)
   public void onTimeoutCloseTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17311,7 +17322,7 @@ async_322_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::onTimeoutCloseTest_1_oe
-async_323_1,"  @Test(timeOut = 60000)
+async_324_1,"  @Test(timeOut = 60000)
   public void onClose_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17343,7 +17354,7 @@ async_323_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::onClose_1_oe
-async_324_1,"  @Test(timeOut = 60000)
+async_325_1,"  @Test(timeOut = 60000)
   public void echoText_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17380,7 +17391,7 @@ async_324_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::echoText_1_oe
-async_325_1,"  @Test(timeOut = 60000)
+async_326_1,"  @Test(timeOut = 60000)
   public void echoDoubleListenerText_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(2);
@@ -17439,7 +17450,7 @@ async_325_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::echoDoubleListenerText_1_oe
-async_326_1,"  @Test
+async_327_1,"  @Test
   public void echoTwoMessagesTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(2);
@@ -17476,7 +17487,7 @@ async_326_1,"  @Test
   }
   }
 ",TextMessageTest::echoTwoMessagesTest_1_oe
-async_327_1,"  @Test
+async_328_1,"  @Test
   public void echoFragments_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17514,7 +17525,7 @@ async_327_1,"  @Test
   }
   }
 ",TextMessageTest::echoFragments_1_oe
-async_328_1,"  @Test(timeOut = 60000)
+async_329_1,"  @Test(timeOut = 60000)
   public void echoTextAndThenClose_1_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch textLatch = new CountDownLatch(1);
@@ -17555,7 +17566,7 @@ async_328_1,"  @Test(timeOut = 60000)
   }
   }
 ",TextMessageTest::echoTextAndThenClose_1_oe
-async_329_1,"  @Test(timeOut = 60000)
+async_330_1,"  @Test(timeOut = 60000)
   public void testRedirectToWSResource_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
       final CountDownLatch latch = new CountDownLatch(1);
@@ -17585,44 +17596,44 @@ async_329_1,"  @Test(timeOut = 60000)
   }
   }
 ",RedirectTest::testRedirectToWSResource_1_oe
-async_330_1,"  @Test
+async_331_1,"  @Test
   public void testExtractCharsetWithoutQuotes_1_oe() {
     Charset charset = HttpUtils.extractContentTypeCharsetAttribute(""text/html; charset=iso-8859-1"");
     assertEquals(charset, ISO_8859_1);
   }
 ",HttpUtilsTest::testExtractCharsetWithoutQuotes_1_oe
-async_331_1,"  @Test
+async_332_1,"  @Test
   public void testExtractCharsetWithSingleQuotes_1_oe() {
     Charset charset = HttpUtils.extractContentTypeCharsetAttribute(""text/html; charset='iso-8859-1'"");
     assertEquals(charset, ISO_8859_1);
   }
 ",HttpUtilsTest::testExtractCharsetWithSingleQuotes_1_oe
-async_332_1,"  @Test
+async_333_1,"  @Test
   public void testExtractCharsetWithDoubleQuotes_1_oe() {
     Charset charset = HttpUtils.extractContentTypeCharsetAttribute(""text/html; charset=\""iso-8859-1\"""");
     assertEquals(charset, ISO_8859_1);
   }
 ",HttpUtilsTest::testExtractCharsetWithDoubleQuotes_1_oe
-async_333_1,"  @Test
+async_334_1,"  @Test
   public void testExtractCharsetWithDoubleQuotesAndSpaces_1_oe() {
     Charset charset = HttpUtils.extractContentTypeCharsetAttribute(""text/html; charset= \""iso-8859-1\"" "");
     assertEquals(charset, ISO_8859_1);
   }
 ",HttpUtilsTest::testExtractCharsetWithDoubleQuotesAndSpaces_1_oe
-async_334_1,"  @Test
+async_335_1,"  @Test
   public void testExtractCharsetFallsBackToUtf8_1_oe() {
     Charset charset = HttpUtils.extractContentTypeCharsetAttribute(APPLICATION_JSON.toString());
     assertNull(charset);
   }
 ",HttpUtilsTest::testExtractCharsetFallsBackToUtf8_1_oe
-async_335_1,"  @Test
+async_336_1,"  @Test
   public void testGetHostHeader_1_oe() {
     Uri uri = Uri.create(""http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs"");
     String hostHeader = HttpUtils.hostHeader(uri);
     assertEquals(hostHeader, ""stackoverflow.com"", ""Incorrect hostHeader returned"");
   }
 ",HttpUtilsTest::testGetHostHeader_1_oe
-async_336_1,"  @Test
+async_337_1,"  @Test
   public void testDefaultFollowRedirect_1_oe() {
     Request request = Dsl.get(""http://stackoverflow.com/questions/1057564"").setVirtualHost(""example.com"").build();
     DefaultAsyncHttpClientConfig config = new DefaultAsyncHttpClientConfig.Builder().build();
@@ -17630,7 +17641,7 @@ async_336_1,"  @Test
     assertFalse(followRedirect, ""Default value of redirect should be false"");
   }
 ",HttpUtilsTest::testDefaultFollowRedirect_1_oe
-async_337_1,"  @Test
+async_338_1,"  @Test
   public void testGetFollowRedirectInRequest_1_oe() {
     Request request = Dsl.get(""http://stackoverflow.com/questions/1057564"").setFollowRedirect(true).build();
     DefaultAsyncHttpClientConfig config = new DefaultAsyncHttpClientConfig.Builder().build();
@@ -17638,7 +17649,7 @@ async_337_1,"  @Test
     assertTrue(followRedirect, ""Follow redirect must be true as set in the request"");
   }
 ",HttpUtilsTest::testGetFollowRedirectInRequest_1_oe
-async_338_1,"  @Test
+async_339_1,"  @Test
   public void testGetFollowRedirectInConfig_1_oe() {
     Request request = Dsl.get(""http://stackoverflow.com/questions/1057564"").build();
     DefaultAsyncHttpClientConfig config = new DefaultAsyncHttpClientConfig.Builder().setFollowRedirect(true).build();
@@ -17646,7 +17657,7 @@ async_338_1,"  @Test
     assertTrue(followRedirect, ""Follow redirect should be equal to value specified in config when not specified in request"");
   }
 ",HttpUtilsTest::testGetFollowRedirectInConfig_1_oe
-async_339_1,"  @Test
+async_340_1,"  @Test
   public void testGetFollowRedirectPriorityGivenToRequest_1_oe() {
     Request request = Dsl.get(""http://stackoverflow.com/questions/1057564"").setFollowRedirect(false).build();
     DefaultAsyncHttpClientConfig config = new DefaultAsyncHttpClientConfig.Builder().setFollowRedirect(true).build();
@@ -17654,73 +17665,73 @@ async_339_1,"  @Test
     assertFalse(followRedirect, ""Follow redirect value set in request should be given priority"");
   }
 ",HttpUtilsTest::testGetFollowRedirectPriorityGivenToRequest_1_oe
-async_340_1,"  @Test
+async_341_1,"  @Test
   public void computeOriginForPlainUriWithImplicitPort_1_oe() {
     assertEquals(HttpUtils.originHeader(Uri.create(""ws://foo.com/bar"")), ""http://foo.com"");
   }
 ",HttpUtilsTest::computeOriginForPlainUriWithImplicitPort_1_oe
-async_341_1,"  @Test
+async_342_1,"  @Test
   public void computeOriginForPlainUriWithDefaultPort_1_oe() {
     assertEquals(HttpUtils.originHeader(Uri.create(""ws://foo.com:80/bar"")), ""http://foo.com"");
   }
 ",HttpUtilsTest::computeOriginForPlainUriWithDefaultPort_1_oe
-async_342_1,"  @Test
+async_343_1,"  @Test
   public void computeOriginForPlainUriWithNonDefaultPort_1_oe() {
     assertEquals(HttpUtils.originHeader(Uri.create(""ws://foo.com:81/bar"")), ""http://foo.com:81"");
   }
 ",HttpUtilsTest::computeOriginForPlainUriWithNonDefaultPort_1_oe
-async_343_1,"  @Test
+async_344_1,"  @Test
   public void computeOriginForSecuredUriWithImplicitPort_1_oe() {
     assertEquals(HttpUtils.originHeader(Uri.create(""wss://foo.com/bar"")), ""https://foo.com"");
   }
 ",HttpUtilsTest::computeOriginForSecuredUriWithImplicitPort_1_oe
-async_344_1,"  @Test
+async_345_1,"  @Test
   public void computeOriginForSecuredUriWithDefaultPort_1_oe() {
     assertEquals(HttpUtils.originHeader(Uri.create(""wss://foo.com:443/bar"")), ""https://foo.com"");
   }
 ",HttpUtilsTest::computeOriginForSecuredUriWithDefaultPort_1_oe
-async_345_1,"  @Test
+async_346_1,"  @Test
   public void computeOriginForSecuredUriWithNonDefaultPort_1_oe() {
     assertEquals(HttpUtils.originHeader(Uri.create(""wss://foo.com:444/bar"")), ""https://foo.com:444"");
   }
 ",HttpUtilsTest::computeOriginForSecuredUriWithNonDefaultPort_1_oe
-async_346_1,"  @Test
+async_347_1,"  @Test
   public void testBasics_1_oe() {
     assertEquals(Utf8UrlEncoder.encodeQueryElement(""foobar""), ""foobar"");
   }
 ",Utf8UrlEncoderTest::testBasics_1_oe
-async_346_2,"  @Test
+async_347_2,"  @Test
   public void testBasics_2_oe() {
     // removed other assertion
     assertEquals(Utf8UrlEncoder.encodeQueryElement(""a&b""), ""a%26b"");
   }
 ",Utf8UrlEncoderTest::testBasics_2_oe
-async_346_3,"  @Test
+async_347_3,"  @Test
   public void testBasics_3_oe() {
     // removed other assertion
     // removed other assertion
     assertEquals(Utf8UrlEncoder.encodeQueryElement(""a+b""), ""a%2Bb"");
   }
 ",Utf8UrlEncoderTest::testBasics_3_oe
-async_347_1,"  @Test
+async_348_1,"  @Test
   public void testPercentageEncoding_1_oe() {
     assertEquals(Utf8UrlEncoder.percentEncodeQueryElement(""foobar""), ""foobar"");
   }
 ",Utf8UrlEncoderTest::testPercentageEncoding_1_oe
-async_347_2,"  @Test
+async_348_2,"  @Test
   public void testPercentageEncoding_2_oe() {
     // removed other assertion
     assertEquals(Utf8UrlEncoder.percentEncodeQueryElement(""foo*bar""), ""foo%2Abar"");
   }
 ",Utf8UrlEncoderTest::testPercentageEncoding_2_oe
-async_347_3,"  @Test
+async_348_3,"  @Test
   public void testPercentageEncoding_3_oe() {
     // removed other assertion
     // removed other assertion
     assertEquals(Utf8UrlEncoder.percentEncodeQueryElement(""foo~b_ar""), ""foo~b_ar"");
   }
 ",Utf8UrlEncoderTest::testPercentageEncoding_3_oe
-async_348_1,"  @Test
+async_349_1,"  @Test
   public void deferredSimple_1_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17733,7 +17744,7 @@ async_348_1,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimple_1_oe
-async_348_2,"  @Test
+async_349_2,"  @Test
   public void deferredSimple_2_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17747,7 +17758,7 @@ async_348_2,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimple_2_oe
-async_348_3,"  @Test
+async_349_3,"  @Test
   public void deferredSimple_3_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17762,7 +17773,7 @@ async_348_3,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimple_3_oe
-async_348_4,"  @Test
+async_349_4,"  @Test
   public void deferredSimple_4_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17780,7 +17791,7 @@ async_348_4,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimple_4_oe
-async_348_5,"  @Test
+async_349_5,"  @Test
   public void deferredSimple_5_oe() throws IOException, ExecutionException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17804,7 +17815,7 @@ async_348_5,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimple_5_oe
-async_349_1,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
+async_350_1,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
   public void deferredSimpleWithFailure_1_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -17817,7 +17828,7 @@ async_349_1,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_1_oe
-async_349_2,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
+async_350_2,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
   public void deferredSimpleWithFailure_2_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -17831,7 +17842,7 @@ async_349_2,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_2_oe
-async_349_3,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
+async_350_3,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
   public void deferredSimpleWithFailure_3_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -17846,7 +17857,7 @@ async_349_3,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_3_oe
-async_349_4,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
+async_350_4,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
   public void deferredSimpleWithFailure_4_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -17864,7 +17875,7 @@ async_349_4,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_4_oe
-async_349_5,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
+async_350_5,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
   public void deferredSimpleWithFailure_5_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -17892,7 +17903,7 @@ async_349_5,"  @Test(expectedExceptions = RemotelyClosedException.class, enabled
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_5_oe
-async_350_1,"  @Test
+async_351_1,"  @Test
   public void deferredInputStreamTrick_1_oe() throws IOException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17910,7 +17921,7 @@ async_350_1,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrick_1_oe
-async_350_2,"  @Test
+async_351_2,"  @Test
   public void deferredInputStreamTrick_2_oe() throws IOException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17929,7 +17940,7 @@ async_350_2,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrick_2_oe
-async_350_3,"  @Test
+async_351_3,"  @Test
   public void deferredInputStreamTrick_3_oe() throws IOException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17949,7 +17960,7 @@ async_350_3,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrick_3_oe
-async_350_4,"  @Test
+async_351_4,"  @Test
   public void deferredInputStreamTrick_4_oe() throws IOException, InterruptedException {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl());
@@ -17982,7 +17993,7 @@ async_350_4,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrick_4_oe
-async_351_1,"  @Test(expectedExceptions = RemotelyClosedException.class)
+async_352_1,"  @Test(expectedExceptions = RemotelyClosedException.class)
   public void deferredInputStreamTrickWithFailure_1_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -17999,7 +18010,7 @@ async_351_1,"  @Test(expectedExceptions = RemotelyClosedException.class)
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrickWithFailure_1_oe
-async_351_2,"  @Test(expectedExceptions = RemotelyClosedException.class)
+async_352_2,"  @Test(expectedExceptions = RemotelyClosedException.class)
   public void deferredInputStreamTrickWithFailure_2_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -18017,7 +18028,7 @@ async_351_2,"  @Test(expectedExceptions = RemotelyClosedException.class)
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrickWithFailure_2_oe
-async_351_3,"  @Test(expectedExceptions = RemotelyClosedException.class)
+async_352_3,"  @Test(expectedExceptions = RemotelyClosedException.class)
   public void deferredInputStreamTrickWithFailure_3_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
@@ -18036,7 +18047,7 @@ async_351_3,"  @Test(expectedExceptions = RemotelyClosedException.class)
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrickWithFailure_3_oe
-async_352_1,"  @Test(expectedExceptions = UnsupportedOperationException.class)
+async_353_1,"  @Test(expectedExceptions = UnsupportedOperationException.class)
   public void deferredInputStreamTrickWithCloseConnectionAndRetry_1_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(config().setMaxRequestRetry(1).setRequestTimeout(10000).build())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-CLOSE-CONNECTION"", Boolean.TRUE.toString());
@@ -18053,7 +18064,7 @@ async_352_1,"  @Test(expectedExceptions = UnsupportedOperationException.class)
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrickWithCloseConnectionAndRetry_1_oe
-async_352_2,"  @Test(expectedExceptions = UnsupportedOperationException.class)
+async_353_2,"  @Test(expectedExceptions = UnsupportedOperationException.class)
   public void deferredInputStreamTrickWithCloseConnectionAndRetry_2_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(config().setMaxRequestRetry(1).setRequestTimeout(10000).build())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-CLOSE-CONNECTION"", Boolean.TRUE.toString());
@@ -18071,7 +18082,7 @@ async_352_2,"  @Test(expectedExceptions = UnsupportedOperationException.class)
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrickWithCloseConnectionAndRetry_2_oe
-async_352_3,"  @Test(expectedExceptions = UnsupportedOperationException.class)
+async_353_3,"  @Test(expectedExceptions = UnsupportedOperationException.class)
   public void deferredInputStreamTrickWithCloseConnectionAndRetry_3_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(config().setMaxRequestRetry(1).setRequestTimeout(10000).build())) {
       BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-CLOSE-CONNECTION"", Boolean.TRUE.toString());
@@ -18090,7 +18101,7 @@ async_352_3,"  @Test(expectedExceptions = UnsupportedOperationException.class)
   }
   }
 ",BodyDeferringAsyncHandlerTest::deferredInputStreamTrickWithCloseConnectionAndRetry_3_oe
-async_353_1,"  @Test
+async_354_1,"  @Test
   public void testPipedStreams_1_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
       PipedOutputStream pout = new PipedOutputStream();
@@ -18110,7 +18121,7 @@ async_353_1,"  @Test
   }
   }
 ",BodyDeferringAsyncHandlerTest::testPipedStreams_1_oe
-async_354_1,"  @Test
+async_355_1,"  @Test
   public void testAdjustRange_1_oe() {
     MapResumableProcessor proc = new MapResumableProcessor();
 
@@ -18120,7 +18131,7 @@ async_354_1,"  @Test
     assertEquals(newRequest.getUri(), request.getUri());
   }
 ",ResumableAsyncHandlerTest::testAdjustRange_1_oe
-async_354_2,"  @Test
+async_355_2,"  @Test
   public void testAdjustRange_2_oe() {
     MapResumableProcessor proc = new MapResumableProcessor();
 
@@ -18132,7 +18143,7 @@ async_354_2,"  @Test
     assertNull(rangeHeader);
   }
 ",ResumableAsyncHandlerTest::testAdjustRange_2_oe
-async_354_3,"  @Test
+async_355_3,"  @Test
   public void testAdjustRange_3_oe() {
     MapResumableProcessor proc = new MapResumableProcessor();
 
@@ -18148,7 +18159,7 @@ async_354_3,"  @Test
     assertEquals(newRequest.getUri(), request.getUri());
   }
 ",ResumableAsyncHandlerTest::testAdjustRange_3_oe
-async_354_4,"  @Test
+async_355_4,"  @Test
   public void testAdjustRange_4_oe() {
     MapResumableProcessor proc = new MapResumableProcessor();
 
@@ -18166,7 +18177,7 @@ async_354_4,"  @Test
     assertEquals(rangeHeader, ""bytes=5000-"");
   }
 ",ResumableAsyncHandlerTest::testAdjustRange_4_oe
-async_355_1,"  @Test
+async_356_1,"  @Test
   public void testOnStatusReceivedOkStatus_1_oe() throws Exception {
     MapResumableProcessor processor = new MapResumableProcessor();
     ResumableAsyncHandler handler = new ResumableAsyncHandler(processor);
@@ -18177,7 +18188,7 @@ async_355_1,"  @Test
     assertEquals(state, AsyncHandler.State.CONTINUE, ""Status should be CONTINUE for a OK response"");
   }
 ",ResumableAsyncHandlerTest::testOnStatusReceivedOkStatus_1_oe
-async_356_1,"  @Test
+async_357_1,"  @Test
   public void testOnStatusReceived206Status_1_oe() throws Exception {
     MapResumableProcessor processor = new MapResumableProcessor();
     ResumableAsyncHandler handler = new ResumableAsyncHandler(processor);
@@ -18188,7 +18199,7 @@ async_356_1,"  @Test
     assertEquals(state, AsyncHandler.State.CONTINUE, ""Status should be CONTINUE for a 'Partial Content' response"");
   }
 ",ResumableAsyncHandlerTest::testOnStatusReceived206Status_1_oe
-async_357_1,"  @Test
+async_358_1,"  @Test
   public void testOnStatusReceivedOkStatusWithDecoratedAsyncHandler_1_oe() throws Exception {
     HttpResponseStatus mockResponseStatus = mock(HttpResponseStatus.class);
     when(mockResponseStatus.getStatusCode()).thenReturn(200);
@@ -18205,7 +18216,7 @@ async_357_1,"  @Test
     assertEquals(state, State.CONTINUE, ""State returned should be equal to the one returned from decoratedAsyncHandler"");
   }
 ",ResumableAsyncHandlerTest::testOnStatusReceivedOkStatusWithDecoratedAsyncHandler_1_oe
-async_358_1,"  @Test
+async_359_1,"  @Test
   public void testOnStatusReceived500Status_1_oe() throws Exception {
     MapResumableProcessor processor = new MapResumableProcessor();
     ResumableAsyncHandler handler = new ResumableAsyncHandler(processor);
@@ -18216,7 +18227,7 @@ async_358_1,"  @Test
     assertEquals(state, AsyncHandler.State.ABORT, ""State should be ABORT for Internal Server Error status"");
   }
 ",ResumableAsyncHandlerTest::testOnStatusReceived500Status_1_oe
-async_359_1,"  @Test
+async_360_1,"  @Test
   public void testOnBodyPartReceived_1_oe() throws Exception {
     ResumableAsyncHandler handler = new ResumableAsyncHandler();
     HttpResponseBodyPart bodyPart = mock(HttpResponseBodyPart.class);
@@ -18227,7 +18238,7 @@ async_359_1,"  @Test
     assertEquals(state, AsyncHandler.State.CONTINUE, ""State should be CONTINUE for a successful onBodyPartReceived"");
   }
 ",ResumableAsyncHandlerTest::testOnBodyPartReceived_1_oe
-async_360_1,"  @Test
+async_361_1,"  @Test
   public void testOnBodyPartReceivedWithResumableListenerThrowsException_1_oe() throws Exception {
     ResumableAsyncHandler handler = new ResumableAsyncHandler();
 
@@ -18240,7 +18251,7 @@ async_360_1,"  @Test
     assertEquals(state, AsyncHandler.State.ABORT, ""State should be ABORT if the resumableListener threw an exception in onBodyPartReceived"");
   }
 ",ResumableAsyncHandlerTest::testOnBodyPartReceivedWithResumableListenerThrowsException_1_oe
-async_361_1,"  @Test
+async_362_1,"  @Test
   public void testOnBodyPartReceivedWithDecoratedAsyncHandler_1_oe() throws Exception {
     HttpResponseBodyPart bodyPart = mock(HttpResponseBodyPart.class);
     when(bodyPart.getBodyPartBytes()).thenReturn(new byte[0]);
@@ -18264,7 +18275,7 @@ async_361_1,"  @Test
     assertEquals(state, State.CONTINUE, ""State should be equal to the state returned from decoratedAsyncHandler"");
   }
 ",ResumableAsyncHandlerTest::testOnBodyPartReceivedWithDecoratedAsyncHandler_1_oe
-async_362_1,"  @Test
+async_363_1,"  @Test
   public void testOnHeadersReceived_1_oe() throws Exception {
     ResumableAsyncHandler handler = new ResumableAsyncHandler();
     HttpHeaders responseHeaders = new DefaultHttpHeaders();
@@ -18272,7 +18283,7 @@ async_362_1,"  @Test
     assertEquals(status, AsyncHandler.State.CONTINUE, ""State should be CONTINUE for a successful onHeadersReceived"");
   }
 ",ResumableAsyncHandlerTest::testOnHeadersReceived_1_oe
-async_363_1,"  @Test
+async_364_1,"  @Test
   public void testOnHeadersReceivedWithDecoratedAsyncHandler_1_oe() throws Exception {
     HttpHeaders responseHeaders = new DefaultHttpHeaders();
 
@@ -18285,7 +18296,7 @@ async_363_1,"  @Test
     assertEquals(status, State.CONTINUE, ""State should be equal to the state returned from decoratedAsyncHandler"");
   }
 ",ResumableAsyncHandlerTest::testOnHeadersReceivedWithDecoratedAsyncHandler_1_oe
-async_364_1,"  @Test
+async_365_1,"  @Test
   public void testOnHeadersReceivedContentLengthMinus_1_oe() throws Exception {
     ResumableAsyncHandler handler = new ResumableAsyncHandler();
     HttpHeaders responseHeaders = new DefaultHttpHeaders();
@@ -18294,7 +18305,7 @@ async_364_1,"  @Test
     assertEquals(status, AsyncHandler.State.ABORT, ""State should be ABORT for content length -1"");
   }
 ",ResumableAsyncHandlerTest::testOnHeadersReceivedContentLengthMinus_1_oe
-async_365_1,"  @Test
+async_366_1,"  @Test
   public void testSaveLoad_1_oe() {
     PropertiesBasedResumableProcessor p = new PropertiesBasedResumableProcessor();
     p.put(""http://localhost/test.url"", 15L);
@@ -18305,7 +18316,7 @@ async_365_1,"  @Test
     assertEquals(m.size(), 2);
   }
 ",PropertiesBasedResumableProcessorTest::testSaveLoad_1_oe
-async_365_2,"  @Test
+async_366_2,"  @Test
   public void testSaveLoad_2_oe() {
     PropertiesBasedResumableProcessor p = new PropertiesBasedResumableProcessor();
     p.put(""http://localhost/test.url"", 15L);
@@ -18317,7 +18328,7 @@ async_365_2,"  @Test
     assertEquals(m.get(""http://localhost/test.url""), Long.valueOf(15L));
   }
 ",PropertiesBasedResumableProcessorTest::testSaveLoad_2_oe
-async_365_3,"  @Test
+async_366_3,"  @Test
   public void testSaveLoad_3_oe() {
     PropertiesBasedResumableProcessor p = new PropertiesBasedResumableProcessor();
     p.put(""http://localhost/test.url"", 15L);
@@ -18330,7 +18341,7 @@ async_365_3,"  @Test
     assertEquals(m.get(""http://localhost/test2.url""), Long.valueOf(50L));
   }
 ",PropertiesBasedResumableProcessorTest::testSaveLoad_3_oe
-async_366_1,"  @Test
+async_367_1,"  @Test
   public void testRemove_1_oe() {
     PropertiesBasedResumableProcessor propertiesProcessor = new PropertiesBasedResumableProcessor();
     propertiesProcessor.put(""http://localhost/test.url"", 15L);
@@ -18342,7 +18353,7 @@ async_366_1,"  @Test
     assertEquals(propertiesMap.size(), 1);
   }
 ",PropertiesBasedResumableProcessorTest::testRemove_1_oe
-async_366_2,"  @Test
+async_367_2,"  @Test
   public void testRemove_2_oe() {
     PropertiesBasedResumableProcessor propertiesProcessor = new PropertiesBasedResumableProcessor();
     propertiesProcessor.put(""http://localhost/test.url"", 15L);
@@ -18355,7 +18366,7 @@ async_366_2,"  @Test
     assertEquals(propertiesMap.get(""http://localhost/test2.url""), Long.valueOf(50L));
   }
 ",PropertiesBasedResumableProcessorTest::testRemove_2_oe
-async_367_1,"  @Test
+async_368_1,"  @Test
   public void testMaxConnectionsWithinThreads_1_oe() throws Exception {
 
     String[] urls = new String[]{getTargetUrl(), getTargetUrl()};
@@ -18401,7 +18412,7 @@ async_367_1,"  @Test
   }
   }
 ",MaxConnectionsInThreads::testMaxConnectionsWithinThreads_1_oe
-async_367_2,"  @Test
+async_368_2,"  @Test
   public void testMaxConnectionsWithinThreads_2_oe() throws Exception {
 
     String[] urls = new String[]{getTargetUrl(), getTargetUrl()};
@@ -18471,7 +18482,7 @@ async_367_2,"  @Test
   }
   }
 ",MaxConnectionsInThreads::testMaxConnectionsWithinThreads_2_oe
-async_368_1,"  @Test
+async_369_1,"  @Test
   public void testMaxTotalConnections_1_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient(config().setKeepAlive(true).setMaxConnections(1))) {
       String url = getTargetUrl();
@@ -18490,7 +18501,7 @@ async_368_1,"  @Test
   }
   }
 ",ConnectionPoolTest::testMaxTotalConnections_1_oe
-async_369_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
+async_370_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   public void testMaxTotalConnectionsException_1_oe() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(config().setKeepAlive(true).setMaxConnections(1))) {
       String url = getTargetUrl();
@@ -18515,7 +18526,7 @@ async_369_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   }
   }
 ",ConnectionPoolTest::testMaxTotalConnectionsException_1_oe
-async_370_2,"  @Test(invocationCount = 100)
+async_371_2,"  @Test(invocationCount = 100)
   public void asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_2_oe() throws Exception {
 
     try (AsyncHttpClient client = asyncHttpClient()) {
@@ -18568,7 +18579,7 @@ async_370_2,"  @Test(invocationCount = 100)
   }
   }
 ",ConnectionPoolTest::asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_2_oe
-async_370_3,"  @Test(invocationCount = 100)
+async_371_3,"  @Test(invocationCount = 100)
   public void asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_3_oe() throws Exception {
 
     try (AsyncHttpClient client = asyncHttpClient()) {
@@ -18623,7 +18634,7 @@ async_370_3,"  @Test(invocationCount = 100)
   }
   }
 ",ConnectionPoolTest::asyncDoGetKeepAliveHandlerTest_channelClosedDoesNotFail_3_oe
-async_371_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
+async_372_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   public void multipleMaxConnectionOpenTest_1_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -18635,7 +18646,7 @@ async_371_1,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTest_1_oe
-async_371_3,"  @Test(expectedExceptions = TooManyConnectionsException.class)
+async_372_3,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   public void multipleMaxConnectionOpenTest_3_oe() throws Throwable {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -18658,7 +18669,7 @@ async_371_3,"  @Test(expectedExceptions = TooManyConnectionsException.class)
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTest_3_oe
-async_372_1,"  @Test
+async_373_1,"  @Test
   public void multipleMaxConnectionOpenTestWithQuery_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -18670,7 +18681,7 @@ async_372_1,"  @Test
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTestWithQuery_1_oe
-async_372_2,"  @Test
+async_373_2,"  @Test
   public void multipleMaxConnectionOpenTestWithQuery_2_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -18692,7 +18703,7 @@ async_372_2,"  @Test
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTestWithQuery_2_oe
-async_372_3,"  @Test
+async_373_3,"  @Test
   public void multipleMaxConnectionOpenTestWithQuery_3_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -18715,7 +18726,7 @@ async_372_3,"  @Test
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTestWithQuery_3_oe
-async_372_4,"  @Test
+async_373_4,"  @Test
   public void multipleMaxConnectionOpenTestWithQuery_4_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().setKeepAlive(true).setConnectTimeout(5000).setMaxConnections(1))) {
       String body = ""hello there"";
@@ -18739,7 +18750,7 @@ async_372_4,"  @Test
   }
   }
 ",ConnectionPoolTest::multipleMaxConnectionOpenTestWithQuery_4_oe
-async_373_2,"  @Test
+async_374_2,"  @Test
   public void win7DisconnectTest_2_oe() throws Exception {
     final AtomicInteger count = new AtomicInteger(0);
 
@@ -18766,7 +18777,7 @@ async_373_2,"  @Test
   }
   }
 ",ConnectionPoolTest::win7DisconnectTest_2_oe
-async_373_3,"  @Test
+async_374_3,"  @Test
   public void win7DisconnectTest_3_oe() throws Exception {
     final AtomicInteger count = new AtomicInteger(0);
 
@@ -18794,7 +18805,7 @@ async_373_3,"  @Test
   }
   }
 ",ConnectionPoolTest::win7DisconnectTest_3_oe
-async_373_4,"  @Test
+async_374_4,"  @Test
   public void win7DisconnectTest_4_oe() throws Exception {
     final AtomicInteger count = new AtomicInteger(0);
 
@@ -18823,7 +18834,7 @@ async_373_4,"  @Test
   }
   }
 ",ConnectionPoolTest::win7DisconnectTest_4_oe
-async_373_5,"  @Test
+async_374_5,"  @Test
   public void win7DisconnectTest_5_oe() throws Exception {
     final AtomicInteger count = new AtomicInteger(0);
 
@@ -18853,7 +18864,7 @@ async_373_5,"  @Test
   }
   }
 ",ConnectionPoolTest::win7DisconnectTest_5_oe
-async_374_1,"  @Test
+async_375_1,"  @Test
   public void asyncHandlerOnThrowableTest_1_oe() throws Exception {
     try (AsyncHttpClient client = asyncHttpClient()) {
       final AtomicInteger count = new AtomicInteger();
@@ -18887,7 +18898,7 @@ async_374_1,"  @Test
   }
   }
 ",ConnectionPoolTest::asyncHandlerOnThrowableTest_1_oe
-async_375_1,"  @Test
+async_376_1,"  @Test
   public void testPooledEventsFired_1_oe() throws Exception {
     RequestBuilder request = get(""http://localhost:"" + port1 + ""/Test"");
 
@@ -18907,7 +18918,7 @@ async_375_1,"  @Test
   }
   }
 ",ConnectionPoolTest::testPooledEventsFired_1_oe
-async_376_1,"  @Test(groups = ""online"")
+async_377_1,"  @Test(groups = ""online"")
   public void testMaxTotalConnectionsExceedingException_1_oe() throws IOException {
     String[] urls = new String[]{""https://google.com"", ""https://github.com""};
 
@@ -18942,7 +18953,7 @@ async_376_1,"  @Test(groups = ""online"")
   }
   }
 ",MaxTotalConnectionTest::testMaxTotalConnectionsExceedingException_1_oe
-async_376_2,"  @Test(groups = ""online"")
+async_377_2,"  @Test(groups = ""online"")
   public void testMaxTotalConnectionsExceedingException_2_oe() throws IOException {
     String[] urls = new String[]{""https://google.com"", ""https://github.com""};
 
@@ -18978,7 +18989,7 @@ async_376_2,"  @Test(groups = ""online"")
   }
   }
 ",MaxTotalConnectionTest::testMaxTotalConnectionsExceedingException_2_oe
-async_377_1,"  @Test(groups = ""online"")
+async_378_1,"  @Test(groups = ""online"")
   public void testMaxTotalConnections_1_oe() throws Exception {
     String[] urls = new String[]{""https://www.google.com"", ""https://www.youtube.com""};
 
@@ -19020,7 +19031,7 @@ async_377_1,"  @Test(groups = ""online"")
   }
   }
 ",MaxTotalConnectionTest::testMaxTotalConnections_1_oe
-async_377_2,"  @Test(groups = ""online"")
+async_378_2,"  @Test(groups = ""online"")
   public void testMaxTotalConnections_2_oe() throws Exception {
     String[] urls = new String[]{""https://www.google.com"", ""https://www.youtube.com""};
 
@@ -19063,7 +19074,7 @@ async_377_2,"  @Test(groups = ""online"")
   }
   }
 ",MaxTotalConnectionTest::testMaxTotalConnections_2_oe
-async_378_1,"  @Test
+async_379_1,"  @Test
   public void mkcolWebDavTest1_1_oe() throws InterruptedException, IOException, ExecutionException {
     try (AsyncHttpClient c = asyncHttpClient()) {
       Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
@@ -19072,7 +19083,7 @@ async_378_1,"  @Test
   }
   }
 ",WebdavTest::mkcolWebDavTest1_1_oe
-async_378_2,"  @Test
+async_379_2,"  @Test
   public void mkcolWebDavTest1_2_oe() throws InterruptedException, IOException, ExecutionException {
     try (AsyncHttpClient c = asyncHttpClient()) {
       Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
@@ -19090,7 +19101,7 @@ async_378_2,"  @Test
   }
   }
 ",WebdavTest::mkcolWebDavTest1_2_oe
-async_378_3,"  @Test
+async_379_3,"  @Test
   public void mkcolWebDavTest1_3_oe() throws InterruptedException, IOException, ExecutionException {
     try (AsyncHttpClient c = asyncHttpClient()) {
       Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
@@ -19118,7 +19129,7 @@ async_378_3,"  @Test
   }
   }
 ",WebdavTest::mkcolWebDavTest1_3_oe
-async_378_4,"  @Test
+async_379_4,"  @Test
   public void mkcolWebDavTest1_4_oe() throws InterruptedException, IOException, ExecutionException {
     try (AsyncHttpClient c = asyncHttpClient()) {
       Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
@@ -19155,7 +19166,7 @@ async_378_4,"  @Test
   }
   }
 ",WebdavTest::mkcolWebDavTest1_4_oe
-async_378_5,"  @Test
+async_379_5,"  @Test
   public void mkcolWebDavTest1_5_oe() throws InterruptedException, IOException, ExecutionException {
     try (AsyncHttpClient c = asyncHttpClient()) {
       Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
@@ -19196,7 +19207,7 @@ async_378_5,"  @Test
   }
   }
 ",WebdavTest::mkcolWebDavTest1_5_oe
-async_378_6,"  @Test
+async_379_6,"  @Test
   public void mkcolWebDavTest1_6_oe() throws InterruptedException, IOException, ExecutionException {
     try (AsyncHttpClient c = asyncHttpClient()) {
       Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
@@ -19242,7 +19253,7 @@ async_378_6,"  @Test
   }
   }
 ",WebdavTest::mkcolWebDavTest1_6_oe
-async_378_7,"  @Test
+async_379_7,"  @Test
   public void mkcolWebDavTest1_7_oe() throws InterruptedException, IOException, ExecutionException {
     try (AsyncHttpClient c = asyncHttpClient()) {
       Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
@@ -19289,7 +19300,7 @@ async_378_7,"  @Test
   }
   }
 ",WebdavTest::mkcolWebDavTest1_7_oe
-async_378_8,"  @Test
+async_379_8,"  @Test
   public void mkcolWebDavTest1_8_oe() throws InterruptedException, IOException, ExecutionException {
     try (AsyncHttpClient c = asyncHttpClient()) {
       Request mkcolRequest = new RequestBuilder(""MKCOL"").setUrl(getTargetUrl()).build();
@@ -19345,79 +19356,79 @@ async_378_8,"  @Test
   }
   }
 ",WebdavTest::mkcolWebDavTest1_8_oe
-async_379_1,"  @Test
+async_380_1,"  @Test
   public void testCreateAndToUrl_1_oe() {
     String url = ""https://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
     assertEquals(uri.toUrl(), url, ""url used to create uri and url returned from toUrl do not match"");
   }
 ",UriTest::testCreateAndToUrl_1_oe
-async_380_1,"  @Test
+async_381_1,"  @Test
   public void testToUrlWithUserInfoPortPathAndQuery_1_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, ""/path/path2"", ""query=4"", null);
     assertEquals(uri.toUrl(), ""http://user@example.com:44/path/path2?query=4"", ""toUrl returned incorrect url"");
   }
 ",UriTest::testToUrlWithUserInfoPortPathAndQuery_1_oe
-async_381_1,"  @Test
+async_382_1,"  @Test
   public void testQueryWithNonRootPath_1_oe() {
     Uri uri = Uri.create(""http://hello.com/foo?query=value"");
     assertEquals(uri.getPath(), ""/foo"");
   }
 ",UriTest::testQueryWithNonRootPath_1_oe
-async_381_2,"  @Test
+async_382_2,"  @Test
   public void testQueryWithNonRootPath_2_oe() {
     Uri uri = Uri.create(""http://hello.com/foo?query=value"");
     // removed other assertion
     assertEquals(uri.getQuery(), ""query=value"");
   }
 ",UriTest::testQueryWithNonRootPath_2_oe
-async_382_1,"  @Test
+async_383_1,"  @Test
   public void testQueryWithNonRootPathAndTrailingSlash_1_oe() {
     Uri uri = Uri.create(""http://hello.com/foo/?query=value"");
     assertEquals(uri.getPath(), ""/foo/"");
   }
 ",UriTest::testQueryWithNonRootPathAndTrailingSlash_1_oe
-async_382_2,"  @Test
+async_383_2,"  @Test
   public void testQueryWithNonRootPathAndTrailingSlash_2_oe() {
     Uri uri = Uri.create(""http://hello.com/foo/?query=value"");
     // removed other assertion
     assertEquals(uri.getQuery(), ""query=value"");
   }
 ",UriTest::testQueryWithNonRootPathAndTrailingSlash_2_oe
-async_383_1,"  @Test
+async_384_1,"  @Test
   public void testQueryWithRootPath_1_oe() {
     Uri uri = Uri.create(""http://hello.com?query=value"");
     assertEquals(uri.getPath(), """");
   }
 ",UriTest::testQueryWithRootPath_1_oe
-async_383_2,"  @Test
+async_384_2,"  @Test
   public void testQueryWithRootPath_2_oe() {
     Uri uri = Uri.create(""http://hello.com?query=value"");
     // removed other assertion
     assertEquals(uri.getQuery(), ""query=value"");
   }
 ",UriTest::testQueryWithRootPath_2_oe
-async_384_1,"  @Test
+async_385_1,"  @Test
   public void testQueryWithRootPathAndTrailingSlash_1_oe() {
     Uri uri = Uri.create(""http://hello.com/?query=value"");
     assertEquals(uri.getPath(), ""/"");
   }
 ",UriTest::testQueryWithRootPathAndTrailingSlash_1_oe
-async_384_2,"  @Test
+async_385_2,"  @Test
   public void testQueryWithRootPathAndTrailingSlash_2_oe() {
     Uri uri = Uri.create(""http://hello.com/?query=value"");
     // removed other assertion
     assertEquals(uri.getQuery(), ""query=value"");
   }
 ",UriTest::testQueryWithRootPathAndTrailingSlash_2_oe
-async_385_1,"  @Test
+async_386_1,"  @Test
   public void testWithNewScheme_1_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, ""/path/path2"", ""query=4"", null);
     Uri newUri = uri.withNewScheme(""https"");
     assertEquals(newUri.getScheme(), ""https"");
   }
 ",UriTest::testWithNewScheme_1_oe
-async_385_2,"  @Test
+async_386_2,"  @Test
   public void testWithNewScheme_2_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, ""/path/path2"", ""query=4"", null);
     Uri newUri = uri.withNewScheme(""https"");
@@ -19425,14 +19436,14 @@ async_385_2,"  @Test
     assertEquals(newUri.toUrl(), ""https://user@example.com:44/path/path2?query=4"", ""toUrl returned incorrect url"");
   }
 ",UriTest::testWithNewScheme_2_oe
-async_386_1,"  @Test
+async_387_1,"  @Test
   public void testWithNewQuery_1_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, ""/path/path2"", ""query=4"", null);
     Uri newUri = uri.withNewQuery(""query2=10&query3=20"");
     assertEquals(newUri.getQuery(), ""query2=10&query3=20"");
   }
 ",UriTest::testWithNewQuery_1_oe
-async_386_2,"  @Test
+async_387_2,"  @Test
   public void testWithNewQuery_2_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, ""/path/path2"", ""query=4"", null);
     Uri newUri = uri.withNewQuery(""query2=10&query3=20"");
@@ -19440,28 +19451,28 @@ async_386_2,"  @Test
     assertEquals(newUri.toUrl(), ""http://user@example.com:44/path/path2?query2=10&query3=20"", ""toUrl returned incorrect url"");
   }
 ",UriTest::testWithNewQuery_2_oe
-async_387_1,"  @Test
+async_388_1,"  @Test
   public void testToRelativeUrl_1_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, ""/path/path2"", ""query=4"", null);
     String relativeUrl = uri.toRelativeUrl();
     assertEquals(relativeUrl, ""/path/path2?query=4"", ""toRelativeUrl returned incorrect url"");
   }
 ",UriTest::testToRelativeUrl_1_oe
-async_388_1,"  @Test
+async_389_1,"  @Test
   public void testToRelativeUrlWithEmptyPath_1_oe() {
     Uri uri = new Uri(""http"", ""user"", ""example.com"", 44, null, ""query=4"", null);
     String relativeUrl = uri.toRelativeUrl();
     assertEquals(relativeUrl, ""/?query=4"", ""toRelativeUrl returned incorrect url"");
   }
 ",UriTest::testToRelativeUrlWithEmptyPath_1_oe
-async_389_1,"  @Test
+async_390_1,"  @Test
   public void testGetSchemeDefaultPortHttpScheme_1_oe() {
     String url = ""https://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
     assertEquals(uri.getSchemeDefaultPort(), 443, ""schema default port should be 443 for https url"");
   }
 ",UriTest::testGetSchemeDefaultPortHttpScheme_1_oe
-async_389_2,"  @Test
+async_390_2,"  @Test
   public void testGetSchemeDefaultPortHttpScheme_2_oe() {
     String url = ""https://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
@@ -19472,14 +19483,14 @@ async_389_2,"  @Test
     assertEquals(uri2.getSchemeDefaultPort(), 80, ""schema default port should be 80 for http url"");
   }
 ",UriTest::testGetSchemeDefaultPortHttpScheme_2_oe
-async_390_1,"  @Test
+async_391_1,"  @Test
   public void testGetSchemeDefaultPortWebSocketScheme_1_oe() {
     String url = ""wss://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
     assertEquals(uri.getSchemeDefaultPort(), 443, ""schema default port should be 443 for wss url"");
   }
 ",UriTest::testGetSchemeDefaultPortWebSocketScheme_1_oe
-async_390_2,"  @Test
+async_391_2,"  @Test
   public void testGetSchemeDefaultPortWebSocketScheme_2_oe() {
     String url = ""wss://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
@@ -19490,14 +19501,14 @@ async_390_2,"  @Test
     assertEquals(uri2.getSchemeDefaultPort(), 80, ""schema default port should be 80 for ws url"");
   }
 ",UriTest::testGetSchemeDefaultPortWebSocketScheme_2_oe
-async_391_1,"  @Test
+async_392_1,"  @Test
   public void testGetExplicitPort_1_oe() {
     String url = ""http://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
     assertEquals(uri.getExplicitPort(), 80, ""getExplicitPort should return port 80 for http url when port is not specified in url"");
   }
 ",UriTest::testGetExplicitPort_1_oe
-async_391_2,"  @Test
+async_392_2,"  @Test
   public void testGetExplicitPort_2_oe() {
     String url = ""http://hello.com/level1/level2/level3"";
     Uri uri = Uri.create(url);
@@ -19508,7 +19519,7 @@ async_391_2,"  @Test
     assertEquals(uri2.getExplicitPort(), 8080, ""getExplicitPort should return the port given in the url"");
   }
 ",UriTest::testGetExplicitPort_2_oe
-async_392_1,"  @Test
+async_393_1,"  @Test
   public void testEquals_1_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     Uri createdUri = Uri.create(url);
@@ -19516,7 +19527,7 @@ async_392_1,"  @Test
     assertTrue(createdUri.equals(constructedUri), ""The equals method returned false for two equal urls"");
   }
 ",UriTest::testEquals_1_oe
-async_393_1,"  @Test
+async_394_1,"  @Test
   void testFragment_1_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     String fragment = ""foo"";
@@ -19525,7 +19536,7 @@ async_393_1,"  @Test
     assertEquals(fragment, uri.getFragment(), ""Fragment should be extracted"");
   }
 ",UriTest::testFragment_1_oe
-async_393_2,"  @Test
+async_394_2,"  @Test
   void testFragment_2_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     String fragment = ""foo"";
@@ -19535,7 +19546,7 @@ async_393_2,"  @Test
     assertEquals(uri.toUrl(), url, ""toUrl should return without fragment"");
   }
 ",UriTest::testFragment_2_oe
-async_393_3,"  @Test
+async_394_3,"  @Test
   void testFragment_3_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     String fragment = ""foo"";
@@ -19546,20 +19557,20 @@ async_393_3,"  @Test
     assertEquals(uri.toFullUrl(), urlWithFragment, ""toFullUrl should return with fragment"");
   }
 ",UriTest::testFragment_3_oe
-async_394_1,"  @Test
+async_395_1,"  @Test
   void testRelativeFragment_1_oe() {
     Uri uri = Uri.create(Uri.create(""http://user@hello.com:8080""), ""/level1/level2/level3?q=1#foo"");
     assertEquals(""foo"", uri.getFragment(), ""fragment should be kept when computing a relative url"");
   }
 ",UriTest::testRelativeFragment_1_oe
-async_395_1,"  @Test
+async_396_1,"  @Test
   public void testIsWebsocket_1_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     Uri uri = Uri.create(url);
     assertFalse(uri.isWebSocket(), ""isWebSocket should return false for http url"");
   }
 ",UriTest::testIsWebsocket_1_oe
-async_395_2,"  @Test
+async_396_2,"  @Test
   public void testIsWebsocket_2_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     Uri uri = Uri.create(url);
@@ -19570,7 +19581,7 @@ async_395_2,"  @Test
     assertFalse(uri.isWebSocket(), ""isWebSocket should return false for https url"");
   }
 ",UriTest::testIsWebsocket_2_oe
-async_395_3,"  @Test
+async_396_3,"  @Test
   public void testIsWebsocket_3_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     Uri uri = Uri.create(url);
@@ -19585,7 +19596,7 @@ async_395_3,"  @Test
     assertTrue(uri.isWebSocket(), ""isWebSocket should return true for ws url"");
   }
 ",UriTest::testIsWebsocket_3_oe
-async_395_4,"  @Test
+async_396_4,"  @Test
   public void testIsWebsocket_4_oe() {
     String url = ""http://user@hello.com:8080/level1/level2/level3?q=1"";
     Uri uri = Uri.create(url);
@@ -19604,59 +19615,59 @@ async_395_4,"  @Test
     assertTrue(uri.isWebSocket(), ""isWebSocket should return true for wss url"");
   }
 ",UriTest::testIsWebsocket_4_oe
-async_396_1,"  @Test
+async_397_1,"  @Test
   public void testGetAuthority_1_oe() {
     Uri uri = Uri.create(""http://stackoverflow.com/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     assertEquals(uri.getAuthority(), ""stackoverflow.com:80"", ""Incorrect authority returned from getAuthority"");
   }
 ",UriTest::testGetAuthority_1_oe
-async_397_1,"  @Test
+async_398_1,"  @Test
   public void testGetAuthorityWithPortInUrl_1_oe() {
     Uri uri = Uri.create(""http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     assertEquals(uri.getAuthority(), ""stackoverflow.com:8443"", ""Incorrect authority returned from getAuthority"");
   }
 ",UriTest::testGetAuthorityWithPortInUrl_1_oe
-async_398_1,"  @Test
+async_399_1,"  @Test
   public void testGetBaseUrl_1_oe() {
     Uri uri = Uri.create(""http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     assertEquals(uri.getBaseUrl(), ""http://stackoverflow.com:8443"", ""Incorrect base URL returned from getBaseURL"");
   }
 ",UriTest::testGetBaseUrl_1_oe
-async_399_1,"  @Test
+async_400_1,"  @Test
   public void testIsSameBaseUrlReturnsFalseWhenPortDifferent_1_oe() {
     Uri uri1 = Uri.create(""http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     Uri uri2 = Uri.create(""http://stackoverflow.com:8442/questions/1057564/pretty-git-branch-graphs"");
     assertFalse(uri1.isSameBase(uri2), ""Base URLs should be different, but true was returned from isSameBase"");
   }
 ",UriTest::testIsSameBaseUrlReturnsFalseWhenPortDifferent_1_oe
-async_400_1,"  @Test
+async_401_1,"  @Test
   public void testIsSameBaseUrlReturnsFalseWhenSchemeDifferent_1_oe() {
     Uri uri1 = Uri.create(""http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     Uri uri2 = Uri.create(""ws://stackoverflow.com:8443/questions/1057564/pretty-git-branch-graphs"");
     assertFalse(uri1.isSameBase(uri2), ""Base URLs should be different, but true was returned from isSameBase"");
   }
 ",UriTest::testIsSameBaseUrlReturnsFalseWhenSchemeDifferent_1_oe
-async_401_1,"  @Test
+async_402_1,"  @Test
   public void testIsSameBaseUrlReturnsFalseWhenHostDifferent_1_oe() {
     Uri uri1 = Uri.create(""http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     Uri uri2 = Uri.create(""http://example.com:8443/questions/1057564/pretty-git-branch-graphs"");
     assertFalse(uri1.isSameBase(uri2), ""Base URLs should be different, but true was returned from isSameBase"");
   }
 ",UriTest::testIsSameBaseUrlReturnsFalseWhenHostDifferent_1_oe
-async_402_1,"  @Test
+async_403_1,"  @Test
   public void testIsSameBaseUrlReturnsTrueWhenOneUriHasDefaultPort_1_oe() {
     Uri uri1 = Uri.create(""http://stackoverflow.com:80/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     Uri uri2 = Uri.create(""http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs"");
     assertTrue(uri1.isSameBase(uri2), ""Base URLs should be same, but false was returned from isSameBase"");
   }
 ",UriTest::testIsSameBaseUrlReturnsTrueWhenOneUriHasDefaultPort_1_oe
-async_403_1,"  @Test
+async_404_1,"  @Test
   public void testGetPathWhenPathIsNonEmpty_1_oe() {
     Uri uri = Uri.create(""http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage"");
     assertEquals(uri.getNonEmptyPath(), ""/questions/17814461/jacoco-maven-testng-0-test-coverage"", ""Incorrect path returned from getNonEmptyPath"");
   }
 ",UriTest::testGetPathWhenPathIsNonEmpty_1_oe
-async_404_1,"  @Test
+async_405_1,"  @Test
   public void testGetPathWhenPathIsEmpty_1_oe() {
     Uri uri = Uri.create(""http://stackoverflow.com"");
     assertEquals(uri.getNonEmptyPath(), ""/"", ""Incorrect path returned from getNonEmptyPath"");

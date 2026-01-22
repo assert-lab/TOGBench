@@ -1,0 +1,257 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.commons:commons-lang3 >------------------
+[INFO] Building Apache Commons Lang 3.12.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-lang3 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-lang3 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-lang3 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-lang3 ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-lang3 ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3
+[INFO] Storing buildNumber: 436e57711b2b4f8a4a2bcbbc6fd858d43f13414e at timestamp: 1769074225554
+[INFO] Storing buildScmBranch: jan-22-projects
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-lang3 ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-lang3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 215 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/builder/ToStringStyle.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/function/FailableDoublePredicate.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/main/java/org/apache/commons/lang3/function/FailableDoublePredicate.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-lang3 ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-lang3 ---
+[INFO] Using 'ISO-8859-1' encoding to copy filtered resources.
+[INFO] Copying 2 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-lang3 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 318 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/DiffBuilderTest.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/builder/DiffBuilderTest.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/FunctionsTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-lang3 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest.java:1843: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest.java:1893: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest_OE25Dev.java:12775: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest_OE25Dev.java:12785: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-lang3/src/test/java/org/apache/commons/lang3/text/StrBuilderTest_OE25Dev.java:12834: Covariant return type change detected: java.nio.Buffer java.nio.CharBuffer.flip() has been changed to java.nio.CharBuffer java.nio.CharBuffer.flip()
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.6:prepare-agent (prepare-agent) @ commons-lang3 ---
+[INFO] Skipping JaCoCo execution because property jacoco.skip is set.
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ commons-lang3 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.lang3.ThreadUtilsTest_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.commons.lang3.ThreadUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.RandomStringUtilsTest_OE25Dev
+[INFO] Tests run: 87, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in org.apache.commons.lang3.RandomStringUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.mutable.MutableBooleanTest_OE25Dev
+[INFO] Tests run: 43, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.lang3.mutable.MutableBooleanTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.RegExUtilsTest_OE25Dev
+[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.lang3.RegExUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.translate.UnicodeUnpairedSurrogateRemoverTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.text.translate.UnicodeUnpairedSurrogateRemoverTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringUtilsValueOfTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.lang3.StringUtilsValueOfTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.exception.ContextedExceptionTest_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.lang3.exception.ContextedExceptionTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.translate.UnicodeUnescaperTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.lang3.text.translate.UnicodeUnescaperTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.math.NumberUtilsTest_OE25Dev
+[INFO] Tests run: 638, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s - in org.apache.commons.lang3.math.NumberUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.compare.ObjectToStringComparatorTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.compare.ObjectToStringComparatorTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.FastTimeZoneTest_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.time.FastTimeZoneTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharSetTest_OE25Dev
+[INFO] Tests run: 204, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.lang3.CharSetTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.HashCodeBuilderTest_OE25Dev
+[INFO] Tests run: 119, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.lang3.builder.HashCodeBuilderTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.tuple.MutableTripleTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.lang3.tuple.MutableTripleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharUtilsTest_OE25Dev
+[INFO] Tests run: 143, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.lang3.CharUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.DateUtilsTest_OE25Dev
+[ERROR] Tests run: 263, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.209 s <<< FAILURE! - in org.apache.commons.lang3.time.DateUtilsTest_OE25Dev
+[ERROR] org.apache.commons.lang3.time.DateUtilsTest_OE25Dev.testLANG799_DE_FAIL_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.text.ParseException to be thrown, but nothing was thrown.
+	at org.apache.commons.lang3.time.DateUtilsTest_OE25Dev.testLANG799_DE_FAIL_1_oe(DateUtilsTest_OE25Dev.java:2989)
+
+[INFO] Running org.apache.commons.lang3.event.EventListenerSupportTest_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.apache.commons.lang3.event.EventListenerSupportTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.LocaleUtilsTest_OE25Dev
+[INFO] Tests run: 3097, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.359 s - in org.apache.commons.lang3.LocaleUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.translate.NumericEntityEscaperTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.text.translate.NumericEntityEscaperTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.lang3.text.StrSubstitutorTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest_OE25Dev
+[ERROR] Tests run: 31, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.006 s <<< FAILURE! - in org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest_OE25Dev
+[ERROR] org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest_OE25Dev.testNotOpeningCheckIntervalExceeded_1_oe  Time elapsed: 0.001 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: In open state ==> expected: <true> but was: <false>
+	at org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest_OE25Dev.testNotOpeningCheckIntervalExceeded_1_oe(EventCountCircuitBreakerTest_OE25Dev.java:363)
+
+[ERROR] org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest_OE25Dev.testNotClosingOverThreshold_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Closed in new interval ==> expected: <false> but was: <true>
+	at org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest_OE25Dev.testNotClosingOverThreshold_2_oe(EventCountCircuitBreakerTest_OE25Dev.java:451)
+
+[ERROR] org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest_OE25Dev.testClosingWhenThresholdReached_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: Not closed at end ==> expected: <true> but was: <false>
+	at org.apache.commons.lang3.concurrent.EventCountCircuitBreakerTest_OE25Dev.testClosingWhenThresholdReached_4_oe(EventCountCircuitBreakerTest_OE25Dev.java:507)
+
+[INFO] Running org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeNullValuesTest_OE25Dev
+[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.lang3.builder.ReflectionToStringBuilderExcludeNullValuesTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.ClassLoaderUtilsTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.ClassLoaderUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.translate.EntityArraysTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.text.translate.EntityArraysTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev
+[ERROR] Tests run: 22, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.004 s <<< FAILURE! - in org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev
+[ERROR] org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongCharacters_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <2> but was: <-1>
+	at org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongCharacters_2_oe(FastDateParser_MoreOrLessTest_OE25Dev.java:173)
+
+[ERROR] org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongTimeZone_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <27> but was: <0>
+	at org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongTimeZone_2_oe(FastDateParser_MoreOrLessTest_OE25Dev.java:234)
+
+[ERROR] org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongTimeZone_4_oe  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <6> but was: <-1>
+	at org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongTimeZone_4_oe(FastDateParser_MoreOrLessTest_OE25Dev.java:261)
+
+[ERROR] org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongDay_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <18> but was: <0>
+	at org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongDay_2_oe(FastDateParser_MoreOrLessTest_OE25Dev.java:190)
+
+[ERROR] org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongDay_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <-1>
+	at org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasWrongDay_4_oe(FastDateParser_MoreOrLessTest_OE25Dev.java:215)
+
+[ERROR] org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasLessCharacters_2_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <5> but was: <-1>
+	at org.apache.commons.lang3.time.FastDateParser_MoreOrLessTest_OE25Dev.testInputHasLessCharacters_2_oe(FastDateParser_MoreOrLessTest_OE25Dev.java:47)
+
+[INFO] Running org.apache.commons.lang3.builder.StandardToStringStyleTest_OE25Dev
+[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.lang3.builder.StandardToStringStyleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.concurrent.locks.LockingVisitorsTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 33.054 s - in org.apache.commons.lang3.concurrent.locks.LockingVisitorsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.StringEscapeUtilsTest_OE25Dev
+[INFO] Tests run: 118, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s - in org.apache.commons.lang3.StringEscapeUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.text.StrBuilderTest_OE25Dev
+[ERROR] Tests run: 665, Failures: 16, Errors: 1, Skipped: 0, Time elapsed: 0.028 s <<< FAILURE! - in org.apache.commons.lang3.text.StrBuilderTest_OE25Dev
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_10_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_10_oe(StrBuilderTest_OE25Dev.java:10802)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_18_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <b> but was: <a>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_18_oe(StrBuilderTest_OE25Dev.java:11046)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_19_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <c> but was: <a>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_19_oe(StrBuilderTest_OE25Dev.java:11081)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_20_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <d> but was: <a>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsTokenizer_20_oe(StrBuilderTest_OE25Dev.java:11117)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <some text> but was: <         >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_3_oe(StrBuilderTest_OE25Dev.java:11181)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_4_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <-1> but was: <115>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_4_oe(StrBuilderTest_OE25Dev.java:11193)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_5_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <false> but was: <true>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_5_oe(StrBuilderTest_OE25Dev.java:11206)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_6_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0> but was: <2>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_6_oe(StrBuilderTest_OE25Dev.java:11220)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testChaining_4_oe  Time elapsed: 0 s  <<< ERROR!
+java.lang.StringIndexOutOfBoundsException: String index out of range: 0
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testChaining_4_oe(StrBuilderTest_OE25Dev.java:781)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testReverse_3_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <true> but was: <eurt>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testReverse_3_oe(StrBuilderTest_OE25Dev.java:6805)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_11_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <o> but was: < >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_11_oe(StrBuilderTest_OE25Dev.java:11316)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_12_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <m> but was: < >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_12_oe(StrBuilderTest_OE25Dev.java:11340)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_13_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <e> but was: < >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_13_oe(StrBuilderTest_OE25Dev.java:11365)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_15_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <o> but was: < >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_15_oe(StrBuilderTest_OE25Dev.java:11420)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_16_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <o> but was: < >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_16_oe(StrBuilderTest_OE25Dev.java:11449)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_17_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <e> but was: < >
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_17_oe(StrBuilderTest_OE25Dev.java:11479)
+
+[ERROR] org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_19_oe  Time elapsed: 0 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <32> but was: <115>
+	at org.apache.commons.lang3.text.StrBuilderTest_OE25Dev.testAsReader_19_oe(StrBuilderTest_OE25Dev.java:11542)
+
+[INFO] Running org.apache.commons.lang3.exception.CloneFailedExceptionTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.exception.CloneFailedExceptionTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.CalendarUtilsTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.time.CalendarUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.ArrayUtilsRemoveMultipleTest_OE25Dev
+[INFO] Tests run: 503, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.lang3.ArrayUtilsRemoveMultipleTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.CharSequenceUtilsTest_OE25Dev
+[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.lang3.CharSequenceUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.ReflectionToStringBuilderSummaryTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.lang3.builder.ReflectionToStringBuilderSummaryTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev
+[INFO] Tests run: 45, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.lang3.time.DurationUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.lang3.builder.DiffResultTest_OE25Dev
+TIMEOUT

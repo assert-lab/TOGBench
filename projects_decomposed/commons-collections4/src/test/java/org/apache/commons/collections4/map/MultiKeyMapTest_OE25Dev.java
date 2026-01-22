@@ -44,7 +44,7 @@ public class MultiKeyMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<Multi
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(MultiKeyMapTest.class);
+        return BulkTest.makeSuite(MultiKeyMapTest_OE25Dev.class);
     }
 
     @Override

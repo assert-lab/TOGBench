@@ -1,5 +1,48 @@
 id,test_prefix,test_name
-springside4_2_3,"	@Test
+springside4_1_1,"	@Test
+	public void applyBorrowRequestWithError_1_oe() {
+
+		// 自己借自己的书
+		Book book = new Book(1L);
+		book.status = Book.STATUS_IDLE;
+		book.owner = new Account(1L);
+
+		Mockito.when(mockBookDao.findOne(1L)).thenReturn(book);
+		try {
+			service.applyBorrowRequest(1L, new Account(1L));
+			fail(""should fail here"");
+	}
+	}
+",BookBorrowServiceTest::applyBorrowRequestWithError_1_oe
+springside4_1_4,"	@Test
+	public void applyBorrowRequestWithError_4_oe() {
+
+		// 自己借自己的书
+		Book book = new Book(1L);
+		book.status = Book.STATUS_IDLE;
+		book.owner = new Account(1L);
+
+		Mockito.when(mockBookDao.findOne(1L)).thenReturn(book);
+		try {
+			service.applyBorrowRequest(1L, new Account(1L));
+			// removed other assertion
+		} catch (Exception e) {
+			// removed other assertion
+			// removed other assertion
+		}
+		// 保证BookDao没被调用
+		Mockito.verify(mockBookDao, Mockito.never()).save(Mockito.any(Book.class));
+
+		// 借已借出的书
+		book.status = Book.STATUS_REQUEST;
+
+		try {
+			service.applyBorrowRequest(1L, new Account(3L));
+			fail(""should fail here"");
+	}
+	}
+",BookBorrowServiceTest::applyBorrowRequestWithError_4_oe
+springside4_9_3,"	@Test
 	public void always_3_oe() {
 		Sampler sampler = Sampler.create(0d);
 		// removed other assertion
@@ -12,7 +55,7 @@ springside4_2_3,"	@Test
 	}
 	}
 ",SamplerTest::always_3_oe
-springside4_2_5,"	@Test
+springside4_9_5,"	@Test
 	public void always_5_oe() {
 		Sampler sampler = Sampler.create(0d);
 		// removed other assertion
@@ -32,7 +75,7 @@ springside4_2_5,"	@Test
 	}
 	}
 ",SamplerTest::always_5_oe
-springside4_3_2,"	@Test
+springside4_10_2,"	@Test
 	public void test_2_oe() throws InterruptedException, ExecutionException {
 		MyFuture<String> future = new MyFuture<String>();
 		Tasks.success(future);
@@ -47,7 +90,7 @@ springside4_3_2,"	@Test
 	}
 	}
 ",BasicFutureTest::test_2_oe
-springside4_3_4,"	@Test
+springside4_10_4,"	@Test
 	public void test_4_oe() throws InterruptedException, ExecutionException {
 		MyFuture<String> future = new MyFuture<String>();
 		Tasks.success(future);
@@ -70,7 +113,7 @@ springside4_3_4,"	@Test
 	}
 	}
 ",BasicFutureTest::test_4_oe
-springside4_3_5,"	@Test
+springside4_10_5,"	@Test
 	public void test_5_oe() throws InterruptedException, ExecutionException {
 		MyFuture<String> future = new MyFuture<String>();
 		Tasks.success(future);
@@ -95,7 +138,7 @@ springside4_3_5,"	@Test
 	}
 	}
 ",BasicFutureTest::test_5_oe
-springside4_7_1,"	@Test
+springside4_14_1,"	@Test
 	public void test_1_oe() {
 		QueuableCachedThreadPool threadPool = null;
 		try {
@@ -109,7 +152,7 @@ springside4_7_1,"	@Test
 	}
 	}
 ",QueuableCachedThreadPoolTest::test_1_oe
-springside4_7_2,"	@Test
+springside4_14_2,"	@Test
 	public void test_2_oe() {
 		QueuableCachedThreadPool threadPool = null;
 		try {
@@ -124,7 +167,7 @@ springside4_7_2,"	@Test
 	}
 	}
 ",QueuableCachedThreadPoolTest::test_2_oe
-springside4_7_3,"	@Test
+springside4_14_3,"	@Test
 	public void test_3_oe() {
 		QueuableCachedThreadPool threadPool = null;
 		try {
@@ -145,7 +188,7 @@ springside4_7_3,"	@Test
 	}
 	}
 ",QueuableCachedThreadPoolTest::test_3_oe
-springside4_7_4,"	@Test
+springside4_14_4,"	@Test
 	public void test_4_oe() {
 		QueuableCachedThreadPool threadPool = null;
 		try {
@@ -167,7 +210,7 @@ springside4_7_4,"	@Test
 	}
 	}
 ",QueuableCachedThreadPoolTest::test_4_oe
-springside4_7_5,"	@Test
+springside4_14_5,"	@Test
 	public void test_5_oe() {
 		QueuableCachedThreadPool threadPool = null;
 		try {
@@ -195,7 +238,7 @@ springside4_7_5,"	@Test
 	}
 	}
 ",QueuableCachedThreadPoolTest::test_5_oe
-springside4_7_6,"	@Test
+springside4_14_6,"	@Test
 	public void test_6_oe() {
 		QueuableCachedThreadPool threadPool = null;
 		try {
@@ -225,7 +268,7 @@ springside4_7_6,"	@Test
 	}
 	}
 ",QueuableCachedThreadPoolTest::test_6_oe
-springside4_15_1,"	@Test
+springside4_22_1,"	@Test
 	public void readWrite_1_oe() throws IOException {
 		File file = FileUtil.createTempFile(""abc"", "".tmp"");
 		try {
@@ -237,7 +280,7 @@ springside4_15_1,"	@Test
 	}
 	}
 ",FileUtilTest::readWrite_1_oe
-springside4_15_2,"	@Test
+springside4_22_2,"	@Test
 	public void readWrite_2_oe() throws IOException {
 		File file = FileUtil.createTempFile(""abc"", "".tmp"");
 		try {
@@ -251,7 +294,7 @@ springside4_15_2,"	@Test
 	}
 	}
 ",FileUtilTest::readWrite_2_oe
-springside4_15_3,"	@Test
+springside4_22_3,"	@Test
 	public void readWrite_3_oe() throws IOException {
 		File file = FileUtil.createTempFile(""abc"", "".tmp"");
 		try {
@@ -268,7 +311,7 @@ springside4_15_3,"	@Test
 	}
 	}
 ",FileUtilTest::readWrite_3_oe
-springside4_18_3,"	@Test
+springside4_25_3,"	@Test
 	public void fileExist_3_oe() throws IOException {
 		// removed other assertion
 		// removed other assertion
@@ -280,7 +323,7 @@ springside4_18_3,"	@Test
 	}
 	}
 ",FileUtilTest::fileExist_3_oe
-springside4_18_4,"	@Test
+springside4_25_4,"	@Test
 	public void fileExist_4_oe() throws IOException {
 		// removed other assertion
 		// removed other assertion
@@ -294,7 +337,7 @@ springside4_18_4,"	@Test
 	}
 	}
 ",FileUtilTest::fileExist_4_oe
-springside4_20_3,"	@Test
+springside4_27_3,"	@Test
 	public void resource_3_oe() throws IOException {
 		File file = URLResourceUtil.asFile(""classpath://application.properties"");
 		// removed other assertion
@@ -309,7 +352,7 @@ springside4_20_3,"	@Test
 	}
 	}
 ",URLResourceTest::resource_3_oe
-springside4_20_5,"	@Test
+springside4_27_5,"	@Test
 	public void resource_5_oe() throws IOException {
 		File file = URLResourceUtil.asFile(""classpath://application.properties"");
 		// removed other assertion
@@ -331,7 +374,7 @@ springside4_20_5,"	@Test
 	}
 	}
 ",URLResourceTest::resource_5_oe
-springside4_21_1,"	@Test
+springside4_28_1,"	@Test
 	public void file_1_oe() throws IOException {
 		File file = FileUtil.createTempFile();
 		FileUtil.write(""haha"", file);
@@ -341,7 +384,7 @@ springside4_21_1,"	@Test
 	}
 	}
 ",URLResourceTest::file_1_oe
-springside4_21_2,"	@Test
+springside4_28_2,"	@Test
 	public void file_2_oe() throws IOException {
 		File file = FileUtil.createTempFile();
 		FileUtil.write(""haha"", file);
@@ -356,7 +399,7 @@ springside4_21_2,"	@Test
 	}
 	}
 ",URLResourceTest::file_2_oe
-springside4_30_4,"	@Test
+springside4_37_4,"	@Test
 	public void jdkBuild_4_oe() {
 		List<String> list1 = ListUtil.emptyList();
 
@@ -374,7 +417,7 @@ springside4_30_4,"	@Test
 	}
 	}
 ",ListUtilTest::jdkBuild_4_oe
-springside4_30_7,"	@Test
+springside4_37_7,"	@Test
 	public void jdkBuild_7_oe() {
 		List<String> list1 = ListUtil.emptyList();
 
@@ -401,7 +444,7 @@ springside4_30_7,"	@Test
 	}
 	}
 ",ListUtilTest::jdkBuild_7_oe
-springside4_30_9,"	@Test
+springside4_37_9,"	@Test
 	public void jdkBuild_9_oe() {
 		List<String> list1 = ListUtil.emptyList();
 
@@ -438,7 +481,7 @@ springside4_30_9,"	@Test
 	}
 	}
 ",ListUtilTest::jdkBuild_9_oe
-springside4_36_5,"	@Test
+springside4_43_5,"	@Test
 	public void jdkBuildMap_5_oe() {
 		Map<String, Integer> map1 = MapUtil.emptyMap();
 		// removed other assertion
@@ -457,7 +500,7 @@ springside4_36_5,"	@Test
 	}
 	}
 ",MapUtilTest::jdkBuildMap_5_oe
-springside4_36_7,"	@Test
+springside4_43_7,"	@Test
 	public void jdkBuildMap_7_oe() {
 		Map<String, Integer> map1 = MapUtil.emptyMap();
 		// removed other assertion
@@ -486,7 +529,7 @@ springside4_36_7,"	@Test
 	}
 	}
 ",MapUtilTest::jdkBuildMap_7_oe
-springside4_40_2,"	@Test
+springside4_47_2,"	@Test
 	public void asList_2_oe() {
 		List<String> list = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
 		// removed other assertion
@@ -497,7 +540,7 @@ springside4_40_2,"	@Test
 	}
 	}
 ",ArrayUtilTest::asList_2_oe
-springside4_40_5,"	@Test
+springside4_47_5,"	@Test
 	public void asList_5_oe() {
 		List<String> list = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
 		// removed other assertion
@@ -518,7 +561,7 @@ springside4_40_5,"	@Test
 	}
 	}
 ",ArrayUtilTest::asList_5_oe
-springside4_47_4,"	@Test
+springside4_54_4,"	@Test
 	public void jdkBuildSet_4_oe() {
 		Set<String> set1 = SetUtil.emptySet();
 		// removed other assertion
@@ -535,7 +578,7 @@ springside4_47_4,"	@Test
 	}
 	}
 ",SetUtilTest::jdkBuildSet_4_oe
-springside4_47_7,"	@Test
+springside4_54_7,"	@Test
 	public void jdkBuildSet_7_oe() {
 		Set<String> set1 = SetUtil.emptySet();
 		// removed other assertion
@@ -561,7 +604,7 @@ springside4_47_7,"	@Test
 	}
 	}
 ",SetUtilTest::jdkBuildSet_7_oe
-springside4_47_9,"	@Test
+springside4_54_9,"	@Test
 	public void jdkBuildSet_9_oe() {
 		Set<String> set1 = SetUtil.emptySet();
 		// removed other assertion
@@ -597,7 +640,7 @@ springside4_47_9,"	@Test
 	}
 	}
 ",SetUtilTest::jdkBuildSet_9_oe
-springside4_48_5,"	@Test
+springside4_55_5,"	@Test
 	public void collectionCaculate_5_oe() {
 		HashSet<String> set1 = SetUtil.newHashSet(""1"", ""2"", ""3"", ""6"");
 		HashSet<String> set2 = SetUtil.newHashSet(""4"", ""5"", ""6"", ""7"");
@@ -620,7 +663,7 @@ springside4_48_5,"	@Test
 	}
 	}
 ",SetUtilTest::collectionCaculate_5_oe
-springside4_50_5,"	@Test
+springside4_57_5,"	@Test
 	public void sortedArrayList_5_oe() {
 		SortedArrayList<String> list = ListUtil.createSortedArrayList();
 		list.add(""9"");
@@ -643,7 +686,7 @@ springside4_50_5,"	@Test
 	}
 	}
 ",SortedArrayListTest::sortedArrayList_5_oe
-springside4_50_7,"	@Test
+springside4_57_7,"	@Test
 	public void sortedArrayList_7_oe() {
 		SortedArrayList<String> list = ListUtil.createSortedArrayList();
 		list.add(""9"");
@@ -673,7 +716,7 @@ springside4_50_7,"	@Test
 	}
 	}
 ",SortedArrayListTest::sortedArrayList_7_oe
-springside4_54_4,"	@Test
+springside4_61_4,"	@Test
 	public void hexEncode_4_oe() {
 		String input = ""haha,i am a very long message"";
 		String result = EncodeUtil.encodeHex(input.getBytes());
@@ -693,7 +736,7 @@ springside4_54_4,"	@Test
 	}
 	}
 ",EncodeUtilTest::hexEncode_4_oe
-springside4_56_2,"	@Test
+springside4_63_2,"	@Test
 	public void base64UrlSafeEncode_2_oe() {
 		String input = ""haha,i am a very long message"";
 		String result = EncodeUtil.encodeBase64UrlSafe(input.getBytes());
@@ -704,7 +747,7 @@ springside4_56_2,"	@Test
 	}
 	}
 ",EncodeUtilTest::base64UrlSafeEncode_2_oe
-springside4_56_3,"	@Test
+springside4_63_3,"	@Test
 	public void base64UrlSafeEncode_3_oe() {
 		String input = ""haha,i am a very long message"";
 		String result = EncodeUtil.encodeBase64UrlSafe(input.getBytes());
@@ -716,7 +759,7 @@ springside4_56_3,"	@Test
 	}
 	}
 ",EncodeUtilTest::base64UrlSafeEncode_3_oe
-springside4_77_1,"	@Test
+springside4_84_1,"	@Test
 	public void test_1_oe() {
 		try {
 			DummyClock clock = ClockUtil.useDummyClock();
@@ -730,7 +773,7 @@ springside4_77_1,"	@Test
 	}
 	}
 ",ThrottledSlf4jLoggerTest::test_1_oe
-springside4_77_2,"	@Test
+springside4_84_2,"	@Test
 	public void test_2_oe() {
 		try {
 			DummyClock clock = ClockUtil.useDummyClock();
@@ -748,7 +791,7 @@ springside4_77_2,"	@Test
 	}
 	}
 ",ThrottledSlf4jLoggerTest::test_2_oe
-springside4_77_3,"	@Test
+springside4_84_3,"	@Test
 	public void test_3_oe() {
 		try {
 			DummyClock clock = ClockUtil.useDummyClock();
@@ -770,7 +813,7 @@ springside4_77_3,"	@Test
 	}
 	}
 ",ThrottledSlf4jLoggerTest::test_3_oe
-springside4_77_4,"	@Test
+springside4_84_4,"	@Test
 	public void test_4_oe() {
 		try {
 			DummyClock clock = ClockUtil.useDummyClock();
@@ -796,7 +839,7 @@ springside4_77_4,"	@Test
 	}
 	}
 ",ThrottledSlf4jLoggerTest::test_4_oe
-springside4_77_5,"	@Test
+springside4_84_5,"	@Test
 	public void test_5_oe() {
 		try {
 			DummyClock clock = ClockUtil.useDummyClock();
@@ -827,7 +870,7 @@ springside4_77_5,"	@Test
 	}
 	}
 ",ThrottledSlf4jLoggerTest::test_5_oe
-springside4_77_6,"	@Test
+springside4_84_6,"	@Test
 	public void test_6_oe() {
 		try {
 			DummyClock clock = ClockUtil.useDummyClock();
@@ -862,7 +905,7 @@ springside4_77_6,"	@Test
 	}
 	}
 ",ThrottledSlf4jLoggerTest::test_6_oe
-springside4_77_7,"	@Test
+springside4_84_7,"	@Test
 	public void test_7_oe() {
 		try {
 			DummyClock clock = ClockUtil.useDummyClock();
@@ -902,7 +945,7 @@ springside4_77_7,"	@Test
 	}
 	}
 ",ThrottledSlf4jLoggerTest::test_7_oe
-springside4_79_5,"	@Test
+springside4_86_5,"	@Test
 	public void portDetect_5_oe() throws UnknownHostException, IOException {
 		int port = NetUtil.findRandomAvailablePort(20000, 20100);
 		// removed other assertion
@@ -928,7 +971,7 @@ springside4_79_5,"	@Test
 	}
 	}
 ",NetUtilTest::portDetect_5_oe
-springside4_79_6,"	@Test
+springside4_86_6,"	@Test
 	public void portDetect_6_oe() throws UnknownHostException, IOException {
 		int port = NetUtil.findRandomAvailablePort(20000, 20100);
 		// removed other assertion
@@ -957,7 +1000,7 @@ springside4_79_6,"	@Test
 	}
 	}
 ",NetUtilTest::portDetect_6_oe
-springside4_79_7,"	@Test
+springside4_86_7,"	@Test
 	public void portDetect_7_oe() throws UnknownHostException, IOException {
 		int port = NetUtil.findRandomAvailablePort(20000, 20100);
 		// removed other assertion
@@ -991,7 +1034,7 @@ springside4_79_7,"	@Test
 	}
 	}
 ",NetUtilTest::portDetect_7_oe
-springside4_79_8,"	@Test
+springside4_86_8,"	@Test
 	public void portDetect_8_oe() throws UnknownHostException, IOException {
 		int port = NetUtil.findRandomAvailablePort(20000, 20100);
 		// removed other assertion
@@ -1027,7 +1070,7 @@ springside4_79_8,"	@Test
 	}
 	}
 ",NetUtilTest::portDetect_8_oe
-springside4_92_1,"	@Test
+springside4_99_1,"	@Test
 	public void unchecked_1_oe() {
 		// convert Exception to RuntimeException with cause
 		Exception exception = new Exception(""my exception"");
@@ -1037,7 +1080,7 @@ springside4_92_1,"	@Test
 	}
 	}
 ",ExceptionUtilTest::unchecked_1_oe
-springside4_92_3,"	@Test
+springside4_99_3,"	@Test
 	public void unchecked_3_oe() {
 		// convert Exception to RuntimeException with cause
 		Exception exception = new Exception(""my exception"");
@@ -1056,7 +1099,7 @@ springside4_92_3,"	@Test
 	}
 	}
 ",ExceptionUtilTest::unchecked_3_oe
-springside4_92_5,"	@Test
+springside4_99_5,"	@Test
 	public void unchecked_5_oe() {
 		// convert Exception to RuntimeException with cause
 		Exception exception = new Exception(""my exception"");
@@ -1084,7 +1127,7 @@ springside4_92_5,"	@Test
 	}
 	}
 ",ExceptionUtilTest::unchecked_5_oe
-springside4_100_16,"	@Test
+springside4_107_16,"	@Test
 	public void test_16_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -1140,7 +1183,7 @@ springside4_100_16,"	@Test
 	}
 	}
 ",MoreValidateTest::test_16_oe
-springside4_100_18,"	@Test
+springside4_107_18,"	@Test
 	public void test_18_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -1202,7 +1245,7 @@ springside4_100_18,"	@Test
 	}
 	}
 ",MoreValidateTest::test_18_oe
-springside4_100_20,"	@Test
+springside4_107_20,"	@Test
 	public void test_20_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -1271,7 +1314,7 @@ springside4_100_20,"	@Test
 	}
 	}
 ",MoreValidateTest::test_20_oe
-springside4_100_22,"	@Test
+springside4_107_22,"	@Test
 	public void test_22_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -1348,7 +1391,7 @@ springside4_100_22,"	@Test
 	}
 	}
 ",MoreValidateTest::test_22_oe
-springside4_100_24,"	@Test
+springside4_107_24,"	@Test
 	public void test_24_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -1432,7 +1475,7 @@ springside4_100_24,"	@Test
 	}
 	}
 ",MoreValidateTest::test_24_oe
-springside4_100_26,"	@Test
+springside4_107_26,"	@Test
 	public void test_26_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -1522,7 +1565,7 @@ springside4_100_26,"	@Test
 	}
 	}
 ",MoreValidateTest::test_26_oe
-springside4_100_28,"	@Test
+springside4_107_28,"	@Test
 	public void test_28_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -1620,7 +1663,7 @@ springside4_100_28,"	@Test
 	}
 	}
 ",MoreValidateTest::test_28_oe
-springside4_100_30,"	@Test
+springside4_107_30,"	@Test
 	public void test_30_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -1724,7 +1767,7 @@ springside4_100_30,"	@Test
 	}
 	}
 ",MoreValidateTest::test_30_oe
-springside4_100_32,"	@Test
+springside4_107_32,"	@Test
 	public void test_32_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -1835,7 +1878,7 @@ springside4_100_32,"	@Test
 	}
 	}
 ",MoreValidateTest::test_32_oe
-springside4_100_34,"	@Test
+springside4_107_34,"	@Test
 	public void test_34_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -1954,7 +1997,7 @@ springside4_100_34,"	@Test
 	}
 	}
 ",MoreValidateTest::test_34_oe
-springside4_100_36,"	@Test
+springside4_107_36,"	@Test
 	public void test_36_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -2080,7 +2123,7 @@ springside4_100_36,"	@Test
 	}
 	}
 ",MoreValidateTest::test_36_oe
-springside4_100_38,"	@Test
+springside4_107_38,"	@Test
 	public void test_38_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -2213,7 +2256,7 @@ springside4_100_38,"	@Test
 	}
 	}
 ",MoreValidateTest::test_38_oe
-springside4_100_40,"	@Test
+springside4_107_40,"	@Test
 	public void test_40_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -2354,7 +2397,7 @@ springside4_100_40,"	@Test
 	}
 	}
 ",MoreValidateTest::test_40_oe
-springside4_100_42,"	@Test
+springside4_107_42,"	@Test
 	public void test_42_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -2502,7 +2545,7 @@ springside4_100_42,"	@Test
 	}
 	}
 ",MoreValidateTest::test_42_oe
-springside4_100_44,"	@Test
+springside4_107_44,"	@Test
 	public void test_44_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -2656,7 +2699,7 @@ springside4_100_44,"	@Test
 	}
 	}
 ",MoreValidateTest::test_44_oe
-springside4_103_4,"	@Test
+springside4_110_4,"	@Test
 	public void stringSystemProperty_4_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -2681,7 +2724,7 @@ springside4_103_4,"	@Test
 	}
 	}
 ",SystemPropertiesUtilTest::stringSystemProperty_4_oe
-springside4_115_6,"	@Test
+springside4_122_6,"	@Test
 	public void isSameDay_6_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
@@ -2703,7 +2746,7 @@ springside4_115_6,"	@Test
 	}
 	}
 ",DateUtilTest::isSameDay_6_oe
-springside4_115_7,"	@Test
+springside4_122_7,"	@Test
 	public void isSameDay_7_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
@@ -2732,7 +2775,7 @@ springside4_115_7,"	@Test
 	}
 	}
 ",DateUtilTest::isSameDay_7_oe
-springside4_123_1,"	@Test
+springside4_130_1,"	@Test
 	public void elapsedTime_1_oe() {
 		try {
 			DummyClock clock = ClockUtil.useDummyClock(2000);
@@ -2741,7 +2784,7 @@ springside4_123_1,"	@Test
 	}
 	}
 ",ClockUtilTest::elapsedTime_1_oe
-springside4_130_1,"	@Test
+springside4_137_1,"	@Test
 	public void formatFriendlyTimeSpanByNow_1_oe() throws ParseException {
 		try {
 			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
@@ -2753,7 +2796,7 @@ springside4_130_1,"	@Test
 	}
 	}
 ",DateFormatUtilTest::formatFriendlyTimeSpanByNow_1_oe
-springside4_130_2,"	@Test
+springside4_137_2,"	@Test
 	public void formatFriendlyTimeSpanByNow_2_oe() throws ParseException {
 		try {
 			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
@@ -2768,7 +2811,7 @@ springside4_130_2,"	@Test
 	}
 	}
 ",DateFormatUtilTest::formatFriendlyTimeSpanByNow_2_oe
-springside4_130_3,"	@Test
+springside4_137_3,"	@Test
 	public void formatFriendlyTimeSpanByNow_3_oe() throws ParseException {
 		try {
 			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
@@ -2786,7 +2829,7 @@ springside4_130_3,"	@Test
 	}
 	}
 ",DateFormatUtilTest::formatFriendlyTimeSpanByNow_3_oe
-springside4_130_4,"	@Test
+springside4_137_4,"	@Test
 	public void formatFriendlyTimeSpanByNow_4_oe() throws ParseException {
 		try {
 			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
@@ -2807,7 +2850,7 @@ springside4_130_4,"	@Test
 	}
 	}
 ",DateFormatUtilTest::formatFriendlyTimeSpanByNow_4_oe
-springside4_130_5,"	@Test
+springside4_137_5,"	@Test
 	public void formatFriendlyTimeSpanByNow_5_oe() throws ParseException {
 		try {
 			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
@@ -2831,7 +2874,7 @@ springside4_130_5,"	@Test
 	}
 	}
 ",DateFormatUtilTest::formatFriendlyTimeSpanByNow_5_oe
-springside4_130_6,"	@Test
+springside4_137_6,"	@Test
 	public void formatFriendlyTimeSpanByNow_6_oe() throws ParseException {
 		try {
 			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
@@ -2858,7 +2901,7 @@ springside4_130_6,"	@Test
 	}
 	}
 ",DateFormatUtilTest::formatFriendlyTimeSpanByNow_6_oe
-springside4_131_9,"	@Test
+springside4_138_9,"	@Test
 	public void toBytes_9_oe() {
 		byte[] bytes = NumberUtil.toBytes(1);
 		// removed other assertion
@@ -2889,7 +2932,7 @@ springside4_131_9,"	@Test
 	}
 	}
 ",NumberUtilTest::toBytes_9_oe
-springside4_135_8,"	@Test
+springside4_142_8,"	@Test
 	public void convertDurationMillis_8_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -2904,7 +2947,7 @@ springside4_135_8,"	@Test
 	}
 	}
 ",UnitConverterTest::convertDurationMillis_8_oe
-springside4_135_9,"	@Test
+springside4_142_9,"	@Test
 	public void convertDurationMillis_9_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -2920,7 +2963,7 @@ springside4_135_9,"	@Test
 	}
 	}
 ",UnitConverterTest::convertDurationMillis_9_oe
-springside4_135_11,"	@Test
+springside4_142_11,"	@Test
 	public void convertDurationMillis_11_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -2942,7 +2985,7 @@ springside4_135_11,"	@Test
 	}
 	}
 ",UnitConverterTest::convertDurationMillis_11_oe
-springside4_135_12,"	@Test
+springside4_142_12,"	@Test
 	public void convertDurationMillis_12_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -2965,7 +3008,7 @@ springside4_135_12,"	@Test
 	}
 	}
 ",UnitConverterTest::convertDurationMillis_12_oe
-springside4_136_7,"	@Test
+springside4_143_7,"	@Test
 	public void convertSizeBytes_7_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -2981,7 +3024,7 @@ springside4_136_7,"	@Test
 	}
 	}
 ",UnitConverterTest::convertSizeBytes_7_oe
-springside4_136_9,"	@Test
+springside4_143_9,"	@Test
 	public void convertSizeBytes_9_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -3004,14 +3047,14 @@ springside4_136_9,"	@Test
 	}
 	}
 ",UnitConverterTest::convertSizeBytes_9_oe
-springside4_139_1,"	@Test
+springside4_146_1,"	@Test
 	public void power2_1_oe() {
 		try {
 			assertThat(MathUtil.nextPowerOfTwo(-5)).isEqualTo(8);
 	}
 	}
 ",MathUtilTest::power2_1_oe
-springside4_139_2,"	@Test
+springside4_146_2,"	@Test
 	public void power2_2_oe() {
 		try {
 			// removed other assertion

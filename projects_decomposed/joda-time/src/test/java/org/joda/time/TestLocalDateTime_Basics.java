@@ -162,10 +162,10 @@ public class TestLocalDateTime_Basics extends TestCase {
 
     public void testGetFieldType_int() {
         LocalDateTime test = new LocalDateTime(COPTIC_PARIS);
-        assertEquals(DateTimeFieldType.year(), test.getFieldType(0));
-        assertEquals(DateTimeFieldType.monthOfYear(), test.getFieldType(1));
-        assertEquals(DateTimeFieldType.dayOfMonth(), test.getFieldType(2));
-        assertEquals(DateTimeFieldType.millisOfDay(), test.getFieldType(3));
+        assertSame(DateTimeFieldType.year(), test.getFieldType(0));
+        assertSame(DateTimeFieldType.monthOfYear(), test.getFieldType(1));
+        assertSame(DateTimeFieldType.dayOfMonth(), test.getFieldType(2));
+        assertSame(DateTimeFieldType.millisOfDay(), test.getFieldType(3));
         try {
             test.getFieldType(-1);
         } catch (IndexOutOfBoundsException ex) {}
@@ -177,19 +177,19 @@ public class TestLocalDateTime_Basics extends TestCase {
     public void testGetFieldTypes() {
         LocalDateTime test = new LocalDateTime(COPTIC_PARIS);
         DateTimeFieldType[] fields = test.getFieldTypes();
-        assertEquals(DateTimeFieldType.year(), fields[0]);
-        assertEquals(DateTimeFieldType.monthOfYear(), fields[1]);
-        assertEquals(DateTimeFieldType.dayOfMonth(), fields[2]);
-        assertEquals(DateTimeFieldType.millisOfDay(), fields[3]);
+        assertSame(DateTimeFieldType.year(), fields[0]);
+        assertSame(DateTimeFieldType.monthOfYear(), fields[1]);
+        assertSame(DateTimeFieldType.dayOfMonth(), fields[2]);
+        assertSame(DateTimeFieldType.millisOfDay(), fields[3]);
         assertNotSame(test.getFieldTypes(), test.getFieldTypes());
     }
 
     public void testGetField_int() {
         LocalDateTime test = new LocalDateTime(COPTIC_PARIS);
-        assertEquals(COPTIC_UTC.year(), test.getField(0));
-        assertEquals(COPTIC_UTC.monthOfYear(), test.getField(1));
-        assertEquals(COPTIC_UTC.dayOfMonth(), test.getField(2));
-        assertEquals(COPTIC_UTC.millisOfDay(), test.getField(3));
+        assertSame(COPTIC_UTC.year(), test.getField(0));
+        assertSame(COPTIC_UTC.monthOfYear(), test.getField(1));
+        assertSame(COPTIC_UTC.dayOfMonth(), test.getField(2));
+        assertSame(COPTIC_UTC.millisOfDay(), test.getField(3));
         try {
             test.getField(-1);
         } catch (IndexOutOfBoundsException ex) {}
@@ -201,10 +201,10 @@ public class TestLocalDateTime_Basics extends TestCase {
     public void testGetFields() {
         LocalDateTime test = new LocalDateTime(COPTIC_PARIS);
         DateTimeField[] fields = test.getFields();
-        assertEquals(COPTIC_UTC.year(), fields[0]);
-        assertEquals(COPTIC_UTC.monthOfYear(), fields[1]);
-        assertEquals(COPTIC_UTC.dayOfMonth(), fields[2]);
-        assertEquals(COPTIC_UTC.millisOfDay(), fields[3]);
+        assertSame(COPTIC_UTC.year(), fields[0]);
+        assertSame(COPTIC_UTC.monthOfYear(), fields[1]);
+        assertSame(COPTIC_UTC.dayOfMonth(), fields[2]);
+        assertSame(COPTIC_UTC.millisOfDay(), fields[3]);
         assertNotSame(test.getFields(), test.getFields());
     }
 
@@ -500,7 +500,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         LocalDateTime test = new LocalDateTime(2004, 6, 9, 10, 20, 30, 40);
         LocalDateTime result = test.withField(DateTimeFieldType.year(), 2004);
         assertEquals(new LocalDateTime(2004, 6, 9, 10, 20, 30, 40), test);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -531,7 +531,7 @@ public class TestLocalDateTime_Basics extends TestCase {
     public void testWithFieldAdded_DurationFieldType_int_4() {
         LocalDateTime test = new LocalDateTime(2004, 6, 9, 10, 20, 30, 40);
         LocalDateTime result = test.withFieldAdded(DurationFieldType.years(), 0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -542,7 +542,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plus((ReadablePeriod) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusYears_int() {
@@ -552,7 +552,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusYears(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusMonths_int() {
@@ -562,7 +562,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusMonths(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusWeeks_int() {
@@ -572,7 +572,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusWeeks(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusDays_int() {
@@ -582,7 +582,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusDays(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusHours_int() {
@@ -592,7 +592,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusHours(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusMinutes_int() {
@@ -602,7 +602,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusMinutes(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusSeconds_int() {
@@ -612,7 +612,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusSeconds(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testPlusMillis_int() {
@@ -622,7 +622,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.plusMillis(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -634,7 +634,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minus((ReadablePeriod) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusYears_int() {
@@ -644,7 +644,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusYears(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusMonths_int() {
@@ -654,7 +654,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusMonths(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusWeeks_int() {
@@ -664,7 +664,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusWeeks(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusDays_int() {
@@ -674,7 +674,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusDays(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusHours_int() {
@@ -684,7 +684,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusHours(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusMinutes_int() {
@@ -694,7 +694,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusMinutes(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusSeconds_int() {
@@ -704,7 +704,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusSeconds(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinusMillis_int() {
@@ -714,7 +714,7 @@ public class TestLocalDateTime_Basics extends TestCase {
         assertEquals(expected, result);
         
         result = test.minusMillis(0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------

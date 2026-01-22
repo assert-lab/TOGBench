@@ -212,7 +212,7 @@ public class TestMillisDurationField extends TestCase {
         DurationField result = (DurationField) ois.readObject();
         ois.close();
         
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
 }

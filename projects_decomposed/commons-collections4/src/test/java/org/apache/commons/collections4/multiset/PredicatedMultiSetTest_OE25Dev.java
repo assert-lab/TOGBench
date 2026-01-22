@@ -38,7 +38,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(PredicatedMultiSetTest.class);
+        return BulkTest.makeSuite(PredicatedMultiSetTest_OE25Dev.class);
     }
 
     //--------------------------------------------------------------------------

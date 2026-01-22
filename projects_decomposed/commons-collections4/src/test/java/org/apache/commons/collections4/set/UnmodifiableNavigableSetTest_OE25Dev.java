@@ -42,7 +42,7 @@ public class UnmodifiableNavigableSetTest_OE25Dev<E> extends AbstractNavigableSe
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableNavigableSetTest.class);
+        return BulkTest.makeSuite(UnmodifiableNavigableSetTest_OE25Dev.class);
     }
 
     //-------------------------------------------------------------------

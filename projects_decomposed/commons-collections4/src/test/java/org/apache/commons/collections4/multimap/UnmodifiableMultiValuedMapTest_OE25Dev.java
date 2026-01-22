@@ -43,7 +43,7 @@ public class UnmodifiableMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiV
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableMultiValuedMapTest.class);
+        return BulkTest.makeSuite(UnmodifiableMultiValuedMapTest_OE25Dev.class);
     }
 
     // -----------------------------------------------------------------------

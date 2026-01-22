@@ -37,7 +37,7 @@ public class HashSetValuedHashMapTest_OE25Dev<K, V> extends AbstractMultiValuedM
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(HashSetValuedHashMapTest.class);
+        return BulkTest.makeSuite(HashSetValuedHashMapTest_OE25Dev.class);
     }
 
     // -----------------------------------------------------------------------

@@ -57,7 +57,7 @@ public class TestISODateTimeFormat_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestISODateTimeFormat_OE25Dev.class);
+        return new TestSuite(TestISODateTimeFormat_OE25Dev_OE25Dev.class);
     }
 
     public TestISODateTimeFormat_OE25Dev(String name) {

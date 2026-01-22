@@ -1,0 +1,243 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< org.jsoup:jsoup >---------------------------
+[INFO] Building jsoup Java HTML Parser 1.15.3
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:resources (default-resources) @ jsoup ---
+[INFO] Copying 3 resources to META-INF/
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ jsoup ---
+[INFO] Compiling 75 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/classes
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.21:check (animal-sniffer) @ jsoup ---
+[INFO] Signature version is: null
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.8:manifest (bundle-manifest) @ jsoup ---
+[INFO] No MANIFEST.MF file found, generating manifest.
+[INFO] Writing manifest: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/classes/META-INF/MANIFEST.MF
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:testResources (default-testResources) @ jsoup ---
+[INFO] Copying 70 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ jsoup ---
+[INFO] Compiling 109 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[172,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[177,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[184,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[194,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[206,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[214,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[223,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[233,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[247,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[262,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[278,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[295,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[313,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[334,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[356,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[364,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[375,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[389,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[404,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[420,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[439,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[459,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[482,16] method tracksFromXmlFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[490,16] method tracksFromXmlFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[499,16] method tracksFromXmlFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[241,23] method cp1252Entities() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[245,23] method cp1252Entities() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[250,23] method cp1252Entities() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[256,23] method canParseCdataEndingAtEdgeOfBuffer() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[272,23] method canParseCdataEndingAtEdgeOfBuffer() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[129,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[139,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[150,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[162,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[175,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[189,23] method testSplitText() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[197,23] method testSplitText() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[206,23] method testSplitText() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[217,23] method testSplitText() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[229,23] method testWithSupplementaryCharacter() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[235,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[243,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[252,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[262,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[273,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[289,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[306,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[324,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[343,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[364,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[386,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1567,23] method parsesSimpleDocument() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1575,23] method parsesSimpleDocument() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1585,23] method parsesSimpleDocument() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1596,23] method dropsDuplicateAttributes() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1605,23] method dropsDuplicateAttributes() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1616,23] method dropsDuplicateAttributes() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1628,23] method parsesQuiteRoughAttributes() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1639,23] method parsesQuiteRoughAttributes() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1653,23] method parsesUnterminatedComments() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1660,23] method parsesUnterminatedComments() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1669,23] method parsesUnterminatedComments() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1680,23] method dropsUnterminatedTag() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1687,23] method dropsUnterminatedTag() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1695,23] method dropsUnterminatedTag() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1707,23] method parsesUnterminatedTextarea() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1714,23] method parsesUnterminatedTextarea() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1722,23] method testSelectWithOption() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1729,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1738,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1748,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1759,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1771,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1785,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1800,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1816,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1833,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1851,23] method handlesEscapedData() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1859,23] method handlesEscapedData() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1868,23] method handlesTextAfterData() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1874,23] method preservesSpaceInTextArea() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1882,23] method preservesSpaceInTextArea() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1891,23] method preservesSpaceInTextArea() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1901,23] method preservesSpaceInTextArea() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1912,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1920,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1930,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1941,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1958,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1976,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1995,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2015,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2036,23] method handlesNestedImplicitTable() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2041,23] method handlesTbodyTable() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2046,23] method noTableDirectInTable() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2051,23] method handlesBaseTags() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2058,23] method handlesBaseTags() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2068,23] method handlesBaseTags() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2080,23] method handlesBaseTags() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2093,23] method handlesBaseTags() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.987 s
+[INFO] Finished at: 2026-01-22T03:30:10-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project jsoup: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[172,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[177,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[184,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[194,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[206,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[214,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[223,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[233,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[247,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[262,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[278,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[295,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[313,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[334,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[356,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[364,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[375,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[389,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[404,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[420,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[439,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[459,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[482,16] method tracksFromXmlFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[490,16] method tracksFromXmlFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[499,16] method tracksFromXmlFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[241,23] method cp1252Entities() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[245,23] method cp1252Entities() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[250,23] method cp1252Entities() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[256,23] method canParseCdataEndingAtEdgeOfBuffer() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[272,23] method canParseCdataEndingAtEdgeOfBuffer() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[129,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[139,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[150,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[162,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[175,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[189,23] method testSplitText() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[197,23] method testSplitText() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[206,23] method testSplitText() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[217,23] method testSplitText() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[229,23] method testWithSupplementaryCharacter() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[235,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[243,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[252,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[262,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[273,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[289,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[306,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[324,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[343,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[364,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[386,23] method testSpaceNormalise() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1567,23] method parsesSimpleDocument() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1575,23] method parsesSimpleDocument() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1585,23] method parsesSimpleDocument() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1596,23] method dropsDuplicateAttributes() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1605,23] method dropsDuplicateAttributes() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1616,23] method dropsDuplicateAttributes() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1628,23] method parsesQuiteRoughAttributes() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1639,23] method parsesQuiteRoughAttributes() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1653,23] method parsesUnterminatedComments() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1660,23] method parsesUnterminatedComments() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1669,23] method parsesUnterminatedComments() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1680,23] method dropsUnterminatedTag() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1687,23] method dropsUnterminatedTag() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1695,23] method dropsUnterminatedTag() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1707,23] method parsesUnterminatedTextarea() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1714,23] method parsesUnterminatedTextarea() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1722,23] method testSelectWithOption() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1729,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1738,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1748,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1759,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1771,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1785,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1800,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1816,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1833,23] method createsDocumentStructure() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1851,23] method handlesEscapedData() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1859,23] method handlesEscapedData() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1868,23] method handlesTextAfterData() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1874,23] method preservesSpaceInTextArea() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1882,23] method preservesSpaceInTextArea() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1891,23] method preservesSpaceInTextArea() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1901,23] method preservesSpaceInTextArea() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1912,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1920,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1930,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1941,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1958,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1976,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1995,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2015,23] method doesNotCreateImplicitLists() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2036,23] method handlesNestedImplicitTable() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2041,23] method handlesTbodyTable() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2046,23] method noTableDirectInTable() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2051,23] method handlesBaseTags() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2058,23] method handlesBaseTags() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2068,23] method handlesBaseTags() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2080,23] method handlesBaseTags() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[2093,23] method handlesBaseTags() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

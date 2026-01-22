@@ -53,7 +53,7 @@ public class TestMonthDay_Properties_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestMonthDay_Properties_OE25Dev.class);
+        return new TestSuite(TestMonthDay_Properties_OE25Dev_OE25Dev.class);
     }
 
     public TestMonthDay_Properties_OE25Dev(String name) {
@@ -77,6 +77,8 @@ public class TestMonthDay_Properties_OE25Dev extends TestCase {
         Locale.setDefault(locale);
         locale = null;
     }
+
+    //-----------------------------------------------------------------------
 
     public void testPropertyAddMonthOfYear() {
         MonthDay test = new MonthDay(3, 6);
@@ -194,6 +196,169 @@ public class TestMonthDay_Properties_OE25Dev extends TestCase {
         assertEquals(dayOfMonth, test.getDayOfMonth());
     }
 
+    public void testPropertyGetMonthOfYear_1_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        assertSame(test.getChronology().monthOfYear(), test.monthOfYear().getField());
+    }
+
+    public void testPropertyGetMonthOfYear_2_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        assertEquals("monthOfYear", test.monthOfYear().getName());
+    }
+
+    public void testPropertyGetMonthOfYear_3_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Property[monthOfYear]", test.monthOfYear().toString());
+    }
+
+    public void testPropertyGetMonthOfYear_4_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertSame(test, test.monthOfYear().getReadablePartial());
+    }
+
+    public void testPropertyGetMonthOfYear_5_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertSame(test, test.monthOfYear().getMonthDay());
+    }
+
+    public void testPropertyGetMonthOfYear_6_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(9, test.monthOfYear().get());
+    }
+
+    public void testPropertyGetMonthOfYear_7_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("9", test.monthOfYear().getAsString());
+    }
+
+    public void testPropertyGetMonthOfYear_8_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("September", test.monthOfYear().getAsText());
+    }
+
+    public void testPropertyGetMonthOfYear_9_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("septembre", test.monthOfYear().getAsText(Locale.FRENCH));
+    }
+
+    public void testPropertyGetMonthOfYear_10_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Sep", test.monthOfYear().getAsShortText());
+    }
+
+    public void testPropertyGetMonthOfYear_11_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("sept.", test.monthOfYear().getAsShortText(Locale.FRENCH));
+    }
+
+    public void testPropertyGetMonthOfYear_12_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(test.getChronology().months(), test.monthOfYear().getDurationField());
+    }
+
+    public void testPropertyGetMonthOfYear_13_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // assertEquals(test.getChronology().days(), test.dayOfMonth().getRangeDurationField());
+        assertEquals(9, test.monthOfYear().getMaximumTextLength(null));
+    }
+
+    public void testPropertyGetMonthOfYear_14_oe() {
+        MonthDay test = new MonthDay(9, 6);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // assertEquals(test.getChronology().days(), test.dayOfMonth().getRangeDurationField());
+        // removed other assertion
+        assertEquals(3, test.monthOfYear().getMaximumShortTextLength(null));
+    }
+
     public void testPropertyGetMaxMinValuesMonthOfYear_1_oe() {
         MonthDay test = new MonthDay(10, 6);
         assertEquals(1, test.monthOfYear().getMinimumValue());
@@ -294,7 +459,7 @@ public class TestMonthDay_Properties_OE25Dev extends TestCase {
 
     public void testPropertyGetDayOfMonth_1_oe() {
         MonthDay test = new MonthDay(4, 6);
-        assertEquals(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
+        assertSame(test.getChronology().dayOfMonth(), test.dayOfMonth().getField());
     }
 
     public void testPropertyGetDayOfMonth_2_oe() {
@@ -315,7 +480,7 @@ public class TestMonthDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.dayOfMonth().getReadablePartial());
+        assertSame(test, test.dayOfMonth().getReadablePartial());
     }
 
     public void testPropertyGetDayOfMonth_5_oe() {
@@ -324,7 +489,7 @@ public class TestMonthDay_Properties_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        assertEquals(test, test.dayOfMonth().getMonthDay());
+        assertSame(test, test.dayOfMonth().getMonthDay());
     }
 
     public void testPropertyGetDayOfMonth_6_oe() {

@@ -65,12 +65,12 @@ public class TestYears extends TestCase {
 
     //-----------------------------------------------------------------------
     public void testFactory_years_int() {
-        assertEquals(Years.ZERO, Years.years(0));
-        assertEquals(Years.ONE, Years.years(1));
-        assertEquals(Years.TWO, Years.years(2));
-        assertEquals(Years.THREE, Years.years(3));
-        assertEquals(Years.MAX_VALUE, Years.years(Integer.MAX_VALUE));
-        assertEquals(Years.MIN_VALUE, Years.years(Integer.MIN_VALUE));
+        assertSame(Years.ZERO, Years.years(0));
+        assertSame(Years.ONE, Years.years(1));
+        assertSame(Years.TWO, Years.years(2));
+        assertSame(Years.THREE, Years.years(3));
+        assertSame(Years.MAX_VALUE, Years.years(Integer.MAX_VALUE));
+        assertSame(Years.MIN_VALUE, Years.years(Integer.MIN_VALUE));
         assertEquals(-1, Years.years(-1).getYears());
         assertEquals(4, Years.years(4).getYears());
     }
@@ -191,7 +191,7 @@ public class TestYears extends TestCase {
         Years result = (Years) ois.readObject();
         ois.close();
         
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     //-----------------------------------------------------------------------
@@ -270,7 +270,7 @@ public class TestYears extends TestCase {
         assertEquals(6, test.multipliedBy(3).getYears());
         assertEquals(2, test.getYears());
         assertEquals(-6, test.multipliedBy(-3).getYears());
-        assertEquals(test, test.multipliedBy(1));
+        assertSame(test, test.multipliedBy(1));
         
         Years halfMax = Years.years(Integer.MAX_VALUE / 2 + 1);
         try {
@@ -289,7 +289,7 @@ public class TestYears extends TestCase {
         assertEquals(3, test.dividedBy(4).getYears());
         assertEquals(2, test.dividedBy(5).getYears());
         assertEquals(2, test.dividedBy(6).getYears());
-        assertEquals(test, test.dividedBy(1));
+        assertSame(test, test.dividedBy(1));
         
         try {
             Years.ONE.dividedBy(0);

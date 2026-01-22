@@ -73,7 +73,7 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestDateTimeFormatter_OE25Dev.class);
+        return new TestSuite(TestDateTimeFormatter_OE25Dev_OE25Dev.class);
     }
 
     public TestDateTimeFormatter_OE25Dev(String name) {
@@ -765,7 +765,7 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
     public void testWithGetLocale_2_oe() {
         DateTimeFormatter f2 = f.withLocale(Locale.FRENCH);
         // removed other assertion
-        assertEquals(f2, f2.withLocale(Locale.FRENCH));
+        assertSame(f2, f2.withLocale(Locale.FRENCH));
     }
 
     public void testWithGetLocale_3_oe() {
@@ -784,7 +784,7 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         
         f2 = f.withLocale(null);
         // removed other assertion
-        assertEquals(f2, f2.withLocale(null));
+        assertSame(f2, f2.withLocale(null));
     }
 
     public void testWithGetZone_1_oe() {
@@ -795,7 +795,7 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
     public void testWithGetZone_2_oe() {
         DateTimeFormatter f2 = f.withZone(PARIS);
         // removed other assertion
-        assertEquals(f2, f2.withZone(PARIS));
+        assertSame(f2, f2.withZone(PARIS));
     }
 
     public void testWithGetZone_3_oe() {
@@ -814,7 +814,7 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         
         f2 = f.withZone(null);
         // removed other assertion
-        assertEquals(f2, f2.withZone(null));
+        assertSame(f2, f2.withZone(null));
     }
 
     public void testWithGetChronology_1_oe() {
@@ -825,7 +825,7 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
     public void testWithGetChronology_2_oe() {
         DateTimeFormatter f2 = f.withChronology(BUDDHIST_PARIS);
         // removed other assertion
-        assertEquals(f2, f2.withChronology(BUDDHIST_PARIS));
+        assertSame(f2, f2.withChronology(BUDDHIST_PARIS));
     }
 
     public void testWithGetChronology_3_oe() {
@@ -844,7 +844,7 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         
         f2 = f.withChronology(null);
         // removed other assertion
-        assertEquals(f2, f2.withChronology(null));
+        assertSame(f2, f2.withChronology(null));
     }
 
     public void testWithGetPivotYear_1_oe() {
@@ -855,7 +855,7 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
     public void testWithGetPivotYear_2_oe() {
         DateTimeFormatter f2 = f.withPivotYear(13);
         // removed other assertion
-        assertEquals(f2, f2.withPivotYear(13));
+        assertSame(f2, f2.withPivotYear(13));
     }
 
     public void testWithGetPivotYear_3_oe() {
@@ -874,7 +874,7 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         
         f2 = f.withPivotYear(new Integer(14));
         // removed other assertion
-        assertEquals(f2, f2.withPivotYear(new Integer(14)));
+        assertSame(f2, f2.withPivotYear(new Integer(14)));
     }
 
     public void testWithGetPivotYear_5_oe() {
@@ -901,7 +901,7 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         
         f2 = f.withPivotYear(null);
         // removed other assertion
-        assertEquals(f2, f2.withPivotYear(null));
+        assertSame(f2, f2.withPivotYear(null));
     }
 
     public void testWithGetOffsetParsedMethods_1_oe() {
@@ -1037,7 +1037,7 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         f2 = f.withOffsetParsed();
         // removed other assertion
         DateTimeFormatter f3 = f2.withOffsetParsed();
-        assertEquals(f2, f3);
+        assertSame(f2, f3);
     }
 
     public void testPrinterParserMethods_1_oe() {

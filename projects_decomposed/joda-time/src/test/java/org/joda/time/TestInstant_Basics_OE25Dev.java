@@ -77,7 +77,7 @@ public class TestInstant_Basics_OE25Dev extends TestCase {
     }
 
     public static TestSuite suite() {
-        return new TestSuite(TestInstant_Basics_OE25Dev.class);
+        return new TestSuite(TestInstant_Basics_OE25Dev_OE25Dev.class);
     }
 
     public TestInstant_Basics_OE25Dev(String name) {
@@ -2021,7 +2021,7 @@ public class TestInstant_Basics_OE25Dev extends TestCase {
     public void testToInstant_1_oe() {
         Instant test = new Instant(TEST_TIME1);
         Instant result = test.toInstant();
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testToDateTime_1_oe() {
@@ -2040,14 +2040,14 @@ public class TestInstant_Basics_OE25Dev extends TestCase {
     public void testToDateTimeISO_1_oe() {
         Instant test = new Instant(TEST_TIME1);
         DateTime result = test.toDateTimeISO();
-        assertEquals(DateTime.class, result.getClass());
+        assertSame(DateTime.class, result.getClass());
     }
 
     public void testToDateTimeISO_2_oe() {
         Instant test = new Instant(TEST_TIME1);
         DateTime result = test.toDateTimeISO();
         // removed other assertion
-        assertEquals(ISOChronology.class, result.getChronology().getClass());
+        assertSame(ISOChronology.class, result.getChronology().getClass());
     }
 
     public void testToDateTimeISO_3_oe() {
@@ -2181,14 +2181,14 @@ public class TestInstant_Basics_OE25Dev extends TestCase {
     public void testToMutableDateTimeISO_1_oe() {
         Instant test = new Instant(TEST_TIME1);
         MutableDateTime result = test.toMutableDateTimeISO();
-        assertEquals(MutableDateTime.class, result.getClass());
+        assertSame(MutableDateTime.class, result.getClass());
     }
 
     public void testToMutableDateTimeISO_2_oe() {
         Instant test = new Instant(TEST_TIME1);
         MutableDateTime result = test.toMutableDateTimeISO();
         // removed other assertion
-        assertEquals(ISOChronology.class, result.getChronology().getClass());
+        assertSame(ISOChronology.class, result.getChronology().getClass());
     }
 
     public void testToMutableDateTimeISO_3_oe() {
@@ -2373,7 +2373,7 @@ public class TestInstant_Basics_OE25Dev extends TestCase {
         
         test = new Instant(TEST_TIME1);
         result = test.withMillis(TEST_TIME1);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testWithDurationAdded_long_int_1_oe() {
@@ -2390,7 +2390,7 @@ public class TestInstant_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.withDurationAdded(123456789L, 0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testWithDurationAdded_long_int_3_oe() {
@@ -2439,7 +2439,7 @@ public class TestInstant_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.withDurationAdded(null, 1);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testWithDurationAdded_RD_int_3_oe() {
@@ -2452,7 +2452,7 @@ public class TestInstant_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.withDurationAdded(new Duration(123456789L), 0);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testWithDurationAdded_RD_int_4_oe() {
@@ -2514,7 +2514,7 @@ public class TestInstant_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.plus((ReadableDuration) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testMinus_long_1_oe() {
@@ -2538,7 +2538,7 @@ public class TestInstant_Basics_OE25Dev extends TestCase {
         // removed other assertion
         
         result = test.minus((ReadableDuration) null);
-        assertEquals(test, result);
+        assertSame(test, result);
     }
 
     public void testImmutable_1_oe() {

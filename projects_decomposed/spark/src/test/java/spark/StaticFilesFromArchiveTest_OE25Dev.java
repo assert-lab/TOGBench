@@ -71,7 +71,7 @@ public class StaticFilesFromArchiveTest_OE25Dev {
         URL[] urls = new URL[parentURLs.length + 1];
         arraycopy(parentURLs, 0, urls, 0, parentURLs.length);
 
-        URL publicJar = StaticFilesFromArchiveTest.class.getResource("/public-jar.zip");
+        URL publicJar = StaticFilesFromArchiveTest_OE25Dev.class.getResource("/public-jar.zip");
         urls[urls.length - 1] = publicJar;
 
         // no parent classLoader because Spark and the static resources need to be loaded from the same classloader

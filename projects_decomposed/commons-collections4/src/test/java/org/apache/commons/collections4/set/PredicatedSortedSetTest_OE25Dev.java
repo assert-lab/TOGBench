@@ -41,7 +41,7 @@ public class PredicatedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E>
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(PredicatedSortedSetTest.class);
+        return BulkTest.makeSuite(PredicatedSortedSetTest_OE25Dev.class);
     }
 
  //-------------------------------------------------------------------
