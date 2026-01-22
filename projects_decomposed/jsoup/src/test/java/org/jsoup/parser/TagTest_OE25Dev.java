@@ -94,6 +94,19 @@ public class TagTest_OE25Dev {
         assertEquals(p1, p2);
         }
 
+    @Test public void equality() {
+        Tag p1 = Tag.valueOf_1_oe("p");
+        Tag p2 = Tag.valueOf("p");
+        assertEquals(p1, p2);
+        }
+
+    @Test public void equality() {
+        Tag p1 = Tag.valueOf_2_oe("p");
+        Tag p2 = Tag.valueOf("p");
+        // removed other assertion
+        assertSame(p1, p2);
+        }
+
     @Test public void divSemantics() {
         Tag div = Tag.valueOf_1_oe("div");
 
@@ -105,6 +118,19 @@ public class TagTest_OE25Dev {
 
         // removed other assertion
         assertTrue(div.formatAsBlock());
+        }
+
+    @Test public void pSemantics() {
+        Tag p = Tag.valueOf_1_oe("p");
+
+        assertTrue(p.isBlock());
+        }
+
+    @Test public void pSemantics() {
+        Tag p = Tag.valueOf_2_oe("p");
+
+        // removed other assertion
+        assertFalse(p.formatAsBlock());
         }
 
     @Test public void imgSemantics() {
@@ -125,8 +151,36 @@ public class TagTest_OE25Dev {
         assertFalse(img.isBlock());
         }
 
+    @Test public void defaultSemantics() {
+        Tag foo = Tag.valueOf_1_oe("FOO"); // not defined
+        Tag foo2 = Tag.valueOf("FOO");
+
+        assertEquals(foo, foo2);
+        }
+
+    @Test public void defaultSemantics() {
+        Tag foo = Tag.valueOf_2_oe("FOO"); // not defined
+        Tag foo2 = Tag.valueOf("FOO");
+
+        // removed other assertion
+        assertTrue(foo.isInline());
+        }
+
+    @Test public void defaultSemantics() {
+        Tag foo = Tag.valueOf_3_oe("FOO"); // not defined
+        Tag foo2 = Tag.valueOf("FOO");
+
+        // removed other assertion
+        // removed other assertion
+        assertTrue(foo.formatAsBlock());
+        }
+
     @Test public void valueOfChecksNotNull() {
         assertThrows_1_oe(IllegalArgumentException.class, () -> Tag.valueOf(null));
+        }
+
+    @Test public void valueOfChecksNotEmpty() {
+        assertThrows_1_oe(IllegalArgumentException.class, () -> Tag.valueOf(" "));
         }
 
     @Test public void knownTags() {

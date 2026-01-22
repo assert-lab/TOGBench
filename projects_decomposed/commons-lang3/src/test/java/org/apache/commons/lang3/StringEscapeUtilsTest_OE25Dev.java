@@ -1238,6 +1238,17 @@ public class StringEscapeUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testLang708_2_oe() throws IOException {
+        final byte[] inputBytes = Files.readAllBytes(Paths.get("src/test/resources/lang-708-input.txt"));
+        final String input = new String(inputBytes, StandardCharsets.UTF_8);
+        final String escaped = StringEscapeUtils.escapeEcmaScript(input);
+        // just the end:
+        // removed other assertion
+        // a little more:
+        assertTrue(escaped.endsWith("\"valueCode\\\":\\\"\\\"}]"), escaped);
+    }
+
+    @Test
     public void testLang720_1_oe() {
         final String input = "\ud842\udfb7" + "A";
         final String escaped = StringEscapeUtils.escapeXml(input);

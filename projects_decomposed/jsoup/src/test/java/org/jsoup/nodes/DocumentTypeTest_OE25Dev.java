@@ -158,4 +158,96 @@ public class DocumentTypeTest_OE25Dev {
         assertEquals("--system", combo.systemId());
         }
 
+    @Test public void testRoundTrip() {
+        String base = "<!DOCTYPE html>";
+        assertEquals_1_oe("<!doctype html>", htmlOutput(base));
+        }
+
+    @Test public void testRoundTrip() {
+        String base = "<!DOCTYPE html>";
+        assertEquals_2_oe("<!doctype html>", htmlOutput(base));
+        assertEquals(base, xmlOutput(base));
+        }
+
+    @Test public void testRoundTrip() {
+        String base = "<!DOCTYPE html>";
+        assertEquals_3_oe("<!doctype html>", htmlOutput(base));
+        // removed other assertion
+
+        String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        assertEquals(publicDoc, htmlOutput(publicDoc));
+        }
+
+    @Test public void testRoundTrip() {
+        String base = "<!DOCTYPE html>";
+        assertEquals_4_oe("<!doctype html>", htmlOutput(base));
+        // removed other assertion
+
+        String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        // removed other assertion
+        assertEquals(publicDoc, xmlOutput(publicDoc));
+        }
+
+    @Test public void testRoundTrip() {
+        String base = "<!DOCTYPE html>";
+        assertEquals_5_oe("<!doctype html>", htmlOutput(base));
+        // removed other assertion
+
+        String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        // removed other assertion
+        // removed other assertion
+
+        String systemDoc = "<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\">";
+        assertEquals(systemDoc, htmlOutput(systemDoc));
+        }
+
+    @Test public void testRoundTrip() {
+        String base = "<!DOCTYPE html>";
+        assertEquals_6_oe("<!doctype html>", htmlOutput(base));
+        // removed other assertion
+
+        String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        // removed other assertion
+        // removed other assertion
+
+        String systemDoc = "<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\">";
+        // removed other assertion
+        assertEquals(systemDoc, xmlOutput(systemDoc));
+        }
+
+    @Test public void testRoundTrip() {
+        String base = "<!DOCTYPE html>";
+        assertEquals_7_oe("<!doctype html>", htmlOutput(base));
+        // removed other assertion
+
+        String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        // removed other assertion
+        // removed other assertion
+
+        String systemDoc = "<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\">";
+        // removed other assertion
+        // removed other assertion
+
+        String legacyDoc = "<!DOCTYPE html SYSTEM \"about:legacy-compat\">";
+        assertEquals(legacyDoc, htmlOutput(legacyDoc));
+        }
+
+    @Test public void testRoundTrip() {
+        String base = "<!DOCTYPE html>";
+        assertEquals_8_oe("<!doctype html>", htmlOutput(base));
+        // removed other assertion
+
+        String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        // removed other assertion
+        // removed other assertion
+
+        String systemDoc = "<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\">";
+        // removed other assertion
+        // removed other assertion
+
+        String legacyDoc = "<!DOCTYPE html SYSTEM \"about:legacy-compat\">";
+        // removed other assertion
+        assertEquals(legacyDoc, xmlOutput(legacyDoc));
+        }
+
 }

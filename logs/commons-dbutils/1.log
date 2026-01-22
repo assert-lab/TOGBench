@@ -20,7 +20,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-dbutils ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils
-[INFO] Storing buildNumber: 436e57711b2b4f8a4a2bcbbc6fd858d43f13414e at timestamp: 1769074110928
+[INFO] Storing buildNumber: 50f9695826a20b01448b75f2f68cb1e82f3ecfc0 at timestamp: 1769121067367
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-dbutils ---
@@ -48,7 +48,7 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.5.1:testCompile (default-testCompile) @ commons-dbutils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 85 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/target/test-classes
+[INFO] Compiling 89 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/ColumnListHandlerTest_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/ColumnListHandlerTest_OE25Dev.java: Recompile with -Xlint:removal for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/QueryRunnerTest.java: Some input files use unchecked or unsafe operations.
@@ -56,10 +56,6 @@ main:
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest.java:[816,1] duplicate class: org.apache.commons.dbutils.wrappers.SqlNullUncheckedMockResultSet
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest.java:[858,1] duplicate class: org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetMockBlob
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest.java:[924,1] duplicate class: org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetMockClob
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest.java:[1000,1] duplicate class: org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetMockRef
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandlerTest_OE25Dev.java:[30,8] org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.ShortColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.FloatColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
@@ -70,19 +66,15 @@ main:
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/IntegerColumnHandlerTest_OE25Dev.java:[28,8] org.apache.commons.dbutils.handlers.columns.IntegerColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/StringColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.StringColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/BooleanColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.BooleanColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
-[INFO] 14 errors 
+[INFO] 10 errors 
 [INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  13.533 s
-[INFO] Finished at: 2026-01-22T03:28:40-06:00
+[INFO] Total time:  12.542 s
+[INFO] Finished at: 2026-01-22T16:31:16-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.5.1:testCompile (default-testCompile) on project commons-dbutils: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest.java:[816,1] duplicate class: org.apache.commons.dbutils.wrappers.SqlNullUncheckedMockResultSet
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest.java:[858,1] duplicate class: org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetMockBlob
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest.java:[924,1] duplicate class: org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetMockClob
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/wrappers/SqlNullCheckedResultSetTest.java:[1000,1] duplicate class: org.apache.commons.dbutils.wrappers.SqlNullCheckedResultSetMockRef
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandlerTest_OE25Dev.java:[30,8] org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/ShortColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.ShortColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/FloatColumnHandlerTest_OE25Dev.java:[27,8] org.apache.commons.dbutils.handlers.columns.FloatColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase

@@ -331,6 +331,91 @@ public class DocumentTest_OE25Dev {
         assertEquals(1, doc.select("head").size());
         }
 
+    @Test public void testTitles() {
+        Document noTitle = Jsoup.parse_1_oe("<p>Hello</p>");
+        Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
+
+        assertEquals("", noTitle.title());
+        }
+
+    @Test public void testTitles() {
+        Document noTitle = Jsoup.parse_2_oe("<p>Hello</p>");
+        Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
+
+        // removed other assertion
+        noTitle.title("Hello");
+        assertEquals("Hello", noTitle.title());
+        }
+
+    @Test public void testTitles() {
+        Document noTitle = Jsoup.parse_3_oe("<p>Hello</p>");
+        Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
+
+        // removed other assertion
+        noTitle.title("Hello");
+        // removed other assertion
+        assertEquals("Hello", noTitle.select("title").first().text());
+        }
+
+    @Test public void testTitles() {
+        Document noTitle = Jsoup.parse_4_oe("<p>Hello</p>");
+        Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
+
+        // removed other assertion
+        noTitle.title("Hello");
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("First", withTitle.title());
+        }
+
+    @Test public void testTitles() {
+        Document noTitle = Jsoup.parse_5_oe("<p>Hello</p>");
+        Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
+
+        // removed other assertion
+        noTitle.title("Hello");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        withTitle.title("Hello");
+        assertEquals("Hello", withTitle.title());
+        }
+
+    @Test public void testTitles() {
+        Document noTitle = Jsoup.parse_6_oe("<p>Hello</p>");
+        Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
+
+        // removed other assertion
+        noTitle.title("Hello");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        withTitle.title("Hello");
+        // removed other assertion
+        assertEquals("Hello", withTitle.select("title").first().text());
+        }
+
+    @Test public void testTitles() {
+        Document noTitle = Jsoup.parse_7_oe("<p>Hello</p>");
+        Document withTitle = Jsoup.parse("<title>First</title><title>Ignore</title><p>Hello</p>");
+
+        // removed other assertion
+        noTitle.title("Hello");
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        withTitle.title("Hello");
+        // removed other assertion
+        // removed other assertion
+
+        Document normaliseTitle = Jsoup.parse("<title>   Hello\nthere   \n   now   \n");
+        assertEquals("Hello there now", normaliseTitle.title());
+        }
+
     @Test public void testOutputEncoding() {
         Document doc = Jsoup.parse_1_oe("<p title=π>π & < > </p>");
         // default is utf-8
@@ -379,9 +464,49 @@ public class DocumentTest_OE25Dev {
         assertEquals("<p title=\"&pi;\">&pi; &amp; &lt; &gt;</p>", doc.body().html());
         }
 
+    @Test public void testXhtmlReferences() {
+        Document doc = Jsoup.parse_1_oe("&lt; &gt; &amp; &quot; &apos; &times;");
+        doc.outputSettings().escapeMode(Entities.EscapeMode.xhtml);
+        assertEquals("&lt; &gt; &amp; \" ' ×", doc.body().html());
+        }
+
     @Test public void testNormalisesStructure() {
         Document doc = Jsoup.parse_1_oe("<html><head><script>one</script><noscript><p>two</p></noscript></head><body><p>three</p></body><p>four</p></html>");
         assertEquals("<html><head><script>one</script><noscript>&lt;p&gt;two</noscript></head><body><p>three</p><p>four</p></body></html>", TextUtil.stripNewlines(doc.html()));
+        }
+
+    @Test public void accessorsWillNormalizeStructure() {
+        Document_1_oe doc = new Document("");
+        assertEquals("", doc.html());
+        }
+
+    @Test public void accessorsWillNormalizeStructure() {
+        Document_2_oe doc = new Document("");
+        // removed other assertion
+
+        Element body = doc.body();
+        assertEquals("body", body.tagName());
+        }
+
+    @Test public void accessorsWillNormalizeStructure() {
+        Document_3_oe doc = new Document("");
+        // removed other assertion
+
+        Element body = doc.body();
+        // removed other assertion
+        Element head = doc.head();
+        assertEquals("head", head.tagName());
+        }
+
+    @Test public void accessorsWillNormalizeStructure() {
+        Document_4_oe doc = new Document("");
+        // removed other assertion
+
+        Element body = doc.body();
+        // removed other assertion
+        Element head = doc.head();
+        // removed other assertion
+        assertEquals("<html><head></head><body></body></html>", TextUtil.stripNewlines(doc.html()));
         }
 
     @Test public void accessorsAreCaseInsensitive() {
@@ -472,10 +597,53 @@ public class DocumentTest_OE25Dev {
         assertEquals("SHOUTY", doc.title());
         }
 
+    @Test public void testClone() {
+        Document doc = Jsoup.parse_1_oe("<title>Hello</title> <p>One<p>Two");
+        Document clone = doc.clone();
+
+        assertEquals("<html><head><title>Hello</title></head><body><p>One</p><p>Two</p></body></html>", TextUtil.stripNewlines(clone.html()));
+        }
+
+    @Test public void testClone() {
+        Document doc = Jsoup.parse_2_oe("<title>Hello</title> <p>One<p>Two");
+        Document clone = doc.clone();
+
+        // removed other assertion
+        clone.title("Hello there");
+        clone.expectFirst("p").text("One more").attr("id", "1");
+        assertEquals("<html><head><title>Hello there</title></head><body><p id=\"1\">One more</p><p>Two</p></body></html>", TextUtil.stripNewlines(clone.html()));
+        }
+
+    @Test public void testClone() {
+        Document doc = Jsoup.parse_3_oe("<title>Hello</title> <p>One<p>Two");
+        Document clone = doc.clone();
+
+        // removed other assertion
+        clone.title("Hello there");
+        clone.expectFirst("p").text("One more").attr("id", "1");
+        // removed other assertion
+        assertEquals("<html><head><title>Hello</title></head><body><p>One</p><p>Two</p></body></html>", TextUtil.stripNewlines(doc.html()));
+        }
+
     @Test void testBasicIndent() {
         Document doc = Jsoup.parse_1_oe("<title>Hello</title> <p>One<p>Two");
         String expect = "<html>\n <head>\n  <title>Hello</title>\n </head>\n <body>\n  <p>One</p>\n  <p>Two</p>\n </body>\n</html>";
         assertEquals(expect, doc.html());
+        }
+
+    @Test public void testClonesDeclarations() {
+        Document doc = Jsoup.parse_1_oe("<!DOCTYPE html><html><head><title>Doctype test");
+        Document clone = doc.clone();
+
+        assertEquals(doc.html(), clone.html());
+        }
+
+    @Test public void testClonesDeclarations() {
+        Document doc = Jsoup.parse_2_oe("<!DOCTYPE html><html><head><title>Doctype test");
+        Document clone = doc.clone();
+
+        // removed other assertion
+        assertEquals("<!doctype html><html><head><title>Doctype test</title></head><body></body></html>", TextUtil.stripNewlines(clone.html()));
         }
 
     @Test public void testLocation() throws IOException {
@@ -524,6 +692,11 @@ public class DocumentTest_OE25Dev {
         assertEquals("http://www.nytimes.com/2010/07/26/business/global/26bp.html?hp",baseUri);
     	}
 
+    @Test public void testLocationFromString() {
+        Document doc = Jsoup.parse_1_oe("<p>Hello");
+        assertEquals("", doc.location());
+        }
+
     @Test public void testHtmlAndXmlSyntax() {
         String h = "<!DOCTYPE html><body><img async checked='checked' src='&<>\"'>&lt;&gt;&amp;&quot;<foo />bar";
         Document doc = Jsoup.parse_1_oe(h);
@@ -543,6 +716,11 @@ public class DocumentTest_OE25Dev {
         assertEquals("<!DOCTYPE html>\n" + "<html>\n" + " <head></head>\n" + " <body>\n" + "  <img async=\"\" checked=\"checked\" src=\"&amp;&lt;>&quot;\" />&lt;&gt;&amp;\"<foo />bar\n" + " </body>\n" + "</html>", doc.html());
         }
 
+    @Test public void htmlParseDefaultsToHtmlOutputSyntax() {
+        Document doc = Jsoup.parse_1_oe("x");
+        assertEquals(Syntax.html, doc.outputSettings().syntax());
+        }
+
     @Test public void testHtmlAppendable() {
     	String htmlContent = "<html><head><title>Hello</title></head><body><p>One</p><p>Two</p></body></html>";
     	Document document = Jsoup.parse_1_oe(htmlContent);
@@ -552,6 +730,37 @@ public class DocumentTest_OE25Dev {
     	document.outputSettings(outputSettings);
     	assertEquals(htmlContent, document.html(new StringWriter()).toString());
     	}
+
+    @Test public void testOverflowClone() {
+        StringBuilder_1_oe sb = new StringBuilder();
+        sb.append("<head><base href='https://jsoup.org/'>");
+        for (int i = 0; i < 100000; i++) {
+            sb.append("<div>");
+        }
+        sb.append("<p>Hello <a href='/example.html'>there</a>");
+
+        Document doc = Jsoup.parse(sb.toString());
+
+        String expectedLink = "https://jsoup.org/example.html";
+        assertEquals(expectedLink, doc.selectFirst("a").attr("abs:href"));
+        }
+
+    @Test public void testOverflowClone() {
+        StringBuilder_2_oe sb = new StringBuilder();
+        sb.append("<head><base href='https://jsoup.org/'>");
+        for (int i = 0; i < 100000; i++) {
+            sb.append("<div>");
+        }
+        sb.append("<p>Hello <a href='/example.html'>there</a>");
+
+        Document doc = Jsoup.parse(sb.toString());
+
+        String expectedLink = "https://jsoup.org/example.html";
+        // removed other assertion
+        Document clone = doc.clone();
+        doc.hasSameValue(clone);
+        assertEquals(expectedLink, clone.selectFirst("a").attr("abs:href"));
+        }
 
     @Test public void DocumentsWithSameContentAreEqual() {
         Document docA = Jsoup.parse_1_oe("<div/>One");
@@ -589,6 +798,23 @@ public class DocumentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertNotEquals(docA.hashCode(), docC.hashCode());
+        }
+
+    @Test public void DocumentsWithSameContentAreVerifiable() {
+        Document docA = Jsoup.parse_1_oe("<div/>One");
+        Document docB = Jsoup.parse("<div/>One");
+        Document docC = Jsoup.parse("<div/>Two");
+
+        assertTrue(docA.hasSameValue(docB));
+        }
+
+    @Test public void DocumentsWithSameContentAreVerifiable() {
+        Document docA = Jsoup.parse_2_oe("<div/>One");
+        Document docB = Jsoup.parse("<div/>One");
+        Document docC = Jsoup.parse("<div/>Two");
+
+        // removed other assertion
+        assertFalse(docA.hasSameValue(docC));
         }
 
     @Test
@@ -1177,6 +1403,66 @@ public class DocumentTest_OE25Dev {
         assertEquals(html, p.outerHtml());
         }
 
+    @Test public void parseAndHtmlOnDifferentThreads() throws InterruptedException {
+        String html = "<p>Alrighty then it's not \uD83D\uDCA9. <span>Next</span></p>"; // 💩
+        String asci = "<p>Alrighty then it's not &#x1f4a9;. <span>Next</span></p>";
+
+        final Document doc = Jsoup.parse_2_oe(html);
+        final String[] out = new String[1];
+        final Elements p = doc.select("p");
+        // removed other assertion
+
+        Thread thread = new Thread(() -> {
+            out[0] = p.outerHtml();
+            doc.outputSettings().charset(StandardCharsets.US_ASCII);
+        });
+        thread.start();
+        thread.join();
+
+        assertEquals(html, out[0]);
+        }
+
+    @Test public void parseAndHtmlOnDifferentThreads() throws InterruptedException {
+        String html = "<p>Alrighty then it's not \uD83D\uDCA9. <span>Next</span></p>"; // 💩
+        String asci = "<p>Alrighty then it's not &#x1f4a9;. <span>Next</span></p>";
+
+        final Document doc = Jsoup.parse_3_oe(html);
+        final String[] out = new String[1];
+        final Elements p = doc.select("p");
+        // removed other assertion
+
+        Thread thread = new Thread(() -> {
+            out[0] = p.outerHtml();
+            doc.outputSettings().charset(StandardCharsets.US_ASCII);
+        });
+        thread.start();
+        thread.join();
+
+        // removed other assertion
+        assertEquals(StandardCharsets.US_ASCII, doc.outputSettings().charset());
+        }
+
+    @Test public void parseAndHtmlOnDifferentThreads() throws InterruptedException {
+        String html = "<p>Alrighty then it's not \uD83D\uDCA9. <span>Next</span></p>"; // 💩
+        String asci = "<p>Alrighty then it's not &#x1f4a9;. <span>Next</span></p>";
+
+        final Document doc = Jsoup.parse_4_oe(html);
+        final String[] out = new String[1];
+        final Elements p = doc.select("p");
+        // removed other assertion
+
+        Thread thread = new Thread(() -> {
+            out[0] = p.outerHtml();
+            doc.outputSettings().charset(StandardCharsets.US_ASCII);
+        });
+        thread.start();
+        thread.join();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(asci, p.outerHtml());
+        }
+
     @Test public void testDocumentTypeGet() {
         String html = "\n\n<!-- comment -->  <!doctype html><p>One</p>";
         Document doc = Jsoup.parse_1_oe(html);
@@ -1190,6 +1476,156 @@ public class DocumentTest_OE25Dev {
         DocumentType documentType = doc.documentType();
         // removed other assertion
         assertEquals("html", documentType.name());
+        }
+
+    @Test public void framesetSupportsBodyMethod() {
+        String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
+        Document doc = Jsoup.parse_1_oe(html);
+        Element head = doc.head();
+        assertNotNull(head);
+        }
+
+    @Test public void framesetSupportsBodyMethod() {
+        String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
+        Document doc = Jsoup.parse_2_oe(html);
+        Element head = doc.head();
+        // removed other assertion
+        assertEquals("Frame Test", doc.title());
+        }
+
+    @Test public void framesetSupportsBodyMethod() {
+        String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
+        Document doc = Jsoup.parse_3_oe(html);
+        Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
+
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        assertNull(doc.selectFirst("body"));
+        }
+
+    @Test public void framesetSupportsBodyMethod() {
+        String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
+        Document doc = Jsoup.parse_4_oe(html);
+        Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
+
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        // removed other assertion
+        Element frameset = doc.selectFirst("frameset");
+        assertNotNull(frameset);
+        }
+
+    @Test public void framesetSupportsBodyMethod() {
+        String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
+        Document doc = Jsoup.parse_5_oe(html);
+        Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
+
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        // removed other assertion
+        Element frameset = doc.selectFirst("frameset");
+        // removed other assertion
+
+        // the body() method returns body or frameset and does not otherwise modify the document
+        // doing it in body() vs parse keeps the html close to original for round-trip option
+        Element body = doc.body();
+        assertNotNull(body);
+        }
+
+    @Test public void framesetSupportsBodyMethod() {
+        String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
+        Document doc = Jsoup.parse_6_oe(html);
+        Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
+
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        // removed other assertion
+        Element frameset = doc.selectFirst("frameset");
+        // removed other assertion
+
+        // the body() method returns body or frameset and does not otherwise modify the document
+        // doing it in body() vs parse keeps the html close to original for round-trip option
+        Element body = doc.body();
+        // removed other assertion
+        assertSame(frameset, body);
+        }
+
+    @Test public void framesetSupportsBodyMethod() {
+        String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
+        Document doc = Jsoup.parse_7_oe(html);
+        Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
+
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        // removed other assertion
+        Element frameset = doc.selectFirst("frameset");
+        // removed other assertion
+
+        // the body() method returns body or frameset and does not otherwise modify the document
+        // doing it in body() vs parse keeps the html close to original for round-trip option
+        Element body = doc.body();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("frame", body.child(0).tagName());
+        }
+
+    @Test public void framesetSupportsBodyMethod() {
+        String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
+        Document doc = Jsoup.parse_8_oe(html);
+        Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
+
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        // removed other assertion
+        Element frameset = doc.selectFirst("frameset");
+        // removed other assertion
+
+        // the body() method returns body or frameset and does not otherwise modify the document
+        // doing it in body() vs parse keeps the html close to original for round-trip option
+        Element body = doc.body();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertNull(doc.selectFirst("body")); // did not vivify a body element;
+        }
+
+    @Test public void framesetSupportsBodyMethod() {
+        String html = "<html><head><title>Frame Test</title></head><frameset id=id><frame src=foo.html></frameset>";
+        Document doc = Jsoup.parse_9_oe(html);
+        Element head = doc.head();
+        // removed other assertion
+        // removed other assertion
+
+        // Frameset docs per html5 spec have no body element - but instead a frameset elelemt
+        // removed other assertion
+        Element frameset = doc.selectFirst("frameset");
+        // removed other assertion
+
+        // the body() method returns body or frameset and does not otherwise modify the document
+        // doing it in body() vs parse keeps the html close to original for round-trip option
+        Element body = doc.body();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        String expected = "<html>\n" +
+            " <head>\n" +
+            "  <title>Frame Test</title>\n" +
+            " </head>\n" +
+            " <frameset id=\"id\">\n" +
+            "  <frame src=\"foo.html\">\n" +
+            " </frameset>\n" +
+            "</html>";
+        assertEquals(expected, doc.html());
         }
 
 }

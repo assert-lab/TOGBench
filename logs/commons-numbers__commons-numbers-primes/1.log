@@ -25,7 +25,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-primes ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-primes' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-primes
-[INFO] Storing buildNumber: 436e57711b2b4f8a4a2bcbbc6fd858d43f13414e at timestamp: 1769074189674
+[INFO] Storing buildNumber: 50f9695826a20b01448b75f2f68cb1e82f3ecfc0 at timestamp: 1769121134154
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-primes ---
@@ -60,9 +60,9 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.primes.PrimesTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.numbers.primes.PrimesTest_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in org.apache.commons.numbers.primes.PrimesTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.primes.SmallPrimesTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.numbers.primes.SmallPrimesTest_OE25Dev
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.numbers.primes.SmallPrimesTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -71,6 +71,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.725 s
-[INFO] Finished at: 2026-01-22T03:29:59-06:00
+[INFO] Total time:  8.627 s
+[INFO] Finished at: 2026-01-22T16:32:19-06:00
 [INFO] ------------------------------------------------------------------------

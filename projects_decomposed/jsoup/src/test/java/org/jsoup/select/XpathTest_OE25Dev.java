@@ -69,6 +69,18 @@ public class XpathTest_OE25Dev {
         assertEquals("One", elements.first().id());
     }
 
+    @ParameterizedTest
+    @MethodSource("provideEvaluators")
+    void cssAndXpathEquivalents(Document doc, String css, String xpath) {
+        Elements fromCss = doc.select(css);
+        Elements fromXpath = doc.selectXpath(xpath);
+
+        assertTrue(fromCss.size() >= 1);
+        assertTrue(fromXpath.size() >= 1);
+        // tests same size, order, and contents
+        assertEquals(fromCss, fromXpath);
+    }
+
     private static Stream<Arguments> provideEvaluators() {
         String html = "<div id=1><div id=2><p class=foo>Hello</p></div></div><DIV id=3>";
         Document doc = Jsoup.parse(html);
@@ -152,6 +164,45 @@ public class XpathTest_OE25Dev {
         }
         assertTrue(threw);
         System.clearProperty(XPathFactoryProperty);
+    }
+
+    @Test
+    public void notNamespaceAware() {
+        String xhtml = "<html xmlns='http://www.w3.org/1999/xhtml'><body id='One'><div>hello</div></body></html>";
+        Document doc = Jsoup.parse(xhtml, Parser.xmlParser());
+        Elements elements = doc.selectXpath("//body");
+        assertEquals(1, elements.size());
+        assertEquals("One", elements.first().id());
+    }
+
+    @Test
+    public void supportsPrefixes() {
+        // example from https://www.w3.org/TR/xml-names/
+        String xml = "<?xml version=\"1.0\"?>\n" +
+            "<bk:book xmlns:bk='urn:loc.gov:books'\n" +
+            "         xmlns:isbn='urn:ISBN:0-395-36341-6'>\n" +
+            "    <bk:title>Cheaper by the Dozen</bk:title>\n" +
+            "    <isbn:number>1568491379</isbn:number>\n" +
+            "</bk:book>";
+        Document doc = Jsoup.parse(xml, Parser.xmlParser());
+
+        //Elements elements = doc.selectXpath("//bk:book/bk:title");
+        Elements elements = doc.selectXpath("//book/title");
+        assertEquals(1, elements.size());
+        assertEquals("Cheaper by the Dozen", elements.first().text());
+
+        // with prefix
+        Elements byPrefix = doc.selectXpath("//*[name()='bk:book']/*[name()='bk:title']");
+        assertEquals(1, byPrefix.size());
+        assertEquals("Cheaper by the Dozen", byPrefix.first().text());
+
+        Elements byLocalName = doc.selectXpath("//*[local-name()='book']/*[local-name()='title']");
+        assertEquals(1, byLocalName.size());
+        assertEquals("Cheaper by the Dozen", byLocalName.first().text());
+
+        Elements isbn = doc.selectXpath("//book/number");
+        assertEquals(1, isbn.size());
+        assertEquals("1568491379", isbn.first().text());
     }
 
     // minimal, no-op implementation class to verify users can load a factory to support XPath 2.0 etc
@@ -316,6 +367,11 @@ public class XpathTest_OE25Dev {
         assertEquals(1, doc.selectXpath("//body").size());
         }
 
+    @Test public void emptyElementsIfNoResults() {
+        Document doc = Jsoup.parse_1_oe("<p>One<p>Two");
+        assertEquals(0, doc.selectXpath("//div").size());
+        }
+
     @Test
     public void throwsSelectException_1_oe() {
         Document doc = Jsoup.parse("<p>One<p>Two");
@@ -343,253 +399,6 @@ public class XpathTest_OE25Dev {
             // removed other assertion
         }
         assertTrue(threw);
-    }
-
-    @ParameterizedTest
-    @MethodSource("provideEvaluators")
-    void cssAndXpathEquivalents_1_oe(Document doc, String css, String xpath) {
-        Elements fromCss = doc.select(css);
-        Elements fromXpath = doc.selectXpath(xpath);
-
-        assertTrue(fromCss.size() >= 1);
-    }
-
-    @ParameterizedTest
-    @MethodSource("provideEvaluators")
-    void cssAndXpathEquivalents_2_oe(Document doc, String css, String xpath) {
-        Elements fromCss = doc.select(css);
-        Elements fromXpath = doc.selectXpath(xpath);
-
-        // removed other assertion
-        assertTrue(fromXpath.size() >= 1);
-    }
-
-    @ParameterizedTest
-    @MethodSource("provideEvaluators")
-    void cssAndXpathEquivalents_3_oe(Document doc, String css, String xpath) {
-        Elements fromCss = doc.select(css);
-        Elements fromXpath = doc.selectXpath(xpath);
-
-        // removed other assertion
-        // removed other assertion
-        // tests same size, order, and contents
-        assertEquals(fromCss, fromXpath);
-    }
-
-    @Test void canSelectTextNodes() {
-        String html = "<div><p>One<p><a>Two</a><p>Three and some more";
-        Document doc = Jsoup.parse_1_oe(html);
-
-        //  as text nodes:
-        List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
-        assertEquals(3, text.size());
-        }
-
-    @Test void canSelectTextNodes() {
-        String html = "<div><p>One<p><a>Two</a><p>Three and some more";
-        Document doc = Jsoup.parse_2_oe(html);
-
-        //  as text nodes:
-        List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
-        // removed other assertion
-        assertEquals("One", text.get(0).text());
-        }
-
-    @Test void canSelectTextNodes() {
-        String html = "<div><p>One<p><a>Two</a><p>Three and some more";
-        Document doc = Jsoup.parse_3_oe(html);
-
-        //  as text nodes:
-        List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Two", text.get(1).text());
-        }
-
-    @Test void canSelectTextNodes() {
-        String html = "<div><p>One<p><a>Two</a><p>Three and some more";
-        Document doc = Jsoup.parse_4_oe(html);
-
-        //  as text nodes:
-        List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Three and some more", text.get(2).text());
-        }
-
-    @Test void canSelectTextNodes() {
-        String html = "<div><p>One<p><a>Two</a><p>Three and some more";
-        Document doc = Jsoup.parse_5_oe(html);
-
-        //  as text nodes:
-        List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        //  as just nodes:
-        List<Node> nodes = doc.selectXpath("//body//p//text()", Node.class);
-        assertEquals(3, nodes.size());
-        }
-
-    @Test void canSelectTextNodes() {
-        String html = "<div><p>One<p><a>Two</a><p>Three and some more";
-        Document doc = Jsoup.parse_6_oe(html);
-
-        //  as text nodes:
-        List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        //  as just nodes:
-        List<Node> nodes = doc.selectXpath("//body//p//text()", Node.class);
-        // removed other assertion
-        assertEquals("One", nodes.get(0).outerHtml());
-        }
-
-    @Test void canSelectTextNodes() {
-        String html = "<div><p>One<p><a>Two</a><p>Three and some more";
-        Document doc = Jsoup.parse_7_oe(html);
-
-        //  as text nodes:
-        List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        //  as just nodes:
-        List<Node> nodes = doc.selectXpath("//body//p//text()", Node.class);
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Two", nodes.get(1).outerHtml());
-        }
-
-    @Test void canSelectTextNodes() {
-        String html = "<div><p>One<p><a>Two</a><p>Three and some more";
-        Document doc = Jsoup.parse_8_oe(html);
-
-        //  as text nodes:
-        List<TextNode> text = doc.selectXpath("//body//p//text()", TextNode.class);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        //  as just nodes:
-        List<Node> nodes = doc.selectXpath("//body//p//text()", Node.class);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Three and some more", nodes.get(2).outerHtml());
-        }
-
-    @Test void selectOutsideOfElementTree() {
-        Document doc = Jsoup.parse_1_oe("<p>One<p>Two<p>Three");
-        Elements ps = doc.selectXpath("//p");
-        assertEquals(3, ps.size());
-        }
-
-    @Test void selectOutsideOfElementTree() {
-        Document doc = Jsoup.parse_2_oe("<p>One<p>Two<p>Three");
-        Elements ps = doc.selectXpath("//p");
-        // removed other assertion
-
-        Element p1 = ps.get(0);
-        assertEquals("One", p1.text());
-        }
-
-    @Test void selectOutsideOfElementTree() {
-        Document doc = Jsoup.parse_3_oe("<p>One<p>Two<p>Three");
-        Elements ps = doc.selectXpath("//p");
-        // removed other assertion
-
-        Element p1 = ps.get(0);
-        // removed other assertion
-
-        Elements sibs = p1.selectXpath("following-sibling::p");
-        assertEquals(2, sibs.size());
-        }
-
-    @Test void selectOutsideOfElementTree() {
-        Document doc = Jsoup.parse_4_oe("<p>One<p>Two<p>Three");
-        Elements ps = doc.selectXpath("//p");
-        // removed other assertion
-
-        Element p1 = ps.get(0);
-        // removed other assertion
-
-        Elements sibs = p1.selectXpath("following-sibling::p");
-        // removed other assertion
-        assertEquals("Two", sibs.get(0).text());
-        }
-
-    @Test void selectOutsideOfElementTree() {
-        Document doc = Jsoup.parse_5_oe("<p>One<p>Two<p>Three");
-        Elements ps = doc.selectXpath("//p");
-        // removed other assertion
-
-        Element p1 = ps.get(0);
-        // removed other assertion
-
-        Elements sibs = p1.selectXpath("following-sibling::p");
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Three", sibs.get(1).text());
-        }
-
-    @Test
-    public void notNamespaceAware_1_oe() {
-        String xhtml = "<html xmlns='http://www.w3.org/1999/xhtml'><body id='One'><div>hello</div></body></html>";
-        Document doc = Jsoup.parse(xhtml, Parser.xmlParser());
-        Elements elements = doc.selectXpath("//body");
-        assertEquals(1, elements.size());
-    }
-
-    @Test
-    public void notNamespaceAware_2_oe() {
-        String xhtml = "<html xmlns='http://www.w3.org/1999/xhtml'><body id='One'><div>hello</div></body></html>";
-        Document doc = Jsoup.parse(xhtml, Parser.xmlParser());
-        Elements elements = doc.selectXpath("//body");
-        // removed other assertion
-        assertEquals("One", elements.first().id());
-    }
-
-    @Test
-    public void supportsPrefixes_1_oe() {
-        // example from https://www.w3.org/TR/xml-names/
-        String xml = "<?xml version=\"1.0\"?>\n" +
-            "<bk:book xmlns:bk='urn:loc.gov:books'\n" +
-            "         xmlns:isbn='urn:ISBN:0-395-36341-6'>\n" +
-            "    <bk:title>Cheaper by the Dozen</bk:title>\n" +
-            "    <isbn:number>1568491379</isbn:number>\n" +
-            "</bk:book>";
-        Document doc = Jsoup.parse(xml, Parser.xmlParser());
-
-        //Elements elements = doc.selectXpath("//bk:book/bk:title");
-        Elements elements = doc.selectXpath("//book/title");
-        assertEquals(1, elements.size());
-    }
-
-    @Test
-    public void supportsPrefixes_2_oe() {
-        // example from https://www.w3.org/TR/xml-names/
-        String xml = "<?xml version=\"1.0\"?>\n" +
-            "<bk:book xmlns:bk='urn:loc.gov:books'\n" +
-            "         xmlns:isbn='urn:ISBN:0-395-36341-6'>\n" +
-            "    <bk:title>Cheaper by the Dozen</bk:title>\n" +
-            "    <isbn:number>1568491379</isbn:number>\n" +
-            "</bk:book>";
-        Document doc = Jsoup.parse(xml, Parser.xmlParser());
-
-        //Elements elements = doc.selectXpath("//bk:book/bk:title");
-        Elements elements = doc.selectXpath("//book/title");
-        // removed other assertion
-        assertEquals("Cheaper by the Dozen", elements.first().text());
     }
 
 }

@@ -91,13 +91,6 @@ public class NodeTest_OE25Dev {
         assertEquals("file:/var/log/messages", two.absUrl("href"));
     }
 
-    @Test
-    public void handleAbsOnLocalhostFileUris() {
-        Document doc = Jsoup.parse("<a href='password'>One/a><a href='/var/log/messages'>Two</a>", "file://localhost/etc/");
-        Element one = doc.select("a").first();
-        assertEquals("file://localhost/etc/password", one.absUrl("href"));
-    }
-
     /*
     Test for an issue with Java's abs URL handler.
      */
@@ -355,39 +348,6 @@ public class NodeTest_OE25Dev {
         assertEquals(textClone, docClone.childNode(0)); // note not the head or the body -- not normalized
     }
 
-    @Test
-    void firstAndLastChild() {
-        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
-        Document doc = Jsoup.parse(html);
-        Element div = doc.selectFirst("div");
-        Element a = doc.selectFirst("a");
-        assertNotNull(div);
-        assertNotNull(a);
-
-        // nodes
-        TextNode first = (TextNode) div.firstChild();
-        assertEquals("One ", first.text());
-
-        TextNode last = (TextNode) div.lastChild();
-        assertEquals(" Three", last.text());
-
-        assertNull(a.firstChild());
-        assertNull(a.lastChild());
-
-        // elements
-        Element firstEl = div.firstElementChild();
-        assertEquals("span", firstEl.tagName());
-
-        Element lastEl = div.lastElementChild();
-        assertEquals("a", lastEl.tagName());
-
-        assertNull(a.firstElementChild());
-        assertNull(a.lastElementChild());
-
-        assertNull(firstEl.firstElementChild());
-        assertNull(firstEl.lastElementChild());
-    }
-
     @Test public void handlesBaseUri() {
         Tag tag = Tag.valueOf_1_oe("a");
         Attributes attribs = new Attributes();
@@ -493,6 +453,33 @@ public class NodeTest_OE25Dev {
         assertEquals("", dodgyBase.absUrl("relHref")); // base fails, only rel href, so return nothing;
         }
 
+    @Test public void setBaseUriIsRecursive() {
+        Document doc = Jsoup.parse_1_oe("<div><p></p></div>");
+        String baseUri = "https://jsoup.org";
+        doc.setBaseUri(baseUri);
+
+        assertEquals(baseUri, doc.baseUri());
+        }
+
+    @Test public void setBaseUriIsRecursive() {
+        Document doc = Jsoup.parse_2_oe("<div><p></p></div>");
+        String baseUri = "https://jsoup.org";
+        doc.setBaseUri(baseUri);
+
+        // removed other assertion
+        assertEquals(baseUri, doc.select("div").first().baseUri());
+        }
+
+    @Test public void setBaseUriIsRecursive() {
+        Document doc = Jsoup.parse_3_oe("<div><p></p></div>");
+        String baseUri = "https://jsoup.org";
+        doc.setBaseUri(baseUri);
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(baseUri, doc.select("p").first().baseUri());
+        }
+
     @Test public void handlesAbsPrefix() {
         Document doc = Jsoup.parse_1_oe("<a href=/foo>Hello</a>", "https://jsoup.org/");
         Element a = doc.select("a").first();
@@ -512,6 +499,19 @@ public class NodeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertTrue(a.hasAttr("abs:href"));
+        }
+
+    @Test public void handlesAbsOnImage() {
+        Document doc = Jsoup.parse_1_oe("<p><img src=\"/rez/osi_logo.png\" /></p>", "https://jsoup.org/");
+        Element img = doc.select("img").first();
+        assertEquals("https://jsoup.org/rez/osi_logo.png", img.attr("abs:src"));
+        }
+
+    @Test public void handlesAbsOnImage() {
+        Document doc = Jsoup.parse_2_oe("<p><img src=\"/rez/osi_logo.png\" /></p>", "https://jsoup.org/");
+        Element img = doc.select("img").first();
+        // removed other assertion
+        assertEquals(img.absUrl("src"), img.attr("abs:src"));
         }
 
     @Test public void handlesAbsPrefixOnHasAttr() {
@@ -586,6 +586,21 @@ public class NodeTest_OE25Dev {
         assertEquals("https://jsoup.org/", two.absUrl("href"));
         }
 
+    @Test public void literalAbsPrefix() {
+        // if there is a literal attribute "abs:xxx", don't try and make absolute.
+        Document doc = Jsoup.parse_1_oe("<a abs:href='odd'>One</a>");
+        Element el = doc.select("a").first();
+        assertTrue(el.hasAttr("abs:href"));
+        }
+
+    @Test public void literalAbsPrefix() {
+        // if there is a literal attribute "abs:xxx", don't try and make absolute.
+        Document doc = Jsoup.parse_2_oe("<a abs:href='odd'>One</a>");
+        Element el = doc.select("a").first();
+        // removed other assertion
+        assertEquals("odd", el.attr("abs:href"));
+        }
+
     @Test public void handleAbsOnFileUris() {
         Document doc = Jsoup.parse_1_oe("<a href='password'>One/a><a href='/var/log/messages'>Two</a>", "file:/etc/");
         Element one = doc.select("a").first();
@@ -599,6 +614,13 @@ public class NodeTest_OE25Dev {
         Element two = doc.select("a").get(1);
         assertEquals("file:/var/log/messages", two.absUrl("href"));
         }
+
+    @Test
+    public void handleAbsOnLocalhostFileUris_1_oe() {
+        Document doc = Jsoup.parse("<a href='password'>One/a><a href='/var/log/messages'>Two</a>", "file://localhost/etc/");
+        Element one = doc.select("a").first();
+        assertEquals("file://localhost/etc/password", one.absUrl("href"));
+    }
 
     @Test
     public void handlesAbsOnProtocolessAbsoluteUris_1_oe() {
@@ -655,6 +677,12 @@ public class NodeTest_OE25Dev {
         assertEquals("https://jsoup.org/path/bar.html?foo", a2.absUrl("href"));
         }
 
+    @Test public void absHandlesDotFromIndex() {
+        Document doc = Jsoup.parse_1_oe("<a href='./one/two.html'>One</a>", "http://example.com");
+        Element a1 = doc.select("a").first();
+        assertEquals("http://example.com/one/two.html", a1.absUrl("href"));
+        }
+
     @Test public void testRemove() {
         Document doc = Jsoup.parse_1_oe("<p>One <span>two</span> three</p>");
         Element p = doc.select("p").first();
@@ -670,6 +698,15 @@ public class NodeTest_OE25Dev {
 
         // removed other assertion
         assertEquals("<span>two</span> three", TextUtil.stripNewlines(p.html()));
+        }
+
+    @Test public void testReplace() {
+        Document doc = Jsoup.parse_1_oe("<p>One <span>two</span> three</p>");
+        Element p = doc.select("p").first();
+        Element insert = doc.createElement("em").text("foo");
+        p.childNode(1).replaceWith(insert);
+
+        assertEquals("One <em>foo</em> three", p.html());
         }
 
     @Test public void ownerDocument() {
@@ -693,6 +730,82 @@ public class NodeTest_OE25Dev {
         assertNull(doc.parent());
         }
 
+    @Test public void root() {
+        Document doc = Jsoup.parse_1_oe("<div><p>Hello");
+        Element p = doc.select("p").first();
+        Node root = p.root();
+        assertSame(doc, root);
+        }
+
+    @Test public void root() {
+        Document doc = Jsoup.parse_2_oe("<div><p>Hello");
+        Element p = doc.select("p").first();
+        Node root = p.root();
+        // removed other assertion
+        assertNull(root.parent());
+        }
+
+    @Test public void root() {
+        Document doc = Jsoup.parse_3_oe("<div><p>Hello");
+        Element p = doc.select("p").first();
+        Node root = p.root();
+        // removed other assertion
+        // removed other assertion
+        assertSame(doc.root(), doc);
+        }
+
+    @Test public void root() {
+        Document doc = Jsoup.parse_4_oe("<div><p>Hello");
+        Element p = doc.select("p").first();
+        Node root = p.root();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertSame(doc.root(), doc.ownerDocument());
+        }
+
+    @Test public void root() {
+        Document doc = Jsoup.parse_5_oe("<div><p>Hello");
+        Element p = doc.select("p").first();
+        Node root = p.root();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Element standAlone = new Element(Tag.valueOf("p"), "");
+        assertNull(standAlone.parent());
+        }
+
+    @Test public void root() {
+        Document doc = Jsoup.parse_6_oe("<div><p>Hello");
+        Element p = doc.select("p").first();
+        Node root = p.root();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Element standAlone = new Element(Tag.valueOf("p"), "");
+        // removed other assertion
+        assertSame(standAlone.root(), standAlone);
+        }
+
+    @Test public void root() {
+        Document doc = Jsoup.parse_7_oe("<div><p>Hello");
+        Element p = doc.select("p").first();
+        Node root = p.root();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Element standAlone = new Element(Tag.valueOf("p"), "");
+        // removed other assertion
+        // removed other assertion
+        assertNull(standAlone.ownerDocument());
+        }
+
     @Test public void before() {
         Document doc = Jsoup.parse_1_oe("<p>One <b>two</b> three</p>");
         Element newNode = new Element(Tag.valueOf("em"), "");
@@ -712,6 +825,27 @@ public class NodeTest_OE25Dev {
 
         doc.select("b").first().before("<i>five</i>");
         assertEquals("<p>One <em>four</em><i>five</i><b>two</b> three</p>", doc.body().html());
+        }
+
+    @Test public void after() {
+        Document doc = Jsoup.parse_1_oe("<p>One <b>two</b> three</p>");
+        Element newNode = new Element(Tag.valueOf("em"), "");
+        newNode.appendText("four");
+
+        doc.select("b").first().after(newNode);
+        assertEquals("<p>One <b>two</b><em>four</em> three</p>", doc.body().html());
+        }
+
+    @Test public void after() {
+        Document doc = Jsoup.parse_2_oe("<p>One <b>two</b> three</p>");
+        Element newNode = new Element(Tag.valueOf("em"), "");
+        newNode.appendText("four");
+
+        doc.select("b").first().after(newNode);
+        // removed other assertion
+
+        doc.select("b").first().after("<i>five</i>");
+        assertEquals("<p>One <b>two</b><i>five</i><em>four</em> three</p>", doc.body().html());
         }
 
     @Test public void unwrap() {
@@ -767,6 +901,53 @@ public class NodeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals(node.parent(), doc.select("div").first());
+        }
+
+    @Test public void unwrapNoChildren() {
+        Document doc = Jsoup.parse_1_oe("<div>One <span></span> Two</div>");
+        Element span = doc.select("span").first();
+        Node node = span.unwrap();
+        assertEquals("<div>One  Two</div>", TextUtil.stripNewlines(doc.body().html()));
+        }
+
+    @Test public void unwrapNoChildren() {
+        Document doc = Jsoup.parse_2_oe("<div>One <span></span> Two</div>");
+        Element span = doc.select("span").first();
+        Node node = span.unwrap();
+        // removed other assertion
+        assertNull(node);
+        }
+
+    @Test public void traverse() {
+        Document doc = Jsoup.parse_1_oe("<div><p>Hello</p></div><div>There</div>");
+        final StringBuilder accum = new StringBuilder();
+        doc.select("div").first().traverse(new NodeVisitor() {
+            @Override
+            public void head(Node node, int depth) {
+                accum.append("<").append(node.nodeName()).append(">");
+            }
+
+            @Override
+            public void tail(Node node, int depth) {
+                accum.append("</").append(node.nodeName()).append(">");
+            }
+        });
+        assertEquals("<div><p><#text></#text></p></div>", accum.toString());
+        }
+
+    @Test public void forEachNode() {
+        Document doc = Jsoup.parse_1_oe("<div><p>Hello</p></div><div>There</div><div id=1>Gone<p></div>");
+        doc.forEachNode(node -> {
+            if (node instanceof TextNode) {
+                TextNode textNode = (TextNode) node;
+                if (textNode.text().equals("There")) {
+                    textNode.text("There Now");
+                    textNode.after("<p>Another");
+                }
+            } else if (node.attr("id").equals("1"))
+                node.remove();
+        });
+        assertEquals("<div><p>Hello</p></div><div>There Now<p>Another</p></div>", TextUtil.stripNewlines(doc.body().html()));
         }
 
     @Test public void orphanNodeReturnsNullForSiblingElements() {
@@ -847,6 +1028,43 @@ public class NodeTest_OE25Dev {
         assertNull(el.nextElementSibling());
         }
 
+    @Test public void nodeIsNotASiblingOfItself() {
+        Document doc = Jsoup.parse_1_oe("<div><p>One<p>Two<p>Three</div>");
+        Element p2 = doc.select("p").get(1);
+
+        assertEquals("Two", p2.text());
+        }
+
+    @Test public void nodeIsNotASiblingOfItself() {
+        Document doc = Jsoup.parse_2_oe("<div><p>One<p>Two<p>Three</div>");
+        Element p2 = doc.select("p").get(1);
+
+        // removed other assertion
+        List<Node> nodes = p2.siblingNodes();
+        assertEquals(2, nodes.size());
+        }
+
+    @Test public void nodeIsNotASiblingOfItself() {
+        Document doc = Jsoup.parse_3_oe("<div><p>One<p>Two<p>Three</div>");
+        Element p2 = doc.select("p").get(1);
+
+        // removed other assertion
+        List<Node> nodes = p2.siblingNodes();
+        // removed other assertion
+        assertEquals("<p>One</p>", nodes.get(0).outerHtml());
+        }
+
+    @Test public void nodeIsNotASiblingOfItself() {
+        Document doc = Jsoup.parse_4_oe("<div><p>One<p>Two<p>Three</div>");
+        Element p2 = doc.select("p").get(1);
+
+        // removed other assertion
+        List<Node> nodes = p2.siblingNodes();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("<p>Three</p>", nodes.get(1).outerHtml());
+        }
+
     @Test public void childNodesCopy() {
         Document doc = Jsoup.parse_1_oe("<div id=1>Text 1 <p>One</p> Text 2 <p>Two<p>Three</div><div id=2>");
         Element div1 = doc.select("#1").first();
@@ -879,6 +1097,93 @@ public class NodeTest_OE25Dev {
         // removed other assertion
         div2.insertChildren(-1, divChildren);
         assertEquals("<div id=\"1\">Text 1 <p>One</p> Text 2 <p>Two</p><p>Three</p></div><div id=\"2\">Text 1 updated" +"<p>One</p> Text 2 <p>Two</p><p>Three</p></div>", TextUtil.stripNewlines(doc.body().html()));
+        }
+
+    @Test public void supportsClone() {
+        Document doc = org.jsoup.Jsoup.parse_1_oe("<div class=foo>Text</div>");
+        Element el = doc.select("div").first();
+        assertTrue(el.hasClass("foo"));
+        }
+
+    @Test public void supportsClone() {
+        Document doc = org.jsoup.Jsoup.parse_2_oe("<div class=foo>Text</div>");
+        Element el = doc.select("div").first();
+        // removed other assertion
+
+        Element elClone = doc.clone().select("div").first();
+        assertTrue(elClone.hasClass("foo"));
+        }
+
+    @Test public void supportsClone() {
+        Document doc = org.jsoup.Jsoup.parse_3_oe("<div class=foo>Text</div>");
+        Element el = doc.select("div").first();
+        // removed other assertion
+
+        Element elClone = doc.clone().select("div").first();
+        // removed other assertion
+        assertEquals("Text", elClone.text());
+        }
+
+    @Test public void supportsClone() {
+        Document doc = org.jsoup.Jsoup.parse_4_oe("<div class=foo>Text</div>");
+        Element el = doc.select("div").first();
+        // removed other assertion
+
+        Element elClone = doc.clone().select("div").first();
+        // removed other assertion
+        // removed other assertion
+
+        el.removeClass("foo");
+        el.text("None");
+        assertFalse(el.hasClass("foo"));
+        }
+
+    @Test public void supportsClone() {
+        Document doc = org.jsoup.Jsoup.parse_5_oe("<div class=foo>Text</div>");
+        Element el = doc.select("div").first();
+        // removed other assertion
+
+        Element elClone = doc.clone().select("div").first();
+        // removed other assertion
+        // removed other assertion
+
+        el.removeClass("foo");
+        el.text("None");
+        // removed other assertion
+        assertTrue(elClone.hasClass("foo"));
+        }
+
+    @Test public void supportsClone() {
+        Document doc = org.jsoup.Jsoup.parse_6_oe("<div class=foo>Text</div>");
+        Element el = doc.select("div").first();
+        // removed other assertion
+
+        Element elClone = doc.clone().select("div").first();
+        // removed other assertion
+        // removed other assertion
+
+        el.removeClass("foo");
+        el.text("None");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("None", el.text());
+        }
+
+    @Test public void supportsClone() {
+        Document doc = org.jsoup.Jsoup.parse_7_oe("<div class=foo>Text</div>");
+        Element el = doc.select("div").first();
+        // removed other assertion
+
+        Element elClone = doc.clone().select("div").first();
+        // removed other assertion
+        // removed other assertion
+
+        el.removeClass("foo");
+        el.text("None");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Text", elClone.text());
         }
 
     @Test public void changingAttributeValueShouldReplaceExistingAttributeCaseInsensitive() {
@@ -1034,5 +1339,269 @@ public class NodeTest_OE25Dev {
         // removed other assertion
         assertEquals(textClone, docClone.childNode(0)); // note not the head or the body -- not normalized;
         }
+
+    @Test
+    void firstAndLastChild_1_oe() {
+        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
+        Document doc = Jsoup.parse(html);
+        Element div = doc.selectFirst("div");
+        Element a = doc.selectFirst("a");
+        assertNotNull(div);
+    }
+
+    @Test
+    void firstAndLastChild_2_oe() {
+        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
+        Document doc = Jsoup.parse(html);
+        Element div = doc.selectFirst("div");
+        Element a = doc.selectFirst("a");
+        // removed other assertion
+        assertNotNull(a);
+    }
+
+    @Test
+    void firstAndLastChild_3_oe() {
+        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
+        Document doc = Jsoup.parse(html);
+        Element div = doc.selectFirst("div");
+        Element a = doc.selectFirst("a");
+        // removed other assertion
+        // removed other assertion
+
+        // nodes
+        TextNode first = (TextNode) div.firstChild();
+        assertEquals("One ", first.text());
+    }
+
+    @Test
+    void firstAndLastChild_4_oe() {
+        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
+        Document doc = Jsoup.parse(html);
+        Element div = doc.selectFirst("div");
+        Element a = doc.selectFirst("a");
+        // removed other assertion
+        // removed other assertion
+
+        // nodes
+        TextNode first = (TextNode) div.firstChild();
+        // removed other assertion
+
+        TextNode last = (TextNode) div.lastChild();
+        assertEquals(" Three", last.text());
+    }
+
+    @Test
+    void firstAndLastChild_5_oe() {
+        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
+        Document doc = Jsoup.parse(html);
+        Element div = doc.selectFirst("div");
+        Element a = doc.selectFirst("a");
+        // removed other assertion
+        // removed other assertion
+
+        // nodes
+        TextNode first = (TextNode) div.firstChild();
+        // removed other assertion
+
+        TextNode last = (TextNode) div.lastChild();
+        // removed other assertion
+
+        assertNull(a.firstChild());
+    }
+
+    @Test
+    void firstAndLastChild_6_oe() {
+        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
+        Document doc = Jsoup.parse(html);
+        Element div = doc.selectFirst("div");
+        Element a = doc.selectFirst("a");
+        // removed other assertion
+        // removed other assertion
+
+        // nodes
+        TextNode first = (TextNode) div.firstChild();
+        // removed other assertion
+
+        TextNode last = (TextNode) div.lastChild();
+        // removed other assertion
+
+        // removed other assertion
+        assertNull(a.lastChild());
+    }
+
+    @Test
+    void firstAndLastChild_7_oe() {
+        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
+        Document doc = Jsoup.parse(html);
+        Element div = doc.selectFirst("div");
+        Element a = doc.selectFirst("a");
+        // removed other assertion
+        // removed other assertion
+
+        // nodes
+        TextNode first = (TextNode) div.firstChild();
+        // removed other assertion
+
+        TextNode last = (TextNode) div.lastChild();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // elements
+        Element firstEl = div.firstElementChild();
+        assertEquals("span", firstEl.tagName());
+    }
+
+    @Test
+    void firstAndLastChild_8_oe() {
+        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
+        Document doc = Jsoup.parse(html);
+        Element div = doc.selectFirst("div");
+        Element a = doc.selectFirst("a");
+        // removed other assertion
+        // removed other assertion
+
+        // nodes
+        TextNode first = (TextNode) div.firstChild();
+        // removed other assertion
+
+        TextNode last = (TextNode) div.lastChild();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // elements
+        Element firstEl = div.firstElementChild();
+        // removed other assertion
+
+        Element lastEl = div.lastElementChild();
+        assertEquals("a", lastEl.tagName());
+    }
+
+    @Test
+    void firstAndLastChild_9_oe() {
+        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
+        Document doc = Jsoup.parse(html);
+        Element div = doc.selectFirst("div");
+        Element a = doc.selectFirst("a");
+        // removed other assertion
+        // removed other assertion
+
+        // nodes
+        TextNode first = (TextNode) div.firstChild();
+        // removed other assertion
+
+        TextNode last = (TextNode) div.lastChild();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // elements
+        Element firstEl = div.firstElementChild();
+        // removed other assertion
+
+        Element lastEl = div.lastElementChild();
+        // removed other assertion
+
+        assertNull(a.firstElementChild());
+    }
+
+    @Test
+    void firstAndLastChild_10_oe() {
+        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
+        Document doc = Jsoup.parse(html);
+        Element div = doc.selectFirst("div");
+        Element a = doc.selectFirst("a");
+        // removed other assertion
+        // removed other assertion
+
+        // nodes
+        TextNode first = (TextNode) div.firstChild();
+        // removed other assertion
+
+        TextNode last = (TextNode) div.lastChild();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // elements
+        Element firstEl = div.firstElementChild();
+        // removed other assertion
+
+        Element lastEl = div.lastElementChild();
+        // removed other assertion
+
+        // removed other assertion
+        assertNull(a.lastElementChild());
+    }
+
+    @Test
+    void firstAndLastChild_11_oe() {
+        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
+        Document doc = Jsoup.parse(html);
+        Element div = doc.selectFirst("div");
+        Element a = doc.selectFirst("a");
+        // removed other assertion
+        // removed other assertion
+
+        // nodes
+        TextNode first = (TextNode) div.firstChild();
+        // removed other assertion
+
+        TextNode last = (TextNode) div.lastChild();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // elements
+        Element firstEl = div.firstElementChild();
+        // removed other assertion
+
+        Element lastEl = div.lastElementChild();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertNull(firstEl.firstElementChild());
+    }
+
+    @Test
+    void firstAndLastChild_12_oe() {
+        String html = "<div>One <span>Two</span> <a href></a> Three</div>";
+        Document doc = Jsoup.parse(html);
+        Element div = doc.selectFirst("div");
+        Element a = doc.selectFirst("a");
+        // removed other assertion
+        // removed other assertion
+
+        // nodes
+        TextNode first = (TextNode) div.firstChild();
+        // removed other assertion
+
+        TextNode last = (TextNode) div.lastChild();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // elements
+        Element firstEl = div.firstElementChild();
+        // removed other assertion
+
+        Element lastEl = div.lastElementChild();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertNull(firstEl.lastElementChild());
+    }
 
 }

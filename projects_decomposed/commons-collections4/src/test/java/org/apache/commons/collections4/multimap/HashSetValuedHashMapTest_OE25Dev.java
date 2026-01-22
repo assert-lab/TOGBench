@@ -82,39 +82,6 @@ public class HashSetValuedHashMapTest_OE25Dev<K, V> extends AbstractMultiValuedM
         assertTrue(set.add((V) "a2"));
     }
 
-    public void testSetValuedMapAdd_4_oe() {
-        final SetValuedMap<K, V> setMap = makeObject();
-        // removed other assertion
-
-        final Set<V> set = setMap.get((K) "A");
-        // removed other assertion
-        // removed other assertion
-        assertFalse(set.add((V) "a1"));
-    }
-
-    public void testSetValuedMapAdd_5_oe() {
-        final SetValuedMap<K, V> setMap = makeObject();
-        // removed other assertion
-
-        final Set<V> set = setMap.get((K) "A");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2, setMap.size());
-    }
-
-    public void testSetValuedMapAdd_6_oe() {
-        final SetValuedMap<K, V> setMap = makeObject();
-        // removed other assertion
-
-        final Set<V> set = setMap.get((K) "A");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(setMap.containsKey("A"));
-    }
-
     public void testSetValuedMapRemove_1_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
         assertTrue(setMap.get((K) "whatever") instanceof Set);
@@ -135,68 +102,6 @@ public class HashSetValuedHashMapTest_OE25Dev<K, V> extends AbstractMultiValuedM
         final Set<V> set = setMap.get((K) "A");
         // removed other assertion
         assertTrue(set.add((V) "a2"));
-    }
-
-    public void testSetValuedMapRemove_4_oe() {
-        final SetValuedMap<K, V> setMap = makeObject();
-        // removed other assertion
-
-        final Set<V> set = setMap.get((K) "A");
-        // removed other assertion
-        // removed other assertion
-        assertFalse(set.add((V) "a1"));
-    }
-
-    public void testSetValuedMapRemove_5_oe() {
-        final SetValuedMap<K, V> setMap = makeObject();
-        // removed other assertion
-
-        final Set<V> set = setMap.get((K) "A");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2, setMap.size());
-    }
-
-    public void testSetValuedMapRemove_6_oe() {
-        final SetValuedMap<K, V> setMap = makeObject();
-        // removed other assertion
-
-        final Set<V> set = setMap.get((K) "A");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(setMap.containsKey("A"));
-    }
-
-    public void testSetValuedMapRemove_7_oe() {
-        final SetValuedMap<K, V> setMap = makeObject();
-        // removed other assertion
-
-        final Set<V> set = setMap.get((K) "A");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        assertTrue(set.remove("a1"));
-    }
-
-    public void testSetValuedMapRemove_8_oe() {
-        final SetValuedMap<K, V> setMap = makeObject();
-        // removed other assertion
-
-        final Set<V> set = setMap.get((K) "A");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertTrue(set.remove("a2"));
     }
 
     public void testSetValuedMapRemove_9_oe() {

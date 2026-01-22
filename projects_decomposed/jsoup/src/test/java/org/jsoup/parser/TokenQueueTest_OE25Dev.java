@@ -117,11 +117,57 @@ public class TokenQueueTest_OE25Dev {
         assertEquals(" four", remainder);
         }
 
+    @Test public void chompEscapedBalanced() {
+        TokenQueue_1_oe tq = new TokenQueue(":contains(one (two) \\( \\) \\) three) four");
+        String pre = tq.consumeTo("(");
+        String guts = tq.chompBalanced('(', ')');
+        String remainder = tq.remainder();
+
+        assertEquals(":contains", pre);
+        }
+
+    @Test public void chompEscapedBalanced() {
+        TokenQueue_2_oe tq = new TokenQueue(":contains(one (two) \\( \\) \\) three) four");
+        String pre = tq.consumeTo("(");
+        String guts = tq.chompBalanced('(', ')');
+        String remainder = tq.remainder();
+
+        // removed other assertion
+        assertEquals("one (two) \\( \\) \\) three", guts);
+        }
+
+    @Test public void chompEscapedBalanced() {
+        TokenQueue_3_oe tq = new TokenQueue(":contains(one (two) \\( \\) \\) three) four");
+        String pre = tq.consumeTo("(");
+        String guts = tq.chompBalanced('(', ')');
+        String remainder = tq.remainder();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("one (two) ( ) ) three", TokenQueue.unescape(guts));
+        }
+
+    @Test public void chompEscapedBalanced() {
+        TokenQueue_4_oe tq = new TokenQueue(":contains(one (two) \\( \\) \\) three) four");
+        String pre = tq.consumeTo("(");
+        String guts = tq.chompBalanced('(', ')');
+        String remainder = tq.remainder();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(" four", remainder);
+        }
+
     @Test public void chompBalancedMatchesAsMuchAsPossible() {
         TokenQueue_1_oe tq = new TokenQueue("unbalanced(something(or another)) else");
         tq.consumeTo("(");
         String match = tq.chompBalanced('(', ')');
         assertEquals("something(or another)", match);
+        }
+
+    @Test public void unescape() {
+        assertEquals_1_oe("one ( ) \\", TokenQueue.unescape("one \\( \\) \\\\"));
         }
 
     @Test public void chompToIgnoreCase() {
@@ -140,6 +186,13 @@ public class TokenQueueTest_OE25Dev {
         tq = new TokenQueue("<textarea> one two < three </oops>");
         data = tq.chompToIgnoreCase("</textarea");
         assertEquals("<textarea> one two < three </oops>", data);
+        }
+
+    @Test public void addFirst() {
+        TokenQueue_1_oe tq = new TokenQueue("One Two");
+        tq.consumeWord();
+        tq.addFirst("Three");
+        assertEquals("Three Two", tq.remainder());
         }
 
     @Test public void consumeToIgnoreSecondCallTest() {

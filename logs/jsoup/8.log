@@ -21,52 +21,223 @@
 [INFO] Copying 70 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ jsoup ---
-[INFO] Compiling 78 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/test-classes
-[INFO] 
-[INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ jsoup ---
-[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.jsoup.select.CssTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in org.jsoup.select.CssTest_OE25Dev
-[INFO] Running org.jsoup.select.TraversorTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.jsoup.select.TraversorTest_OE25Dev
-[INFO] Running org.jsoup.parser.ParserTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.jsoup.parser.ParserTest_OE25Dev
-[INFO] Running org.jsoup.parser.ParserIT_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.215 s - in org.jsoup.parser.ParserIT_OE25Dev
-[INFO] Running org.jsoup.safety.SafelistTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.jsoup.safety.SafelistTest_OE25Dev
-[INFO] Running org.jsoup.nodes.LeafNodeTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.jsoup.nodes.LeafNodeTest_OE25Dev
-[INFO] Running org.jsoup.nodes.CommentTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.jsoup.nodes.CommentTest_OE25Dev
-[INFO] Running org.jsoup.nodes.ElementIT_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.204 s - in org.jsoup.nodes.ElementIT_OE25Dev
-[INFO] Running org.jsoup.integration.SessionIT_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 22.479 s - in org.jsoup.integration.SessionIT_OE25Dev
-[INFO] Running org.jsoup.integration.FuzzFixesTest_OE25Dev
-[WARNING] Tests run: 66, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0.817 s - in org.jsoup.integration.FuzzFixesTest_OE25Dev
-[INFO] Running org.jsoup.integration.SessionTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.jsoup.integration.SessionTest_OE25Dev
-[INFO] Running org.jsoup.integration.FuzzFixesIT_OE25Dev
-[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 42.966 s - in org.jsoup.integration.FuzzFixesIT_OE25Dev
-[INFO] Running org.jsoup.integration.ConnectIT_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 36.064 s - in org.jsoup.integration.ConnectIT_OE25Dev
-[INFO] Running org.jsoup.helper.W3CDomTest_OE25Dev
-[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.159 s - in org.jsoup.helper.W3CDomTest_OE25Dev
-[INFO] Running org.jsoup.helper.DataUtilTest_OE25Dev
-[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in org.jsoup.helper.DataUtilTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[WARNING] Tests run: 411, Failures: 0, Errors: 0, Skipped: 1
-[INFO] 
+[INFO] Compiling 87 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[351,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[361,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[372,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[386,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[401,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[417,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[436,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[456,23] method setBaseUriIsRecursive() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[464,23] method setBaseUriIsRecursive() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[473,23] method setBaseUriIsRecursive() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[483,23] method handlesAbsPrefix() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[489,23] method handlesAbsPrefix() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[496,23] method handlesAbsPrefix() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[504,23] method handlesAbsOnImage() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[510,23] method handlesAbsOnImage() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[517,23] method handlesAbsPrefixOnHasAttr() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[526,23] method handlesAbsPrefixOnHasAttr() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[536,23] method handlesAbsPrefixOnHasAttr() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[547,23] method handlesAbsPrefixOnHasAttr() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[560,23] method handlesAbsPrefixOnHasAttr() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[574,23] method handlesAbsPrefixOnHasAttr() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[589,23] method literalAbsPrefix() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[596,23] method literalAbsPrefix() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[604,23] method handleAbsOnFileUris() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[610,23] method handleAbsOnFileUris() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[663,23] method absHandlesRelativeQuery() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[670,23] method absHandlesRelativeQuery() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[680,23] method absHandlesDotFromIndex() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[686,23] method testRemove() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[694,23] method testRemove() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[703,23] method testReplace() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[712,23] method ownerDocument() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[718,23] method ownerDocument() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[725,23] method ownerDocument() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[733,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[740,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[748,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[757,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[767,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[780,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[794,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[809,23] method before() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[818,23] method before() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[830,23] method after() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[839,23] method after() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[851,23] method unwrap() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[860,23] method unwrap() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[870,23] method unwrap() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[881,23] method unwrap() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[893,23] method unwrap() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[906,23] method unwrapNoChildren() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[913,23] method unwrapNoChildren() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[921,23] method traverse() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[938,23] method forEachNode() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[953,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[960,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[968,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[978,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[989,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1002,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1016,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1031,23] method nodeIsNotASiblingOfItself() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1038,23] method nodeIsNotASiblingOfItself() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1047,23] method nodeIsNotASiblingOfItself() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1057,23] method nodeIsNotASiblingOfItself() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1068,23] method childNodesCopy() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1076,23] method childNodesCopy() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1088,23] method childNodesCopy() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1102,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1108,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1117,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1127,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1141,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1156,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1172,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1189,23] method changingAttributeValueShouldReplaceExistingAttributeCaseInsensitive() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1198,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1206,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1216,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1230,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1245,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1261,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1280,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1300,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1321,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[437,23] method filter() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[444,23] method filter() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[452,23] method filter() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[461,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[468,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[476,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[485,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[495,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[508,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[522,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[539,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[557,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[576,23] method hasAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[582,23] method hasAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[589,23] method hasAbsAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:48 min
-[INFO] Finished at: 2026-01-22T03:32:34-06:00
+[INFO] Total time:  2.467 s
+[INFO] Finished at: 2026-01-22T16:33:05-06:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project jsoup: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[351,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[361,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[372,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[386,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[401,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[417,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[436,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[456,23] method setBaseUriIsRecursive() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[464,23] method setBaseUriIsRecursive() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[473,23] method setBaseUriIsRecursive() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[483,23] method handlesAbsPrefix() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[489,23] method handlesAbsPrefix() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[496,23] method handlesAbsPrefix() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[504,23] method handlesAbsOnImage() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[510,23] method handlesAbsOnImage() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[517,23] method handlesAbsPrefixOnHasAttr() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[526,23] method handlesAbsPrefixOnHasAttr() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[536,23] method handlesAbsPrefixOnHasAttr() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[547,23] method handlesAbsPrefixOnHasAttr() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[560,23] method handlesAbsPrefixOnHasAttr() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[574,23] method handlesAbsPrefixOnHasAttr() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[589,23] method literalAbsPrefix() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[596,23] method literalAbsPrefix() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[604,23] method handleAbsOnFileUris() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[610,23] method handleAbsOnFileUris() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[663,23] method absHandlesRelativeQuery() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[670,23] method absHandlesRelativeQuery() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[680,23] method absHandlesDotFromIndex() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[686,23] method testRemove() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[694,23] method testRemove() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[703,23] method testReplace() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[712,23] method ownerDocument() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[718,23] method ownerDocument() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[725,23] method ownerDocument() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[733,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[740,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[748,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[757,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[767,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[780,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[794,23] method root() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[809,23] method before() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[818,23] method before() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[830,23] method after() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[839,23] method after() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[851,23] method unwrap() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[860,23] method unwrap() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[870,23] method unwrap() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[881,23] method unwrap() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[893,23] method unwrap() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[906,23] method unwrapNoChildren() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[913,23] method unwrapNoChildren() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[921,23] method traverse() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[938,23] method forEachNode() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[953,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[960,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[968,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[978,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[989,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1002,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1016,23] method orphanNodeReturnsNullForSiblingElements() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1031,23] method nodeIsNotASiblingOfItself() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1038,23] method nodeIsNotASiblingOfItself() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1047,23] method nodeIsNotASiblingOfItself() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1057,23] method nodeIsNotASiblingOfItself() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1068,23] method childNodesCopy() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1076,23] method childNodesCopy() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1088,23] method childNodesCopy() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1102,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1108,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1117,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1127,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1141,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1156,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1172,23] method supportsClone() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1189,23] method changingAttributeValueShouldReplaceExistingAttributeCaseInsensitive() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1198,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1206,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1216,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1230,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1245,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1261,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1280,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1300,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[1321,16] method clonedNodesHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[437,23] method filter() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[444,23] method filter() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[452,23] method filter() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[461,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[468,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[476,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[485,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[495,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[508,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[522,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[539,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[557,23] method attributes() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[576,23] method hasAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[582,23] method hasAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/ElementsTest_OE25Dev.java:[589,23] method hasAbsAttr() is already defined in class org.jsoup.select.ElementsTest_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

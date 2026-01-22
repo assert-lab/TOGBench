@@ -49,13 +49,6 @@ public class XmlTreeBuilderTest_OE25Dev {
         assertEquals(Syntax.xml, doc.outputSettings().syntax());
     }
 
-    @Test
-    public void testDoesHandleEOFInTag() {
-        String html = "<img src=asdf onerror=\"alert(1)\" x=";
-        Document xmlDoc = Jsoup.parse(html, "", Parser.xmlParser());
-        assertEquals("<img src=\"asdf\" onerror=\"alert(1)\" x=\"\" />", xmlDoc.html());
-    }
-
     @Test public void normalizesDiscordantTags() {
         Parser parser = Parser.xmlParser().settings(ParseSettings.htmlDefault);
         Document document = Jsoup.parse("<div>test</DIV><p></p>", "", parser);
@@ -84,13 +77,6 @@ public class XmlTreeBuilderTest_OE25Dev {
         assertEquals(xml, doc.outerHtml());
 
         assertEquals("//\n\n  foo();\n//", doc.selectFirst("script").text());
-    }
-
-    @Test
-    public void handlesDodgyXmlDecl() {
-        String xml = "<?xml version='1.0'><val>One</val>";
-        Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
-        assertEquals("One", doc.select("val").text());
     }
 
     @Test public void dropsDuplicateAttributes() {
@@ -326,10 +312,50 @@ public class XmlTreeBuilderTest_OE25Dev {
         assertEquals("#comment", doc.childNode(2).nodeName());
         }
 
+    @Test public void xmlFragment() {
+        String xml = "<one src='/foo/' />Two<three><four /></three>";
+        List<Node> nodes = Parser.parseXmlFragment_1_oe(xml, "http://example.com/");
+        assertEquals(3, nodes.size());
+        }
+
+    @Test public void xmlFragment() {
+        String xml = "<one src='/foo/' />Two<three><four /></three>";
+        List<Node> nodes = Parser.parseXmlFragment_2_oe(xml, "http://example.com/");
+        // removed other assertion
+
+        assertEquals("http://example.com/foo/", nodes.get(0).absUrl("src"));
+        }
+
+    @Test public void xmlFragment() {
+        String xml = "<one src='/foo/' />Two<three><four /></three>";
+        List<Node> nodes = Parser.parseXmlFragment_3_oe(xml, "http://example.com/");
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals("one", nodes.get(0).nodeName());
+        }
+
+    @Test public void xmlFragment() {
+        String xml = "<one src='/foo/' />Two<three><four /></three>";
+        List<Node> nodes = Parser.parseXmlFragment_4_oe(xml, "http://example.com/");
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Two", ((TextNode)nodes.get(1)).text());
+        }
+
     @Test public void xmlParseDefaultsToHtmlOutputSyntax() {
         Document doc = Jsoup.parse_1_oe("x", "", Parser.xmlParser());
         assertEquals(Syntax.xml, doc.outputSettings().syntax());
         }
+
+    @Test
+    public void testDoesHandleEOFInTag_1_oe() {
+        String html = "<img src=asdf onerror=\"alert(1)\" x=";
+        Document xmlDoc = Jsoup.parse(html, "", Parser.xmlParser());
+        assertEquals("<img src=\"asdf\" onerror=\"alert(1)\" x=\"\" />", xmlDoc.html());
+    }
 
     @Test
     public void testDetectCharsetEncodingDeclaration_1_oe() throws IOException, URISyntaxException {
@@ -476,6 +502,60 @@ public class XmlTreeBuilderTest_OE25Dev {
         assertEquals("<div>test</div><p></p>", document.html());
         }
 
+    @Test public void roundTripsCdata() {
+        String xml = "<div id=1><![CDATA[\n<html>\n <foo><&amp;]]></div>";
+        Document doc = Jsoup.parse_1_oe(xml, "", Parser.xmlParser());
+
+        Element div = doc.getElementById("1");
+        assertEquals("<html>\n <foo><&amp;", div.text());
+        }
+
+    @Test public void roundTripsCdata() {
+        String xml = "<div id=1><![CDATA[\n<html>\n <foo><&amp;]]></div>";
+        Document doc = Jsoup.parse_2_oe(xml, "", Parser.xmlParser());
+
+        Element div = doc.getElementById("1");
+        // removed other assertion
+        assertEquals(0, div.children().size());
+        }
+
+    @Test public void roundTripsCdata() {
+        String xml = "<div id=1><![CDATA[\n<html>\n <foo><&amp;]]></div>";
+        Document doc = Jsoup.parse_3_oe(xml, "", Parser.xmlParser());
+
+        Element div = doc.getElementById("1");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, div.childNodeSize()); // no elements, one text node;
+        }
+
+    @Test public void roundTripsCdata() {
+        String xml = "<div id=1><![CDATA[\n<html>\n <foo><&amp;]]></div>";
+        Document doc = Jsoup.parse_4_oe(xml, "", Parser.xmlParser());
+
+        Element div = doc.getElementById("1");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("<div id=\"1\"><![CDATA[\n<html>\n <foo><&amp;]]></div>", div.outerHtml());
+        }
+
+    @Test public void roundTripsCdata() {
+        String xml = "<div id=1><![CDATA[\n<html>\n <foo><&amp;]]></div>";
+        Document doc = Jsoup.parse_5_oe(xml, "", Parser.xmlParser());
+
+        Element div = doc.getElementById("1");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        CDataNode cdata = (CDataNode) div.textNodes().get(0);
+        assertEquals("\n<html>\n <foo><&amp;", cdata.text());
+        }
+
     @Test public void cdataPreservesWhiteSpace() {
         String xml = "<script type=\"text/javascript\">//<![CDATA[\n\n  foo();\n//]]></script>";
         Document doc = Jsoup.parse_1_oe(xml, "", Parser.xmlParser());
@@ -489,6 +569,13 @@ public class XmlTreeBuilderTest_OE25Dev {
 
         assertEquals("//\n\n  foo();\n//", doc.selectFirst("script").text());
         }
+
+    @Test
+    public void handlesDodgyXmlDecl_1_oe() {
+        String xml = "<?xml version='1.0'><val>One</val>";
+        Document doc = Jsoup.parse(xml, "", Parser.xmlParser());
+        assertEquals("One", doc.select("val").text());
+    }
 
     @Test
     public void handlesLTinScript_1_oe() {
@@ -505,6 +592,19 @@ public class XmlTreeBuilderTest_OE25Dev {
         Document doc = parser.parseInput(html, "");
 
         assertEquals("<p One=\"One\" ONE=\"Two\" one=\"Three\" two=\"Six\" Two=\"Eight\">Text</p>", doc.selectFirst("p").outerHtml());
+        }
+
+    @Test public void readerClosedAfterParse() {
+        Document doc = Jsoup.parse_1_oe("Hello", "", Parser.xmlParser());
+        TreeBuilder treeBuilder = doc.parser().getTreeBuilder();
+        assertNull(treeBuilder.reader);
+        }
+
+    @Test public void readerClosedAfterParse() {
+        Document doc = Jsoup.parse_2_oe("Hello", "", Parser.xmlParser());
+        TreeBuilder treeBuilder = doc.parser().getTreeBuilder();
+        // removed other assertion
+        assertNull(treeBuilder.tokeniser);
         }
 
     @Test public void xmlParserEnablesXmlOutputAndEscapes() {
@@ -531,6 +631,23 @@ public class XmlTreeBuilderTest_OE25Dev {
         assertEquals("<p one=\"&lt;two>©\">Three</p>", doc.html()); // only the < should be escaped;
         }
 
+    @Test public void xmlSyntaxEscapesLtInAttributes() {
+        // Regardless of the entity escape mode, make sure < is escaped in attributes when in XML
+        Document doc = Jsoup.parse_1_oe("<p one='&lt;two&gt;&copy'>Three</p>", "", Parser.xmlParser());
+        doc.outputSettings().escapeMode(Entities.EscapeMode.extended);
+        doc.outputSettings().charset("ascii"); // to make sure &copy; is output
+        assertEquals(doc.outputSettings().syntax(), Syntax.xml);
+        }
+
+    @Test public void xmlSyntaxEscapesLtInAttributes() {
+        // Regardless of the entity escape mode, make sure < is escaped in attributes when in XML
+        Document doc = Jsoup.parse_2_oe("<p one='&lt;two&gt;&copy'>Three</p>", "", Parser.xmlParser());
+        doc.outputSettings().escapeMode(Entities.EscapeMode.extended);
+        doc.outputSettings().charset("ascii"); // to make sure &copy; is output
+        // removed other assertion
+        assertEquals("<p one=\"&lt;two>&copy;\">Three</p>", doc.html());
+        }
+
     @Test void xmlOutputCorrectsInvalidAttributeNames() {
         String xml = "<body style=\"color: red\" \" name\"><div =\"\"></div></body>";
         Document doc = Jsoup.parse_1_oe(xml, Parser.xmlParser());
@@ -544,6 +661,60 @@ public class XmlTreeBuilderTest_OE25Dev {
 
         String out = doc.html();
         assertEquals("<body style=\"color: red\" name=\"\"><div></div></body>", out);
+        }
+
+    @Test void customTagsAreFlyweights() {
+        String xml = "<foo>Foo</foo><foo>Foo</foo><FOO>FOO</FOO><FOO>FOO</FOO>";
+        Document doc = Jsoup.parse_1_oe(xml, Parser.xmlParser());
+        Elements els = doc.children();
+
+        Tag t1 = els.get(0).tag();
+        Tag t2 = els.get(1).tag();
+        Tag t3 = els.get(2).tag();
+        Tag t4 = els.get(3).tag();
+        assertEquals("foo", t1.getName());
+        }
+
+    @Test void customTagsAreFlyweights() {
+        String xml = "<foo>Foo</foo><foo>Foo</foo><FOO>FOO</FOO><FOO>FOO</FOO>";
+        Document doc = Jsoup.parse_2_oe(xml, Parser.xmlParser());
+        Elements els = doc.children();
+
+        Tag t1 = els.get(0).tag();
+        Tag t2 = els.get(1).tag();
+        Tag t3 = els.get(2).tag();
+        Tag t4 = els.get(3).tag();
+        // removed other assertion
+        assertEquals("FOO", t3.getName());
+        }
+
+    @Test void customTagsAreFlyweights() {
+        String xml = "<foo>Foo</foo><foo>Foo</foo><FOO>FOO</FOO><FOO>FOO</FOO>";
+        Document doc = Jsoup.parse_3_oe(xml, Parser.xmlParser());
+        Elements els = doc.children();
+
+        Tag t1 = els.get(0).tag();
+        Tag t2 = els.get(1).tag();
+        Tag t3 = els.get(2).tag();
+        Tag t4 = els.get(3).tag();
+        // removed other assertion
+        // removed other assertion
+        assertSame(t1, t2);
+        }
+
+    @Test void customTagsAreFlyweights() {
+        String xml = "<foo>Foo</foo><foo>Foo</foo><FOO>FOO</FOO><FOO>FOO</FOO>";
+        Document doc = Jsoup.parse_4_oe(xml, Parser.xmlParser());
+        Elements els = doc.children();
+
+        Tag t1 = els.get(0).tag();
+        Tag t2 = els.get(1).tag();
+        Tag t3 = els.get(2).tag();
+        Tag t4 = els.get(3).tag();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertSame(t3, t4);
         }
 
 }

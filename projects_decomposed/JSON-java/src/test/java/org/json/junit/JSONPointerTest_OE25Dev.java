@@ -113,23 +113,6 @@ public class JSONPointerTest_OE25Dev {
      *  we DON'T escape them
      *  
      */
-    @Test
-    public void queryFromJSONObjectUsingPointer0() {
-    	String str = "{"+
-                "\"string\\\\\\\\Key\":\"hello world!\","+
-
-                "\"\\\\\":\"slash test\"," + 
-                "}"+
-                "}";
-            JSONObject jsonObject = new JSONObject(str);
-            //Summary of issue: When a KEY in the jsonObject is "\\\\" --> it's held
-            // as "\\" which means when querying, we need to use "\\"
-            Object twoBackslahObj = jsonObject.optQuery(new JSONPointer("/\\"));
-            assertEquals("slash test", twoBackslahObj);
-
-            Object fourBackslashObj = jsonObject.optQuery(new JSONPointer("/string\\\\Key"));
-            assertEquals("hello world!", fourBackslashObj);
-    }
 
     @Test
     public void emptyPointer_1_oe() {
@@ -736,6 +719,39 @@ public class JSONPointerTest_OE25Dev {
         // removed other assertion
         obj = jsonArray.optQuery(new JSONPointer("/a/b/c"));
         assertTrue("Expected null", obj == null);
+    }
+
+    @Test
+    public void queryFromJSONObjectUsingPointer0_1_oe() {
+    	String str = "{"+
+                "\"string\\\\\\\\Key\":\"hello world!\","+
+
+                "\"\\\\\":\"slash test\"," + 
+                "}"+
+                "}";
+            JSONObject jsonObject = new JSONObject(str);
+            //Summary of issue: When a KEY in the jsonObject is "\\\\" --> it's held
+            // as "\\" which means when querying, we need to use "\\"
+            Object twoBackslahObj = jsonObject.optQuery(new JSONPointer("/\\"));
+            assertEquals("slash test", twoBackslahObj);
+    }
+
+    @Test
+    public void queryFromJSONObjectUsingPointer0_2_oe() {
+    	String str = "{"+
+                "\"string\\\\\\\\Key\":\"hello world!\","+
+
+                "\"\\\\\":\"slash test\"," + 
+                "}"+
+                "}";
+            JSONObject jsonObject = new JSONObject(str);
+            //Summary of issue: When a KEY in the jsonObject is "\\\\" --> it's held
+            // as "\\" which means when querying, we need to use "\\"
+            Object twoBackslahObj = jsonObject.optQuery(new JSONPointer("/\\"));
+            // removed other assertion
+
+            Object fourBackslashObj = jsonObject.optQuery(new JSONPointer("/string\\\\Key"));
+            assertEquals("hello world!", fourBackslashObj);
     }
 
 }

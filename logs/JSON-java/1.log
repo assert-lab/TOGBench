@@ -20,62 +20,52 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ json ---
 [INFO] Compiling 57 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[512,38] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[523,42] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[537,36] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[551,38] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[579,40] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[608,47] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[632,46] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[651,53] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[675,45] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[699,43] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[723,45] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[747,51] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[771,47] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[779,50] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[786,51] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[794,51] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[805,51] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[813,51] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[824,51] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[836,45] error: ';' expected
-[INFO] 20 errors 
-[INFO] -------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ json ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.json.junit.JSONMLTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.104 s - in org.json.junit.JSONMLTest_OE25Dev
+[INFO] Running org.json.junit.JSONArrayTest_OE25Dev
+[INFO] Tests run: 204, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.28 s - in org.json.junit.JSONArrayTest_OE25Dev
+[INFO] Running org.json.junit.CookieListTest_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.CookieListTest_OE25Dev
+[INFO] Running org.json.junit.XMLTest_OE25Dev
+[INFO] Tests run: 97, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s - in org.json.junit.XMLTest_OE25Dev
+[INFO] Running org.json.junit.HTTPTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.HTTPTest_OE25Dev
+[INFO] Running org.json.junit.EnumTest_OE25Dev
+[INFO] Tests run: 82, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in org.json.junit.EnumTest_OE25Dev
+[INFO] Running org.json.junit.JSONObjectLocaleTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.JSONObjectLocaleTest_OE25Dev
+[INFO] Running org.json.junit.PropertyTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.PropertyTest_OE25Dev
+[INFO] Running org.json.junit.JSONStringTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.JSONStringTest_OE25Dev
+[INFO] Running org.json.junit.JSONPointerTest_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.json.junit.JSONPointerTest_OE25Dev
+[INFO] Running org.json.junit.XMLConfigurationTest_OE25Dev
+[INFO] Tests run: 84, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in org.json.junit.XMLConfigurationTest_OE25Dev
+[INFO] Running org.json.junit.JSONStringerTest_OE25Dev
+[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.json.junit.JSONStringerTest_OE25Dev
+[INFO] Running org.json.junit.CookieTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.json.junit.CookieTest_OE25Dev
+[INFO] Running org.json.junit.JSONTokenerTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.json.junit.JSONTokenerTest_OE25Dev
+[INFO] Running org.json.junit.CDLTest_OE25Dev
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.CDLTest_OE25Dev
+[INFO] Running org.json.junit.JSONObjectTest_OE25Dev
+[INFO] Tests run: 505, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.322 s - in org.json.junit.JSONObjectTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1186, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  7.346 s
-[INFO] Finished at: 2026-01-22T03:29:00-06:00
+[INFO] Total time:  13.906 s
+[INFO] Finished at: 2026-01-22T16:31:42-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:2.3.2:testCompile (default-testCompile) on project json: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[512,38] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[523,42] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[537,36] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[551,38] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[579,40] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[608,47] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[632,46] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[651,53] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[675,45] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[699,43] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[723,45] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[747,51] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[771,47] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[779,50] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[786,51] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[794,51] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[805,51] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[813,51] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[824,51] error: ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[836,45] error: ';' expected
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

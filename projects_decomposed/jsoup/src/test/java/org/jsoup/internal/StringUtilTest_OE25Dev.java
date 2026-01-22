@@ -504,6 +504,19 @@ public class StringUtilTest_OE25Dev {
         assertEquals(5, StringUtil.padding(20, 5).length());
         }
 
+    @Test public void paddingInACan() {
+        String[] padding = StringUtil.padding;
+        assertEquals_1_oe(21, padding.length);
+        }
+
+    @Test public void paddingInACan() {
+        String[] padding = StringUtil.padding;
+        assertEquals_2_oe(21, padding.length);
+        for (int i = 0; i < padding.length; i++) {
+            assertEquals(i, padding[i].length());
+        }
+        }
+
     @Test public void isBlank() {
         assertTrue_1_oe(StringUtil.isBlank(null));
         }
@@ -543,6 +556,57 @@ public class StringUtilTest_OE25Dev {
 
         // removed other assertion
         assertFalse(StringUtil.isBlank("   hello   "));
+        }
+
+    @Test public void isNumeric() {
+        assertFalse_1_oe(StringUtil.isNumeric(null));
+        }
+
+    @Test public void isNumeric() {
+        assertFalse_2_oe(StringUtil.isNumeric(null));
+        assertFalse(StringUtil.isNumeric(" "));
+        }
+
+    @Test public void isNumeric() {
+        assertFalse_3_oe(StringUtil.isNumeric(null));
+        // removed other assertion
+        assertFalse(StringUtil.isNumeric("123 546"));
+        }
+
+    @Test public void isNumeric() {
+        assertFalse_4_oe(StringUtil.isNumeric(null));
+        // removed other assertion
+        // removed other assertion
+        assertFalse(StringUtil.isNumeric("hello"));
+        }
+
+    @Test public void isNumeric() {
+        assertFalse_5_oe(StringUtil.isNumeric(null));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(StringUtil.isNumeric("123.334"));
+        }
+
+    @Test public void isNumeric() {
+        assertFalse_6_oe(StringUtil.isNumeric(null));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue(StringUtil.isNumeric("1"));
+        }
+
+    @Test public void isNumeric() {
+        assertFalse_7_oe(StringUtil.isNumeric(null));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertTrue(StringUtil.isNumeric("1234"));
         }
 
     @Test public void isWhitespace() {
@@ -608,6 +672,28 @@ public class StringUtilTest_OE25Dev {
         assertFalse(StringUtil.isWhitespace('\u3000'));
         }
 
+    @Test public void normaliseWhiteSpace() {
+        assertEquals_1_oe(" ", normaliseWhitespace("    \r \n \r\n"));
+        }
+
+    @Test public void normaliseWhiteSpace() {
+        assertEquals_2_oe(" ", normaliseWhitespace("    \r \n \r\n"));
+        assertEquals(" hello there ", normaliseWhitespace("   hello   \r \n  there    \n"));
+        }
+
+    @Test public void normaliseWhiteSpace() {
+        assertEquals_3_oe(" ", normaliseWhitespace("    \r \n \r\n"));
+        // removed other assertion
+        assertEquals("hello", normaliseWhitespace("hello"));
+        }
+
+    @Test public void normaliseWhiteSpace() {
+        assertEquals_4_oe(" ", normaliseWhitespace("    \r \n \r\n"));
+        // removed other assertion
+        // removed other assertion
+        assertEquals("hello there", normaliseWhitespace("hello\nthere"));
+        }
+
     @Test public void normaliseWhiteSpaceHandlesHighSurrogates() {
         String test71540chars = "\ud869\udeb2\u304b\u309a  1";
         String test71540charsExpectedSingleWhitespace = "\ud869\udeb2\u304b\u309a 1";
@@ -624,9 +710,655 @@ public class StringUtilTest_OE25Dev {
         assertEquals(test71540charsExpectedSingleWhitespace, extractedText);
         }
 
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_1_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_2_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        assertEquals("http://example.com/one/two?three", resolve("http://example.com?one", "./one/two?three"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_3_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        assertEquals("http://example.com/one/two?three#four", resolve("http://example.com", "./one/two?three#four"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_4_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        assertEquals("https://example.com/one", resolve("http://example.com/", "https://example.com/one"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_5_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/one/two.html", resolve("http://example.com/two/", "../one/two.html"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_6_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("https://example2.com/one", resolve("https://example.com/", "//example2.com/one"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_7_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("https://example.com:8080/one", resolve("https://example.com:8080", "./one"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_8_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("https://example2.com/one", resolve("http://example.com/", "https://example2.com/one"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_9_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("https://example.com/one", resolve("wrong", "https://example.com/one"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_10_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("https://example.com/one", resolve("https://example.com/one", ""));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_11_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("", resolve("wrong", "also wrong"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_12_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://example.com/one", resolve("ftp://example.com/two/", "../one"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_13_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://example.com/one/two.c", resolve("ftp://example.com/one/", "./two.c"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_14_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("ftp://example.com/one/two.c", resolve("ftp://example.com/one/", "two.c"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_15_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        assertEquals("http://example.com/g", resolve("http://example.com/b/c/d;p?q", "../../../g"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_16_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        assertEquals("http://example.com/g", resolve("http://example.com/b/c/d;p?q", "../../../../g"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_17_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/g", resolve("http://example.com/b/c/d;p?q", "/./g"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_18_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/g", resolve("http://example.com/b/c/d;p?q", "/../g"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_19_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/g.", resolve("http://example.com/b/c/d;p?q", "g."));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_20_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/.g", resolve("http://example.com/b/c/d;p?q", ".g"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_21_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/g..", resolve("http://example.com/b/c/d;p?q", "g.."));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_22_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/..g", resolve("http://example.com/b/c/d;p?q", "..g"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_23_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/g", resolve("http://example.com/b/c/d;p?q", "./../g"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_24_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/g/", resolve("http://example.com/b/c/d;p?q", "./g/."));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_25_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/g/h", resolve("http://example.com/b/c/d;p?q", "g/./h"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_26_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/h", resolve("http://example.com/b/c/d;p?q", "g/../h"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_27_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/g;x=1/y", resolve("http://example.com/b/c/d;p?q", "g;x=1/./y"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_28_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/y", resolve("http://example.com/b/c/d;p?q", "g;x=1/../y"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_29_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/g?y/./x", resolve("http://example.com/b/c/d;p?q", "g?y/./x"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_30_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/g?y/../x", resolve("http://example.com/b/c/d;p?q", "g?y/../x"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_31_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/g#s/./x", resolve("http://example.com/b/c/d;p?q", "g#s/./x"));
+        }
+
+    @Test public void resolvesRelativeUrls() {
+        assertEquals_32_oe("http://example.com/one/two?three", resolve("http://example.com", "./one/two?three"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // examples taken from rfc3986 section 5.4.2
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("http://example.com/b/c/g#s/../x", resolve("http://example.com/b/c/d;p?q", "g#s/../x"));
+        }
+
     @Test void stripsControlCharsFromUrls() {
         // should resovle to an absolute url:
         assertEquals_1_oe("foo:bar", resolve("\nhttps://\texample.com/", "\r\nfo\to:ba\br"));
+        }
+
+    @Test void allowsSpaceInUrl() {
+        assertEquals_1_oe("https://example.com/foo bar/", resolve("HTTPS://example.com/example/", "../foo bar/"));
         }
 
     @Test

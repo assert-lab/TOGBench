@@ -431,94 +431,6 @@ public class JSONMLTest_OE25Dev {
         Util.compareActualVsExpectedJsonArrays(finalJsonArray, expectedJsonArray);
     }
 
-    /**
-     * JSON string with lost leading zero and converted "True" to true. See test
-     * result in comment below.
-     */
-
-    /**
-     * JSON string cannot be reverted to original xml when type guessing is used.
-     */
-
-    /**
-     * JSON string cannot be reverted to original xml when type guessing is used.
-     * When we force all the values as string, the original text comes back.
-     */
-
-    /**
-     * JSON can be reverted to original xml.
-     */
-    
-    /**
-     * JSON string cannot be reverted to original xml. See test result in
-     * comment below.
-     */
-
-// these tests do not pass for the following reasons:
-// 1. Our XML parser does not handle generic HTML entities, only valid XML entities. Hence &nbsp;
-//     or other HTML specific entities would fail on reversability
-// 2. Our JSON implementation for storing the XML attributes uses the standard unordered map.
-//     This means that <tag attr1="v1" attr2="v2" /> can not be reversed reliably.  
-//
-//    /**
-//     * Test texts taken from jsonml.org. Currently our implementation FAILS this conversion but shouldn't.
-//     * Technically JsonML should be able to transform any valid xhtml document, but ours only supports
-//     * standard XML entities, not HTML entities.
-//     */
-//    @Test
-//    public void testAttributeConversionReversabilityHTML() {
-//        final String originalXml = "<table class=\"MyTable\" style=\"background-color:yellow\"><tr><td class=\"MyTD\" style=\"border:1px solid black\">#5D28D1</td><td class=\"MyTD\" style=\"background-color:red\">Example text here</td></tr><tr><td class=\"MyTD\" style=\"border:1px solid black\">#AF44EF</td><td class=\"MyTD\" style=\"background-color:green\">127310656</td></tr><tr><td class=\"MyTD\" style=\"border:1px solid black\">#AAD034</td><td class=\"MyTD\" style=\"background-color:blue\">&nbsp;<span style=\"background-color:maroon\">&copy;</span>&nbsp;</td></tr></table>";
-//        final String expectedJsonString = "[\"table\",{\"class\" : \"MyTable\",\"style\" : \"background-color:yellow\"},[\"tr\",[\"td\",{\"class\" : \"MyTD\",\"style\" : \"border:1px solid black\"},\"#550758\"],[\"td\",{\"class\" : \"MyTD\",\"style\" : \"background-color:red\"},\"Example text here\"]],[\"tr\",[\"td\",{\"class\" : \"MyTD\",\"style\" : \"border:1px solid black\"},\"#993101\"],[\"td\",{\"class\" : \"MyTD\",\"style\" : \"background-color:green\"},\"127624015\"]],[\"tr\",[\"td\",{\"class\" : \"MyTD\",\"style\" : \"border:1px solid black\"},\"#E33D87\"],[\"td\",{\"class\" : \"MyTD\",\"style\" : \"background-color:blue\"},\"\u00A0\",[\"span\",{ \"style\" : \"background-color:maroon\" },\"\u00A9\"],\"\u00A0\"]]]";
-//        final JSONArray json = JSONML.toJSONArray(originalXml,true);
-//        final String actualJsonString = json.toString();
-//        
-//        final String reverseXml = JSONML.toString(json);
-//        assertNotEquals(originalXml, reverseXml);
-//
-//        assertNotEquals(expectedJsonString, actualJsonString);
-//    }
-//    
-//    /**
-//     * Test texts taken from jsonml.org but modified to have XML entities only.
-//     */
-//    @Test
-//    public void testAttributeConversionReversabilityXML() {
-//        final String originalXml = "<table class=\"MyTable\" style=\"background-color:yellow\"><tr><td class=\"MyTD\" style=\"border:1px solid black\">#5D28D1</td><td class=\"MyTD\" style=\"background-color:red\">Example text here</td></tr><tr><td class=\"MyTD\" style=\"border:1px solid black\">#AF44EF</td><td class=\"MyTD\" style=\"background-color:green\">127310656</td></tr><tr><td class=\"MyTD\" style=\"border:1px solid black\">#AAD034</td><td class=\"MyTD\" style=\"background-color:blue\">&amp;<span style=\"background-color:maroon\">&gt;</span>&lt;</td></tr></table>";
-//        final String expectedJsonString = "[\"table\",{\"class\" : \"MyTable\",\"style\" : \"background-color:yellow\"},[\"tr\",[\"td\",{\"class\" : \"MyTD\",\"style\" : \"border:1px solid black\"},\"#550758\"],[\"td\",{\"class\" : \"MyTD\",\"style\" : \"background-color:red\"},\"Example text here\"]],[\"tr\",[\"td\",{\"class\" : \"MyTD\",\"style\" : \"border:1px solid black\"},\"#993101\"],[\"td\",{\"class\" : \"MyTD\",\"style\" : \"background-color:green\"},\"127624015\"]],[\"tr\",[\"td\",{\"class\" : \"MyTD\",\"style\" : \"border:1px solid black\"},\"#E33D87\"],[\"td\",{\"class\" : \"MyTD\",\"style\" : \"background-color:blue\"},\"&\",[\"span\",{ \"style\" : \"background-color:maroon\" },\">\"],\"<\"]]]";
-//        final JSONArray jsonML = JSONML.toJSONArray(originalXml,true);
-//        final String actualJsonString = jsonML.toString();
-//        
-//        final String reverseXml = JSONML.toString(jsonML);
-//        // currently not equal because the hashing of the attribute objects makes the attribute
-//        // order not happen the same way twice 
-//        assertEquals(originalXml, reverseXml);
-//
-//        assertEquals(expectedJsonString, actualJsonString);
-//    }
-    
-    @Test (timeout = 6000)
-    public void testIssue484InfinteLoop1() {
-        try {
-            JSONML.toJSONObject("??*^M??|?CglR^F??`??>?w??PIlr^E??D^X^]?$?-^R?o??O?*??{OD?^FY??`2a????NM?b^Tq?:O?>S$^K?J?^FB.gUK?m^H??zE??^??!v]?^A???^[^A??^U?c??????h???s???g^Z???`?q^Dbi??:^QZl?)?}1^??k?0??:$V?$?Ovs(}J??^V????2;^QgQ?^_^A?^D?^U?Tg?K?`?h%c?hmGA?<!C*^P^Y?^X9?~?t?)??,z^XA???S}?Q??.q?j????]");
-            fail("Exception expected for invalid JSON.");
-        } catch (JSONException ex) {
-            assertEquals("Exception string did not match: ",
-                    "Unterminated string at 271 [character 272 line 1]",
-                    ex.getMessage());
-        }
-    }
-    
-    @Test (timeout = 6000)
-    public void testIssue484InfinteLoop2() {
-        try {
-            String input = "??*\n" + 
-                    "??|?CglR??`??>?w??PIlr??D?$?-?o??O?*??{OD?Y??`2a????NM?bq?:O?>S$?J?B.gUK?m\b??zE???!v]???????c??????h???s???g???`?qbi??:Zl?)?}1^??k?0??:$V?$?Ovs(}J??????2;gQ????Tg?K?`?h%c?hmGA?<!C*?9?~?t?)??,zA???S}?Q??.q?j????]";
-         JSONML.toJSONObject(input);
-            fail("Exception expected for invalid JSON.");
-        } catch (JSONException ex) {
-            assertEquals("Exception string did not match: ",
-                    "Unterminated string at 242 [character 238 line 2]",
-                    ex.getMessage());
 
     @Test
     public void emptyXMLException_2_oe() {
@@ -844,6 +756,14 @@ public class JSONMLTest_OE25Dev {
         assertEquals("original JSON does not equal the new JSON",originalJson, newJson);
     }
 
-        }
+    @Test (timeout = 6000)
+    public void testIssue484InfinteLoop1_2_oe() {
+        try {
+            JSONML.toJSONObject("??*^M??|?CglR^F??`??>?w??PIlr^E??D^X^]?$?-^R?o??O?*??{OD?^FY??`2a????NM?b^Tq?:O?>S$^K?J?^FB.gUK?m^H??zE??^??!v]?^A???^[^A??^U?c??????h???s???g^Z???`?q^Dbi??:^QZl?)?}1^??k?0??:$V?$?Ovs(}J??^V????2;^QgQ?^_^A?^D?^U?Tg?K?`?h%c?hmGA?<!C*^P^Y?^X9?~?t?)??,z^XA???S}?Q??.q?j????]");
+            // removed other assertion
+        } catch (JSONException ex) {
+            assertEquals("Exception string did not match: ", "Unterminated string at 271 [character 272 line 1]", ex.getMessage());
     }
-}
+    }
+
+        }

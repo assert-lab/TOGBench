@@ -75,15 +75,6 @@ public class ConnectTest_OE25Dev {
         assertEquals("Yes", ihVal("Cookie: DoesItWork", doc));
     }
 
-    @Test
-    public void supportsDeflate() throws IOException {
-        Connection.Response res = Jsoup.connect(Deflateservlet.Url).execute();
-        assertEquals("deflate", res.header("Content-Encoding"));
-
-        Document doc = res.parse();
-        assertEquals("Hello, World!", doc.selectFirst("p").text());
-    }
-
     @Test public void handlesRedirect() throws IOException {
         Document doc = Jsoup.connect(RedirectServlet.Url)
             .data(RedirectServlet.LocationParam, HelloServlet.Url)
@@ -198,6 +189,35 @@ public class ConnectTest_OE25Dev {
     /**
      * Test fetching a form, and submitting it with a file attached.
      */
+    @Test
+    public void postHtmlFile() throws IOException {
+        Document index = Jsoup.connect(FileServlet.urlTo("/htmltests/upload-form.html")).get();
+        List<FormElement> forms = index.select("[name=tidy]").forms();
+        assertEquals(1, forms.size());
+        FormElement form = forms.get(0);
+        Connection post = form.submit();
+
+        File uploadFile = ParseTest.getFile("/htmltests/google-ipod.html.gz");
+        FileInputStream stream = new FileInputStream(uploadFile);
+
+        Connection.KeyVal fileData = post.data("_file");
+        assertNotNull(fileData);
+        fileData.value("check.html");
+        fileData.inputStream(stream);
+
+        Connection.Response res;
+        try {
+            res = post.execute();
+        } finally {
+            stream.close();
+        }
+
+        Document doc = res.parse();
+        assertEquals(ihVal("Method", doc), "POST"); // from form action
+        assertEquals(ihVal("Part _file Filename", doc), "check.html");
+        assertEquals(ihVal("Part _file Name", doc), "_file");
+        assertEquals(ihVal("_function", doc), "tidy");
+    }
 
     @Test
     public void fetchHandlesXml() throws IOException {
@@ -217,6 +237,85 @@ public class ConnectTest_OE25Dev {
         assertTrue(req.parser().getTreeBuilder() instanceof XmlTreeBuilder);
         assertEquals("<doc><val>One<val>Two</val>Three</val></doc>\n", doc.outerHtml());
         assertEquals(con.response().contentType(), contentType);
+    }
+
+    @Test
+    public void fetchHandlesXmlAsHtmlWhenParserSet() throws IOException {
+        // should auto-detect xml and use XML parser, unless explicitly requested the html parser
+        String xmlUrl = FileServlet.urlTo("/htmltests/xml-test.xml");
+        Connection con = Jsoup.connect(xmlUrl).parser(Parser.htmlParser());
+        con.data(FileServlet.ContentTypeParam, "application/xml");
+        Document doc = con.get();
+        Connection.Request req = con.request();
+        assertTrue(req.parser().getTreeBuilder() instanceof HtmlTreeBuilder);
+        assertEquals("<html> <head></head> <body> <doc> <val> One <val> Two </val>Three </val> </doc> </body> </html>", StringUtil.normaliseWhitespace(doc.outerHtml()));
+    }
+
+    @Test
+    public void combinesSameHeadersWithComma() throws IOException {
+        // http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
+        Connection con = Jsoup.connect(echoUrl);
+        con.get();
+
+        Connection.Response res = con.response();
+        assertEquals("text/html;charset=utf-8", res.header("Content-Type"));
+        assertEquals("no-cache, no-store", res.header("Cache-Control"));
+
+        List<String> header = res.headers("Cache-Control");
+        assertEquals(2, header.size());
+        assertEquals("no-cache", header.get(0));
+        assertEquals("no-store", header.get(1));
+    }
+
+    @Test
+    public void sendHeadRequest() throws IOException {
+        String url = FileServlet.urlTo("/htmltests/xml-test.xml");
+        Connection con = Jsoup.connect(url)
+            .method(Connection.Method.HEAD)
+            .data(FileServlet.ContentTypeParam, "text/xml");
+        final Connection.Response response = con.execute();
+        assertEquals("text/xml", response.header("Content-Type"));
+        assertEquals("", response.body()); // head ought to have no body
+        Document doc = response.parse();
+        assertEquals("", doc.text());
+    }
+
+    @Test
+    public void fetchToW3c() throws IOException {
+        String url = FileServlet.urlTo("/htmltests/upload-form.html");
+        Document doc = Jsoup.connect(url).get();
+
+        W3CDom dom = new W3CDom();
+        org.w3c.dom.Document wDoc = dom.fromJsoup(doc);
+        assertEquals(url, wDoc.getDocumentURI());
+        String html = dom.asString(wDoc);
+        assertTrue(html.contains("Upload"));
+    }
+
+    @Test
+    public void baseHrefCorrectAfterHttpEquiv() throws IOException {
+        // https://github.com/jhy/jsoup/issues/440
+        Connection.Response res = Jsoup.connect(FileServlet.urlTo("/htmltests/charset-base.html")).execute();
+        Document doc = res.parse();
+        assertEquals("http://example.com/foo.jpg", doc.select("img").first().absUrl("src"));
+    }
+
+    @Test
+    public void maxBodySize() throws IOException {
+        String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
+
+        Connection.Response defaultRes = Jsoup.connect(url).execute();
+        Connection.Response smallRes = Jsoup.connect(url).maxBodySize(50 * 1024).execute(); // crops
+        Connection.Response mediumRes = Jsoup.connect(url).maxBodySize(200 * 1024).execute(); // crops
+        Connection.Response largeRes = Jsoup.connect(url).maxBodySize(300 * 1024).execute(); // does not crop
+        Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
+
+        int actualDocText = 269535;
+        assertEquals(actualDocText, defaultRes.parse().text().length());
+        assertEquals(49165, smallRes.parse().text().length());
+        assertEquals(196577, mediumRes.parse().text().length());
+        assertEquals(actualDocText, largeRes.parse().text().length());
+        assertEquals(actualDocText, unlimitedRes.parse().text().length());
     }
 
     @Test public void repeatable() throws IOException {
@@ -1251,6 +1350,21 @@ public class ConnectTest_OE25Dev {
         }
 
     @Test
+    public void supportsDeflate_1_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(Deflateservlet.Url).execute();
+        assertEquals("deflate", res.header("Content-Encoding"));
+    }
+
+    @Test
+    public void supportsDeflate_2_oe() throws IOException {
+        Connection.Response res = Jsoup.connect(Deflateservlet.Url).execute();
+        // removed other assertion
+
+        Document doc = res.parse();
+        assertEquals("Hello, World!", doc.selectFirst("p").text());
+    }
+
+    @Test
     public void handlesLargerContentLengthParseRead_1_oe() throws IOException {
         // this handles situations where the remote server sets a content length greater than it actually writes
 
@@ -1310,6 +1424,28 @@ public class ConnectTest_OE25Dev {
         assertEquals(HelloServlet.Url, doc.location());
         }
 
+    @Test public void handlesEmptyRedirect() {
+        boolean threw = false;
+        try {
+            Connection.Response res = Jsoup.connect_1_oe(RedirectServlet.Url)
+                .execute();
+        } catch (IOException e) {
+            assertTrue(e.getMessage().contains("Too many redirects"));
+        }
+        }
+
+    @Test public void handlesEmptyRedirect() {
+        boolean threw = false;
+        try {
+            Connection.Response res = Jsoup.connect_2_oe(RedirectServlet.Url)
+                .execute();
+        } catch (IOException e) {
+            // removed other assertion
+            threw = true;
+        }
+        assertTrue(threw);
+        }
+
     @Test public void doesNotPostFor302() throws IOException {
         final Document doc = Jsoup.connect_1_oe(RedirectServlet.Url)
             .data("Hello", "there")
@@ -1340,6 +1476,39 @@ public class ConnectTest_OE25Dev {
         assertNull(ihVal("Hello", doc)); // data not sent;
         }
 
+    @Test public void doesPostFor307() throws IOException {
+        final Document doc = Jsoup.connect_1_oe(RedirectServlet.Url)
+            .data("Hello", "there")
+            .data(RedirectServlet.LocationParam, EchoServlet.Url)
+            .data(RedirectServlet.CodeParam, "307")
+            .post();
+
+        assertEquals(EchoServlet.Url, doc.location());
+        }
+
+    @Test public void doesPostFor307() throws IOException {
+        final Document doc = Jsoup.connect_2_oe(RedirectServlet.Url)
+            .data("Hello", "there")
+            .data(RedirectServlet.LocationParam, EchoServlet.Url)
+            .data(RedirectServlet.CodeParam, "307")
+            .post();
+
+        // removed other assertion
+        assertEquals("POST", ihVal("Method", doc));
+        }
+
+    @Test public void doesPostFor307() throws IOException {
+        final Document doc = Jsoup.connect_3_oe(RedirectServlet.Url)
+            .data("Hello", "there")
+            .data(RedirectServlet.LocationParam, EchoServlet.Url)
+            .data(RedirectServlet.CodeParam, "307")
+            .post();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("there", ihVal("Hello", doc));
+        }
+
     @Test public void getUtf8Bom() throws IOException {
         Connection con = Jsoup.connect_1_oe(FileServlet.urlTo("/bomtests/bom_utf8.html"));
         Document doc = con.get();
@@ -1353,392 +1522,6 @@ public class ConnectTest_OE25Dev {
 
         // removed other assertion
         assertEquals("OK", doc.title());
-        }
-
-    @Test
-    public void postHtmlFile_1_oe() throws IOException {
-        Document index = Jsoup.connect(FileServlet.urlTo("/htmltests/upload-form.html")).get();
-        List<FormElement> forms = index.select("[name=tidy]").forms();
-        assertEquals(1, forms.size());
-    }
-
-    @Test
-    public void postHtmlFile_2_oe() throws IOException {
-        Document index = Jsoup.connect(FileServlet.urlTo("/htmltests/upload-form.html")).get();
-        List<FormElement> forms = index.select("[name=tidy]").forms();
-        // removed other assertion
-        FormElement form = forms.get(0);
-        Connection post = form.submit();
-
-        File uploadFile = ParseTest.getFile("/htmltests/google-ipod.html.gz");
-        FileInputStream stream = new FileInputStream(uploadFile);
-
-        Connection.KeyVal fileData = post.data("_file");
-        assertNotNull(fileData);
-    }
-
-    @Test
-    public void postHtmlFile_3_oe() throws IOException {
-        Document index = Jsoup.connect(FileServlet.urlTo("/htmltests/upload-form.html")).get();
-        List<FormElement> forms = index.select("[name=tidy]").forms();
-        // removed other assertion
-        FormElement form = forms.get(0);
-        Connection post = form.submit();
-
-        File uploadFile = ParseTest.getFile("/htmltests/google-ipod.html.gz");
-        FileInputStream stream = new FileInputStream(uploadFile);
-
-        Connection.KeyVal fileData = post.data("_file");
-        // removed other assertion
-        fileData.value("check.html");
-        fileData.inputStream(stream);
-
-        Connection.Response res;
-        try {
-            res = post.execute();
-        } finally {
-            stream.close();
-        }
-
-        Document doc = res.parse();
-        assertEquals(ihVal("Method", doc), "POST"); // from form action;
-    }
-
-    @Test
-    public void postHtmlFile_4_oe() throws IOException {
-        Document index = Jsoup.connect(FileServlet.urlTo("/htmltests/upload-form.html")).get();
-        List<FormElement> forms = index.select("[name=tidy]").forms();
-        // removed other assertion
-        FormElement form = forms.get(0);
-        Connection post = form.submit();
-
-        File uploadFile = ParseTest.getFile("/htmltests/google-ipod.html.gz");
-        FileInputStream stream = new FileInputStream(uploadFile);
-
-        Connection.KeyVal fileData = post.data("_file");
-        // removed other assertion
-        fileData.value("check.html");
-        fileData.inputStream(stream);
-
-        Connection.Response res;
-        try {
-            res = post.execute();
-        } finally {
-            stream.close();
-        }
-
-        Document doc = res.parse();
-        // removed other assertion
-        assertEquals(ihVal("Part _file Filename", doc), "check.html");
-    }
-
-    @Test
-    public void postHtmlFile_5_oe() throws IOException {
-        Document index = Jsoup.connect(FileServlet.urlTo("/htmltests/upload-form.html")).get();
-        List<FormElement> forms = index.select("[name=tidy]").forms();
-        // removed other assertion
-        FormElement form = forms.get(0);
-        Connection post = form.submit();
-
-        File uploadFile = ParseTest.getFile("/htmltests/google-ipod.html.gz");
-        FileInputStream stream = new FileInputStream(uploadFile);
-
-        Connection.KeyVal fileData = post.data("_file");
-        // removed other assertion
-        fileData.value("check.html");
-        fileData.inputStream(stream);
-
-        Connection.Response res;
-        try {
-            res = post.execute();
-        } finally {
-            stream.close();
-        }
-
-        Document doc = res.parse();
-        // removed other assertion
-        // removed other assertion
-        assertEquals(ihVal("Part _file Name", doc), "_file");
-    }
-
-    @Test
-    public void postHtmlFile_6_oe() throws IOException {
-        Document index = Jsoup.connect(FileServlet.urlTo("/htmltests/upload-form.html")).get();
-        List<FormElement> forms = index.select("[name=tidy]").forms();
-        // removed other assertion
-        FormElement form = forms.get(0);
-        Connection post = form.submit();
-
-        File uploadFile = ParseTest.getFile("/htmltests/google-ipod.html.gz");
-        FileInputStream stream = new FileInputStream(uploadFile);
-
-        Connection.KeyVal fileData = post.data("_file");
-        // removed other assertion
-        fileData.value("check.html");
-        fileData.inputStream(stream);
-
-        Connection.Response res;
-        try {
-            res = post.execute();
-        } finally {
-            stream.close();
-        }
-
-        Document doc = res.parse();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(ihVal("_function", doc), "tidy");
-    }
-
-    @Test
-    public void fetchHandlesXmlAsHtmlWhenParserSet_1_oe() throws IOException {
-        // should auto-detect xml and use XML parser, unless explicitly requested the html parser
-        String xmlUrl = FileServlet.urlTo("/htmltests/xml-test.xml");
-        Connection con = Jsoup.connect(xmlUrl).parser(Parser.htmlParser());
-        con.data(FileServlet.ContentTypeParam, "application/xml");
-        Document doc = con.get();
-        Connection.Request req = con.request();
-        assertTrue(req.parser().getTreeBuilder() instanceof HtmlTreeBuilder);
-    }
-
-    @Test
-    public void fetchHandlesXmlAsHtmlWhenParserSet_2_oe() throws IOException {
-        // should auto-detect xml and use XML parser, unless explicitly requested the html parser
-        String xmlUrl = FileServlet.urlTo("/htmltests/xml-test.xml");
-        Connection con = Jsoup.connect(xmlUrl).parser(Parser.htmlParser());
-        con.data(FileServlet.ContentTypeParam, "application/xml");
-        Document doc = con.get();
-        Connection.Request req = con.request();
-        // removed other assertion
-        assertEquals("<html> <head></head> <body> <doc> <val> One <val> Two </val>Three </val> </doc> </body> </html>", StringUtil.normaliseWhitespace(doc.outerHtml()));
-    }
-
-    @Test
-    public void combinesSameHeadersWithComma_1_oe() throws IOException {
-        // http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
-        Connection con = Jsoup.connect(echoUrl);
-        con.get();
-
-        Connection.Response res = con.response();
-        assertEquals("text/html;charset=utf-8", res.header("Content-Type"));
-    }
-
-    @Test
-    public void combinesSameHeadersWithComma_2_oe() throws IOException {
-        // http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
-        Connection con = Jsoup.connect(echoUrl);
-        con.get();
-
-        Connection.Response res = con.response();
-        // removed other assertion
-        assertEquals("no-cache, no-store", res.header("Cache-Control"));
-    }
-
-    @Test
-    public void combinesSameHeadersWithComma_3_oe() throws IOException {
-        // http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
-        Connection con = Jsoup.connect(echoUrl);
-        con.get();
-
-        Connection.Response res = con.response();
-        // removed other assertion
-        // removed other assertion
-
-        List<String> header = res.headers("Cache-Control");
-        assertEquals(2, header.size());
-    }
-
-    @Test
-    public void combinesSameHeadersWithComma_4_oe() throws IOException {
-        // http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
-        Connection con = Jsoup.connect(echoUrl);
-        con.get();
-
-        Connection.Response res = con.response();
-        // removed other assertion
-        // removed other assertion
-
-        List<String> header = res.headers("Cache-Control");
-        // removed other assertion
-        assertEquals("no-cache", header.get(0));
-    }
-
-    @Test
-    public void combinesSameHeadersWithComma_5_oe() throws IOException {
-        // http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2
-        Connection con = Jsoup.connect(echoUrl);
-        con.get();
-
-        Connection.Response res = con.response();
-        // removed other assertion
-        // removed other assertion
-
-        List<String> header = res.headers("Cache-Control");
-        // removed other assertion
-        // removed other assertion
-        assertEquals("no-store", header.get(1));
-    }
-
-    @Test
-    public void sendHeadRequest_1_oe() throws IOException {
-        String url = FileServlet.urlTo("/htmltests/xml-test.xml");
-        Connection con = Jsoup.connect(url)
-            .method(Connection.Method.HEAD)
-            .data(FileServlet.ContentTypeParam, "text/xml");
-        final Connection.Response response = con.execute();
-        assertEquals("text/xml", response.header("Content-Type"));
-    }
-
-    @Test
-    public void sendHeadRequest_2_oe() throws IOException {
-        String url = FileServlet.urlTo("/htmltests/xml-test.xml");
-        Connection con = Jsoup.connect(url)
-            .method(Connection.Method.HEAD)
-            .data(FileServlet.ContentTypeParam, "text/xml");
-        final Connection.Response response = con.execute();
-        // removed other assertion
-        assertEquals("", response.body()); // head ought to have no body;
-    }
-
-    @Test
-    public void sendHeadRequest_3_oe() throws IOException {
-        String url = FileServlet.urlTo("/htmltests/xml-test.xml");
-        Connection con = Jsoup.connect(url)
-            .method(Connection.Method.HEAD)
-            .data(FileServlet.ContentTypeParam, "text/xml");
-        final Connection.Response response = con.execute();
-        // removed other assertion
-        // removed other assertion
-        Document doc = response.parse();
-        assertEquals("", doc.text());
-    }
-
-    @Test
-    public void fetchToW3c_1_oe() throws IOException {
-        String url = FileServlet.urlTo("/htmltests/upload-form.html");
-        Document doc = Jsoup.connect(url).get();
-
-        W3CDom dom = new W3CDom();
-        org.w3c.dom.Document wDoc = dom.fromJsoup(doc);
-        assertEquals(url, wDoc.getDocumentURI());
-    }
-
-    @Test
-    public void fetchToW3c_2_oe() throws IOException {
-        String url = FileServlet.urlTo("/htmltests/upload-form.html");
-        Document doc = Jsoup.connect(url).get();
-
-        W3CDom dom = new W3CDom();
-        org.w3c.dom.Document wDoc = dom.fromJsoup(doc);
-        // removed other assertion
-        String html = dom.asString(wDoc);
-        assertTrue(html.contains("Upload"));
-    }
-
-    @Test
-    public void baseHrefCorrectAfterHttpEquiv_1_oe() throws IOException {
-        // https://github.com/jhy/jsoup/issues/440
-        Connection.Response res = Jsoup.connect(FileServlet.urlTo("/htmltests/charset-base.html")).execute();
-        Document doc = res.parse();
-        assertEquals("http://example.com/foo.jpg", doc.select("img").first().absUrl("src"));
-    }
-
-    @Test
-    public void maxBodySize_1_oe() throws IOException {
-        String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
-
-        Connection.Response defaultRes = Jsoup.connect(url).execute();
-        Connection.Response smallRes = Jsoup.connect(url).maxBodySize(50 * 1024).execute(); // crops
-        Connection.Response mediumRes = Jsoup.connect(url).maxBodySize(200 * 1024).execute(); // crops
-        Connection.Response largeRes = Jsoup.connect(url).maxBodySize(300 * 1024).execute(); // does not crop
-        Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
-
-        int actualDocText = 269535;
-        assertEquals(actualDocText, defaultRes.parse().text().length());
-    }
-
-    @Test
-    public void maxBodySize_2_oe() throws IOException {
-        String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
-
-        Connection.Response defaultRes = Jsoup.connect(url).execute();
-        Connection.Response smallRes = Jsoup.connect(url).maxBodySize(50 * 1024).execute(); // crops
-        Connection.Response mediumRes = Jsoup.connect(url).maxBodySize(200 * 1024).execute(); // crops
-        Connection.Response largeRes = Jsoup.connect(url).maxBodySize(300 * 1024).execute(); // does not crop
-        Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
-
-        int actualDocText = 269535;
-        // removed other assertion
-        assertEquals(49165, smallRes.parse().text().length());
-    }
-
-    @Test
-    public void maxBodySize_3_oe() throws IOException {
-        String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
-
-        Connection.Response defaultRes = Jsoup.connect(url).execute();
-        Connection.Response smallRes = Jsoup.connect(url).maxBodySize(50 * 1024).execute(); // crops
-        Connection.Response mediumRes = Jsoup.connect(url).maxBodySize(200 * 1024).execute(); // crops
-        Connection.Response largeRes = Jsoup.connect(url).maxBodySize(300 * 1024).execute(); // does not crop
-        Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
-
-        int actualDocText = 269535;
-        // removed other assertion
-        // removed other assertion
-        assertEquals(196577, mediumRes.parse().text().length());
-    }
-
-    @Test
-    public void maxBodySize_4_oe() throws IOException {
-        String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
-
-        Connection.Response defaultRes = Jsoup.connect(url).execute();
-        Connection.Response smallRes = Jsoup.connect(url).maxBodySize(50 * 1024).execute(); // crops
-        Connection.Response mediumRes = Jsoup.connect(url).maxBodySize(200 * 1024).execute(); // crops
-        Connection.Response largeRes = Jsoup.connect(url).maxBodySize(300 * 1024).execute(); // does not crop
-        Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
-
-        int actualDocText = 269535;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(actualDocText, largeRes.parse().text().length());
-    }
-
-    @Test
-    public void maxBodySize_5_oe() throws IOException {
-        String url = FileServlet.urlTo("/htmltests/large.html"); // 280 K
-
-        Connection.Response defaultRes = Jsoup.connect(url).execute();
-        Connection.Response smallRes = Jsoup.connect(url).maxBodySize(50 * 1024).execute(); // crops
-        Connection.Response mediumRes = Jsoup.connect(url).maxBodySize(200 * 1024).execute(); // crops
-        Connection.Response largeRes = Jsoup.connect(url).maxBodySize(300 * 1024).execute(); // does not crop
-        Connection.Response unlimitedRes = Jsoup.connect(url).maxBodySize(0).execute();
-
-        int actualDocText = 269535;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(actualDocText, unlimitedRes.parse().text().length());
-    }
-
-    @Test public void repeatable() throws IOException {
-        String url = FileServlet.urlTo_1_oe("/htmltests/large.html"); // 280 K
-        Connection con = Jsoup.connect(url).parser(Parser.xmlParser());
-        Document doc1 = con.get();
-        Document doc2 = con.get();
-        assertEquals("Large HTML", doc1.title());
-        }
-
-    @Test public void repeatable() throws IOException {
-        String url = FileServlet.urlTo_2_oe("/htmltests/large.html"); // 280 K
-        Connection con = Jsoup.connect(url).parser(Parser.xmlParser());
-        Document doc1 = con.get();
-        Document doc2 = con.get();
-        // removed other assertion
-        assertEquals("Large HTML", doc2.title());
         }
 
 }

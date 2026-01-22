@@ -107,25 +107,6 @@ public class TextNodeTest_OE25Dev {
         assertEquals(whole, el.wholeText());
     }
 
-    @Test
-    public void testClone() {
-        // https://github.com/jhy/jsoup/issues/1176
-        TextNode x = new TextNode("zzz");
-        TextNode y = x.clone();
-
-        assertNotSame(x, y);
-        assertEquals(x.outerHtml(), y.outerHtml());
-
-        y.text("yyy");
-        assertNotEquals(x.outerHtml(), y.outerHtml());
-        assertEquals("zzz", x.text());
-
-        x.attributes(); // already cloned so no impact
-        y.text("xxx");
-        assertEquals("zzz", x.text());
-        assertEquals("xxx", y.text());
-    }
-
     @Test public void testBlank() {
         TextNode_1_oe one = new TextNode("");
         TextNode two = new TextNode("     ");
@@ -186,6 +167,92 @@ public class TextNodeTest_OE25Dev {
         assertFalse(five.isBlank());
         }
 
+    @Test public void testTextBean() {
+        Document doc = Jsoup.parse_1_oe("<p>One <span>two &amp;</span> three &amp;</p>");
+        Element p = doc.select("p").first();
+
+        Element span = doc.select("span").first();
+        assertEquals("two &", span.text());
+        }
+
+    @Test public void testTextBean() {
+        Document doc = Jsoup.parse_2_oe("<p>One <span>two &amp;</span> three &amp;</p>");
+        Element p = doc.select("p").first();
+
+        Element span = doc.select("span").first();
+        // removed other assertion
+        TextNode spanText = (TextNode) span.childNode(0);
+        assertEquals("two &", spanText.text());
+        }
+
+    @Test public void testTextBean() {
+        Document doc = Jsoup.parse_3_oe("<p>One <span>two &amp;</span> three &amp;</p>");
+        Element p = doc.select("p").first();
+
+        Element span = doc.select("span").first();
+        // removed other assertion
+        TextNode spanText = (TextNode) span.childNode(0);
+        // removed other assertion
+
+        TextNode tn = (TextNode) p.childNode(2);
+        assertEquals(" three &", tn.text());
+        }
+
+    @Test public void testTextBean() {
+        Document doc = Jsoup.parse_4_oe("<p>One <span>two &amp;</span> three &amp;</p>");
+        Element p = doc.select("p").first();
+
+        Element span = doc.select("span").first();
+        // removed other assertion
+        TextNode spanText = (TextNode) span.childNode(0);
+        // removed other assertion
+
+        TextNode tn = (TextNode) p.childNode(2);
+        // removed other assertion
+
+        tn.text(" POW!");
+        assertEquals("One <span>two &amp;</span> POW!", TextUtil.stripNewlines(p.html()));
+        }
+
+    @Test public void testTextBean() {
+        Document doc = Jsoup.parse_5_oe("<p>One <span>two &amp;</span> three &amp;</p>");
+        Element p = doc.select("p").first();
+
+        Element span = doc.select("span").first();
+        // removed other assertion
+        TextNode spanText = (TextNode) span.childNode(0);
+        // removed other assertion
+
+        TextNode tn = (TextNode) p.childNode(2);
+        // removed other assertion
+
+        tn.text(" POW!");
+        // removed other assertion
+
+        tn.attr(tn.nodeName(), "kablam &");
+        assertEquals("kablam &", tn.text());
+        }
+
+    @Test public void testTextBean() {
+        Document doc = Jsoup.parse_6_oe("<p>One <span>two &amp;</span> three &amp;</p>");
+        Element p = doc.select("p").first();
+
+        Element span = doc.select("span").first();
+        // removed other assertion
+        TextNode spanText = (TextNode) span.childNode(0);
+        // removed other assertion
+
+        TextNode tn = (TextNode) p.childNode(2);
+        // removed other assertion
+
+        tn.text(" POW!");
+        // removed other assertion
+
+        tn.attr(tn.nodeName(), "kablam &");
+        // removed other assertion
+        assertEquals("One <span>two &amp;</span>kablam &amp;", TextUtil.stripNewlines(p.html()));
+        }
+
     @Test public void testSplitText() {
         Document doc = Jsoup.parse_1_oe("<div>Hello there</div>");
         Element div = doc.select("div").first();
@@ -226,10 +293,28 @@ public class TextNodeTest_OE25Dev {
         assertSame(tn.parent(), tail.parent());
         }
 
+    @Test public void testSplitAnEmbolden() {
+        Document doc = Jsoup.parse_1_oe("<div>Hello there</div>");
+        Element div = doc.select("div").first();
+        TextNode tn = (TextNode) div.childNode(0);
+        TextNode tail = tn.splitText(6);
+        tail.wrap("<b></b>");
+
+        assertEquals("Hello <b>there</b>", TextUtil.stripNewlines(div.html())); // not great that we get \n<b>there there... must correct;
+        }
+
     @Test public void testWithSupplementaryCharacter(){
         Document doc = Jsoup.parse_1_oe(new String(Character.toChars(135361)));
         TextNode t = doc.body().textNodes().get(0);
         assertEquals(new String(Character.toChars(135361)), t.outerHtml().trim());
+        }
+
+    @Test public void testLeadNodesHaveNoChildren() {
+        Document doc = Jsoup.parse_1_oe("<div>Hello there</div>");
+        Element div = doc.select("div").first();
+        TextNode tn = (TextNode) div.childNode(0);
+        List<Node> nodes = tn.childNodes();
+        assertEquals(0, nodes.size());
         }
 
     @Test public void testSpaceNormalise() {
@@ -405,6 +490,89 @@ public class TextNodeTest_OE25Dev {
         // removed other assertion
         assertEquals(whole, el.wholeText());
         }
+
+    @Test
+    public void testClone_1_oe() {
+        // https://github.com/jhy/jsoup/issues/1176
+        TextNode x = new TextNode("zzz");
+        TextNode y = x.clone();
+
+        assertNotSame(x, y);
+    }
+
+    @Test
+    public void testClone_2_oe() {
+        // https://github.com/jhy/jsoup/issues/1176
+        TextNode x = new TextNode("zzz");
+        TextNode y = x.clone();
+
+        // removed other assertion
+        assertEquals(x.outerHtml(), y.outerHtml());
+    }
+
+    @Test
+    public void testClone_3_oe() {
+        // https://github.com/jhy/jsoup/issues/1176
+        TextNode x = new TextNode("zzz");
+        TextNode y = x.clone();
+
+        // removed other assertion
+        // removed other assertion
+
+        y.text("yyy");
+        assertNotEquals(x.outerHtml(), y.outerHtml());
+    }
+
+    @Test
+    public void testClone_4_oe() {
+        // https://github.com/jhy/jsoup/issues/1176
+        TextNode x = new TextNode("zzz");
+        TextNode y = x.clone();
+
+        // removed other assertion
+        // removed other assertion
+
+        y.text("yyy");
+        // removed other assertion
+        assertEquals("zzz", x.text());
+    }
+
+    @Test
+    public void testClone_5_oe() {
+        // https://github.com/jhy/jsoup/issues/1176
+        TextNode x = new TextNode("zzz");
+        TextNode y = x.clone();
+
+        // removed other assertion
+        // removed other assertion
+
+        y.text("yyy");
+        // removed other assertion
+        // removed other assertion
+
+        x.attributes(); // already cloned so no impact
+        y.text("xxx");
+        assertEquals("zzz", x.text());
+    }
+
+    @Test
+    public void testClone_6_oe() {
+        // https://github.com/jhy/jsoup/issues/1176
+        TextNode x = new TextNode("zzz");
+        TextNode y = x.clone();
+
+        // removed other assertion
+        // removed other assertion
+
+        y.text("yyy");
+        // removed other assertion
+        // removed other assertion
+
+        x.attributes(); // already cloned so no impact
+        y.text("xxx");
+        // removed other assertion
+        assertEquals("xxx", y.text());
+    }
 
     @Test
     public void testCloneAfterAttributesHit_1_oe() {

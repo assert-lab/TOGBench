@@ -122,27 +122,6 @@ public class ElementTest_OE25Dev {
         assertEquals(div2, div);
     }
 
-    @Test
-    public void testFilterCallReturnsElement() {
-        // doesn't actually test the filter so much as the return type for Element. See node.nodeFilter for an actual test
-        Document doc = Jsoup.parse("<div><p>One<p>Two<p>Three");
-        Element div = doc.selectFirst("div");
-        assertNotNull(div);
-        Element div2 = div.filter(new NodeFilter() {
-            @Override
-            public FilterResult head(Node node, int depth) {
-                return FilterResult.CONTINUE;
-            }
-
-            @Override
-            public FilterResult tail(Node node, int depth) {
-                return FilterResult.CONTINUE;
-            }
-        });
-
-        assertSame(div, div2);
-    }
-
     @Test void testFilterAsLambda() {
         Document doc = Jsoup.parse("<div><p>One<p id=2>Two<p>Three");
         doc.filter((node, depth) -> node.attr("id").equals("2")
@@ -1764,6 +1743,126 @@ public class ElementTest_OE25Dev {
         doc.outputSettings().indentAmount(0);
         assertEquals("<html>\n<head></head>\n<body>\n<div>\n<p>Hello there</p>\n</div>\n</body>\n</html>", doc.html());
     }
+
+    @Test void testIndentLevel() {
+        // deep to test default and extended max
+        StringBuilder_1_oe divs = new StringBuilder();
+        for (int i = 0; i < 40; i++) {
+            divs.append("<div>");
+        }
+        divs.append("Foo");
+        Document doc = Jsoup.parse(divs.toString());
+        Document.OutputSettings settings = doc.outputSettings();
+
+        int defaultMax = 30;
+        assertEquals(defaultMax, settings.maxPaddingWidth());
+        }
+
+    @Test void testIndentLevel() {
+        // deep to test default and extended max
+        StringBuilder_2_oe divs = new StringBuilder();
+        for (int i = 0; i < 40; i++) {
+            divs.append("<div>");
+        }
+        divs.append("Foo");
+        Document doc = Jsoup.parse(divs.toString());
+        Document.OutputSettings settings = doc.outputSettings();
+
+        int defaultMax = 30;
+        // removed other assertion
+        String html = doc.html();
+        assertTrue(html.contains("                              <div>\n" + "                              Foo\n" + "                              </div>"));
+        }
+
+    @Test void testIndentLevel() {
+        // deep to test default and extended max
+        StringBuilder_3_oe divs = new StringBuilder();
+        for (int i = 0; i < 40; i++) {
+            divs.append("<div>");
+        }
+        divs.append("Foo");
+        Document doc = Jsoup.parse(divs.toString());
+        Document.OutputSettings settings = doc.outputSettings();
+
+        int defaultMax = 30;
+        // removed other assertion
+        String html = doc.html();
+        // removed other assertion
+
+        settings.maxPaddingWidth(32);
+        assertEquals(32, settings.maxPaddingWidth());
+        }
+
+    @Test void testIndentLevel() {
+        // deep to test default and extended max
+        StringBuilder_4_oe divs = new StringBuilder();
+        for (int i = 0; i < 40; i++) {
+            divs.append("<div>");
+        }
+        divs.append("Foo");
+        Document doc = Jsoup.parse(divs.toString());
+        Document.OutputSettings settings = doc.outputSettings();
+
+        int defaultMax = 30;
+        // removed other assertion
+        String html = doc.html();
+        // removed other assertion
+
+        settings.maxPaddingWidth(32);
+        // removed other assertion
+        html = doc.html();
+        assertTrue(html.contains("                                <div>\n" + "                                Foo\n" + "                                </div>"));
+        }
+
+    @Test void testIndentLevel() {
+        // deep to test default and extended max
+        StringBuilder_5_oe divs = new StringBuilder();
+        for (int i = 0; i < 40; i++) {
+            divs.append("<div>");
+        }
+        divs.append("Foo");
+        Document doc = Jsoup.parse(divs.toString());
+        Document.OutputSettings settings = doc.outputSettings();
+
+        int defaultMax = 30;
+        // removed other assertion
+        String html = doc.html();
+        // removed other assertion
+
+        settings.maxPaddingWidth(32);
+        // removed other assertion
+        html = doc.html();
+        // removed other assertion
+
+        settings.maxPaddingWidth(-1);
+        assertEquals(-1, settings.maxPaddingWidth());
+        }
+
+    @Test void testIndentLevel() {
+        // deep to test default and extended max
+        StringBuilder_6_oe divs = new StringBuilder();
+        for (int i = 0; i < 40; i++) {
+            divs.append("<div>");
+        }
+        divs.append("Foo");
+        Document doc = Jsoup.parse(divs.toString());
+        Document.OutputSettings settings = doc.outputSettings();
+
+        int defaultMax = 30;
+        // removed other assertion
+        String html = doc.html();
+        // removed other assertion
+
+        settings.maxPaddingWidth(32);
+        // removed other assertion
+        html = doc.html();
+        // removed other assertion
+
+        settings.maxPaddingWidth(-1);
+        // removed other assertion
+        html = doc.html();
+        assertTrue(html.contains("                                         <div>\n" + "                                          Foo\n" + "                                         </div>"));
+        }
 
     @Test
     public void testNotPretty_1_oe() {
@@ -7770,6 +7869,35 @@ public class ElementTest_OE25Dev {
         assertEquals(div2, div);
         }
 
+    @Test
+    public void testFilterCallReturnsElement_1_oe() {
+        // doesn't actually test the filter so much as the return type for Element. See node.nodeFilter for an actual test
+        Document doc = Jsoup.parse("<div><p>One<p>Two<p>Three");
+        Element div = doc.selectFirst("div");
+        assertNotNull(div);
+    }
+
+    @Test
+    public void testFilterCallReturnsElement_2_oe() {
+        // doesn't actually test the filter so much as the return type for Element. See node.nodeFilter for an actual test
+        Document doc = Jsoup.parse("<div><p>One<p>Two<p>Three");
+        Element div = doc.selectFirst("div");
+        // removed other assertion
+        Element div2 = div.filter(new NodeFilter() {
+            @Override
+            public FilterResult head(Node node, int depth) {
+                return FilterResult.CONTINUE;
+            }
+
+            @Override
+            public FilterResult tail(Node node, int depth) {
+                return FilterResult.CONTINUE;
+            }
+        });
+
+        assertSame(div, div2);
+    }
+
     @Test void testFilterAsLambda() {
         Document doc = Jsoup.parse_1_oe("<div><p>One<p id=2>Two<p>Three");
         doc.filter((node, depth) -> node.attr("id").equals("2")
@@ -7777,6 +7905,19 @@ public class ElementTest_OE25Dev {
             : NodeFilter.FilterResult.CONTINUE);
 
         assertEquals("<div><p>One</p><p>Three</p></div>", TextUtil.stripNewlines(doc.body().html()));
+        }
+
+    @Test void testForEach() {
+        Document doc = Jsoup.parse_1_oe("<div><p>Hello</p></div><div>There</div><div id=1>Gone<p></div>");
+        doc.forEach(el -> {
+            if (el.id().equals("1"))
+                el.remove();
+            else if (el.text().equals("There")) {
+                el.text("There Now");
+                el.append("<p>Another</p>");
+            }
+        });
+        assertEquals("<div><p>Hello</p></div><div>There Now<p>Another</p></div>", TextUtil.stripNewlines(doc.body().html()));
         }
 
     @Test
@@ -8524,6 +8665,77 @@ public class ElementTest_OE25Dev {
         assertEquals(1, els.size());
         }
 
+    @Test public void attributeSizeDoesNotAutoVivify() {
+        Document doc = Jsoup.parse_1_oe("<p></p>");
+        Element p = doc.selectFirst("p");
+        assertNotNull(p);
+        }
+
+    @Test public void attributeSizeDoesNotAutoVivify() {
+        Document doc = Jsoup.parse_2_oe("<p></p>");
+        Element p = doc.selectFirst("p");
+        // removed other assertion
+        assertFalse(p.hasAttributes());
+        }
+
+    @Test public void attributeSizeDoesNotAutoVivify() {
+        Document doc = Jsoup.parse_3_oe("<p></p>");
+        Element p = doc.selectFirst("p");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, p.attributesSize());
+        }
+
+    @Test public void attributeSizeDoesNotAutoVivify() {
+        Document doc = Jsoup.parse_4_oe("<p></p>");
+        Element p = doc.selectFirst("p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(p.hasAttributes());
+        }
+
+    @Test public void attributeSizeDoesNotAutoVivify() {
+        Document doc = Jsoup.parse_5_oe("<p></p>");
+        Element p = doc.selectFirst("p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        p.attr("foo", "bar");
+        assertEquals(1, p.attributesSize());
+        }
+
+    @Test public void attributeSizeDoesNotAutoVivify() {
+        Document doc = Jsoup.parse_6_oe("<p></p>");
+        Element p = doc.selectFirst("p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        p.attr("foo", "bar");
+        // removed other assertion
+        assertTrue(p.hasAttributes());
+        }
+
+    @Test public void attributeSizeDoesNotAutoVivify() {
+        Document doc = Jsoup.parse_7_oe("<p></p>");
+        Element p = doc.selectFirst("p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        p.attr("foo", "bar");
+        // removed other assertion
+        // removed other assertion
+
+        p.removeAttr("foo");
+        assertEquals(0, p.attributesSize());
+        }
+
     @Test void clonedElementsHaveOwnerDocsAndIndependentSettings() {
         // https://github.com/jhy/jsoup/issues/763
         Document doc = Jsoup.parse_1_oe("<div>Text</div><div>Two</div>");
@@ -8725,6 +8937,44 @@ public class ElementTest_OE25Dev {
         assertEquals(html, html2);
         }
 
+    @Test void elementBrText() {
+        // testcase for https://github.com/jhy/jsoup/issues/1437
+        String html = "<p>Hello<br>World</p>";
+        Document doc = Jsoup.parse_1_oe(html);
+        Element p = doc.select("p").first();
+        assertNotNull(p);
+        }
+
+    @Test void elementBrText() {
+        // testcase for https://github.com/jhy/jsoup/issues/1437
+        String html = "<p>Hello<br>World</p>";
+        Document doc = Jsoup.parse_2_oe(html);
+        Element p = doc.select("p").first();
+        // removed other assertion
+        assertEquals(html, p.outerHtml());
+        }
+
+    @Test void elementBrText() {
+        // testcase for https://github.com/jhy/jsoup/issues/1437
+        String html = "<p>Hello<br>World</p>";
+        Document doc = Jsoup.parse_3_oe(html);
+        Element p = doc.select("p").first();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Hello World", p.text());
+        }
+
+    @Test void elementBrText() {
+        // testcase for https://github.com/jhy/jsoup/issues/1437
+        String html = "<p>Hello<br>World</p>";
+        Document doc = Jsoup.parse_4_oe(html);
+        Element p = doc.select("p").first();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Hello\nWorld", p.wholeText());
+        }
+
     @Test void preformatFlowsToChildTextNodes() {
         // https://github.com/jhy/jsoup/issues/1776
         String html = "<div><pre>One\n<span>\nTwo</span>\n <span>  \nThree</span>\n <span>Four <span>Five</span>\n  Six\n</pre>";
@@ -8825,6 +9075,38 @@ public class ElementTest_OE25Dev {
         assertEquals(expectOwn, div.child(0).wholeOwnText());
         }
 
+    @Test void testExpectFirst() {
+        Document doc = Jsoup.parse_1_oe("<p>One</p><p>Two <span>Three</span> <span>Four</span>");
+
+        Element span = doc.expectFirst("span");
+        assertEquals("Three", span.text());
+        }
+
+    @Test void testExpectFirst() {
+        Document doc = Jsoup.parse_2_oe("<p>One</p><p>Two <span>Three</span> <span>Four</span>");
+
+        Element span = doc.expectFirst("span");
+        // removed other assertion
+
+        assertNull(doc.selectFirst("div"));
+        }
+
+    @Test void testExpectFirst() {
+        Document doc = Jsoup.parse_3_oe("<p>One</p><p>Two <span>Three</span> <span>Four</span>");
+
+        Element span = doc.expectFirst("span");
+        // removed other assertion
+
+        // removed other assertion
+        boolean threw = false;
+        try {
+            Element div = doc.expectFirst("div");
+        } catch (IllegalArgumentException e) {
+            threw = true;
+        }
+        assertTrue(threw);
+        }
+
     @Test void testExpectFirstMessage() {
         Document doc = Jsoup.parse_1_oe("<p>One</p><p>Two <span>Three</span> <span>Four</span>");
         boolean threw = false;
@@ -8837,6 +9119,19 @@ public class ElementTest_OE25Dev {
         }
         }
 
+    @Test void testExpectFirstMessage() {
+        Document doc = Jsoup.parse_2_oe("<p>One</p><p>Two <span>Three</span> <span>Four</span>");
+        boolean threw = false;
+        Element p = doc.expectFirst("P");
+        try {
+            Element span = p.expectFirst("span.doesNotExist");
+        } catch (ValidationException e) {
+            threw = true;
+            // removed other assertion
+        }
+        assertTrue(threw);
+        }
+
     @Test void testExpectFirstMessageDoc() {
         Document doc = Jsoup.parse_1_oe("<p>One</p><p>Two <span>Three</span> <span>Four</span>");
         boolean threw = false;
@@ -8847,6 +9142,19 @@ public class ElementTest_OE25Dev {
             threw = true;
             assertEquals("No elements matched the query 'span.doesNotExist' in the document.", e.getMessage());
         }
+        }
+
+    @Test void testExpectFirstMessageDoc() {
+        Document doc = Jsoup.parse_2_oe("<p>One</p><p>Two <span>Three</span> <span>Four</span>");
+        boolean threw = false;
+        Element p = doc.expectFirst("P");
+        try {
+            Element span = doc.expectFirst("span.doesNotExist");
+        } catch (ValidationException e) {
+            threw = true;
+            // removed other assertion
+        }
+        assertTrue(threw);
         }
 
     @Test void spanRunsMaintainSpace() {
@@ -8885,10 +9193,143 @@ public class ElementTest_OE25Dev {
         assertEquals("<p><span>One</span> <span>Two</span> <span>Three</span></p>", body.html());
         }
 
+    @Test void doctypeIsPrettyPrinted() {
+        // resolves underlying issue raised in https://github.com/jhy/jsoup/pull/1664
+        Document doc1 = Jsoup.parse_1_oe("<!--\nlicense\n-->\n \n<!doctype html>\n<html>");
+        Document doc2 = Jsoup.parse("\n  <!doctype html><html>");
+        Document doc3 = Jsoup.parse("<!doctype html>\n<html>");
+        Document doc4 = Jsoup.parse("\n<!doctype html>\n<html>");
+        Document doc5 = Jsoup.parse("\n<!--\n comment \n -->  <!doctype html>\n<html>");
+        Document doc6 = Jsoup.parse("<!--\n comment \n -->  <!doctype html>\n<html>");
+
+        assertEquals("<!--\nlicense\n-->\n<!doctype html>\n<html>\n <head></head>\n <body></body>\n</html>", doc1.html());
+        }
+
+    @Test void doctypeIsPrettyPrinted() {
+        // resolves underlying issue raised in https://github.com/jhy/jsoup/pull/1664
+        Document doc1 = Jsoup.parse_2_oe("<!--\nlicense\n-->\n \n<!doctype html>\n<html>");
+        Document doc2 = Jsoup.parse("\n  <!doctype html><html>");
+        Document doc3 = Jsoup.parse("<!doctype html>\n<html>");
+        Document doc4 = Jsoup.parse("\n<!doctype html>\n<html>");
+        Document doc5 = Jsoup.parse("\n<!--\n comment \n -->  <!doctype html>\n<html>");
+        Document doc6 = Jsoup.parse("<!--\n comment \n -->  <!doctype html>\n<html>");
+
+        // removed other assertion
+        doc1.outputSettings().prettyPrint(false);
+        assertEquals("<!--\nlicense\n--><!doctype html>\n<html><head></head><body></body></html>", doc1.html());
+        }
+
+    @Test void doctypeIsPrettyPrinted() {
+        // resolves underlying issue raised in https://github.com/jhy/jsoup/pull/1664
+        Document doc1 = Jsoup.parse_3_oe("<!--\nlicense\n-->\n \n<!doctype html>\n<html>");
+        Document doc2 = Jsoup.parse("\n  <!doctype html><html>");
+        Document doc3 = Jsoup.parse("<!doctype html>\n<html>");
+        Document doc4 = Jsoup.parse("\n<!doctype html>\n<html>");
+        Document doc5 = Jsoup.parse("\n<!--\n comment \n -->  <!doctype html>\n<html>");
+        Document doc6 = Jsoup.parse("<!--\n comment \n -->  <!doctype html>\n<html>");
+
+        // removed other assertion
+        doc1.outputSettings().prettyPrint(false);
+        // removed other assertion
+        // note that the whitespace between the comment and the doctype is not retained, in Initial state
+
+        assertEquals("<!doctype html>\n<html>\n <head></head>\n <body></body>\n</html>", doc2.html());
+        }
+
+    @Test void doctypeIsPrettyPrinted() {
+        // resolves underlying issue raised in https://github.com/jhy/jsoup/pull/1664
+        Document doc1 = Jsoup.parse_4_oe("<!--\nlicense\n-->\n \n<!doctype html>\n<html>");
+        Document doc2 = Jsoup.parse("\n  <!doctype html><html>");
+        Document doc3 = Jsoup.parse("<!doctype html>\n<html>");
+        Document doc4 = Jsoup.parse("\n<!doctype html>\n<html>");
+        Document doc5 = Jsoup.parse("\n<!--\n comment \n -->  <!doctype html>\n<html>");
+        Document doc6 = Jsoup.parse("<!--\n comment \n -->  <!doctype html>\n<html>");
+
+        // removed other assertion
+        doc1.outputSettings().prettyPrint(false);
+        // removed other assertion
+        // note that the whitespace between the comment and the doctype is not retained, in Initial state
+
+        // removed other assertion
+        assertEquals("<!doctype html>\n<html>\n <head></head>\n <body></body>\n</html>", doc3.html());
+        }
+
+    @Test void doctypeIsPrettyPrinted() {
+        // resolves underlying issue raised in https://github.com/jhy/jsoup/pull/1664
+        Document doc1 = Jsoup.parse_5_oe("<!--\nlicense\n-->\n \n<!doctype html>\n<html>");
+        Document doc2 = Jsoup.parse("\n  <!doctype html><html>");
+        Document doc3 = Jsoup.parse("<!doctype html>\n<html>");
+        Document doc4 = Jsoup.parse("\n<!doctype html>\n<html>");
+        Document doc5 = Jsoup.parse("\n<!--\n comment \n -->  <!doctype html>\n<html>");
+        Document doc6 = Jsoup.parse("<!--\n comment \n -->  <!doctype html>\n<html>");
+
+        // removed other assertion
+        doc1.outputSettings().prettyPrint(false);
+        // removed other assertion
+        // note that the whitespace between the comment and the doctype is not retained, in Initial state
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("<!doctype html>\n<html>\n <head></head>\n <body></body>\n</html>", doc4.html());
+        }
+
+    @Test void doctypeIsPrettyPrinted() {
+        // resolves underlying issue raised in https://github.com/jhy/jsoup/pull/1664
+        Document doc1 = Jsoup.parse_6_oe("<!--\nlicense\n-->\n \n<!doctype html>\n<html>");
+        Document doc2 = Jsoup.parse("\n  <!doctype html><html>");
+        Document doc3 = Jsoup.parse("<!doctype html>\n<html>");
+        Document doc4 = Jsoup.parse("\n<!doctype html>\n<html>");
+        Document doc5 = Jsoup.parse("\n<!--\n comment \n -->  <!doctype html>\n<html>");
+        Document doc6 = Jsoup.parse("<!--\n comment \n -->  <!doctype html>\n<html>");
+
+        // removed other assertion
+        doc1.outputSettings().prettyPrint(false);
+        // removed other assertion
+        // note that the whitespace between the comment and the doctype is not retained, in Initial state
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("<!--\n comment \n -->\n<!doctype html>\n<html>\n <head></head>\n <body></body>\n</html>", doc5.html());
+        }
+
+    @Test void doctypeIsPrettyPrinted() {
+        // resolves underlying issue raised in https://github.com/jhy/jsoup/pull/1664
+        Document doc1 = Jsoup.parse_7_oe("<!--\nlicense\n-->\n \n<!doctype html>\n<html>");
+        Document doc2 = Jsoup.parse("\n  <!doctype html><html>");
+        Document doc3 = Jsoup.parse("<!doctype html>\n<html>");
+        Document doc4 = Jsoup.parse("\n<!doctype html>\n<html>");
+        Document doc5 = Jsoup.parse("\n<!--\n comment \n -->  <!doctype html>\n<html>");
+        Document doc6 = Jsoup.parse("<!--\n comment \n -->  <!doctype html>\n<html>");
+
+        // removed other assertion
+        doc1.outputSettings().prettyPrint(false);
+        // removed other assertion
+        // note that the whitespace between the comment and the doctype is not retained, in Initial state
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("<!--\n comment \n -->\n<!doctype html>\n<html>\n <head></head>\n <body></body>\n</html>", doc6.html());
+        }
+
+    @Test void textnodeInBlockIndent() {
+        String html ="<div>\n{{ msg }} \n </div>\n<div>\n{{ msg }} \n </div>";
+        Document doc = Jsoup.parse_1_oe(html);
+        assertEquals("<div>\n {{ msg }}\n</div>\n<div>\n {{ msg }}\n</div>", doc.body().html());
+        }
+
     @Test void stripTrailing() {
         String html = "<p> This <span>is </span>fine. </p>";
         Document doc = Jsoup.parse_1_oe(html);
         assertEquals("<p>This <span>is </span>fine.</p>", doc.body().html());
+        }
+
+    @Test void elementIndentAndSpaceTrims() {
+        String html = "<body><div> <p> One Two </p> <a>  Hello </a><p>\nSome text \n</p>\n </div>";
+        Document doc = Jsoup.parse_1_oe(html);
+        assertEquals("<div>\n" + " <p>One Two</p> <a> Hello </a>\n" + " <p>Some text</p>\n" + "</div>", doc.body().html());
         }
 
     @Test void divAInlineable() {

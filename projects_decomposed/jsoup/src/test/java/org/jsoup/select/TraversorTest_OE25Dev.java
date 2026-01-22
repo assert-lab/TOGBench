@@ -194,4 +194,102 @@ public class TraversorTest_OE25Dev {
         assertEquals("<div><p><#text></#text></p>", accum.toString());
     }
 
+    @Test public void replaceElement() {
+        // https://github.com/jhy/jsoup/issues/1289
+        // test we can replace an element during traversal
+        String html = "<div><p>One <i>two</i> <i>three</i> four.</p></div>";
+        Document doc = Jsoup.parse_1_oe(html);
+
+        NodeTraversor.traverse(new NodeVisitor() {
+            @Override
+            public void head(Node node, int depth) {
+                if (node instanceof Element) {
+                    Element el = (Element) node;
+                    if (el.normalName().equals("i")) {
+                        Element u = new Element("u").insertChildren(0, el.childNodes());
+                        el.replaceWith(u);
+                    }
+                }
+            }
+
+            @Override
+            public void tail(Node node, int depth) {}
+        }, doc);
+
+        Element p = doc.selectFirst("p");
+        assertNotNull(p);
+        }
+
+    @Test public void replaceElement() {
+        // https://github.com/jhy/jsoup/issues/1289
+        // test we can replace an element during traversal
+        String html = "<div><p>One <i>two</i> <i>three</i> four.</p></div>";
+        Document doc = Jsoup.parse_2_oe(html);
+
+        NodeTraversor.traverse(new NodeVisitor() {
+            @Override
+            public void head(Node node, int depth) {
+                if (node instanceof Element) {
+                    Element el = (Element) node;
+                    if (el.normalName().equals("i")) {
+                        Element u = new Element("u").insertChildren(0, el.childNodes());
+                        el.replaceWith(u);
+                    }
+                }
+            }
+
+            @Override
+            public void tail(Node node, int depth) {}
+        }, doc);
+
+        Element p = doc.selectFirst("p");
+        // removed other assertion
+        assertEquals("<p>One <u>two</u> <u>three</u> four.</p>", p.outerHtml());
+        }
+
+    @Test public void canAddChildren() {
+        Document doc = Jsoup.parse_1_oe("<div><p></p><p></p></div>");
+
+        NodeTraversor.traverse(new NodeVisitor() {
+            int i = 0;
+            @Override
+            public void head(Node node, int depth) {
+                if (node.nodeName().equals("p")) {
+                    Element p = (Element) node;
+                    p.append("<span>" + i++ + "</span>");
+                }
+            }
+
+            @Override
+            public void tail(Node node, int depth) {
+                if (node.nodeName().equals("p")) {
+                    Element p = (Element) node;
+                    p.append("<span>" + i++ + "</span>");
+                }
+            }
+        }, doc);
+
+        assertEquals("<div>\n" + " <p><span>0</span><span>1</span></p>\n" + " <p><span>2</span><span>3</span></p>\n" + "</div>", doc.body().html());
+        }
+
+    @Test public void canSpecifyOnlyHead() {
+        // really, a compilation test - works as a lambda if just head
+        Document doc = Jsoup.parse_1_oe("<div><p>One</p></div>");
+        final int[] count = {0};
+        NodeTraversor.traverse((node, depth) -> count[0]++, doc);
+        assertEquals(7, count[0]);
+        }
+
+    @Test public void canRemoveDuringHead() {
+        Document doc = Jsoup.parse_1_oe("<div><p id=1>Zero<p id=1>One<p id=2>Two<p>Three</div>");
+        NodeTraversor.traverse((node, depth) -> {
+            if (node.attr("id").equals("1"))
+                node.remove();
+            else if (node instanceof TextNode && ((TextNode) node).text().equals("Three"))
+                node.remove();
+        }, doc);
+
+        assertEquals("<div><p id=\"2\">Two</p><p></p></div>", TextUtil.stripNewlines(doc.body().html()));
+        }
+
 }

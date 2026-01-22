@@ -312,6 +312,30 @@ public class EntitiesTest_OE25Dev {
         assertEquals(text, Entities.unescape(escapedUtfMin));
         }
 
+    @Test public void escapedSupplementary() {
+        String text = "\uD835\uDD59";
+        String escape_1_oedAscii = Entities.escape(text, new OutputSettings().charset("ascii").escapeMode(base));
+        assertEquals("&#x1d559;", escapedAscii);
+        }
+
+    @Test public void escapedSupplementary() {
+        String text = "\uD835\uDD59";
+        String escape_2_oedAscii = Entities.escape(text, new OutputSettings().charset("ascii").escapeMode(base));
+        // removed other assertion
+        String escapedAsciiFull = Entities.escape(text, new OutputSettings().charset("ascii").escapeMode(extended));
+        assertEquals("&hopf;", escapedAsciiFull);
+        }
+
+    @Test public void escapedSupplementary() {
+        String text = "\uD835\uDD59";
+        String escape_3_oedAscii = Entities.escape(text, new OutputSettings().charset("ascii").escapeMode(base));
+        // removed other assertion
+        String escapedAsciiFull = Entities.escape(text, new OutputSettings().charset("ascii").escapeMode(extended));
+        // removed other assertion
+        String escapedUtf= Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(extended));
+        assertEquals(text, escapedUtf);
+        }
+
     @Test public void unescapeMultiChars() {
         String text = "&NestedGreaterGreater; &nGg; &nGt; &nGtv; &Gt; &gg;"; // gg is not combo, but 8811 could conflict with NestedGreaterGreater or others
         String un = "≫ ⋙̸ ≫⃒ ≫̸ ≫ ≫";
@@ -333,6 +357,70 @@ public class EntitiesTest_OE25Dev {
         String escaped = Entities.escape(un, new OutputSettings().charset("ascii").escapeMode(extended));
         // removed other assertion
         assertEquals(un, Entities.unescape(escaped));
+        }
+
+    @Test public void xhtml() {
+        assertEquals_1_oe(38, xhtml.codepointForName("amp"));
+        }
+
+    @Test public void xhtml() {
+        assertEquals_2_oe(38, xhtml.codepointForName("amp"));
+        assertEquals(62, xhtml.codepointForName("gt"));
+        }
+
+    @Test public void xhtml() {
+        assertEquals_3_oe(38, xhtml.codepointForName("amp"));
+        // removed other assertion
+        assertEquals(60, xhtml.codepointForName("lt"));
+        }
+
+    @Test public void xhtml() {
+        assertEquals_4_oe(38, xhtml.codepointForName("amp"));
+        // removed other assertion
+        // removed other assertion
+        assertEquals(34, xhtml.codepointForName("quot"));
+        }
+
+    @Test public void xhtml() {
+        assertEquals_5_oe(38, xhtml.codepointForName("amp"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("amp", xhtml.nameForCodepoint(38));
+        }
+
+    @Test public void xhtml() {
+        assertEquals_6_oe(38, xhtml.codepointForName("amp"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals("gt", xhtml.nameForCodepoint(62));
+        }
+
+    @Test public void xhtml() {
+        assertEquals_7_oe(38, xhtml.codepointForName("amp"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("lt", xhtml.nameForCodepoint(60));
+        }
+
+    @Test public void xhtml() {
+        assertEquals_8_oe(38, xhtml.codepointForName("amp"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("quot", xhtml.nameForCodepoint(34));
         }
 
     @Test public void getByName() {
@@ -357,9 +445,29 @@ public class EntitiesTest_OE25Dev {
         assertEquals("©", Entities.getByName("copy"));
         }
 
+    @Test public void escapeSupplementaryCharacter() {
+        String_1_oe text = new String(Character.toChars(135361));
+        String escapedAscii = Entities.escape(text, new OutputSettings().charset("ascii").escapeMode(base));
+        assertEquals("&#x210c1;", escapedAscii);
+        }
+
+    @Test public void escapeSupplementaryCharacter() {
+        String_2_oe text = new String(Character.toChars(135361));
+        String escapedAscii = Entities.escape(text, new OutputSettings().charset("ascii").escapeMode(base));
+        // removed other assertion
+        String escapedUtf = Entities.escape(text, new OutputSettings().charset("UTF-8").escapeMode(base));
+        assertEquals(text, escapedUtf);
+        }
+
     @Test public void notMissingMultis() {
         String text = "&nparsl;";
         String un = "\u2AFD\u20E5";
+        assertEquals_1_oe(un, Entities.unescape(text));
+        }
+
+    @Test public void notMissingSupplementals() {
+        String text = "&npolint; &qfr;";
+        String un = "⨔ \uD835\uDD2E"; // 𝔮
         assertEquals_1_oe(un, Entities.unescape(text));
         }
 
@@ -375,6 +483,24 @@ public class EntitiesTest_OE25Dev {
         assertEquals("&0987654321; &unknown", Entities.unescape("&0987654321; &unknown"));
         }
 
+    @Test public void strictUnescape() { // for attributes, enforce strict unescaping (must look like &#xxx; , not just &#xxx)
+        String text = "Hello &amp= &amp;";
+        assertEquals_1_oe("Hello &amp= &", Entities.unescape(text, true));
+        }
+
+    @Test public void strictUnescape() { // for attributes, enforce strict unescaping (must look like &#xxx; , not just &#xxx)
+        String text = "Hello &amp= &amp;";
+        assertEquals_2_oe("Hello &amp= &", Entities.unescape(text, true));
+        assertEquals("Hello &= &", Entities.unescape(text));
+        }
+
+    @Test public void strictUnescape() { // for attributes, enforce strict unescaping (must look like &#xxx; , not just &#xxx)
+        String text = "Hello &amp= &amp;";
+        assertEquals_3_oe("Hello &amp= &", Entities.unescape(text, true));
+        // removed other assertion
+        assertEquals("Hello &= &", Entities.unescape(text, false));
+        }
+
     @Test public void caseSensitive() {
         String unescaped = "Ü ü & &";
         assertEquals_1_oe("&Uuml; &uuml; &amp; &amp;", Entities.escape(unescaped, new OutputSettings().charset("ascii").escapeMode(extended)));
@@ -386,6 +512,13 @@ public class EntitiesTest_OE25Dev {
 
         String escaped = "&Uuml; &uuml; &amp; &AMP";
         assertEquals("Ü ü & &", Entities.unescape(escaped));
+        }
+
+    @Test public void quoteReplacements() {
+        String escaped = "&#92; &#36;";
+        String unescaped = "\\ $";
+
+        assertEquals_1_oe(unescaped, Entities.unescape(escaped));
         }
 
     @Test public void letterDigitEntities() {
@@ -416,6 +549,11 @@ public class EntitiesTest_OE25Dev {
         assertEquals("¹²³¼½¾", p.html());
         }
 
+    @Test public void noSpuriousDecodes() {
+        String string = "http://www.foo.com?a=1&num_rooms=1&children=0&int=VA&b=2";
+        assertEquals_1_oe(string, Entities.unescape(string));
+        }
+
     @Test public void escapesGtInXmlAttributesButNotInHtml() {
         // https://github.com/jhy/jsoup/issues/528 - < is OK in HTML attribute values, but not in XML
 
@@ -441,6 +579,27 @@ public class EntitiesTest_OE25Dev {
 
         doc.outputSettings().escapeMode(xhtml);
         assertEquals("<a title=\"&lt;p>One&lt;/p>\">One</a>", element.outerHtml());
+        }
+
+    @Test public void controlCharactersAreEscaped() {
+        // https://github.com/jhy/jsoup/issues/1556
+        // we escape ascii control characters in both HTML and XML for compatibility. Required in XML and probably
+        // easier to read in HTML
+        String input = "<a foo=\"&#x1b;esc&#x7;bell\">Text &#x1b; &#x7;</a>";
+        Document doc = Jsoup.parse_1_oe(input);
+        assertEquals(input, doc.body().html());
+        }
+
+    @Test public void controlCharactersAreEscaped() {
+        // https://github.com/jhy/jsoup/issues/1556
+        // we escape ascii control characters in both HTML and XML for compatibility. Required in XML and probably
+        // easier to read in HTML
+        String input = "<a foo=\"&#x1b;esc&#x7;bell\">Text &#x1b; &#x7;</a>";
+        Document doc = Jsoup.parse_2_oe(input);
+        // removed other assertion
+
+        Document xml = Jsoup.parse(input, "", Parser.xmlParser());
+        assertEquals(input, xml.html());
         }
 
 }

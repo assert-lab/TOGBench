@@ -53,79 +53,73 @@ def _line_has_test_annotation(sanitized_line: str) -> bool:
 
 def extract_test_methods(file_content: str) -> List[List[str]]:
     lines = file_content.splitlines(keepends=True)
-    methods: List[List[str]] = []
+    methods = []
     i = 0
     n = len(lines)
     in_block = False
 
     while i < n:
         line = lines[i]
-        # Strip comments/string literals for detection, but keep raw line for output
         sanitized, in_block = sanitize_for_counting(line, in_block)
 
-        # ---------------------- JUnit 4/5 annotated tests ----------------------
         if _line_has_test_annotation(sanitized):
-            buf: List[str] = [line]
+            buf = [line]
             i += 1
-
-            brace_balance = 0
-            saw_open = False
-
+            local_in_block = in_block
+            sanitized_body, local_in_block = sanitize_for_counting(line, local_in_block)
+            brace_balance = sanitized_body.count("{") - sanitized_body.count("}")
+            saw_open = sanitized_body.count("{") > 0
             while i < n:
                 ln = lines[i]
+                sanitized_ln, local_in_block = sanitize_for_counting(ln, local_in_block)
+                if (_line_has_test_annotation(sanitized_ln) or JUNIT3_TEST_HEADER.match(sanitized_ln)):
+                    if saw_open and brace_balance <= 0:
+                        break
                 buf.append(ln)
-
-                # For method body boundaries we can safely use raw line text
-                opens = ln.count("{")
-                closes = ln.count("}")
+                opens = sanitized_ln.count("{")
+                closes = sanitized_ln.count("}")
                 brace_balance += opens - closes
-
                 if opens > 0:
                     saw_open = True
-
-                # Once we've seen an opening brace for this method and the balance
-                # returns to 0, we assume the method body ended.
                 if saw_open and brace_balance == 0:
                     i += 1
                     break
-
                 i += 1
-
             methods.append(buf)
+            in_block = local_in_block
             continue
 
-        # -------------------------- JUnit 3 style tests ------------------------
         if JUNIT3_TEST_HEADER.match(sanitized):
-            buf: List[str] = [line]
+            buf = [line]
             i += 1
-
-            brace_balance = sanitized.count("{") - sanitized.count("}")
-            saw_open = sanitized.count("{") > 0
-
+            local_in_block = in_block
+            sanitized_header, local_in_block = sanitize_for_counting(line, local_in_block)
+            brace_balance = sanitized_header.count("{") - sanitized_header.count("}")
+            saw_open = sanitized_header.count("{") > 0
             while i < n:
                 ln = lines[i]
+                sanitized_ln, local_in_block = sanitize_for_counting(ln, local_in_block)
+                if (_line_has_test_annotation(sanitized_ln) or JUNIT3_TEST_HEADER.match(sanitized_ln)):
+                    if saw_open and brace_balance <= 0:
+                        break
                 buf.append(ln)
-
-                opens = ln.count("{")
-                closes = ln.count("}")
+                opens = sanitized_ln.count("{")
+                closes = sanitized_ln.count("}")
                 brace_balance += opens - closes
-
                 if opens > 0:
                     saw_open = True
-
                 if saw_open and brace_balance == 0:
                     i += 1
                     break
-
                 i += 1
-
             methods.append(buf)
+            in_block = local_in_block
             continue
 
-        # No test header/annotation on this line, move on
         i += 1
 
     return methods
+
 
 
 def extract_project(project: str, projects_root: str = "projects_decomposed"):

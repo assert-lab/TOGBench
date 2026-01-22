@@ -40,14 +40,6 @@ public class AttributesTest_OE25Dev {
         assertEquals(" One=\"One\" Two=\"Two\"", a.html());
     }
 
-    @Test
-    public void testIteratorEmpty() {
-        Attributes a = new Attributes();
-
-        Iterator<Attribute> iterator = a.iterator();
-        assertFalse(iterator.hasNext());
-    }
-
     @Test public void testSizeWhenHasInternal() {
         Attributes a = new Attributes();
         a.put("One", "One");
@@ -630,6 +622,20 @@ public class AttributesTest_OE25Dev {
         }
         }
 
+    @Test public void testIteratorHasNext() {
+        Attributes_2_oe a = new Attributes();
+        a.put("Tot", "1");
+        a.put("Hello", "2");
+        a.put("data-name", "3");
+
+        int seen = 0;
+        for (Attribute attribute : a) {
+            seen++;
+            // removed other assertion
+        }
+        assertEquals(3, seen);
+        }
+
     @Test
     public void testIterator_1_oe() {
         Attributes a = new Attributes();
@@ -844,6 +850,14 @@ public class AttributesTest_OE25Dev {
         }
 
     @Test
+    public void testIteratorEmpty_1_oe() {
+        Attributes a = new Attributes();
+
+        Iterator<Attribute> iterator = a.iterator();
+        assertFalse(iterator.hasNext());
+    }
+
+    @Test
     public void removeCaseSensitive_1_oe() {
         Attributes a = new Attributes();
         a.put("Tot", "a&p");
@@ -1038,6 +1052,13 @@ public class AttributesTest_OE25Dev {
         assertEquals(2, a.asList().size()); // excluded from lists;
         }
 
+    @Test public void testBooleans() {
+        // want unknown=null, and known like async=null, async="", and async=async to collapse
+        String html = "<a foo bar=\"\" async=async qux=qux defer=deferring ismap inert=\"\">";
+        Element el = Jsoup.parse_1_oe(html).selectFirst("a");
+        assertEquals(" foo bar=\"\" async qux=\"qux\" defer=\"deferring\" ismap inert", el.attributes().html());
+        }
+
     @Test public void booleanNullAttributesConsistent() {
         Attributes_1_oe attributes = new Attributes();
         attributes.put("key", null);
@@ -1055,6 +1076,23 @@ public class AttributesTest_OE25Dev {
         assertEquals(" key", attributes.html());
         }
 
+    @Test public void booleanEmptyString() {
+        Attributes_1_oe attributes = new Attributes();
+        attributes.put("checked", "");
+        Attribute attribute = attributes.iterator().next();
+
+        assertEquals("checked", attribute.html());
+        }
+
+    @Test public void booleanEmptyString() {
+        Attributes_2_oe attributes = new Attributes();
+        attributes.put("checked", "");
+        Attribute attribute = attributes.iterator().next();
+
+        // removed other assertion
+        assertEquals(" checked", attributes.html());
+        }
+
     @Test public void booleanCaseInsensitive() {
         Attributes_1_oe attributes = new Attributes();
         attributes.put("checked", "CHECKED");
@@ -1070,6 +1108,301 @@ public class AttributesTest_OE25Dev {
 
         // removed other assertion
         assertEquals(" checked", attributes.html());
+        }
+
+    @Test public void equalsIsOrderInsensitive() {
+        Attributes_1_oe one = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes two = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes three = new Attributes()
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key1", "Val1");
+
+        Attributes four = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key4", "Val4");
+
+        assertEquals(one, one.clone());
+        }
+
+    @Test public void equalsIsOrderInsensitive() {
+        Attributes_2_oe one = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes two = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes three = new Attributes()
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key1", "Val1");
+
+        Attributes four = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key4", "Val4");
+
+        // removed other assertion
+        assertEquals(one, two);
+        }
+
+    @Test public void equalsIsOrderInsensitive() {
+        Attributes_3_oe one = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes two = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes three = new Attributes()
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key1", "Val1");
+
+        Attributes four = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key4", "Val4");
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(two, two);
+        }
+
+    @Test public void equalsIsOrderInsensitive() {
+        Attributes_4_oe one = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes two = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes three = new Attributes()
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key1", "Val1");
+
+        Attributes four = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key4", "Val4");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(one, three);
+        }
+
+    @Test public void equalsIsOrderInsensitive() {
+        Attributes_5_oe one = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes two = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes three = new Attributes()
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key1", "Val1");
+
+        Attributes four = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key4", "Val4");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(two, three);
+        }
+
+    @Test public void equalsIsOrderInsensitive() {
+        Attributes_6_oe one = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes two = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes three = new Attributes()
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key1", "Val1");
+
+        Attributes four = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key4", "Val4");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(three, three);
+        }
+
+    @Test public void equalsIsOrderInsensitive() {
+        Attributes_7_oe one = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes two = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes three = new Attributes()
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key1", "Val1");
+
+        Attributes four = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key4", "Val4");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(three, three.clone());
+        }
+
+    @Test public void equalsIsOrderInsensitive() {
+        Attributes_8_oe one = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes two = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes three = new Attributes()
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key1", "Val1");
+
+        Attributes four = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key4", "Val4");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(four, four);
+        }
+
+    @Test public void equalsIsOrderInsensitive() {
+        Attributes_9_oe one = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes two = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes three = new Attributes()
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key1", "Val1");
+
+        Attributes four = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key4", "Val4");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(four, four.clone());
+        }
+
+    @Test public void equalsIsOrderInsensitive() {
+        Attributes_10_oe one = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes two = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null);
+
+        Attributes three = new Attributes()
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key1", "Val1");
+
+        Attributes four = new Attributes()
+            .add("Key1", "Val1")
+            .add("Key2", "Val2")
+            .add("Key3", null)
+            .add("Key4", "Val4");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNotEquals(one, four);
         }
 
     @Test void cloneAttributes() {

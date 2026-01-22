@@ -128,6 +128,79 @@ public class QueryParserTest_OE25Dev {
         assertEquals("l2", doc.select(">body>p>strong,>body>*>li>strong").text());
         }
 
+    @Test public void testOrGetsCorrectPrecedence() {
+        // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
+        // top level or, three child ands
+        Evaluator eval = QueryParser.parse_1_oe("a b, c d, e f");
+        assertTrue(eval instanceof CombiningEvaluator.Or);
+        }
+
+    @Test public void testOrGetsCorrectPrecedence() {
+        // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
+        // top level or, three child ands
+        Evaluator eval = QueryParser.parse_2_oe("a b, c d, e f");
+        // removed other assertion
+        CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        assertEquals(3, or.evaluators.size());
+        }
+
+    @Test public void testOrGetsCorrectPrecedence() {
+        // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
+        // top level or, three child ands
+        Evaluator eval = QueryParser.parse_3_oe("a b, c d, e f");
+        // removed other assertion
+        CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
+        for (Evaluator innerEval: or.evaluators) {
+            assertTrue(innerEval instanceof CombiningEvaluator.And);
+        }
+        }
+
+    @Test public void testOrGetsCorrectPrecedence() {
+        // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
+        // top level or, three child ands
+        Evaluator eval = QueryParser.parse_4_oe("a b, c d, e f");
+        // removed other assertion
+        CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
+        for (Evaluator innerEval: or.evaluators) {
+            // removed other assertion
+            CombiningEvaluator.And and = (CombiningEvaluator.And) innerEval;
+            assertEquals(2, and.evaluators.size());
+        }
+        }
+
+    @Test public void testOrGetsCorrectPrecedence() {
+        // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
+        // top level or, three child ands
+        Evaluator eval = QueryParser.parse_5_oe("a b, c d, e f");
+        // removed other assertion
+        CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
+        for (Evaluator innerEval: or.evaluators) {
+            // removed other assertion
+            CombiningEvaluator.And and = (CombiningEvaluator.And) innerEval;
+            // removed other assertion
+            assertTrue(and.evaluators.get(0) instanceof StructuralEvaluator.Parent);
+        }
+        }
+
+    @Test public void testOrGetsCorrectPrecedence() {
+        // tests that a selector "a b, c d, e f" evals to (a AND b) OR (c AND d) OR (e AND f)"
+        // top level or, three child ands
+        Evaluator eval = QueryParser.parse_6_oe("a b, c d, e f");
+        // removed other assertion
+        CombiningEvaluator.Or or = (CombiningEvaluator.Or) eval;
+        // removed other assertion
+        for (Evaluator innerEval: or.evaluators) {
+            // removed other assertion
+            CombiningEvaluator.And and = (CombiningEvaluator.And) innerEval;
+            // removed other assertion
+            // removed other assertion
+            assertTrue(and.evaluators.get(1) instanceof Evaluator.Tag);
+        }
+        }
+
     @Test public void testParsesMultiCorrectly() {
         String query = ".foo > ol, ol > li + li";
         Evaluator eval = QueryParser.parse_1_oe(query);
@@ -217,12 +290,25 @@ public class QueryParserTest_OE25Dev {
         assertEquals(query, eval.toString());
         }
 
+    @Test public void exceptionOnUncloseAttribute() {
+        assertThrows_1_oe(Selector.SelectorParseException.class, () -> QueryParser.parse("section > a[href=\"]"));
+        }
+
     @Test public void testParsesSingleQuoteInContains() {
         assertThrows_1_oe(Selector.SelectorParseException.class, () -> QueryParser.parse("p:contains(One \" One)"));
         }
 
+    @Test public void exceptOnEmptySelector() {
+        assertThrows_1_oe(Selector.SelectorParseException.class, () -> QueryParser.parse(""));
+        }
+
     @Test public void exceptOnNullSelector() {
         assertThrows_1_oe(Selector.SelectorParseException.class, () -> QueryParser.parse(null));
+        }
+
+    @Test public void okOnSpacesForeAndAft() {
+        Evaluator parse_1_oe = QueryParser.parse(" span div  ");
+        assertEquals("span div", parse.toString());
         }
 
     @Test public void structuralEvaluatorsToString() {

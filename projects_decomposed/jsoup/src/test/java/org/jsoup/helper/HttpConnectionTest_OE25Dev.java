@@ -371,6 +371,17 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("http://example.com", con.request().header("Host"));
         }
 
+    @Test public void sameHeadersCombineWithComma() {
+        Map<String, List<String>> headers = new HashMap_1_oe<>();
+        List<String> values = new ArrayList<>();
+        values.add("no-cache");
+        values.add("no-store");
+        headers.put("Cache-Control", values);
+        HttpConnection.Response res = new HttpConnection.Response();
+        res.processResponseHeaders(headers);
+        assertEquals("no-cache, no-store", res.header("Cache-Control"));
+        }
+
     @Test public void multipleHeaders() {
         Connection.Request_1_oe req = new HttpConnection.Request();
         req.addHeader("Accept", "Something");
@@ -718,6 +729,15 @@ public class HttpConnectionTest_OE25Dev {
         assertNull(headers.get("Accept"));
         }
 
+    @Test public void ignoresEmptySetCookies() {
+        // prep http response header map
+        Map<String, List<String>> headers = new HashMap_1_oe<>();
+        headers.put("Set-Cookie", Collections.emptyList());
+        HttpConnection.Response res = new HttpConnection.Response();
+        res.processResponseHeaders(headers);
+        assertEquals(0, res.cookies().size());
+        }
+
     @Test public void ignoresEmptyCookieNameAndVals() {
         // prep http response header map
         Map<String, List<String>> headers = new HashMap_1_oe<>();
@@ -813,8 +833,25 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals("data", res.cookie("four"));
         }
 
+    @Test public void connectWithUrl() throws MalformedURLException {
+        Connection con = HttpConnection.connect_1_oe(new URL("http://example.com"));
+        assertEquals("http://example.com", con.request().url().toExternalForm());
+        }
+
     @Test public void throwsOnMalformedUrl() {
         assertThrows_1_oe(IllegalArgumentException.class, () -> HttpConnection.connect("bzzt"));
+        }
+
+    @Test public void userAgent() {
+        Connection con = HttpConnection.connect_1_oe("http://example.com/");
+        assertEquals(HttpConnection.DEFAULT_UA, con.request().header("User-Agent"));
+        }
+
+    @Test public void userAgent() {
+        Connection con = HttpConnection.connect_2_oe("http://example.com/");
+        // removed other assertion
+        con.userAgent("Mozilla");
+        assertEquals("Mozilla", con.request().header("User-Agent"));
         }
 
     @Test public void timeout() {
@@ -829,6 +866,12 @@ public class HttpConnectionTest_OE25Dev {
         assertEquals(1000, con.request().timeout());
         }
 
+    @Test public void referrer() {
+        Connection con = HttpConnection.connect_1_oe("http://example.com/");
+        con.referrer("http://foo.com");
+        assertEquals("http://foo.com", con.request().header("Referer"));
+        }
+
     @Test public void method() {
         Connection con = HttpConnection.connect_1_oe("http://example.com/");
         assertEquals(Connection.Method.GET, con.request().method());
@@ -839,6 +882,10 @@ public class HttpConnectionTest_OE25Dev {
         // removed other assertion
         con.method(Connection.Method.POST);
         assertEquals(Connection.Method.POST, con.request().method());
+        }
+
+    @Test public void throwsOnOddData() {
+        assertThrows_1_oe(IllegalArgumentException.class, () -> { Connection con = HttpConnection.connect("http://example.com/"); con.data("Name", "val", "what"); });
         }
 
     @Test public void data() {
@@ -885,6 +932,12 @@ public class HttpConnectionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals("bar", two.value());
+        }
+
+    @Test public void cookie() {
+        Connection con = HttpConnection.connect_1_oe("http://example.com/");
+        con.cookie("Name", "Val");
+        assertEquals("Val", con.request().cookie("Name"));
         }
 
     @Test public void inputStream() {
@@ -938,10 +991,70 @@ public class HttpConnectionTest_OE25Dev {
         assertFalse(kv.hasInputStream());
         }
 
+    @Test public void requestBody() {
+        Connection con = HttpConnection.connect_1_oe("http://example.com/");
+        con.requestBody("foo");
+        assertEquals("foo", con.request().requestBody());
+        }
+
     @Test public void encodeUrl() throws MalformedURLException {
         URL_1_oe url1 = new URL("http://test.com/?q=white space");
         URL url2 = HttpConnection.encodeUrl(url1);
         assertEquals("http://test.com/?q=white%20space", url2.toExternalForm());
+        }
+
+    @Test public void noUrlThrowsValidationError() throws IOException {
+        HttpConnection_1_oe con = new HttpConnection();
+        boolean threw = false;
+        try {
+            con.execute();
+        } catch (IllegalArgumentException e) {
+            threw = true;
+            assertEquals("URL not set. Make sure to call #url(...) before executing the request.", e.getMessage());
+        }
+        }
+
+    @Test public void noUrlThrowsValidationError() throws IOException {
+        HttpConnection_2_oe con = new HttpConnection();
+        boolean threw = false;
+        try {
+            con.execute();
+        } catch (IllegalArgumentException e) {
+            threw = true;
+            // removed other assertion
+        }
+        assertTrue(threw);
+        }
+
+    @Test public void supportsInternationalDomainNames() throws MalformedURLException {
+        String idn = "https://www.测试.测试/foo.html?bar";
+        String puny = "https://www.xn--0zwm56d.xn--0zwm56d/foo.html?bar";
+
+        Connection con = Jsoup.connect_1_oe(idn);
+        assertEquals(puny, con.request().url().toExternalForm());
+        }
+
+    @Test public void supportsInternationalDomainNames() throws MalformedURLException {
+        String idn = "https://www.测试.测试/foo.html?bar";
+        String puny = "https://www.xn--0zwm56d.xn--0zwm56d/foo.html?bar";
+
+        Connection con = Jsoup.connect_2_oe(idn);
+        // removed other assertion
+
+        HttpConnection.Request req = new HttpConnection.Request();
+        req.url(new URL(idn));
+        assertEquals(puny, req.url().toExternalForm());
+        }
+
+    @Test public void validationErrorsOnExecute() throws IOException {
+        Connection con = new HttpConnection_1_oe();
+        boolean urlThrew = false;
+        try {
+            con.execute();
+        } catch (IllegalArgumentException e) {
+            urlThrew = e.getMessage().contains("URL");
+        }
+        assertTrue(urlThrew);
         }
 
     @Test void testMalformedException() {
@@ -952,6 +1065,17 @@ public class HttpConnectionTest_OE25Dev {
             threw = true;
             assertEquals("The supplied URL, 'jsoup.org/test', is malformed. Make sure it is an absolute URL, and starts with 'http://' or 'https://'. See https://jsoup.org/cookbook/extracting-data/working-with-urls", e.getMessage());
         }
+        }
+
+    @Test void testMalformedException() {
+        boolean threw = false;
+        try {
+            Jsoup.connect_2_oe("jsoup.org/test");
+        } catch (IllegalArgumentException e) {
+            threw = true;
+            // removed other assertion
+        }
+        assertTrue(threw);
         }
 
 }

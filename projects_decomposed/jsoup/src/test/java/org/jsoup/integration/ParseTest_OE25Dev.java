@@ -579,6 +579,22 @@ public class ParseTest_OE25Dev {
         assertTrue(doc.select("[data-id=userdirectory]").outerHtml().startsWith(wantHtml));
         }
 
+    @Test public void testWikiFromString() throws IOException {
+        File in = getFile_1_oe("/htmltests/xwiki-1324.html.gz");
+        String html = getFileAsString(in);
+        Document doc = Jsoup.parse(html);
+        assertEquals("XWiki Jetty HSQLDB 12.1-SNAPSHOT", doc.select("#xwikiplatformversion").text());
+        }
+
+    @Test public void testWikiFromString() throws IOException {
+        File in = getFile_2_oe("/htmltests/xwiki-1324.html.gz");
+        String html = getFileAsString(in);
+        Document doc = Jsoup.parse(html);
+        // removed other assertion
+        String wantHtml = "<a class=\"list-group-item\" data-id=\"userdirectory\" href=\"/xwiki/bin/admin/XWiki/XWikiPreferences?editor=globaladmin&amp;section=userdirectory\" title=\"Customize the user directory live table.\">User Directory</a>";
+        assertEquals(wantHtml, doc.select("[data-id=userdirectory]").outerHtml());
+        }
+
     @Test public void testFileParseNoCharsetMethod() throws IOException {
         File in = getFile_1_oe("/htmltests/xwiki-1324.html.gz");
         Document doc = Jsoup.parse(in);

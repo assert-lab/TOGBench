@@ -25,7 +25,7 @@ main:
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the revision information from the scm repository, proceeding with revision of ?????? : 
 Exception while executing SCM command.
-[INFO] Storing buildNumber: ?????? at timestamp: 1769074163108
+[INFO] Storing buildNumber: ?????? at timestamp: 1769121115783
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils' && 'svn' '--non-interactive' 'info'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the branch information from the scm repository, proceeding with UNKNOWN_BRANCH : 
@@ -69,6 +69,12 @@ Exception while executing SCM command.
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/FirstChildBean.java:[4,1] duplicate class: org.apache.commons.beanutils.bugs.FirstChildBean
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/RootBean.java:[6,1] duplicate class: org.apache.commons.beanutils.bugs.RootBean
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422TestCase_OE25Dev.java:[82,1] duplicate class: org.apache.commons.beanutils.bugs.RootBean
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422TestCase_OE25Dev.java:[105,1] duplicate class: org.apache.commons.beanutils.bugs.FirstChildBean
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422TestCase_OE25Dev.java:[108,1] duplicate class: org.apache.commons.beanutils.bugs.SecondChildBean
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/SecondChildBean.java:[3,1] duplicate class: org.apache.commons.beanutils.bugs.SecondChildBean
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422bTestCase_OE25Dev.java:[50,1] duplicate class: org.apache.commons.beanutils.bugs.RootBeanB
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422bTestCase_OE25Dev.java:[72,1] duplicate class: org.apache.commons.beanutils.bugs.FirstChildBeanB
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422bTestCase_OE25Dev.java:[75,1] duplicate class: org.apache.commons.beanutils.bugs.SecondChildBeanB
@@ -150,15 +156,21 @@ Exception while executing SCM command.
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[202,9] cannot find symbol
   symbol:   variable loader
   location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[INFO] 29 errors 
+[INFO] 35 errors 
 [INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.872 s
-[INFO] Finished at: 2026-01-22T03:29:32-06:00
+[INFO] Total time:  12.067 s
+[INFO] Finished at: 2026-01-22T16:32:05-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project commons-beanutils: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/FirstChildBean.java:[4,1] duplicate class: org.apache.commons.beanutils.bugs.FirstChildBean
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/RootBean.java:[6,1] duplicate class: org.apache.commons.beanutils.bugs.RootBean
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422TestCase_OE25Dev.java:[82,1] duplicate class: org.apache.commons.beanutils.bugs.RootBean
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422TestCase_OE25Dev.java:[105,1] duplicate class: org.apache.commons.beanutils.bugs.FirstChildBean
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422TestCase_OE25Dev.java:[108,1] duplicate class: org.apache.commons.beanutils.bugs.SecondChildBean
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/SecondChildBean.java:[3,1] duplicate class: org.apache.commons.beanutils.bugs.SecondChildBean
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422bTestCase_OE25Dev.java:[50,1] duplicate class: org.apache.commons.beanutils.bugs.RootBeanB
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422bTestCase_OE25Dev.java:[72,1] duplicate class: org.apache.commons.beanutils.bugs.FirstChildBeanB
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422bTestCase_OE25Dev.java:[75,1] duplicate class: org.apache.commons.beanutils.bugs.SecondChildBeanB

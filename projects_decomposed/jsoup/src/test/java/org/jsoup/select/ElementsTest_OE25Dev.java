@@ -458,6 +458,121 @@ public class ElementsTest_OE25Dev {
         assertEquals("There", els.get(1).text());
         }
 
+    @Test public void attributes() {
+        String h = "<p title=foo><p title=bar><p class=foo><p class=bar>";
+        Document doc = Jsoup.parse_1_oe(h);
+        Elements withTitle = doc.select("p[title]");
+        assertEquals(2, withTitle.size());
+        }
+
+    @Test public void attributes() {
+        String h = "<p title=foo><p title=bar><p class=foo><p class=bar>";
+        Document doc = Jsoup.parse_2_oe(h);
+        Elements withTitle = doc.select("p[title]");
+        // removed other assertion
+        assertTrue(withTitle.hasAttr("title"));
+        }
+
+    @Test public void attributes() {
+        String h = "<p title=foo><p title=bar><p class=foo><p class=bar>";
+        Document doc = Jsoup.parse_3_oe(h);
+        Elements withTitle = doc.select("p[title]");
+        // removed other assertion
+        // removed other assertion
+        assertFalse(withTitle.hasAttr("class"));
+        }
+
+    @Test public void attributes() {
+        String h = "<p title=foo><p title=bar><p class=foo><p class=bar>";
+        Document doc = Jsoup.parse_4_oe(h);
+        Elements withTitle = doc.select("p[title]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("foo", withTitle.attr("title"));
+        }
+
+    @Test public void attributes() {
+        String h = "<p title=foo><p title=bar><p class=foo><p class=bar>";
+        Document doc = Jsoup.parse_5_oe(h);
+        Elements withTitle = doc.select("p[title]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        withTitle.removeAttr("title");
+        assertEquals(2, withTitle.size()); // existing Elements are not reevaluated;
+        }
+
+    @Test public void attributes() {
+        String h = "<p title=foo><p title=bar><p class=foo><p class=bar>";
+        Document doc = Jsoup.parse_6_oe(h);
+        Elements withTitle = doc.select("p[title]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        withTitle.removeAttr("title");
+        // removed other assertion
+        assertEquals(0, doc.select("p[title]").size());
+        }
+
+    @Test public void attributes() {
+        String h = "<p title=foo><p title=bar><p class=foo><p class=bar>";
+        Document doc = Jsoup.parse_7_oe(h);
+        Elements withTitle = doc.select("p[title]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        withTitle.removeAttr("title");
+        // removed other assertion
+        // removed other assertion
+
+        Elements ps = doc.select("p").attr("style", "classy");
+        assertEquals(4, ps.size());
+        }
+
+    @Test public void attributes() {
+        String h = "<p title=foo><p title=bar><p class=foo><p class=bar>";
+        Document doc = Jsoup.parse_8_oe(h);
+        Elements withTitle = doc.select("p[title]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        withTitle.removeAttr("title");
+        // removed other assertion
+        // removed other assertion
+
+        Elements ps = doc.select("p").attr("style", "classy");
+        // removed other assertion
+        assertEquals("classy", ps.last().attr("style"));
+        }
+
+    @Test public void attributes() {
+        String h = "<p title=foo><p title=bar><p class=foo><p class=bar>";
+        Document doc = Jsoup.parse_9_oe(h);
+        Elements withTitle = doc.select("p[title]");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        withTitle.removeAttr("title");
+        // removed other assertion
+        // removed other assertion
+
+        Elements ps = doc.select("p").attr("style", "classy");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("bar", ps.last().attr("class"));
+        }
+
     @Test public void hasAttr() {
         Document doc = Jsoup.parse_1_oe("<p title=foo><p title=bar><p class=foo><p class=bar>");
         Elements ps = doc.select("p");
@@ -471,10 +586,67 @@ public class ElementsTest_OE25Dev {
         assertFalse(ps.hasAttr("style"));
         }
 
+    @Test public void hasAbsAttr() {
+        Document doc = Jsoup.parse_1_oe("<a id=1 href='/foo'>One</a> <a id=2 href='https://jsoup.org'>Two</a>");
+        Elements one = doc.select("#1");
+        Elements two = doc.select("#2");
+        Elements both = doc.select("a");
+        assertFalse(one.hasAttr("abs:href"));
+        }
+
+    @Test public void hasAbsAttr() {
+        Document doc = Jsoup.parse_2_oe("<a id=1 href='/foo'>One</a> <a id=2 href='https://jsoup.org'>Two</a>");
+        Elements one = doc.select("#1");
+        Elements two = doc.select("#2");
+        Elements both = doc.select("a");
+        // removed other assertion
+        assertTrue(two.hasAttr("abs:href"));
+        }
+
+    @Test public void hasAbsAttr() {
+        Document doc = Jsoup.parse_3_oe("<a id=1 href='/foo'>One</a> <a id=2 href='https://jsoup.org'>Two</a>");
+        Elements one = doc.select("#1");
+        Elements two = doc.select("#2");
+        Elements both = doc.select("a");
+        // removed other assertion
+        // removed other assertion
+        assertTrue(both.hasAttr("abs:href")); // hits on #2;
+        }
+
     @Test public void attr() {
         Document doc = Jsoup.parse_1_oe("<p title=foo><p title=bar><p class=foo><p class=bar>");
         String classVal = doc.select("p").attr("class");
         assertEquals("foo", classVal);
+        }
+
+    @Test public void absAttr() {
+        Document doc = Jsoup.parse_1_oe("<a id=1 href='/foo'>One</a> <a id=2 href='https://jsoup.org'>Two</a>");
+        Elements one = doc.select("#1");
+        Elements two = doc.select("#2");
+        Elements both = doc.select("a");
+
+        assertEquals("", one.attr("abs:href"));
+        }
+
+    @Test public void absAttr() {
+        Document doc = Jsoup.parse_2_oe("<a id=1 href='/foo'>One</a> <a id=2 href='https://jsoup.org'>Two</a>");
+        Elements one = doc.select("#1");
+        Elements two = doc.select("#2");
+        Elements both = doc.select("a");
+
+        // removed other assertion
+        assertEquals("https://jsoup.org", two.attr("abs:href"));
+        }
+
+    @Test public void absAttr() {
+        Document doc = Jsoup.parse_3_oe("<a id=1 href='/foo'>One</a> <a id=2 href='https://jsoup.org'>Two</a>");
+        Elements one = doc.select("#1");
+        Elements two = doc.select("#2");
+        Elements both = doc.select("a");
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("https://jsoup.org", both.attr("abs:href"));
         }
 
     @Test public void classes() {
@@ -519,16 +691,110 @@ public class ElementsTest_OE25Dev {
         assertEquals("red green blue mellow", els.get(1).className());
         }
 
+    @Test public void hasClassCaseInsensitive() {
+        Elements els = Jsoup.parse_1_oe("<p Class=One>One <p class=Two>Two <p CLASS=THREE>THREE").select("p");
+        Element one = els.get(0);
+        Element two = els.get(1);
+        Element thr = els.get(2);
+
+        assertTrue(one.hasClass("One"));
+        }
+
+    @Test public void hasClassCaseInsensitive() {
+        Elements els = Jsoup.parse_2_oe("<p Class=One>One <p class=Two>Two <p CLASS=THREE>THREE").select("p");
+        Element one = els.get(0);
+        Element two = els.get(1);
+        Element thr = els.get(2);
+
+        // removed other assertion
+        assertTrue(one.hasClass("ONE"));
+        }
+
+    @Test public void hasClassCaseInsensitive() {
+        Elements els = Jsoup.parse_3_oe("<p Class=One>One <p class=Two>Two <p CLASS=THREE>THREE").select("p");
+        Element one = els.get(0);
+        Element two = els.get(1);
+        Element thr = els.get(2);
+
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue(two.hasClass("TWO"));
+        }
+
+    @Test public void hasClassCaseInsensitive() {
+        Elements els = Jsoup.parse_4_oe("<p Class=One>One <p class=Two>Two <p CLASS=THREE>THREE").select("p");
+        Element one = els.get(0);
+        Element two = els.get(1);
+        Element thr = els.get(2);
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertTrue(two.hasClass("Two"));
+        }
+
+    @Test public void hasClassCaseInsensitive() {
+        Elements els = Jsoup.parse_5_oe("<p Class=One>One <p class=Two>Two <p CLASS=THREE>THREE").select("p");
+        Element one = els.get(0);
+        Element two = els.get(1);
+        Element thr = els.get(2);
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue(thr.hasClass("ThreE"));
+        }
+
+    @Test public void hasClassCaseInsensitive() {
+        Elements els = Jsoup.parse_6_oe("<p Class=One>One <p class=Two>Two <p CLASS=THREE>THREE").select("p");
+        Element one = els.get(0);
+        Element two = els.get(1);
+        Element thr = els.get(2);
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertTrue(thr.hasClass("three"));
+        }
+
     @Test public void text() {
         String h = "<div><p>Hello<p>there<p>world</div>";
         Document doc = Jsoup.parse_1_oe(h);
         assertEquals("Hello there world", doc.select("div > *").text());
         }
 
+    @Test public void hasText() {
+        Document doc = Jsoup.parse_1_oe("<div><p>Hello</p></div><div><p></p></div>");
+        Elements divs = doc.select("div");
+        assertTrue(divs.hasText());
+        }
+
+    @Test public void hasText() {
+        Document doc = Jsoup.parse_2_oe("<div><p>Hello</p></div><div><p></p></div>");
+        Elements divs = doc.select("div");
+        // removed other assertion
+        assertFalse(doc.select("div + div").hasText());
+        }
+
     @Test public void html() {
         Document doc = Jsoup.parse_1_oe("<div><p>Hello</p></div><div><p>There</p></div>");
         Elements divs = doc.select("div");
         assertEquals("<p>Hello</p>\n<p>There</p>", divs.html());
+        }
+
+    @Test public void outerHtml() {
+        Document doc = Jsoup.parse_1_oe("<div><p>Hello</p></div><div><p>There</p></div>");
+        Elements divs = doc.select("div");
+        assertEquals("<div><p>Hello</p></div><div><p>There</p></div>", TextUtil.stripNewlines(divs.outerHtml()));
         }
 
     @Test public void setHtml() {
@@ -550,10 +816,73 @@ public class ElementsTest_OE25Dev {
         assertEquals("<p><span>Gone</span></p>", TextUtil.stripNewlines(ps.get(1).outerHtml()));
         }
 
+    @Test public void val() {
+        Document doc = Jsoup.parse_1_oe("<input value='one' /><textarea>two</textarea>");
+        Elements els = doc.select("input, textarea");
+        assertEquals(2, els.size());
+        }
+
+    @Test public void val() {
+        Document doc = Jsoup.parse_2_oe("<input value='one' /><textarea>two</textarea>");
+        Elements els = doc.select("input, textarea");
+        // removed other assertion
+        assertEquals("one", els.val());
+        }
+
+    @Test public void val() {
+        Document doc = Jsoup.parse_3_oe("<input value='one' /><textarea>two</textarea>");
+        Elements els = doc.select("input, textarea");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("two", els.last().val());
+        }
+
+    @Test public void val() {
+        Document doc = Jsoup.parse_4_oe("<input value='one' /><textarea>two</textarea>");
+        Elements els = doc.select("input, textarea");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        els.val("three");
+        assertEquals("three", els.first().val());
+        }
+
+    @Test public void val() {
+        Document doc = Jsoup.parse_5_oe("<input value='one' /><textarea>two</textarea>");
+        Elements els = doc.select("input, textarea");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        els.val("three");
+        // removed other assertion
+        assertEquals("three", els.last().val());
+        }
+
+    @Test public void val() {
+        Document doc = Jsoup.parse_6_oe("<input value='one' /><textarea>two</textarea>");
+        Elements els = doc.select("input, textarea");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        els.val("three");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("<textarea>three</textarea>", els.last().outerHtml());
+        }
+
     @Test public void before() {
         Document doc = Jsoup.parse_1_oe("<p>This <a>is</a> <a>jsoup</a>.</p>");
         doc.select("a").before("<span>foo</span>");
         assertEquals("<p>This <span>foo</span><a>is</a> <span>foo</span><a>jsoup</a>.</p>", TextUtil.stripNewlines(doc.body().html()));
+        }
+
+    @Test public void after() {
+        Document doc = Jsoup.parse_1_oe("<p>This <a>is</a> <a>jsoup</a>.</p>");
+        doc.select("a").after("<span>foo</span>");
+        assertEquals("<p>This <a>is</a><span>foo</span> <a>jsoup</a><span>foo</span>.</p>", TextUtil.stripNewlines(doc.body().html()));
         }
 
     @Test public void wrap() {
@@ -563,11 +892,25 @@ public class ElementsTest_OE25Dev {
         assertEquals("<p><i><b>This</b></i> is <i><b>jsoup</b></i></p>", doc.body().html());
         }
 
+    @Test public void wrapDiv() {
+        String h = "<p><b>This</b> is <b>jsoup</b>.</p> <p>How do you like it?</p>";
+        Document doc = Jsoup.parse_1_oe(h);
+        doc.select("p").wrap("<div></div>");
+        assertEquals( "<div>\n <p><b>This</b> is <b>jsoup</b>.</p>\n</div>\n<div>\n <p>How do you like it?</p>\n</div>", doc.body().html());
+        }
+
     @Test public void unwrap() {
         String h = "<div><font>One</font> <font><a href=\"/\">Two</a></font></div";
         Document doc = Jsoup.parse_1_oe(h);
         doc.select("font").unwrap();
         assertEquals("<div>One <a href=\"/\">Two</a></div>", TextUtil.stripNewlines(doc.body().html()));
+        }
+
+    @Test public void unwrapP() {
+        String h = "<p><a>One</a> Two</p> Three <i>Four</i> <p>Fix <i>Six</i></p>";
+        Document doc = Jsoup.parse_1_oe(h);
+        doc.select("p").unwrap();
+        assertEquals("<a>One</a> Two Three <i>Four</i> Fix <i>Six</i>", TextUtil.stripNewlines(doc.body().html()));
         }
 
     @Test public void unwrapKeepsSpace() {
@@ -577,12 +920,33 @@ public class ElementsTest_OE25Dev {
         assertEquals("<p>One two three four</p>", doc.body().html());
         }
 
+    @Test public void empty() {
+        Document doc = Jsoup.parse_1_oe("<div><p>Hello <b>there</b></p> <p>now!</p></div>");
+        doc.outputSettings().prettyPrint(false);
+
+        doc.select("p").empty();
+        assertEquals("<div><p></p> <p></p></div>", doc.body().html());
+        }
+
     @Test public void remove() {
         Document doc = Jsoup.parse_1_oe("<div><p>Hello <b>there</b></p> jsoup <p>now!</p></div>");
         doc.outputSettings().prettyPrint(false);
 
         doc.select("p").remove();
         assertEquals("<div> jsoup </div>", doc.body().html());
+        }
+
+    @Test public void eq() {
+        String h = "<p>Hello<p>there<p>world";
+        Document doc = Jsoup.parse_1_oe(h);
+        assertEquals("there", doc.select("p").eq(1).text());
+        }
+
+    @Test public void eq() {
+        String h = "<p>Hello<p>there<p>world";
+        Document doc = Jsoup.parse_2_oe(h);
+        // removed other assertion
+        assertEquals("there", doc.select("p").get(1).text());
         }
 
     @Test public void is() {
@@ -598,6 +962,40 @@ public class ElementsTest_OE25Dev {
         Elements ps = doc.select("p");
         // removed other assertion
         assertFalse(ps.is("[title=bar]"));
+        }
+
+    @Test public void parents() {
+        Document doc = Jsoup.parse_1_oe("<div><p>Hello</p></div><p>There</p>");
+        Elements parents = doc.select("p").parents();
+
+        assertEquals(3, parents.size());
+        }
+
+    @Test public void parents() {
+        Document doc = Jsoup.parse_2_oe("<div><p>Hello</p></div><p>There</p>");
+        Elements parents = doc.select("p").parents();
+
+        // removed other assertion
+        assertEquals("div", parents.get(0).tagName());
+        }
+
+    @Test public void parents() {
+        Document doc = Jsoup.parse_3_oe("<div><p>Hello</p></div><p>There</p>");
+        Elements parents = doc.select("p").parents();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("body", parents.get(1).tagName());
+        }
+
+    @Test public void parents() {
+        Document doc = Jsoup.parse_4_oe("<div><p>Hello</p></div><p>There</p>");
+        Elements parents = doc.select("p").parents();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("html", parents.get(2).tagName());
         }
 
     @Test public void not() {
@@ -636,6 +1034,30 @@ public class ElementsTest_OE25Dev {
         Elements div2 = doc.select("div").not("#1");
         // removed other assertion
         assertEquals("2", div2.first().id());
+        }
+
+    @Test public void tagNameSet() {
+        Document doc = Jsoup.parse_1_oe("<p>Hello <i>there</i> <i>now</i></p>");
+        doc.select("i").tagName("em");
+
+        assertEquals("<p>Hello <em>there</em> <em>now</em></p>", doc.body().html());
+        }
+
+    @Test public void traverse() {
+        Document doc = Jsoup.parse_1_oe("<div><p>Hello</p></div><div>There</div>");
+        final StringBuilder accum = new StringBuilder();
+        doc.select("div").traverse(new NodeVisitor() {
+            @Override
+            public void head(Node node, int depth) {
+                accum.append("<").append(node.nodeName()).append(">");
+            }
+
+            @Override
+            public void tail(Node node, int depth) {
+                accum.append("</").append(node.nodeName()).append(">");
+            }
+        });
+        assertEquals("<div><p><#text></#text></p></div><div><#text></#text></div>", accum.toString());
         }
 
     @Test public void forms() {
@@ -699,6 +1121,50 @@ public class ElementsTest_OE25Dev {
         assertEquals("2", forms.get(1).id());
         }
 
+    @Test public void comments() {
+        Document doc = Jsoup.parse_1_oe("<!-- comment1 --><p><!-- comment2 --><p class=two><!-- comment3 -->");
+        List<Comment> comments = doc.select("p").comments();
+        assertEquals(2, comments.size());
+        }
+
+    @Test public void comments() {
+        Document doc = Jsoup.parse_2_oe("<!-- comment1 --><p><!-- comment2 --><p class=two><!-- comment3 -->");
+        List<Comment> comments = doc.select("p").comments();
+        // removed other assertion
+        assertEquals(" comment2 ", comments.get(0).getData());
+        }
+
+    @Test public void comments() {
+        Document doc = Jsoup.parse_3_oe("<!-- comment1 --><p><!-- comment2 --><p class=two><!-- comment3 -->");
+        List<Comment> comments = doc.select("p").comments();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(" comment3 ", comments.get(1).getData());
+        }
+
+    @Test public void comments() {
+        Document doc = Jsoup.parse_4_oe("<!-- comment1 --><p><!-- comment2 --><p class=two><!-- comment3 -->");
+        List<Comment> comments = doc.select("p").comments();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        List<Comment> comments1 = doc.select("p.two").comments();
+        assertEquals(1, comments1.size());
+        }
+
+    @Test public void comments() {
+        Document doc = Jsoup.parse_5_oe("<!-- comment1 --><p><!-- comment2 --><p class=two><!-- comment3 -->");
+        List<Comment> comments = doc.select("p").comments();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        List<Comment> comments1 = doc.select("p.two").comments();
+        // removed other assertion
+        assertEquals(" comment3 ", comments1.get(0).getData());
+        }
+
     @Test public void textNodes() {
         Document doc = Jsoup.parse_1_oe("One<p>Two<a>Three</a><p>Four</p>Five");
         List<TextNode> textNodes = doc.select("p").textNodes();
@@ -720,9 +1186,90 @@ public class ElementsTest_OE25Dev {
         assertEquals("Four", textNodes.get(1).text());
         }
 
+    @Test public void dataNodes() {
+        Document doc = Jsoup.parse_1_oe("<p>One</p><script>Two</script><style>Three</style>");
+        List<DataNode> dataNodes = doc.select("p, script, style").dataNodes();
+        assertEquals(2, dataNodes.size());
+        }
+
+    @Test public void dataNodes() {
+        Document doc = Jsoup.parse_2_oe("<p>One</p><script>Two</script><style>Three</style>");
+        List<DataNode> dataNodes = doc.select("p, script, style").dataNodes();
+        // removed other assertion
+        assertEquals("Two", dataNodes.get(0).getWholeData());
+        }
+
+    @Test public void dataNodes() {
+        Document doc = Jsoup.parse_3_oe("<p>One</p><script>Two</script><style>Three</style>");
+        List<DataNode> dataNodes = doc.select("p, script, style").dataNodes();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Three", dataNodes.get(1).getWholeData());
+        }
+
+    @Test public void dataNodes() {
+        Document doc = Jsoup.parse_4_oe("<p>One</p><script>Two</script><style>Three</style>");
+        List<DataNode> dataNodes = doc.select("p, script, style").dataNodes();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc = Jsoup.parse("<head><script type=application/json><crux></script><script src=foo>Blah</script>");
+        Elements script = doc.select("script[type=application/json]");
+        List<DataNode> scriptNode = script.dataNodes();
+        assertEquals(1, scriptNode.size());
+        }
+
+    @Test public void dataNodes() {
+        Document doc = Jsoup.parse_5_oe("<p>One</p><script>Two</script><style>Three</style>");
+        List<DataNode> dataNodes = doc.select("p, script, style").dataNodes();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc = Jsoup.parse("<head><script type=application/json><crux></script><script src=foo>Blah</script>");
+        Elements script = doc.select("script[type=application/json]");
+        List<DataNode> scriptNode = script.dataNodes();
+        // removed other assertion
+        DataNode dataNode = scriptNode.get(0);
+        assertEquals("<crux>", dataNode.getWholeData());
+        }
+
+    @Test public void dataNodes() {
+        Document doc = Jsoup.parse_6_oe("<p>One</p><script>Two</script><style>Three</style>");
+        List<DataNode> dataNodes = doc.select("p, script, style").dataNodes();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        doc = Jsoup.parse("<head><script type=application/json><crux></script><script src=foo>Blah</script>");
+        Elements script = doc.select("script[type=application/json]");
+        List<DataNode> scriptNode = script.dataNodes();
+        // removed other assertion
+        DataNode dataNode = scriptNode.get(0);
+        // removed other assertion
+
+        // check if they're live
+        dataNode.setWholeData("<cromulent>");
+        assertEquals("<script type=\"application/json\"><cromulent></script>", script.outerHtml());
+        }
+
     @Test public void nodesEmpty() {
         Document doc = Jsoup.parse_1_oe("<p>");
         assertEquals(0, doc.select("form").textNodes().size());
+        }
+
+    @Test public void classWithHyphen() {
+        Document doc = Jsoup.parse_1_oe("<p class='tab-nav'>Check</p>");
+        Elements els = doc.getElementsByClass("tab-nav");
+        assertEquals(1, els.size());
+        }
+
+    @Test public void classWithHyphen() {
+        Document doc = Jsoup.parse_2_oe("<p class='tab-nav'>Check</p>");
+        Elements els = doc.getElementsByClass("tab-nav");
+        // removed other assertion
+        assertEquals("Check", els.text());
         }
 
     @Test public void siblings() {
@@ -1327,6 +1874,132 @@ public class ElementsTest_OE25Dev {
         Elements prevAF = els.prevAll("p:contains(1)");
         // removed other assertion
         assertEquals("1", prevAF.first().text());
+        }
+
+    @Test public void eachText() {
+        Document doc = Jsoup.parse_1_oe("<div><p>1<p>2<p>3<p>4<p>5<p>6</div><div><p>7<p>8<p>9<p>10<p>11<p>12<p></p></div>");
+        List<String> divText = doc.select("div").eachText();
+        assertEquals(2, divText.size());
+        }
+
+    @Test public void eachText() {
+        Document doc = Jsoup.parse_2_oe("<div><p>1<p>2<p>3<p>4<p>5<p>6</div><div><p>7<p>8<p>9<p>10<p>11<p>12<p></p></div>");
+        List<String> divText = doc.select("div").eachText();
+        // removed other assertion
+        assertEquals("1 2 3 4 5 6", divText.get(0));
+        }
+
+    @Test public void eachText() {
+        Document doc = Jsoup.parse_3_oe("<div><p>1<p>2<p>3<p>4<p>5<p>6</div><div><p>7<p>8<p>9<p>10<p>11<p>12<p></p></div>");
+        List<String> divText = doc.select("div").eachText();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("7 8 9 10 11 12", divText.get(1));
+        }
+
+    @Test public void eachText() {
+        Document doc = Jsoup.parse_4_oe("<div><p>1<p>2<p>3<p>4<p>5<p>6</div><div><p>7<p>8<p>9<p>10<p>11<p>12<p></p></div>");
+        List<String> divText = doc.select("div").eachText();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        List<String> pText = doc.select("p").eachText();
+        Elements ps = doc.select("p");
+        assertEquals(13, ps.size());
+        }
+
+    @Test public void eachText() {
+        Document doc = Jsoup.parse_5_oe("<div><p>1<p>2<p>3<p>4<p>5<p>6</div><div><p>7<p>8<p>9<p>10<p>11<p>12<p></p></div>");
+        List<String> divText = doc.select("div").eachText();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        List<String> pText = doc.select("p").eachText();
+        Elements ps = doc.select("p");
+        // removed other assertion
+        assertEquals(12, pText.size()); // not 13, as last doesn't have text;
+        }
+
+    @Test public void eachText() {
+        Document doc = Jsoup.parse_6_oe("<div><p>1<p>2<p>3<p>4<p>5<p>6</div><div><p>7<p>8<p>9<p>10<p>11<p>12<p></p></div>");
+        List<String> divText = doc.select("div").eachText();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        List<String> pText = doc.select("p").eachText();
+        Elements ps = doc.select("p");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1", pText.get(0));
+        }
+
+    @Test public void eachText() {
+        Document doc = Jsoup.parse_7_oe("<div><p>1<p>2<p>3<p>4<p>5<p>6</div><div><p>7<p>8<p>9<p>10<p>11<p>12<p></p></div>");
+        List<String> divText = doc.select("div").eachText();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        List<String> pText = doc.select("p").eachText();
+        Elements ps = doc.select("p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", pText.get(1));
+        }
+
+    @Test public void eachText() {
+        Document doc = Jsoup.parse_8_oe("<div><p>1<p>2<p>3<p>4<p>5<p>6</div><div><p>7<p>8<p>9<p>10<p>11<p>12<p></p></div>");
+        List<String> divText = doc.select("div").eachText();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        List<String> pText = doc.select("p").eachText();
+        Elements ps = doc.select("p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("5", pText.get(4));
+        }
+
+    @Test public void eachText() {
+        Document doc = Jsoup.parse_9_oe("<div><p>1<p>2<p>3<p>4<p>5<p>6</div><div><p>7<p>8<p>9<p>10<p>11<p>12<p></p></div>");
+        List<String> divText = doc.select("div").eachText();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        List<String> pText = doc.select("p").eachText();
+        Elements ps = doc.select("p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("7", pText.get(6));
+        }
+
+    @Test public void eachText() {
+        Document doc = Jsoup.parse_10_oe("<div><p>1<p>2<p>3<p>4<p>5<p>6</div><div><p>7<p>8<p>9<p>10<p>11<p>12<p></p></div>");
+        List<String> divText = doc.select("div").eachText();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        List<String> pText = doc.select("p").eachText();
+        Elements ps = doc.select("p");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("12", pText.get(11));
         }
 
     @Test public void eachAttr() {

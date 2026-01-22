@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core
-[INFO] Storing buildNumber: 436e57711b2b4f8a4a2bcbbc6fd858d43f13414e at timestamp: 1769074202882
+[INFO] Storing buildNumber: 50f9695826a20b01448b75f2f68cb1e82f3ecfc0 at timestamp: 1769121152775
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-core ---
@@ -61,15 +61,15 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.core.PrecisionTest_OE25Dev
-[INFO] Tests run: 145, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in org.apache.commons.numbers.core.PrecisionTest_OE25Dev
+[INFO] Tests run: 145, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s - in org.apache.commons.numbers.core.PrecisionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.SumTest_OE25Dev
-[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.numbers.core.SumTest_OE25Dev
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.core.SumTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.NormTest_OE25Dev
-[INFO] Tests run: 109, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in org.apache.commons.numbers.core.NormTest_OE25Dev
+[INFO] Tests run: 109, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s - in org.apache.commons.numbers.core.NormTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
 [INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
-[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
+[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -78,6 +78,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.217 s
-[INFO] Finished at: 2026-01-22T03:30:10-06:00
+[INFO] Total time:  8.125 s
+[INFO] Finished at: 2026-01-22T16:32:38-06:00
 [INFO] ------------------------------------------------------------------------

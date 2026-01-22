@@ -110,6 +110,10 @@ public class AttributeTest_OE25Dev {
         assertEquals(attr.html(), attr.toString());
         }
 
+    @Test public void validatesKeysNotEmpty() {
+        assertThrows_1_oe(IllegalArgumentException.class, () -> new Attribute(" ", "Check"));
+        }
+
     @Test public void validatesKeysNotEmptyViaSet() {
         assertThrows_1_oe(IllegalArgumentException.class, () -> { Attribute attr = new Attribute("One", "Check"); attr.setKey(" "); });
         }
@@ -162,6 +166,40 @@ public class AttributeTest_OE25Dev {
         assertTrue(Attribute.isBooleanAttribute(first.getKey()));
         }
 
+    @Test public void settersOnOrphanAttribute() {
+        Attribute_1_oe attr = new Attribute("one", "two");
+        attr.setKey("three");
+        String oldVal = attr.setValue("four");
+        assertEquals("two", oldVal);
+        }
+
+    @Test public void settersOnOrphanAttribute() {
+        Attribute_2_oe attr = new Attribute("one", "two");
+        attr.setKey("three");
+        String oldVal = attr.setValue("four");
+        // removed other assertion
+        assertEquals("three", attr.getKey());
+        }
+
+    @Test public void settersOnOrphanAttribute() {
+        Attribute_3_oe attr = new Attribute("one", "two");
+        attr.setKey("three");
+        String oldVal = attr.setValue("four");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("four", attr.getValue());
+        }
+
+    @Test public void settersOnOrphanAttribute() {
+        Attribute_4_oe attr = new Attribute("one", "two");
+        attr.setKey("three");
+        String oldVal = attr.setValue("four");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNull(attr.parent);
+        }
+
     @Test public void hasValue() {
         Attribute_1_oe a1 = new Attribute("one", "");
         Attribute a2 = new Attribute("two", null);
@@ -187,6 +225,29 @@ public class AttributeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertTrue(a3.hasDeclaredValue());
+        }
+
+    @Test public void canSetValueToNull() {
+        Attribute_1_oe attr = new Attribute("one", "val");
+        String oldVal = attr.setValue(null);
+        assertEquals("one", attr.html());
+        }
+
+    @Test public void canSetValueToNull() {
+        Attribute_2_oe attr = new Attribute("one", "val");
+        String oldVal = attr.setValue(null);
+        // removed other assertion
+        assertEquals("val", oldVal);
+        }
+
+    @Test public void canSetValueToNull() {
+        Attribute_3_oe attr = new Attribute("one", "val");
+        String oldVal = attr.setValue(null);
+        // removed other assertion
+        // removed other assertion
+
+        oldVal = attr.setValue("foo");
+        assertEquals("", oldVal); // string, not null;
         }
 
     @Test void booleanAttributesAreNotCaseSensitive() {

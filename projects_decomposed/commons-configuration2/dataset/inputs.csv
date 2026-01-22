@@ -45754,88 +45754,6 @@ conf_1627_2,"    @Test
     }
 ",TestConfigurationNodePointerFactory::testIndices_2_oe
 conf_1628_1,"    @Test
-    public void testParentAxis_1_oe() {
-        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME2 + ""/parent::*"");
-        assertEquals(""Wrong number of parent nodes"", 1, nodes.size());
-    }
-",TestConfigurationNodePointerFactory::testParentAxis_1_oe
-conf_1629_1,"    @Test
-    public void testPrecedingSiblingAxis_1_oe() {
-        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[2]/preceding-sibling::*"");
-        assertEquals(""Wrong number of preceding siblings"", 3, nodes.size());
-    }
-",TestConfigurationNodePointerFactory::testPrecedingSiblingAxis_1_oe
-conf_1629_2,"    @Test
-    public void testPrecedingSiblingAxis_2_oe() {
-        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[2]/preceding-sibling::*"");
-        // removed other assertion
-        for (int index = 0, value = 3; index < nodes.size(); index++, value--) {
-            assertEquals(""Wrong node index"", String.valueOf(value), ((ImmutableNode) nodes.get(index)).getValue());
-    }
-    }
-",TestConfigurationNodePointerFactory::testPrecedingSiblingAxis_2_oe
-conf_1630_1,"    @Test
-    public void testQueryAttribute_1_oe() {
-        assertEquals(""Incorrect attribute value"", ""1"", context.getValue(""/"" + CHILD_NAME2 + ""[1]/@"" + ATTR_NAME));
-    }
-",TestConfigurationNodePointerFactory::testQueryAttribute_1_oe
-conf_1631_1,"    @Test
-    public void testQueryRootAttribute_1_oe() {
-        assertEquals(""Did not find attribute of root node"", ""true"", context.getValue(""@"" + ATTR_ROOT));
-    }
-",TestConfigurationNodePointerFactory::testQueryRootAttribute_1_oe
-conf_1632_1,"    @Test
-    public void testSimpleXPath_1_oe() {
-        List<?> results = context.selectNodes(CHILD_NAME1);
-        assertEquals(""Incorrect number of results"", 2, results.size());
-    }
-",TestConfigurationNodePointerFactory::testSimpleXPath_1_oe
-conf_1632_2,"    @Test
-    public void testSimpleXPath_2_oe() {
-        List<?> results = context.selectNodes(CHILD_NAME1);
-        // removed other assertion
-        for (final Object result : results) {
-            final ImmutableNode node = (ImmutableNode) result;
-            assertEquals(""Incorrect node name"", CHILD_NAME1, node.getNodeName());
-    }
-    }
-",TestConfigurationNodePointerFactory::testSimpleXPath_2_oe
-conf_1632_3,"    @Test
-    public void testSimpleXPath_3_oe() {
-        List<?> results = context.selectNodes(CHILD_NAME1);
-        // removed other assertion
-        for (final Object result : results) {
-            final ImmutableNode node = (ImmutableNode) result;
-            // removed other assertion
-        }
-
-        results = context.selectNodes(""/"" + CHILD_NAME1);
-        assertEquals(""Incorrect number of results"", 2, results.size());
-    }
-",TestConfigurationNodePointerFactory::testSimpleXPath_3_oe
-conf_1632_4,"    @Test
-    public void testSimpleXPath_4_oe() {
-        List<?> results = context.selectNodes(CHILD_NAME1);
-        // removed other assertion
-        for (final Object result : results) {
-            final ImmutableNode node = (ImmutableNode) result;
-            // removed other assertion
-        }
-
-        results = context.selectNodes(""/"" + CHILD_NAME1);
-        // removed other assertion
-
-        results = context.selectNodes(CHILD_NAME2 + ""/"" + CHILD_NAME1 + ""/"" + CHILD_NAME2);
-        assertEquals(""Incorrect number of results"", 18, results.size());
-    }
-",TestConfigurationNodePointerFactory::testSimpleXPath_4_oe
-conf_1633_1,"    @Test
-    public void testText_1_oe() {
-        final List<?> nodes = context.selectNodes(""//"" + CHILD_NAME2 + ""[text()='1.1.1']"");
-        assertEquals(""Incorrect number of result nodes"", 1, nodes.size());
-    }
-",TestConfigurationNodePointerFactory::testText_1_oe
-conf_1634_1,"    @Test
     public void testAddPropertyComplexStructures_1_oe() {
         config.addProperty(""tables/table/name"", ""tasks"");
         config.addProperty(""tables/table[last()]/@type"", ""system"");
@@ -45845,7 +45763,7 @@ conf_1634_1,"    @Test
         assertEquals(""Wrong table 1"", ""tasks"", config.getString(""tables/table[1]/name""));
     }
 ",TestXPathExpressionEngineInConfig::testAddPropertyComplexStructures_1_oe
-conf_1634_2,"    @Test
+conf_1628_2,"    @Test
     public void testAddPropertyComplexStructures_2_oe() {
         config.addProperty(""tables/table/name"", ""tasks"");
         config.addProperty(""tables/table[last()]/@type"", ""system"");
@@ -45856,7 +45774,7 @@ conf_1634_2,"    @Test
         assertEquals(""Wrong table 2"", ""documents"", config.getString(""tables/table[2]/name""));
     }
 ",TestXPathExpressionEngineInConfig::testAddPropertyComplexStructures_2_oe
-conf_1634_3,"    @Test
+conf_1628_3,"    @Test
     public void testAddPropertyComplexStructures_3_oe() {
         config.addProperty(""tables/table/name"", ""tasks"");
         config.addProperty(""tables/table[last()]/@type"", ""system"");
@@ -45868,7 +45786,7 @@ conf_1634_3,"    @Test
         assertEquals(""Wrong field type"", ""int"", config.getString(""tables/table[1]/fields/field[1]/@type""));
     }
 ",TestXPathExpressionEngineInConfig::testAddPropertyComplexStructures_3_oe
-conf_1635_1,"    @Test
+conf_1629_1,"    @Test
     public void testPropertiesWithNamespace_1_oe() throws ConfigurationException {
         final String xml = ""<Config>\n"" + ""<dsig:Transforms xmlns:dsig=\""http://www.w3.org/2000/09/xmldsig#\"">\n""
             + ""  <dsig:Transform Algorithm=\""http://www.w3.org/TR/1999/REC-xpath-19991116\"">\n""
@@ -45883,14 +45801,14 @@ conf_1635_1,"    @Test
     }
     }
 ",TestXPathExpressionEngineInConfig::testPropertiesWithNamespace_1_oe
-conf_1636_1,"    @Test
+conf_1630_1,"    @Test
     public void testSetPropertyExisting_1_oe() {
         config.addProperty("" "" + KEY, ""failure"");
         config.setProperty(KEY, VALUE);
         assertEquals(""Value not changed"", VALUE, config.getString(KEY));
     }
 ",TestXPathExpressionEngineInConfig::testSetPropertyExisting_1_oe
-conf_1637_1,"    @Test
+conf_1631_1,"    @Test
     public void testSetPropertyNewAttribute_1_oe() {
         final String keyAttr = KEY + ""/@attr"";
         config.addProperty("" "" + KEY, ""test"");
@@ -45898,13 +45816,13 @@ conf_1637_1,"    @Test
         assertEquals(""Value not set"", VALUE, config.getString(keyAttr));
     }
 ",TestXPathExpressionEngineInConfig::testSetPropertyNewAttribute_1_oe
-conf_1638_1,"    @Test
+conf_1632_1,"    @Test
     public void testSetPropertyNewKey_1_oe() {
         config.setProperty(KEY, VALUE);
         assertEquals(""Value not set"", VALUE, config.getString(KEY));
     }
 ",TestXPathExpressionEngineInConfig::testSetPropertyNewKey_1_oe
-conf_1639_1,"    @Test
+conf_1633_1,"    @Test
     public void testSetPropertyPartlyExisting_1_oe() {
         final String testKey = KEY + ""/sub"";
         config.addProperty("" "" + KEY, ""test"");
@@ -45912,26 +45830,26 @@ conf_1639_1,"    @Test
         assertEquals(""Value not set"", VALUE, config.getString(testKey));
     }
 ",TestXPathExpressionEngineInConfig::testSetPropertyPartlyExisting_1_oe
-conf_1640_1,"    @Test
+conf_1634_1,"    @Test
     public void testIterateAllChildren_1_oe() {
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, null);
         assertEquals(""Wrong number of elements"", CHILD_COUNT, iteratorSize(it));
     }
 ",TestConfigurationNodeIteratorChildren::testIterateAllChildren_1_oe
-conf_1641_1,"    @Test
+conf_1635_1,"    @Test
     public void testIterateReverse_1_oe() {
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, true, null);
         assertEquals(""Wrong number of elements"", CHILD_COUNT, iteratorSize(it));
     }
 ",TestConfigurationNodeIteratorChildren::testIterateReverse_1_oe
-conf_1642_1,"    @Test
+conf_1636_1,"    @Test
     public void testIterateStartsWith_1_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(2), handler);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, childPointer);
         assertEquals(""Wrong start position"", 0, it.getPosition());
     }
 ",TestConfigurationNodeIteratorChildren::testIterateStartsWith_1_oe
-conf_1642_2,"    @Test
+conf_1636_2,"    @Test
     public void testIterateStartsWith_2_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(2), handler);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, childPointer);
@@ -45940,7 +45858,7 @@ conf_1642_2,"    @Test
         assertEquals(""Wrong size of iteration"", CHILD_COUNT - 3, nodes.size());
     }
 ",TestConfigurationNodeIteratorChildren::testIterateStartsWith_2_oe
-conf_1642_3,"    @Test
+conf_1636_3,"    @Test
     public void testIterateStartsWith_3_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(2), handler);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, childPointer);
@@ -45954,7 +45872,7 @@ conf_1642_3,"    @Test
     }
     }
 ",TestConfigurationNodeIteratorChildren::testIterateStartsWith_3_oe
-conf_1643_1,"    @Test
+conf_1637_1,"    @Test
     public void testIterateStartsWithInvalid_1_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer,
             new ImmutableNode.Builder().name(""newNode"").create(), handler);
@@ -45962,7 +45880,7 @@ conf_1643_1,"    @Test
         assertEquals(""Wrong size of iteration"", CHILD_COUNT, iteratorSize(it));
     }
 ",TestConfigurationNodeIteratorChildren::testIterateStartsWithInvalid_1_oe
-conf_1643_2,"    @Test
+conf_1637_2,"    @Test
     public void testIterateStartsWithInvalid_2_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer,
             new ImmutableNode.Builder().name(""newNode"").create(), handler);
@@ -45973,7 +45891,7 @@ conf_1643_2,"    @Test
         assertEquals(""Wrong start node"", ""1"", node.getValue());
     }
 ",TestConfigurationNodeIteratorChildren::testIterateStartsWithInvalid_2_oe
-conf_1644_1,"    @Test
+conf_1638_1,"    @Test
     public void testIterateStartsWithReverse_1_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(3), handler);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, true, childPointer);
@@ -45984,7 +45902,7 @@ conf_1644_1,"    @Test
     }
     }
 ",TestConfigurationNodeIteratorChildren::testIterateStartsWithReverse_1_oe
-conf_1644_2,"    @Test
+conf_1638_2,"    @Test
     public void testIterateStartsWithReverse_2_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(3), handler);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, true, childPointer);
@@ -45996,14 +45914,14 @@ conf_1644_2,"    @Test
         assertEquals(""Iteration ended not at end node"", 0, value);
     }
 ",TestConfigurationNodeIteratorChildren::testIterateStartsWithReverse_2_oe
-conf_1645_1,"    @Test
+conf_1639_1,"    @Test
     public void testIterateWithMatchingPrefixTest_1_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(PREFIX, PREFIX_NODE));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(createPointerWithNamespace(), test, false, null);
         assertEquals(""Wrong number of elements"", 1, iteratorSize(it));
     }
 ",TestConfigurationNodeIteratorChildren::testIterateWithMatchingPrefixTest_1_oe
-conf_1645_2,"    @Test
+conf_1639_2,"    @Test
     public void testIterateWithMatchingPrefixTest_2_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(PREFIX, PREFIX_NODE));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(createPointerWithNamespace(), test, false, null);
@@ -46013,14 +45931,14 @@ conf_1645_2,"    @Test
     }
     }
 ",TestConfigurationNodeIteratorChildren::testIterateWithMatchingPrefixTest_2_oe
-conf_1646_1,"    @Test
+conf_1640_1,"    @Test
     public void testIterateWithNameTest_1_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(null, CHILD_NAME2));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
         assertTrue(""No children found"", iteratorSize(it) > 0);
     }
 ",TestConfigurationNodeIteratorChildren::testIterateWithNameTest_1_oe
-conf_1646_2,"    @Test
+conf_1640_2,"    @Test
     public void testIterateWithNameTest_2_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(null, CHILD_NAME2));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
@@ -46030,21 +45948,21 @@ conf_1646_2,"    @Test
     }
     }
 ",TestConfigurationNodeIteratorChildren::testIterateWithNameTest_2_oe
-conf_1647_1,"    @Test
+conf_1641_1,"    @Test
     public void testIterateWithNodeType_1_oe() {
         final NodeTypeTest test = new NodeTypeTest(Compiler.NODE_TYPE_NODE);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
         assertEquals(""Node type not evaluated"", CHILD_COUNT, iteratorSize(it));
     }
 ",TestConfigurationNodeIteratorChildren::testIterateWithNodeType_1_oe
-conf_1648_1,"    @Test
+conf_1642_1,"    @Test
     public void testIterateWithPrefixTest_1_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(""prefix"", ""*""));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
         assertNull(""Undefined node pointer not returned"", it.getNodePointer());
     }
 ",TestConfigurationNodeIteratorChildren::testIterateWithPrefixTest_1_oe
-conf_1648_2,"    @Test
+conf_1642_2,"    @Test
     public void testIterateWithPrefixTest_2_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(""prefix"", ""*""));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
@@ -46052,35 +45970,35 @@ conf_1648_2,"    @Test
         assertEquals(""Prefix was not evaluated"", 0, iteratorSize(it));
     }
 ",TestConfigurationNodeIteratorChildren::testIterateWithPrefixTest_2_oe
-conf_1649_1,"    @Test
+conf_1643_1,"    @Test
     public void testIterateWithUnknownTest_1_oe() {
         final NodeTest test = new ProcessingInstructionTest(""test"");
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
         assertEquals(""Unknown test was not evaluated"", 0, iteratorSize(it));
     }
 ",TestConfigurationNodeIteratorChildren::testIterateWithUnknownTest_1_oe
-conf_1650_1,"    @Test
+conf_1644_1,"    @Test
     public void testIterateWithUnknownType_1_oe() {
         final NodeTypeTest test = new NodeTypeTest(Compiler.NODE_TYPE_COMMENT);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
         assertEquals(""Unknown node type not evaluated"", 0, iteratorSize(it));
     }
 ",TestConfigurationNodeIteratorChildren::testIterateWithUnknownType_1_oe
-conf_1651_1,"    @Test
+conf_1645_1,"    @Test
     public void testIterateWithWildcardTest_1_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(null, ""*""));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
         assertEquals(""Wrong number of elements"", CHILD_COUNT, iteratorSize(it));
     }
 ",TestConfigurationNodeIteratorChildren::testIterateWithWildcardTest_1_oe
-conf_1652_1,"    @Test
+conf_1646_1,"    @Test
     public void testIterateWithWildcardTestPrefix_1_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(PREFIX, ""*""));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(createPointerWithNamespace(), test, false, null);
         assertEquals(""Wrong number of elements"", 1, iteratorSize(it));
     }
 ",TestConfigurationNodeIteratorChildren::testIterateWithWildcardTestPrefix_1_oe
-conf_1652_2,"    @Test
+conf_1646_2,"    @Test
     public void testIterateWithWildcardTestPrefix_2_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(PREFIX, ""*""));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(createPointerWithNamespace(), test, false, null);
@@ -46090,7 +46008,7 @@ conf_1652_2,"    @Test
     }
     }
 ",TestConfigurationNodeIteratorChildren::testIterateWithWildcardTestPrefix_2_oe
-conf_1653_1,"    @Test
+conf_1647_1,"    @Test
     public void testCreateContext_1_oe() {
         final ImmutableNode node = new ImmutableNode.Builder().name(""testRoot"").create();
         final NodeHandler<ImmutableNode> handler = new InMemoryNodeModel(node).getNodeHandler();
@@ -46099,7 +46017,7 @@ conf_1653_1,"    @Test
         assertTrue(""No lenient mode"", context.isLenient());
     }
 ",TestXPathContextFactory::testCreateContext_1_oe
-conf_1653_2,"    @Test
+conf_1647_2,"    @Test
     public void testCreateContext_2_oe() {
         final ImmutableNode node = new ImmutableNode.Builder().name(""testRoot"").create();
         final NodeHandler<ImmutableNode> handler = new InMemoryNodeModel(node).getNodeHandler();
@@ -46110,7 +46028,7 @@ conf_1653_2,"    @Test
         assertSame(""Wrong node"", node, wrapper.getNode());
     }
 ",TestXPathContextFactory::testCreateContext_2_oe
-conf_1653_3,"    @Test
+conf_1647_3,"    @Test
     public void testCreateContext_3_oe() {
         final ImmutableNode node = new ImmutableNode.Builder().name(""testRoot"").create();
         final NodeHandler<ImmutableNode> handler = new InMemoryNodeModel(node).getNodeHandler();
@@ -46122,13 +46040,13 @@ conf_1653_3,"    @Test
         assertSame(""Wrong handler"", handler, wrapper.getNodeHandler());
     }
 ",TestXPathContextFactory::testCreateContext_3_oe
-conf_1654_1,"    @Test
+conf_1648_1,"    @Test
     public void testIterateAllAttributes_1_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, ""*""));
         assertEquals(""Wrong number of attributes"", 3, iteratorSize(it));
     }
 ",TestConfigurationIteratorAttributes::testIterateAllAttributes_1_oe
-conf_1654_2,"    @Test
+conf_1648_2,"    @Test
     public void testIterateAllAttributes_2_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, ""*""));
         // removed other assertion
@@ -46140,7 +46058,7 @@ conf_1654_2,"    @Test
         assertTrue(""First attribute not found"", attrNames.contains(ATTR_NAME));
     }
 ",TestConfigurationIteratorAttributes::testIterateAllAttributes_2_oe
-conf_1654_3,"    @Test
+conf_1648_3,"    @Test
     public void testIterateAllAttributes_3_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, ""*""));
         // removed other assertion
@@ -46153,7 +46071,7 @@ conf_1654_3,"    @Test
         assertTrue(""Second attribute not found"", attrNames.contains(TEST_ATTR));
     }
 ",TestConfigurationIteratorAttributes::testIterateAllAttributes_3_oe
-conf_1654_4,"    @Test
+conf_1648_4,"    @Test
     public void testIterateAllAttributes_4_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, ""*""));
         // removed other assertion
@@ -46167,79 +46085,79 @@ conf_1654_4,"    @Test
         assertTrue(""Namespace attribute not found"", attrNames.contains(NS_ATTR));
     }
 ",TestConfigurationIteratorAttributes::testIterateAllAttributes_4_oe
-conf_1655_1,"    @Test
+conf_1649_1,"    @Test
     public void testIterateNamespaceAttribute_1_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(NAMESPACE, ""attr""));
         assertEquals(""Wrong number of attributes"", 1, iteratorSize(it));
     }
 ",TestConfigurationIteratorAttributes::testIterateNamespaceAttribute_1_oe
-conf_1655_2,"    @Test
+conf_1649_2,"    @Test
     public void testIterateNamespaceAttribute_2_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(NAMESPACE, ""attr""));
         // removed other assertion
         assertEquals(""Wrong attribute"", NS_ATTR, iterationElements(it).get(0).getName().getName());
     }
 ",TestConfigurationIteratorAttributes::testIterateNamespaceAttribute_2_oe
-conf_1656_1,"    @Test
+conf_1650_1,"    @Test
     public void testIterateNamespaceUnknown_1_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(""test"", ""*""));
         assertEquals(""Found attributes"", 0, iteratorSize(it));
     }
 ",TestConfigurationIteratorAttributes::testIterateNamespaceUnknown_1_oe
-conf_1657_1,"    @Test
+conf_1651_1,"    @Test
     public void testIterateNamespaceWildcard_1_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(NAMESPACE, ""*""));
         assertEquals(""Wrong number of attributes"", 1, iteratorSize(it));
     }
 ",TestConfigurationIteratorAttributes::testIterateNamespaceWildcard_1_oe
-conf_1657_2,"    @Test
+conf_1651_2,"    @Test
     public void testIterateNamespaceWildcard_2_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(NAMESPACE, ""*""));
         // removed other assertion
         assertEquals(""Wrong attribute"", NS_ATTR, iterationElements(it).get(0).getName().getName());
     }
 ",TestConfigurationIteratorAttributes::testIterateNamespaceWildcard_2_oe
-conf_1658_1,"    @Test
+conf_1652_1,"    @Test
     public void testIterateSpecificAttribute_1_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, TEST_ATTR));
         assertEquals(""Wrong number of attributes"", 1, iteratorSize(it));
     }
 ",TestConfigurationIteratorAttributes::testIterateSpecificAttribute_1_oe
-conf_1658_2,"    @Test
+conf_1652_2,"    @Test
     public void testIterateSpecificAttribute_2_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, TEST_ATTR));
         // removed other assertion
         assertEquals(""Wrong attribute"", TEST_ATTR, iterationElements(it).get(0).getName().getName());
     }
 ",TestConfigurationIteratorAttributes::testIterateSpecificAttribute_2_oe
-conf_1659_1,"    @Test
+conf_1653_1,"    @Test
     public void testIterateUnknownAttribute_1_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, ""unknown""));
         assertEquals(""Found attributes"", 0, iteratorSize(it));
     }
 ",TestConfigurationIteratorAttributes::testIterateUnknownAttribute_1_oe
-conf_1660_1,"    @Test
+conf_1654_1,"    @Test
     public void testAttributeIterator_1_oe() {
         assertNull(""Returned an attribute iterator"", pointer.attributeIterator(new QName(null, ""test"")));
     }
 ",TestConfigurationAttributePointer::testAttributeIterator_1_oe
-conf_1661_1,"    @Test
+conf_1655_1,"    @Test
     public void testChildIterator_1_oe() {
         assertNull(""Returned an iterator for children"", pointer.childIterator(null, false, null));
     }
 ",TestConfigurationAttributePointer::testChildIterator_1_oe
-conf_1662_1,"    @Test
+conf_1656_1,"    @Test
     public void testGetBaseValue_1_oe() {
         assertEquals(""Wrong base value"", ATTR_VALUE, pointer.getBaseValue());
     }
 ",TestConfigurationAttributePointer::testGetBaseValue_1_oe
-conf_1663_1,"    @Test
+conf_1657_1,"    @Test
     public void testGetImmediateNode_1_oe() {
         final Object node = pointer.getImmediateNode();
         assertTrue(""Wrong node class"", node instanceof QueryResult);
     }
 ",TestConfigurationAttributePointer::testGetImmediateNode_1_oe
-conf_1663_2,"    @Test
+conf_1657_2,"    @Test
     public void testGetImmediateNode_2_oe() {
         final Object node = pointer.getImmediateNode();
         // removed other assertion
@@ -46247,7 +46165,7 @@ conf_1663_2,"    @Test
         assertTrue(""No attribute result"", proxy.isAttributeResult());
     }
 ",TestConfigurationAttributePointer::testGetImmediateNode_2_oe
-conf_1663_3,"    @Test
+conf_1657_3,"    @Test
     public void testGetImmediateNode_3_oe() {
         final Object node = pointer.getImmediateNode();
         // removed other assertion
@@ -46256,7 +46174,7 @@ conf_1663_3,"    @Test
         assertEquals(""Wrong parent node"", parent.getConfigurationNode(), proxy.getNode());
     }
 ",TestConfigurationAttributePointer::testGetImmediateNode_3_oe
-conf_1663_4,"    @Test
+conf_1657_4,"    @Test
     public void testGetImmediateNode_4_oe() {
         final Object node = pointer.getImmediateNode();
         // removed other assertion
@@ -46266,56 +46184,56 @@ conf_1663_4,"    @Test
         assertEquals(""Wrong attribute name"", ATTR_NAME, proxy.getAttributeName());
     }
 ",TestConfigurationAttributePointer::testGetImmediateNode_4_oe
-conf_1664_1,"    @Test
+conf_1658_1,"    @Test
     public void testGetLength_1_oe() {
         assertEquals(""Wrong length"", 1, pointer.getLength());
     }
 ",TestConfigurationAttributePointer::testGetLength_1_oe
-conf_1665_1,"    @Test
+conf_1659_1,"    @Test
     public void testGetName_1_oe() {
         final QName name = pointer.getName();
         assertEquals(""Wrong name"", ATTR_NAME, name.getName());
     }
 ",TestConfigurationAttributePointer::testGetName_1_oe
-conf_1665_2,"    @Test
+conf_1659_2,"    @Test
     public void testGetName_2_oe() {
         final QName name = pointer.getName();
         // removed other assertion
         assertNull(""Prefix not null"", name.getPrefix());
     }
 ",TestConfigurationAttributePointer::testGetName_2_oe
-conf_1666_1,"    @Test
+conf_1660_1,"    @Test
     public void testGetParentPointer_1_oe() {
         assertSame(""Wrong parent pointer"", parent, pointer.getParentPointer());
     }
 ",TestConfigurationAttributePointer::testGetParentPointer_1_oe
-conf_1667_1,"    @Test
+conf_1661_1,"    @Test
     public void testGetValue_1_oe() {
         assertEquals(""Wrong value"", ATTR_VALUE, pointer.getValue());
     }
 ",TestConfigurationAttributePointer::testGetValue_1_oe
-conf_1668_1,"    @Test
+conf_1662_1,"    @Test
     public void testIsAttribute_1_oe() {
         assertTrue(""Not an attribute"", pointer.isAttribute());
     }
 ",TestConfigurationAttributePointer::testIsAttribute_1_oe
-conf_1669_1,"    @Test
+conf_1663_1,"    @Test
     public void testIsCollection_1_oe() {
         assertFalse(""Wrong collection flag"", pointer.isCollection());
     }
 ",TestConfigurationAttributePointer::testIsCollection_1_oe
-conf_1670_1,"    @Test
+conf_1664_1,"    @Test
     public void testIsLeaf_1_oe() {
         assertTrue(""Wrong leaf flag"", pointer.isLeaf());
     }
 ",TestConfigurationAttributePointer::testIsLeaf_1_oe
-conf_1671_1,"    @Test
+conf_1665_1,"    @Test
     public void testTestNode_1_oe() {
         NodeTest test = new NodeTypeTest(Compiler.NODE_TYPE_TEXT);
         assertTrue(""No a text node"", pointer.testNode(test));
     }
 ",TestConfigurationAttributePointer::testTestNode_1_oe
-conf_1671_2,"    @Test
+conf_1665_2,"    @Test
     public void testTestNode_2_oe() {
         NodeTest test = new NodeTypeTest(Compiler.NODE_TYPE_TEXT);
         // removed other assertion
@@ -46323,7 +46241,7 @@ conf_1671_2,"    @Test
         assertFalse(""A comment node"", pointer.testNode(test));
     }
 ",TestConfigurationAttributePointer::testTestNode_2_oe
-conf_1672_1,"    @Test
+conf_1666_1,"    @Test
     public void testCompareChildNodePointersAttributes_1_oe() {
         final ImmutableNode n1 = new ImmutableNode.Builder().name(""n1"").create();
         final ImmutableNode n2 = new ImmutableNode.Builder().name(""n2"").create();
@@ -46332,7 +46250,7 @@ conf_1672_1,"    @Test
         assertEquals(""Incorrect order"", 0, pointer.compareChildNodePointers(p1, p2));
     }
 ",TestConfigurationNodePointer::testCompareChildNodePointersAttributes_1_oe
-conf_1672_2,"    @Test
+conf_1666_2,"    @Test
     public void testCompareChildNodePointersAttributes_2_oe() {
         final ImmutableNode n1 = new ImmutableNode.Builder().name(""n1"").create();
         final ImmutableNode n2 = new ImmutableNode.Builder().name(""n2"").create();
@@ -46342,14 +46260,14 @@ conf_1672_2,"    @Test
         assertEquals(""Incorrect symmetric order"", 0, pointer.compareChildNodePointers(p2, p1));
     }
 ",TestConfigurationNodePointer::testCompareChildNodePointersAttributes_2_oe
-conf_1673_1,"    @Test
+conf_1667_1,"    @Test
     public void testCompareChildNodePointersChildren_1_oe() {
         final NodePointer p1 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(1), handler);
         final NodePointer p2 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(3), handler);
         assertEquals(""Incorrect order"", -1, pointer.compareChildNodePointers(p1, p2));
     }
 ",TestConfigurationNodePointer::testCompareChildNodePointersChildren_1_oe
-conf_1673_2,"    @Test
+conf_1667_2,"    @Test
     public void testCompareChildNodePointersChildren_2_oe() {
         final NodePointer p1 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(1), handler);
         final NodePointer p2 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(3), handler);
@@ -46357,24 +46275,24 @@ conf_1673_2,"    @Test
         assertEquals(""Incorrect symmetric order"", 1, pointer.compareChildNodePointers(p2, p1));
     }
 ",TestConfigurationNodePointer::testCompareChildNodePointersChildren_2_oe
-conf_1674_1,"    @Test
+conf_1668_1,"    @Test
     public void testIsAttribute_1_oe() {
         assertFalse(""Node is an attribute"", pointer.isAttribute());
     }
 ",TestConfigurationNodePointer::testIsAttribute_1_oe
-conf_1675_1,"    @Test
+conf_1669_1,"    @Test
     public void testIsLeafTrue_1_oe() {
         final ImmutableNode leafNode = new ImmutableNode.Builder().name(""leafNode"").create();
         pointer = new ConfigurationNodePointer<>(pointer, leafNode, handler);
         assertTrue(""Not a leaf node"", pointer.isLeaf());
     }
 ",TestConfigurationNodePointer::testIsLeafTrue_1_oe
-conf_1676_1,"    @Test
+conf_1670_1,"    @Test
     public void testIsLeave_1_oe() {
         assertFalse(""Root node is leaf"", pointer.isLeaf());
     }
 ",TestConfigurationNodePointer::testIsLeave_1_oe
-conf_1677_1,"    @Test
+conf_1671_1,"    @Test
     public void testAddDataProperty_1_oe() throws Exception {
         final File saveFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -46389,7 +46307,7 @@ conf_1677_1,"    @Test
         assertNotNull(""data not found"", array);
     }
 ",TestPropertyListConfiguration::testAddDataProperty_1_oe
-conf_1677_2,"    @Test
+conf_1671_2,"    @Test
     public void testAddDataProperty_2_oe() throws Exception {
         final File saveFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -46405,7 +46323,7 @@ conf_1677_2,"    @Test
         assertEquals(""property type"", byte[].class, array.getClass());
     }
 ",TestPropertyListConfiguration::testAddDataProperty_2_oe
-conf_1677_3,"    @Test
+conf_1671_3,"    @Test
     public void testAddDataProperty_3_oe() throws Exception {
         final File saveFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -46422,13 +46340,13 @@ conf_1677_3,"    @Test
         ArrayAssert.assertEquals(expected, (byte[]) array);
     }
 ",TestPropertyListConfiguration::testAddDataProperty_3_oe
-conf_1678_1,"    @Test
+conf_1672_1,"    @Test
     public void testArray_1_oe() {
         final String key = ""array"";
         assertNotNull(""array null"", config.getProperty(key));
     }
 ",TestPropertyListConfiguration::testArray_1_oe
-conf_1678_2,"    @Test
+conf_1672_2,"    @Test
     public void testArray_2_oe() {
         final String key = ""array"";
         // removed other assertion
@@ -46437,7 +46355,7 @@ conf_1678_2,"    @Test
         assertFalse(""array is empty"", list.isEmpty());
     }
 ",TestPropertyListConfiguration::testArray_2_oe
-conf_1678_3,"    @Test
+conf_1672_3,"    @Test
     public void testArray_3_oe() {
         final String key = ""array"";
         // removed other assertion
@@ -46448,7 +46366,7 @@ conf_1678_3,"    @Test
         assertEquals(""1st value"", ""value1"", list.get(0));
     }
 ",TestPropertyListConfiguration::testArray_3_oe
-conf_1678_4,"    @Test
+conf_1672_4,"    @Test
     public void testArray_4_oe() {
         final String key = ""array"";
         // removed other assertion
@@ -46460,7 +46378,7 @@ conf_1678_4,"    @Test
         assertEquals(""2nd value"", ""value2"", list.get(1));
     }
 ",TestPropertyListConfiguration::testArray_4_oe
-conf_1678_5,"    @Test
+conf_1672_5,"    @Test
     public void testArray_5_oe() {
         final String key = ""array"";
         // removed other assertion
@@ -46473,13 +46391,13 @@ conf_1678_5,"    @Test
         assertEquals(""3rd value"", ""value3"", list.get(2));
     }
 ",TestPropertyListConfiguration::testArray_5_oe
-conf_1679_1,"    @Test
+conf_1673_1,"    @Test
     public void testData_1_oe() {
         ObjectAssert.assertInstanceOf(""data"", ArrayUtils.EMPTY_BYTE_ARRAY.getClass(), config.getProperty(""data""));
         ArrayAssert.assertEquals(""data"", ""foo bar"".getBytes(), (byte[]) config.getProperty(""data""));
     }
 ",TestPropertyListConfiguration::testData_1_oe
-conf_1680_1,"    @Test
+conf_1674_1,"    @Test
     public void testDate_1_oe() throws Exception {
         final Calendar cal = Calendar.getInstance();
         cal.clear();
@@ -46490,18 +46408,18 @@ conf_1680_1,"    @Test
         assertEquals(""date"", date, config.getProperty(""date""));
     }
 ",TestPropertyListConfiguration::testDate_1_oe
-conf_1681_1,"    @Test
+conf_1675_1,"    @Test
     public void testDictionary_1_oe() {
         assertEquals(""1st element in dictionary"", ""bar1"", config.getProperty(""dictionary.foo1""));
     }
 ",TestPropertyListConfiguration::testDictionary_1_oe
-conf_1681_2,"    @Test
+conf_1675_2,"    @Test
     public void testDictionary_2_oe() {
         // removed other assertion
         assertEquals(""2nd element in dictionary"", ""bar2"", config.getProperty(""dictionary.foo2""));
     }
 ",TestPropertyListConfiguration::testDictionary_2_oe
-conf_1682_1,"    @Test
+conf_1676_1,"    @Test
     public void testDictionaryArray_1_oe() {
         final String key = ""dictionary-array"";
 
@@ -46511,7 +46429,7 @@ conf_1682_1,"    @Test
         assertNotNull(""array not found"", array);
     }
 ",TestPropertyListConfiguration::testDictionaryArray_1_oe
-conf_1682_2,"    @Test
+conf_1676_2,"    @Test
     public void testDictionaryArray_2_oe() {
         final String key = ""dictionary-array"";
 
@@ -46525,7 +46443,7 @@ conf_1682_2,"    @Test
         assertFalse(""empty array"", list.isEmpty());
     }
 ",TestPropertyListConfiguration::testDictionaryArray_2_oe
-conf_1682_3,"    @Test
+conf_1676_3,"    @Test
     public void testDictionaryArray_3_oe() {
         final String key = ""dictionary-array"";
 
@@ -46540,7 +46458,7 @@ conf_1682_3,"    @Test
         assertEquals(""size"", 2, list.size());
     }
 ",TestPropertyListConfiguration::testDictionaryArray_3_oe
-conf_1682_4,"    @Test
+conf_1676_4,"    @Test
     public void testDictionaryArray_4_oe() {
         final String key = ""dictionary-array"";
 
@@ -46560,7 +46478,7 @@ conf_1682_4,"    @Test
         assertFalse(""configuration 1 is empty"", conf1.isEmpty());
     }
 ",TestPropertyListConfiguration::testDictionaryArray_4_oe
-conf_1682_5,"    @Test
+conf_1676_5,"    @Test
     public void testDictionaryArray_5_oe() {
         final String key = ""dictionary-array"";
 
@@ -46581,7 +46499,7 @@ conf_1682_5,"    @Test
         assertEquals(""configuration element"", ""bar"", conf1.getProperty(""foo""));
     }
 ",TestPropertyListConfiguration::testDictionaryArray_5_oe
-conf_1682_6,"    @Test
+conf_1676_6,"    @Test
     public void testDictionaryArray_6_oe() {
         final String key = ""dictionary-array"";
 
@@ -46607,7 +46525,7 @@ conf_1682_6,"    @Test
         assertFalse(""configuration 2 is empty"", conf2.isEmpty());
     }
 ",TestPropertyListConfiguration::testDictionaryArray_6_oe
-conf_1682_7,"    @Test
+conf_1676_7,"    @Test
     public void testDictionaryArray_7_oe() {
         final String key = ""dictionary-array"";
 
@@ -46634,13 +46552,13 @@ conf_1682_7,"    @Test
         assertEquals(""configuration element"", ""value"", conf2.getProperty(""key""));
     }
 ",TestPropertyListConfiguration::testDictionaryArray_7_oe
-conf_1683_1,"    @Test
+conf_1677_1,"    @Test
     public void testEmptyArray_1_oe() {
         final String key = ""empty-array"";
         assertNotNull(""array null"", config.getProperty(key));
     }
 ",TestPropertyListConfiguration::testEmptyArray_1_oe
-conf_1683_2,"    @Test
+conf_1677_2,"    @Test
     public void testEmptyArray_2_oe() {
         final String key = ""empty-array"";
         // removed other assertion
@@ -46649,7 +46567,7 @@ conf_1683_2,"    @Test
         assertTrue(""array is not empty"", list.isEmpty());
     }
 ",TestPropertyListConfiguration::testEmptyArray_2_oe
-conf_1684_1,"    @Test
+conf_1678_1,"    @Test
     public void testFormatDate_1_oe() {
         final Calendar cal = Calendar.getInstance();
         cal.clear();
@@ -46658,7 +46576,7 @@ conf_1684_1,"    @Test
         assertEquals(""Wrong date literal (1)"", ""<*D2007-10-29 23:04:30 -0230>"", PropertyListConfiguration.formatDate(cal));
     }
 ",TestPropertyListConfiguration::testFormatDate_1_oe
-conf_1684_2,"    @Test
+conf_1678_2,"    @Test
     public void testFormatDate_2_oe() {
         final Calendar cal = Calendar.getInstance();
         cal.clear();
@@ -46671,18 +46589,18 @@ conf_1684_2,"    @Test
         assertEquals(""Wrong date literal (2)"", ""<*D2007-10-30 22:02:15 +1111>"", PropertyListConfiguration.formatDate(cal));
     }
 ",TestPropertyListConfiguration::testFormatDate_2_oe
-conf_1685_1,"    @Test
+conf_1679_1,"    @Test
     public void testInitCopy_1_oe() {
         final PropertyListConfiguration copy = new PropertyListConfiguration(config);
         assertFalse(""Nothing was copied"", copy.isEmpty());
     }
 ",TestPropertyListConfiguration::testInitCopy_1_oe
-conf_1686_1,"    @Test
+conf_1680_1,"    @Test
     public void testLoad_1_oe() {
         assertFalse(""the configuration is empty"", config.isEmpty());
     }
 ",TestPropertyListConfiguration::testLoad_1_oe
-conf_1687_2,"    @Test
+conf_1681_2,"    @Test
     public void testLoadWithError_2_oe() {
         config = new PropertyListConfiguration();
         try {
@@ -46694,7 +46612,7 @@ conf_1687_2,"    @Test
     }
     }
 ",TestPropertyListConfiguration::testLoadWithError_2_oe
-conf_1688_1,"    @Test
+conf_1682_1,"    @Test
     public void testNestedArrays_1_oe() {
         final String key = ""nested-arrays"";
 
@@ -46704,7 +46622,7 @@ conf_1688_1,"    @Test
         assertNotNull(""array not found"", array);
     }
 ",TestPropertyListConfiguration::testNestedArrays_1_oe
-conf_1688_2,"    @Test
+conf_1682_2,"    @Test
     public void testNestedArrays_2_oe() {
         final String key = ""nested-arrays"";
 
@@ -46718,7 +46636,7 @@ conf_1688_2,"    @Test
         assertFalse(""empty array"", list.isEmpty());
     }
 ",TestPropertyListConfiguration::testNestedArrays_2_oe
-conf_1688_3,"    @Test
+conf_1682_3,"    @Test
     public void testNestedArrays_3_oe() {
         final String key = ""nested-arrays"";
 
@@ -46733,7 +46651,7 @@ conf_1688_3,"    @Test
         assertEquals(""size"", 2, list.size());
     }
 ",TestPropertyListConfiguration::testNestedArrays_3_oe
-conf_1688_4,"    @Test
+conf_1682_4,"    @Test
     public void testNestedArrays_4_oe() {
         final String key = ""nested-arrays"";
 
@@ -46753,7 +46671,7 @@ conf_1688_4,"    @Test
         assertFalse(""nested array 1 is empty"", list1.isEmpty());
     }
 ",TestPropertyListConfiguration::testNestedArrays_4_oe
-conf_1688_5,"    @Test
+conf_1682_5,"    @Test
     public void testNestedArrays_5_oe() {
         final String key = ""nested-arrays"";
 
@@ -46774,7 +46692,7 @@ conf_1688_5,"    @Test
         assertEquals(""size"", 2, list1.size());
     }
 ",TestPropertyListConfiguration::testNestedArrays_5_oe
-conf_1688_6,"    @Test
+conf_1682_6,"    @Test
     public void testNestedArrays_6_oe() {
         final String key = ""nested-arrays"";
 
@@ -46796,7 +46714,7 @@ conf_1688_6,"    @Test
         assertEquals(""1st element"", ""a"", list1.get(0));
     }
 ",TestPropertyListConfiguration::testNestedArrays_6_oe
-conf_1688_7,"    @Test
+conf_1682_7,"    @Test
     public void testNestedArrays_7_oe() {
         final String key = ""nested-arrays"";
 
@@ -46819,7 +46737,7 @@ conf_1688_7,"    @Test
         assertEquals(""2nd element"", ""b"", list1.get(1));
     }
 ",TestPropertyListConfiguration::testNestedArrays_7_oe
-conf_1688_8,"    @Test
+conf_1682_8,"    @Test
     public void testNestedArrays_8_oe() {
         final String key = ""nested-arrays"";
 
@@ -46847,7 +46765,7 @@ conf_1688_8,"    @Test
         assertFalse(""nested array 2 is empty"", list2.isEmpty());
     }
 ",TestPropertyListConfiguration::testNestedArrays_8_oe
-conf_1688_9,"    @Test
+conf_1682_9,"    @Test
     public void testNestedArrays_9_oe() {
         final String key = ""nested-arrays"";
 
@@ -46876,7 +46794,7 @@ conf_1688_9,"    @Test
         assertEquals(""size"", 2, list2.size());
     }
 ",TestPropertyListConfiguration::testNestedArrays_9_oe
-conf_1688_10,"    @Test
+conf_1682_10,"    @Test
     public void testNestedArrays_10_oe() {
         final String key = ""nested-arrays"";
 
@@ -46906,7 +46824,7 @@ conf_1688_10,"    @Test
         assertEquals(""1st element"", ""c"", list2.get(0));
     }
 ",TestPropertyListConfiguration::testNestedArrays_10_oe
-conf_1688_11,"    @Test
+conf_1682_11,"    @Test
     public void testNestedArrays_11_oe() {
         final String key = ""nested-arrays"";
 
@@ -46937,48 +46855,48 @@ conf_1688_11,"    @Test
         assertEquals(""2nd element"", ""d"", list2.get(1));
     }
 ",TestPropertyListConfiguration::testNestedArrays_11_oe
-conf_1689_1,"    @Test
+conf_1683_1,"    @Test
     public void testNestedDictionaries_1_oe() {
         assertEquals(""nested property"", ""value"", config.getString(""nested-dictionaries.foo.bar.key""));
     }
 ",TestPropertyListConfiguration::testNestedDictionaries_1_oe
-conf_1690_1,"    @Test
+conf_1684_1,"    @Test
     public void testQuotedString_1_oe() {
         assertEquals(""quoted-string"", ""string2"", config.getProperty(""quoted-string""));
     }
 ",TestPropertyListConfiguration::testQuotedString_1_oe
-conf_1690_2,"    @Test
+conf_1684_2,"    @Test
     public void testQuotedString_2_oe() {
         // removed other assertion
         assertEquals(""quoted-string2"", ""this is a string"", config.getProperty(""quoted-string2""));
     }
 ",TestPropertyListConfiguration::testQuotedString_2_oe
-conf_1690_3,"    @Test
+conf_1684_3,"    @Test
     public void testQuotedString_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(""complex-string"", ""this is a \""complex\"" string {(=,;)}"", config.getProperty(""complex-string""));
     }
 ",TestPropertyListConfiguration::testQuotedString_3_oe
-conf_1691_1,"    @Test
+conf_1685_1,"    @Test
     public void testQuoteString_1_oe() {
         assertNull(""null string"", config.quoteString(null));
     }
 ",TestPropertyListConfiguration::testQuoteString_1_oe
-conf_1691_2,"    @Test
+conf_1685_2,"    @Test
     public void testQuoteString_2_oe() {
         // removed other assertion
         assertEquals(""simple string"", ""abcd"", config.quoteString(""abcd""));
     }
 ",TestPropertyListConfiguration::testQuoteString_2_oe
-conf_1691_3,"    @Test
+conf_1685_3,"    @Test
     public void testQuoteString_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(""string with a space"", ""\""ab cd\"""", config.quoteString(""ab cd""));
     }
 ",TestPropertyListConfiguration::testQuoteString_3_oe
-conf_1691_4,"    @Test
+conf_1685_4,"    @Test
     public void testQuoteString_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -46986,7 +46904,7 @@ conf_1691_4,"    @Test
         assertEquals(""string with a quote"", ""\""foo\\\""bar\"""", config.quoteString(""foo\""bar""));
     }
 ",TestPropertyListConfiguration::testQuoteString_4_oe
-conf_1691_5,"    @Test
+conf_1685_5,"    @Test
     public void testQuoteString_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -46995,7 +46913,7 @@ conf_1691_5,"    @Test
         assertEquals(""string with a special char"", ""\""foo;bar\"""", config.quoteString(""foo;bar""));
     }
 ",TestPropertyListConfiguration::testQuoteString_5_oe
-conf_1692_1,"    @Test
+conf_1686_1,"    @Test
     public void testSave_1_oe() throws Exception {
         final File savedFile = folder.newFile(""testsave.plist"");
 
@@ -47004,7 +46922,7 @@ conf_1692_1,"    @Test
         assertTrue(""The saved file doesn't exist"", savedFile.exists());
     }
 ",TestPropertyListConfiguration::testSave_1_oe
-conf_1692_2,"    @Test
+conf_1686_2,"    @Test
     public void testSave_2_oe() throws Exception {
         final File savedFile = folder.newFile(""testsave.plist"");
 
@@ -47023,7 +46941,7 @@ conf_1692_2,"    @Test
     }
     }
 ",TestPropertyListConfiguration::testSave_2_oe
-conf_1692_3,"    @Test
+conf_1686_3,"    @Test
     public void testSave_3_oe() throws Exception {
         final File savedFile = folder.newFile(""testsave.plist"");
 
@@ -47048,7 +46966,7 @@ conf_1692_3,"    @Test
     }
     }
 ",TestPropertyListConfiguration::testSave_3_oe
-conf_1692_4,"    @Test
+conf_1686_4,"    @Test
     public void testSave_4_oe() throws Exception {
         final File savedFile = folder.newFile(""testsave.plist"");
 
@@ -47078,7 +46996,7 @@ conf_1692_4,"    @Test
     }
     }
 ",TestPropertyListConfiguration::testSave_4_oe
-conf_1692_5,"    @Test
+conf_1686_5,"    @Test
     public void testSave_5_oe() throws Exception {
         final File savedFile = folder.newFile(""testsave.plist"");
 
@@ -47118,7 +47036,7 @@ conf_1692_5,"    @Test
     }
     }
 ",TestPropertyListConfiguration::testSave_5_oe
-conf_1692_6,"    @Test
+conf_1686_6,"    @Test
     public void testSave_6_oe() throws Exception {
         final File savedFile = folder.newFile(""testsave.plist"");
 
@@ -47160,7 +47078,7 @@ conf_1692_6,"    @Test
     }
     }
 ",TestPropertyListConfiguration::testSave_6_oe
-conf_1692_7,"    @Test
+conf_1686_7,"    @Test
     public void testSave_7_oe() throws Exception {
         final File savedFile = folder.newFile(""testsave.plist"");
 
@@ -47204,7 +47122,7 @@ conf_1692_7,"    @Test
     }
     }
 ",TestPropertyListConfiguration::testSave_7_oe
-conf_1692_8,"    @Test
+conf_1686_8,"    @Test
     public void testSave_8_oe() throws Exception {
         final File savedFile = folder.newFile(""testsave.plist"");
 
@@ -47250,7 +47168,7 @@ conf_1692_8,"    @Test
     }
     }
 ",TestPropertyListConfiguration::testSave_8_oe
-conf_1693_1,"    @Test
+conf_1687_1,"    @Test
     public void testSaveEmptyDictionary_1_oe() throws Exception {
         final File savedFile = folder.newFile(""testsave.plist"");
 
@@ -47259,7 +47177,7 @@ conf_1693_1,"    @Test
         assertTrue(""The saved file doesn't exist"", savedFile.exists());
     }
 ",TestPropertyListConfiguration::testSaveEmptyDictionary_1_oe
-conf_1693_2,"    @Test
+conf_1687_2,"    @Test
     public void testSaveEmptyDictionary_2_oe() throws Exception {
         final File savedFile = folder.newFile(""testsave.plist"");
 
@@ -47274,7 +47192,7 @@ conf_1693_2,"    @Test
         assertFalse(getNamedChildren(config, ""empty-dictionary"").isEmpty());
     }
 ",TestPropertyListConfiguration::testSaveEmptyDictionary_2_oe
-conf_1693_3,"    @Test
+conf_1687_3,"    @Test
     public void testSaveEmptyDictionary_3_oe() throws Exception {
         final File savedFile = folder.newFile(""testsave.plist"");
 
@@ -47290,7 +47208,7 @@ conf_1693_3,"    @Test
         assertFalse(getNamedChildren(checkConfig, ""empty-dictionary"").isEmpty());
     }
 ",TestPropertyListConfiguration::testSaveEmptyDictionary_3_oe
-conf_1694_1,"    @Test
+conf_1688_1,"    @Test
     public void testSetDataProperty_1_oe() throws Exception {
         final File saveFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -47305,7 +47223,7 @@ conf_1694_1,"    @Test
         assertNotNull(""data not found"", array);
     }
 ",TestPropertyListConfiguration::testSetDataProperty_1_oe
-conf_1694_2,"    @Test
+conf_1688_2,"    @Test
     public void testSetDataProperty_2_oe() throws Exception {
         final File saveFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -47321,7 +47239,7 @@ conf_1694_2,"    @Test
         assertEquals(""property type"", byte[].class, array.getClass());
     }
 ",TestPropertyListConfiguration::testSetDataProperty_2_oe
-conf_1694_3,"    @Test
+conf_1688_3,"    @Test
     public void testSetDataProperty_3_oe() throws Exception {
         final File saveFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -47338,25 +47256,25 @@ conf_1694_3,"    @Test
         ArrayAssert.assertEquals(expected, (byte[]) array);
     }
 ",TestPropertyListConfiguration::testSetDataProperty_3_oe
-conf_1695_1,"    @Test
+conf_1689_1,"    @Test
     public void testString_1_oe() {
         assertEquals(""simple-string"", ""string1"", config.getProperty(""simple-string""));
     }
 ",TestPropertyListConfiguration::testString_1_oe
-conf_1696_1,"    @Test
+conf_1690_1,"    @Test
     public void testFilterData_1_oe() throws Exception {
         final byte[] expected = {0x20, 0x20};
         ArrayAssert.assertEquals(""null string"", null, parser.filterData(null));
     }
 ",TestPropertyListParser::testFilterData_1_oe
-conf_1696_2,"    @Test
+conf_1690_2,"    @Test
     public void testFilterData_2_oe() throws Exception {
         final byte[] expected = {0x20, 0x20};
         // removed other assertion
         ArrayAssert.assertEquals(""data with < >"", expected, parser.filterData(""<2020>""));
     }
 ",TestPropertyListParser::testFilterData_2_oe
-conf_1696_3,"    @Test
+conf_1690_3,"    @Test
     public void testFilterData_3_oe() throws Exception {
         final byte[] expected = {0x20, 0x20};
         // removed other assertion
@@ -47364,7 +47282,7 @@ conf_1696_3,"    @Test
         ArrayAssert.assertEquals(""data without < >"", expected, parser.filterData(""2020""));
     }
 ",TestPropertyListParser::testFilterData_3_oe
-conf_1696_4,"    @Test
+conf_1690_4,"    @Test
     public void testFilterData_4_oe() throws Exception {
         final byte[] expected = {0x20, 0x20};
         // removed other assertion
@@ -47373,7 +47291,7 @@ conf_1696_4,"    @Test
         ArrayAssert.assertEquals(""data with space"", expected, parser.filterData(""20 20""));
     }
 ",TestPropertyListParser::testFilterData_4_oe
-conf_1696_5,"    @Test
+conf_1690_5,"    @Test
     public void testFilterData_5_oe() throws Exception {
         final byte[] expected = {0x20, 0x20};
         // removed other assertion
@@ -47383,7 +47301,7 @@ conf_1696_5,"    @Test
         ArrayAssert.assertEquals(""odd length"", new byte[] {9, 0x20}, parser.filterData(""920""));
     }
 ",TestPropertyListParser::testFilterData_5_oe
-conf_1697_1,"    @Test
+conf_1691_1,"    @Test
     public void testParseDate_1_oe() throws Exception {
         final Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.YEAR, 2002);
@@ -47398,25 +47316,25 @@ conf_1697_1,"    @Test
         assertEquals(""parsed date"", calendar.getTime(), parser.parseDate(""<*D2002-03-22 11:30:00 +0100>""));
     }
 ",TestPropertyListParser::testParseDate_1_oe
-conf_1698_1,"    @Test
+conf_1692_1,"    @Test
     public void testRemoveQuotes_1_oe() {
         assertEquals(""unquoted string"", ""abc"", parser.removeQuotes(""abc""));
     }
 ",TestPropertyListParser::testRemoveQuotes_1_oe
-conf_1698_2,"    @Test
+conf_1692_2,"    @Test
     public void testRemoveQuotes_2_oe() {
         // removed other assertion
         assertEquals(""quoted string"", ""abc"", parser.removeQuotes(""\""abc\""""));
     }
 ",TestPropertyListParser::testRemoveQuotes_2_oe
-conf_1698_3,"    @Test
+conf_1692_3,"    @Test
     public void testRemoveQuotes_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(""empty quotes"", """", parser.removeQuotes(""\""\""""));
     }
 ",TestPropertyListParser::testRemoveQuotes_3_oe
-conf_1698_4,"    @Test
+conf_1692_4,"    @Test
     public void testRemoveQuotes_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -47424,7 +47342,7 @@ conf_1698_4,"    @Test
         assertEquals(""empty string"", """", parser.removeQuotes(""""));
     }
 ",TestPropertyListParser::testRemoveQuotes_4_oe
-conf_1698_5,"    @Test
+conf_1692_5,"    @Test
     public void testRemoveQuotes_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -47433,18 +47351,18 @@ conf_1698_5,"    @Test
         assertNull(""null string"", parser.removeQuotes(null));
     }
 ",TestPropertyListParser::testRemoveQuotes_5_oe
-conf_1699_1,"    @Test
+conf_1693_1,"    @Test
     public void testUnescapeQuotes_1_oe() {
         assertEquals(""non escaped quotes"", ""aaa\""bbb\""ccc"", parser.unescapeQuotes(""aaa\""bbb\""ccc""));
     }
 ",TestPropertyListParser::testUnescapeQuotes_1_oe
-conf_1699_2,"    @Test
+conf_1693_2,"    @Test
     public void testUnescapeQuotes_2_oe() {
         // removed other assertion
         assertEquals(""escaped quotes"", ""aaa\""bbb\""ccc"", parser.unescapeQuotes(""aaa\\\""bbb\\\""ccc""));
     }
 ",TestPropertyListParser::testUnescapeQuotes_2_oe
-conf_1700_1,"    @Test
+conf_1694_1,"    @Test
     public void testAddDataProperty_1_oe() throws Exception {
         final File savedFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -47459,7 +47377,7 @@ conf_1700_1,"    @Test
         assertNotNull(""data not found"", array);
     }
 ",TestXMLPropertyListConfiguration::testAddDataProperty_1_oe
-conf_1700_2,"    @Test
+conf_1694_2,"    @Test
     public void testAddDataProperty_2_oe() throws Exception {
         final File savedFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -47475,7 +47393,7 @@ conf_1700_2,"    @Test
         assertEquals(""property type"", byte[].class, array.getClass());
     }
 ",TestXMLPropertyListConfiguration::testAddDataProperty_2_oe
-conf_1700_3,"    @Test
+conf_1694_3,"    @Test
     public void testAddDataProperty_3_oe() throws Exception {
         final File savedFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -47492,14 +47410,14 @@ conf_1700_3,"    @Test
         ArrayAssert.assertEquals(expected, (byte[]) array);
     }
 ",TestXMLPropertyListConfiguration::testAddDataProperty_3_oe
-conf_1701_1,"    @Test
+conf_1695_1,"    @Test
     public void testArray_1_oe() {
         final Object array = config.getProperty(""array"");
 
         assertNotNull(""array not found"", array);
     }
 ",TestXMLPropertyListConfiguration::testArray_1_oe
-conf_1701_2,"    @Test
+conf_1695_2,"    @Test
     public void testArray_2_oe() {
         final Object array = config.getProperty(""array"");
 
@@ -47510,7 +47428,7 @@ conf_1701_2,"    @Test
         assertFalse(""empty array"", list.isEmpty());
     }
 ",TestXMLPropertyListConfiguration::testArray_2_oe
-conf_1701_3,"    @Test
+conf_1695_3,"    @Test
     public void testArray_3_oe() {
         final Object array = config.getProperty(""array"");
 
@@ -47522,7 +47440,7 @@ conf_1701_3,"    @Test
         assertEquals(""size"", 3, list.size());
     }
 ",TestXMLPropertyListConfiguration::testArray_3_oe
-conf_1701_4,"    @Test
+conf_1695_4,"    @Test
     public void testArray_4_oe() {
         final Object array = config.getProperty(""array"");
 
@@ -47535,7 +47453,7 @@ conf_1701_4,"    @Test
         assertEquals(""1st element"", ""value1"", list.get(0));
     }
 ",TestXMLPropertyListConfiguration::testArray_4_oe
-conf_1701_5,"    @Test
+conf_1695_5,"    @Test
     public void testArray_5_oe() {
         final Object array = config.getProperty(""array"");
 
@@ -47549,7 +47467,7 @@ conf_1701_5,"    @Test
         assertEquals(""2nd element"", ""value2"", list.get(1));
     }
 ",TestXMLPropertyListConfiguration::testArray_5_oe
-conf_1701_6,"    @Test
+conf_1695_6,"    @Test
     public void testArray_6_oe() {
         final Object array = config.getProperty(""array"");
 
@@ -47564,18 +47482,18 @@ conf_1701_6,"    @Test
         assertEquals(""3rd element"", ""value3"", list.get(2));
     }
 ",TestXMLPropertyListConfiguration::testArray_6_oe
-conf_1702_1,"    @Test
+conf_1696_1,"    @Test
     public void testBoolean_1_oe() throws Exception {
         assertTrue(""'boolean1' property"", config.getBoolean(""boolean1""));
     }
 ",TestXMLPropertyListConfiguration::testBoolean_1_oe
-conf_1702_2,"    @Test
+conf_1696_2,"    @Test
     public void testBoolean_2_oe() throws Exception {
         // removed other assertion
         assertFalse(""'boolean2' property"", config.getBoolean(""boolean2""));
     }
 ",TestXMLPropertyListConfiguration::testBoolean_2_oe
-conf_1703_1,"    @Test
+conf_1697_1,"    @Test
     public void testDate_1_oe() throws Exception {
         final Calendar calendar = Calendar.getInstance();
         calendar.clear();
@@ -47585,7 +47503,7 @@ conf_1703_1,"    @Test
         assertEquals(""'date' property"", calendar.getTime(), config.getProperty(""date""));
     }
 ",TestXMLPropertyListConfiguration::testDate_1_oe
-conf_1703_2,"    @Test
+conf_1697_2,"    @Test
     public void testDate_2_oe() throws Exception {
         final Calendar calendar = Calendar.getInstance();
         calendar.clear();
@@ -47600,25 +47518,25 @@ conf_1703_2,"    @Test
         assertEquals(""'date-gnustep' property"", calendar.getTime(), config.getProperty(""date-gnustep""));
     }
 ",TestXMLPropertyListConfiguration::testDate_2_oe
-conf_1704_1,"    @Test
+conf_1698_1,"    @Test
     public void testDictionary_1_oe() {
         assertEquals(""1st element"", ""value1"", config.getProperty(""dictionary.key1""));
     }
 ",TestXMLPropertyListConfiguration::testDictionary_1_oe
-conf_1704_2,"    @Test
+conf_1698_2,"    @Test
     public void testDictionary_2_oe() {
         // removed other assertion
         assertEquals(""2nd element"", ""value2"", config.getProperty(""dictionary.key2""));
     }
 ",TestXMLPropertyListConfiguration::testDictionary_2_oe
-conf_1704_3,"    @Test
+conf_1698_3,"    @Test
     public void testDictionary_3_oe() {
         // removed other assertion
         // removed other assertion
         assertEquals(""3rd element"", ""value3"", config.getProperty(""dictionary.key3""));
     }
 ",TestXMLPropertyListConfiguration::testDictionary_3_oe
-conf_1705_1,"    @Test
+conf_1699_1,"    @Test
     public void testDictionaryArray_1_oe() {
         final String key = ""dictionary-array"";
 
@@ -47628,7 +47546,7 @@ conf_1705_1,"    @Test
         assertNotNull(""array not found"", array);
     }
 ",TestXMLPropertyListConfiguration::testDictionaryArray_1_oe
-conf_1705_2,"    @Test
+conf_1699_2,"    @Test
     public void testDictionaryArray_2_oe() {
         final String key = ""dictionary-array"";
 
@@ -47642,7 +47560,7 @@ conf_1705_2,"    @Test
         assertFalse(""empty array"", list.isEmpty());
     }
 ",TestXMLPropertyListConfiguration::testDictionaryArray_2_oe
-conf_1705_3,"    @Test
+conf_1699_3,"    @Test
     public void testDictionaryArray_3_oe() {
         final String key = ""dictionary-array"";
 
@@ -47657,7 +47575,7 @@ conf_1705_3,"    @Test
         assertEquals(""size"", 2, list.size());
     }
 ",TestXMLPropertyListConfiguration::testDictionaryArray_3_oe
-conf_1705_4,"    @Test
+conf_1699_4,"    @Test
     public void testDictionaryArray_4_oe() {
         final String key = ""dictionary-array"";
 
@@ -47677,7 +47595,7 @@ conf_1705_4,"    @Test
         assertFalse(""configuration 1 is empty"", conf1.isEmpty());
     }
 ",TestXMLPropertyListConfiguration::testDictionaryArray_4_oe
-conf_1705_5,"    @Test
+conf_1699_5,"    @Test
     public void testDictionaryArray_5_oe() {
         final String key = ""dictionary-array"";
 
@@ -47698,7 +47616,7 @@ conf_1705_5,"    @Test
         assertEquals(""configuration element"", ""bar"", conf1.getProperty(""foo""));
     }
 ",TestXMLPropertyListConfiguration::testDictionaryArray_5_oe
-conf_1705_6,"    @Test
+conf_1699_6,"    @Test
     public void testDictionaryArray_6_oe() {
         final String key = ""dictionary-array"";
 
@@ -47724,7 +47642,7 @@ conf_1705_6,"    @Test
         assertFalse(""configuration 2 is empty"", conf2.isEmpty());
     }
 ",TestXMLPropertyListConfiguration::testDictionaryArray_6_oe
-conf_1705_7,"    @Test
+conf_1699_7,"    @Test
     public void testDictionaryArray_7_oe() {
         final String key = ""dictionary-array"";
 
@@ -47751,38 +47669,38 @@ conf_1705_7,"    @Test
         assertEquals(""configuration element"", ""value"", conf2.getProperty(""key""));
     }
 ",TestXMLPropertyListConfiguration::testDictionaryArray_7_oe
-conf_1706_1,"    @Test
+conf_1700_1,"    @Test
     public void testInitCopy_1_oe() {
         final XMLPropertyListConfiguration copy = new XMLPropertyListConfiguration(config);
         final StrictConfigurationComparator comp = new StrictConfigurationComparator();
         assertTrue(""Configurations are not equal"", comp.compare(config, copy));
     }
 ",TestXMLPropertyListConfiguration::testInitCopy_1_oe
-conf_1707_1,"    @Test
+conf_1701_1,"    @Test
     public void testInteger_1_oe() throws Exception {
         assertEquals(""'integer' property"", 12345678900L, config.getLong(""integer""));
     }
 ",TestXMLPropertyListConfiguration::testInteger_1_oe
-conf_1708_1,"    @Test
+conf_1702_1,"    @Test
     public void testLoadNoDict_1_oe() throws ConfigurationException {
         final XMLPropertyListConfiguration plist = new XMLPropertyListConfiguration();
         load(plist, ConfigurationAssert.getTestFile(""test2.plist.xml""));
         assertFalse(""Configuration is empty"", plist.isEmpty());
     }
 ",TestXMLPropertyListConfiguration::testLoadNoDict_1_oe
-conf_1709_1,"    @Test
+conf_1703_1,"    @Test
     public void testLoadNoDictConstr_1_oe() throws ConfigurationException {
         final XMLPropertyListConfiguration plist = new XMLPropertyListConfiguration();
         load(plist, ConfigurationAssert.getTestFile(""test2.plist.xml""));
         assertFalse(""Configuration is empty"", plist.isEmpty());
     }
 ",TestXMLPropertyListConfiguration::testLoadNoDictConstr_1_oe
-conf_1710_1,"    @Test
+conf_1704_1,"    @Test
     public void testNested_1_oe() {
         assertEquals(""nested property"", ""value"", config.getString(""nested.node1.node2.node3""));
     }
 ",TestXMLPropertyListConfiguration::testNested_1_oe
-conf_1711_1,"    @Test
+conf_1705_1,"    @Test
     public void testNestedArray_1_oe() {
         final String key = ""nested-array"";
 
@@ -47792,7 +47710,7 @@ conf_1711_1,"    @Test
         assertNotNull(""array not found"", array);
     }
 ",TestXMLPropertyListConfiguration::testNestedArray_1_oe
-conf_1711_2,"    @Test
+conf_1705_2,"    @Test
     public void testNestedArray_2_oe() {
         final String key = ""nested-array"";
 
@@ -47806,7 +47724,7 @@ conf_1711_2,"    @Test
         assertFalse(""empty array"", list.isEmpty());
     }
 ",TestXMLPropertyListConfiguration::testNestedArray_2_oe
-conf_1711_3,"    @Test
+conf_1705_3,"    @Test
     public void testNestedArray_3_oe() {
         final String key = ""nested-array"";
 
@@ -47821,7 +47739,7 @@ conf_1711_3,"    @Test
         assertEquals(""size"", 2, list.size());
     }
 ",TestXMLPropertyListConfiguration::testNestedArray_3_oe
-conf_1711_4,"    @Test
+conf_1705_4,"    @Test
     public void testNestedArray_4_oe() {
         final String key = ""nested-array"";
 
@@ -47841,7 +47759,7 @@ conf_1711_4,"    @Test
         assertFalse(""nested array 1 is empty"", list1.isEmpty());
     }
 ",TestXMLPropertyListConfiguration::testNestedArray_4_oe
-conf_1711_5,"    @Test
+conf_1705_5,"    @Test
     public void testNestedArray_5_oe() {
         final String key = ""nested-array"";
 
@@ -47862,7 +47780,7 @@ conf_1711_5,"    @Test
         assertEquals(""size"", 2, list1.size());
     }
 ",TestXMLPropertyListConfiguration::testNestedArray_5_oe
-conf_1711_6,"    @Test
+conf_1705_6,"    @Test
     public void testNestedArray_6_oe() {
         final String key = ""nested-array"";
 
@@ -47884,7 +47802,7 @@ conf_1711_6,"    @Test
         assertEquals(""1st element"", ""a"", list1.get(0));
     }
 ",TestXMLPropertyListConfiguration::testNestedArray_6_oe
-conf_1711_7,"    @Test
+conf_1705_7,"    @Test
     public void testNestedArray_7_oe() {
         final String key = ""nested-array"";
 
@@ -47907,7 +47825,7 @@ conf_1711_7,"    @Test
         assertEquals(""2nd element"", ""b"", list1.get(1));
     }
 ",TestXMLPropertyListConfiguration::testNestedArray_7_oe
-conf_1711_8,"    @Test
+conf_1705_8,"    @Test
     public void testNestedArray_8_oe() {
         final String key = ""nested-array"";
 
@@ -47935,7 +47853,7 @@ conf_1711_8,"    @Test
         assertFalse(""nested array 2 is empty"", list2.isEmpty());
     }
 ",TestXMLPropertyListConfiguration::testNestedArray_8_oe
-conf_1711_9,"    @Test
+conf_1705_9,"    @Test
     public void testNestedArray_9_oe() {
         final String key = ""nested-array"";
 
@@ -47964,7 +47882,7 @@ conf_1711_9,"    @Test
         assertEquals(""size"", 2, list2.size());
     }
 ",TestXMLPropertyListConfiguration::testNestedArray_9_oe
-conf_1711_10,"    @Test
+conf_1705_10,"    @Test
     public void testNestedArray_10_oe() {
         final String key = ""nested-array"";
 
@@ -47994,7 +47912,7 @@ conf_1711_10,"    @Test
         assertEquals(""1st element"", ""c"", list2.get(0));
     }
 ",TestXMLPropertyListConfiguration::testNestedArray_10_oe
-conf_1711_11,"    @Test
+conf_1705_11,"    @Test
     public void testNestedArray_11_oe() {
         final String key = ""nested-array"";
 
@@ -48025,12 +47943,12 @@ conf_1711_11,"    @Test
         assertEquals(""2nd element"", ""d"", list2.get(1));
     }
 ",TestXMLPropertyListConfiguration::testNestedArray_11_oe
-conf_1712_1,"    @Test
+conf_1706_1,"    @Test
     public void testReal_1_oe() throws Exception {
         assertEquals(""'real' property"", -12.345, config.getDouble(""real""), 0);
     }
 ",TestXMLPropertyListConfiguration::testReal_1_oe
-conf_1713_1,"    @Test
+conf_1707_1,"    @Test
     public void testSave_1_oe() throws Exception {
         final File savedFile = folder.newFile();
 
@@ -48052,7 +47970,7 @@ conf_1713_1,"    @Test
         assertTrue(""The saved file doesn't exist"", savedFile.exists());
     }
 ",TestXMLPropertyListConfiguration::testSave_1_oe
-conf_1713_2,"    @Test
+conf_1707_2,"    @Test
     public void testSave_2_oe() throws Exception {
         final File savedFile = folder.newFile();
 
@@ -48084,7 +48002,7 @@ conf_1713_2,"    @Test
     }
     }
 ",TestXMLPropertyListConfiguration::testSave_2_oe
-conf_1713_3,"    @Test
+conf_1707_3,"    @Test
     public void testSave_3_oe() throws Exception {
         final File savedFile = folder.newFile();
 
@@ -48122,7 +48040,7 @@ conf_1713_3,"    @Test
     }
     }
 ",TestXMLPropertyListConfiguration::testSave_3_oe
-conf_1713_4,"    @Test
+conf_1707_4,"    @Test
     public void testSave_4_oe() throws Exception {
         final File savedFile = folder.newFile();
 
@@ -48165,7 +48083,7 @@ conf_1713_4,"    @Test
     }
     }
 ",TestXMLPropertyListConfiguration::testSave_4_oe
-conf_1713_5,"    @Test
+conf_1707_5,"    @Test
     public void testSave_5_oe() throws Exception {
         final File savedFile = folder.newFile();
 
@@ -48218,7 +48136,7 @@ conf_1713_5,"    @Test
     }
     }
 ",TestXMLPropertyListConfiguration::testSave_5_oe
-conf_1713_6,"    @Test
+conf_1707_6,"    @Test
     public void testSave_6_oe() throws Exception {
         final File savedFile = folder.newFile();
 
@@ -48273,7 +48191,7 @@ conf_1713_6,"    @Test
     }
     }
 ",TestXMLPropertyListConfiguration::testSave_6_oe
-conf_1713_7,"    @Test
+conf_1707_7,"    @Test
     public void testSave_7_oe() throws Exception {
         final File savedFile = folder.newFile();
 
@@ -48330,7 +48248,7 @@ conf_1713_7,"    @Test
     }
     }
 ",TestXMLPropertyListConfiguration::testSave_7_oe
-conf_1713_8,"    @Test
+conf_1707_8,"    @Test
     public void testSave_8_oe() throws Exception {
         final File savedFile = folder.newFile();
 
@@ -48389,7 +48307,7 @@ conf_1713_8,"    @Test
     }
     }
 ",TestXMLPropertyListConfiguration::testSave_8_oe
-conf_1714_1,"    @Test
+conf_1708_1,"    @Test
     public void testSaveEmptyDictionary_1_oe() throws Exception {
         final File savedFile = folder.newFile();
 
@@ -48398,7 +48316,7 @@ conf_1714_1,"    @Test
         assertTrue(""The saved file doesn't exist"", savedFile.exists());
     }
 ",TestXMLPropertyListConfiguration::testSaveEmptyDictionary_1_oe
-conf_1714_2,"    @Test
+conf_1708_2,"    @Test
     public void testSaveEmptyDictionary_2_oe() throws Exception {
         final File savedFile = folder.newFile();
 
@@ -48413,7 +48331,7 @@ conf_1714_2,"    @Test
         assertNull(config.getProperty(""empty-dictionary""));
     }
 ",TestXMLPropertyListConfiguration::testSaveEmptyDictionary_2_oe
-conf_1714_3,"    @Test
+conf_1708_3,"    @Test
     public void testSaveEmptyDictionary_3_oe() throws Exception {
         final File savedFile = folder.newFile();
 
@@ -48429,14 +48347,14 @@ conf_1714_3,"    @Test
         assertNull(checkConfig.getProperty(""empty-dictionary""));
     }
 ",TestXMLPropertyListConfiguration::testSaveEmptyDictionary_3_oe
-conf_1715_1,"    @Test
+conf_1709_1,"    @Test
     public void testSaveNoEncoding_1_oe() throws ConfigurationException {
         final StringWriter writer = new StringWriter();
         new FileHandler(config).save(writer);
         assertTrue(""Wrong document header"", writer.toString().indexOf(""<?xml version=\""1.0\""?>"") >= 0);
     }
 ",TestXMLPropertyListConfiguration::testSaveNoEncoding_1_oe
-conf_1716_1,"    @Test
+conf_1710_1,"    @Test
     public void testSaveWithEncoding_1_oe() throws ConfigurationException {
         final String encoding = ""UTF-8"";
         final FileHandler handler = new FileHandler(config);
@@ -48446,7 +48364,7 @@ conf_1716_1,"    @Test
         assertTrue(""Encoding not found"", writer.toString().indexOf(""<?xml version=\""1.0\"" encoding=\"""" + encoding + ""\""?>"") >= 0);
     }
 ",TestXMLPropertyListConfiguration::testSaveWithEncoding_1_oe
-conf_1717_1,"    @Test
+conf_1711_1,"    @Test
     public void testSetDataProperty_1_oe() throws Exception {
         final File savedFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -48461,7 +48379,7 @@ conf_1717_1,"    @Test
         assertNotNull(""data not found"", array);
     }
 ",TestXMLPropertyListConfiguration::testSetDataProperty_1_oe
-conf_1717_2,"    @Test
+conf_1711_2,"    @Test
     public void testSetDataProperty_2_oe() throws Exception {
         final File savedFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -48477,7 +48395,7 @@ conf_1717_2,"    @Test
         assertEquals(""property type"", byte[].class, array.getClass());
     }
 ",TestXMLPropertyListConfiguration::testSetDataProperty_2_oe
-conf_1717_3,"    @Test
+conf_1711_3,"    @Test
     public void testSetDataProperty_3_oe() throws Exception {
         final File savedFile = folder.newFile();
         final byte[] expected = {1, 2, 3, 4};
@@ -48494,14 +48412,14 @@ conf_1717_3,"    @Test
         ArrayAssert.assertEquals(expected, (byte[]) array);
     }
 ",TestXMLPropertyListConfiguration::testSetDataProperty_3_oe
-conf_1718_1,"    @Test
+conf_1712_1,"    @Test
     public void testSetDatePropertyInvalid_1_oe() throws ConfigurationException {
         config.clear();
         load(config, ConfigurationAssert.getTestFile(""test_invalid_date.plist.xml""));
         assertEquals(""'string' property"", ""value1"", config.getString(""string""));
     }
 ",TestXMLPropertyListConfiguration::testSetDatePropertyInvalid_1_oe
-conf_1718_2,"    @Test
+conf_1712_2,"    @Test
     public void testSetDatePropertyInvalid_2_oe() throws ConfigurationException {
         config.clear();
         load(config, ConfigurationAssert.getTestFile(""test_invalid_date.plist.xml""));
@@ -48509,12 +48427,12 @@ conf_1718_2,"    @Test
         assertFalse(""Date property was loaded"", config.containsKey(""date""));
     }
 ",TestXMLPropertyListConfiguration::testSetDatePropertyInvalid_2_oe
-conf_1719_1,"    @Test
+conf_1713_1,"    @Test
     public void testString_1_oe() throws Exception {
         assertEquals(""'string' property"", ""value1"", config.getString(""string""));
     }
 ",TestXMLPropertyListConfiguration::testString_1_oe
-conf_1720_1,"    @Test
+conf_1714_1,"    @Test
     public void testSubset_1_oe() {
         final Configuration subset = config.subset(""dictionary"");
         final Iterator<String> keys = subset.getKeys();
@@ -48523,7 +48441,7 @@ conf_1720_1,"    @Test
         assertEquals(""1st key"", ""key1"", key);
     }
 ",TestXMLPropertyListConfiguration::testSubset_1_oe
-conf_1720_2,"    @Test
+conf_1714_2,"    @Test
     public void testSubset_2_oe() {
         final Configuration subset = config.subset(""dictionary"");
         final Iterator<String> keys = subset.getKeys();
@@ -48533,7 +48451,7 @@ conf_1720_2,"    @Test
         assertEquals(""1st value"", ""value1"", subset.getString(key));
     }
 ",TestXMLPropertyListConfiguration::testSubset_2_oe
-conf_1720_3,"    @Test
+conf_1714_3,"    @Test
     public void testSubset_3_oe() {
         final Configuration subset = config.subset(""dictionary"");
         final Iterator<String> keys = subset.getKeys();
@@ -48546,7 +48464,7 @@ conf_1720_3,"    @Test
         assertEquals(""2nd key"", ""key2"", key);
     }
 ",TestXMLPropertyListConfiguration::testSubset_3_oe
-conf_1720_4,"    @Test
+conf_1714_4,"    @Test
     public void testSubset_4_oe() {
         final Configuration subset = config.subset(""dictionary"");
         final Iterator<String> keys = subset.getKeys();
@@ -48560,7 +48478,7 @@ conf_1720_4,"    @Test
         assertEquals(""2nd value"", ""value2"", subset.getString(key));
     }
 ",TestXMLPropertyListConfiguration::testSubset_4_oe
-conf_1720_5,"    @Test
+conf_1714_5,"    @Test
     public void testSubset_5_oe() {
         final Configuration subset = config.subset(""dictionary"");
         final Iterator<String> keys = subset.getKeys();
@@ -48577,7 +48495,7 @@ conf_1720_5,"    @Test
         assertEquals(""3rd key"", ""key3"", key);
     }
 ",TestXMLPropertyListConfiguration::testSubset_5_oe
-conf_1720_6,"    @Test
+conf_1714_6,"    @Test
     public void testSubset_6_oe() {
         final Configuration subset = config.subset(""dictionary"");
         final Iterator<String> keys = subset.getKeys();
@@ -48595,7 +48513,7 @@ conf_1720_6,"    @Test
         assertEquals(""3rd value"", ""value3"", subset.getString(key));
     }
 ",TestXMLPropertyListConfiguration::testSubset_6_oe
-conf_1720_7,"    @Test
+conf_1714_7,"    @Test
     public void testSubset_7_oe() {
         final Configuration subset = config.subset(""dictionary"");
         final Iterator<String> keys = subset.getKeys();
@@ -48615,7 +48533,7 @@ conf_1720_7,"    @Test
         assertFalse(""more than 3 properties founds"", keys.hasNext());
     }
 ",TestXMLPropertyListConfiguration::testSubset_7_oe
-conf_1721_1,"    @Test
+conf_1715_1,"    @Test
     public void testWriteCalledDirectly_1_oe() throws IOException {
         config = new XMLPropertyListConfiguration();
         config.addProperty(""foo"", ""bar"");
@@ -48626,7 +48544,7 @@ conf_1721_1,"    @Test
     }
     }
 ",TestXMLPropertyListConfiguration::testWriteCalledDirectly_1_oe
-conf_1721_2,"    @Test
+conf_1715_2,"    @Test
     public void testWriteCalledDirectly_2_oe() throws IOException {
         config = new XMLPropertyListConfiguration();
         config.addProperty(""foo"", ""bar"");
@@ -48639,7 +48557,7 @@ conf_1721_2,"    @Test
     }
     }
 ",TestXMLPropertyListConfiguration::testWriteCalledDirectly_2_oe
-conf_1722_1,"    @Test
+conf_1716_1,"    @Test
     public void testGetBeanClassNameDefined_1_oe() {
         final CombinedBeanDeclaration cd = createCombinedDeclaration();
         EasyMock.expect(decl(0).getBeanClassName()).andReturn(null);
@@ -48648,13 +48566,13 @@ conf_1722_1,"    @Test
         assertEquals(""Wrong bean class"", getClass().getName(), cd.getBeanClassName());
     }
 ",TestCombinedBeanDeclaration::testGetBeanClassNameDefined_1_oe
-conf_1723_1,"    @Test
+conf_1717_1,"    @Test
     public void testGetBeanClassNameUndefined_1_oe() {
         final CombinedBeanDeclaration cd = new CombinedBeanDeclaration();
         assertNull(""Got a bean class name"", cd.getBeanClassName());
     }
 ",TestCombinedBeanDeclaration::testGetBeanClassNameUndefined_1_oe
-conf_1724_1,"    @Test
+conf_1718_1,"    @Test
     public void testGetBeanFactoryNameDefined_1_oe() {
         final CombinedBeanDeclaration cd = createCombinedDeclaration();
         final String name = ""someTestBeanFactory"";
@@ -48664,13 +48582,13 @@ conf_1724_1,"    @Test
         assertEquals(""Wrong factory name"", name, cd.getBeanFactoryName());
     }
 ",TestCombinedBeanDeclaration::testGetBeanFactoryNameDefined_1_oe
-conf_1725_1,"    @Test
+conf_1719_1,"    @Test
     public void testGetBeanFactoryNameUndefined_1_oe() {
         final CombinedBeanDeclaration cd = new CombinedBeanDeclaration();
         assertNull(""Got a factory name"", cd.getBeanFactoryName());
     }
 ",TestCombinedBeanDeclaration::testGetBeanFactoryNameUndefined_1_oe
-conf_1726_1,"    @Test
+conf_1720_1,"    @Test
     public void testGetBeanFactoryParameterDefined_1_oe() {
         final CombinedBeanDeclaration cd = createCombinedDeclaration();
         final Object param = new Object();
@@ -48680,13 +48598,13 @@ conf_1726_1,"    @Test
         assertSame(""Wrong parameter"", param, cd.getBeanFactoryParameter());
     }
 ",TestCombinedBeanDeclaration::testGetBeanFactoryParameterDefined_1_oe
-conf_1727_1,"    @Test
+conf_1721_1,"    @Test
     public void testGetBeanFactoryParameterUndefined_1_oe() {
         final CombinedBeanDeclaration cd = new CombinedBeanDeclaration();
         assertNull(""Got a factory parameter"", cd.getBeanFactoryParameter());
     }
 ",TestCombinedBeanDeclaration::testGetBeanFactoryParameterUndefined_1_oe
-conf_1728_1,"    @Test
+conf_1722_1,"    @Test
     public void testGetBeanProperties_1_oe() {
         final Map<String, Object> props1 = new HashMap<>();
         final Map<String, Object> props2 = new HashMap<>();
@@ -48706,7 +48624,7 @@ conf_1728_1,"    @Test
         assertEquals(""Wrong number of properties"", 4, props.size());
     }
 ",TestCombinedBeanDeclaration::testGetBeanProperties_1_oe
-conf_1728_2,"    @Test
+conf_1722_2,"    @Test
     public void testGetBeanProperties_2_oe() {
         final Map<String, Object> props1 = new HashMap<>();
         final Map<String, Object> props2 = new HashMap<>();
@@ -48729,7 +48647,7 @@ conf_1728_2,"    @Test
     }
     }
 ",TestCombinedBeanDeclaration::testGetBeanProperties_2_oe
-conf_1729_1,"    @Test
+conf_1723_1,"    @Test
     public void testGetBeanPropertiesNull_1_oe() {
         final BeanDeclaration child = EasyMock.createMock(BeanDeclaration.class);
         EasyMock.expect(child.getBeanProperties()).andReturn(null);
@@ -48738,7 +48656,7 @@ conf_1729_1,"    @Test
         assertTrue(""Got bean properties"", cd.getBeanProperties().isEmpty());
     }
 ",TestCombinedBeanDeclaration::testGetBeanPropertiesNull_1_oe
-conf_1730_1,"    @Test
+conf_1724_1,"    @Test
     public void testGetConstructorArgsDefined_1_oe() {
         final CombinedBeanDeclaration cd = createCombinedDeclaration();
         final Collection<ConstructorArg> args = Arrays.asList(ConstructorArg.forValue(42));
@@ -48748,7 +48666,7 @@ conf_1730_1,"    @Test
         assertSame(""Wrong constructor arguments"", args, cd.getConstructorArgs());
     }
 ",TestCombinedBeanDeclaration::testGetConstructorArgsDefined_1_oe
-conf_1731_1,"    @Test
+conf_1725_1,"    @Test
     public void testGetConstructorArgsUndefined_1_oe() {
         final CombinedBeanDeclaration cd = createCombinedDeclaration();
         EasyMock.expect(decl(0).getConstructorArgs()).andReturn(null);
@@ -48758,7 +48676,7 @@ conf_1731_1,"    @Test
         assertTrue(""Got constructor arguments"", cd.getConstructorArgs().isEmpty());
     }
 ",TestCombinedBeanDeclaration::testGetConstructorArgsUndefined_1_oe
-conf_1732_1,"    @Test
+conf_1726_1,"    @Test
     public void testGetNestedBeanDeclarations_1_oe() {
         final Map<String, Object> decls1 = new HashMap<>();
         final Map<String, Object> decls2 = new HashMap<>();
@@ -48778,7 +48696,7 @@ conf_1732_1,"    @Test
         assertEquals(""Wrong number of declarations"", 4, decls.size());
     }
 ",TestCombinedBeanDeclaration::testGetNestedBeanDeclarations_1_oe
-conf_1732_2,"    @Test
+conf_1726_2,"    @Test
     public void testGetNestedBeanDeclarations_2_oe() {
         final Map<String, Object> decls1 = new HashMap<>();
         final Map<String, Object> decls2 = new HashMap<>();
@@ -48801,7 +48719,7 @@ conf_1732_2,"    @Test
     }
     }
 ",TestCombinedBeanDeclaration::testGetNestedBeanDeclarations_2_oe
-conf_1733_1,"    @Test
+conf_1727_1,"    @Test
     public void testGetNestedBeanDeclarationsNull_1_oe() {
         final BeanDeclaration child = EasyMock.createMock(BeanDeclaration.class);
         EasyMock.expect(child.getNestedBeanDeclarations()).andReturn(null);
@@ -48810,7 +48728,7 @@ conf_1733_1,"    @Test
         assertTrue(""Got bean declarations"", cd.getNestedBeanDeclarations().isEmpty());
     }
 ",TestCombinedBeanDeclaration::testGetNestedBeanDeclarationsNull_1_oe
-conf_1734_1,"    @Test
+conf_1728_1,"    @Test
     public void testCopyProperties_1_oe() throws Exception {
         final PropertiesConfiguration src = new PropertiesConfiguration();
         src.setHeader(""TestHeader"");
@@ -48820,7 +48738,7 @@ conf_1734_1,"    @Test
         assertEquals(""Wrong footer property"", ""TestFooter"", dest.get(""footer""));
     }
 ",TestBeanHelper::testCopyProperties_1_oe
-conf_1734_2,"    @Test
+conf_1728_2,"    @Test
     public void testCopyProperties_2_oe() throws Exception {
         final PropertiesConfiguration src = new PropertiesConfiguration();
         src.setHeader(""TestHeader"");
@@ -48831,7 +48749,7 @@ conf_1734_2,"    @Test
         assertEquals(""Wrong header property"", ""TestHeader"", dest.get(""header""));
     }
 ",TestBeanHelper::testCopyProperties_2_oe
-conf_1735_1,"    @Test
+conf_1729_1,"    @Test
     public void testCreateBean_1_oe() {
         final TestBeanFactory factory = new TestBeanFactory();
         helper.registerBeanFactory(TEST_FACTORY, factory);
@@ -48842,7 +48760,7 @@ conf_1735_1,"    @Test
         assertNull(""A parameter was passed"", factory.parameter);
     }
 ",TestBeanHelper::testCreateBean_1_oe
-conf_1735_2,"    @Test
+conf_1729_2,"    @Test
     public void testCreateBean_2_oe() {
         final TestBeanFactory factory = new TestBeanFactory();
         helper.registerBeanFactory(TEST_FACTORY, factory);
@@ -48854,7 +48772,7 @@ conf_1735_2,"    @Test
         assertEquals(""Factory not called"", 1, factory.getCreateBeanCount());
     }
 ",TestBeanHelper::testCreateBean_2_oe
-conf_1736_1,"    @Test
+conf_1730_1,"    @Test
     public void testCreateBeanWithDefaultFactory_1_oe() {
         final BeanDeclarationTestImpl data = setUpBeanDeclaration();
         data.setBeanClassName(BeanCreationTestBean.class.getName());
@@ -48863,7 +48781,7 @@ conf_1736_1,"    @Test
         assertTrue(""Factory not called"", factory.getCreateBeanCount() > 0);
     }
 ",TestBeanHelper::testCreateBeanWithDefaultFactory_1_oe
-conf_1737_1,"    @Test
+conf_1731_1,"    @Test
     public void testCreateBeanWithFactoryDefaultClass_1_oe() {
         final TestBeanFactory factory = new TestBeanFactory();
         factory.supportsDefaultClass = true;
@@ -48874,7 +48792,7 @@ conf_1737_1,"    @Test
         assertEquals(""Factory not called"", 1, factory.getCreateBeanCount());
     }
 ",TestBeanHelper::testCreateBeanWithFactoryDefaultClass_1_oe
-conf_1738_1,"    @Test
+conf_1732_1,"    @Test
     public void testCreateBeanWithListChildBean_1_oe() {
         final TestBeanFactory factory = new TestBeanFactory();
         helper.registerBeanFactory(TEST_FACTORY, factory);
@@ -48885,7 +48803,7 @@ conf_1738_1,"    @Test
         assertNull(""A parameter was passed"", factory.parameter);
     }
 ",TestBeanHelper::testCreateBeanWithListChildBean_1_oe
-conf_1738_2,"    @Test
+conf_1732_2,"    @Test
     public void testCreateBeanWithListChildBean_2_oe() {
         final TestBeanFactory factory = new TestBeanFactory();
         helper.registerBeanFactory(TEST_FACTORY, factory);
@@ -48897,7 +48815,7 @@ conf_1738_2,"    @Test
         assertEquals(""Factory not called"", 1, factory.getCreateBeanCount());
     }
 ",TestBeanHelper::testCreateBeanWithListChildBean_2_oe
-conf_1739_1,"    @Test
+conf_1733_1,"    @Test
     public void testCreateBeanWithParameter_1_oe() {
         final Object param = Integer.valueOf(42);
         final TestBeanFactory factory = new TestBeanFactory();
@@ -48909,7 +48827,7 @@ conf_1739_1,"    @Test
         assertSame(""Wrong parameter"", param, factory.parameter);
     }
 ",TestBeanHelper::testCreateBeanWithParameter_1_oe
-conf_1740_1,"    @Test
+conf_1734_1,"    @Test
     public void testCreateWrapDynaBean_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final DynaBean bean = BeanHelper.createWrapDynaBean(config);
@@ -48918,25 +48836,25 @@ conf_1740_1,"    @Test
         assertEquals(""Property not set"", value, config.getFooter());
     }
 ",TestBeanHelper::testCreateWrapDynaBean_1_oe
-conf_1741_1,"    @Test
+conf_1735_1,"    @Test
     public void testDefaultBeanFactory_1_oe() {
         helper = new BeanHelper();
         assertSame(""Wrong default bean factory"", DefaultBeanFactory.INSTANCE, helper.getDefaultBeanFactory());
     }
 ",TestBeanHelper::testDefaultBeanFactory_1_oe
-conf_1742_1,"    @Test
+conf_1736_1,"    @Test
     public void testDefaultInstance_1_oe() {
         assertSame(""Wrong factory for default instance"", DefaultBeanFactory.INSTANCE, BeanHelper.INSTANCE.getDefaultBeanFactory());
     }
 ",TestBeanHelper::testDefaultInstance_1_oe
-conf_1743_1,"    @Test
+conf_1737_1,"    @Test
     public void testDeregisterBeanFactory_1_oe() {
         final BeanFactory factory = new TestBeanFactory();
         helper.registerBeanFactory(TEST_FACTORY, factory);
         assertSame(""Could not deregister factory"", factory, helper.deregisterBeanFactory(TEST_FACTORY));
     }
 ",TestBeanHelper::testDeregisterBeanFactory_1_oe
-conf_1743_2,"    @Test
+conf_1737_2,"    @Test
     public void testDeregisterBeanFactory_2_oe() {
         final BeanFactory factory = new TestBeanFactory();
         helper.registerBeanFactory(TEST_FACTORY, factory);
@@ -48944,17 +48862,17 @@ conf_1743_2,"    @Test
         assertTrue(""List of factories is not empty"", helper.registeredFactoryNames().isEmpty());
     }
 ",TestBeanHelper::testDeregisterBeanFactory_2_oe
-conf_1744_1,"    @Test
+conf_1738_1,"    @Test
     public void testDeregisterBeanFactoryNonExisting_1_oe() {
         assertNull(""deregistering non existing factory"", helper.deregisterBeanFactory(TEST_FACTORY));
     }
 ",TestBeanHelper::testDeregisterBeanFactoryNonExisting_1_oe
-conf_1745_1,"    @Test
+conf_1739_1,"    @Test
     public void testDeregisterBeanFactoryNull_1_oe() {
         assertNull(""deregistering null factory"", helper.deregisterBeanFactory(null));
     }
 ",TestBeanHelper::testDeregisterBeanFactoryNull_1_oe
-conf_1746_1,"    @Test
+conf_1740_1,"    @Test
     public void testInitBeanWithNoData_1_oe() {
         final BeanDeclarationTestImpl data = new BeanDeclarationTestImpl();
         final BeanCreationTestBean bean = new BeanCreationTestBean();
@@ -48962,7 +48880,7 @@ conf_1746_1,"    @Test
         assertNull(""Wrong string property"", bean.getStringValue());
     }
 ",TestBeanHelper::testInitBeanWithNoData_1_oe
-conf_1746_2,"    @Test
+conf_1740_2,"    @Test
     public void testInitBeanWithNoData_2_oe() {
         final BeanDeclarationTestImpl data = new BeanDeclarationTestImpl();
         final BeanCreationTestBean bean = new BeanCreationTestBean();
@@ -48971,7 +48889,7 @@ conf_1746_2,"    @Test
         assertEquals(""Wrong int property"", 0, bean.getIntValue());
     }
 ",TestBeanHelper::testInitBeanWithNoData_2_oe
-conf_1746_3,"    @Test
+conf_1740_3,"    @Test
     public void testInitBeanWithNoData_3_oe() {
         final BeanDeclarationTestImpl data = new BeanDeclarationTestImpl();
         final BeanCreationTestBean bean = new BeanCreationTestBean();
@@ -48981,7 +48899,7 @@ conf_1746_3,"    @Test
         assertNull(""Buddy was set"", bean.getBuddy());
     }
 ",TestBeanHelper::testInitBeanWithNoData_3_oe
-conf_1747_1,"    @Test
+conf_1741_1,"    @Test
     public void testInitWithBeanFactory_1_oe() {
         final BeanFactory factory = EasyMock.createMock(BeanFactory.class);
         EasyMock.replay(factory);
@@ -48989,31 +48907,31 @@ conf_1747_1,"    @Test
         assertSame(""Wrong default bean factory"", factory, helper.getDefaultBeanFactory());
     }
 ",TestBeanHelper::testInitWithBeanFactory_1_oe
-conf_1748_1,"    @Test
+conf_1742_1,"    @Test
     public void testRegisterBeanFactory_1_oe() {
         helper.registerBeanFactory(TEST_FACTORY, new TestBeanFactory());
         assertEquals(""Wrong number of registered factories"", 1, helper.registeredFactoryNames().size());
     }
 ",TestBeanHelper::testRegisterBeanFactory_1_oe
-conf_1748_2,"    @Test
+conf_1742_2,"    @Test
     public void testRegisterBeanFactory_2_oe() {
         helper.registerBeanFactory(TEST_FACTORY, new TestBeanFactory());
         // removed other assertion
         assertTrue(""Test factory is not contained"", helper.registeredFactoryNames().contains(TEST_FACTORY));
     }
 ",TestBeanHelper::testRegisterBeanFactory_2_oe
-conf_1749_1,"    @Test
+conf_1743_1,"    @Test
     public void testRegisteredFactoriesEmptyForNewInstance_1_oe() {
         assertTrue(""List of registered factories is not empty"", helper.registeredFactoryNames().isEmpty());
     }
 ",TestBeanHelper::testRegisteredFactoriesEmptyForNewInstance_1_oe
-conf_1750_1,"    @Test
+conf_1744_1,"    @Test
     public void testIsNestedBeanDeclarationFalse_1_oe() {
         final ConstructorArg arg = ConstructorArg.forValue(""test"");
         assertFalse(""A bean declaration"", arg.isNestedBeanDeclaration());
     }
 ",TestConstructorArg::testIsNestedBeanDeclarationFalse_1_oe
-conf_1751_1,"    @Test
+conf_1745_1,"    @Test
     public void testIsNestedBeanDeclarationTrue_1_oe() {
         final BeanDeclaration decl = EasyMock.createMock(BeanDeclaration.class);
         EasyMock.replay(decl);
@@ -49021,39 +48939,39 @@ conf_1751_1,"    @Test
         assertTrue(""No bean declaration"", arg.isNestedBeanDeclaration());
     }
 ",TestConstructorArg::testIsNestedBeanDeclarationTrue_1_oe
-conf_1752_1,"    @Test
+conf_1746_1,"    @Test
     public void testMatchesNoType_1_oe() {
         final ConstructorArg arg = ConstructorArg.forValue(42);
         assertTrue(""No match (1)"", arg.matches(String.class));
     }
 ",TestConstructorArg::testMatchesNoType_1_oe
-conf_1752_2,"    @Test
+conf_1746_2,"    @Test
     public void testMatchesNoType_2_oe() {
         final ConstructorArg arg = ConstructorArg.forValue(42);
         // removed other assertion
         assertTrue(""No match (2)"", arg.matches(getClass()));
     }
 ",TestConstructorArg::testMatchesNoType_2_oe
-conf_1753_1,"    @Test
+conf_1747_1,"    @Test
     public void testMatchesNull_1_oe() {
         final ConstructorArg arg = ConstructorArg.forValue(0);
         assertFalse(""Wrong result"", arg.matches(null));
     }
 ",TestConstructorArg::testMatchesNull_1_oe
-conf_1754_1,"    @Test
+conf_1748_1,"    @Test
     public void testMatchesWithType_1_oe() {
         final ConstructorArg arg = ConstructorArg.forValue(""42"", int.class.getName());
         assertTrue(""Wrong result (1)"", arg.matches(Integer.TYPE));
     }
 ",TestConstructorArg::testMatchesWithType_1_oe
-conf_1754_2,"    @Test
+conf_1748_2,"    @Test
     public void testMatchesWithType_2_oe() {
         final ConstructorArg arg = ConstructorArg.forValue(""42"", int.class.getName());
         // removed other assertion
         assertFalse(""Wrong result (2)"", arg.matches(Integer.class));
     }
 ",TestConstructorArg::testMatchesWithType_2_oe
-conf_1754_3,"    @Test
+conf_1748_3,"    @Test
     public void testMatchesWithType_3_oe() {
         final ConstructorArg arg = ConstructorArg.forValue(""42"", int.class.getName());
         // removed other assertion
@@ -49061,7 +48979,7 @@ conf_1754_3,"    @Test
         assertFalse(""Wrong result (3)"", arg.matches(String.class));
     }
 ",TestConstructorArg::testMatchesWithType_3_oe
-conf_1755_1,"    @Test
+conf_1749_1,"    @Test
     public void testCreateBean_1_oe() throws Exception {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Map<String, Object> props = new HashMap<>();
@@ -49071,7 +48989,7 @@ conf_1755_1,"    @Test
         assertNotNull(""New bean is null"", bean);
     }
 ",TestDefaultBeanFactory::testCreateBean_1_oe
-conf_1755_2,"    @Test
+conf_1749_2,"    @Test
     public void testCreateBean_2_oe() throws Exception {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Map<String, Object> props = new HashMap<>();
@@ -49082,7 +49000,7 @@ conf_1755_2,"    @Test
         assertEquals(""Bean is of wrong class"", PropertiesConfiguration.class, bean.getClass());
     }
 ",TestDefaultBeanFactory::testCreateBean_2_oe
-conf_1755_3,"    @Test
+conf_1749_3,"    @Test
     public void testCreateBean_3_oe() throws Exception {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Map<String, Object> props = new HashMap<>();
@@ -49095,7 +49013,7 @@ conf_1755_3,"    @Test
         assertTrue(""Bean was not initialized"", config.isThrowExceptionOnMissing());
     }
 ",TestDefaultBeanFactory::testCreateBean_3_oe
-conf_1756_1,"    @Test
+conf_1750_1,"    @Test
     public void testCreateBeanConstructor_1_oe() throws Exception {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -49106,7 +49024,7 @@ conf_1756_1,"    @Test
         assertEquals(""Wrong string property"", ""test"", bean.getStringValue());
     }
 ",TestDefaultBeanFactory::testCreateBeanConstructor_1_oe
-conf_1756_2,"    @Test
+conf_1750_2,"    @Test
     public void testCreateBeanConstructor_2_oe() throws Exception {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -49118,7 +49036,7 @@ conf_1756_2,"    @Test
         assertEquals(""Wrong int property"", 42, bean.getIntValue());
     }
 ",TestDefaultBeanFactory::testCreateBeanConstructor_2_oe
-conf_1757_1,"    @Test
+conf_1751_1,"    @Test
     public void testCreateBeanConstructorNestedBean_1_oe() throws Exception {
         final BeanDeclarationTestImpl declNested = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -49131,7 +49049,7 @@ conf_1757_1,"    @Test
         assertNotNull(""Buddy bean was not set"", bean.getBuddy());
     }
 ",TestDefaultBeanFactory::testCreateBeanConstructorNestedBean_1_oe
-conf_1757_2,"    @Test
+conf_1751_2,"    @Test
     public void testCreateBeanConstructorNestedBean_2_oe() throws Exception {
         final BeanDeclarationTestImpl declNested = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -49145,12 +49063,12 @@ conf_1757_2,"    @Test
         assertEquals(""Wrong property of buddy bean"", ""test"", bean.getBuddy().getStringValue());
     }
 ",TestDefaultBeanFactory::testCreateBeanConstructorNestedBean_2_oe
-conf_1758_1,"    @Test
+conf_1752_1,"    @Test
     public void testDefaultConversionHandler_1_oe() {
         assertSame(""Wrong default conversion handler"", DefaultConversionHandler.INSTANCE, factory.getConversionHandler());
     }
 ",TestDefaultBeanFactory::testDefaultConversionHandler_1_oe
-conf_1759_1,"    @Test
+conf_1753_1,"    @Test
     public void testFindMatchingConstructorArgCount_1_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -49162,7 +49080,7 @@ conf_1759_1,"    @Test
         assertEquals(""Wrong number of parameters"", 2, paramTypes.length);
     }
 ",TestDefaultBeanFactory::testFindMatchingConstructorArgCount_1_oe
-conf_1759_2,"    @Test
+conf_1753_2,"    @Test
     public void testFindMatchingConstructorArgCount_2_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -49175,7 +49093,7 @@ conf_1759_2,"    @Test
         assertEquals(""Wrong parameter type 1"", String.class, paramTypes[0]);
     }
 ",TestDefaultBeanFactory::testFindMatchingConstructorArgCount_2_oe
-conf_1759_3,"    @Test
+conf_1753_3,"    @Test
     public void testFindMatchingConstructorArgCount_3_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -49189,7 +49107,7 @@ conf_1759_3,"    @Test
         assertEquals(""Wrong parameter type 2"", Integer.TYPE, paramTypes[1]);
     }
 ",TestDefaultBeanFactory::testFindMatchingConstructorArgCount_3_oe
-conf_1760_1,"    @Test
+conf_1754_1,"    @Test
     public void testFindMatchingConstructorExplicitType_1_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -49200,7 +49118,7 @@ conf_1760_1,"    @Test
         assertEquals(""Wrong number of parameters"", 1, paramTypes.length);
     }
 ",TestDefaultBeanFactory::testFindMatchingConstructorExplicitType_1_oe
-conf_1760_2,"    @Test
+conf_1754_2,"    @Test
     public void testFindMatchingConstructorExplicitType_2_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -49212,14 +49130,14 @@ conf_1760_2,"    @Test
         assertEquals(""Wrong parameter type"", BeanCreationTestBean.class, paramTypes[0]);
     }
 ",TestDefaultBeanFactory::testFindMatchingConstructorExplicitType_2_oe
-conf_1761_1,"    @Test
+conf_1755_1,"    @Test
     public void testFindMatchingConstructorNoArgs_1_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Constructor<BeanCreationTestBean> ctor = DefaultBeanFactory.findMatchingConstructor(BeanCreationTestBean.class, decl);
         assertEquals(""Not the standard constructor"", 0, ctor.getParameterTypes().length);
     }
 ",TestDefaultBeanFactory::testFindMatchingConstructorNoArgs_1_oe
-conf_1762_2,"    @Test
+conf_1756_2,"    @Test
     public void testFindMatchingConstructorNoMatch_2_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -49234,7 +49152,7 @@ conf_1762_2,"    @Test
     }
     }
 ",TestDefaultBeanFactory::testFindMatchingConstructorNoMatch_2_oe
-conf_1762_3,"    @Test
+conf_1756_3,"    @Test
     public void testFindMatchingConstructorNoMatch_3_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -49250,7 +49168,7 @@ conf_1762_3,"    @Test
     }
     }
 ",TestDefaultBeanFactory::testFindMatchingConstructorNoMatch_3_oe
-conf_1762_4,"    @Test
+conf_1756_4,"    @Test
     public void testFindMatchingConstructorNoMatch_4_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -49267,12 +49185,12 @@ conf_1762_4,"    @Test
     }
     }
 ",TestDefaultBeanFactory::testFindMatchingConstructorNoMatch_4_oe
-conf_1763_1,"    @Test
+conf_1757_1,"    @Test
     public void testGetDefaultBeanClass_1_oe() {
         assertNull(""Default class is not null"", factory.getDefaultBeanClass());
     }
 ",TestDefaultBeanFactory::testGetDefaultBeanClass_1_oe
-conf_1764_1,"    @Test
+conf_1758_1,"    @Test
     public void testInitWithConversionHandler_1_oe() {
         final ConversionHandler handler = EasyMock.createMock(ConversionHandler.class);
         EasyMock.replay(handler);
@@ -49280,19 +49198,19 @@ conf_1764_1,"    @Test
         assertSame(""Wrong conversion handler"", handler, factory.getConversionHandler());
     }
 ",TestDefaultBeanFactory::testInitWithConversionHandler_1_oe
-conf_1765_1,"    @Test(expected = IllegalArgumentException.class)
+conf_1759_1,"    @Test(expected = IllegalArgumentException.class)
     public void testGetDescriptorArguments_1_oe() {
         final DynaProperty descriptor = bean.getDynaClass().getDynaProperty(""unknown"");
         assertNull(""Unknown property descriptor should be null"", descriptor);
     }
 ",TestConfigurationDynaBean::testGetDescriptorArguments_1_oe
-conf_1766_1,"    @Test
+conf_1760_1,"    @Test
     public void testGetDescriptors_1_oe() {
         final DynaProperty pd[] = bean.getDynaClass().getDynaProperties();
         assertNotNull(""Got descriptors"", pd);
     }
 ",TestConfigurationDynaBean::testGetDescriptors_1_oe
-conf_1766_2,"    @Test
+conf_1760_2,"    @Test
     public void testGetDescriptors_2_oe() {
         final DynaProperty pd[] = bean.getDynaClass().getDynaProperties();
         // removed other assertion
@@ -49313,7 +49231,7 @@ conf_1766_2,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetDescriptors_2_oe
-conf_1766_3,"    @Test
+conf_1760_3,"    @Test
     public void testGetDescriptors_3_oe() {
         final DynaProperty pd[] = bean.getDynaClass().getDynaProperties();
         // removed other assertion
@@ -49336,7 +49254,7 @@ conf_1766_3,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetDescriptors_3_oe
-conf_1767_1,"    @Test
+conf_1761_1,"    @Test
     public void testGetIndexedValues_1_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get(""intArray"", i);
@@ -49345,7 +49263,7 @@ conf_1767_1,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetIndexedValues_1_oe
-conf_1767_2,"    @Test
+conf_1761_2,"    @Test
     public void testGetIndexedValues_2_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get(""intArray"", i);
@@ -49356,7 +49274,7 @@ conf_1767_2,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetIndexedValues_2_oe
-conf_1767_3,"    @Test
+conf_1761_3,"    @Test
     public void testGetIndexedValues_3_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get(""intArray"", i);
@@ -49371,7 +49289,7 @@ conf_1767_3,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetIndexedValues_3_oe
-conf_1767_4,"    @Test
+conf_1761_4,"    @Test
     public void testGetIndexedValues_4_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get(""intArray"", i);
@@ -49388,7 +49306,7 @@ conf_1767_4,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetIndexedValues_4_oe
-conf_1767_5,"    @Test
+conf_1761_5,"    @Test
     public void testGetIndexedValues_5_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get(""intArray"", i);
@@ -49409,7 +49327,7 @@ conf_1767_5,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetIndexedValues_5_oe
-conf_1767_6,"    @Test
+conf_1761_6,"    @Test
     public void testGetIndexedValues_6_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get(""intArray"", i);
@@ -49432,7 +49350,7 @@ conf_1767_6,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetIndexedValues_6_oe
-conf_1767_7,"    @Test
+conf_1761_7,"    @Test
     public void testGetIndexedValues_7_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get(""intArray"", i);
@@ -49459,7 +49377,7 @@ conf_1767_7,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetIndexedValues_7_oe
-conf_1767_8,"    @Test
+conf_1761_8,"    @Test
     public void testGetIndexedValues_8_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get(""intArray"", i);
@@ -49487,7 +49405,7 @@ conf_1767_8,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetIndexedValues_8_oe
-conf_1767_9,"    @Test
+conf_1761_9,"    @Test
     public void testGetIndexedValues_9_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get(""intArray"", i);
@@ -49517,7 +49435,7 @@ conf_1767_9,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetIndexedValues_9_oe
-conf_1767_10,"    @Test
+conf_1761_10,"    @Test
     public void testGetIndexedValues_10_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get(""intArray"", i);
@@ -49551,7 +49469,7 @@ conf_1767_10,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetIndexedValues_10_oe
-conf_1767_11,"    @Test
+conf_1761_11,"    @Test
     public void testGetIndexedValues_11_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get(""intArray"", i);
@@ -49587,7 +49505,7 @@ conf_1767_11,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetIndexedValues_11_oe
-conf_1768_2,"    @Test
+conf_1762_2,"    @Test
     public void testGetMappedArguments_2_oe() {
         try {
             final Object value = bean.get(""mappedProperty"", ""unknown"");
@@ -49597,13 +49515,13 @@ conf_1768_2,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetMappedArguments_2_oe
-conf_1769_1,"    @Test
+conf_1763_1,"    @Test
     public void testGetMappedValues_1_oe() {
         Object value = bean.get(""mappedProperty"", ""key1"");
         assertEquals(""Can find first value"", ""First Value"", value);
     }
 ",TestConfigurationDynaBean::testGetMappedValues_1_oe
-conf_1769_2,"    @Test
+conf_1763_2,"    @Test
     public void testGetMappedValues_2_oe() {
         Object value = bean.get(""mappedProperty"", ""key1"");
         // removed other assertion
@@ -49612,7 +49530,7 @@ conf_1769_2,"    @Test
         assertEquals(""Can find second value"", ""Second Value"", value);
     }
 ",TestConfigurationDynaBean::testGetMappedValues_2_oe
-conf_1769_3,"    @Test
+conf_1763_3,"    @Test
     public void testGetMappedValues_3_oe() {
         Object value = bean.get(""mappedProperty"", ""key1"");
         // removed other assertion
@@ -49624,13 +49542,13 @@ conf_1769_3,"    @Test
         assertNotNull(""Cannot find third value"", value);
     }
 ",TestConfigurationDynaBean::testGetMappedValues_3_oe
-conf_1770_1,"    @Test
+conf_1764_1,"    @Test
     public void testGetSimpleBoolean_1_oe() {
         final Object value = bean.get(""booleanProperty"");
         assertNotNull(""Got a value"", value);
     }
 ",TestConfigurationDynaBean::testGetSimpleBoolean_1_oe
-conf_1770_2,"    @Test
+conf_1764_2,"    @Test
     public void testGetSimpleBoolean_2_oe() {
         final Object value = bean.get(""booleanProperty"");
         // removed other assertion
@@ -49638,13 +49556,13 @@ conf_1770_2,"    @Test
         assertTrue(""Got correct value"", ((Boolean) value).booleanValue());
     }
 ",TestConfigurationDynaBean::testGetSimpleBoolean_2_oe
-conf_1771_1,"    @Test
+conf_1765_1,"    @Test
     public void testGetSimpleDouble_1_oe() {
         final Object value = bean.get(""doubleProperty"");
         assertNotNull(""Got a value"", value);
     }
 ",TestConfigurationDynaBean::testGetSimpleDouble_1_oe
-conf_1771_2,"    @Test
+conf_1765_2,"    @Test
     public void testGetSimpleDouble_2_oe() {
         final Object value = bean.get(""doubleProperty"");
         // removed other assertion
@@ -49652,13 +49570,13 @@ conf_1771_2,"    @Test
         assertEquals(""Got correct value"", ((Double) value).doubleValue(), Double.MAX_VALUE, 0.005);
     }
 ",TestConfigurationDynaBean::testGetSimpleDouble_2_oe
-conf_1772_1,"    @Test
+conf_1766_1,"    @Test
     public void testGetSimpleFloat_1_oe() {
         final Object value = bean.get(""floatProperty"");
         assertNotNull(""Got a value"", value);
     }
 ",TestConfigurationDynaBean::testGetSimpleFloat_1_oe
-conf_1772_2,"    @Test
+conf_1766_2,"    @Test
     public void testGetSimpleFloat_2_oe() {
         final Object value = bean.get(""floatProperty"");
         // removed other assertion
@@ -49666,13 +49584,13 @@ conf_1772_2,"    @Test
         assertEquals(""Got correct value"", ((Float) value).floatValue(), Float.MAX_VALUE, 0.005f);
     }
 ",TestConfigurationDynaBean::testGetSimpleFloat_2_oe
-conf_1773_1,"    @Test
+conf_1767_1,"    @Test
     public void testGetSimpleInt_1_oe() {
         final Object value = bean.get(""intProperty"");
         assertNotNull(""Failed to get value"", value);
     }
 ",TestConfigurationDynaBean::testGetSimpleInt_1_oe
-conf_1773_2,"    @Test
+conf_1767_2,"    @Test
     public void testGetSimpleInt_2_oe() {
         final Object value = bean.get(""intProperty"");
         // removed other assertion
@@ -49680,13 +49598,13 @@ conf_1773_2,"    @Test
         assertEquals(""Incorrect value"", ((Integer) value).intValue(), Integer.MAX_VALUE);
     }
 ",TestConfigurationDynaBean::testGetSimpleInt_2_oe
-conf_1774_1,"    @Test
+conf_1768_1,"    @Test
     public void testGetSimpleLong_1_oe() {
         final Object value = bean.get(""longProperty"");
         assertNotNull(""Got a value"", value);
     }
 ",TestConfigurationDynaBean::testGetSimpleLong_1_oe
-conf_1774_2,"    @Test
+conf_1768_2,"    @Test
     public void testGetSimpleLong_2_oe() {
         final Object value = bean.get(""longProperty"");
         // removed other assertion
@@ -49694,13 +49612,13 @@ conf_1774_2,"    @Test
         assertEquals(""Returned value of Incorrect value"", ((Long) value).longValue(), Long.MAX_VALUE);
     }
 ",TestConfigurationDynaBean::testGetSimpleLong_2_oe
-conf_1775_1,"    @Test
+conf_1769_1,"    @Test
     public void testGetSimpleShort_1_oe() {
         final Object value = bean.get(""shortProperty"");
         assertNotNull(""Got a value"", value);
     }
 ",TestConfigurationDynaBean::testGetSimpleShort_1_oe
-conf_1775_2,"    @Test
+conf_1769_2,"    @Test
     public void testGetSimpleShort_2_oe() {
         final Object value = bean.get(""shortProperty"");
         // removed other assertion
@@ -49708,13 +49626,13 @@ conf_1775_2,"    @Test
         assertEquals(""Got correct value"", ((Short) value).shortValue(), Short.MAX_VALUE);
     }
 ",TestConfigurationDynaBean::testGetSimpleShort_2_oe
-conf_1776_1,"    @Test
+conf_1770_1,"    @Test
     public void testGetSimpleString_1_oe() {
         final Object value = bean.get(""stringProperty"");
         assertNotNull(""Got a value"", value);
     }
 ",TestConfigurationDynaBean::testGetSimpleString_1_oe
-conf_1776_2,"    @Test
+conf_1770_2,"    @Test
     public void testGetSimpleString_2_oe() {
         final Object value = bean.get(""stringProperty"");
         // removed other assertion
@@ -49722,30 +49640,30 @@ conf_1776_2,"    @Test
         assertEquals(""Got correct value"", value, ""This is a string"");
     }
 ",TestConfigurationDynaBean::testGetSimpleString_2_oe
-conf_1777_1,"    @Test
+conf_1771_1,"    @Test
     public void testMappedContains_1_oe() {
         assertTrue(""Can't see first key"", bean.contains(""mappedProperty"", ""key1""));
     }
 ",TestConfigurationDynaBean::testMappedContains_1_oe
-conf_1777_2,"    @Test
+conf_1771_2,"    @Test
     public void testMappedContains_2_oe() {
         // removed other assertion
         assertFalse(""Can see unknown key"", bean.contains(""mappedProperty"", ""Unknown Key""));
     }
 ",TestConfigurationDynaBean::testMappedContains_2_oe
-conf_1778_1,"    @Test
+conf_1772_1,"    @Test
     public void testMappedRemove_1_oe() {
         assertTrue(""Can see first key"", bean.contains(""mappedProperty"", ""key1""));
     }
 ",TestConfigurationDynaBean::testMappedRemove_1_oe
-conf_1778_2,"    @Test
+conf_1772_2,"    @Test
     public void testMappedRemove_2_oe() {
         // removed other assertion
         bean.remove(""mappedProperty"", ""key1"");
         assertFalse(""Can not see first key"", bean.contains(""mappedProperty"", ""key1""));
     }
 ",TestConfigurationDynaBean::testMappedRemove_2_oe
-conf_1778_3,"    @Test
+conf_1772_3,"    @Test
     public void testMappedRemove_3_oe() {
         // removed other assertion
         bean.remove(""mappedProperty"", ""key1"");
@@ -49754,7 +49672,7 @@ conf_1778_3,"    @Test
         assertFalse(""Can not see unknown key"", bean.contains(""mappedProperty"", ""key4""));
     }
 ",TestConfigurationDynaBean::testMappedRemove_3_oe
-conf_1778_4,"    @Test
+conf_1772_4,"    @Test
     public void testMappedRemove_4_oe() {
         // removed other assertion
         bean.remove(""mappedProperty"", ""key1"");
@@ -49765,7 +49683,7 @@ conf_1778_4,"    @Test
         assertFalse(""Can not see unknown key"", bean.contains(""mappedProperty"", ""key4""));
     }
 ",TestConfigurationDynaBean::testMappedRemove_4_oe
-conf_1779_1,"    @Test
+conf_1773_1,"    @Test
     public void testNestedPropeties_1_oe() {
         final ConfigurationDynaBean nested = (ConfigurationDynaBean) bean.get(""mappedProperty"");
 
@@ -49773,7 +49691,7 @@ conf_1779_1,"    @Test
         assertEquals(""Can find first value"", ""First Value"", value);
     }
 ",TestConfigurationDynaBean::testNestedPropeties_1_oe
-conf_1779_2,"    @Test
+conf_1773_2,"    @Test
     public void testNestedPropeties_2_oe() {
         final ConfigurationDynaBean nested = (ConfigurationDynaBean) bean.get(""mappedProperty"");
 
@@ -49784,7 +49702,7 @@ conf_1779_2,"    @Test
         assertEquals(""Incorrect value returned"", ""undefined"", bean.get(""mappedProperty.key1""));
     }
 ",TestConfigurationDynaBean::testNestedPropeties_2_oe
-conf_1780_1,"    @Test
+conf_1774_1,"    @Test
     public void testSetArrayValue_1_oe() {
         final MapConfiguration configuration = new MapConfiguration(new HashMap<>());
         configuration.getMap().put(""objectArray"", new Object[] {""value1"", ""value2"", ""value3""});
@@ -49797,7 +49715,7 @@ conf_1780_1,"    @Test
         assertNotNull(""Returned new value 1"", value);
     }
 ",TestConfigurationDynaBean::testSetArrayValue_1_oe
-conf_1780_2,"    @Test
+conf_1774_2,"    @Test
     public void testSetArrayValue_2_oe() {
         final MapConfiguration configuration = new MapConfiguration(new HashMap<>());
         configuration.getMap().put(""objectArray"", new Object[] {""value1"", ""value2"", ""value3""});
@@ -49812,7 +49730,7 @@ conf_1780_2,"    @Test
         assertEquals(""Returned correct new value 1"", ""New Value 1"", value);
     }
 ",TestConfigurationDynaBean::testSetArrayValue_2_oe
-conf_1781_1,"    @Test
+conf_1775_1,"    @Test
     public void testSetIndexedValues_1_oe() {
         bean.set(""intArray"", 0, Integer.valueOf(1));
         Object value = bean.get(""intArray"", 0);
@@ -49820,7 +49738,7 @@ conf_1781_1,"    @Test
         assertNotNull(""Returned new value 0"", value);
     }
 ",TestConfigurationDynaBean::testSetIndexedValues_1_oe
-conf_1781_2,"    @Test
+conf_1775_2,"    @Test
     public void testSetIndexedValues_2_oe() {
         bean.set(""intArray"", 0, Integer.valueOf(1));
         Object value = bean.get(""intArray"", 0);
@@ -49830,7 +49748,7 @@ conf_1781_2,"    @Test
         assertEquals(""Returned correct new value 0"", 1, ((Integer) value).intValue());
     }
 ",TestConfigurationDynaBean::testSetIndexedValues_2_oe
-conf_1781_3,"    @Test
+conf_1775_3,"    @Test
     public void testSetIndexedValues_3_oe() {
         bean.set(""intArray"", 0, Integer.valueOf(1));
         Object value = bean.get(""intArray"", 0);
@@ -49845,7 +49763,7 @@ conf_1781_3,"    @Test
         assertNotNull(""Returned new value 1"", value);
     }
 ",TestConfigurationDynaBean::testSetIndexedValues_3_oe
-conf_1781_4,"    @Test
+conf_1775_4,"    @Test
     public void testSetIndexedValues_4_oe() {
         bean.set(""intArray"", 0, Integer.valueOf(1));
         Object value = bean.get(""intArray"", 0);
@@ -49862,7 +49780,7 @@ conf_1781_4,"    @Test
         assertEquals(""Returned correct new value 1"", 11, ((Integer) value).intValue());
     }
 ",TestConfigurationDynaBean::testSetIndexedValues_4_oe
-conf_1781_5,"    @Test
+conf_1775_5,"    @Test
     public void testSetIndexedValues_5_oe() {
         bean.set(""intArray"", 0, Integer.valueOf(1));
         Object value = bean.get(""intArray"", 0);
@@ -49884,7 +49802,7 @@ conf_1781_5,"    @Test
         assertNotNull(""Returned new value 2"", value);
     }
 ",TestConfigurationDynaBean::testSetIndexedValues_5_oe
-conf_1781_6,"    @Test
+conf_1775_6,"    @Test
     public void testSetIndexedValues_6_oe() {
         bean.set(""intArray"", 0, Integer.valueOf(1));
         Object value = bean.get(""intArray"", 0);
@@ -49908,7 +49826,7 @@ conf_1781_6,"    @Test
         assertEquals(""Returned correct new value 2"", ""New Value 2"", value);
     }
 ",TestConfigurationDynaBean::testSetIndexedValues_6_oe
-conf_1781_7,"    @Test
+conf_1775_7,"    @Test
     public void testSetIndexedValues_7_oe() {
         bean.set(""intArray"", 0, Integer.valueOf(1));
         Object value = bean.get(""intArray"", 0);
@@ -49937,7 +49855,7 @@ conf_1781_7,"    @Test
         assertNotNull(""Returned new value 3"", value);
     }
 ",TestConfigurationDynaBean::testSetIndexedValues_7_oe
-conf_1781_8,"    @Test
+conf_1775_8,"    @Test
     public void testSetIndexedValues_8_oe() {
         bean.set(""intArray"", 0, Integer.valueOf(1));
         Object value = bean.get(""intArray"", 0);
@@ -49968,7 +49886,7 @@ conf_1781_8,"    @Test
         assertEquals(""Returned correct new value 3"", ""New Value 3"", value);
     }
 ",TestConfigurationDynaBean::testSetIndexedValues_8_oe
-conf_1781_9,"    @Test
+conf_1775_9,"    @Test
     public void testSetIndexedValues_9_oe() {
         bean.set(""intArray"", 0, Integer.valueOf(1));
         Object value = bean.get(""intArray"", 0);
@@ -50004,7 +49922,7 @@ conf_1781_9,"    @Test
         assertNotNull(""Returned new value 4"", value);
     }
 ",TestConfigurationDynaBean::testSetIndexedValues_9_oe
-conf_1781_10,"    @Test
+conf_1775_10,"    @Test
     public void testSetIndexedValues_10_oe() {
         bean.set(""intArray"", 0, Integer.valueOf(1));
         Object value = bean.get(""intArray"", 0);
@@ -50042,13 +49960,13 @@ conf_1781_10,"    @Test
         assertEquals(""Returned correct new value 4"", ""New Value 4"", value);
     }
 ",TestConfigurationDynaBean::testSetIndexedValues_10_oe
-conf_1782_1,"    @Test
+conf_1776_1,"    @Test
     public void testSetMappedValues_1_oe() {
         bean.set(""mappedProperty"", ""First Key"", ""New First Value"");
         assertEquals(""Can replace old value"", ""New First Value"", bean.get(""mappedProperty"", ""First Key""));
     }
 ",TestConfigurationDynaBean::testSetMappedValues_1_oe
-conf_1782_2,"    @Test
+conf_1776_2,"    @Test
     public void testSetMappedValues_2_oe() {
         bean.set(""mappedProperty"", ""First Key"", ""New First Value"");
         // removed other assertion
@@ -50057,7 +49975,7 @@ conf_1782_2,"    @Test
         assertEquals(""Can set new value"", ""Fourth Value"", bean.get(""mappedProperty"", ""Fourth Key""));
     }
 ",TestConfigurationDynaBean::testSetMappedValues_2_oe
-conf_1783_1,"    @Test
+conf_1777_1,"    @Test
     public void testSetSimpleBoolean_1_oe() {
         final boolean oldValue = ((Boolean) bean.get(""booleanProperty"")).booleanValue();
         final boolean newValue = !oldValue;
@@ -50065,7 +49983,7 @@ conf_1783_1,"    @Test
         assertEquals(""Matched new value"", newValue, ((Boolean) bean.get(""booleanProperty"")).booleanValue());
     }
 ",TestConfigurationDynaBean::testSetSimpleBoolean_1_oe
-conf_1784_1,"    @Test
+conf_1778_1,"    @Test
     public void testSetSimpleDouble_1_oe() {
         final double oldValue = ((Double) bean.get(""doubleProperty"")).doubleValue();
         final double newValue = oldValue + 1.0;
@@ -50073,7 +49991,7 @@ conf_1784_1,"    @Test
         assertEquals(""Matched new value"", newValue, ((Double) bean.get(""doubleProperty"")).doubleValue(), 0.005);
     }
 ",TestConfigurationDynaBean::testSetSimpleDouble_1_oe
-conf_1785_1,"    @Test
+conf_1779_1,"    @Test
     public void testSetSimpleFloat_1_oe() {
         final float oldValue = ((Float) bean.get(""floatProperty"")).floatValue();
         final float newValue = oldValue + (float) 1.0;
@@ -50081,7 +49999,7 @@ conf_1785_1,"    @Test
         assertEquals(""Matched new value"", newValue, ((Float) bean.get(""floatProperty"")).floatValue(), 0.005f);
     }
 ",TestConfigurationDynaBean::testSetSimpleFloat_1_oe
-conf_1786_1,"    @Test
+conf_1780_1,"    @Test
     public void testSetSimpleInt_1_oe() {
         final int oldValue = ((Integer) bean.get(""intProperty"")).intValue();
         final int newValue = oldValue + 1;
@@ -50089,7 +50007,7 @@ conf_1786_1,"    @Test
         assertEquals(""Matched new value"", newValue, ((Integer) bean.get(""intProperty"")).intValue());
     }
 ",TestConfigurationDynaBean::testSetSimpleInt_1_oe
-conf_1787_1,"    @Test
+conf_1781_1,"    @Test
     public void testSetSimpleLong_1_oe() {
         final long oldValue = ((Long) bean.get(""longProperty"")).longValue();
         final long newValue = oldValue + 1;
@@ -50097,7 +50015,7 @@ conf_1787_1,"    @Test
         assertEquals(""Matched new value"", newValue, ((Long) bean.get(""longProperty"")).longValue());
     }
 ",TestConfigurationDynaBean::testSetSimpleLong_1_oe
-conf_1788_1,"    @Test
+conf_1782_1,"    @Test
     public void testSetSimpleShort_1_oe() {
         final short oldValue = ((Short) bean.get(""shortProperty"")).shortValue();
         final short newValue = (short) (oldValue + 1);
@@ -50105,7 +50023,7 @@ conf_1788_1,"    @Test
         assertEquals(""Matched new value"", newValue, ((Short) bean.get(""shortProperty"")).shortValue());
     }
 ",TestConfigurationDynaBean::testSetSimpleShort_1_oe
-conf_1789_1,"    @Test
+conf_1783_1,"    @Test
     public void testSetSimpleString_1_oe() {
         final String oldValue = (String) bean.get(""stringProperty"");
         final String newValue = oldValue + "" Extra Value"";
@@ -50113,7 +50031,7 @@ conf_1789_1,"    @Test
         assertEquals(""Matched new value"", newValue, bean.get(""stringProperty""));
     }
 ",TestConfigurationDynaBean::testSetSimpleString_1_oe
-conf_1790_1,"    @Test
+conf_1784_1,"    @Test
     public void testGetBeanClassName_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         config.addProperty(KEY + ""[@config-class]"", getClass().getName());
@@ -50121,7 +50039,7 @@ conf_1790_1,"    @Test
         assertEquals(""Wrong class name"", getClass().getName(), decl.getBeanClassName());
     }
 ",TestXMLBeanDeclaration::testGetBeanClassName_1_oe
-conf_1791_1,"    @Test
+conf_1785_1,"    @Test
     public void testGetBeanClassNameFromDefault_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         config.addProperty(KEY + ""[@someProperty]"", Boolean.TRUE);
@@ -50129,13 +50047,13 @@ conf_1791_1,"    @Test
         assertEquals(""Wrong class name"", getClass().getName(), decl.getBeanClassName());
     }
 ",TestXMLBeanDeclaration::testGetBeanClassNameFromDefault_1_oe
-conf_1792_1,"    @Test
+conf_1786_1,"    @Test
     public void testGetBeanClassNameUndefined_1_oe() {
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(new BaseHierarchicalConfiguration());
         assertNull(decl.getBeanClassName());
     }
 ",TestXMLBeanDeclaration::testGetBeanClassNameUndefined_1_oe
-conf_1793_1,"    @Test
+conf_1787_1,"    @Test
     public void testGetBeanClassNameUndefinedWithEx_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         config.setThrowExceptionOnMissing(true);
@@ -50143,7 +50061,7 @@ conf_1793_1,"    @Test
         assertNull(""Got a bean class name"", decl.getBeanClassName());
     }
 ",TestXMLBeanDeclaration::testGetBeanClassNameUndefinedWithEx_1_oe
-conf_1794_1,"    @Test
+conf_1788_1,"    @Test
     public void testGetBeanFactoryName_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         config.addProperty(KEY + ""[@config-factory]"", ""myFactory"");
@@ -50151,13 +50069,13 @@ conf_1794_1,"    @Test
         assertEquals(""Wrong factory name"", ""myFactory"", decl.getBeanFactoryName());
     }
 ",TestXMLBeanDeclaration::testGetBeanFactoryName_1_oe
-conf_1795_1,"    @Test
+conf_1789_1,"    @Test
     public void testGetBeanFactoryNameUndefined_1_oe() {
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(new BaseHierarchicalConfiguration());
         assertNull(decl.getBeanFactoryName());
     }
 ",TestXMLBeanDeclaration::testGetBeanFactoryNameUndefined_1_oe
-conf_1796_1,"    @Test
+conf_1790_1,"    @Test
     public void testGetBeanFactoryNameUndefinedWithEx_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         config.setThrowExceptionOnMissing(true);
@@ -50165,7 +50083,7 @@ conf_1796_1,"    @Test
         assertNull(""Got a factory name"", decl.getBeanFactoryName());
     }
 ",TestXMLBeanDeclaration::testGetBeanFactoryNameUndefinedWithEx_1_oe
-conf_1797_1,"    @Test
+conf_1791_1,"    @Test
     public void testGetBeanFactoryParameter_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         config.addProperty(KEY + ""[@config-factoryParam]"", ""myFactoryParameter"");
@@ -50173,13 +50091,13 @@ conf_1797_1,"    @Test
         assertEquals(""Wrong factory parameter"", ""myFactoryParameter"", decl.getBeanFactoryParameter());
     }
 ",TestXMLBeanDeclaration::testGetBeanFactoryParameter_1_oe
-conf_1798_1,"    @Test
+conf_1792_1,"    @Test
     public void testGetBeanFactoryParameterUndefined_1_oe() {
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(new BaseHierarchicalConfiguration());
         assertNull(decl.getBeanFactoryParameter());
     }
 ",TestXMLBeanDeclaration::testGetBeanFactoryParameterUndefined_1_oe
-conf_1799_1,"    @Test
+conf_1793_1,"    @Test
     public void testGetBeanFactoryParameterUndefinedWithEx_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         config.setThrowExceptionOnMissing(true);
@@ -50187,14 +50105,14 @@ conf_1799_1,"    @Test
         assertNull(""Got a factory parameter"", decl.getBeanFactoryParameter());
     }
 ",TestXMLBeanDeclaration::testGetBeanFactoryParameterUndefinedWithEx_1_oe
-conf_1800_1,"    @Test
+conf_1794_1,"    @Test
     public void testGetBeanPropertiesEmpty_1_oe() {
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(new BaseHierarchicalConfiguration());
         final Map<String, Object> props = decl.getBeanProperties();
         assertTrue(""Properties found"", props == null || props.isEmpty());
     }
 ",TestXMLBeanDeclaration::testGetBeanPropertiesEmpty_1_oe
-conf_1801_1,"    @Test
+conf_1795_1,"    @Test
     public void testGetConstructorArgs_1_oe() {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
@@ -50202,7 +50120,7 @@ conf_1801_1,"    @Test
         assertEquals(""Wrong number of constructor arguments"", 2, args.size());
     }
 ",TestXMLBeanDeclaration::testGetConstructorArgs_1_oe
-conf_1801_2,"    @Test
+conf_1795_2,"    @Test
     public void testGetConstructorArgs_2_oe() {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
@@ -50213,7 +50131,7 @@ conf_1801_2,"    @Test
         assertTrue(""No bean declaration"", arg1.isNestedBeanDeclaration());
     }
 ",TestXMLBeanDeclaration::testGetConstructorArgs_2_oe
-conf_1801_3,"    @Test
+conf_1795_3,"    @Test
     public void testGetConstructorArgs_3_oe() {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
@@ -50226,7 +50144,7 @@ conf_1801_3,"    @Test
         assertNull(""Got a type"", arg1.getTypeName());
     }
 ",TestXMLBeanDeclaration::testGetConstructorArgs_3_oe
-conf_1801_4,"    @Test
+conf_1795_4,"    @Test
     public void testGetConstructorArgs_4_oe() {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
@@ -50240,7 +50158,7 @@ conf_1801_4,"    @Test
         assertEquals(""Wrong class name"", ""TestClass"", arg1.getBeanDeclaration().getBeanClassName());
     }
 ",TestXMLBeanDeclaration::testGetConstructorArgs_4_oe
-conf_1801_5,"    @Test
+conf_1795_5,"    @Test
     public void testGetConstructorArgs_5_oe() {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
@@ -50256,7 +50174,7 @@ conf_1801_5,"    @Test
         assertFalse(""A bean declaration"", arg2.isNestedBeanDeclaration());
     }
 ",TestXMLBeanDeclaration::testGetConstructorArgs_5_oe
-conf_1801_6,"    @Test
+conf_1795_6,"    @Test
     public void testGetConstructorArgs_6_oe() {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
@@ -50273,7 +50191,7 @@ conf_1801_6,"    @Test
         assertEquals(""Wrong value"", CTOR_ID, arg2.getValue());
     }
 ",TestXMLBeanDeclaration::testGetConstructorArgs_6_oe
-conf_1801_7,"    @Test
+conf_1795_7,"    @Test
     public void testGetConstructorArgs_7_oe() {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
@@ -50291,7 +50209,7 @@ conf_1801_7,"    @Test
         assertEquals(""Wrong type"", ""long"", arg2.getTypeName());
     }
 ",TestXMLBeanDeclaration::testGetConstructorArgs_7_oe
-conf_1802_1,"    @Test
+conf_1796_1,"    @Test
     public void testGetConstructorArgsNullArg_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         setupBeanDeclaration(config, KEY, TEST_PROPS, TEST_VALUES);
@@ -50301,7 +50219,7 @@ conf_1802_1,"    @Test
         assertEquals(""Wrong number of constructor arguments"", 1, args.size());
     }
 ",TestXMLBeanDeclaration::testGetConstructorArgsNullArg_1_oe
-conf_1802_2,"    @Test
+conf_1796_2,"    @Test
     public void testGetConstructorArgsNullArg_2_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         setupBeanDeclaration(config, KEY, TEST_PROPS, TEST_VALUES);
@@ -50313,7 +50231,7 @@ conf_1802_2,"    @Test
         assertFalse(""A bean declaration"", arg.isNestedBeanDeclaration());
     }
 ",TestXMLBeanDeclaration::testGetConstructorArgsNullArg_2_oe
-conf_1802_3,"    @Test
+conf_1796_3,"    @Test
     public void testGetConstructorArgsNullArg_3_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         setupBeanDeclaration(config, KEY, TEST_PROPS, TEST_VALUES);
@@ -50326,7 +50244,7 @@ conf_1802_3,"    @Test
         assertNull(""Got a value"", arg.getValue());
     }
 ",TestXMLBeanDeclaration::testGetConstructorArgsNullArg_3_oe
-conf_1803_1,"    @Test
+conf_1797_1,"    @Test
     public void testGetInterpolatedConstructorArgs_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         final String expectedValue = ""ctorArg"";
@@ -50339,7 +50257,7 @@ conf_1803_1,"    @Test
         assertEquals(""Wrong interpolated value"", expectedValue, arg.getValue());
     }
 ",TestXMLBeanDeclaration::testGetInterpolatedConstructorArgs_1_oe
-conf_1804_1,"    @Test
+conf_1798_1,"    @Test
     public void testGetNestedBeanDeclarations_1_oe() {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
@@ -50349,7 +50267,7 @@ conf_1804_1,"    @Test
         assertEquals(""Wrong number of nested declarations"", COMPLEX_PROPS.length, nested.size());
     }
 ",TestXMLBeanDeclaration::testGetNestedBeanDeclarations_1_oe
-conf_1804_2,"    @Test
+conf_1798_2,"    @Test
     public void testGetNestedBeanDeclarations_2_oe() {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
@@ -50363,7 +50281,7 @@ conf_1804_2,"    @Test
     }
     }
 ",TestXMLBeanDeclaration::testGetNestedBeanDeclarations_2_oe
-conf_1804_3,"    @Test
+conf_1798_3,"    @Test
     public void testGetNestedBeanDeclarations_3_oe() {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
@@ -50379,7 +50297,7 @@ conf_1804_3,"    @Test
     }
     }
 ",TestXMLBeanDeclaration::testGetNestedBeanDeclarations_3_oe
-conf_1805_1,"    @Test
+conf_1799_1,"    @Test
     public void testGetNestedBeanDeclarationsEmpty_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         setupBeanDeclaration(config, KEY, TEST_PROPS, TEST_VALUES);
@@ -50388,7 +50306,7 @@ conf_1805_1,"    @Test
         assertTrue(""Found nested declarations"", nested == null || nested.isEmpty());
     }
 ",TestXMLBeanDeclaration::testGetNestedBeanDeclarationsEmpty_1_oe
-conf_1806_1,"    @Test
+conf_1800_1,"    @Test
     public void testGetNestedBeanDeclarationsFactoryMethod_1_oe() {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY) {
@@ -50404,7 +50322,7 @@ conf_1806_1,"    @Test
     }
     }
 ",TestXMLBeanDeclaration::testGetNestedBeanDeclarationsFactoryMethod_1_oe
-conf_1807_1,"    @Test
+conf_1801_1,"    @Test
     public void testGetNestedBeanDeclarationsReservedCharacter_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         final String key = KEY + "".address..private"";
@@ -50415,7 +50333,7 @@ conf_1807_1,"    @Test
         assertTrue(""Key not found"", nested.containsKey(""address.private""));
     }
 ",TestXMLBeanDeclaration::testGetNestedBeanDeclarationsReservedCharacter_1_oe
-conf_1808_1,"    @Test
+conf_1802_1,"    @Test
     public void testInitFromUndefinedKeyOptional_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         setupBeanDeclaration(config, KEY, TEST_PROPS, TEST_VALUES);
@@ -50423,7 +50341,7 @@ conf_1808_1,"    @Test
         assertNull(""Found a bean class"", decl.getBeanClassName());
     }
 ",TestXMLBeanDeclaration::testInitFromUndefinedKeyOptional_1_oe
-conf_1809_1,"    @Test
+conf_1803_1,"    @Test
     public void testInterpolateNoInterpolator_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         config.addProperty(""value"", ""expectedValue"");
@@ -50437,7 +50355,7 @@ conf_1809_1,"    @Test
         assertEquals(""Value was changed"", value, arg.getValue());
     }
 ",TestXMLBeanDeclaration::testInterpolateNoInterpolator_1_oe
-conf_1810_1,"    @Test
+conf_1804_1,"    @Test
     public void tetGetBeanClassNameDefaultOverride_1_oe() {
         final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
         config.addProperty(KEY + ""[@config-class]"", getClass().getName());
@@ -50445,7 +50363,7 @@ conf_1810_1,"    @Test
         assertEquals(""Wrong class name"", getClass().getName(), decl.getBeanClassName());
     }
 ",TestXMLBeanDeclaration::tetGetBeanClassNameDefaultOverride_1_oe
-conf_1811_1,"    @Test
+conf_1805_1,"    @Test
     public void testSynchronizerInAction_1_oe() throws InterruptedException {
         final int numberOfUpdates = 10000;
         final int numberOfReads = numberOfUpdates / 2;
@@ -50478,7 +50396,7 @@ conf_1811_1,"    @Test
     }
     }
 ",TestReadWriteSynchronizer::testSynchronizerInAction_1_oe
-conf_1811_2,"    @Test
+conf_1805_2,"    @Test
     public void testSynchronizerInAction_2_oe() throws InterruptedException {
         final int numberOfUpdates = 10000;
         final int numberOfReads = numberOfUpdates / 2;
@@ -50513,7 +50431,7 @@ conf_1811_2,"    @Test
         assertEquals(""Wrong sum of money"", TOTAL_MONEY, sumUpAccounts(account1, account2));
     }
 ",TestReadWriteSynchronizer::testSynchronizerInAction_2_oe
-conf_1812_1,"    @Test
+conf_1806_1,"    @Test
     public void testBuilderReuse_1_oe() {
         builder
             .withDefaultLookup(createLookup())
@@ -50538,7 +50456,7 @@ conf_1812_1,"    @Test
         assertNull(""Got an interpolator"", spec.getInterpolator());
     }
 ",TestInterpolatorSpecification::testBuilderReuse_1_oe
-conf_1812_2,"    @Test
+conf_1806_2,"    @Test
     public void testBuilderReuse_2_oe() {
         builder
             .withDefaultLookup(createLookup())
@@ -50564,7 +50482,7 @@ conf_1812_2,"    @Test
         assertSame(""Wrong parent interpolator"", parent, spec.getParentInterpolator());
     }
 ",TestInterpolatorSpecification::testBuilderReuse_2_oe
-conf_1812_3,"    @Test
+conf_1806_3,"    @Test
     public void testBuilderReuse_3_oe() {
         builder
             .withDefaultLookup(createLookup())
@@ -50591,7 +50509,7 @@ conf_1812_3,"    @Test
         assertSame(""Wrong string converter"", stringConverter, spec.getStringConverter());
     }
 ",TestInterpolatorSpecification::testBuilderReuse_3_oe
-conf_1813_1,"    @Test
+conf_1807_1,"    @Test
     public void testCreateInstance_1_oe() {
         final Lookup prefLook1 = createLookup();
         final Lookup prefLook2 = createLookup();
@@ -50612,7 +50530,7 @@ conf_1813_1,"    @Test
         assertSame(""Wrong interpolator"", interpolator, spec.getInterpolator());
     }
 ",TestInterpolatorSpecification::testCreateInstance_1_oe
-conf_1813_2,"    @Test
+conf_1807_2,"    @Test
     public void testCreateInstance_2_oe() {
         final Lookup prefLook1 = createLookup();
         final Lookup prefLook2 = createLookup();
@@ -50634,7 +50552,7 @@ conf_1813_2,"    @Test
         assertSame(""Wrong parent interpolator"", parent, spec.getParentInterpolator());
     }
 ",TestInterpolatorSpecification::testCreateInstance_2_oe
-conf_1813_3,"    @Test
+conf_1807_3,"    @Test
     public void testCreateInstance_3_oe() {
         final Lookup prefLook1 = createLookup();
         final Lookup prefLook2 = createLookup();
@@ -50657,19 +50575,19 @@ conf_1813_3,"    @Test
         assertSame(""Wrong string converter"", stringConverter, spec.getStringConverter());
     }
 ",TestInterpolatorSpecification::testCreateInstance_3_oe
-conf_1814_1,"    @Test
+conf_1808_1,"    @Test
     public void testWithDefaultLookupsNull_1_oe() {
         final InterpolatorSpecification spec = builder.withDefaultLookups(null).create();
         assertTrue(""No empty default lookups collection"", spec.getDefaultLookups().isEmpty());
     }
 ",TestInterpolatorSpecification::testWithDefaultLookupsNull_1_oe
-conf_1815_1,"    @Test
+conf_1809_1,"    @Test
     public void testWithPrefixLookupsNull_1_oe() {
         final InterpolatorSpecification spec = builder.withPrefixLookups(null).create();
         assertTrue(""No empty map with prefix lookups"", spec.getPrefixLookups().isEmpty());
     }
 ",TestInterpolatorSpecification::testWithPrefixLookupsNull_1_oe
-conf_1816_1,"    @Test
+conf_1810_1,"    @Test
     public void testGetVariables_1_oe() {
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable(""String"", org.apache.commons.lang3.StringUtils.class));
@@ -50677,7 +50595,7 @@ conf_1816_1,"    @Test
         assertEquals(""Wrong variables"", vars, lookup.getVariables());
     }
 ",TestExprLookup::testGetVariables_1_oe
-conf_1817_1,"    @Test
+conf_1811_1,"    @Test
     public void testGetVariablesDefensiveCopy_1_oe() {
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable(""String"", org.apache.commons.lang3.StringUtils.class));
@@ -50687,7 +50605,7 @@ conf_1817_1,"    @Test
         assertEquals(""Modified variables"", vars, lookup.getVariables());
     }
 ",TestExprLookup::testGetVariablesDefensiveCopy_1_oe
-conf_1818_1,"    @Test
+conf_1812_1,"    @Test
     public void testLookup_1_oe() throws Exception {
         final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
         final Log log = LogFactory.getLog(""TestLogger"");
@@ -50709,7 +50627,7 @@ conf_1818_1,"    @Test
         assertTrue(str.startsWith(""Goodbye""));
     }
 ",TestExprLookup::testLookup_1_oe
-conf_1818_2,"    @Test
+conf_1812_2,"    @Test
     public void testLookup_2_oe() throws Exception {
         final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
         final Log log = LogFactory.getLog(""TestLogger"");
@@ -50733,7 +50651,7 @@ conf_1818_2,"    @Test
         assertTrue(""Incorrect value: "" + str, str.equals(""value Some text""));
     }
 ",TestExprLookup::testLookup_2_oe
-conf_1819_1,"    @Test
+conf_1813_1,"    @Test
     public void testLookupLog4j1_1_oe() throws Exception {
         final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
         final Log log = LogFactory.getLog(""TestLogger"");
@@ -50757,7 +50675,7 @@ conf_1819_1,"    @Test
     }
     }
 ",TestExprLookup::testLookupLog4j1_1_oe
-conf_1819_2,"    @Test
+conf_1813_2,"    @Test
     public void testLookupLog4j1_2_oe() throws Exception {
         final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
         final Log log = LogFactory.getLog(""TestLogger"");
@@ -50783,7 +50701,7 @@ conf_1819_2,"    @Test
     }
     }
 ",TestExprLookup::testLookupLog4j1_2_oe
-conf_1820_1,"    @Test
+conf_1814_1,"    @Test
     public void testLookupNoConfigurationInterpolator_1_oe() {
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable(""String"", org.apache.commons.lang3.StringUtils.class));
@@ -50792,7 +50710,7 @@ conf_1820_1,"    @Test
         assertEquals(""Wrong result"", value, lookup.lookup(value));
     }
 ",TestExprLookup::testLookupNoConfigurationInterpolator_1_oe
-conf_1821_1,"    @Test
+conf_1815_1,"    @Test
     public void testLookupNonStringExpression_1_oe() throws ConfigurationException {
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable(""System"", ""Class:java.lang.System""));
@@ -50804,7 +50722,7 @@ conf_1821_1,"    @Test
         assertNotEquals(""Not replaced"", pattern, result);
     }
 ",TestExprLookup::testLookupNonStringExpression_1_oe
-conf_1822_1,"    @Test
+conf_1816_1,"    @Test
     public void testLookupNullExpression_1_oe() throws ConfigurationException {
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable(""System"", ""Class:java.lang.System""));
@@ -50814,19 +50732,19 @@ conf_1822_1,"    @Test
         assertNull(""Wrong result"", lookup.lookup(""System.getProperty('undefined.property')""));
     }
 ",TestExprLookup::testLookupNullExpression_1_oe
-conf_1823_1,"    @Test
+conf_1817_1,"    @Test
     public void testLookup_1_oe() {
         for (final Map.Entry<String, String> e : System.getenv().entrySet()) {
             assertEquals(""Wrong value for "" + e.getKey(), e.getValue(), lookup.lookup(e.getKey()));
     }
     }
 ",TestEnvironmentLookup::testLookup_1_oe
-conf_1824_1,"    @Test
+conf_1818_1,"    @Test
     public void testLookupNonExisting_1_oe() {
         assertNull(""Got result for non existing environment variable"", lookup.lookup(""a non existing variable!""));
     }
 ",TestEnvironmentLookup::testLookupNonExisting_1_oe
-conf_1825_1,"    @Test
+conf_1819_1,"    @Test
     public void testAddDefaultLookups_1_oe() {
         final List<Lookup> lookups = new ArrayList<>();
         lookups.add(setUpTestLookup());
@@ -50836,7 +50754,7 @@ conf_1825_1,"    @Test
         assertEquals(""Wrong number of default lookups"", 2, lookups2.size());
     }
 ",TestConfigurationInterpolator::testAddDefaultLookups_1_oe
-conf_1825_2,"    @Test
+conf_1819_2,"    @Test
     public void testAddDefaultLookups_2_oe() {
         final List<Lookup> lookups = new ArrayList<>();
         lookups.add(setUpTestLookup());
@@ -50847,13 +50765,13 @@ conf_1825_2,"    @Test
         assertTrue(""Wrong content"", lookups2.containsAll(lookups));
     }
 ",TestConfigurationInterpolator::testAddDefaultLookups_2_oe
-conf_1826_1,"    @Test
+conf_1820_1,"    @Test
     public void testAddDefaultLookupsNull_1_oe() {
         interpolator.addDefaultLookups(null);
         assertTrue(""Got default lookups"", interpolator.getDefaultLookups().isEmpty());
     }
 ",TestConfigurationInterpolator::testAddDefaultLookupsNull_1_oe
-conf_1827_1,"    @Test
+conf_1821_1,"    @Test
     public void testDeregisterLookup_1_oe() {
         final Lookup lookup = EasyMock.createMock(Lookup.class);
         EasyMock.replay(lookup);
@@ -50861,7 +50779,7 @@ conf_1827_1,"    @Test
         assertTrue(""Derigstration not successfull"", interpolator.deregisterLookup(TEST_PREFIX));
     }
 ",TestConfigurationInterpolator::testDeregisterLookup_1_oe
-conf_1827_2,"    @Test
+conf_1821_2,"    @Test
     public void testDeregisterLookup_2_oe() {
         final Lookup lookup = EasyMock.createMock(Lookup.class);
         EasyMock.replay(lookup);
@@ -50870,7 +50788,7 @@ conf_1827_2,"    @Test
         assertFalse(""Deregistered prefix still contained"", interpolator.prefixSet().contains(TEST_PREFIX));
     }
 ",TestConfigurationInterpolator::testDeregisterLookup_2_oe
-conf_1827_3,"    @Test
+conf_1821_3,"    @Test
     public void testDeregisterLookup_3_oe() {
         final Lookup lookup = EasyMock.createMock(Lookup.class);
         EasyMock.replay(lookup);
@@ -50880,17 +50798,17 @@ conf_1827_3,"    @Test
         assertTrue(""Lookups not empty"", interpolator.getLookups().isEmpty());
     }
 ",TestConfigurationInterpolator::testDeregisterLookup_3_oe
-conf_1828_1,"    @Test
+conf_1822_1,"    @Test
     public void testDeregisterLookupNonExisting_1_oe() {
         assertFalse(""Could deregister unknown lookup"", interpolator.deregisterLookup(TEST_PREFIX));
     }
 ",TestConfigurationInterpolator::testDeregisterLookupNonExisting_1_oe
-conf_1829_1,"    @Test
+conf_1823_1,"    @Test
     public void testEnableSubstitutionInVariables_1_oe() {
         assertFalse(""Variable substitution enabled"", interpolator.isEnableSubstitutionInVariables());
     }
 ",TestConfigurationInterpolator::testEnableSubstitutionInVariables_1_oe
-conf_1829_2,"    @Test
+conf_1823_2,"    @Test
     public void testEnableSubstitutionInVariables_2_oe() {
         // removed other assertion
         interpolator.addDefaultLookup(setUpTestLookup(""java.version"", ""1.4""));
@@ -50899,7 +50817,7 @@ conf_1829_2,"    @Test
         assertEquals(""Wrong result (1)"", var, interpolator.interpolate(var));
     }
 ",TestConfigurationInterpolator::testEnableSubstitutionInVariables_2_oe
-conf_1829_3,"    @Test
+conf_1823_3,"    @Test
     public void testEnableSubstitutionInVariables_3_oe() {
         // removed other assertion
         interpolator.addDefaultLookup(setUpTestLookup(""java.version"", ""1.4""));
@@ -50910,7 +50828,7 @@ conf_1829_3,"    @Test
         assertTrue(""Variable substitution not enabled"", interpolator.isEnableSubstitutionInVariables());
     }
 ",TestConfigurationInterpolator::testEnableSubstitutionInVariables_3_oe
-conf_1829_4,"    @Test
+conf_1823_4,"    @Test
     public void testEnableSubstitutionInVariables_4_oe() {
         // removed other assertion
         interpolator.addDefaultLookup(setUpTestLookup(""java.version"", ""1.4""));
@@ -50922,7 +50840,7 @@ conf_1829_4,"    @Test
         assertEquals(""Wrong result (2)"", ""C:\\java\\1.4"", interpolator.interpolate(var));
     }
 ",TestConfigurationInterpolator::testEnableSubstitutionInVariables_4_oe
-conf_1830_1,"    @Test
+conf_1824_1,"    @Test
     public void testFromSpecificationInterpolator_1_oe() {
         final ConfigurationInterpolator ci = EasyMock.createMock(ConfigurationInterpolator.class);
         EasyMock.replay(ci);
@@ -50931,7 +50849,7 @@ conf_1830_1,"    @Test
         assertSame(""Wrong result"", ci, ConfigurationInterpolator.fromSpecification(spec));
     }
 ",TestConfigurationInterpolator::testFromSpecificationInterpolator_1_oe
-conf_1831_1,"    @Test
+conf_1825_1,"    @Test
     public void testFromSpecificationNewInstance_1_oe() {
         final Lookup defLookup = EasyMock.createMock(Lookup.class);
         final Lookup preLookup = EasyMock.createMock(Lookup.class);
@@ -50947,7 +50865,7 @@ conf_1831_1,"    @Test
         assertEquals(""Wrong number of default lookups"", 1, ci.getDefaultLookups().size());
     }
 ",TestConfigurationInterpolator::testFromSpecificationNewInstance_1_oe
-conf_1831_2,"    @Test
+conf_1825_2,"    @Test
     public void testFromSpecificationNewInstance_2_oe() {
         final Lookup defLookup = EasyMock.createMock(Lookup.class);
         final Lookup preLookup = EasyMock.createMock(Lookup.class);
@@ -50964,7 +50882,7 @@ conf_1831_2,"    @Test
         assertTrue(""Wrong default lookup"", ci.getDefaultLookups().contains(defLookup));
     }
 ",TestConfigurationInterpolator::testFromSpecificationNewInstance_2_oe
-conf_1831_3,"    @Test
+conf_1825_3,"    @Test
     public void testFromSpecificationNewInstance_3_oe() {
         final Lookup defLookup = EasyMock.createMock(Lookup.class);
         final Lookup preLookup = EasyMock.createMock(Lookup.class);
@@ -50982,7 +50900,7 @@ conf_1831_3,"    @Test
         assertEquals(""Wrong number of prefix lookups"", 1, ci.getLookups().size());
     }
 ",TestConfigurationInterpolator::testFromSpecificationNewInstance_3_oe
-conf_1831_4,"    @Test
+conf_1825_4,"    @Test
     public void testFromSpecificationNewInstance_4_oe() {
         final Lookup defLookup = EasyMock.createMock(Lookup.class);
         final Lookup preLookup = EasyMock.createMock(Lookup.class);
@@ -51001,7 +50919,7 @@ conf_1831_4,"    @Test
         assertSame(""Wrong prefix lookup"", preLookup, ci.getLookups().get(""p""));
     }
 ",TestConfigurationInterpolator::testFromSpecificationNewInstance_4_oe
-conf_1831_5,"    @Test
+conf_1825_5,"    @Test
     public void testFromSpecificationNewInstance_5_oe() {
         final Lookup defLookup = EasyMock.createMock(Lookup.class);
         final Lookup preLookup = EasyMock.createMock(Lookup.class);
@@ -51021,7 +50939,7 @@ conf_1831_5,"    @Test
         assertSame(""Wrong parent"", interpolator, ci.getParentInterpolator());
     }
 ",TestConfigurationInterpolator::testFromSpecificationNewInstance_5_oe
-conf_1831_6,"    @Test
+conf_1825_6,"    @Test
     public void testFromSpecificationNewInstance_6_oe() {
         final Lookup defLookup = EasyMock.createMock(Lookup.class);
         final Lookup preLookup = EasyMock.createMock(Lookup.class);
@@ -51042,14 +50960,14 @@ conf_1831_6,"    @Test
         assertSame(""Wrong string converter"", stringConverter, ci.getStringConverter());
     }
 ",TestConfigurationInterpolator::testFromSpecificationNewInstance_6_oe
-conf_1832_1,"    @Test
+conf_1826_1,"    @Test
     public void testGetDefaultLookupsModify_1_oe() {
         final List<Lookup> lookups = interpolator.getDefaultLookups();
         lookups.add(setUpTestLookup());
         assertTrue(""List was modified"", interpolator.getDefaultLookups().isEmpty());
     }
 ",TestConfigurationInterpolator::testGetDefaultLookupsModify_1_oe
-conf_1833_1,"    @Test
+conf_1827_1,"    @Test
     public void testGetDefaultPrefixLookups_1_oe() {
         final EnumSet<DefaultLookups> excluded = EnumSet.of(
                 DefaultLookups.DNS,
@@ -51063,7 +50981,7 @@ conf_1833_1,"    @Test
         assertEquals(""Wrong number of lookups"", included.size(), lookups.size());
     }
 ",TestConfigurationInterpolator::testGetDefaultPrefixLookups_1_oe
-conf_1833_2,"    @Test
+conf_1827_2,"    @Test
     public void testGetDefaultPrefixLookups_2_oe() {
         final EnumSet<DefaultLookups> excluded = EnumSet.of(
                 DefaultLookups.DNS,
@@ -51080,7 +50998,7 @@ conf_1833_2,"    @Test
     }
     }
 ",TestConfigurationInterpolator::testGetDefaultPrefixLookups_2_oe
-conf_1833_3,"    @Test
+conf_1827_3,"    @Test
     public void testGetDefaultPrefixLookups_3_oe() {
         final EnumSet<DefaultLookups> excluded = EnumSet.of(
                 DefaultLookups.DNS,
@@ -51101,14 +51019,14 @@ conf_1833_3,"    @Test
     }
     }
 ",TestConfigurationInterpolator::testGetDefaultPrefixLookups_3_oe
-conf_1834_1,"    @Test
+conf_1828_1,"    @Test
     public void testGetLookupsModify_1_oe() {
         final Map<String, Lookup> lookups = interpolator.getLookups();
         lookups.put(TEST_PREFIX, setUpTestLookup());
         assertTrue(""Map was modified"", interpolator.getLookups().isEmpty());
     }
 ",TestConfigurationInterpolator::testGetLookupsModify_1_oe
-conf_1835_1,"    @Test
+conf_1829_1,"    @Test
     public void testSetStringConverter_1_oe() {
         final Function<Object, String> stringConverter = obj -> ""'"" + obj + ""'"";
         interpolator.addDefaultLookup(setUpTestLookup(""x"", Arrays.asList(1, 2)));
@@ -51117,7 +51035,7 @@ conf_1835_1,"    @Test
         assertSame(""Wrong string converter"", stringConverter, interpolator.getStringConverter());
     }
 ",TestConfigurationInterpolator::testSetStringConverter_1_oe
-conf_1835_2,"    @Test
+conf_1829_2,"    @Test
     public void testSetStringConverter_2_oe() {
         final Function<Object, String> stringConverter = obj -> ""'"" + obj + ""'"";
         interpolator.addDefaultLookup(setUpTestLookup(""x"", Arrays.asList(1, 2)));
@@ -51127,7 +51045,7 @@ conf_1835_2,"    @Test
         assertEquals(""Wrong value"", ""'abc': '[1, 2]'"", interpolator.interpolate(""${y}: ${x}""));
     }
 ",TestConfigurationInterpolator::testSetStringConverter_2_oe
-conf_1836_1,"    @Test
+conf_1830_1,"    @Test
     public void testSetStringConverterNullArgumentUsesDefault_1_oe() {
         final Function<Object, String> stringConverter = obj -> ""'"" + obj + ""'"";
         interpolator.addDefaultLookup(setUpTestLookup(""x"", Arrays.asList(1, 2)));
@@ -51137,7 +51055,7 @@ conf_1836_1,"    @Test
         assertNotSame(""Wrong string converter"", stringConverter, interpolator.getStringConverter());
     }
 ",TestConfigurationInterpolator::testSetStringConverterNullArgumentUsesDefault_1_oe
-conf_1836_2,"    @Test
+conf_1830_2,"    @Test
     public void testSetStringConverterNullArgumentUsesDefault_2_oe() {
         final Function<Object, String> stringConverter = obj -> ""'"" + obj + ""'"";
         interpolator.addDefaultLookup(setUpTestLookup(""x"", Arrays.asList(1, 2)));
@@ -51148,25 +51066,25 @@ conf_1836_2,"    @Test
         assertEquals(""Wrong value"", ""abc: 1"", interpolator.interpolate(""${y}: ${x}""));
     }
 ",TestConfigurationInterpolator::testSetStringConverterNullArgumentUsesDefault_2_oe
-conf_1837_1,"    @Test
+conf_1831_1,"    @Test
     public void testInit_1_oe() {
         assertTrue(""A default lookup is set"", interpolator.getDefaultLookups().isEmpty());
     }
 ",TestConfigurationInterpolator::testInit_1_oe
-conf_1837_2,"    @Test
+conf_1831_2,"    @Test
     public void testInit_2_oe() {
         // removed other assertion
         assertTrue(""Got predefined lookups"", interpolator.getLookups().isEmpty());
     }
 ",TestConfigurationInterpolator::testInit_2_oe
-conf_1837_3,"    @Test
+conf_1831_3,"    @Test
     public void testInit_3_oe() {
         // removed other assertion
         // removed other assertion
         assertNull(""Got a parent interpolator"", interpolator.getParentInterpolator());
     }
 ",TestConfigurationInterpolator::testInit_3_oe
-conf_1837_4,"    @Test
+conf_1831_4,"    @Test
     public void testInit_4_oe() {
         // removed other assertion
         // removed other assertion
@@ -51174,7 +51092,7 @@ conf_1837_4,"    @Test
         assertNotNull(""Missing string converter"", interpolator.getStringConverter());
     }
 ",TestConfigurationInterpolator::testInit_4_oe
-conf_1837_5,"    @Test
+conf_1831_5,"    @Test
     public void testInit_5_oe() {
         // removed other assertion
         // removed other assertion
@@ -51183,50 +51101,50 @@ conf_1837_5,"    @Test
         assertEquals(""Incorrect string converter value"", ""1"", interpolator.getStringConverter().apply(Arrays.asList(1, 2)));
     }
 ",TestConfigurationInterpolator::testInit_5_oe
-conf_1838_1,"    @Test
+conf_1832_1,"    @Test
     public void testInterpolateEmptyVariable_1_oe() {
         final String value = ""${}"";
         assertEquals(""Wrong result"", value, interpolator.interpolate(value));
     }
 ",TestConfigurationInterpolator::testInterpolateEmptyVariable_1_oe
-conf_1839_1,"    @Test
+conf_1833_1,"    @Test
     public void testInterpolateBlankVariable_1_oe() {
         final String value = ""${ }"";
         assertEquals(""Wrong result"", value, interpolator.interpolate(value));
     }
 ",TestConfigurationInterpolator::testInterpolateBlankVariable_1_oe
-conf_1840_1,"    @Test
+conf_1834_1,"    @Test
     public void testInterpolateObject_1_oe() {
         final Object value = 42;
         assertSame(""Value was changed"", value, interpolator.interpolate(value));
     }
 ",TestConfigurationInterpolator::testInterpolateObject_1_oe
-conf_1841_1,"    @Test
+conf_1835_1,"    @Test
     public void testInterpolateCollection_1_oe() {
         final List<Integer> value = Arrays.asList(1, 2);
         assertSame(""Value was changed"", value, interpolator.interpolate(value));
     }
 ",TestConfigurationInterpolator::testInterpolateCollection_1_oe
-conf_1842_1,"    @Test
+conf_1836_1,"    @Test
     public void testInterpolateArray_1_oe() {
         final int[] value = {1, 2};
         assertSame(""Value was changed"", value, interpolator.interpolate(value));
     }
 ",TestConfigurationInterpolator::testInterpolateArray_1_oe
-conf_1843_1,"    @Test
+conf_1837_1,"    @Test
     public void testInterpolateString_1_oe() {
         final String value = ""${"" + TEST_PREFIX + ':' + TEST_NAME + ""}"";
         interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
         assertEquals(""Wrong result"", TEST_VALUE, interpolator.interpolate(value));
     }
 ",TestConfigurationInterpolator::testInterpolateString_1_oe
-conf_1844_1,"    @Test
+conf_1838_1,"    @Test
     public void testInterpolateStringUnknownVariable_1_oe() {
         final String value = ""${unknownVariable}"";
         assertEquals(""Wrong result"", value, interpolator.interpolate(value));
     }
 ",TestConfigurationInterpolator::testInterpolateStringUnknownVariable_1_oe
-conf_1845_1,"    @Test
+conf_1839_1,"    @Test
     public void testInterpolationMultipleVariables_1_oe() {
         final String value = ""The ${subject} jumps over ${object}."";
         interpolator.addDefaultLookup(setUpTestLookup(""subject"", ""quick brown fox""));
@@ -51234,7 +51152,7 @@ conf_1845_1,"    @Test
         assertEquals(""Wrong result"", ""The quick brown fox jumps over the lazy dog."", interpolator.interpolate(value));
     }
 ",TestConfigurationInterpolator::testInterpolationMultipleVariables_1_oe
-conf_1846_1,"    @Test
+conf_1840_1,"    @Test
     public void testInterpolationMultipleSimpleNonStringVariables_1_oe() {
         final String value = ""${x} = ${y} is ${result}"";
         interpolator.addDefaultLookup(setUpTestLookup(""x"", 1));
@@ -51243,7 +51161,7 @@ conf_1846_1,"    @Test
         assertEquals(""Wrong result"", ""1 = 2 is false"", interpolator.interpolate(value));
     }
 ",TestConfigurationInterpolator::testInterpolationMultipleSimpleNonStringVariables_1_oe
-conf_1847_1,"    @Test
+conf_1841_1,"    @Test
     public void testInterpolationMultipleCollectionVariables_1_oe() {
         final String value = ""${single}bc${multi}23${empty}${null}${multiIt}${emptyIt}${nullIt}"";
         final List<Integer> multi = Arrays.asList(1, 0, 0);
@@ -51260,7 +51178,7 @@ conf_1847_1,"    @Test
         assertEquals(""Wrong result"", ""abc123${empty}${null}1${emptyIt}${nullIt}"", interpolator.interpolate(value));
     }
 ",TestConfigurationInterpolator::testInterpolationMultipleCollectionVariables_1_oe
-conf_1848_1,"    @Test
+conf_1842_1,"    @Test
     public void testInterpolationMultipleArrayVariables_1_oe() {
         final String value = ""${single}bc${multi}23${empty}${null}"";
         final int[] multi = {1, 0, 0};
@@ -51274,35 +51192,35 @@ conf_1848_1,"    @Test
         assertEquals(""Wrong result"", ""abc123${empty}${null}"", interpolator.interpolate(value));
     }
 ",TestConfigurationInterpolator::testInterpolationMultipleArrayVariables_1_oe
-conf_1849_1,"    @Test
+conf_1843_1,"    @Test
     public void testInterpolationSingleVariable_1_oe() {
         final Object value = 42;
         interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, value));
         assertEquals(""Wrong result"", value, interpolator.interpolate(""${"" + TEST_NAME + ""}""));
     }
 ",TestConfigurationInterpolator::testInterpolationSingleVariable_1_oe
-conf_1850_1,"    @Test
+conf_1844_1,"    @Test
     public void testInterpolationSingleCollectionVariable_1_oe() {
         final List<Integer> value = Arrays.asList(42);
         interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, value));
         assertEquals(""Wrong result"", value, interpolator.interpolate(""${"" + TEST_NAME + ""}""));
     }
 ",TestConfigurationInterpolator::testInterpolationSingleCollectionVariable_1_oe
-conf_1851_1,"    @Test
+conf_1845_1,"    @Test
     public void testInterpolationSingleArrayVariable_1_oe() {
         final int[] value = {42, -1};
         interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, value));
         assertEquals(""Wrong result"", value, interpolator.interpolate(""${"" + TEST_NAME + ""}""));
     }
 ",TestConfigurationInterpolator::testInterpolationSingleArrayVariable_1_oe
-conf_1852_1,"    @Test
+conf_1846_1,"    @Test
     public void testInterpolationSingleVariableDefaultValue_1_oe() {
         final Object value = 42;
         interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, value));
         assertEquals(""Wrong result"", ""${I_am_not_defined}"", interpolator.interpolate(""${I_am_not_defined}""));
     }
 ",TestConfigurationInterpolator::testInterpolationSingleVariableDefaultValue_1_oe
-conf_1852_2,"    @Test
+conf_1846_2,"    @Test
     public void testInterpolationSingleVariableDefaultValue_2_oe() {
         final Object value = 42;
         interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, value));
@@ -51310,7 +51228,7 @@ conf_1852_2,"    @Test
         assertEquals(""Wrong result"", ""42"", interpolator.interpolate(""${I_am_not_defined:-42}""));
     }
 ",TestConfigurationInterpolator::testInterpolationSingleVariableDefaultValue_2_oe
-conf_1852_3,"    @Test
+conf_1846_3,"    @Test
     public void testInterpolationSingleVariableDefaultValue_3_oe() {
         final Object value = 42;
         interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, value));
@@ -51319,41 +51237,270 @@ conf_1852_3,"    @Test
         assertEquals(""Wrong result"", """", interpolator.interpolate(""${I_am_not_defined:-}""));
     }
 ",TestConfigurationInterpolator::testInterpolationSingleVariableDefaultValue_3_oe
+conf_1848_1,"    @Test
+    public void testInterpolationBeginningAndEndingRiskyVariableLookups_1_oe() {
+        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
+        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
+        assertTrue(""Wrong result: "" + result, result.matches(""\\d{4}-\\d{2}-\\d{2}""));
+    }
+",TestConfigurationInterpolator::testInterpolationBeginningAndEndingRiskyVariableLookups_1_oe
+conf_1849_1,"    @Test
+    public void testNullSafeLookupExisting_1_oe() {
+        final Lookup look = EasyMock.createMock(Lookup.class);
+        EasyMock.replay(look);
+        assertSame(""Wrong result"", look, ConfigurationInterpolator.nullSafeLookup(look));
+    }
+",TestConfigurationInterpolator::testNullSafeLookupExisting_1_oe
+conf_1850_1,"    @Test
+    public void testNullSafeLookupNull_1_oe() {
+        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
+        assertNull(""Got a lookup result"", lookup.lookup(""someVar""));
+    }
+",TestConfigurationInterpolator::testNullSafeLookupNull_1_oe
+conf_1851_1,"    @Test
+    public void testRegisterLookup_1_oe() {
+        final Lookup lookup = EasyMock.createMock(Lookup.class);
+        EasyMock.replay(lookup);
+        interpolator.registerLookup(TEST_PREFIX, lookup);
+        assertSame(""New lookup not registered"", lookup, interpolator.getLookups().get(TEST_PREFIX));
+    }
+",TestConfigurationInterpolator::testRegisterLookup_1_oe
+conf_1851_2,"    @Test
+    public void testRegisterLookup_2_oe() {
+        final Lookup lookup = EasyMock.createMock(Lookup.class);
+        EasyMock.replay(lookup);
+        interpolator.registerLookup(TEST_PREFIX, lookup);
+        // removed other assertion
+        assertTrue(""Not in prefix set"", interpolator.prefixSet().contains(TEST_PREFIX));
+    }
+",TestConfigurationInterpolator::testRegisterLookup_2_oe
+conf_1851_3,"    @Test
+    public void testRegisterLookup_3_oe() {
+        final Lookup lookup = EasyMock.createMock(Lookup.class);
+        EasyMock.replay(lookup);
+        interpolator.registerLookup(TEST_PREFIX, lookup);
+        // removed other assertion
+        // removed other assertion
+        assertTrue(""Default lookups were changed"", interpolator.getDefaultLookups().isEmpty());
+    }
+",TestConfigurationInterpolator::testRegisterLookup_3_oe
+conf_1852_1,"    @Test
+    public void testRegisterLookups_1_oe() {
+        final Lookup l1 = setUpTestLookup();
+        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
+        final Map<String, Lookup> lookups = new HashMap<>();
+        lookups.put(TEST_PREFIX, l1);
+        final String prefix2 = TEST_PREFIX + ""_other"";
+        lookups.put(prefix2, l2);
+        interpolator.registerLookups(lookups);
+        final Map<String, Lookup> lookups2 = interpolator.getLookups();
+        assertEquals(""Wrong number of lookups"", 2, lookups2.size());
+    }
+",TestConfigurationInterpolator::testRegisterLookups_1_oe
+conf_1852_2,"    @Test
+    public void testRegisterLookups_2_oe() {
+        final Lookup l1 = setUpTestLookup();
+        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
+        final Map<String, Lookup> lookups = new HashMap<>();
+        lookups.put(TEST_PREFIX, l1);
+        final String prefix2 = TEST_PREFIX + ""_other"";
+        lookups.put(prefix2, l2);
+        interpolator.registerLookups(lookups);
+        final Map<String, Lookup> lookups2 = interpolator.getLookups();
+        // removed other assertion
+        assertEquals(""Wrong l1"", l1, lookups2.get(TEST_PREFIX));
+    }
+",TestConfigurationInterpolator::testRegisterLookups_2_oe
+conf_1852_3,"    @Test
+    public void testRegisterLookups_3_oe() {
+        final Lookup l1 = setUpTestLookup();
+        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
+        final Map<String, Lookup> lookups = new HashMap<>();
+        lookups.put(TEST_PREFIX, l1);
+        final String prefix2 = TEST_PREFIX + ""_other"";
+        lookups.put(prefix2, l2);
+        interpolator.registerLookups(lookups);
+        final Map<String, Lookup> lookups2 = interpolator.getLookups();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong l2"", l2, lookups2.get(prefix2));
+    }
+",TestConfigurationInterpolator::testRegisterLookups_3_oe
+conf_1853_1,"    @Test
+    public void testRegisterLookupsNull_1_oe() {
+        interpolator.registerLookups(null);
+        assertTrue(""Got lookups"", interpolator.getLookups().isEmpty());
+    }
+",TestConfigurationInterpolator::testRegisterLookupsNull_1_oe
 conf_1854_1,"    @Test
+    public void testRemoveDefaultLookup_1_oe() {
+        final List<Lookup> lookups = new ArrayList<>();
+        lookups.add(setUpTestLookup());
+        lookups.add(setUpTestLookup(""test"", ""value""));
+        interpolator.addDefaultLookups(lookups);
+        assertTrue(""Wrong result"", interpolator.removeDefaultLookup(lookups.get(0)));
+    }
+",TestConfigurationInterpolator::testRemoveDefaultLookup_1_oe
+conf_1854_2,"    @Test
+    public void testRemoveDefaultLookup_2_oe() {
+        final List<Lookup> lookups = new ArrayList<>();
+        lookups.add(setUpTestLookup());
+        lookups.add(setUpTestLookup(""test"", ""value""));
+        interpolator.addDefaultLookups(lookups);
+        // removed other assertion
+        assertFalse(""Lookup still available"", interpolator.getDefaultLookups().contains(lookups.get(0)));
+    }
+",TestConfigurationInterpolator::testRemoveDefaultLookup_2_oe
+conf_1854_3,"    @Test
+    public void testRemoveDefaultLookup_3_oe() {
+        final List<Lookup> lookups = new ArrayList<>();
+        lookups.add(setUpTestLookup());
+        lookups.add(setUpTestLookup(""test"", ""value""));
+        interpolator.addDefaultLookups(lookups);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(""Wrong number of default lookups"", 1, interpolator.getDefaultLookups().size());
+    }
+",TestConfigurationInterpolator::testRemoveDefaultLookup_3_oe
+conf_1855_1,"    @Test
+    public void testRemoveDefaultLookupNonExisting_1_oe() {
+        assertFalse(""Wrong result"", interpolator.removeDefaultLookup(setUpTestLookup()));
+    }
+",TestConfigurationInterpolator::testRemoveDefaultLookupNonExisting_1_oe
+conf_1856_1,"    @Test
+    public void testResolveDefault_1_oe() {
+        final Lookup l1 = EasyMock.createMock(Lookup.class);
+        final Lookup l2 = EasyMock.createMock(Lookup.class);
+        final Lookup l3 = EasyMock.createMock(Lookup.class);
+        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
+        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
+        EasyMock.replay(l1, l2, l3);
+        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
+        assertEquals(""Wrong variable value"", TEST_VALUE, interpolator.resolve(TEST_NAME));
+    }
+",TestConfigurationInterpolator::testResolveDefault_1_oe
+conf_1857_1,"    @Test
+    public void testResolveDefaultAfterPrefixFails_1_oe() {
+        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
+        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
+        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
+        assertEquals(""Variable is not resolved by default lookup"", TEST_VALUE, interpolator.resolve(varName));
+    }
+",TestConfigurationInterpolator::testResolveDefaultAfterPrefixFails_1_oe
+conf_1858_1,"    @Test
+    public void testResolveDefaultEmptyVarName_1_oe() {
+        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
+        assertEquals(""Wrong variable value"", TEST_VALUE, interpolator.resolve(""""));
+    }
+",TestConfigurationInterpolator::testResolveDefaultEmptyVarName_1_oe
+conf_1859_1,"    @Test
+    public void testResolveEmptyPrefix_1_oe() {
+        interpolator.registerLookup("""", setUpTestLookup());
+        assertEquals(""Wrong variable value"", TEST_VALUE, interpolator.resolve("":"" + TEST_NAME));
+    }
+",TestConfigurationInterpolator::testResolveEmptyPrefix_1_oe
+conf_1860_1,"    @Test
+    public void testResolveEmptyVarName_1_oe() {
+        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
+        assertEquals(""Wrong variable value"", TEST_VALUE, interpolator.resolve(TEST_PREFIX + "":""));
+    }
+",TestConfigurationInterpolator::testResolveEmptyVarName_1_oe
+conf_1861_1,"    @Test
+    public void testResolveNoDefault_1_oe() {
+        assertNull(""Variable could be resolved"", interpolator.resolve(TEST_NAME));
+    }
+",TestConfigurationInterpolator::testResolveNoDefault_1_oe
+conf_1862_1,"    @Test
+    public void testResolveNull_1_oe() {
+        assertNull(""Could resolve null variable"", interpolator.resolve(null));
+    }
+",TestConfigurationInterpolator::testResolveNull_1_oe
+conf_1863_1,"    @Test
+    public void testResolveParentVariableFound_1_oe() {
+        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
+        EasyMock.replay(parent);
+        interpolator.setParentInterpolator(parent);
+        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
+        assertEquals(""Wrong value"", TEST_VALUE, interpolator.resolve(TEST_PREFIX + ':' + TEST_NAME));
+    }
+",TestConfigurationInterpolator::testResolveParentVariableFound_1_oe
+conf_1864_1,"    @Test
+    public void testResolveParentVariableNotFound_1_oe() {
+        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
+        EasyMock.expect(parent.resolve(TEST_NAME)).andReturn(TEST_VALUE);
+        EasyMock.replay(parent);
+        interpolator.setParentInterpolator(parent);
+        assertEquals(""Wrong value"", TEST_VALUE, interpolator.resolve(TEST_NAME));
+    }
+",TestConfigurationInterpolator::testResolveParentVariableNotFound_1_oe
+conf_1865_1,"    @Test
+    public void testResolveWithPrefix_1_oe() {
+        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
+        assertEquals(""Wrong variable value"", TEST_VALUE, interpolator.resolve(TEST_PREFIX + ':' + TEST_NAME));
+    }
+",TestConfigurationInterpolator::testResolveWithPrefix_1_oe
+conf_1866_1,"    @Test
+    public void testResolveWithUnknownPrefix_1_oe() {
+        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
+        assertNull(""Variable could be resolved"", interpolator.resolve(""UnknownPrefix:"" + TEST_NAME));
+    }
+",TestConfigurationInterpolator::testResolveWithUnknownPrefix_1_oe
+conf_1866_2,"    @Test
+    public void testResolveWithUnknownPrefix_2_oe() {
+        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
+        // removed other assertion
+        assertNull(""Variable with empty prefix could be resolved"", interpolator.resolve("":"" + TEST_NAME));
+    }
+",TestConfigurationInterpolator::testResolveWithUnknownPrefix_2_oe
+conf_1867_2,"    @Test
+    public void testDefaultStringLookupsHolder_invalidLookupsDefinition_2_oe() {
+        final Properties props = new Properties();
+        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""base64_encoder nope"");
+
+        try {
+            new ConfigurationInterpolator.DefaultPrefixLookupsHolder(props);
+
+            // removed other assertion
+        } catch (Exception exc) {
+            assertEquals(""Invalid default lookups definition: base64_encoder nope"", exc.getMessage());
+    }
+    }
+",TestConfigurationInterpolator::testDefaultStringLookupsHolder_invalidLookupsDefinition_2_oe
+conf_1868_1,"    @Test
     public void testLookupProperties_1_oe() {
         for (final Map.Entry<Object, Object> e : System.getProperties().entrySet()) {
             assertEquals(""Wrong property value for "" + e.getKey(), e.getValue(), lookup.lookup(String.valueOf(e.getKey())));
     }
     }
 ",TestSystemPropertiesLookup::testLookupProperties_1_oe
-conf_1855_1,"    @Test
+conf_1869_1,"    @Test
     public void testLookupUnknownProperty_1_oe() {
         assertNull(""Got a value"", lookup.lookup(""a non existing system property!""));
     }
 ",TestSystemPropertiesLookup::testLookupUnknownProperty_1_oe
-conf_1856_1,"    @Test
+conf_1870_1,"    @Test
     public void testLookupConstant_1_oe() {
         assertEquals(""Wrong value of constant"", FIELD, lookup.lookup(variable(""FIELD"")));
     }
 ",TestConstantLookup::testLookupConstant_1_oe
-conf_1857_1,"    @Test
+conf_1871_1,"    @Test
     public void testLookupInvalidSyntax_1_oe() {
         assertNull(""Non null return value for invalid variable name"", lookup.lookup(""InvalidVariableName""));
     }
 ",TestConstantLookup::testLookupInvalidSyntax_1_oe
-conf_1858_1,"    @Test
+conf_1872_1,"    @Test
     public void testLookupNonExisting_1_oe() {
         assertNull(""Non null return value for non existing constant"", lookup.lookup(variable(""NO_FIELD"")));
     }
 ",TestConstantLookup::testLookupNonExisting_1_oe
-conf_1859_1,"    @Test
+conf_1873_1,"    @Test
     public void testLookupNonStringFromCache_1_oe() {
         final String var = KeyEvent.class.getName() + "".VK_ESCAPE"";
         final Object expected = KeyEvent.VK_ESCAPE;
         assertEquals(""Wrong result of first lookup"", expected, lookup.lookup(var));
     }
 ",TestConstantLookup::testLookupNonStringFromCache_1_oe
-conf_1859_2,"    @Test
+conf_1873_2,"    @Test
     public void testLookupNonStringFromCache_2_oe() {
         final String var = KeyEvent.class.getName() + "".VK_ESCAPE"";
         final Object expected = KeyEvent.VK_ESCAPE;
@@ -51361,27 +51508,27 @@ conf_1859_2,"    @Test
         assertEquals(""Wrong result of 2nd lookup"", expected, lookup.lookup(var));
     }
 ",TestConstantLookup::testLookupNonStringFromCache_2_oe
-conf_1860_1,"    @Test
+conf_1874_1,"    @Test
     public void testLookupNull_1_oe() {
         assertNull(""Non null return value for null variable"", lookup.lookup(null));
     }
 ",TestConstantLookup::testLookupNull_1_oe
-conf_1861_1,"    @Test
+conf_1875_1,"    @Test
     public void testLookupPrivate_1_oe() {
         assertNull(""Non null return value for non accessible field"", lookup.lookup(variable(""PRIVATE_FIELD"")));
     }
 ",TestConstantLookup::testLookupPrivate_1_oe
-conf_1862_1,"    @Test
+conf_1876_1,"    @Test
     public void testLookupUnknownClass_1_oe() {
         assertNull(""Non null return value for unknown class"", lookup.lookup(""org.apache.commons.configuration.NonExistingConfig."" + FIELD));
     }
 ",TestConstantLookup::testLookupUnknownClass_1_oe
-conf_1863_1,"    @Test
+conf_1877_1,"    @Test
     public void testLookup_1_oe() {
         assertNull(""Got a result (1)"", DummyLookup.INSTANCE.lookup(""someVariable""));
     }
 ",TestDummyLookup::testLookup_1_oe
-conf_1863_2,"    @Test
+conf_1877_2,"    @Test
     public void testLookup_2_oe() {
         // removed other assertion
         assertNull(""Got a result (2)"", DummyLookup.INSTANCE.lookup(null));

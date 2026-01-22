@@ -51,9 +51,50 @@ public class W3CDomTest_OE25Dev {
         }
     }
 
+    @Test
+    void canDisableNamespaces() throws XPathExpressionException {
+        W3CDom w3c = new W3CDom();
+        assertTrue(w3c.namespaceAware());
+
+        w3c.namespaceAware(false);
+        assertFalse(w3c.namespaceAware());
+
+        String html = "<html xmlns='http://www.w3.org/1999/xhtml'><body id='One'><div>hello</div></body></html>";
+        Document dom = w3c.fromJsoup(Jsoup.parse(html));
+        NodeList nodeList = xpath(dom, "//body");// no ns, so needs no prefix
+        assertEquals("div", nodeList.item(0).getLocalName());
+    }
+
     private NodeList xpath(Document w3cDoc, String query) throws XPathExpressionException {
         XPathExpression xpath = XPathFactory.newInstance().newXPath().compile(query);
         return ((NodeList) xpath.evaluate(w3cDoc, XPathConstants.NODE));
+    }
+
+    @Test
+    public void testRoundTripDoctype() {
+        // TODO - not super happy with this output - but plain DOM doesn't let it out, and don't want to rebuild the writer
+        // because we have Saxon on the test classpath, the transformer will change to that, and so case may change (e.g. Java base in META, Saxon is meta for HTML)
+        String base = "<!DOCTYPE html><p>One</p>";
+        assertEqualsIgnoreCase("<!DOCTYPE html SYSTEM \"about:legacy-compat\"><html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body><p>One</p></body></html>",
+            output(base, true));
+        assertEqualsIgnoreCase("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE html SYSTEM \"about:legacy-compat\"><html><head/><body><p>One</p></body></html>", output(base, false));
+
+        String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
+        assertEqualsIgnoreCase("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body></body></html>", output(publicDoc, true));
+        // different impls will have different XML formatting. OpenJDK 13 default gives this: <body /> but others have <body/>, so just check start
+        assertTrue(output(publicDoc, false).startsWith("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE html PUBLIC"));
+
+        String systemDoc = "<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\">";
+        assertEqualsIgnoreCase("<!DOCTYPE html SYSTEM \"exampledtdfile.dtd\"><html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body></body></html>", output(systemDoc, true));
+        assertEqualsIgnoreCase("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE html SYSTEM \"exampledtdfile.dtd\"><html><head/><body/></html>", output(systemDoc, false));
+
+        String legacyDoc = "<!DOCTYPE html SYSTEM \"about:legacy-compat\">";
+        assertEqualsIgnoreCase("<!DOCTYPE html SYSTEM \"about:legacy-compat\"><html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body></body></html>", output(legacyDoc, true));
+        assertEqualsIgnoreCase("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE html SYSTEM \"about:legacy-compat\"><html><head/><body/></html>", output(legacyDoc, false));
+
+        String noDoctype = "<p>One</p>";
+        assertEqualsIgnoreCase("<html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body><p>One</p></body></html>", output(noDoctype, true));
+        assertEqualsIgnoreCase("<?xml version=\"1.0\" encoding=\"UTF-8\"?><html><head/><body><p>One</p></body></html>", output(noDoctype, false));
     }
 
     private String output(String in, boolean modeHtml) {
@@ -1589,129 +1630,5 @@ public class W3CDomTest_OE25Dev {
         nodeList = xpath(dom, "//body");
         assertNull(nodeList); // no matches;
     }
-
-    @Test
-    void canDisableNamespaces_1_oe() throws XPathExpressionException {
-        W3CDom w3c = new W3CDom();
-        assertTrue(w3c.namespaceAware());
-    }
-
-    @Test
-    void canDisableNamespaces_2_oe() throws XPathExpressionException {
-        W3CDom w3c = new W3CDom();
-        // removed other assertion
-
-        w3c.namespaceAware(false);
-        assertFalse(w3c.namespaceAware());
-    }
-
-    @Test
-    void canDisableNamespaces_3_oe() throws XPathExpressionException {
-        W3CDom w3c = new W3CDom();
-        // removed other assertion
-
-        w3c.namespaceAware(false);
-        // removed other assertion
-
-        String html = "<html xmlns='http://www.w3.org/1999/xhtml'><body id='One'><div>hello</div></body></html>";
-        Document dom = w3c.fromJsoup(Jsoup.parse(html));
-        NodeList nodeList = xpath(dom, "//body");// no ns, so needs no prefix
-        assertEquals("div", nodeList.item(0).getLocalName());
-    }
-
-    @Test
-    public void testRoundTripDoctype_1_oe() {
-        // TODO - not super happy with this output - but plain DOM doesn't let it out, and don't want to rebuild the writer
-        // because we have Saxon on the test classpath, the transformer will change to that, and so case may change (e.g. Java base in META, Saxon is meta for HTML)
-        String base = "<!DOCTYPE html><p>One</p>";
-        assertEqualsIgnoreCase("<!DOCTYPE html SYSTEM \"about:legacy-compat\"><html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body><p>One</p></body></html>",
-            output(base, true));
-        assertEqualsIgnoreCase("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE html SYSTEM \"about:legacy-compat\"><html><head/><body><p>One</p></body></html>", output(base, false));
-
-        String publicDoc = "<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">";
-        assertEqualsIgnoreCase("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"><html><head><META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"></head><body></body></html>", output(publicDoc, true));
-        // different impls will have different XML formatting. OpenJDK 13 default gives this: <body /> but others have <body/>, so just check start
-        assertTrue(output(publicDoc, false).startsWith("<?xml version=\"1.0\" encoding=\"UTF-8\"?><!DOCTYPE html PUBLIC"));
-    }
-
-    @Test public void convertsElementsAndMaintainsSource() {
-        org.jsoup.nodes.Document jdoc = Jsoup.parse_1_oe("<body><div><p>One</div><div><p>Two");
-        W3CDom w3CDom = new W3CDom();
-        Element jDiv = jdoc.selectFirst("div");
-        assertNotNull(jDiv);
-        }
-
-    @Test public void convertsElementsAndMaintainsSource() {
-        org.jsoup.nodes.Document jdoc = Jsoup.parse_2_oe("<body><div><p>One</div><div><p>Two");
-        W3CDom w3CDom = new W3CDom();
-        Element jDiv = jdoc.selectFirst("div");
-        // removed other assertion
-        Document doc = w3CDom.fromJsoup(jDiv);
-        Node div = w3CDom.contextNode(doc);
-
-        assertEquals("div", div.getLocalName());
-        }
-
-    @Test public void convertsElementsAndMaintainsSource() {
-        org.jsoup.nodes.Document jdoc = Jsoup.parse_3_oe("<body><div><p>One</div><div><p>Two");
-        W3CDom w3CDom = new W3CDom();
-        Element jDiv = jdoc.selectFirst("div");
-        // removed other assertion
-        Document doc = w3CDom.fromJsoup(jDiv);
-        Node div = w3CDom.contextNode(doc);
-
-        // removed other assertion
-        assertEquals(jDiv, div.getUserData(W3CDom.SourceProperty));
-        }
-
-    @Test public void convertsElementsAndMaintainsSource() {
-        org.jsoup.nodes.Document jdoc = Jsoup.parse_4_oe("<body><div><p>One</div><div><p>Two");
-        W3CDom w3CDom = new W3CDom();
-        Element jDiv = jdoc.selectFirst("div");
-        // removed other assertion
-        Document doc = w3CDom.fromJsoup(jDiv);
-        Node div = w3CDom.contextNode(doc);
-
-        // removed other assertion
-        // removed other assertion
-
-        Node textNode = div.getFirstChild().getFirstChild();
-        assertEquals("One", textNode.getTextContent());
-        }
-
-    @Test public void convertsElementsAndMaintainsSource() {
-        org.jsoup.nodes.Document jdoc = Jsoup.parse_5_oe("<body><div><p>One</div><div><p>Two");
-        W3CDom w3CDom = new W3CDom();
-        Element jDiv = jdoc.selectFirst("div");
-        // removed other assertion
-        Document doc = w3CDom.fromJsoup(jDiv);
-        Node div = w3CDom.contextNode(doc);
-
-        // removed other assertion
-        // removed other assertion
-
-        Node textNode = div.getFirstChild().getFirstChild();
-        // removed other assertion
-        assertEquals(Node.TEXT_NODE, textNode.getNodeType());
-        }
-
-    @Test public void convertsElementsAndMaintainsSource() {
-        org.jsoup.nodes.Document jdoc = Jsoup.parse_6_oe("<body><div><p>One</div><div><p>Two");
-        W3CDom w3CDom = new W3CDom();
-        Element jDiv = jdoc.selectFirst("div");
-        // removed other assertion
-        Document doc = w3CDom.fromJsoup(jDiv);
-        Node div = w3CDom.contextNode(doc);
-
-        // removed other assertion
-        // removed other assertion
-
-        Node textNode = div.getFirstChild().getFirstChild();
-        // removed other assertion
-        // removed other assertion
-
-        org.jsoup.nodes.TextNode jText = (TextNode) jDiv.childNode(0).childNode(0);
-        assertEquals(jText, textNode.getUserData(W3CDom.SourceProperty));
-        }
 
 }

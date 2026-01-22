@@ -76,12 +76,11 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.springside.modules.utils.misc.SamplerTest_OE25Dev
-sample 10.5% in 10000 hits should close to 1050, actual is 1030
-sample 10.5% in 10000 hits should close to 1050, actual is 1059
-sample 0.5% in 10000 hits should close to 50, actual is 41
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.289 s - in org.springside.modules.utils.misc.SamplerTest_OE25Dev
+sample 10.5% in 10000 hits should close to 1050, actual is 1031
+sample 10.5% in 10000 hits should close to 1050, actual is 1068
+sample 0.5% in 10000 hits should close to 50, actual is 43
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.319 s - in org.springside.modules.utils.misc.SamplerTest_OE25Dev
 [INFO] Running org.springside.modules.utils.concurrent.BasicFutureTest_OE25Dev
 onCompleted:haha
 onCompleted:haha
 onCompleted:haha
-TIMEOUT

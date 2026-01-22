@@ -155,22 +155,6 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
         assertEquals(true, bag.remove(els[0]));
     }
 
-    public void testlegalAddRemove_6_oe() {
-        final Bag<T> bag = makeTestBag();
-        // removed other assertion
-        final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
-        for (int i = 0; i < els.length; i++) {
-            bag.add(els[i]);
-            // removed other assertion
-            // removed other assertion
-        }
-        Set<T> set = ((PredicatedBag<T>) bag).uniqueSet();
-        // removed other assertion
-        // removed other assertion
-        set = ((PredicatedBag<T>) bag).uniqueSet();
-        assertTrue("Unique set now does not contain the first element", !set.contains(els[0]));
-    }
-
     public void testIllegalAdd_2_oe() {
         final Bag<T> bag = makeTestBag();
         final Integer i = Integer.valueOf(3);

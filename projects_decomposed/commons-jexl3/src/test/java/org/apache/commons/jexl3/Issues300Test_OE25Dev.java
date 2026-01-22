@@ -111,209 +111,6 @@ public class Issues300Test_OE25Dev {
         }
     }
 
-    @Test
-    public void test322b() throws Exception {
-        final MapContext ctxt = new MapContext();
-        final String src = "L'utilisateur ${session.user.name} s'est connecte";
-        final JexlEngine jexl = new JexlBuilder().strict(true).create();
-        final JxltEngine jxlt = jexl.createJxltEngine();
-        StringWriter strw;
-        JxltEngine.Template template;
-        String output;
-        template = jxlt.createTemplate("$$", new StringReader(src));
-
-        ctxt.set("session", new Session322());
-        strw = new StringWriter();
-        template.evaluate(ctxt, strw);
-        output = strw.toString();
-        Assert.assertEquals("L'utilisateur user322 s'est connecte", output);
-
-        ctxt.set("session.user", new User322());
-        strw = new StringWriter();
-        template.evaluate(ctxt, strw);
-        output = strw.toString();
-        Assert.assertEquals("L'utilisateur user322 s'est connecte", output);
-
-        ctxt.set("session.user.name", "user322");
-        strw = new StringWriter();
-        template.evaluate(ctxt, strw);
-        output = strw.toString();
-        Assert.assertEquals("L'utilisateur user322 s'est connecte", output);
-    }
-
-    @Test
-    public void test323() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().safe(false).create();
-        final Map<String, Object> vars = new HashMap<String, Object>();
-        final JexlContext jc = new MapContext(vars);
-        JexlScript script;
-        Object result;
-
-        // nothing in context, ex
-        try {
-            script = jexl.createScript("a.n.t.variable");
-            result = script.execute(jc);
-            Assert.fail("a.n.t.variable is undefined!");
-        } catch (final JexlException.Variable xvar) {
-            Assert.assertTrue(xvar.toString().contains("a.n.t"));
-        }
-
-        // defined and null
-        jc.set("a.n.t.variable", null);
-        script = jexl.createScript("a.n.t.variable");
-        result = script.execute(jc);
-        Assert.assertNull(result);
-
-        // defined and null, dereference
-        jc.set("a.n.t", null);
-        try {
-            script = jexl.createScript("a.n.t[0].variable");
-            result = script.execute(jc);
-            Assert.fail("a.n.t is null!");
-        } catch (final JexlException.Variable xvar) {
-            Assert.assertTrue(xvar.toString().contains("a.n.t"));
-        }
-
-        // undefined, dereference
-        vars.remove("a.n.t");
-        try {
-            script = jexl.createScript("a.n.t[0].variable");
-            result = script.execute(jc);
-            Assert.fail("a.n.t is undefined!");
-        } catch (final JexlException.Variable xvar) {
-            Assert.assertTrue(xvar.toString().contains("a.n.t"));
-        }
-        // defined, derefence undefined property
-        final List<Object> inner = new ArrayList<Object>();
-        vars.put("a.n.t", inner);
-        try {
-            script = jexl.createScript("a.n.t[0].variable");
-            result = script.execute(jc);
-            Assert.fail("a.n.t is null!");
-        } catch (final JexlException.Property xprop) {
-            Assert.assertTrue(xprop.toString().contains("0"));
-        }
-        // defined, derefence undefined property
-        inner.add(42);
-        try {
-            script = jexl.createScript("a.n.t[0].variable");
-            result = script.execute(jc);
-            Assert.fail("a.n.t is null!");
-        } catch (final JexlException.Property xprop) {
-            Assert.assertTrue(xprop.toString().contains("variable"));
-        }
-
-    }
-
-    @Test
-    public void test324() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().create();
-        final String src42 = "new('java.lang.Integer', 42)";
-        final JexlExpression expr0 = jexl.createExpression(src42);
-        Assert.assertEquals(42, expr0.evaluate(null));
-        final String parsed = expr0.getParsedText();
-        Assert.assertEquals(src42, parsed);
-        try {
-            final JexlExpression expr = jexl.createExpression("new()");
-            Assert.fail("should not parse");
-        } catch (final JexlException.Parsing xparse) {
-            Assert.assertTrue(xparse.toString().contains(")"));
-        }
-    }
-
-    @Test
-    public void test325() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().safe(false).create();
-        final Map<String, Object> map = new HashMap<String, Object>() {
-            @Override
-            public Object get(final Object key) {
-                return super.get(key == null ? "" : key);
-            }
-
-            @Override
-            public Object put(final String key, final Object value) {
-                return super.put(key == null ? "" : key, value);
-            }
-        };
-        map.put("42", 42);
-        final JexlContext jc = new MapContext();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("map[null] = 42", "map");
-        result = script.execute(jc, map);
-        Assert.assertEquals(42, result);
-        script = jexl.createScript("map[key]", "map", "key");
-        result = script.execute(jc, map, null);
-        Assert.assertEquals(42, result);
-        result = script.execute(jc, map, "42");
-        Assert.assertEquals(42, result);
-    }
-
-    @Test
-    public void test330() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().create();
-        // Extended form of: 'literal' + VARIABLE   'literal'
-        // missing + operator here ---------------^
-        final String longExpression = ""
-                + //
-                "'THIS IS A VERY VERY VERY VERY VERY VERY VERY "
-                + //
-                "VERY VERY LONG STRING CONCATENATION ' + VARIABLE ' <--- "
-                + //
-                "error: missing + between VARIABLE and literal'";
-        try {
-            jexl.createExpression(longExpression);
-            Assert.fail("parsing malformed expression did not throw exception");
-        } catch (final JexlException.Parsing exception) {
-            Assert.assertTrue(exception.getMessage().contains("VARIABLE"));
-        }
-    }
-
-    @Test
-    public void test331() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result;
-        script = jexl.createScript("a + '\\n' + b", "a", "b");
-        result = script.execute(ctxt, "hello", "world");
-        Assert.assertTrue(result.toString().contains("\n"));
-    }
-
-    @Test
-    public void test347() throws Exception {
-        final String src = "A.B == 5";
-        JexlEngine jexl = new JexlBuilder().safe(true).create();
-        JexlScript script = jexl.createScript(src);
-        Object result = script.execute(null);
-        // safe navigation is lenient wrt null
-        Assert.assertFalse((Boolean) result);
-
-        jexl = new JexlBuilder().strict(true).safe(false).create();
-        JexlContext ctxt = new MapContext();
-        script = jexl.createScript(src);
-        // A and A.B undefined
-        try {
-            result = script.execute(ctxt);
-            Assert.fail("should only succeed with safe navigation");
-        } catch (JexlException xany) {
-            Assert.assertNotNull(xany);
-        }
-        // A is null, A.B is undefined
-        ctxt.set("A", null);
-        try {
-            result = script.execute(ctxt);
-            Assert.fail("should only succeed with safe navigation");
-        } catch (JexlException xany) {
-            Assert.assertNotNull(xany);
-        }
-        // A.B is null
-        ctxt.set("A.B", null);
-        result = script.execute(ctxt);
-        Assert.assertFalse((Boolean) result);
-    }
-
     @Test public void test349() throws Exception {
         String text = "(A ? C.D : E)";
         JexlEngine jexl = new JexlBuilder().safe(true).create();
@@ -1007,6 +804,553 @@ public class Issues300Test_OE25Dev {
         // removed other assertion
         result = script.execute(ctxt, 21);
         Assert.assertEquals(42, result);
+    }
+
+    @Test
+    public void test322b_1_oe() throws Exception {
+        final MapContext ctxt = new MapContext();
+        final String src = "L'utilisateur ${session.user.name} s'est connecte";
+        final JexlEngine jexl = new JexlBuilder().strict(true).create();
+        final JxltEngine jxlt = jexl.createJxltEngine();
+        StringWriter strw;
+        JxltEngine.Template template;
+        String output;
+        template = jxlt.createTemplate("$$", new StringReader(src));
+
+        ctxt.set("session", new Session322());
+        strw = new StringWriter();
+        template.evaluate(ctxt, strw);
+        output = strw.toString();
+        Assert.assertEquals("L'utilisateur user322 s'est connecte", output);
+    }
+
+    @Test
+    public void test322b_2_oe() throws Exception {
+        final MapContext ctxt = new MapContext();
+        final String src = "L'utilisateur ${session.user.name} s'est connecte";
+        final JexlEngine jexl = new JexlBuilder().strict(true).create();
+        final JxltEngine jxlt = jexl.createJxltEngine();
+        StringWriter strw;
+        JxltEngine.Template template;
+        String output;
+        template = jxlt.createTemplate("$$", new StringReader(src));
+
+        ctxt.set("session", new Session322());
+        strw = new StringWriter();
+        template.evaluate(ctxt, strw);
+        output = strw.toString();
+        // removed other assertion
+
+        ctxt.set("session.user", new User322());
+        strw = new StringWriter();
+        template.evaluate(ctxt, strw);
+        output = strw.toString();
+        Assert.assertEquals("L'utilisateur user322 s'est connecte", output);
+    }
+
+    @Test
+    public void test322b_3_oe() throws Exception {
+        final MapContext ctxt = new MapContext();
+        final String src = "L'utilisateur ${session.user.name} s'est connecte";
+        final JexlEngine jexl = new JexlBuilder().strict(true).create();
+        final JxltEngine jxlt = jexl.createJxltEngine();
+        StringWriter strw;
+        JxltEngine.Template template;
+        String output;
+        template = jxlt.createTemplate("$$", new StringReader(src));
+
+        ctxt.set("session", new Session322());
+        strw = new StringWriter();
+        template.evaluate(ctxt, strw);
+        output = strw.toString();
+        // removed other assertion
+
+        ctxt.set("session.user", new User322());
+        strw = new StringWriter();
+        template.evaluate(ctxt, strw);
+        output = strw.toString();
+        // removed other assertion
+
+        ctxt.set("session.user.name", "user322");
+        strw = new StringWriter();
+        template.evaluate(ctxt, strw);
+        output = strw.toString();
+        Assert.assertEquals("L'utilisateur user322 s'est connecte", output);
+    }
+
+    @Test
+    public void test323_2_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().safe(false).create();
+        final Map<String, Object> vars = new HashMap<String, Object>();
+        final JexlContext jc = new MapContext(vars);
+        JexlScript script;
+        Object result;
+
+        // nothing in context, ex
+        try {
+            script = jexl.createScript("a.n.t.variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            Assert.assertTrue(xvar.toString().contains("a.n.t"));
+    }
+    }
+
+    @Test
+    public void test323_3_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().safe(false).create();
+        final Map<String, Object> vars = new HashMap<String, Object>();
+        final JexlContext jc = new MapContext(vars);
+        JexlScript script;
+        Object result;
+
+        // nothing in context, ex
+        try {
+            script = jexl.createScript("a.n.t.variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            // removed other assertion
+        }
+
+        // defined and null
+        jc.set("a.n.t.variable", null);
+        script = jexl.createScript("a.n.t.variable");
+        result = script.execute(jc);
+        Assert.assertNull(result);
+    }
+
+    @Test
+    public void test323_5_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().safe(false).create();
+        final Map<String, Object> vars = new HashMap<String, Object>();
+        final JexlContext jc = new MapContext(vars);
+        JexlScript script;
+        Object result;
+
+        // nothing in context, ex
+        try {
+            script = jexl.createScript("a.n.t.variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            // removed other assertion
+        }
+
+        // defined and null
+        jc.set("a.n.t.variable", null);
+        script = jexl.createScript("a.n.t.variable");
+        result = script.execute(jc);
+        // removed other assertion
+
+        // defined and null, dereference
+        jc.set("a.n.t", null);
+        try {
+            script = jexl.createScript("a.n.t[0].variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            Assert.assertTrue(xvar.toString().contains("a.n.t"));
+    }
+    }
+
+    @Test
+    public void test323_7_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().safe(false).create();
+        final Map<String, Object> vars = new HashMap<String, Object>();
+        final JexlContext jc = new MapContext(vars);
+        JexlScript script;
+        Object result;
+
+        // nothing in context, ex
+        try {
+            script = jexl.createScript("a.n.t.variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            // removed other assertion
+        }
+
+        // defined and null
+        jc.set("a.n.t.variable", null);
+        script = jexl.createScript("a.n.t.variable");
+        result = script.execute(jc);
+        // removed other assertion
+
+        // defined and null, dereference
+        jc.set("a.n.t", null);
+        try {
+            script = jexl.createScript("a.n.t[0].variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            // removed other assertion
+        }
+
+        // undefined, dereference
+        vars.remove("a.n.t");
+        try {
+            script = jexl.createScript("a.n.t[0].variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            Assert.assertTrue(xvar.toString().contains("a.n.t"));
+    }
+    }
+
+    @Test
+    public void test323_9_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().safe(false).create();
+        final Map<String, Object> vars = new HashMap<String, Object>();
+        final JexlContext jc = new MapContext(vars);
+        JexlScript script;
+        Object result;
+
+        // nothing in context, ex
+        try {
+            script = jexl.createScript("a.n.t.variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            // removed other assertion
+        }
+
+        // defined and null
+        jc.set("a.n.t.variable", null);
+        script = jexl.createScript("a.n.t.variable");
+        result = script.execute(jc);
+        // removed other assertion
+
+        // defined and null, dereference
+        jc.set("a.n.t", null);
+        try {
+            script = jexl.createScript("a.n.t[0].variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            // removed other assertion
+        }
+
+        // undefined, dereference
+        vars.remove("a.n.t");
+        try {
+            script = jexl.createScript("a.n.t[0].variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            // removed other assertion
+        }
+        // defined, derefence undefined property
+        final List<Object> inner = new ArrayList<Object>();
+        vars.put("a.n.t", inner);
+        try {
+            script = jexl.createScript("a.n.t[0].variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Property xprop) {
+            Assert.assertTrue(xprop.toString().contains("0"));
+    }
+    }
+
+    @Test
+    public void test323_11_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().safe(false).create();
+        final Map<String, Object> vars = new HashMap<String, Object>();
+        final JexlContext jc = new MapContext(vars);
+        JexlScript script;
+        Object result;
+
+        // nothing in context, ex
+        try {
+            script = jexl.createScript("a.n.t.variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            // removed other assertion
+        }
+
+        // defined and null
+        jc.set("a.n.t.variable", null);
+        script = jexl.createScript("a.n.t.variable");
+        result = script.execute(jc);
+        // removed other assertion
+
+        // defined and null, dereference
+        jc.set("a.n.t", null);
+        try {
+            script = jexl.createScript("a.n.t[0].variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            // removed other assertion
+        }
+
+        // undefined, dereference
+        vars.remove("a.n.t");
+        try {
+            script = jexl.createScript("a.n.t[0].variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Variable xvar) {
+            // removed other assertion
+        }
+        // defined, derefence undefined property
+        final List<Object> inner = new ArrayList<Object>();
+        vars.put("a.n.t", inner);
+        try {
+            script = jexl.createScript("a.n.t[0].variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Property xprop) {
+            // removed other assertion
+        }
+        // defined, derefence undefined property
+        inner.add(42);
+        try {
+            script = jexl.createScript("a.n.t[0].variable");
+            result = script.execute(jc);
+            // removed other assertion
+        } catch (final JexlException.Property xprop) {
+            Assert.assertTrue(xprop.toString().contains("variable"));
+    }
+    }
+
+    @Test
+    public void test324_1_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().create();
+        final String src42 = "new('java.lang.Integer', 42)";
+        final JexlExpression expr0 = jexl.createExpression(src42);
+        Assert.assertEquals(42, expr0.evaluate(null));
+    }
+
+    @Test
+    public void test324_2_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().create();
+        final String src42 = "new('java.lang.Integer', 42)";
+        final JexlExpression expr0 = jexl.createExpression(src42);
+        // removed other assertion
+        final String parsed = expr0.getParsedText();
+        Assert.assertEquals(src42, parsed);
+    }
+
+    @Test
+    public void test324_4_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().create();
+        final String src42 = "new('java.lang.Integer', 42)";
+        final JexlExpression expr0 = jexl.createExpression(src42);
+        // removed other assertion
+        final String parsed = expr0.getParsedText();
+        // removed other assertion
+        try {
+            final JexlExpression expr = jexl.createExpression("new()");
+            // removed other assertion
+        } catch (final JexlException.Parsing xparse) {
+            Assert.assertTrue(xparse.toString().contains(")"));
+    }
+    }
+
+    @Test
+    public void test325_1_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().safe(false).create();
+        final Map<String, Object> map = new HashMap<String, Object>() {
+            @Override
+            public Object get(final Object key) {
+                return super.get(key == null ? "" : key);
+            }
+
+            @Override
+            public Object put(final String key, final Object value) {
+                return super.put(key == null ? "" : key, value);
+            }
+        };
+        map.put("42", 42);
+        final JexlContext jc = new MapContext();
+        JexlScript script;
+        Object result;
+
+        script = jexl.createScript("map[null] = 42", "map");
+        result = script.execute(jc, map);
+        Assert.assertEquals(42, result);
+    }
+
+    @Test
+    public void test325_2_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().safe(false).create();
+        final Map<String, Object> map = new HashMap<String, Object>() {
+            @Override
+            public Object get(final Object key) {
+                return super.get(key == null ? "" : key);
+            }
+
+            @Override
+            public Object put(final String key, final Object value) {
+                return super.put(key == null ? "" : key, value);
+            }
+        };
+        map.put("42", 42);
+        final JexlContext jc = new MapContext();
+        JexlScript script;
+        Object result;
+
+        script = jexl.createScript("map[null] = 42", "map");
+        result = script.execute(jc, map);
+        // removed other assertion
+        script = jexl.createScript("map[key]", "map", "key");
+        result = script.execute(jc, map, null);
+        Assert.assertEquals(42, result);
+    }
+
+    @Test
+    public void test325_3_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().safe(false).create();
+        final Map<String, Object> map = new HashMap<String, Object>() {
+            @Override
+            public Object get(final Object key) {
+                return super.get(key == null ? "" : key);
+            }
+
+            @Override
+            public Object put(final String key, final Object value) {
+                return super.put(key == null ? "" : key, value);
+            }
+        };
+        map.put("42", 42);
+        final JexlContext jc = new MapContext();
+        JexlScript script;
+        Object result;
+
+        script = jexl.createScript("map[null] = 42", "map");
+        result = script.execute(jc, map);
+        // removed other assertion
+        script = jexl.createScript("map[key]", "map", "key");
+        result = script.execute(jc, map, null);
+        // removed other assertion
+        result = script.execute(jc, map, "42");
+        Assert.assertEquals(42, result);
+    }
+
+    @Test
+    public void test330_2_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().create();
+        // Extended form of: 'literal' + VARIABLE   'literal'
+        // missing + operator here ---------------^
+        final String longExpression = ""
+                + //
+                "'THIS IS A VERY VERY VERY VERY VERY VERY VERY "
+                + //
+                "VERY VERY LONG STRING CONCATENATION ' + VARIABLE ' <--- "
+                + //
+                "error: missing + between VARIABLE and literal'";
+        try {
+            jexl.createExpression(longExpression);
+            // removed other assertion
+        } catch (final JexlException.Parsing exception) {
+            Assert.assertTrue(exception.getMessage().contains("VARIABLE"));
+    }
+    }
+
+    @Test
+    public void test331_1_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().create();
+        final JexlContext ctxt = new MapContext();
+        JexlScript script;
+        Object result;
+        script = jexl.createScript("a + '\\n' + b", "a", "b");
+        result = script.execute(ctxt, "hello", "world");
+        Assert.assertTrue(result.toString().contains("\n"));
+    }
+
+    @Test
+    public void test347_1_oe() throws Exception {
+        final String src = "A.B == 5";
+        JexlEngine jexl = new JexlBuilder().safe(true).create();
+        JexlScript script = jexl.createScript(src);
+        Object result = script.execute(null);
+        // safe navigation is lenient wrt null
+        Assert.assertFalse((Boolean) result);
+    }
+
+    @Test
+    public void test347_3_oe() throws Exception {
+        final String src = "A.B == 5";
+        JexlEngine jexl = new JexlBuilder().safe(true).create();
+        JexlScript script = jexl.createScript(src);
+        Object result = script.execute(null);
+        // safe navigation is lenient wrt null
+        // removed other assertion
+
+        jexl = new JexlBuilder().strict(true).safe(false).create();
+        JexlContext ctxt = new MapContext();
+        script = jexl.createScript(src);
+        // A and A.B undefined
+        try {
+            result = script.execute(ctxt);
+            // removed other assertion
+        } catch (JexlException xany) {
+            Assert.assertNotNull(xany);
+    }
+    }
+
+    @Test
+    public void test347_5_oe() throws Exception {
+        final String src = "A.B == 5";
+        JexlEngine jexl = new JexlBuilder().safe(true).create();
+        JexlScript script = jexl.createScript(src);
+        Object result = script.execute(null);
+        // safe navigation is lenient wrt null
+        // removed other assertion
+
+        jexl = new JexlBuilder().strict(true).safe(false).create();
+        JexlContext ctxt = new MapContext();
+        script = jexl.createScript(src);
+        // A and A.B undefined
+        try {
+            result = script.execute(ctxt);
+            // removed other assertion
+        } catch (JexlException xany) {
+            // removed other assertion
+        }
+        // A is null, A.B is undefined
+        ctxt.set("A", null);
+        try {
+            result = script.execute(ctxt);
+            // removed other assertion
+        } catch (JexlException xany) {
+            Assert.assertNotNull(xany);
+    }
+    }
+
+    @Test
+    public void test347_6_oe() throws Exception {
+        final String src = "A.B == 5";
+        JexlEngine jexl = new JexlBuilder().safe(true).create();
+        JexlScript script = jexl.createScript(src);
+        Object result = script.execute(null);
+        // safe navigation is lenient wrt null
+        // removed other assertion
+
+        jexl = new JexlBuilder().strict(true).safe(false).create();
+        JexlContext ctxt = new MapContext();
+        script = jexl.createScript(src);
+        // A and A.B undefined
+        try {
+            result = script.execute(ctxt);
+            // removed other assertion
+        } catch (JexlException xany) {
+            // removed other assertion
+        }
+        // A is null, A.B is undefined
+        ctxt.set("A", null);
+        try {
+            result = script.execute(ctxt);
+            // removed other assertion
+        } catch (JexlException xany) {
+            // removed other assertion
+        }
+        // A.B is null
+        ctxt.set("A.B", null);
+        result = script.execute(ctxt);
+        Assert.assertFalse((Boolean) result);
     }
 
 }

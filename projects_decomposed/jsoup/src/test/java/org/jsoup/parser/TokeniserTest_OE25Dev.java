@@ -238,6 +238,401 @@ public class TokeniserTest_OE25Dev {
     }
     }
 
+    @Test public void handleSuperLargeTagNames() {
+        // unlikely, but valid. so who knows.
+
+        StringBuilder_1_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("LargeTagName");
+        } while (sb.length() < maxBufferLen);
+        String tag = sb.toString();
+        String html = "<" + tag + ">One</" + tag + ">";
+
+        Document doc = Parser.htmlParser().settings(ParseSettings.preserveCase).parseInput(html, "");
+        Elements els = doc.select(tag);
+        assertEquals(1, els.size());
+        }
+
+    @Test public void handleSuperLargeTagNames() {
+        // unlikely, but valid. so who knows.
+
+        StringBuilder_2_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("LargeTagName");
+        } while (sb.length() < maxBufferLen);
+        String tag = sb.toString();
+        String html = "<" + tag + ">One</" + tag + ">";
+
+        Document doc = Parser.htmlParser().settings(ParseSettings.preserveCase).parseInput(html, "");
+        Elements els = doc.select(tag);
+        // removed other assertion
+        Element el = els.first();
+        assertNotNull(el);
+        }
+
+    @Test public void handleSuperLargeTagNames() {
+        // unlikely, but valid. so who knows.
+
+        StringBuilder_3_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("LargeTagName");
+        } while (sb.length() < maxBufferLen);
+        String tag = sb.toString();
+        String html = "<" + tag + ">One</" + tag + ">";
+
+        Document doc = Parser.htmlParser().settings(ParseSettings.preserveCase).parseInput(html, "");
+        Elements els = doc.select(tag);
+        // removed other assertion
+        Element el = els.first();
+        // removed other assertion
+        assertEquals("One", el.text());
+        }
+
+    @Test public void handleSuperLargeTagNames() {
+        // unlikely, but valid. so who knows.
+
+        StringBuilder_4_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("LargeTagName");
+        } while (sb.length() < maxBufferLen);
+        String tag = sb.toString();
+        String html = "<" + tag + ">One</" + tag + ">";
+
+        Document doc = Parser.htmlParser().settings(ParseSettings.preserveCase).parseInput(html, "");
+        Elements els = doc.select(tag);
+        // removed other assertion
+        Element el = els.first();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(tag, el.tagName());
+        }
+
+    @Test public void handleSuperLargeAttributeName() {
+        StringBuilder_1_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("LargAttributeName");
+        } while (sb.length() < maxBufferLen);
+        String attrName = sb.toString();
+        String html = "<p " + attrName + "=foo>One</p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.getElementsByAttribute(attrName);
+        assertEquals(1, els.size());
+        }
+
+    @Test public void handleSuperLargeAttributeName() {
+        StringBuilder_2_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("LargAttributeName");
+        } while (sb.length() < maxBufferLen);
+        String attrName = sb.toString();
+        String html = "<p " + attrName + "=foo>One</p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.getElementsByAttribute(attrName);
+        // removed other assertion
+        Element el = els.first();
+        assertNotNull(el);
+        }
+
+    @Test public void handleSuperLargeAttributeName() {
+        StringBuilder_3_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("LargAttributeName");
+        } while (sb.length() < maxBufferLen);
+        String attrName = sb.toString();
+        String html = "<p " + attrName + "=foo>One</p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.getElementsByAttribute(attrName);
+        // removed other assertion
+        Element el = els.first();
+        // removed other assertion
+        assertEquals("One", el.text());
+        }
+
+    @Test public void handleSuperLargeAttributeName() {
+        StringBuilder_4_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("LargAttributeName");
+        } while (sb.length() < maxBufferLen);
+        String attrName = sb.toString();
+        String html = "<p " + attrName + "=foo>One</p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.getElementsByAttribute(attrName);
+        // removed other assertion
+        Element el = els.first();
+        // removed other assertion
+        // removed other assertion
+        Attribute attribute = el.attributes().asList().get(0);
+        assertEquals(attrName.toLowerCase(), attribute.getKey());
+        }
+
+    @Test public void handleSuperLargeAttributeName() {
+        StringBuilder_5_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("LargAttributeName");
+        } while (sb.length() < maxBufferLen);
+        String attrName = sb.toString();
+        String html = "<p " + attrName + "=foo>One</p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.getElementsByAttribute(attrName);
+        // removed other assertion
+        Element el = els.first();
+        // removed other assertion
+        // removed other assertion
+        Attribute attribute = el.attributes().asList().get(0);
+        // removed other assertion
+        assertEquals("foo", attribute.getValue());
+        }
+
+    @Test public void handleLargeText() {
+        StringBuilder_1_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("A Large Amount of Text");
+        } while (sb.length() < maxBufferLen);
+        String text = sb.toString();
+        String html = "<p>" + text + "</p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("p");
+        assertEquals(1, els.size());
+        }
+
+    @Test public void handleLargeText() {
+        StringBuilder_2_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("A Large Amount of Text");
+        } while (sb.length() < maxBufferLen);
+        String text = sb.toString();
+        String html = "<p>" + text + "</p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("p");
+        // removed other assertion
+        Element el = els.first();
+
+        assertNotNull(el);
+        }
+
+    @Test public void handleLargeText() {
+        StringBuilder_3_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("A Large Amount of Text");
+        } while (sb.length() < maxBufferLen);
+        String text = sb.toString();
+        String html = "<p>" + text + "</p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("p");
+        // removed other assertion
+        Element el = els.first();
+
+        // removed other assertion
+        assertEquals(text, el.text());
+        }
+
+    @Test public void handleLargeComment() {
+        StringBuilder_1_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("Quite a comment ");
+        } while (sb.length() < maxBufferLen);
+        String comment = sb.toString();
+        String html = "<p><!-- " + comment + " --></p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("p");
+        assertEquals(1, els.size());
+        }
+
+    @Test public void handleLargeComment() {
+        StringBuilder_2_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("Quite a comment ");
+        } while (sb.length() < maxBufferLen);
+        String comment = sb.toString();
+        String html = "<p><!-- " + comment + " --></p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("p");
+        // removed other assertion
+        Element el = els.first();
+
+        assertNotNull(el);
+        }
+
+    @Test public void handleLargeComment() {
+        StringBuilder_3_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("Quite a comment ");
+        } while (sb.length() < maxBufferLen);
+        String comment = sb.toString();
+        String html = "<p><!-- " + comment + " --></p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("p");
+        // removed other assertion
+        Element el = els.first();
+
+        // removed other assertion
+        Comment child = (Comment) el.childNode(0);
+        assertEquals(" " + comment + " ", child.getData());
+        }
+
+    @Test public void handleLargeCdata() {
+        StringBuilder_1_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("Quite a lot of CDATA <><><><>");
+        } while (sb.length() < maxBufferLen);
+        String cdata = sb.toString();
+        String html = "<p><![CDATA[" + cdata + "]]></p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("p");
+        assertEquals(1, els.size());
+        }
+
+    @Test public void handleLargeCdata() {
+        StringBuilder_2_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("Quite a lot of CDATA <><><><>");
+        } while (sb.length() < maxBufferLen);
+        String cdata = sb.toString();
+        String html = "<p><![CDATA[" + cdata + "]]></p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("p");
+        // removed other assertion
+        Element el = els.first();
+
+        assertNotNull(el);
+        }
+
+    @Test public void handleLargeCdata() {
+        StringBuilder_3_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("Quite a lot of CDATA <><><><>");
+        } while (sb.length() < maxBufferLen);
+        String cdata = sb.toString();
+        String html = "<p><![CDATA[" + cdata + "]]></p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("p");
+        // removed other assertion
+        Element el = els.first();
+
+        // removed other assertion
+        TextNode child = (TextNode) el.childNode(0);
+        assertEquals(cdata, el.text());
+        }
+
+    @Test public void handleLargeCdata() {
+        StringBuilder_4_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("Quite a lot of CDATA <><><><>");
+        } while (sb.length() < maxBufferLen);
+        String cdata = sb.toString();
+        String html = "<p><![CDATA[" + cdata + "]]></p>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("p");
+        // removed other assertion
+        Element el = els.first();
+
+        // removed other assertion
+        TextNode child = (TextNode) el.childNode(0);
+        // removed other assertion
+        assertEquals(cdata, child.getWholeText());
+        }
+
+    @Test public void handleLargeTitle() {
+        StringBuilder_1_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("Quite a long title");
+        } while (sb.length() < maxBufferLen);
+        String title = sb.toString();
+        String html = "<title>" + title + "</title>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("title");
+        assertEquals(1, els.size());
+        }
+
+    @Test public void handleLargeTitle() {
+        StringBuilder_2_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("Quite a long title");
+        } while (sb.length() < maxBufferLen);
+        String title = sb.toString();
+        String html = "<title>" + title + "</title>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("title");
+        // removed other assertion
+        Element el = els.first();
+
+        assertNotNull(el);
+        }
+
+    @Test public void handleLargeTitle() {
+        StringBuilder_3_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("Quite a long title");
+        } while (sb.length() < maxBufferLen);
+        String title = sb.toString();
+        String html = "<title>" + title + "</title>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("title");
+        // removed other assertion
+        Element el = els.first();
+
+        // removed other assertion
+        TextNode child = (TextNode) el.childNode(0);
+        assertEquals(title, el.text());
+        }
+
+    @Test public void handleLargeTitle() {
+        StringBuilder_4_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("Quite a long title");
+        } while (sb.length() < maxBufferLen);
+        String title = sb.toString();
+        String html = "<title>" + title + "</title>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("title");
+        // removed other assertion
+        Element el = els.first();
+
+        // removed other assertion
+        TextNode child = (TextNode) el.childNode(0);
+        // removed other assertion
+        assertEquals(title, child.getWholeText());
+        }
+
+    @Test public void handleLargeTitle() {
+        StringBuilder_5_oe sb = new StringBuilder(maxBufferLen);
+        do {
+            sb.append("Quite a long title");
+        } while (sb.length() < maxBufferLen);
+        String title = sb.toString();
+        String html = "<title>" + title + "</title>";
+
+        Document doc = Jsoup.parse(html);
+        Elements els = doc.select("title");
+        // removed other assertion
+        Element el = els.first();
+
+        // removed other assertion
+        TextNode child = (TextNode) el.childNode(0);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(title, doc.title());
+        }
+
     @Test public void cp1252Entities() {
         assertEquals_1_oe("\u20ac", Jsoup.parse("&#0128;").text());
         }
@@ -251,6 +646,50 @@ public class TokeniserTest_OE25Dev {
         assertEquals_3_oe("\u20ac", Jsoup.parse("&#0128;").text());
         // removed other assertion
         assertEquals("\u20ac", Jsoup.parse("&#x80;").text());
+        }
+
+    @Test public void cp1252EntitiesProduceError() {
+        Parser_1_oe parser = new Parser(new HtmlTreeBuilder());
+        parser.setTrackErrors(10);
+        assertEquals("\u20ac", parser.parseInput("<html><body>&#0128;</body></html>", "").text());
+        }
+
+    @Test public void cp1252EntitiesProduceError() {
+        Parser_2_oe parser = new Parser(new HtmlTreeBuilder());
+        parser.setTrackErrors(10);
+        // removed other assertion
+        assertEquals(1, parser.getErrors().size());
+        }
+
+    @Test public void canParseVeryLongBogusComment() {
+        StringBuilder_1_oe commentData = new StringBuilder(maxBufferLen);
+        do {
+            commentData.append("blah blah blah blah ");
+        } while (commentData.length() < maxBufferLen);
+        String expectedCommentData = commentData.toString();
+        String testMarkup = "<html><body><!" + expectedCommentData + "></body></html>";
+        Parser parser = new Parser(new HtmlTreeBuilder());
+
+        Document doc = parser.parseInput(testMarkup, "");
+
+        Node commentNode = doc.body().childNode(0);
+        assertTrue(commentNode instanceof Comment, "Expected comment node");
+        }
+
+    @Test public void canParseVeryLongBogusComment() {
+        StringBuilder_2_oe commentData = new StringBuilder(maxBufferLen);
+        do {
+            commentData.append("blah blah blah blah ");
+        } while (commentData.length() < maxBufferLen);
+        String expectedCommentData = commentData.toString();
+        String testMarkup = "<html><body><!" + expectedCommentData + "></body></html>";
+        Parser parser = new Parser(new HtmlTreeBuilder());
+
+        Document doc = parser.parseInput(testMarkup, "");
+
+        Node commentNode = doc.body().childNode(0);
+        // removed other assertion
+        assertEquals(expectedCommentData, ((Comment)commentNode).getData());
         }
 
     @Test public void canParseCdataEndingAtEdgeOfBuffer() {

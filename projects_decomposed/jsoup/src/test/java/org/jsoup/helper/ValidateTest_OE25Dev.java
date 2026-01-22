@@ -84,6 +84,22 @@ public class ValidateTest_OE25Dev {
         }
         }
 
+    @Test void stacktraceFiltersOutValidateClass() {
+        boolean threw = false;
+        try {
+            Validate.notNull_4_oe(null);
+        } catch (ValidationException e) {
+            threw = true;
+            // removed other assertion
+            StackTraceElement[] stackTrace = e.getStackTrace();
+            for (StackTraceElement trace : stackTrace) {
+                // removed other assertion
+            }
+            // removed other assertion
+        }
+        Assertions.assertTrue(threw);
+        }
+
     @Test void nonnullParam() {
         boolean threw = true;
         try {
@@ -91,6 +107,16 @@ public class ValidateTest_OE25Dev {
         } catch (ValidationException e) {
             assertEquals("The parameter 'foo' must not be null.", e.getMessage());
         }
+        }
+
+    @Test void nonnullParam() {
+        boolean threw = true;
+        try {
+            Validate.notNullParam_2_oe(null, "foo");
+        } catch (ValidationException e) {
+            // removed other assertion
+        }
+        assertTrue(threw);
         }
 
 }

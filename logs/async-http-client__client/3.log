@@ -22,7 +22,7 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 174 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/target/test-classes
+[INFO] Compiling 173 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/test/TestUtils.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/test/TestUtils.java: Recompile with -Xlint:deprecation for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/RC1KTest_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
@@ -42,8 +42,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  17.378 s
-[INFO] Finished at: 2026-01-22T03:29:10-06:00
+[INFO] Total time:  15.469 s
+[INFO] Finished at: 2026-01-22T16:31:43-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/request/body/EmptyBodyTest_OE25Dev.java:[105,9] exception java.lang.InterruptedException is never thrown in body of corresponding try statement

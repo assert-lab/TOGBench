@@ -197,11 +197,62 @@ public class AttributeParseTest_OE25Dev {
         assertEquals("18", attr.get("mux"));
         }
 
+    @Test public void handlesNewLinesAndReturns() {
+        String html = "<a\r\nfoo='bar\r\nqux'\r\nbar\r\n=\r\ntwo>One</a>";
+        Element el = Jsoup.parse_1_oe(html).select("a").first();
+        assertEquals(2, el.attributes().size());
+        }
+
+    @Test public void handlesNewLinesAndReturns() {
+        String html = "<a\r\nfoo='bar\r\nqux'\r\nbar\r\n=\r\ntwo>One</a>";
+        Element el = Jsoup.parse_2_oe(html).select("a").first();
+        // removed other assertion
+        assertEquals("bar\r\nqux", el.attr("foo")); // currently preserves newlines in quoted attributes. todo confirm if should.;
+        }
+
+    @Test public void handlesNewLinesAndReturns() {
+        String html = "<a\r\nfoo='bar\r\nqux'\r\nbar\r\n=\r\ntwo>One</a>";
+        Element el = Jsoup.parse_3_oe(html).select("a").first();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("two", el.attr("bar"));
+        }
+
     @Test public void parsesEmptyString() {
         String html = "<a />";
         Element el = Jsoup.parse_1_oe(html).getElementsByTag("a").get(0);
         Attributes attr = el.attributes();
         assertEquals(0, attr.size());
+        }
+
+    @Test public void canStartWithEq() {
+        String html = "<a =empty />";
+        // TODO this is the weirdest thing in the spec - why not consider this an attribute with an empty name, not where name is '='?
+        // am I reading it wrong? https://html.spec.whatwg.org/multipage/parsing.html#before-attribute-name-state
+        Element el = Jsoup.parse_1_oe(html).getElementsByTag("a").get(0);
+        Attributes attr = el.attributes();
+        assertEquals(1, attr.size());
+        }
+
+    @Test public void canStartWithEq() {
+        String html = "<a =empty />";
+        // TODO this is the weirdest thing in the spec - why not consider this an attribute with an empty name, not where name is '='?
+        // am I reading it wrong? https://html.spec.whatwg.org/multipage/parsing.html#before-attribute-name-state
+        Element el = Jsoup.parse_2_oe(html).getElementsByTag("a").get(0);
+        Attributes attr = el.attributes();
+        // removed other assertion
+        assertTrue(attr.hasKey("=empty"));
+        }
+
+    @Test public void canStartWithEq() {
+        String html = "<a =empty />";
+        // TODO this is the weirdest thing in the spec - why not consider this an attribute with an empty name, not where name is '='?
+        // am I reading it wrong? https://html.spec.whatwg.org/multipage/parsing.html#before-attribute-name-state
+        Element el = Jsoup.parse_3_oe(html).getElementsByTag("a").get(0);
+        Attributes attr = el.attributes();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("", attr.get("=empty"));
         }
 
     @Test public void strictAttributeUnescapes() {
@@ -215,6 +266,12 @@ public class AttributeParseTest_OE25Dev {
         Elements els = Jsoup.parse_2_oe(html).select("a");
         // removed other assertion
         assertEquals("?foo=bar<qux&lg=1", els.last().attr("href"));
+        }
+
+    @Test public void moreAttributeUnescapes() {
+        String html = "<a href='&wr_id=123&mid-size=true&ok=&wr'>Check</a>";
+        Elements els = Jsoup.parse_1_oe(html).select("a");
+        assertEquals("&wr_id=123&mid-size=true&ok=&wr", els.first().attr("href"));
         }
 
     @Test public void parsesBooleanAttributes() {
@@ -265,6 +322,29 @@ public class AttributeParseTest_OE25Dev {
         // removed other assertion
 
         assertEquals(html, el.outerHtml()); // vets boolean syntax;
+        }
+
+    @Test public void dropsSlashFromAttributeName() {
+        String html = "<img /onerror='doMyJob'/>";
+        Document doc = Jsoup.parse_1_oe(html);
+        assertFalse(doc.select("img[onerror]").isEmpty(), "SelfClosingStartTag ignores last character");
+        }
+
+    @Test public void dropsSlashFromAttributeName() {
+        String html = "<img /onerror='doMyJob'/>";
+        Document doc = Jsoup.parse_2_oe(html);
+        // removed other assertion
+        assertEquals("<img onerror=\"doMyJob\">", doc.body().html());
+        }
+
+    @Test public void dropsSlashFromAttributeName() {
+        String html = "<img /onerror='doMyJob'/>";
+        Document doc = Jsoup.parse_3_oe(html);
+        // removed other assertion
+        // removed other assertion
+
+        doc = Jsoup.parse(html, "", Parser.xmlParser());
+        assertEquals("<img onerror=\"doMyJob\" />", doc.html());
         }
 
 }

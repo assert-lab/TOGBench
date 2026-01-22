@@ -34,7 +34,7 @@ run_mvn() {
   local dir="$1"
   local log="$2"
   set +e
-  timeout 20m bash -c "cd \"$dir\" && mvn --color never test -Dtest=\"$TEST_PATTERN\" > \"$log\""
+  bash -c "cd \"$dir\" && mvn --color never test -Dtest=\"$TEST_PATTERN\" > \"$log\""
   local ec=$?
   set -e
   if [ $ec -eq 124 ]; then

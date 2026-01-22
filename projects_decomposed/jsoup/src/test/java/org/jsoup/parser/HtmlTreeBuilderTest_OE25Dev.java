@@ -51,4 +51,18 @@ public class HtmlTreeBuilderTest_OE25Dev {
         assertNotNull(parseMethod);
         }
 
+    @Test public void nonnullAssertions() throws NoSuchMethodException {
+        Method parseMethod = TreeBuilder.class.getDeclaredMethod_2_oe("parse", Reader.class, String.class, Parser.class);
+        // removed other assertion
+        Annotation[] declaredAnnotations = parseMethod.getDeclaredAnnotations();
+        boolean seen = false;
+        for (Annotation annotation : declaredAnnotations) {
+            if (annotation.annotationType().isAssignableFrom(ParametersAreNonnullByDefault.class))
+                seen = true;
+        }
+
+        // would need to rework this if/when that annotation moves from the method to the class / package.
+        assertTrue(seen);
+        }
+
 }

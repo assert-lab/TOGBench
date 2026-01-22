@@ -14644,7 +14644,541 @@ conf_1609_1,"    @Test
     }
     }
 ",TestInMemoryNodeModelTrackedNodes::testUntrackNode_1_oe
-conf_1687_1,"    @Test
+conf_1627_3,"    @Test
+    public void testIndices_3_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[1]/*"");
+        assertEquals(""Wrong number of children"", CHILD_COUNT, nodes.size());
+        int index = 1;
+        for (final Iterator<?> it = nodes.iterator(); it.hasNext(); index++) {
+            final ImmutableNode node = (ImmutableNode) it.next();
+            assertEquals(""Wrong node value for child "" + index, ""2."" + index, node.getValue());
+        }
+    }
+
+    /**
+     * Tests accessing the parent axis.
+     */
+    @Test
+    public void testParentAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME2 + ""/parent::*"");
+        assertEquals(""Wrong number of parent nodes"", 1, nodes.size());
+    }
+    }
+",TestConfigurationNodePointerFactory::testIndices_3_oe
+conf_1627_4,"    @Test
+    public void testIndices_4_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[1]/*"");
+        assertEquals(""Wrong number of children"", CHILD_COUNT, nodes.size());
+        int index = 1;
+        for (final Iterator<?> it = nodes.iterator(); it.hasNext(); index++) {
+            final ImmutableNode node = (ImmutableNode) it.next();
+            assertEquals(""Wrong node value for child "" + index, ""2."" + index, node.getValue());
+        }
+    }
+
+    /**
+     * Tests accessing the parent axis.
+     */
+    @Test
+    public void testParentAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME2 + ""/parent::*"");
+        // removed other assertion
+    }
+
+    /**
+     * Tests accessing the preceding sibling axis.
+     */
+    @Test
+    public void testPrecedingSiblingAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[2]/preceding-sibling::*"");
+        assertEquals(""Wrong number of preceding siblings"", 3, nodes.size());
+    }
+    }
+",TestConfigurationNodePointerFactory::testIndices_4_oe
+conf_1627_5,"    @Test
+    public void testIndices_5_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[1]/*"");
+        assertEquals(""Wrong number of children"", CHILD_COUNT, nodes.size());
+        int index = 1;
+        for (final Iterator<?> it = nodes.iterator(); it.hasNext(); index++) {
+            final ImmutableNode node = (ImmutableNode) it.next();
+            assertEquals(""Wrong node value for child "" + index, ""2."" + index, node.getValue());
+        }
+    }
+
+    /**
+     * Tests accessing the parent axis.
+     */
+    @Test
+    public void testParentAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME2 + ""/parent::*"");
+        // removed other assertion
+    }
+
+    /**
+     * Tests accessing the preceding sibling axis.
+     */
+    @Test
+    public void testPrecedingSiblingAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[2]/preceding-sibling::*"");
+        // removed other assertion
+        for (int index = 0, value = 3; index < nodes.size(); index++, value--) {
+            assertEquals(""Wrong node index"", String.valueOf(value), ((ImmutableNode) nodes.get(index)).getValue());
+    }
+    }
+    }
+",TestConfigurationNodePointerFactory::testIndices_5_oe
+conf_1627_6,"    @Test
+    public void testIndices_6_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[1]/*"");
+        assertEquals(""Wrong number of children"", CHILD_COUNT, nodes.size());
+        int index = 1;
+        for (final Iterator<?> it = nodes.iterator(); it.hasNext(); index++) {
+            final ImmutableNode node = (ImmutableNode) it.next();
+            assertEquals(""Wrong node value for child "" + index, ""2."" + index, node.getValue());
+        }
+    }
+
+    /**
+     * Tests accessing the parent axis.
+     */
+    @Test
+    public void testParentAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME2 + ""/parent::*"");
+        // removed other assertion
+    }
+
+    /**
+     * Tests accessing the preceding sibling axis.
+     */
+    @Test
+    public void testPrecedingSiblingAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[2]/preceding-sibling::*"");
+        // removed other assertion
+        for (int index = 0, value = 3; index < nodes.size(); index++, value--) {
+            // removed other assertion
+        }
+    }
+
+    /**
+     * Tests whether the attribute of a node can be queried.
+     */
+    @Test
+    public void testQueryAttribute() {
+        assertEquals(""Incorrect attribute value"", ""1"", context.getValue(""/"" + CHILD_NAME2 + ""[1]/@"" + ATTR_NAME));
+    }
+    }
+",TestConfigurationNodePointerFactory::testIndices_6_oe
+conf_1627_7,"    @Test
+    public void testIndices_7_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[1]/*"");
+        assertEquals(""Wrong number of children"", CHILD_COUNT, nodes.size());
+        int index = 1;
+        for (final Iterator<?> it = nodes.iterator(); it.hasNext(); index++) {
+            final ImmutableNode node = (ImmutableNode) it.next();
+            assertEquals(""Wrong node value for child "" + index, ""2."" + index, node.getValue());
+        }
+    }
+
+    /**
+     * Tests accessing the parent axis.
+     */
+    @Test
+    public void testParentAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME2 + ""/parent::*"");
+        // removed other assertion
+    }
+
+    /**
+     * Tests accessing the preceding sibling axis.
+     */
+    @Test
+    public void testPrecedingSiblingAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[2]/preceding-sibling::*"");
+        // removed other assertion
+        for (int index = 0, value = 3; index < nodes.size(); index++, value--) {
+            // removed other assertion
+        }
+    }
+
+    /**
+     * Tests whether the attribute of a node can be queried.
+     */
+    @Test
+    public void testQueryAttribute() {
+        // removed other assertion
+    }
+
+    /**
+     * Tests whether an attribute of the root node can be queried.
+     */
+    @Test
+    public void testQueryRootAttribute() {
+        assertEquals(""Did not find attribute of root node"", ""true"", context.getValue(""@"" + ATTR_ROOT));
+    }
+    }
+",TestConfigurationNodePointerFactory::testIndices_7_oe
+conf_1627_8,"    @Test
+    public void testIndices_8_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[1]/*"");
+        assertEquals(""Wrong number of children"", CHILD_COUNT, nodes.size());
+        int index = 1;
+        for (final Iterator<?> it = nodes.iterator(); it.hasNext(); index++) {
+            final ImmutableNode node = (ImmutableNode) it.next();
+            assertEquals(""Wrong node value for child "" + index, ""2."" + index, node.getValue());
+        }
+    }
+
+    /**
+     * Tests accessing the parent axis.
+     */
+    @Test
+    public void testParentAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME2 + ""/parent::*"");
+        // removed other assertion
+    }
+
+    /**
+     * Tests accessing the preceding sibling axis.
+     */
+    @Test
+    public void testPrecedingSiblingAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[2]/preceding-sibling::*"");
+        // removed other assertion
+        for (int index = 0, value = 3; index < nodes.size(); index++, value--) {
+            // removed other assertion
+        }
+    }
+
+    /**
+     * Tests whether the attribute of a node can be queried.
+     */
+    @Test
+    public void testQueryAttribute() {
+        // removed other assertion
+    }
+
+    /**
+     * Tests whether an attribute of the root node can be queried.
+     */
+    @Test
+    public void testQueryRootAttribute() {
+        // removed other assertion
+    }
+
+    /**
+     * Tests simple XPath expressions.
+     */
+    @Test
+    public void testSimpleXPath() {
+        List<?> results = context.selectNodes(CHILD_NAME1);
+        assertEquals(""Incorrect number of results"", 2, results.size());
+    }
+    }
+",TestConfigurationNodePointerFactory::testIndices_8_oe
+conf_1627_9,"    @Test
+    public void testIndices_9_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[1]/*"");
+        assertEquals(""Wrong number of children"", CHILD_COUNT, nodes.size());
+        int index = 1;
+        for (final Iterator<?> it = nodes.iterator(); it.hasNext(); index++) {
+            final ImmutableNode node = (ImmutableNode) it.next();
+            assertEquals(""Wrong node value for child "" + index, ""2."" + index, node.getValue());
+        }
+    }
+
+    /**
+     * Tests accessing the parent axis.
+     */
+    @Test
+    public void testParentAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME2 + ""/parent::*"");
+        // removed other assertion
+    }
+
+    /**
+     * Tests accessing the preceding sibling axis.
+     */
+    @Test
+    public void testPrecedingSiblingAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[2]/preceding-sibling::*"");
+        // removed other assertion
+        for (int index = 0, value = 3; index < nodes.size(); index++, value--) {
+            // removed other assertion
+        }
+    }
+
+    /**
+     * Tests whether the attribute of a node can be queried.
+     */
+    @Test
+    public void testQueryAttribute() {
+        // removed other assertion
+    }
+
+    /**
+     * Tests whether an attribute of the root node can be queried.
+     */
+    @Test
+    public void testQueryRootAttribute() {
+        // removed other assertion
+    }
+
+    /**
+     * Tests simple XPath expressions.
+     */
+    @Test
+    public void testSimpleXPath() {
+        List<?> results = context.selectNodes(CHILD_NAME1);
+        // removed other assertion
+        for (final Object result : results) {
+            final ImmutableNode node = (ImmutableNode) result;
+            assertEquals(""Incorrect node name"", CHILD_NAME1, node.getNodeName());
+    }
+    }
+    }
+",TestConfigurationNodePointerFactory::testIndices_9_oe
+conf_1627_10,"    @Test
+    public void testIndices_10_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[1]/*"");
+        assertEquals(""Wrong number of children"", CHILD_COUNT, nodes.size());
+        int index = 1;
+        for (final Iterator<?> it = nodes.iterator(); it.hasNext(); index++) {
+            final ImmutableNode node = (ImmutableNode) it.next();
+            assertEquals(""Wrong node value for child "" + index, ""2."" + index, node.getValue());
+        }
+    }
+
+    /**
+     * Tests accessing the parent axis.
+     */
+    @Test
+    public void testParentAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME2 + ""/parent::*"");
+        // removed other assertion
+    }
+
+    /**
+     * Tests accessing the preceding sibling axis.
+     */
+    @Test
+    public void testPrecedingSiblingAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[2]/preceding-sibling::*"");
+        // removed other assertion
+        for (int index = 0, value = 3; index < nodes.size(); index++, value--) {
+            // removed other assertion
+        }
+    }
+
+    /**
+     * Tests whether the attribute of a node can be queried.
+     */
+    @Test
+    public void testQueryAttribute() {
+        // removed other assertion
+    }
+
+    /**
+     * Tests whether an attribute of the root node can be queried.
+     */
+    @Test
+    public void testQueryRootAttribute() {
+        // removed other assertion
+    }
+
+    /**
+     * Tests simple XPath expressions.
+     */
+    @Test
+    public void testSimpleXPath() {
+        List<?> results = context.selectNodes(CHILD_NAME1);
+        // removed other assertion
+        for (final Object result : results) {
+            final ImmutableNode node = (ImmutableNode) result;
+            // removed other assertion
+        }
+
+        results = context.selectNodes(""/"" + CHILD_NAME1);
+        assertEquals(""Incorrect number of results"", 2, results.size());
+    }
+    }
+",TestConfigurationNodePointerFactory::testIndices_10_oe
+conf_1627_11,"    @Test
+    public void testIndices_11_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[1]/*"");
+        assertEquals(""Wrong number of children"", CHILD_COUNT, nodes.size());
+        int index = 1;
+        for (final Iterator<?> it = nodes.iterator(); it.hasNext(); index++) {
+            final ImmutableNode node = (ImmutableNode) it.next();
+            assertEquals(""Wrong node value for child "" + index, ""2."" + index, node.getValue());
+        }
+    }
+
+    /**
+     * Tests accessing the parent axis.
+     */
+    @Test
+    public void testParentAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME2 + ""/parent::*"");
+        // removed other assertion
+    }
+
+    /**
+     * Tests accessing the preceding sibling axis.
+     */
+    @Test
+    public void testPrecedingSiblingAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[2]/preceding-sibling::*"");
+        // removed other assertion
+        for (int index = 0, value = 3; index < nodes.size(); index++, value--) {
+            // removed other assertion
+        }
+    }
+
+    /**
+     * Tests whether the attribute of a node can be queried.
+     */
+    @Test
+    public void testQueryAttribute() {
+        // removed other assertion
+    }
+
+    /**
+     * Tests whether an attribute of the root node can be queried.
+     */
+    @Test
+    public void testQueryRootAttribute() {
+        // removed other assertion
+    }
+
+    /**
+     * Tests simple XPath expressions.
+     */
+    @Test
+    public void testSimpleXPath() {
+        List<?> results = context.selectNodes(CHILD_NAME1);
+        // removed other assertion
+        for (final Object result : results) {
+            final ImmutableNode node = (ImmutableNode) result;
+            // removed other assertion
+        }
+
+        results = context.selectNodes(""/"" + CHILD_NAME1);
+        // removed other assertion
+
+        results = context.selectNodes(CHILD_NAME2 + ""/"" + CHILD_NAME1 + ""/"" + CHILD_NAME2);
+        assertEquals(""Incorrect number of results"", 18, results.size());
+    }
+    }
+",TestConfigurationNodePointerFactory::testIndices_11_oe
+conf_1627_12,"    @Test
+    public void testIndices_12_oe() {
+        // removed other assertion
+        // removed other assertion
+
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[1]/*"");
+        assertEquals(""Wrong number of children"", CHILD_COUNT, nodes.size());
+        int index = 1;
+        for (final Iterator<?> it = nodes.iterator(); it.hasNext(); index++) {
+            final ImmutableNode node = (ImmutableNode) it.next();
+            assertEquals(""Wrong node value for child "" + index, ""2."" + index, node.getValue());
+        }
+    }
+
+    /**
+     * Tests accessing the parent axis.
+     */
+    @Test
+    public void testParentAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME2 + ""/parent::*"");
+        // removed other assertion
+    }
+
+    /**
+     * Tests accessing the preceding sibling axis.
+     */
+    @Test
+    public void testPrecedingSiblingAxis() {
+        final List<?> nodes = context.selectNodes(""/"" + CHILD_NAME1 + ""[2]/preceding-sibling::*"");
+        // removed other assertion
+        for (int index = 0, value = 3; index < nodes.size(); index++, value--) {
+            // removed other assertion
+        }
+    }
+
+    /**
+     * Tests whether the attribute of a node can be queried.
+     */
+    @Test
+    public void testQueryAttribute() {
+        // removed other assertion
+    }
+
+    /**
+     * Tests whether an attribute of the root node can be queried.
+     */
+    @Test
+    public void testQueryRootAttribute() {
+        // removed other assertion
+    }
+
+    /**
+     * Tests simple XPath expressions.
+     */
+    @Test
+    public void testSimpleXPath() {
+        List<?> results = context.selectNodes(CHILD_NAME1);
+        // removed other assertion
+        for (final Object result : results) {
+            final ImmutableNode node = (ImmutableNode) result;
+            // removed other assertion
+        }
+
+        results = context.selectNodes(""/"" + CHILD_NAME1);
+        // removed other assertion
+
+        results = context.selectNodes(CHILD_NAME2 + ""/"" + CHILD_NAME1 + ""/"" + CHILD_NAME2);
+        // removed other assertion
+    }
+
+    /**
+     * Tests accessing a node's text.
+     */
+    @Test
+    public void testText() {
+        final List<?> nodes = context.selectNodes(""//"" + CHILD_NAME2 + ""[text()='1.1.1']"");
+        assertEquals(""Incorrect number of result nodes"", 1, nodes.size());
+    }
+    }
+",TestConfigurationNodePointerFactory::testIndices_12_oe
+conf_1681_1,"    @Test
     public void testLoadWithError_1_oe() {
         config = new PropertyListConfiguration();
         try {
@@ -14653,7 +15187,7 @@ conf_1687_1,"    @Test
     }
     }
 ",TestPropertyListConfiguration::testLoadWithError_1_oe
-conf_1762_1,"    @Test
+conf_1756_1,"    @Test
     public void testFindMatchingConstructorNoMatch_1_oe() {
         final BeanDeclarationTestImpl decl = new BeanDeclarationTestImpl();
         final Collection<ConstructorArg> args = new ArrayList<>();
@@ -14665,7 +15199,7 @@ conf_1762_1,"    @Test
     }
     }
 ",TestDefaultBeanFactory::testFindMatchingConstructorNoMatch_1_oe
-conf_1768_1,"    @Test
+conf_1762_1,"    @Test
     public void testGetMappedArguments_1_oe() {
         try {
             final Object value = bean.get(""mappedProperty"", ""unknown"");
@@ -14673,7 +15207,7 @@ conf_1768_1,"    @Test
     }
     }
 ",TestConfigurationDynaBean::testGetMappedArguments_1_oe
-conf_1853_1,"    @Test
+conf_1847_1,"    @Test
     public void testInterpolationVariableIncomplete_1_oe() {
         final String value = ""${"" + TEST_NAME;
         interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
@@ -14681,3842 +15215,8 @@ conf_1853_1,"    @Test
     }
 
     }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_1_oe
-conf_1853_2,"    @Test
-    public void testInterpolationVariableIncomplete_2_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        assertTrue(""Wrong result: "" + result, result.matches(""\\d{4}-\\d{2}-\\d{2}""));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_2_oe
-conf_1853_3,"    @Test
-    public void testInterpolationVariableIncomplete_3_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        assertSame(""Wrong result"", look, ConfigurationInterpolator.nullSafeLookup(look));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_3_oe
-conf_1853_4,"    @Test
-    public void testInterpolationVariableIncomplete_4_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        assertNull(""Got a lookup result"", lookup.lookup(""someVar""));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_4_oe
-conf_1853_5,"    @Test
-    public void testInterpolationVariableIncomplete_5_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        assertSame(""New lookup not registered"", lookup, interpolator.getLookups().get(TEST_PREFIX));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_5_oe
-conf_1853_6,"    @Test
-    public void testInterpolationVariableIncomplete_6_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        assertTrue(""Not in prefix set"", interpolator.prefixSet().contains(TEST_PREFIX));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_6_oe
-conf_1853_7,"    @Test
-    public void testInterpolationVariableIncomplete_7_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        assertTrue(""Default lookups were changed"", interpolator.getDefaultLookups().isEmpty());
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_7_oe
-conf_1853_8,"    @Test
-    public void testInterpolationVariableIncomplete_8_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        assertEquals(""Wrong number of lookups"", 2, lookups2.size());
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_8_oe
-conf_1853_9,"    @Test
-    public void testInterpolationVariableIncomplete_9_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        assertEquals(""Wrong l1"", l1, lookups2.get(TEST_PREFIX));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_9_oe
-conf_1853_10,"    @Test
-    public void testInterpolationVariableIncomplete_10_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong l2"", l2, lookups2.get(prefix2));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_10_oe
-conf_1853_11,"    @Test
-    public void testInterpolationVariableIncomplete_11_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        assertTrue(""Got lookups"", interpolator.getLookups().isEmpty());
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_11_oe
-conf_1853_12,"    @Test
-    public void testInterpolationVariableIncomplete_12_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        assertTrue(""Wrong result"", interpolator.removeDefaultLookup(lookups.get(0)));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_12_oe
-conf_1853_13,"    @Test
-    public void testInterpolationVariableIncomplete_13_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        assertFalse(""Lookup still available"", interpolator.getDefaultLookups().contains(lookups.get(0)));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_13_oe
-conf_1853_14,"    @Test
-    public void testInterpolationVariableIncomplete_14_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong number of default lookups"", 1, interpolator.getDefaultLookups().size());
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_14_oe
-conf_1853_15,"    @Test
-    public void testInterpolationVariableIncomplete_15_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        assertFalse(""Wrong result"", interpolator.removeDefaultLookup(setUpTestLookup()));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_15_oe
-conf_1853_16,"    @Test
-    public void testInterpolationVariableIncomplete_16_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        assertEquals(""Wrong variable value"", TEST_VALUE, interpolator.resolve(TEST_NAME));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_16_oe
-conf_1853_17,"    @Test
-    public void testInterpolationVariableIncomplete_17_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        assertEquals(""Variable is not resolved by default lookup"", TEST_VALUE, interpolator.resolve(varName));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_17_oe
-conf_1853_18,"    @Test
-    public void testInterpolationVariableIncomplete_18_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        assertEquals(""Wrong variable value"", TEST_VALUE, interpolator.resolve(""""));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_18_oe
-conf_1853_19,"    @Test
-    public void testInterpolationVariableIncomplete_19_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        assertEquals(""Wrong variable value"", TEST_VALUE, interpolator.resolve("":"" + TEST_NAME));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_19_oe
-conf_1853_20,"    @Test
-    public void testInterpolationVariableIncomplete_20_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name.
-     */
-    @Test
-    public void testResolveEmptyVarName() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
-        assertEquals(""Wrong variable value"", TEST_VALUE, interpolator.resolve(TEST_PREFIX + "":""));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_20_oe
-conf_1853_21,"    @Test
-    public void testInterpolationVariableIncomplete_21_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name.
-     */
-    @Test
-    public void testResolveEmptyVarName() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix when no default lookup is specified. Result should be null in this case.
-     */
-    @Test
-    public void testResolveNoDefault() {
-        assertNull(""Variable could be resolved"", interpolator.resolve(TEST_NAME));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_21_oe
-conf_1853_22,"    @Test
-    public void testInterpolationVariableIncomplete_22_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name.
-     */
-    @Test
-    public void testResolveEmptyVarName() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix when no default lookup is specified. Result should be null in this case.
-     */
-    @Test
-    public void testResolveNoDefault() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a null variable. Result should be null, too.
-     */
-    @Test
-    public void testResolveNull() {
-        assertNull(""Could resolve null variable"", interpolator.resolve(null));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_22_oe
-conf_1853_23,"    @Test
-    public void testInterpolationVariableIncomplete_23_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name.
-     */
-    @Test
-    public void testResolveEmptyVarName() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix when no default lookup is specified. Result should be null in this case.
-     */
-    @Test
-    public void testResolveNoDefault() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a null variable. Result should be null, too.
-     */
-    @Test
-    public void testResolveNull() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests handling of a parent {@code ConfigurationInterpolator} if the variable can already be resolved by the current
-     * instance.
-     */
-    @Test
-    public void testResolveParentVariableFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        assertEquals(""Wrong value"", TEST_VALUE, interpolator.resolve(TEST_PREFIX + ':' + TEST_NAME));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_23_oe
-conf_1853_24,"    @Test
-    public void testInterpolationVariableIncomplete_24_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name.
-     */
-    @Test
-    public void testResolveEmptyVarName() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix when no default lookup is specified. Result should be null in this case.
-     */
-    @Test
-    public void testResolveNoDefault() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a null variable. Result should be null, too.
-     */
-    @Test
-    public void testResolveNull() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests handling of a parent {@code ConfigurationInterpolator} if the variable can already be resolved by the current
-     * instance.
-     */
-    @Test
-    public void testResolveParentVariableFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether the parent {@code ConfigurationInterpolator} is invoked if the test instance cannot resolve a variable.
-     */
-    @Test
-    public void testResolveParentVariableNotFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.expect(parent.resolve(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        assertEquals(""Wrong value"", TEST_VALUE, interpolator.resolve(TEST_NAME));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_24_oe
-conf_1853_25,"    @Test
-    public void testInterpolationVariableIncomplete_25_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name.
-     */
-    @Test
-    public void testResolveEmptyVarName() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix when no default lookup is specified. Result should be null in this case.
-     */
-    @Test
-    public void testResolveNoDefault() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a null variable. Result should be null, too.
-     */
-    @Test
-    public void testResolveNull() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests handling of a parent {@code ConfigurationInterpolator} if the variable can already be resolved by the current
-     * instance.
-     */
-    @Test
-    public void testResolveParentVariableFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether the parent {@code ConfigurationInterpolator} is invoked if the test instance cannot resolve a variable.
-     */
-    @Test
-    public void testResolveParentVariableNotFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.expect(parent.resolve(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        // removed other assertion
-        EasyMock.verify(parent);
-    }
-
-    /**
-     * Tests whether a variable can be resolved using the associated lookup object. The lookup is identified by the
-     * variable's prefix.
-     */
-    @Test
-    public void testResolveWithPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        assertEquals(""Wrong variable value"", TEST_VALUE, interpolator.resolve(TEST_PREFIX + ':' + TEST_NAME));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_25_oe
-conf_1853_26,"    @Test
-    public void testInterpolationVariableIncomplete_26_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name.
-     */
-    @Test
-    public void testResolveEmptyVarName() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix when no default lookup is specified. Result should be null in this case.
-     */
-    @Test
-    public void testResolveNoDefault() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a null variable. Result should be null, too.
-     */
-    @Test
-    public void testResolveNull() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests handling of a parent {@code ConfigurationInterpolator} if the variable can already be resolved by the current
-     * instance.
-     */
-    @Test
-    public void testResolveParentVariableFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether the parent {@code ConfigurationInterpolator} is invoked if the test instance cannot resolve a variable.
-     */
-    @Test
-    public void testResolveParentVariableNotFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.expect(parent.resolve(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        // removed other assertion
-        EasyMock.verify(parent);
-    }
-
-    /**
-     * Tests whether a variable can be resolved using the associated lookup object. The lookup is identified by the
-     * variable's prefix.
-     */
-    @Test
-    public void testResolveWithPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests the behavior of the lookup method for variables with an unknown prefix. These variables should not be resolved.
-     */
-    @Test
-    public void testResolveWithUnknownPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        assertNull(""Variable could be resolved"", interpolator.resolve(""UnknownPrefix:"" + TEST_NAME));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_26_oe
-conf_1853_27,"    @Test
-    public void testInterpolationVariableIncomplete_27_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name.
-     */
-    @Test
-    public void testResolveEmptyVarName() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix when no default lookup is specified. Result should be null in this case.
-     */
-    @Test
-    public void testResolveNoDefault() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a null variable. Result should be null, too.
-     */
-    @Test
-    public void testResolveNull() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests handling of a parent {@code ConfigurationInterpolator} if the variable can already be resolved by the current
-     * instance.
-     */
-    @Test
-    public void testResolveParentVariableFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether the parent {@code ConfigurationInterpolator} is invoked if the test instance cannot resolve a variable.
-     */
-    @Test
-    public void testResolveParentVariableNotFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.expect(parent.resolve(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        // removed other assertion
-        EasyMock.verify(parent);
-    }
-
-    /**
-     * Tests whether a variable can be resolved using the associated lookup object. The lookup is identified by the
-     * variable's prefix.
-     */
-    @Test
-    public void testResolveWithPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests the behavior of the lookup method for variables with an unknown prefix. These variables should not be resolved.
-     */
-    @Test
-    public void testResolveWithUnknownPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-        assertNull(""Variable with empty prefix could be resolved"", interpolator.resolve("":"" + TEST_NAME));
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_27_oe
-conf_1853_28,"    @Test
-    public void testInterpolationVariableIncomplete_28_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name.
-     */
-    @Test
-    public void testResolveEmptyVarName() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix when no default lookup is specified. Result should be null in this case.
-     */
-    @Test
-    public void testResolveNoDefault() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a null variable. Result should be null, too.
-     */
-    @Test
-    public void testResolveNull() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests handling of a parent {@code ConfigurationInterpolator} if the variable can already be resolved by the current
-     * instance.
-     */
-    @Test
-    public void testResolveParentVariableFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether the parent {@code ConfigurationInterpolator} is invoked if the test instance cannot resolve a variable.
-     */
-    @Test
-    public void testResolveParentVariableNotFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.expect(parent.resolve(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        // removed other assertion
-        EasyMock.verify(parent);
-    }
-
-    /**
-     * Tests whether a variable can be resolved using the associated lookup object. The lookup is identified by the
-     * variable's prefix.
-     */
-    @Test
-    public void testResolveWithPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests the behavior of the lookup method for variables with an unknown prefix. These variables should not be resolved.
-     */
-    @Test
-    public void testResolveWithUnknownPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_lookupsPropertyNotPresent() {
-        checkDefaultPrefixLookupsHolder(new Properties(),
-                ""base64"",
-                StringLookupFactory.KEY_BASE64_DECODER,
-                StringLookupFactory.KEY_BASE64_ENCODER,
-                StringLookupFactory.KEY_CONST,
-                StringLookupFactory.KEY_DATE,
-                StringLookupFactory.KEY_ENV,
-                StringLookupFactory.KEY_FILE,
-                StringLookupFactory.KEY_JAVA,
-                StringLookupFactory.KEY_LOCALHOST,
-                StringLookupFactory.KEY_PROPERTIES,
-                StringLookupFactory.KEY_RESOURCE_BUNDLE,
-                StringLookupFactory.KEY_SYS,
-                StringLookupFactory.KEY_URL_DECODER,
-                StringLookupFactory.KEY_URL_ENCODER,
-                StringLookupFactory.KEY_XML);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_lookupsPropertyEmptyAndBlank() {
-        final Properties propsWithNull = new Properties();
-        propsWithNull.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, """");
-
-        checkDefaultPrefixLookupsHolder(propsWithNull);
-
-        final Properties propsWithBlank = new Properties();
-        propsWithBlank.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, "" "");
-
-        checkDefaultPrefixLookupsHolder(propsWithBlank);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_givenSingleLookup() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""base64_encoder"");
-
-        checkDefaultPrefixLookupsHolder(props,
-                ""base64"",
-                StringLookupFactory.KEY_BASE64_ENCODER);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_givenSingleLookup_weirdString() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, "" \n \t  ,, DnS , , "");
-
-        checkDefaultPrefixLookupsHolder(props, StringLookupFactory.KEY_DNS);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_multipleLookups() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""dns, url script "");
-
-        checkDefaultPrefixLookupsHolder(props,
-                StringLookupFactory.KEY_DNS,
-                StringLookupFactory.KEY_URL,
-                StringLookupFactory.KEY_SCRIPT);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_allLookups() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY,
-                ""BASE64_DECODER BASE64_ENCODER const, date, dns, environment ""
-                + ""file ,java, local_host properties, resource_bundle,script,system_properties ""
-                + ""url url_decoder  , url_encoder, xml"");
-
-        checkDefaultPrefixLookupsHolder(props,
-                ""base64"",
-                StringLookupFactory.KEY_BASE64_DECODER,
-                StringLookupFactory.KEY_BASE64_ENCODER,
-                StringLookupFactory.KEY_CONST,
-                StringLookupFactory.KEY_DATE,
-                StringLookupFactory.KEY_ENV,
-                StringLookupFactory.KEY_FILE,
-                StringLookupFactory.KEY_JAVA,
-                StringLookupFactory.KEY_LOCALHOST,
-                StringLookupFactory.KEY_PROPERTIES,
-                StringLookupFactory.KEY_RESOURCE_BUNDLE,
-                StringLookupFactory.KEY_SYS,
-                StringLookupFactory.KEY_URL_DECODER,
-                StringLookupFactory.KEY_URL_ENCODER,
-                StringLookupFactory.KEY_XML,
-
-                StringLookupFactory.KEY_DNS,
-                StringLookupFactory.KEY_URL,
-                StringLookupFactory.KEY_SCRIPT);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_invalidLookupsDefinition() {
+conf_1867_1,"    @Test
+    public void testDefaultStringLookupsHolder_invalidLookupsDefinition_1_oe() {
         final Properties props = new Properties();
         props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""base64_encoder nope"");
 
@@ -18526,1093 +15226,4 @@ conf_1853_28,"    @Test
             fail(""Operation should have failed"");
     }
     }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_28_oe
-conf_1853_29,"    @Test
-    public void testInterpolationVariableIncomplete_29_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name.
-     */
-    @Test
-    public void testResolveEmptyVarName() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix when no default lookup is specified. Result should be null in this case.
-     */
-    @Test
-    public void testResolveNoDefault() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a null variable. Result should be null, too.
-     */
-    @Test
-    public void testResolveNull() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests handling of a parent {@code ConfigurationInterpolator} if the variable can already be resolved by the current
-     * instance.
-     */
-    @Test
-    public void testResolveParentVariableFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether the parent {@code ConfigurationInterpolator} is invoked if the test instance cannot resolve a variable.
-     */
-    @Test
-    public void testResolveParentVariableNotFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.expect(parent.resolve(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        // removed other assertion
-        EasyMock.verify(parent);
-    }
-
-    /**
-     * Tests whether a variable can be resolved using the associated lookup object. The lookup is identified by the
-     * variable's prefix.
-     */
-    @Test
-    public void testResolveWithPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests the behavior of the lookup method for variables with an unknown prefix. These variables should not be resolved.
-     */
-    @Test
-    public void testResolveWithUnknownPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_lookupsPropertyNotPresent() {
-        checkDefaultPrefixLookupsHolder(new Properties(),
-                ""base64"",
-                StringLookupFactory.KEY_BASE64_DECODER,
-                StringLookupFactory.KEY_BASE64_ENCODER,
-                StringLookupFactory.KEY_CONST,
-                StringLookupFactory.KEY_DATE,
-                StringLookupFactory.KEY_ENV,
-                StringLookupFactory.KEY_FILE,
-                StringLookupFactory.KEY_JAVA,
-                StringLookupFactory.KEY_LOCALHOST,
-                StringLookupFactory.KEY_PROPERTIES,
-                StringLookupFactory.KEY_RESOURCE_BUNDLE,
-                StringLookupFactory.KEY_SYS,
-                StringLookupFactory.KEY_URL_DECODER,
-                StringLookupFactory.KEY_URL_ENCODER,
-                StringLookupFactory.KEY_XML);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_lookupsPropertyEmptyAndBlank() {
-        final Properties propsWithNull = new Properties();
-        propsWithNull.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, """");
-
-        checkDefaultPrefixLookupsHolder(propsWithNull);
-
-        final Properties propsWithBlank = new Properties();
-        propsWithBlank.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, "" "");
-
-        checkDefaultPrefixLookupsHolder(propsWithBlank);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_givenSingleLookup() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""base64_encoder"");
-
-        checkDefaultPrefixLookupsHolder(props,
-                ""base64"",
-                StringLookupFactory.KEY_BASE64_ENCODER);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_givenSingleLookup_weirdString() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, "" \n \t  ,, DnS , , "");
-
-        checkDefaultPrefixLookupsHolder(props, StringLookupFactory.KEY_DNS);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_multipleLookups() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""dns, url script "");
-
-        checkDefaultPrefixLookupsHolder(props,
-                StringLookupFactory.KEY_DNS,
-                StringLookupFactory.KEY_URL,
-                StringLookupFactory.KEY_SCRIPT);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_allLookups() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY,
-                ""BASE64_DECODER BASE64_ENCODER const, date, dns, environment ""
-                + ""file ,java, local_host properties, resource_bundle,script,system_properties ""
-                + ""url url_decoder  , url_encoder, xml"");
-
-        checkDefaultPrefixLookupsHolder(props,
-                ""base64"",
-                StringLookupFactory.KEY_BASE64_DECODER,
-                StringLookupFactory.KEY_BASE64_ENCODER,
-                StringLookupFactory.KEY_CONST,
-                StringLookupFactory.KEY_DATE,
-                StringLookupFactory.KEY_ENV,
-                StringLookupFactory.KEY_FILE,
-                StringLookupFactory.KEY_JAVA,
-                StringLookupFactory.KEY_LOCALHOST,
-                StringLookupFactory.KEY_PROPERTIES,
-                StringLookupFactory.KEY_RESOURCE_BUNDLE,
-                StringLookupFactory.KEY_SYS,
-                StringLookupFactory.KEY_URL_DECODER,
-                StringLookupFactory.KEY_URL_ENCODER,
-                StringLookupFactory.KEY_XML,
-
-                StringLookupFactory.KEY_DNS,
-                StringLookupFactory.KEY_URL,
-                StringLookupFactory.KEY_SCRIPT);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_invalidLookupsDefinition() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""base64_encoder nope"");
-
-        try {
-            new ConfigurationInterpolator.DefaultPrefixLookupsHolder(props);
-
-            // removed other assertion
-        } catch (Exception exc) {
-            assertEquals(""Invalid default lookups definition: base64_encoder nope"", exc.getMessage());
-    }
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_29_oe
-conf_1853_30,"    @Test
-    public void testInterpolationVariableIncomplete_30_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name.
-     */
-    @Test
-    public void testResolveEmptyVarName() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix when no default lookup is specified. Result should be null in this case.
-     */
-    @Test
-    public void testResolveNoDefault() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a null variable. Result should be null, too.
-     */
-    @Test
-    public void testResolveNull() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests handling of a parent {@code ConfigurationInterpolator} if the variable can already be resolved by the current
-     * instance.
-     */
-    @Test
-    public void testResolveParentVariableFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether the parent {@code ConfigurationInterpolator} is invoked if the test instance cannot resolve a variable.
-     */
-    @Test
-    public void testResolveParentVariableNotFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.expect(parent.resolve(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        // removed other assertion
-        EasyMock.verify(parent);
-    }
-
-    /**
-     * Tests whether a variable can be resolved using the associated lookup object. The lookup is identified by the
-     * variable's prefix.
-     */
-    @Test
-    public void testResolveWithPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests the behavior of the lookup method for variables with an unknown prefix. These variables should not be resolved.
-     */
-    @Test
-    public void testResolveWithUnknownPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_lookupsPropertyNotPresent() {
-        checkDefaultPrefixLookupsHolder(new Properties(),
-                ""base64"",
-                StringLookupFactory.KEY_BASE64_DECODER,
-                StringLookupFactory.KEY_BASE64_ENCODER,
-                StringLookupFactory.KEY_CONST,
-                StringLookupFactory.KEY_DATE,
-                StringLookupFactory.KEY_ENV,
-                StringLookupFactory.KEY_FILE,
-                StringLookupFactory.KEY_JAVA,
-                StringLookupFactory.KEY_LOCALHOST,
-                StringLookupFactory.KEY_PROPERTIES,
-                StringLookupFactory.KEY_RESOURCE_BUNDLE,
-                StringLookupFactory.KEY_SYS,
-                StringLookupFactory.KEY_URL_DECODER,
-                StringLookupFactory.KEY_URL_ENCODER,
-                StringLookupFactory.KEY_XML);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_lookupsPropertyEmptyAndBlank() {
-        final Properties propsWithNull = new Properties();
-        propsWithNull.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, """");
-
-        checkDefaultPrefixLookupsHolder(propsWithNull);
-
-        final Properties propsWithBlank = new Properties();
-        propsWithBlank.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, "" "");
-
-        checkDefaultPrefixLookupsHolder(propsWithBlank);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_givenSingleLookup() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""base64_encoder"");
-
-        checkDefaultPrefixLookupsHolder(props,
-                ""base64"",
-                StringLookupFactory.KEY_BASE64_ENCODER);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_givenSingleLookup_weirdString() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, "" \n \t  ,, DnS , , "");
-
-        checkDefaultPrefixLookupsHolder(props, StringLookupFactory.KEY_DNS);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_multipleLookups() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""dns, url script "");
-
-        checkDefaultPrefixLookupsHolder(props,
-                StringLookupFactory.KEY_DNS,
-                StringLookupFactory.KEY_URL,
-                StringLookupFactory.KEY_SCRIPT);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_allLookups() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY,
-                ""BASE64_DECODER BASE64_ENCODER const, date, dns, environment ""
-                + ""file ,java, local_host properties, resource_bundle,script,system_properties ""
-                + ""url url_decoder  , url_encoder, xml"");
-
-        checkDefaultPrefixLookupsHolder(props,
-                ""base64"",
-                StringLookupFactory.KEY_BASE64_DECODER,
-                StringLookupFactory.KEY_BASE64_ENCODER,
-                StringLookupFactory.KEY_CONST,
-                StringLookupFactory.KEY_DATE,
-                StringLookupFactory.KEY_ENV,
-                StringLookupFactory.KEY_FILE,
-                StringLookupFactory.KEY_JAVA,
-                StringLookupFactory.KEY_LOCALHOST,
-                StringLookupFactory.KEY_PROPERTIES,
-                StringLookupFactory.KEY_RESOURCE_BUNDLE,
-                StringLookupFactory.KEY_SYS,
-                StringLookupFactory.KEY_URL_DECODER,
-                StringLookupFactory.KEY_URL_ENCODER,
-                StringLookupFactory.KEY_XML,
-
-                StringLookupFactory.KEY_DNS,
-                StringLookupFactory.KEY_URL,
-                StringLookupFactory.KEY_SCRIPT);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_invalidLookupsDefinition() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""base64_encoder nope"");
-
-        try {
-            new ConfigurationInterpolator.DefaultPrefixLookupsHolder(props);
-
-            // removed other assertion
-        } catch (Exception exc) {
-            // removed other assertion
-        }
-    }
-
-    private static void checkDefaultPrefixLookupsHolder(final Properties props, final String... keys) {
-        final ConfigurationInterpolator.DefaultPrefixLookupsHolder holder =
-                new ConfigurationInterpolator.DefaultPrefixLookupsHolder(props);
-
-        final Map<String, Lookup> lookupMap = holder.getDefaultPrefixLookups();
-
-        assertMappedLookups(lookupMap, keys);
-    }
-
-    private static void assertMappedLookups(final Map<String, Lookup> lookupMap, final String... keys) {
-        final Set<String> remainingKeys = new HashSet<>(lookupMap.keySet());
-
-        for (final String key : keys) {
-            assertNotNull(""Expected map to contain string lookup for key "" + key, key);
-    }
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_30_oe
-conf_1853_31,"    @Test
-    public void testInterpolationVariableIncomplete_31_oe() {
-        final String value = ""${"" + TEST_NAME;
-        interpolator.addDefaultLookup(setUpTestLookup(TEST_NAME, ""someValue""));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an interpolated string that begins and ends with variable lookups that have
-     * the potential to fail. Part of CONFIGURATION-764.
-     */
-    @Test
-    public void testInterpolationBeginningAndEndingRiskyVariableLookups() {
-        interpolator.registerLookups(ConfigurationInterpolator.getDefaultPrefixLookups());
-        final String result = (String) interpolator.interpolate(""${date:yyyy-MM}-${date:dd}"");
-        // removed other assertion
-    }
-
-    /**
-     * Tests nullSafeLookup() if a lookup object was provided.
-     */
-    @Test
-    public void testNullSafeLookupExisting() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(look);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether nullSafeLookup() can handle null input.
-     */
-    @Test
-    public void testNullSafeLookupNull() {
-        final Lookup lookup = ConfigurationInterpolator.nullSafeLookup(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests that the prefix set cannot be modified.
-     */
-    @Test(expected = UnsupportedOperationException.class)
-    public void testPrefixSetModify() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        final Iterator<String> it = interpolator.prefixSet().iterator();
-        it.next();
-        it.remove();
-    }
-
-    /**
-     * Tests registering a lookup object at an instance.
-     */
-    @Test
-    public void testRegisterLookup() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests registering a null lookup object. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNull() {
-        interpolator.registerLookup(TEST_PREFIX, null);
-    }
-
-    /**
-     * Tests registering a lookup object for an undefined prefix. This should cause an exception.
-     */
-    @Test(expected = IllegalArgumentException.class)
-    public void testRegisterLookupNullPrefix() {
-        interpolator.registerLookup(null, EasyMock.createMock(Lookup.class));
-    }
-
-    /**
-     * Tests whether a map with lookup objects can be registered.
-     */
-    @Test
-    public void testRegisterLookups() {
-        final Lookup l1 = setUpTestLookup();
-        final Lookup l2 = setUpTestLookup(""someVar"", ""someValue"");
-        final Map<String, Lookup> lookups = new HashMap<>();
-        lookups.put(TEST_PREFIX, l1);
-        final String prefix2 = TEST_PREFIX + ""_other"";
-        lookups.put(prefix2, l2);
-        interpolator.registerLookups(lookups);
-        final Map<String, Lookup> lookups2 = interpolator.getLookups();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a null map with lookup objects is handled correctly.
-     */
-    @Test
-    public void testRegisterLookupsNull() {
-        interpolator.registerLookups(null);
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookup() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether a non existing default lookup object can be removed.
-     */
-    @Test
-    public void testRemoveDefaultLookupNonExisting() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix. This should trigger the default lookup object.
-     */
-    @Test
-    public void testResolveDefault() {
-        final Lookup l1 = EasyMock.createMock(Lookup.class);
-        final Lookup l2 = EasyMock.createMock(Lookup.class);
-        final Lookup l3 = EasyMock.createMock(Lookup.class);
-        EasyMock.expect(l1.lookup(TEST_NAME)).andReturn(null);
-        EasyMock.expect(l2.lookup(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(l1, l2, l3);
-        interpolator.addDefaultLookups(Arrays.asList(l1, l2, l3));
-        // removed other assertion
-        EasyMock.verify(l1, l2, l3);
-    }
-
-    /**
-     * Tests whether the default lookup is called for variables with a prefix when the lookup that was registered for this
-     * prefix is not able to resolve the variable.
-     */
-    @Test
-    public void testResolveDefaultAfterPrefixFails() {
-        final String varName = TEST_PREFIX + ':' + TEST_NAME + ""2"";
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        interpolator.addDefaultLookup(setUpTestLookup(varName, TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name without a prefix.
-     */
-    @Test
-    public void testResolveDefaultEmptyVarName() {
-        interpolator.addDefaultLookup(setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests the empty variable prefix. This is a special case, but legal.
-     */
-    @Test
-    public void testResolveEmptyPrefix() {
-        interpolator.registerLookup("""", setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests an empty variable name.
-     */
-    @Test
-    public void testResolveEmptyVarName() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup("""", TEST_VALUE));
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a variable without a prefix when no default lookup is specified. Result should be null in this case.
-     */
-    @Test
-    public void testResolveNoDefault() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests looking up a null variable. Result should be null, too.
-     */
-    @Test
-    public void testResolveNull() {
-        // removed other assertion
-    }
-
-    /**
-     * Tests handling of a parent {@code ConfigurationInterpolator} if the variable can already be resolved by the current
-     * instance.
-     */
-    @Test
-    public void testResolveParentVariableFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests whether the parent {@code ConfigurationInterpolator} is invoked if the test instance cannot resolve a variable.
-     */
-    @Test
-    public void testResolveParentVariableNotFound() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.expect(parent.resolve(TEST_NAME)).andReturn(TEST_VALUE);
-        EasyMock.replay(parent);
-        interpolator.setParentInterpolator(parent);
-        // removed other assertion
-        EasyMock.verify(parent);
-    }
-
-    /**
-     * Tests whether a variable can be resolved using the associated lookup object. The lookup is identified by the
-     * variable's prefix.
-     */
-    @Test
-    public void testResolveWithPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-    }
-
-    /**
-     * Tests the behavior of the lookup method for variables with an unknown prefix. These variables should not be resolved.
-     */
-    @Test
-    public void testResolveWithUnknownPrefix() {
-        interpolator.registerLookup(TEST_PREFIX, setUpTestLookup());
-        // removed other assertion
-        // removed other assertion
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_lookupsPropertyNotPresent() {
-        checkDefaultPrefixLookupsHolder(new Properties(),
-                ""base64"",
-                StringLookupFactory.KEY_BASE64_DECODER,
-                StringLookupFactory.KEY_BASE64_ENCODER,
-                StringLookupFactory.KEY_CONST,
-                StringLookupFactory.KEY_DATE,
-                StringLookupFactory.KEY_ENV,
-                StringLookupFactory.KEY_FILE,
-                StringLookupFactory.KEY_JAVA,
-                StringLookupFactory.KEY_LOCALHOST,
-                StringLookupFactory.KEY_PROPERTIES,
-                StringLookupFactory.KEY_RESOURCE_BUNDLE,
-                StringLookupFactory.KEY_SYS,
-                StringLookupFactory.KEY_URL_DECODER,
-                StringLookupFactory.KEY_URL_ENCODER,
-                StringLookupFactory.KEY_XML);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_lookupsPropertyEmptyAndBlank() {
-        final Properties propsWithNull = new Properties();
-        propsWithNull.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, """");
-
-        checkDefaultPrefixLookupsHolder(propsWithNull);
-
-        final Properties propsWithBlank = new Properties();
-        propsWithBlank.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, "" "");
-
-        checkDefaultPrefixLookupsHolder(propsWithBlank);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_givenSingleLookup() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""base64_encoder"");
-
-        checkDefaultPrefixLookupsHolder(props,
-                ""base64"",
-                StringLookupFactory.KEY_BASE64_ENCODER);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_givenSingleLookup_weirdString() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, "" \n \t  ,, DnS , , "");
-
-        checkDefaultPrefixLookupsHolder(props, StringLookupFactory.KEY_DNS);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_multipleLookups() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""dns, url script "");
-
-        checkDefaultPrefixLookupsHolder(props,
-                StringLookupFactory.KEY_DNS,
-                StringLookupFactory.KEY_URL,
-                StringLookupFactory.KEY_SCRIPT);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_allLookups() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY,
-                ""BASE64_DECODER BASE64_ENCODER const, date, dns, environment ""
-                + ""file ,java, local_host properties, resource_bundle,script,system_properties ""
-                + ""url url_decoder  , url_encoder, xml"");
-
-        checkDefaultPrefixLookupsHolder(props,
-                ""base64"",
-                StringLookupFactory.KEY_BASE64_DECODER,
-                StringLookupFactory.KEY_BASE64_ENCODER,
-                StringLookupFactory.KEY_CONST,
-                StringLookupFactory.KEY_DATE,
-                StringLookupFactory.KEY_ENV,
-                StringLookupFactory.KEY_FILE,
-                StringLookupFactory.KEY_JAVA,
-                StringLookupFactory.KEY_LOCALHOST,
-                StringLookupFactory.KEY_PROPERTIES,
-                StringLookupFactory.KEY_RESOURCE_BUNDLE,
-                StringLookupFactory.KEY_SYS,
-                StringLookupFactory.KEY_URL_DECODER,
-                StringLookupFactory.KEY_URL_ENCODER,
-                StringLookupFactory.KEY_XML,
-
-                StringLookupFactory.KEY_DNS,
-                StringLookupFactory.KEY_URL,
-                StringLookupFactory.KEY_SCRIPT);
-    }
-
-    @Test
-    public void testDefaultStringLookupsHolder_invalidLookupsDefinition() {
-        final Properties props = new Properties();
-        props.setProperty(ConfigurationInterpolator.DEFAULT_PREFIX_LOOKUPS_PROPERTY, ""base64_encoder nope"");
-
-        try {
-            new ConfigurationInterpolator.DefaultPrefixLookupsHolder(props);
-
-            // removed other assertion
-        } catch (Exception exc) {
-            // removed other assertion
-        }
-    }
-
-    private static void checkDefaultPrefixLookupsHolder(final Properties props, final String... keys) {
-        final ConfigurationInterpolator.DefaultPrefixLookupsHolder holder =
-                new ConfigurationInterpolator.DefaultPrefixLookupsHolder(props);
-
-        final Map<String, Lookup> lookupMap = holder.getDefaultPrefixLookups();
-
-        assertMappedLookups(lookupMap, keys);
-    }
-
-    private static void assertMappedLookups(final Map<String, Lookup> lookupMap, final String... keys) {
-        final Set<String> remainingKeys = new HashSet<>(lookupMap.keySet());
-
-        for (final String key : keys) {
-            // removed other assertion
-
-            remainingKeys.remove(key);
-        }
-
-        assertTrue(""Unexpected keys in lookup map: "" + remainingKeys, remainingKeys.isEmpty());
-    }
-
-    }",TestConfigurationInterpolator::testInterpolationVariableIncomplete_31_oe
+",TestConfigurationInterpolator::testDefaultStringLookupsHolder_invalidLookupsDefinition_1_oe

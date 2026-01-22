@@ -296,25 +296,4 @@ public class WildcardMatcherTest_OE25Dev {
 		assertThat(WildcardMatcher.matchPath("/a/b/c/dd", "/a/**/dd")).isTrue();
 	}
 
-	@Test
-	public void matchPath_4_oe() {
-		// removed other assertion
-
-		// removed other assertion
-		// removed other assertion
-		assertThat(WildcardMatcher.matchPath("/a/b/dd", "/a/*/dd")).isTrue();
-		assertThat(WildcardMatcher.matchPath("/a/b/dd", "/a/*/d?")).isTrue();
-		assertThat(WildcardMatcher.matchPath("/a/b/ddxxa", "/a/*/dd*")).isTrue();
-		assertThat(WildcardMatcher.matchPath("/a/b/ddxxa", "/a/?/dd*")).isTrue();
-		assertThat(WildcardMatcher.matchPath("a/b/ddxxa", "a/?/dd*")).isTrue();
-		assertThat(WildcardMatcher.matchPath("a/b/dd", "**/dd")).isTrue();
-
-		assertThat(WildcardMatcher.matchPath("/a/b/c/dd", "/a/*/dd")).isFalse();
-
-		// matchOne
-		assertThat(WildcardMatcher.matchPathOne("/a/b/c/dd", new String[] { "/a/*/dd", "**/dd" })).isEqualTo(1);
-		assertThat(WildcardMatcher.matchPathOne("/a/b/c/dd", new String[] { "/a/**/dd", "**/dd" })).isEqualTo(0);
-
-		}
-
 }

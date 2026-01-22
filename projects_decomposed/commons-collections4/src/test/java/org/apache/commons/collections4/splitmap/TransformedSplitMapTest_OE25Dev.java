@@ -272,32 +272,6 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
         assertEquals(objectToClass.transform(v[0]), map.remove(intToString.transform(k[0])));
     }
 
-    public void testTransformedMap_11_oe() {
-        final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
-                new HashMap<String, Class<?>>(), intToString, objectToClass);
-
-        final Integer[] k = new Integer[] { 0, 1, 2, 3, 4, 5, 6 };
-        final Object[] v = new Object[] { "", new Object(), new HashMap<>(), 0, BigInteger.TEN, null,
-                new Object[0] };
-
-        // removed other assertion
-        for (int i = 0; i < k.length; i++) {
-            map.put(k[i], v[i]);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        int sz = map.size();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(--sz, map.size());
-    }
-
     public void testTransformedMap_12_oe() {
         final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
                 new HashMap<String, Class<?>>(), intToString, objectToClass);
@@ -547,48 +521,6 @@ public class TransformedSplitMapTest_OE25Dev extends BulkTest {
 
         int sz2 = map2.size();
         assertEquals(Integer.valueOf(0), map2.remove("0"));
-    }
-
-    public void testTransformedMap_19_oe() {
-        final TransformedSplitMap<Integer, String, Object, Class<?>> map = TransformedSplitMap.transformingMap(
-                new HashMap<String, Class<?>>(), intToString, objectToClass);
-
-        final Integer[] k = new Integer[] { 0, 1, 2, 3, 4, 5, 6 };
-        final Object[] v = new Object[] { "", new Object(), new HashMap<>(), 0, BigInteger.TEN, null,
-                new Object[0] };
-
-        // removed other assertion
-        for (int i = 0; i < k.length; i++) {
-            map.put(k[i], v[i]);
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        int sz = map.size();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final TransformedSplitMap<String, String, String, Integer> map2 = TransformedSplitMap.transformingMap(
-                new HashMap<String, Integer>(), NOPTransformer.<String> nopTransformer(), stringToInt);
-        // removed other assertion
-        for (int i = 0; i < 6; i++) {
-            map2.put(String.valueOf(i), String.valueOf(i));
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-        }
-
-        int sz2 = map2.size();
-        // removed other assertion
-        assertEquals(--sz2, map2.size());
     }
 
     public void testMapIterator_1_oe() {

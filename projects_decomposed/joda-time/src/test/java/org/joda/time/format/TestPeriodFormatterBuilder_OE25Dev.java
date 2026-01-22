@@ -285,66 +285,6 @@ public class TestPeriodFormatterBuilder_OE25Dev extends TestCase {
         }
     }
 
-    public void testAppendSeparatorTaking3ArgumentsWithEmptyStringAndNull() {
-        PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
-
-        try {
-            periodFormatterBuilder.appendSeparator("", null, null);
-            fail("Expecting exception: IllegalArgumentException");
-        } catch (IllegalArgumentException e) {
-            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
-        }
-    }
-
-    public void testAppendSeparatorTaking3ArgumentsWithNullAndNonEmptyArray() {
-        PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
-        String[] stringArray = new String[3];
-
-        try {
-            periodFormatterBuilder.appendSeparator(null, null, stringArray);
-            fail("Expecting exception: IllegalArgumentException");
-        } catch (IllegalArgumentException e) {
-            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
-        }
-    }
-
-    public void testAppendSuffixTaking2StringArraysThrowsIllegalStateException() {
-        PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
-        String[] stringArray = new String[1];
-        stringArray[0] = "8io`#&*f6&";
-        periodFormatterBuilder.appendSecondsWithMillis();
-        periodFormatterBuilder.appendSeparator("8io`#&*f6&", "NW7");
-
-        try {
-            periodFormatterBuilder.appendSuffix(stringArray, stringArray);
-            fail("Expecting exception: IllegalStateException");
-        } catch (IllegalStateException e) {
-            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
-        }
-    }
-
-    public void testAppendLiteralThrowsIllegalArgumentException() {
-        PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
-
-        try {
-            periodFormatterBuilder.appendLiteral(null);
-            fail("Expecting exception: IllegalArgumentException");
-        } catch (IllegalArgumentException e) {
-            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
-        }
-    }
-
-    public void testAppendTakingPeriodFormatterThrowsIllegalArgumentException() {
-        PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
-
-        try {
-            periodFormatterBuilder.append(null);
-            fail("Expecting exception: IllegalArgumentException");
-        } catch (IllegalArgumentException e) {
-            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
-        }
-    }
-
     public void testToFormatterPrinterParser_1_oe() {
         builder.appendYears();
         assertNotNull(builder.toFormatter());
@@ -5693,6 +5633,66 @@ public class TestPeriodFormatterBuilder_OE25Dev extends TestCase {
             periodFormatterBuilder.appendSeparatorIfFieldsBefore("=9Z/])WG");
             // removed other assertion
         } catch (IllegalStateException e) {
+            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }
+
+    public void testAppendSeparatorTaking3ArgumentsWithEmptyStringAndNull_2_oe() {
+        PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
+
+        try {
+            periodFormatterBuilder.appendSeparator("", null, null);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }
+
+    public void testAppendSeparatorTaking3ArgumentsWithNullAndNonEmptyArray_2_oe() {
+        PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
+        String[] stringArray = new String[3];
+
+        try {
+            periodFormatterBuilder.appendSeparator(null, null, stringArray);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }
+
+    public void testAppendSuffixTaking2StringArraysThrowsIllegalStateException_2_oe() {
+        PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
+        String[] stringArray = new String[1];
+        stringArray[0] = "8io`#&*f6&";
+        periodFormatterBuilder.appendSecondsWithMillis();
+        periodFormatterBuilder.appendSeparator("8io`#&*f6&", "NW7");
+
+        try {
+            periodFormatterBuilder.appendSuffix(stringArray, stringArray);
+            // removed other assertion
+        } catch (IllegalStateException e) {
+            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }
+
+    public void testAppendLiteralThrowsIllegalArgumentException_2_oe() {
+        PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
+
+        try {
+            periodFormatterBuilder.appendLiteral(null);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
+            assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
+    }
+    }
+
+    public void testAppendTakingPeriodFormatterThrowsIllegalArgumentException_2_oe() {
+        PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
+
+        try {
+            periodFormatterBuilder.append(null);
+            // removed other assertion
+        } catch (IllegalArgumentException e) {
             assertEquals(PeriodFormatterBuilder.class.getName(), e.getStackTrace()[0].getClassName());
     }
     }
