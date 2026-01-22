@@ -1,0 +1,647 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+package org.apache.commons.validator.routines;
+
+import java.util.Locale;
+
+/**
+ * Test Case for LongValidator.
+ * 
+ * @version $Revision$
+ */
+public class LongValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
+
+    private static final Long LONG_MIN_VAL = Long.valueOf(Long.MIN_VALUE);
+    private static final Long LONG_MAX_VAL = Long.valueOf(Long.MAX_VALUE);
+    private static final String LONG_MAX   =  "9223372036854775807";
+    private static final String LONG_MAX_0 =  "9223372036854775807.99999999999999999999999"; // force double rounding
+    private static final String LONG_MAX_1 =  "9223372036854775808";
+    private static final String LONG_MIN   = "-9223372036854775808";
+    private static final String LONG_MIN_0 = "-9223372036854775808.99999999999999999999999"; // force double rounding
+    private static final String LONG_MIN_1 = "-9223372036854775809";
+
+    private static final String NINES = "9999999999999999999999999999999999999";
+    /**
+     * Constructor
+     * @param name test name
+     */
+    public LongValidatorTest_OE25Dev(String name) {
+        super(name);
+    }
+
+    @Override
+    protected void setUp() throws Exception {
+        super.setUp();
+
+        validator       = new LongValidator(false, 0);
+        strictValidator = new LongValidator();
+
+        testPattern = "#,###";
+
+        // testValidateMinMax()
+        max =  null;
+        maxPlusOne = null;
+        min = null;
+        minMinusOne = null;
+
+        
+        // testInvalidStrict()
+        invalidStrict = new String[] {null, "", "X", "X12", "12X", "1X2", "1.2", LONG_MAX_1, LONG_MIN_1, NINES};
+
+        // testInvalidNotStrict()
+        invalid       = new String[] {null, "", "X", "X12", "", LONG_MAX_1, LONG_MIN_1, NINES};
+
+        // testValid()
+        testNumber    = Long.valueOf(1234);
+        testZero      = Long.valueOf(0);
+        validStrict          = new String[] {"0", "1234", "1,234", LONG_MAX, LONG_MIN};
+        validStrictCompare   = new Number[] {testZero, testNumber, testNumber, LONG_MAX_VAL, LONG_MIN_VAL};
+        valid                = new String[] {"0", "1234", "1,234", "1,234.5", "1234X", LONG_MAX, LONG_MIN, LONG_MAX_0, LONG_MIN_0};
+        validCompare         = new Number[] {testZero, testNumber, testNumber, testNumber, testNumber, LONG_MAX_VAL, LONG_MIN_VAL, LONG_MAX_VAL, LONG_MIN_VAL};
+
+        testStringUS = "1,234";
+        testStringDE = "1.234";
+
+        // Localized Pattern test
+        localeValue = testStringDE;
+        localePattern = "#.###";
+        testLocale    = Locale.GERMANY;
+        localeExpected = testNumber;
+
+    }
+
+    /**
+     * Test LongValidator validate Methods
+     */
+
+    /**
+     * Test Long Range/Min/Max
+     */
+
+    public void testLongValidatorMethods_1_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        assertEquals("validate(A) default", expected, LongValidator.getInstance().validate(defaultVal));
+    }
+
+    public void testLongValidatorMethods_2_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        assertEquals("validate(A) locale ", expected, LongValidator.getInstance().validate(localeVal, locale));
+    }
+
+    public void testLongValidatorMethods_3_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("validate(A) pattern", expected, LongValidator.getInstance().validate(patternVal, pattern));
+    }
+
+    public void testLongValidatorMethods_4_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("validate(A) both",    expected, LongValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
+    }
+
+    public void testLongValidatorMethods_5_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertTrue("isValid(A) default", LongValidator.getInstance().isValid(defaultVal));
+    }
+
+    public void testLongValidatorMethods_6_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertTrue("isValid(A) locale ", LongValidator.getInstance().isValid(localeVal, locale));
+    }
+
+    public void testLongValidatorMethods_7_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertTrue("isValid(A) pattern", LongValidator.getInstance().isValid(patternVal, pattern));
+    }
+
+    public void testLongValidatorMethods_8_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue("isValid(A) both",    LongValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
+    }
+
+    public void testLongValidatorMethods_9_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertNull("validate(B) default", LongValidator.getInstance().validate(XXXX));
+    }
+
+    public void testLongValidatorMethods_10_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertNull("validate(B) locale ", LongValidator.getInstance().validate(XXXX, locale));
+    }
+
+    public void testLongValidatorMethods_11_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertNull("validate(B) pattern", LongValidator.getInstance().validate(XXXX, pattern));
+    }
+
+    public void testLongValidatorMethods_12_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertNull("validate(B) both",    LongValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
+    }
+
+    public void testLongValidatorMethods_13_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertFalse("isValid(B) default", LongValidator.getInstance().isValid(XXXX));
+    }
+
+    public void testLongValidatorMethods_14_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertFalse("isValid(B) locale ", LongValidator.getInstance().isValid(XXXX, locale));
+    }
+
+    public void testLongValidatorMethods_15_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertFalse("isValid(B) pattern", LongValidator.getInstance().isValid(XXXX, pattern));
+    }
+
+    public void testLongValidatorMethods_16_oe() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Long expected = Long.valueOf(12345);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse("isValid(B) both",    LongValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
+    }
+
+    public void testLongRangeMinMax_1_oe() {
+        LongValidator validator = (LongValidator)strictValidator;
+        Long number9  = validator.validate("9", "#");
+        Long number10 = validator.validate("10", "#");
+        Long number11 = validator.validate("11", "#");
+        Long number19 = validator.validate("19", "#");
+        Long number20 = validator.validate("20", "#");
+        Long number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        assertFalse("isInRange() < min",   validator.isInRange(number9,  10, 20));
+    }
+
+    public void testLongRangeMinMax_2_oe() {
+        LongValidator validator = (LongValidator)strictValidator;
+        Long number9  = validator.validate("9", "#");
+        Long number10 = validator.validate("10", "#");
+        Long number11 = validator.validate("11", "#");
+        Long number19 = validator.validate("19", "#");
+        Long number20 = validator.validate("20", "#");
+        Long number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        // removed other assertion
+        assertTrue("isInRange() = min",    validator.isInRange(number10, 10, 20));
+    }
+
+    public void testLongRangeMinMax_3_oe() {
+        LongValidator validator = (LongValidator)strictValidator;
+        Long number9  = validator.validate("9", "#");
+        Long number10 = validator.validate("10", "#");
+        Long number11 = validator.validate("11", "#");
+        Long number19 = validator.validate("19", "#");
+        Long number20 = validator.validate("20", "#");
+        Long number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        assertTrue("isInRange() in range", validator.isInRange(number11, 10, 20));
+    }
+
+    public void testLongRangeMinMax_4_oe() {
+        LongValidator validator = (LongValidator)strictValidator;
+        Long number9  = validator.validate("9", "#");
+        Long number10 = validator.validate("10", "#");
+        Long number11 = validator.validate("11", "#");
+        Long number19 = validator.validate("19", "#");
+        Long number20 = validator.validate("20", "#");
+        Long number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue("isInRange() = max",    validator.isInRange(number20, 10, 20));
+    }
+
+    public void testLongRangeMinMax_5_oe() {
+        LongValidator validator = (LongValidator)strictValidator;
+        Long number9  = validator.validate("9", "#");
+        Long number10 = validator.validate("10", "#");
+        Long number11 = validator.validate("11", "#");
+        Long number19 = validator.validate("19", "#");
+        Long number20 = validator.validate("20", "#");
+        Long number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse("isInRange() > max",   validator.isInRange(number21, 10, 20));
+    }
+
+    public void testLongRangeMinMax_6_oe() {
+        LongValidator validator = (LongValidator)strictValidator;
+        Long number9  = validator.validate("9", "#");
+        Long number10 = validator.validate("10", "#");
+        Long number11 = validator.validate("11", "#");
+        Long number19 = validator.validate("19", "#");
+        Long number20 = validator.validate("20", "#");
+        Long number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test minValue()
+        assertFalse("minValue() < min",    validator.minValue(number9,  10));
+    }
+
+    public void testLongRangeMinMax_7_oe() {
+        LongValidator validator = (LongValidator)strictValidator;
+        Long number9  = validator.validate("9", "#");
+        Long number10 = validator.validate("10", "#");
+        Long number11 = validator.validate("11", "#");
+        Long number19 = validator.validate("19", "#");
+        Long number20 = validator.validate("20", "#");
+        Long number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test minValue()
+        // removed other assertion
+        assertTrue("minValue() = min",     validator.minValue(number10, 10));
+    }
+
+    public void testLongRangeMinMax_8_oe() {
+        LongValidator validator = (LongValidator)strictValidator;
+        Long number9  = validator.validate("9", "#");
+        Long number10 = validator.validate("10", "#");
+        Long number11 = validator.validate("11", "#");
+        Long number19 = validator.validate("19", "#");
+        Long number20 = validator.validate("20", "#");
+        Long number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        assertTrue("minValue() > min",     validator.minValue(number11, 10));
+    }
+
+    public void testLongRangeMinMax_9_oe() {
+        LongValidator validator = (LongValidator)strictValidator;
+        Long number9  = validator.validate("9", "#");
+        Long number10 = validator.validate("10", "#");
+        Long number11 = validator.validate("11", "#");
+        Long number19 = validator.validate("19", "#");
+        Long number20 = validator.validate("20", "#");
+        Long number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test minValue()
+        assertTrue("maxValue() < max",     validator.maxValue(number19, 20));
+    }
+
+    public void testLongRangeMinMax_10_oe() {
+        LongValidator validator = (LongValidator)strictValidator;
+        Long number9  = validator.validate("9", "#");
+        Long number10 = validator.validate("10", "#");
+        Long number11 = validator.validate("11", "#");
+        Long number19 = validator.validate("19", "#");
+        Long number20 = validator.validate("20", "#");
+        Long number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test minValue()
+        // removed other assertion
+        assertTrue("maxValue() = max",     validator.maxValue(number20, 20));
+    }
+
+    public void testLongRangeMinMax_11_oe() {
+        LongValidator validator = (LongValidator)strictValidator;
+        Long number9  = validator.validate("9", "#");
+        Long number10 = validator.validate("10", "#");
+        Long number11 = validator.validate("11", "#");
+        Long number19 = validator.validate("19", "#");
+        Long number20 = validator.validate("20", "#");
+        Long number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Test minValue()
+        // removed other assertion
+        // removed other assertion
+        assertFalse("maxValue() > max",    validator.maxValue(number21, 20));
+    }
+
+}
