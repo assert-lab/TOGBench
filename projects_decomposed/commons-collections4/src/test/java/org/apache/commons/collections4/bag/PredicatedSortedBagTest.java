@@ -40,7 +40,7 @@ public class PredicatedSortedBagTest<T> extends AbstractSortedBagTest<T> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(PredicatedSortedBagTest.class);
+        return new junit.framework.TestSuite(PredicatedSortedBagTest.class);
     }
 
     //--------------------------------------------------------------------------

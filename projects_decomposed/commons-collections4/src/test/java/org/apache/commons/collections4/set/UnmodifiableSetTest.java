@@ -38,7 +38,7 @@ public class UnmodifiableSetTest<E> extends AbstractSetTest<E> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableSetTest.class);
+        return new junit.framework.TestSuite(UnmodifiableSetTest.class);
     }
 
     //-------------------------------------------------------------------

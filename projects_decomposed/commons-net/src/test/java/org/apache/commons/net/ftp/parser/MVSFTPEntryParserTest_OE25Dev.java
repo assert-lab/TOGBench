@@ -128,9 +128,60 @@ public class MVSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
      * @see org.apache.commons.net.ftp.parser.FTPParseTestFramework#testGoodListing()
      */
 
+    @Override
+    public void testParseFieldsOnDirectory() throws Exception {
+        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
+        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
+        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
+
+        FTPFile file = parser
+                .parseFTPEntry("SAVE01 3390   2004/06/23  1    1  FB     128  6144  PO    INCOMING.RPTBM024.D061704");
+        assertNotNull("Could not parse entry.", file);
+        assertTrue("Should have been a directory.", file.isDirectory());
+        assertEquals("INCOMING.RPTBM024.D061704", file.getName());
+
+        file = parser
+                .parseFTPEntry("SAVE02 3390   2004/06/23  1    1  FB     128  6144  PO-E  INCOMING.RPTBM025.D061704");
+        assertNotNull("Could not parse entry.", file);
+        assertTrue("Should have been a directory.", file.isDirectory());
+        assertEquals("INCOMING.RPTBM025.D061704", file.getName());
+
+    }
+
     /* (non-Javadoc)
      * @see org.apache.commons.net.ftp.parser.FTPParseTestFramework#testParseFieldsOnFile()
      */
+    @Override
+    public void testParseFieldsOnFile() throws Exception {
+        FTPFile file;
+
+        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
+
+        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
+        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
+
+        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
+        assertNotNull("Could not parse entry.", file);
+        assertTrue("Should have been a file.", file.isFile());
+        assertEquals("INCOMING.RPTBM023.D061704", file.getName());
+        assertNull("Timestamp should not have been set.", file.getTimestamp());
+
+        parser.setType(MVSFTPEntryParser.MEMBER_LIST_TYPE);
+        parser.setRegex(MVSFTPEntryParser.MEMBER_LIST_REGEX);
+
+        file = parser.parseFTPEntry("SAVE03    01.03 2002/09/12 2002/10/11 09:37    11    11     0 KIL001");
+        assertNotNull("Could not parse entry.", file);
+        assertTrue("Should have been a file.", file.isFile());
+        assertEquals("SAVE03", file.getName());
+        assertNotNull("Timestamp should have been set.", file.getTimestamp());
+
+        file = parser.parseFTPEntry("SAVE04                                                              ");
+        assertNotNull("Could not parse entry.", file);
+        assertTrue("Should have been a file.", file.isFile());
+        assertEquals("SAVE04", file.getName());
+        assertNull("Timestamp should not have been set.", file.getTimestamp());
+
+    }
 
     @Override
     public void doAdditionalGoodTests(final String test, final FTPFile f) {
@@ -238,348 +289,6 @@ public class MVSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
             // removed other assertion
             assertNotNull("Failed to parse user " + test, f.getUser());
     }
-    }
-
-    public void testParseFieldsOnDirectory_1_oe() throws Exception {
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-
-        FTPFile file = parser
-                .parseFTPEntry("SAVE01 3390   2004/06/23  1    1  FB     128  6144  PO    INCOMING.RPTBM024.D061704");
-        assertNotNull("Could not parse entry.", file);
-    }
-
-    public void testParseFieldsOnDirectory_2_oe() throws Exception {
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-
-        FTPFile file = parser
-                .parseFTPEntry("SAVE01 3390   2004/06/23  1    1  FB     128  6144  PO    INCOMING.RPTBM024.D061704");
-        // removed other assertion
-        assertTrue("Should have been a directory.", file.isDirectory());
-    }
-
-    public void testParseFieldsOnDirectory_3_oe() throws Exception {
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-
-        FTPFile file = parser
-                .parseFTPEntry("SAVE01 3390   2004/06/23  1    1  FB     128  6144  PO    INCOMING.RPTBM024.D061704");
-        // removed other assertion
-        // removed other assertion
-        assertEquals("INCOMING.RPTBM024.D061704", file.getName());
-    }
-
-    public void testParseFieldsOnDirectory_4_oe() throws Exception {
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-
-        FTPFile file = parser
-                .parseFTPEntry("SAVE01 3390   2004/06/23  1    1  FB     128  6144  PO    INCOMING.RPTBM024.D061704");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        file = parser
-                .parseFTPEntry("SAVE02 3390   2004/06/23  1    1  FB     128  6144  PO-E  INCOMING.RPTBM025.D061704");
-        assertNotNull("Could not parse entry.", file);
-    }
-
-    public void testParseFieldsOnDirectory_5_oe() throws Exception {
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-
-        FTPFile file = parser
-                .parseFTPEntry("SAVE01 3390   2004/06/23  1    1  FB     128  6144  PO    INCOMING.RPTBM024.D061704");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        file = parser
-                .parseFTPEntry("SAVE02 3390   2004/06/23  1    1  FB     128  6144  PO-E  INCOMING.RPTBM025.D061704");
-        // removed other assertion
-        assertTrue("Should have been a directory.", file.isDirectory());
-    }
-
-    public void testParseFieldsOnDirectory_6_oe() throws Exception {
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-
-        FTPFile file = parser
-                .parseFTPEntry("SAVE01 3390   2004/06/23  1    1  FB     128  6144  PO    INCOMING.RPTBM024.D061704");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        file = parser
-                .parseFTPEntry("SAVE02 3390   2004/06/23  1    1  FB     128  6144  PO-E  INCOMING.RPTBM025.D061704");
-        // removed other assertion
-        // removed other assertion
-        assertEquals("INCOMING.RPTBM025.D061704", file.getName());
-    }
-
-    public void testParseFieldsOnFile_1_oe() throws Exception {
-        FTPFile file;
-
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-
-        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
-        assertNotNull("Could not parse entry.", file);
-    }
-
-    public void testParseFieldsOnFile_2_oe() throws Exception {
-        FTPFile file;
-
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-
-        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
-        // removed other assertion
-        assertTrue("Should have been a file.", file.isFile());
-    }
-
-    public void testParseFieldsOnFile_3_oe() throws Exception {
-        FTPFile file;
-
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-
-        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
-        // removed other assertion
-        // removed other assertion
-        assertEquals("INCOMING.RPTBM023.D061704", file.getName());
-    }
-
-    public void testParseFieldsOnFile_4_oe() throws Exception {
-        FTPFile file;
-
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-
-        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertNull("Timestamp should not have been set.", file.getTimestamp());
-    }
-
-    public void testParseFieldsOnFile_5_oe() throws Exception {
-        FTPFile file;
-
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-
-        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        parser.setType(MVSFTPEntryParser.MEMBER_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.MEMBER_LIST_REGEX);
-
-        file = parser.parseFTPEntry("SAVE03    01.03 2002/09/12 2002/10/11 09:37    11    11     0 KIL001");
-        assertNotNull("Could not parse entry.", file);
-    }
-
-    public void testParseFieldsOnFile_6_oe() throws Exception {
-        FTPFile file;
-
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-
-        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        parser.setType(MVSFTPEntryParser.MEMBER_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.MEMBER_LIST_REGEX);
-
-        file = parser.parseFTPEntry("SAVE03    01.03 2002/09/12 2002/10/11 09:37    11    11     0 KIL001");
-        // removed other assertion
-        assertTrue("Should have been a file.", file.isFile());
-    }
-
-    public void testParseFieldsOnFile_7_oe() throws Exception {
-        FTPFile file;
-
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-
-        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        parser.setType(MVSFTPEntryParser.MEMBER_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.MEMBER_LIST_REGEX);
-
-        file = parser.parseFTPEntry("SAVE03    01.03 2002/09/12 2002/10/11 09:37    11    11     0 KIL001");
-        // removed other assertion
-        // removed other assertion
-        assertEquals("SAVE03", file.getName());
-    }
-
-    public void testParseFieldsOnFile_8_oe() throws Exception {
-        FTPFile file;
-
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-
-        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        parser.setType(MVSFTPEntryParser.MEMBER_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.MEMBER_LIST_REGEX);
-
-        file = parser.parseFTPEntry("SAVE03    01.03 2002/09/12 2002/10/11 09:37    11    11     0 KIL001");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertNotNull("Timestamp should have been set.", file.getTimestamp());
-    }
-
-    public void testParseFieldsOnFile_9_oe() throws Exception {
-        FTPFile file;
-
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-
-        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        parser.setType(MVSFTPEntryParser.MEMBER_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.MEMBER_LIST_REGEX);
-
-        file = parser.parseFTPEntry("SAVE03    01.03 2002/09/12 2002/10/11 09:37    11    11     0 KIL001");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        file = parser.parseFTPEntry("SAVE04                                                              ");
-        assertNotNull("Could not parse entry.", file);
-    }
-
-    public void testParseFieldsOnFile_10_oe() throws Exception {
-        FTPFile file;
-
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-
-        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        parser.setType(MVSFTPEntryParser.MEMBER_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.MEMBER_LIST_REGEX);
-
-        file = parser.parseFTPEntry("SAVE03    01.03 2002/09/12 2002/10/11 09:37    11    11     0 KIL001");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        file = parser.parseFTPEntry("SAVE04                                                              ");
-        // removed other assertion
-        assertTrue("Should have been a file.", file.isFile());
-    }
-
-    public void testParseFieldsOnFile_11_oe() throws Exception {
-        FTPFile file;
-
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-
-        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        parser.setType(MVSFTPEntryParser.MEMBER_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.MEMBER_LIST_REGEX);
-
-        file = parser.parseFTPEntry("SAVE03    01.03 2002/09/12 2002/10/11 09:37    11    11     0 KIL001");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        file = parser.parseFTPEntry("SAVE04                                                              ");
-        // removed other assertion
-        // removed other assertion
-        assertEquals("SAVE04", file.getName());
-    }
-
-    public void testParseFieldsOnFile_12_oe() throws Exception {
-        FTPFile file;
-
-        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
-
-        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
-        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
-
-        file = parser.parseFTPEntry("SAVE00 3390   2004/06/23  1    1  FB     128  6144  PS    INCOMING.RPTBM023.D061704");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        parser.setType(MVSFTPEntryParser.MEMBER_LIST_TYPE);
-        parser.setRegex(MVSFTPEntryParser.MEMBER_LIST_REGEX);
-
-        file = parser.parseFTPEntry("SAVE03    01.03 2002/09/12 2002/10/11 09:37    11    11     0 KIL001");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        file = parser.parseFTPEntry("SAVE04                                                              ");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertNull("Timestamp should not have been set.", file.getTimestamp());
     }
 
 }

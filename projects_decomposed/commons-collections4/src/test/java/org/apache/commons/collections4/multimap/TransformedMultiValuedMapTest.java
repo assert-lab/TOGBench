@@ -38,7 +38,7 @@ public class TransformedMultiValuedMapTest<K, V> extends AbstractMultiValuedMapT
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(TransformedMultiValuedMapTest.class);
+        return new junit.framework.TestSuite(TransformedMultiValuedMapTest.class);
     }
 
     // -----------------------------------------------------------------------

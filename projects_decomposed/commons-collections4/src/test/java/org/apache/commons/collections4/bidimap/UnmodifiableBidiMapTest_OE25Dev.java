@@ -32,7 +32,7 @@ import org.apache.commons.collections4.Unmodifiable;
 public class UnmodifiableBidiMapTest_OE25Dev<K, V> extends AbstractBidiMapTest<K, V> {
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableBidiMapTest_OE25Dev.class);
+        return new junit.framework.TestSuite(UnmodifiableBidiMapTest_OE25Dev.class);
     }
 
     public UnmodifiableBidiMapTest_OE25Dev(final String testName) {

@@ -49,7 +49,7 @@ public class TreeListTest<E> extends AbstractListTest<E> {
 //    }
 
     public static Test suite() {
-        return BulkTest.makeSuite(TreeListTest.class);
+        return new junit.framework.TestSuite(TreeListTest.class);
     }
 
     public static void benchmark(final List<? super Integer> l) {

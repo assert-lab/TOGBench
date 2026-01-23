@@ -41,7 +41,7 @@ public class PredicatedSortedSetTest<E> extends AbstractSortedSetTest<E> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(PredicatedSortedSetTest.class);
+        return new junit.framework.TestSuite(PredicatedSortedSetTest.class);
     }
 
  //-------------------------------------------------------------------

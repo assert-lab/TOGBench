@@ -32,7 +32,7 @@ import org.apache.commons.collections4.Unmodifiable;
 public class UnmodifiableSortedBidiMapTest<K extends Comparable<K>, V extends Comparable<V>> extends AbstractSortedBidiMapTest<K, V> {
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableSortedBidiMapTest.class);
+        return new junit.framework.TestSuite(UnmodifiableSortedBidiMapTest.class);
     }
 
     public UnmodifiableSortedBidiMapTest(final String testName) {

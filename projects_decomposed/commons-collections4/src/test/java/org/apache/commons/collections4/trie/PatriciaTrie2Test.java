@@ -34,7 +34,7 @@ public class PatriciaTrie2Test<V> extends AbstractOrderedMapTest<String, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(PatriciaTrie2Test.class);
+        return new junit.framework.TestSuite(PatriciaTrie2Test.class);
     }
 
     @Override

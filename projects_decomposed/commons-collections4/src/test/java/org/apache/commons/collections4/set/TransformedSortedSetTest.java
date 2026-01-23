@@ -41,7 +41,7 @@ public class TransformedSortedSetTest<E> extends AbstractSortedSetTest<E> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(TransformedSortedSetTest.class);
+        return new junit.framework.TestSuite(TransformedSortedSetTest.class);
     }
 
     //-----------------------------------------------------------------------

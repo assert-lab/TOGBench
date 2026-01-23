@@ -77,4 +77,3 @@ public class Jira422TestCase_OE25Dev {
     }
 
 }
-

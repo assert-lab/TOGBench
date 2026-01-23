@@ -38,7 +38,7 @@ public class TransformedMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiVa
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(TransformedMultiValuedMapTest_OE25Dev.class);
+        return new junit.framework.TestSuite(TransformedMultiValuedMapTest_OE25Dev.class);
     }
 
     // -----------------------------------------------------------------------

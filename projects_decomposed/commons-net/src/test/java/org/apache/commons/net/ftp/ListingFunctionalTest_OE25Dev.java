@@ -148,9 +148,14 @@ public class ListingFunctionalTest_OE25Dev extends TestCase
     {
         super.setUp();
         client = new FTPClient();
+        // client.setConnectTimeout(10);
+        // client.setDefaultTimeout(10);
+        // client.setDataTimeout(10);
         client.connect(hostName);
         client.login("anonymous", "anonymous");
         client.enterLocalPassiveMode();
+
+
 //        client.addProtocolCommandListener(new PrintCommandListener(System.out));
     }
 

@@ -27,7 +27,7 @@ import org.apache.commons.collections4.BulkTest;
 public class DualTreeBidiMapTest<K extends Comparable<K>, V extends Comparable<V>> extends AbstractSortedBidiMapTest<K, V> {
 
     public static Test suite() {
-        return BulkTest.makeSuite(DualTreeBidiMapTest.class);
+        return new junit.framework.TestSuite(DualTreeBidiMapTest.class);
     }
 
     public DualTreeBidiMapTest(final String testName) {

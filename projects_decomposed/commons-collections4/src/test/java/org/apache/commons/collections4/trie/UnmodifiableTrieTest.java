@@ -36,7 +36,7 @@ public class UnmodifiableTrieTest<V> extends AbstractSortedMapTest<String, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableTrieTest.class);
+        return new junit.framework.TestSuite(UnmodifiableTrieTest.class);
     }
 
     //-------------------------------------------------------------------

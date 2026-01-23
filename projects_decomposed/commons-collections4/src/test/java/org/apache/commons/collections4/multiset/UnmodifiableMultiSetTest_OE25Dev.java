@@ -37,7 +37,7 @@ public class UnmodifiableMultiSetTest_OE25Dev<E> extends AbstractMultiSetTest<E>
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableMultiSetTest_OE25Dev.class);
+        return new junit.framework.TestSuite(UnmodifiableMultiSetTest_OE25Dev.class);
     }
 
     //-----------------------------------------------------------------------

@@ -45,7 +45,7 @@ public class PatriciaTrieTest_OE25Dev<V> extends AbstractSortedMapTest<String, V
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(PatriciaTrieTest_OE25Dev.class);
+        return new junit.framework.TestSuite(PatriciaTrieTest_OE25Dev.class);
     }
 
     @Override

@@ -27,7 +27,7 @@ import org.apache.commons.collections4.BulkTest;
 public class DualHashBidiMapTest<K, V> extends AbstractBidiMapTest<K, V> {
 
     public static Test suite() {
-        return BulkTest.makeSuite(DualHashBidiMapTest.class);
+        return new junit.framework.TestSuite(DualHashBidiMapTest.class);
     }
 
     public DualHashBidiMapTest(final String testName) {

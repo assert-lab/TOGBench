@@ -44,7 +44,7 @@ public class MultiKeyMapTest<K, V> extends AbstractIterableMapTest<MultiKey<? ex
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(MultiKeyMapTest.class);
+        return new junit.framework.TestSuite(MultiKeyMapTest.class);
     }
 
     @Override

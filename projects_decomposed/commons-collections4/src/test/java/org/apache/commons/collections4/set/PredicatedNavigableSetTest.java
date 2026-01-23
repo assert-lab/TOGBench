@@ -41,7 +41,7 @@ public class PredicatedNavigableSetTest<E> extends AbstractNavigableSetTest<E> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(PredicatedNavigableSetTest.class);
+        return new junit.framework.TestSuite(PredicatedNavigableSetTest.class);
     }
 
     //-------------------------------------------------------------------

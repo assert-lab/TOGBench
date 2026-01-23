@@ -34,7 +34,7 @@ public class SynchronizedMultiSetTest<T> extends AbstractMultiSetTest<T> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(SynchronizedMultiSetTest.class);
+        return new junit.framework.TestSuite(SynchronizedMultiSetTest.class);
     }
 
     //-----------------------------------------------------------------------

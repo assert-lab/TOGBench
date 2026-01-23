@@ -42,7 +42,7 @@ public class UnmodifiableNavigableSetTest<E> extends AbstractNavigableSetTest<E>
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableNavigableSetTest.class);
+        return new junit.framework.TestSuite(UnmodifiableNavigableSetTest.class);
     }
 
     //-------------------------------------------------------------------

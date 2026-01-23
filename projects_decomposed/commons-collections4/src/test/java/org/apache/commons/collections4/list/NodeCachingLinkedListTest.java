@@ -34,7 +34,7 @@ public class NodeCachingLinkedListTest<E> extends AbstractLinkedListTest<E> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(NodeCachingLinkedListTest.class);
+        return new junit.framework.TestSuite(NodeCachingLinkedListTest.class);
     }
 
     //-----------------------------------------------------------------------

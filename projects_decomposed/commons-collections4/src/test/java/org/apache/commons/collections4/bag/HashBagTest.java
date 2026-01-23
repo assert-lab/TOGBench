@@ -33,7 +33,7 @@ public class HashBagTest<T> extends AbstractBagTest<T> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(HashBagTest.class);
+        return new junit.framework.TestSuite(HashBagTest.class);
     }
 
     //-----------------------------------------------------------------------

@@ -38,7 +38,7 @@ public class UnmodifiableBagTest<E> extends AbstractBagTest<E> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableBagTest.class);
+        return new junit.framework.TestSuite(UnmodifiableBagTest.class);
     }
 
     //-----------------------------------------------------------------------

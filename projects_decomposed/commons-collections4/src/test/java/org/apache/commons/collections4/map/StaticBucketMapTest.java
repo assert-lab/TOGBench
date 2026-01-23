@@ -32,7 +32,7 @@ public class StaticBucketMapTest<K, V> extends AbstractIterableMapTest<K, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(StaticBucketMapTest.class);
+        return new junit.framework.TestSuite(StaticBucketMapTest.class);
     }
 
     @Override

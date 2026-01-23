@@ -29,7 +29,7 @@ import org.apache.commons.collections4.BulkTest;
 public class TreeBidiMapTest<K extends Comparable<K>, V extends Comparable<V>> extends AbstractOrderedBidiMapTest<K, V> {
 
     public static Test suite() {
-        return BulkTest.makeSuite(TreeBidiMapTest.class);
+        return new junit.framework.TestSuite(TreeBidiMapTest.class);
     }
 
     public TreeBidiMapTest(final String testName) {

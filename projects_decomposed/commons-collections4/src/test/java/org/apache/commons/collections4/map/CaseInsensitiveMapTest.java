@@ -36,7 +36,7 @@ public class CaseInsensitiveMapTest<K, V> extends AbstractIterableMapTest<K, V> 
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(CaseInsensitiveMapTest.class);
+        return new junit.framework.TestSuite(CaseInsensitiveMapTest.class);
     }
 
     @Override

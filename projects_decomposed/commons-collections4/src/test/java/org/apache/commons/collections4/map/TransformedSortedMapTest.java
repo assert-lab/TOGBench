@@ -40,9 +40,9 @@ public class TransformedSortedMapTest<K, V> extends AbstractSortedMapTest<K, V> 
         super(testName);
     }
 
-    public static Test suite() {
-        return BulkTest.makeSuite(TransformedSortedMapTest.class);
-    }
+public static Test suite() {
+    return new junit.framework.TestSuite(TransformedSortedMapTest.class);
+}
 
     @Override
     public String[] ignoredTests() {

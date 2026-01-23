@@ -42,7 +42,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(ReferenceIdentityMapTest_OE25Dev.class);
+        return new junit.framework.TestSuite(ReferenceIdentityMapTest_OE25Dev.class);
     }
 
     @Override

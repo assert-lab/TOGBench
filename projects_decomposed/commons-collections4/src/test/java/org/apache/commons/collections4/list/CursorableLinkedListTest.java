@@ -39,7 +39,7 @@ public class CursorableLinkedListTest<E> extends AbstractLinkedListTest<E> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(CursorableLinkedListTest.class);
+        return new junit.framework.TestSuite(CursorableLinkedListTest.class);
     }
 
     private CursorableLinkedList<E> list;

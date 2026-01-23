@@ -41,37 +41,23 @@ public class SuppressGAOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTest
      * test of client-driven subnegotiation.
      * Checks that no subnegotiation is made.
      */
-
-    /**
-     * test of server-driven subnegotiation.
-     * Checks that no subnegotiation is made.
-     */
-
-    public void testConstructors_1_oe()
-    {
-        assertEquals(opthand1.getOptionCode(), TelnetOption.SUPPRESS_GO_AHEAD);
-    }
-
-    public void testStartSubnegotiation_1_oe()
+    @Override
+    public void testStartSubnegotiation()
     {
 
         final int resp1[] = opthand1.startSubnegotiationLocal();
         final int resp2[] = opthand1.startSubnegotiationRemote();
 
         assertEquals(resp1, null);
-    }
-
-    public void testStartSubnegotiation_2_oe()
-    {
-
-        final int resp1[] = opthand1.startSubnegotiationLocal();
-        final int resp2[] = opthand1.startSubnegotiationRemote();
-
-        // removed other assertion
         assertEquals(resp2, null);
     }
 
-    public void testAnswerSubnegotiation_1_oe()
+    /**
+     * test of server-driven subnegotiation.
+     * Checks that no subnegotiation is made.
+     */
+    @Override
+    public void testAnswerSubnegotiation()
     {
         final int subn[] =
         {
@@ -82,6 +68,11 @@ public class SuppressGAOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTest
         final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
 
         assertEquals(resp1, null);
+    }
+
+    public void testConstructors_1_oe()
+    {
+        assertEquals(opthand1.getOptionCode(), TelnetOption.SUPPRESS_GO_AHEAD);
     }
 
 }

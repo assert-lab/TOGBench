@@ -28,8 +28,8 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-collections4 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4
-[INFO] Storing buildNumber: e69f19256bc398a1a6fc36d3a4ec525a40e47c15 at timestamp: 1768804249014
-[INFO] Storing buildScmBranch: main
+[INFO] Storing buildNumber: aa673ee3612a349421a14eaa843f45ca8e70f9bf at timestamp: 1769199483532
+[INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-collections4 ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -54,223 +54,393 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-collections4 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 397 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[994,9] illegal start of type
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[994,16] <identifier> expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[994,40] <identifier> expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[994,45] invalid method declaration; return type required
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[994,75] ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1001,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1011,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1012,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1014,19] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1015,13] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1016,5] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1019,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1021,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1022,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1023,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1025,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1026,29] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1026,46] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1027,23] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1028,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1029,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1030,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1031,5] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1035,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1037,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1038,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1039,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1041,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1042,29] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1042,46] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1043,23] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1044,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1045,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1047,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1048,5] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1052,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1054,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1055,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1056,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1058,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1059,29] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1059,46] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1060,23] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1061,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1062,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1065,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1066,5] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1070,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1072,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1073,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1074,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1076,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1077,29] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1077,46] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1078,23] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1079,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1080,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1084,13] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1086,33] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1086,50] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1087,27] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1088,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1089,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1090,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1091,5] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1096,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1098,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1099,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1100,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1102,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1103,29] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1103,46] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1104,23] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1105,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1106,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1110,13] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1112,33] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1112,50] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1113,27] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1114,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1115,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1117,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1118,5] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1123,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1125,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1126,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1127,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1129,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1130,29] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1130,46] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1131,23] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1132,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1133,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1137,13] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1139,33] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1139,50] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1140,27] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1141,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1142,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1145,21] class, interface, or enum expected
-[INFO] 100 errors 
-[INFO] -------------------------------------------------------------
+[INFO] Compiling 382 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/MultiValueMapTest.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/MultiValueMapTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/collection/AbstractCollectionTest.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/collection/AbstractCollectionTest.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/TransformedListTest_OE25Dev.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/TransformedListTest_OE25Dev.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.4:prepare-agent (prepare-agent) @ commons-collections4 ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.4/org.jacoco.agent-0.8.4-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.1:test (default-test) @ commons-collections4 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.collections4.ComparatorUtilsTest_OE25Dev
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.collections4.ComparatorUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.EnumerationUtilsTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.EnumerationUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.MultiMapUtilsTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.MultiMapUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.FactoryUtilsTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.collections4.FactoryUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.MultiSetUtilsTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.MultiSetUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.UniqueFilterIteratorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.UniqueFilterIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ArrayIteratorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.ArrayIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev
+[INFO] Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.UnmodifiableIteratorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.UnmodifiableIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.PeekingIteratorTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.PeekingIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.IteratorIterableTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.IteratorIterableTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ObjectArrayIteratorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ObjectArrayIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.FilterIteratorTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.FilterIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ArrayIterator2Test_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.ArrayIterator2Test_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ArrayListIteratorTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.ArrayListIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.QueueUtilsTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.QueueUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.functors.NullPredicateTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.functors.NullPredicateTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.functors.EqualPredicateTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.functors.EqualPredicateTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.functors.ComparatorPredicateTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.functors.ComparatorPredicateTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.collection.TransformedCollectionTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.collection.TransformedCollectionTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.collection.IndexedCollectionTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.collection.IndexedCollectionTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.collection.PredicatedCollectionTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.PredicatedCollectionTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.collection.UnmodifiableCollectionTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.UnmodifiableCollectionTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.collection.CompositeCollectionTest_OE25Dev
+[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.collection.CompositeCollectionTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.MapUtilsTest_OE25Dev
+java.lang.instrument.IllegalClassFormatException: Error while instrumenting sun/util/resources/provider/NonBaseLocaleDataMetaInfo.
+	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:93)
+	at java.instrument/java.lang.instrument.ClassFileTransformer.transform(ClassFileTransformer.java:244)
+	at java.instrument/sun.instrument.TransformerManager.transform(TransformerManager.java:188)
+	at java.instrument/sun.instrument.InstrumentationImpl.transform(InstrumentationImpl.java:541)
+	at java.base/java.lang.ClassLoader.defineClass2(Native Method)
+	at java.base/java.lang.ClassLoader.defineClass(ClassLoader.java:1108)
+	at java.base/java.security.SecureClassLoader.defineClass(SecureClassLoader.java:182)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.defineClass(BuiltinClassLoader.java:821)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClassInModuleOrNull(BuiltinClassLoader.java:741)
+	at java.base/jdk.internal.loader.BuiltinClassLoader.findClass(BuiltinClassLoader.java:621)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:637)
+	at java.base/java.lang.Class.forName(Class.java:547)
+	at java.base/java.util.ServiceLoader.loadProvider(ServiceLoader.java:859)
+	at java.base/java.util.ServiceLoader$ModuleServicesLookupIterator.hasNext(ServiceLoader.java:1084)
+	at java.base/java.util.ServiceLoader$2.hasNext(ServiceLoader.java:1309)
+	at java.base/java.util.ServiceLoader$3.hasNext(ServiceLoader.java:1393)
+	at java.base/sun.util.locale.provider.JRELocaleProviderAdapter.lambda$createSupportedLocaleString$13(JRELocaleProviderAdapter.java:479)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at java.base/sun.util.locale.provider.JRELocaleProviderAdapter.createSupportedLocaleString(JRELocaleProviderAdapter.java:476)
+	at java.base/sun.util.locale.provider.JRELocaleProviderAdapter.createLanguageTagSet(JRELocaleProviderAdapter.java:456)
+	at java.base/sun.util.locale.provider.JRELocaleProviderAdapter.getLanguageTagSet(JRELocaleProviderAdapter.java:446)
+	at java.base/sun.util.locale.provider.JRELocaleProviderAdapter.lambda$getBreakIteratorProvider$0(JRELocaleProviderAdapter.java:150)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:318)
+	at java.base/sun.util.locale.provider.JRELocaleProviderAdapter.getBreakIteratorProvider(JRELocaleProviderAdapter.java:146)
+	at java.base/sun.util.locale.provider.JRELocaleProviderAdapter.getLocaleServiceProvider(JRELocaleProviderAdapter.java:93)
+	at java.base/sun.util.locale.provider.LocaleServiceProviderPool.getAvailableLocaleSet(LocaleServiceProviderPool.java:191)
+	at java.base/sun.util.locale.provider.LocaleServiceProviderPool$AllAvailableLocales.<clinit>(LocaleServiceProviderPool.java:139)
+	at java.base/sun.util.locale.provider.LocaleServiceProviderPool.getAllAvailableLocales(LocaleServiceProviderPool.java:158)
+	at java.base/java.util.Locale.getAvailableLocales(Locale.java:1135)
+	at org.apache.commons.collections4.junit.AbstractAvailableLocalesTest.getSortedAvailableLocales(AbstractAvailableLocalesTest.java:59)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.runners.Parameterized.allParameters(Parameterized.java:280)
+	at org.junit.runners.Parameterized.<init>(Parameterized.java:248)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:481)
+	at org.junit.internal.builders.AnnotatedBuilder.buildRunner(AnnotatedBuilder.java:104)
+	at org.junit.internal.builders.AnnotatedBuilder.runnerForClass(AnnotatedBuilder.java:86)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.builders.AllDefaultPossibilitiesBuilder.runnerForClass(AllDefaultPossibilitiesBuilder.java:26)
+	at org.junit.runners.model.RunnerBuilder.safeRunnerForClass(RunnerBuilder.java:59)
+	at org.junit.internal.requests.ClassRequest.getRunner(ClassRequest.java:33)
+	at org.junit.internal.requests.FilterRequest.getRunner(FilterRequest.java:36)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:362)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238)
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159)
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418)
+Caused by: java.io.IOException: Error while instrumenting sun/util/resources/provider/NonBaseLocaleDataMetaInfo.
+	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrumentError(Instrumenter.java:158)
+	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:108)
+	at org.jacoco.agent.rt.internal_035b120.CoverageTransformer.transform(CoverageTransformer.java:91)
+	... 58 more
+Caused by: java.lang.IllegalArgumentException: Unsupported class file major version 61
+	at org.jacoco.agent.rt.internal_035b120.asm.ClassReader.<init>(ClassReader.java:195)
+	at org.jacoco.agent.rt.internal_035b120.asm.ClassReader.<init>(ClassReader.java:176)
+	at org.jacoco.agent.rt.internal_035b120.asm.ClassReader.<init>(ClassReader.java:162)
+	at org.jacoco.agent.rt.internal_035b120.core.internal.instr.InstrSupport.classReaderFor(InstrSupport.java:279)
+	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:74)
+	at org.jacoco.agent.rt.internal_035b120.core.instr.Instrumenter.instrument(Instrumenter.java:106)
+	... 59 more
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.472 s - in org.apache.commons.collections4.MapUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.ListUtilsTest_OE25Dev
+[INFO] Tests run: 67, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.ListUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
+[INFO] Tests run: 321, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev
+[INFO] Tests run: 313, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest_OE25Dev
+[INFO] Tests run: 317, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[INFO] Tests run: 298, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.TrieUtilsTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.TrieUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.trie.UnmodifiableTrieTest_OE25Dev
+[INFO] Tests run: 508, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.045 s - in org.apache.commons.collections4.trie.UnmodifiableTrieTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev
+[INFO] Tests run: 602, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.071 s - in org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.queue.PredicatedQueueTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.queue.PredicatedQueueTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.queue.TransformedQueueTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.queue.TransformedQueueTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.queue.UnmodifiableQueueTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.queue.UnmodifiableQueueTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.CollectionUtilsTest_OE25Dev
+[INFO] Tests run: 448, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.collections4.CollectionUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.BagUtilsTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.BagUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.FluentIterableTest_OE25Dev
+[INFO] Tests run: 80, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.FluentIterableTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.TransformedSortedBagTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.bag.TransformedSortedBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.UnmodifiableSortedBagTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.UnmodifiableSortedBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.CollectionBagTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.bag.CollectionBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.TransformedBagTest_OE25Dev
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.bag.TransformedBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.PredicatedSortedBagTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.bag.PredicatedSortedBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.UnmodifiableBagTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.bag.UnmodifiableBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
+[INFO] Tests run: 35, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.CollectionSortedBagTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.bag.CollectionSortedBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.TreeBagTest_OE25Dev
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.bag.TreeBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.properties.PropertiesFactoryTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.properties.PropertiesFactoryTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.properties.SortedPropertiesTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.properties.SortedPropertiesTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.properties.SortedPropertiesFactoryTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.properties.SortedPropertiesFactoryTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.IterableUtilsTest_OE25Dev
+[INFO] Tests run: 85, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.IterableUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
+[INFO] Tests run: 138, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest_OE25Dev
+[INFO] Tests run: 327, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest_OE25Dev
+[INFO] Tests run: 744, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest_OE25Dev
+[INFO] Tests run: 310, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test_OE25Dev
+[INFO] Tests run: 755, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test_OE25Dev
+[INFO] Running org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.comparators.ReverseComparatorTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.ReverseComparatorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.comparators.TransformingComparatorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.TransformingComparatorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.comparators.FixedOrderComparatorTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.comparators.FixedOrderComparatorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.comparators.BooleanComparatorTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.comparators.BooleanComparatorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.keyvalue.DefaultKeyValueTest_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.keyvalue.DefaultKeyValueTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.keyvalue.MultiKeyTest_OE25Dev
+[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.keyvalue.MultiKeyTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.keyvalue.TiedMapEntryTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.keyvalue.TiedMapEntryTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.ArrayStackTest_OE25Dev
+[INFO] Tests run: 107, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.ArrayStackTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.TreeListTest_OE25Dev
+[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.apache.commons.collections4.list.TreeListTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.GrowthListTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.GrowthListTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.TransformedListTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.TransformedListTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev
+[INFO] Tests run: 96, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.LazyListTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.LazyListTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.UnmodifiableListTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.UnmodifiableListTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev
+[INFO] Tests run: 378, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.FixedSizeListTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.FixedSizeListTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.Collections701Test_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.Collections701Test_OE25Dev
+[INFO] Running org.apache.commons.collections4.TransformerUtilsTest_OE25Dev
+[INFO] Tests run: 83, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.TransformerUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.sequence.SequencesComparatorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s - in org.apache.commons.collections4.sequence.SequencesComparatorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.SetUtilsTest_OE25Dev
+[INFO] Tests run: 70, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.SetUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.ClosureUtilsTest_OE25Dev
+[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.ClosureUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.TransformedNavigableSetTest_OE25Dev
+[INFO] Tests run: 181, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.collections4.set.TransformedNavigableSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.PredicatedSortedSetTest_OE25Dev
+[INFO] Tests run: 94, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.set.PredicatedSortedSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.TransformedSortedSetTest_OE25Dev
+[INFO] Tests run: 94, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.set.TransformedSortedSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.PredicatedSetTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.PredicatedSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.PredicatedNavigableSetTest_OE25Dev
+[INFO] Tests run: 181, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.collections4.set.PredicatedNavigableSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.UnmodifiableNavigableSetTest_OE25Dev
+[INFO] Tests run: 176, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.set.UnmodifiableNavigableSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.TransformedSetTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.TransformedSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.UnmodifiableSortedSetTest_OE25Dev
+[INFO] Tests run: 89, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.set.UnmodifiableSortedSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.UnmodifiableSetTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.UnmodifiableSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.DefaultedMapTest_OE25Dev
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.map.DefaultedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.UnmodifiableMapTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.UnmodifiableMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.HashedMapTest_OE25Dev
+[INFO] Tests run: 113, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.collections4.map.HashedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.TransformedMapTest_OE25Dev
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.TransformedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev
+[INFO] Tests run: 115, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s - in org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[INFO] Tests run: 275, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.098 s - in org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.PredicatedMapTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.PredicatedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev
+[INFO] Tests run: 137, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev
+[INFO] Tests run: 102, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.CaseInsensitiveMapTest_OE25Dev
+[INFO] Tests run: 125, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.collections4.map.CaseInsensitiveMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev
+[INFO] Tests run: 219, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.UnmodifiableSortedMapTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.UnmodifiableSortedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.PassiveExpiringMapTest_OE25Dev
+[INFO] Tests run: 132, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.collections4.map.PassiveExpiringMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.UnmodifiableOrderedMapTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.UnmodifiableOrderedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.LazySortedMapTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.LazySortedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.TransformedSortedMapTest_OE25Dev
+[INFO] Tests run: 532, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.apache.commons.collections4.map.TransformedSortedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.SingletonMapTest_OE25Dev
+[INFO] Tests run: 133, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.map.SingletonMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.LazyMapTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.LazyMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.StaticBucketMapTest_OE25Dev
+[INFO] Tests run: 108, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.collections4.map.StaticBucketMapTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 10654, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.530 s
-[INFO] Finished at: 2026-01-19T00:30:51-06:00
+[INFO] Total time:  14.722 s
+[INFO] Finished at: 2026-01-23T14:18:17-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project commons-collections4: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[994,9] illegal start of type
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[994,16] <identifier> expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[994,40] <identifier> expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[994,45] invalid method declaration; return type required
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[994,75] ';' expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1001,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1011,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1012,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1014,19] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1015,13] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1016,5] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1019,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1021,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1022,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1023,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1025,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1026,29] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1026,46] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1027,23] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1028,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1029,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1030,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1031,5] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1035,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1037,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1038,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1039,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1041,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1042,29] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1042,46] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1043,23] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1044,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1045,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1047,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1048,5] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1052,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1054,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1055,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1056,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1058,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1059,29] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1059,46] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1060,23] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1061,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1062,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1065,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1066,5] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1070,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1072,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1073,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1074,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1076,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1077,29] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1077,46] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1078,23] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1079,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1080,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1084,13] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1086,33] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1086,50] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1087,27] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1088,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1089,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1090,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1091,5] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1096,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1098,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1099,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1100,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1102,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1103,29] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1103,46] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1104,23] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1105,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1106,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1110,13] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1112,33] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1112,50] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1113,27] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1114,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1115,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1117,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1118,5] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1123,12] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1125,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1126,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1127,15] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1129,9] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1130,29] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1130,46] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1131,23] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1132,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1133,17] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1137,13] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1139,33] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1139,50] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1140,27] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1141,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1142,21] class, interface, or enum expected
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/AbstractMapTest_OE25Dev.java:[1145,21] class, interface, or enum expected
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -42,7 +42,7 @@ import org.apache.commons.collections4.comparators.ReverseComparator;
 public class DualTreeBidiMap2Test<K extends Comparable<K>, V extends Comparable<V>> extends AbstractSortedBidiMapTest<K, V> {
 
     public static Test suite() {
-        return BulkTest.makeSuite(DualTreeBidiMap2Test.class);
+        return new junit.framework.TestSuite(DualTreeBidiMap2Test.class);
     }
 
     public DualTreeBidiMap2Test(final String testName) {

@@ -16,13 +16,15 @@ python3 scripts_trial/2_filter_compilable_tests.py
 ./scripts_trial/project_fixes/joda-time.sh
 ./scripts_trial/project_fixes/commons-collections4.sh
 ./scripts_trial/project_fixes/JSON-java.sh
+./scripts_trial/project_fixes/commons-net.sh
 
 python3 scripts_trial/3_rebuild_tests.py
 
 # run each projects' fix.sh before running mvn test
 ./scripts_trial/project_fixes.sh
 
-cd projects_decomposed/commons-beanutils
+cd projects_decomposed/commons-net
+
 mvn clean --color never test -Dtest="*OE25Dev#*_oe"
 
 # module load maven

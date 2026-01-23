@@ -40,7 +40,7 @@ public class LinkedMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(LinkedMapTest.class);
+        return new junit.framework.TestSuite(LinkedMapTest.class);
     }
 
     @Override

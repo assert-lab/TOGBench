@@ -41,7 +41,7 @@ public class TransformedNavigableSetTest<E> extends AbstractNavigableSetTest<E> 
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(TransformedNavigableSetTest.class);
+        return new junit.framework.TestSuite(TransformedNavigableSetTest.class);
     }
 
     //-----------------------------------------------------------------------

@@ -31,7 +31,7 @@ public class HashedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(HashedMapTest_OE25Dev.class);
+        return new junit.framework.TestSuite(HashedMapTest_OE25Dev.class);
     }
 
     @Override

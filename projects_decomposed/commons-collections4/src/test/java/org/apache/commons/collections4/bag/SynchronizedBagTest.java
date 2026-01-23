@@ -34,7 +34,7 @@ public class SynchronizedBagTest<T> extends AbstractBagTest<T> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(SynchronizedBagTest.class);
+        return new junit.framework.TestSuite(SynchronizedBagTest.class);
     }
 
     //-----------------------------------------------------------------------

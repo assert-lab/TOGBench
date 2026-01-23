@@ -36,7 +36,7 @@ public class TransformedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(TransformedBagTest_OE25Dev.class);
+        return new junit.framework.TestSuite(TransformedBagTest_OE25Dev.class);
     }
 
     //-----------------------------------------------------------------------

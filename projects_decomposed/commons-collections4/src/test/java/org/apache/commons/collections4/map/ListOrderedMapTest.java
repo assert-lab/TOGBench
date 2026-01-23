@@ -41,7 +41,7 @@ public class ListOrderedMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(ListOrderedMapTest.class);
+        return new junit.framework.TestSuite(ListOrderedMapTest.class);
     }
 
     @Override

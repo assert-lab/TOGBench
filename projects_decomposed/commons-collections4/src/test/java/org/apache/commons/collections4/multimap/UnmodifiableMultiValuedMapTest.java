@@ -43,7 +43,7 @@ public class UnmodifiableMultiValuedMapTest<K, V> extends AbstractMultiValuedMap
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(UnmodifiableMultiValuedMapTest.class);
+        return new junit.framework.TestSuite(UnmodifiableMultiValuedMapTest.class);
     }
 
     // -----------------------------------------------------------------------

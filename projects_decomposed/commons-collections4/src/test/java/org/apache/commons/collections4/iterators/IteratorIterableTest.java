@@ -27,9 +27,9 @@ import org.apache.commons.collections4.BulkTest;
  */
 public class IteratorIterableTest extends BulkTest {
 
-    public static Test suite() {
-        return BulkTest.makeSuite(IteratorIterableTest.class);
-    }
+public static Test suite() {
+    return new junit.framework.TestSuite(IteratorIterableTest.class);
+}
 
     public IteratorIterableTest(final String name) {
         super(name);

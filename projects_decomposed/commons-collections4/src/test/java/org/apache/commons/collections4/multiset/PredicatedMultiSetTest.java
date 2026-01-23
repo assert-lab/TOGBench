@@ -38,7 +38,7 @@ public class PredicatedMultiSetTest<T> extends AbstractMultiSetTest<T> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(PredicatedMultiSetTest.class);
+        return new junit.framework.TestSuite(PredicatedMultiSetTest.class);
     }
 
     //--------------------------------------------------------------------------

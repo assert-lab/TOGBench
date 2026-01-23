@@ -40,7 +40,7 @@ public class LRUMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(LRUMapTest.class);
+        return new junit.framework.TestSuite(LRUMapTest.class);
     }
 
     @Override

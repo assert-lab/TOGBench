@@ -39,7 +39,7 @@ public class SingletonMapTest<K, V> extends AbstractOrderedMapTest<K, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(SingletonMapTest.class);
+        return new junit.framework.TestSuite(SingletonMapTest.class);
     }
 
     //-----------------------------------------------------------------------

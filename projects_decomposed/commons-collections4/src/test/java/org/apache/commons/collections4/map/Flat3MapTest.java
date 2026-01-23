@@ -49,7 +49,7 @@ public class Flat3MapTest<K, V> extends AbstractIterableMapTest<K, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(Flat3MapTest.class);
+        return new junit.framework.TestSuite(Flat3MapTest.class);
     }
 
     @Override

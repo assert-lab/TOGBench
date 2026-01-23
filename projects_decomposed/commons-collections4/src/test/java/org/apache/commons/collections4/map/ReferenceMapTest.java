@@ -46,7 +46,7 @@ public class ReferenceMapTest<K, V> extends AbstractIterableMapTest<K, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(ReferenceMapTest.class);
+        return new junit.framework.TestSuite(ReferenceMapTest.class);
     }
 
     @Override

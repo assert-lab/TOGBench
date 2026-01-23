@@ -33,7 +33,7 @@ import junit.framework.Test;
 public class SynchronizedQueueTest<T> extends AbstractQueueTest<T> {
 
     public static Test suite() {
-        return BulkTest.makeSuite(SynchronizedQueueTest.class);
+        return new junit.framework.TestSuite(SynchronizedQueueTest.class);
     }
 
     public SynchronizedQueueTest(final String testName) {

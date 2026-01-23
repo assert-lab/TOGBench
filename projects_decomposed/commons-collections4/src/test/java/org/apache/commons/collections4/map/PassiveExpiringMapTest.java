@@ -53,7 +53,7 @@ public class PassiveExpiringMapTest<K, V> extends AbstractMapTest<K, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(PassiveExpiringMapTest.class);
+        return new junit.framework.TestSuite(PassiveExpiringMapTest.class);
     }
 
     public PassiveExpiringMapTest(final String testName) {

@@ -36,7 +36,7 @@ public class FixedSizeSortedMapTest<K, V> extends AbstractSortedMapTest<K, V> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(FixedSizeSortedMapTest.class);
+        return new junit.framework.TestSuite(FixedSizeSortedMapTest.class);
     }
 
     //-----------------------------------------------------------------------

@@ -36,9 +36,9 @@ public class ArrayListValuedHashMapTest<K, V> extends AbstractMultiValuedMapTest
         super(testName);
     }
 
-    public static Test suite() {
-        return BulkTest.makeSuite(ArrayListValuedHashMapTest.class);
-    }
+public static Test suite() {
+    return new junit.framework.TestSuite(ArrayListValuedHashMapTest.class);
+}
 
     // -----------------------------------------------------------------------
     @Override

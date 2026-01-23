@@ -40,11 +40,33 @@ public class WindowSizeOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTest
      * test of client-driven subnegotiation.
      * Checks that no subnegotiation is made.
      */
+    @Override
+    public void testStartSubnegotiation()
+    {
+        assertNull(opthand1.startSubnegotiationRemote());
+        assertNull(opthand2.startSubnegotiationRemote());
+        assertNull(opthand3.startSubnegotiationRemote());
+    }
 
     /**
      * test of client-driven subnegotiation.
      *
      */
+    public void testStartSubnegotiationLocal()
+    {
+        final int[] exp1 = {31, 0, 80, 0, 24};
+        final int[] start1 = opthand1.startSubnegotiationLocal();
+        assertEquals(5, start1.length);
+        equalInts(exp1, start1);
+
+        final int[] exp2 = {31, 0, 255, 255, 0, 255, 255};
+        final int[] start2 = opthand2.startSubnegotiationLocal();
+        equalInts(exp2, start2);
+
+        final int[] exp3 = {31, 255, 255, 255, 255, 0, 255, 255};
+        final int[] start3 = opthand3.startSubnegotiationLocal();
+        equalInts(exp3, start3);
+    }
 
 
 
@@ -52,6 +74,22 @@ public class WindowSizeOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTest
      * test of client-driven subnegotiation.
      * Checks that nothing is sent
      */
+    @Override
+    public void testAnswerSubnegotiation()
+    {
+        final int subn[] =
+        {
+            TelnetOption.WINDOW_SIZE, 24, 80
+        };
+
+        final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
+        final int resp2[] = opthand2.answerSubnegotiation(subn, subn.length);
+        final int resp3[] = opthand3.answerSubnegotiation(subn, subn.length);
+
+        assertNull(resp1);
+        assertNull(resp2);
+        assertNull(resp3);
+    }
 
     /**
      * compares two arrays of int
@@ -68,76 +106,6 @@ public class WindowSizeOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTest
     public void testConstructors_1_oe()
     {
         assertEquals(TelnetOption.WINDOW_SIZE, opthand1.getOptionCode());
-    }
-
-    public void testStartSubnegotiation_1_oe()
-    {
-        assertNull(opthand1.startSubnegotiationRemote());
-    }
-
-    public void testStartSubnegotiation_2_oe()
-    {
-        // removed other assertion
-        assertNull(opthand2.startSubnegotiationRemote());
-    }
-
-    public void testStartSubnegotiation_3_oe()
-    {
-        // removed other assertion
-        // removed other assertion
-        assertNull(opthand3.startSubnegotiationRemote());
-    }
-
-    public void testStartSubnegotiationLocal_1_oe()
-    {
-        final int[] exp1 = {31, 0, 80, 0, 24};
-        final int[] start1 = opthand1.startSubnegotiationLocal();
-        assertEquals(5, start1.length);
-    }
-
-    public void testAnswerSubnegotiation_1_oe()
-    {
-        final int subn[] =
-        {
-            TelnetOption.WINDOW_SIZE, 24, 80
-        };
-
-        final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
-        final int resp2[] = opthand2.answerSubnegotiation(subn, subn.length);
-        final int resp3[] = opthand3.answerSubnegotiation(subn, subn.length);
-
-        assertNull(resp1);
-    }
-
-    public void testAnswerSubnegotiation_2_oe()
-    {
-        final int subn[] =
-        {
-            TelnetOption.WINDOW_SIZE, 24, 80
-        };
-
-        final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
-        final int resp2[] = opthand2.answerSubnegotiation(subn, subn.length);
-        final int resp3[] = opthand3.answerSubnegotiation(subn, subn.length);
-
-        // removed other assertion
-        assertNull(resp2);
-    }
-
-    public void testAnswerSubnegotiation_3_oe()
-    {
-        final int subn[] =
-        {
-            TelnetOption.WINDOW_SIZE, 24, 80
-        };
-
-        final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
-        final int resp2[] = opthand2.answerSubnegotiation(subn, subn.length);
-        final int resp3[] = opthand3.answerSubnegotiation(subn, subn.length);
-
-        // removed other assertion
-        // removed other assertion
-        assertNull(resp3);
     }
 
 }

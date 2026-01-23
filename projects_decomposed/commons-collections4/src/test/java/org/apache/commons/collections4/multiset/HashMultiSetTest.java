@@ -34,7 +34,7 @@ public class HashMultiSetTest<T> extends AbstractMultiSetTest<T> {
     }
 
     public static Test suite() {
-        return BulkTest.makeSuite(HashMultiSetTest.class);
+        return new junit.framework.TestSuite(HashMultiSetTest.class);
     }
 
     //-----------------------------------------------------------------------
