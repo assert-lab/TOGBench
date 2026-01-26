@@ -20,7 +20,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-dbutils ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils
-[INFO] Storing buildNumber: 50f9695826a20b01448b75f2f68cb1e82f3ecfc0 at timestamp: 1769121067367
+[INFO] Storing buildNumber: ab88dac57a32e3b443054af6a49d53156305b194 at timestamp: 1769418292087
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:2.7:resources (default-resources) @ commons-dbutils ---
@@ -71,8 +71,8 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.542 s
-[INFO] Finished at: 2026-01-22T16:31:16-06:00
+[INFO] Total time:  13.551 s
+[INFO] Finished at: 2026-01-26T03:05:01-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.5.1:testCompile (default-testCompile) on project commons-dbutils: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-dbutils/src/test/java/org/apache/commons/dbutils/handlers/columns/SQLXMLColumnHandlerTest_OE25Dev.java:[30,8] org.apache.commons.dbutils.handlers.columns.SQLXMLColumnHandlerTest_OE25Dev is not abstract and does not override abstract method testApplyType() in org.apache.commons.dbutils.handlers.columns.ColumnHandlerTestBase

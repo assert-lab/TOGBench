@@ -3,6 +3,7 @@
 [INFO] ----------------< commons-beanutils:commons-beanutils >-----------------
 [INFO] Building Apache Commons BeanUtils 1.9.4
 [INFO] --------------------------------[ jar ]---------------------------------
+Downloading from central: https://repo.maven.apache.org/maven2/commons-collections/commons-collections-testframework/3.2.1/commons-collections-testframework-3.2.1.pom
 [WARNING] The POM for commons-collections:commons-collections-testframework:jar:3.2.1 is missing, no dependency information available
 [INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M2:enforce (enforce-maven-version) @ commons-beanutils ---
@@ -25,7 +26,7 @@ main:
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the revision information from the scm repository, proceeding with revision of ?????? : 
 Exception while executing SCM command.
-[INFO] Storing buildNumber: ?????? at timestamp: 1769121115783
+[INFO] Storing buildNumber: ?????? at timestamp: 1769418339768
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils' && 'svn' '--non-interactive' 'info'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the branch information from the scm repository, proceeding with UNKNOWN_BRANCH : 
@@ -59,7 +60,7 @@ Exception while executing SCM command.
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ commons-beanutils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 232 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/target/test-classes
+[INFO] Compiling 235 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/converters/BooleanConverterTestCase.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/converters/BooleanConverterTestCase.java: Recompile with -Xlint:deprecation for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/converters/FloatLocaleConverterTestCase_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
@@ -69,15 +70,6 @@ Exception while executing SCM command.
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/FirstChildBean.java:[4,1] duplicate class: org.apache.commons.beanutils.bugs.FirstChildBean
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/RootBean.java:[6,1] duplicate class: org.apache.commons.beanutils.bugs.RootBean
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422TestCase_OE25Dev.java:[82,1] duplicate class: org.apache.commons.beanutils.bugs.RootBean
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422TestCase_OE25Dev.java:[105,1] duplicate class: org.apache.commons.beanutils.bugs.FirstChildBean
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422TestCase_OE25Dev.java:[108,1] duplicate class: org.apache.commons.beanutils.bugs.SecondChildBean
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/SecondChildBean.java:[3,1] duplicate class: org.apache.commons.beanutils.bugs.SecondChildBean
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422bTestCase_OE25Dev.java:[50,1] duplicate class: org.apache.commons.beanutils.bugs.RootBeanB
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422bTestCase_OE25Dev.java:[72,1] duplicate class: org.apache.commons.beanutils.bugs.FirstChildBeanB
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422bTestCase_OE25Dev.java:[75,1] duplicate class: org.apache.commons.beanutils.bugs.SecondChildBeanB
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[231,86] cannot find symbol
   symbol:   variable loader
   location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev
@@ -156,24 +148,15 @@ Exception while executing SCM command.
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/BeanificationTestCase_OE25Dev.java:[202,9] cannot find symbol
   symbol:   variable loader
   location: class org.apache.commons.beanutils.BeanificationTestCase_OE25Dev
-[INFO] 35 errors 
+[INFO] 26 errors 
 [INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.067 s
-[INFO] Finished at: 2026-01-22T16:32:05-06:00
+[INFO] Total time:  12.159 s
+[INFO] Finished at: 2026-01-26T03:05:48-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project commons-beanutils: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/FirstChildBean.java:[4,1] duplicate class: org.apache.commons.beanutils.bugs.FirstChildBean
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/RootBean.java:[6,1] duplicate class: org.apache.commons.beanutils.bugs.RootBean
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422TestCase_OE25Dev.java:[82,1] duplicate class: org.apache.commons.beanutils.bugs.RootBean
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422TestCase_OE25Dev.java:[105,1] duplicate class: org.apache.commons.beanutils.bugs.FirstChildBean
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422TestCase_OE25Dev.java:[108,1] duplicate class: org.apache.commons.beanutils.bugs.SecondChildBean
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/SecondChildBean.java:[3,1] duplicate class: org.apache.commons.beanutils.bugs.SecondChildBean
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422bTestCase_OE25Dev.java:[50,1] duplicate class: org.apache.commons.beanutils.bugs.RootBeanB
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422bTestCase_OE25Dev.java:[72,1] duplicate class: org.apache.commons.beanutils.bugs.FirstChildBeanB
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/bugs/Jira422bTestCase_OE25Dev.java:[75,1] duplicate class: org.apache.commons.beanutils.bugs.SecondChildBeanB
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/LocaleBeanificationTestCase_OE25Dev.java:[231,86] cannot find symbol
 [ERROR]   symbol:   variable loader
 [ERROR]   location: class org.apache.commons.beanutils.locale.LocaleBeanificationTestCase_OE25Dev

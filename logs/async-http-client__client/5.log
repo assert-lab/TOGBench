@@ -36,3 +36,173 @@
  T E S T S
 -------------------------------------------------------
 Running TestSuite
+Tests run: 679, Failures: 25, Errors: 0, Skipped: 0, Time elapsed: 533.335 sec <<< FAILURE! - in TestSuite
+testGetCompleteServicePrincipalName_2_oe(org.asynchttpclient.spnego.SpnegoEngineTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.AssertionError: did not expect [HTTP@localhost] but found [HTTP@localhost]
+	at org.asynchttpclient.spnego.SpnegoEngineTest_OE25Dev.testGetCompleteServicePrincipalName_2_oe(SpnegoEngineTest_OE25Dev.java:199)
+
+maxConnectionsText_1_oe(org.asynchttpclient.filter.FilterTest_OE25Dev)  Time elapsed: 1.007 sec  <<< FAILURE!
+java.util.concurrent.ExecutionException: preProcessRequest failed
+	at org.asynchttpclient.filter.FilterTest_OE25Dev.maxConnectionsText_1_oe(FilterTest_OE25Dev.java:113)
+Caused by: org.asynchttpclient.filter.FilterException: No slot available for processing Request http://localhost:42537/foo/test	POST	headers: with AsyncHandler org.asynchttpclient.AsyncCompletionHandlerBase@146fa9c0
+	at org.asynchttpclient.filter.FilterTest_OE25Dev.maxConnectionsText_1_oe(FilterTest_OE25Dev.java:113)
+
+testGetWithRequestBuilderAndQuery_3_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_3_oe(OAuthSignatureCalculatorTest_OE25Dev.java:459)
+
+testGetWithRequestBuilderAndQuery_4_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_4_oe(OAuthSignatureCalculatorTest_OE25Dev.java:493)
+
+testGetWithRequestBuilderAndQuery_5_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_5_oe(OAuthSignatureCalculatorTest_OE25Dev.java:528)
+
+testGetWithRequestBuilder_3_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_3_oe(OAuthSignatureCalculatorTest_OE25Dev.java:341)
+
+testGetWithRequestBuilder_4_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_4_oe(OAuthSignatureCalculatorTest_OE25Dev.java:377)
+
+testPostCalculateSignature_2_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testPostCalculateSignature_2_oe(OAuthSignatureCalculatorTest_OE25Dev.java:254)
+
+wrongProtocolCode_1_oe(org.asynchttpclient.ws.CloseCodeReasonMessageTest_OE25Dev)  Time elapsed: 0.014 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method CloseCodeReasonMessageTest_OE25Dev.wrongProtocolCode_1_oe()[pri:0, instance:org.asynchttpclient.ws.CloseCodeReasonMessageTest_OE25Dev@6ea2bc93] should have thrown an exception of type class java.io.IOException
+
+wrongStatusCode_1_oe(org.asynchttpclient.ws.CloseCodeReasonMessageTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method CloseCodeReasonMessageTest_OE25Dev.wrongStatusCode_1_oe()[pri:0, instance:org.asynchttpclient.ws.CloseCodeReasonMessageTest_OE25Dev@6ea2bc93] should have thrown an exception of type class java.lang.IllegalArgumentException
+
+onFailureTest_1_oe(org.asynchttpclient.ws.TextMessageTest_OE25Dev)  Time elapsed: 0.009 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Expected exception of any of types [class java.net.UnknownHostException, class java.net.ConnectException] but got java.lang.AssertionError: expected [true] but found [false]
+	at org.asynchttpclient.ws.TextMessageTest_OE25Dev.onFailureTest_1_oe(TextMessageTest_OE25Dev.java:93)
+
+deferredInputStreamTrickWithCloseConnectionAndRetry_1_oe(org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev)  Time elapsed: 0.006 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithCloseConnectionAndRetry_1_oe()[pri:0, instance:org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev@295cf707] should have thrown an exception of type class java.lang.UnsupportedOperationException
+
+deferredInputStreamTrickWithCloseConnectionAndRetry_2_oe(org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev)  Time elapsed: 0.004 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithCloseConnectionAndRetry_2_oe()[pri:0, instance:org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev@295cf707] should have thrown an exception of type class java.lang.UnsupportedOperationException
+
+deferredInputStreamTrickWithCloseConnectionAndRetry_3_oe(org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev)  Time elapsed: 0.004 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithCloseConnectionAndRetry_3_oe()[pri:0, instance:org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev@295cf707] should have thrown an exception of type class java.lang.UnsupportedOperationException
+
+deferredInputStreamTrickWithFailure_1_oe(org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithFailure_1_oe()[pri:0, instance:org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev@295cf707] should have thrown an exception of type class org.asynchttpclient.exception.RemotelyClosedException
+
+deferredInputStreamTrickWithFailure_2_oe(org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithFailure_2_oe()[pri:0, instance:org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev@295cf707] should have thrown an exception of type class org.asynchttpclient.exception.RemotelyClosedException
+
+deferredInputStreamTrickWithFailure_3_oe(org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithFailure_3_oe()[pri:0, instance:org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev@295cf707] should have thrown an exception of type class org.asynchttpclient.exception.RemotelyClosedException
+
+multipleMaxConnectionOpenTest_1_oe(org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method ConnectionPoolTest_OE25Dev.multipleMaxConnectionOpenTest_1_oe()[pri:0, instance:org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev@463fd068] should have thrown an exception of type class org.asynchttpclient.exception.TooManyConnectionsException
+
+multipleMaxConnectionOpenTest_3_oe(org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method ConnectionPoolTest_OE25Dev.multipleMaxConnectionOpenTest_3_oe()[pri:0, instance:org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev@463fd068] should have thrown an exception of type class org.asynchttpclient.exception.TooManyConnectionsException
+
+testMaxTotalConnectionsException_1_oe(org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method ConnectionPoolTest_OE25Dev.testMaxTotalConnectionsException_1_oe()[pri:0, instance:org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev@463fd068] should have thrown an exception of type class org.asynchttpclient.exception.TooManyConnectionsException
+
+testStream_4_oe(org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.AssertionError: expected [2] but found [0]
+	at org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev.testStream_4_oe(AsyncStreamLifecycleTest_OE25Dev.java:216)
+
+testStream_5_oe(org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev.testStream_5_oe(AsyncStreamLifecycleTest_OE25Dev.java:263)
+
+testStream_6_oe(org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev.testStream_6_oe(AsyncStreamLifecycleTest_OE25Dev.java:311)
+
+testStream_7_oe(org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev.testStream_7_oe(AsyncStreamLifecycleTest_OE25Dev.java:360)
+
+testStream_8_oe(org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.AssertionError: expected [1] but found [0]
+	at org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev.testStream_8_oe(AsyncStreamLifecycleTest_OE25Dev.java:410)
+
+
+Results :
+
+Failed tests: 
+  AsyncStreamLifecycleTest_OE25Dev.testStream_4_oe:216 expected [2] but found [0]
+  AsyncStreamLifecycleTest_OE25Dev.testStream_5_oe:263 expected [true] but found [false]
+  AsyncStreamLifecycleTest_OE25Dev.testStream_6_oe:311 expected [true] but found [false]
+  AsyncStreamLifecycleTest_OE25Dev.testStream_7_oe:360 expected [true] but found [false]
+  AsyncStreamLifecycleTest_OE25Dev.testStream_8_oe:410 expected [1] but found [0]
+  ConnectionPoolTest_OE25Dev.multipleMaxConnectionOpenTest_1_oe » Test 
+Method C...
+  ConnectionPoolTest_OE25Dev.multipleMaxConnectionOpenTest_3_oe » Test 
+Method C...
+  ConnectionPoolTest_OE25Dev.testMaxTotalConnectionsException_1_oe » Test 
+Metho...
+  FilterTest_OE25Dev.maxConnectionsText_1_oe:113 » Execution preProcessRequest f...
+  BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithCloseConnectionAndRetry_1_oe » Test
+  BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithCloseConnectionAndRetry_2_oe » Test
+  BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithCloseConnectionAndRetry_3_oe » Test
+  BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithFailure_1_oe » Test
+  BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithFailure_2_oe » Test
+  BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithFailure_3_oe » Test
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_3_oe:459 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_4_oe:493 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_5_oe:528 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_3_oe:341 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_4_oe:377 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testPostCalculateSignature_2_oe:254 » IllegalState
+  SpnegoEngineTest_OE25Dev.testGetCompleteServicePrincipalName_2_oe:199 did not expect [HTTP@localhost] but found [HTTP@localhost]
+  CloseCodeReasonMessageTest_OE25Dev.wrongProtocolCode_1_oe » Test 
+Method Close...
+  CloseCodeReasonMessageTest_OE25Dev.wrongStatusCode_1_oe » Test 
+Method CloseCo...
+  TextMessageTest_OE25Dev.onFailureTest_1_oe » Test 
+Expected exception of any o...
+
+Tests run: 679, Failures: 25, Errors: 0, Skipped: 0
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  09:06 min
+[INFO] Finished at: 2026-01-26T03:14:49-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -103,8 +103,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  18.889 s
-[INFO] Finished at: 2026-01-22T16:30:43-06:00
+[INFO] Total time:  19.728 s
+[INFO] Finished at: 2026-01-26T03:04:31-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project springside-utils: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[462,17] reference to assertThat is ambiguous

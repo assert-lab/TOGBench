@@ -30,7 +30,7 @@
  T E S T S
 -------------------------------------------------------
 Running org.asynchttpclient.extras.rxjava.single.AsyncHttpSingleTest_OE25Dev
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.794 sec - in org.asynchttpclient.extras.rxjava.single.AsyncHttpSingleTest_OE25Dev
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.616 sec - in org.asynchttpclient.extras.rxjava.single.AsyncHttpSingleTest_OE25Dev
 
 Results :
 
@@ -39,6 +39,6 @@ Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.721 s
-[INFO] Finished at: 2026-01-22T16:30:48-06:00
+[INFO] Total time:  10.980 s
+[INFO] Finished at: 2026-01-26T03:04:33-06:00
 [INFO] ------------------------------------------------------------------------

@@ -23,15 +23,15 @@ python3 scripts_trial/3_rebuild_tests.py
 # run each projects' fix.sh before running mvn test
 ./scripts_trial/project_fixes.sh
 
-cd projects_decomposed/commons-net
+# cd projects_decomposed/commons-net
 
-mvn clean --color never test -Dtest="*OE25Dev#*_oe"
+# mvn clean --color never test -Dtest="*OE25Dev#*_oe"
 
 # module load maven
 
 # module load java/17
 
-# ./scripts_trial/clean_loop.sh > compile_error_test_files.log
+./scripts_trial/clean_loop.sh > compile_error_test_files.log
 
 
 # ./scripts_trial/clean_loop.sh

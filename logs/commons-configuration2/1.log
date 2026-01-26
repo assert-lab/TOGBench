@@ -49,7 +49,7 @@ Parser generated successfully.
 [INFO] --- buildnumber-maven-plugin:3.0.0:create (default) @ commons-configuration2 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2
-[INFO] Storing buildNumber: null at timestamp: 1769121030570
+[INFO] Storing buildNumber: null at timestamp: 1769418257157
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ commons-configuration2 ---
@@ -102,8 +102,8 @@ Parser generated successfully.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  26.387 s
-[INFO] Finished at: 2026-01-22T16:30:51-06:00
+[INFO] Total time:  27.599 s
+[INFO] Finished at: 2026-01-26T03:04:38-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project commons-configuration2: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/plist/TestXMLPropertyListConfiguration_OE25Dev.java:[1367,25] unreported exception org.apache.commons.configuration2.ex.ConfigurationException; must be caught or declared to be thrown

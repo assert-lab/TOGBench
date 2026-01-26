@@ -130,8 +130,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.890 s
-[INFO] Finished at: 2026-01-22T16:33:02-06:00
+[INFO] Total time:  3.914 s
+[INFO] Finished at: 2026-01-26T03:07:14-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project jsoup: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ParseTest_OE25Dev.java:[566,23] method testWikiExpandedFromString() is already defined in class org.jsoup.integration.ParseTest_OE25Dev

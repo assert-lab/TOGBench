@@ -3,6 +3,9 @@
 [INFO] ---------------< org.asynchttpclient:async-http-client >----------------
 [INFO] Building Asynchronous Http Client 2.12.3
 [INFO] --------------------------------[ jar ]---------------------------------
+Downloading from central: https://repo.maven.apache.org/maven2/net/minidev/json-smart/maven-metadata.xml
+Downloading from apache.snapshots: https://repository.apache.org/content/repositories/snapshots/net/minidev/json-smart/maven-metadata.xml
+Progress (1): 1.4 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/net/minidev/json-smart/maven-metadata.xml (1.4 kB at 2.0 kB/s)
 [INFO] 
 [INFO] --- maven-enforcer-plugin:1.4.1:enforce (enforce-versions) @ async-http-client ---
 [INFO] 
@@ -101,8 +104,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  16.821 s
-[INFO] Finished at: 2026-01-22T16:31:07-06:00
+[INFO] Total time:  18.515 s
+[INFO] Finished at: 2026-01-26T03:04:54-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[180,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev

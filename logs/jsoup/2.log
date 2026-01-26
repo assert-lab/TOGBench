@@ -130,8 +130,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.431 s
-[INFO] Finished at: 2026-01-22T16:32:42-06:00
+[INFO] Total time:  6.116 s
+[INFO] Finished at: 2026-01-26T03:06:49-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project jsoup: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/HtmlParserTest_OE25Dev.java:[1558,23] method parsesSimpleDocument() is already defined in class org.jsoup.parser.HtmlParserTest_OE25Dev

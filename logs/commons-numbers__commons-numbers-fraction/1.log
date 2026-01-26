@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-fraction ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction
-[INFO] Storing buildNumber: 50f9695826a20b01448b75f2f68cb1e82f3ecfc0 at timestamp: 1769121133425
+[INFO] Storing buildNumber: ab88dac57a32e3b443054af6a49d53156305b194 at timestamp: 1769418359338
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-fraction ---
@@ -60,45 +60,62 @@ main:
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.numbers.fraction.FractionTest_OE25Dev
-[ERROR] Tests run: 129, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.174 s <<< FAILURE! - in org.apache.commons.numbers.fraction.FractionTest_OE25Dev
-[ERROR] testParse_1_oe  Time elapsed: 0.02 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
-	at org.apache.commons.numbers.fraction.FractionTest_OE25Dev.testParse_1_oe(FractionTest_OE25Dev.java:2318)
-
-[INFO] Running org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
-[ERROR] Tests run: 139, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.382 s <<< FAILURE! - in org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
-[ERROR] testParse_1_oe  Time elapsed: 0.003 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
-	at org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev.testParse_1_oe(BigFractionTest_OE25Dev.java:2222)
-
-[INFO] Running org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
-[INFO] Tests run: 251, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[ERROR] Failures: 
-[ERROR]   BigFractionTest_OE25Dev.testParse_1_oe:2222 expected: <-1 / 2> but was: <1 / 2>
-[ERROR]   FractionTest_OE25Dev.testParse_1_oe:2318 expected: <-1 / 2> but was: <1 / 2>
-[INFO] 
-[ERROR] Tests run: 526, Failures: 2, Errors: 0, Skipped: 0
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.481 s
-[INFO] Finished at: 2026-01-22T16:32:22-06:00
+[INFO] Total time:  39.444 s
+[INFO] Finished at: 2026-01-26T03:06:36-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-fraction: There are test failures.
 [ERROR] 
 [ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/surefire-reports for the individual test results.
 [ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] The forked VM terminated without properly saying goodbye. VM crash or System.exit called?
+[ERROR] Command was /bin/sh -c cd /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction && /usr/lib/jvm/java-17-openjdk-amd64/bin/java -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/jacoco.exec -jar /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/surefire/surefirebooter14477776197225388021.jar /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/surefire 2026-01-26T03-06-04_178-jvmRun1 surefire9248345779560352558tmp surefire_08260920337027472208tmp
+[ERROR] Process Exit Code: 0
+[ERROR] org.apache.maven.surefire.booter.SurefireBooterForkException: The forked VM terminated without properly saying goodbye. VM crash or System.exit called?
+[ERROR] Command was /bin/sh -c cd /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction && /usr/lib/jvm/java-17-openjdk-amd64/bin/java -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/jacoco.exec -jar /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/surefire/surefirebooter14477776197225388021.jar /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/surefire 2026-01-26T03-06-04_178-jvmRun1 surefire9248345779560352558tmp surefire_08260920337027472208tmp
+[ERROR] Process Exit Code: 0
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.fork(ForkStarter.java:671)
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.fork(ForkStarter.java:533)
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.run(ForkStarter.java:278)
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.run(ForkStarter.java:244)
+[ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.executeProvider(AbstractSurefireMojo.java:1194)
+[ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.executeAfterPreconditionsChecked(AbstractSurefireMojo.java:1022)
+[ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.execute(AbstractSurefireMojo.java:868)
+[ERROR] 	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2(MojoExecutor.java:370)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute(MojoExecutor.java:351)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:215)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:171)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:163)
+[ERROR] 	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+[ERROR] 	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+[ERROR] 	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
+[ERROR] 	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+[ERROR] 	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:298)
+[ERROR] 	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
+[ERROR] 	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
+[ERROR] 	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:960)
+[ERROR] 	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:293)
+[ERROR] 	at org.apache.maven.cli.MavenCli.main(MavenCli.java:196)
+[ERROR] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ERROR] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[ERROR] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ERROR] 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:283)
+[ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:226)
+[ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:407)
+[ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:348)
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
 [ERROR] 
 [ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException

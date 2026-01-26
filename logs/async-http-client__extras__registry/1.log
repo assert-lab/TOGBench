@@ -32,16 +32,16 @@
  T E S T S
 -------------------------------------------------------
 Running TestSuite
-Tests run: 25, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 1.265 sec <<< FAILURE! - in TestSuite
-testClearAllInstances_4_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.012 sec  <<< FAILURE!
+Tests run: 25, Failures: 8, Errors: 0, Skipped: 0, Time elapsed: 1.401 sec <<< FAILURE! - in TestSuite
+testClearAllInstances_4_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.013 sec  <<< FAILURE!
 java.lang.AssertionError: expected [0] but found [3]
 	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev.testClearAllInstances_4_oe(AsyncHttpClientRegistryTest_OE25Dev.java:234)
 
-testDeRegister_3_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.014 sec  <<< FAILURE!
+testDeRegister_3_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
 java.lang.AssertionError: expected [true] but found [false]
 	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev.testDeRegister_3_oe(AsyncHttpClientRegistryTest_OE25Dev.java:92)
 
-testGetAndRegister_3_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+testGetAndRegister_3_oe(org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
 java.lang.AssertionError: expected object to not be null
 	at org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev.testGetAndRegister_3_oe(AsyncHttpClientRegistryTest_OE25Dev.java:68)
 
@@ -83,8 +83,8 @@ Tests run: 25, Failures: 8, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.898 s
-[INFO] Finished at: 2026-01-22T16:30:47-06:00
+[INFO] Total time:  10.529 s
+[INFO] Finished at: 2026-01-26T03:04:31-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-registry: There are test failures.
 [ERROR] 

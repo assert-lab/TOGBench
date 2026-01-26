@@ -25,7 +25,7 @@ main:
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the revision information from the scm repository, proceeding with revision of ?????? : 
 Exception while executing SCM command.
-[INFO] Storing buildNumber: ?????? at timestamp: 1769418353574
+[INFO] Storing buildNumber: ?????? at timestamp: 1769418386921
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils' && 'svn' '--non-interactive' 'info'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils
 [WARNING] Cannot get the branch information from the scm repository, proceeding with UNKNOWN_BRANCH : 
@@ -59,7 +59,7 @@ Exception while executing SCM command.
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ commons-beanutils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 232 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/target/test-classes
+[INFO] Compiling 227 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/converters/BooleanConverterTestCase.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/converters/BooleanConverterTestCase.java: Recompile with -Xlint:deprecation for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/locale/converters/FloatLocaleConverterTestCase_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
@@ -69,23 +69,23 @@ Exception while executing SCM command.
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaMapTestCase_OE25Dev.java:[552,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaMapTestCase_OE25Dev.java:[570,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaMapTestCase_OE25Dev.java:[1586,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaMapTestCase_OE25Dev.java:[1605,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaBeanTestCase_OE25Dev.java:[537,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaBeanTestCase_OE25Dev.java:[555,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaBeanTestCase_OE25Dev.java:[1571,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaBeanTestCase_OE25Dev.java:[1590,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
 [INFO] 4 errors 
 [INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.120 s
-[INFO] Finished at: 2026-01-26T03:06:02-06:00
+[INFO] Total time:  4.664 s
+[INFO] Finished at: 2026-01-26T03:06:30-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.7.0:testCompile (default-testCompile) on project commons-beanutils: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaMapTestCase_OE25Dev.java:[552,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaMapTestCase_OE25Dev.java:[570,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaMapTestCase_OE25Dev.java:[1586,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaMapTestCase_OE25Dev.java:[1605,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaBeanTestCase_OE25Dev.java:[537,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaBeanTestCase_OE25Dev.java:[555,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaBeanTestCase_OE25Dev.java:[1571,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-beanutils/src/test/java/org/apache/commons/beanutils/LazyDynaBeanTestCase_OE25Dev.java:[1590,36] unreported exception java.lang.IllegalAccessException; must be caught or declared to be thrown
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

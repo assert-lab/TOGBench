@@ -130,8 +130,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  4.049 s
-[INFO] Finished at: 2026-01-22T16:32:55-06:00
+[INFO] Total time:  4.280 s
+[INFO] Finished at: 2026-01-26T03:07:03-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project jsoup: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/SafelistExtensionTest_OE25Dev.java:[50,23] method canCustomizeSafeTests() is already defined in class org.jsoup.integration.SafelistExtensionTest_OE25Dev

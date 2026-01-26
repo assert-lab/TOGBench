@@ -130,8 +130,8 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  2.467 s
-[INFO] Finished at: 2026-01-22T16:33:05-06:00
+[INFO] Total time:  3.049 s
+[INFO] Finished at: 2026-01-26T03:07:18-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project jsoup: Compilation failure: Compilation failure: 
 [ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/NodeTest_OE25Dev.java:[351,23] method handlesBaseUri() is already defined in class org.jsoup.nodes.NodeTest_OE25Dev

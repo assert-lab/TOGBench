@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-gamma ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma
-[INFO] Storing buildNumber: 50f9695826a20b01448b75f2f68cb1e82f3ecfc0 at timestamp: 1769121127650
+[INFO] Storing buildNumber: ab88dac57a32e3b443054af6a49d53156305b194 at timestamp: 1769418349531
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-gamma ---
@@ -60,70 +60,62 @@ main:
 [INFO] -------------------------------------------------------
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.numbers.gamma.ErfDifferenceTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in org.apache.commons.numbers.gamma.ErfDifferenceTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.RegularizedGammaTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.gamma.RegularizedGammaTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.InverseErfcTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.numbers.gamma.InverseErfcTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.InvGamma1pm1Test_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.numbers.gamma.InvGamma1pm1Test_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.LogGammaSumTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.gamma.LogGammaSumTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.LogGamma1pTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.numbers.gamma.LogGamma1pTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.RegularizedBetaTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.numbers.gamma.RegularizedBetaTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.InverseErfTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.numbers.gamma.InverseErfTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.LanczosApproximationTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.numbers.gamma.LanczosApproximationTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.ErfcTest_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.018 s <<< FAILURE! - in org.apache.commons.numbers.gamma.ErfcTest_OE25Dev
-[ERROR] testErfcGnu_1_oe  Time elapsed: 0.015 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <1.9999999999999927> but was: <2.0>
-	at org.apache.commons.numbers.gamma.ErfcTest_OE25Dev.testErfcGnu_1_oe(ErfcTest_OE25Dev.java:55)
-
-[INFO] Running org.apache.commons.numbers.gamma.ErfTest_OE25Dev
-[ERROR] Tests run: 13, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.numbers.gamma.ErfTest_OE25Dev
-[ERROR] testErfGnu_1_oe  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <-0.9999999999999927> but was: <-1.0>
-	at org.apache.commons.numbers.gamma.ErfTest_OE25Dev.testErfGnu_1_oe(ErfTest_OE25Dev.java:272)
-
-[INFO] Running org.apache.commons.numbers.gamma.GammaTest_OE25Dev
-[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.commons.numbers.gamma.GammaTest_OE25Dev
-[ERROR] testGammaNegativeDouble_1_oe  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <-1> but was: <1>
-	at org.apache.commons.numbers.gamma.GammaTest_OE25Dev.testGammaNegativeDouble_1_oe(GammaTest_OE25Dev.java:549)
-
-[INFO] Running org.apache.commons.numbers.gamma.TrigammaTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.numbers.gamma.TrigammaTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.gamma.DigammaTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.numbers.gamma.DigammaTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[ERROR] Failures: 
-[ERROR]   ErfTest_OE25Dev.testErfGnu_1_oe:272 expected: <-0.9999999999999927> but was: <-1.0>
-[ERROR]   ErfcTest_OE25Dev.testErfcGnu_1_oe:55 expected: <1.9999999999999927> but was: <2.0>
-[ERROR]   GammaTest_OE25Dev.testGammaNegativeDouble_1_oe:549 expected: <-1> but was: <1>
-[INFO] 
-[ERROR] Tests run: 76, Failures: 3, Errors: 0, Skipped: 0
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.169 s
-[INFO] Finished at: 2026-01-22T16:32:14-06:00
+[INFO] Total time:  40.559 s
+[INFO] Finished at: 2026-01-26T03:06:27-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-gamma: There are test failures.
 [ERROR] 
 [ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/surefire-reports for the individual test results.
 [ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] The forked VM terminated without properly saying goodbye. VM crash or System.exit called?
+[ERROR] Command was /bin/sh -c cd /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma && /usr/lib/jvm/java-17-openjdk-amd64/bin/java -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/jacoco.exec -jar /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/surefire/surefirebooter11303418029400924649.jar /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/surefire 2026-01-26T03-05-54_917-jvmRun1 surefire87597818871482665tmp surefire_06689506546510803265tmp
+[ERROR] Process Exit Code: 0
+[ERROR] org.apache.maven.surefire.booter.SurefireBooterForkException: The forked VM terminated without properly saying goodbye. VM crash or System.exit called?
+[ERROR] Command was /bin/sh -c cd /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma && /usr/lib/jvm/java-17-openjdk-amd64/bin/java -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/jacoco.exec -jar /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/surefire/surefirebooter11303418029400924649.jar /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/surefire 2026-01-26T03-05-54_917-jvmRun1 surefire87597818871482665tmp surefire_06689506546510803265tmp
+[ERROR] Process Exit Code: 0
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.fork(ForkStarter.java:671)
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.fork(ForkStarter.java:533)
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.run(ForkStarter.java:278)
+[ERROR] 	at org.apache.maven.plugin.surefire.booterclient.ForkStarter.run(ForkStarter.java:244)
+[ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.executeProvider(AbstractSurefireMojo.java:1194)
+[ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.executeAfterPreconditionsChecked(AbstractSurefireMojo.java:1022)
+[ERROR] 	at org.apache.maven.plugin.surefire.AbstractSurefireMojo.execute(AbstractSurefireMojo.java:868)
+[ERROR] 	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:137)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute2(MojoExecutor.java:370)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.doExecute(MojoExecutor.java:351)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:215)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:171)
+[ERROR] 	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:163)
+[ERROR] 	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:117)
+[ERROR] 	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:81)
+[ERROR] 	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:56)
+[ERROR] 	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+[ERROR] 	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:298)
+[ERROR] 	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:192)
+[ERROR] 	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:105)
+[ERROR] 	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:960)
+[ERROR] 	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:293)
+[ERROR] 	at org.apache.maven.cli.MavenCli.main(MavenCli.java:196)
+[ERROR] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[ERROR] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+[ERROR] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[ERROR] 	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+[ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:283)
+[ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:226)
+[ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:407)
+[ERROR] 	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:348)
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
 [ERROR] 
 [ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
