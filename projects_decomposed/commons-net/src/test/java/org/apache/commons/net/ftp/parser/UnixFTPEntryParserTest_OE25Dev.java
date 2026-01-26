@@ -101,35 +101,6 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
         return new UnixFTPEntryParser();
     }
 
-    @Override
-    public void testParseFieldsOnDirectory() throws Exception {
-        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 user     group         4096 Mar  2 15:13 zxbox");
-        assertNotNull("Could not parse entry.", f);
-        assertTrue("Should have been a directory.", f.isDirectory());
-        checkPermissions(f);
-        assertEquals(2, f.getHardLinkCount());
-        assertEquals("user", f.getUser());
-        assertEquals("group", f.getGroup());
-        assertEquals("zxbox", f.getName());
-        assertEquals(4096, f.getSize());
-
-        final Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.MONTH, Calendar.MARCH);
-
-        cal.set(Calendar.DAY_OF_MONTH, 1);
-        cal.set(Calendar.HOUR_OF_DAY, 0);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
-        if (f.getTimestamp().getTime().before(cal.getTime())) {
-            cal.add(Calendar.YEAR, -1);
-        }
-        cal.set(Calendar.DAY_OF_MONTH, 2);
-        cal.set(Calendar.HOUR_OF_DAY, 15);
-        cal.set(Calendar.MINUTE, 13);
-
-        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp().getTime()));
-    }
-
 
     @Override
     public void testRecentPrecision() {
@@ -162,88 +133,9 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
                 FTPFile.WORLD_ACCESS, FTPFile.EXECUTE_PERMISSION));
     }
 
-    @Override
-    public void testParseFieldsOnFile() throws Exception {
-        final FTPFile f = getParser()
-                .parseFTPEntry(
-                        "-rwxr-xr-x   2 user     my group 500        5000000000 Mar  2 15:13 zxbox");
-        assertNotNull("Could not parse entry.", f);
-        assertTrue("Should have been a file.", f.isFile());
-        checkPermissions(f);
-        assertEquals(2, f.getHardLinkCount());
-        assertEquals("user", f.getUser());
-        assertEquals("my group 500", f.getGroup());
-        assertEquals("zxbox", f.getName());
-        assertEquals(5000000000L, f.getSize());
-
-        final Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.MONTH, Calendar.MARCH);
-
-        cal.set(Calendar.DAY_OF_MONTH, 1);
-        cal.set(Calendar.HOUR_OF_DAY, 0);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
-        if (f.getTimestamp().getTime().before(cal.getTime())) {
-            cal.add(Calendar.YEAR, -1);
-        }
-        cal.set(Calendar.DAY_OF_MONTH, 2);
-        cal.set(Calendar.HOUR_OF_DAY, 15);
-        cal.set(Calendar.MINUTE, 13);
-        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp().getTime()));
-    }
-
     // https://mail-archives.apache.org/mod_mbox/commons-dev/200408.mbox/%3c4122F3C1.9090402@tanukisoftware.com%3e
-    public void testParseFieldsOnFileJapaneseTime()
-    {
-        final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
-        assertNotNull("Could not parse entry.", f);
-        assertTrue("Should have been a file.", f.isFile());
-        checkPermissions(f);
-        assertEquals(2, f.getHardLinkCount());
-        assertEquals("user", f.getUser());
-        assertEquals("group", f.getGroup());
-        assertEquals("zxbox", f.getName());
-        assertEquals(4096, f.getSize());
-
-        assertNotNull("Timestamp not null", f.getTimestamp());
-        final Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.MONTH, Calendar.MARCH);
-        cal.set(Calendar.DATE,1);
-        cal.set(Calendar.HOUR_OF_DAY, 0);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
-        if (f.getTimestamp().getTime().before(cal.getTime())) {
-            cal.add(Calendar.YEAR, -1);
-        }
-        cal.set(Calendar.DATE,2);
-        cal.set(Calendar.HOUR_OF_DAY, 15);
-        cal.set(Calendar.MINUTE, 13);
-        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp().getTime()));
-    }
 
  // https://mail-archives.apache.org/mod_mbox/commons-dev/200408.mbox/%3c4122F3C1.9090402@tanukisoftware.com%3e
-    public void testParseFieldsOnFileJapaneseYear() {
-        final FTPFile f = getParser().parseFTPEntry(
-                "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
-        assertNotNull("Could not parse entry.", f);
-        assertTrue("Should have been a file.", f.isFile());
-        checkPermissions(f);
-        assertEquals(2, f.getHardLinkCount());
-        assertEquals("user", f.getUser());
-        assertEquals("group", f.getGroup());
-        assertEquals("\u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv", f.getName());
-        assertEquals(4096, f.getSize());
-
-        assertNotNull("Timestamp not null", f.getTimestamp());
-        final Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.YEAR, 2003);
-        cal.set(Calendar.MONTH, Calendar.MARCH);
-        cal.set(Calendar.DATE, 2);
-        cal.set(Calendar.HOUR_OF_DAY, 0);
-        cal.set(Calendar.MINUTE, 0);
-        cal.set(Calendar.SECOND, 0);
-        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp().getTime()));
-    }
 
     @Override
     protected void doAdditionalGoodTests(final String test, final FTPFile f) {
@@ -784,6 +676,416 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
         // removed other assertion
         // removed other assertion
         assertEquals("group", f.getGroup());
+    }
+
+    public void testParseFieldsOnDirectory_1_oe() throws Exception {
+        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 user     group         4096 Mar  2 15:13 zxbox");
+        assertNotNull("Could not parse entry.", f);
+    }
+
+    public void testParseFieldsOnDirectory_2_oe() throws Exception {
+        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 user     group         4096 Mar  2 15:13 zxbox");
+        // removed other assertion
+        assertTrue("Should have been a directory.", f.isDirectory());
+    }
+
+    public void testParseFieldsOnDirectory_3_oe() throws Exception {
+        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 user     group         4096 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        assertEquals(2, f.getHardLinkCount());
+    }
+
+    public void testParseFieldsOnDirectory_4_oe() throws Exception {
+        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 user     group         4096 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        assertEquals("user", f.getUser());
+    }
+
+    public void testParseFieldsOnDirectory_5_oe() throws Exception {
+        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 user     group         4096 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("group", f.getGroup());
+    }
+
+    public void testParseFieldsOnDirectory_6_oe() throws Exception {
+        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 user     group         4096 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("zxbox", f.getName());
+    }
+
+    public void testParseFieldsOnDirectory_7_oe() throws Exception {
+        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 user     group         4096 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(4096, f.getSize());
+    }
+
+    public void testParseFieldsOnDirectory_8_oe() throws Exception {
+        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 user     group         4096 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MONTH, Calendar.MARCH);
+
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        if (f.getTimestamp().getTime().before(cal.getTime())) {
+            cal.add(Calendar.YEAR, -1);
+        }
+        cal.set(Calendar.DAY_OF_MONTH, 2);
+        cal.set(Calendar.HOUR_OF_DAY, 15);
+        cal.set(Calendar.MINUTE, 13);
+
+        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp().getTime()));
+    }
+
+    public void testParseFieldsOnFile_1_oe() throws Exception {
+        final FTPFile f = getParser()
+                .parseFTPEntry(
+                        "-rwxr-xr-x   2 user     my group 500        5000000000 Mar  2 15:13 zxbox");
+        assertNotNull("Could not parse entry.", f);
+    }
+
+    public void testParseFieldsOnFile_2_oe() throws Exception {
+        final FTPFile f = getParser()
+                .parseFTPEntry(
+                        "-rwxr-xr-x   2 user     my group 500        5000000000 Mar  2 15:13 zxbox");
+        // removed other assertion
+        assertTrue("Should have been a file.", f.isFile());
+    }
+
+    public void testParseFieldsOnFile_3_oe() throws Exception {
+        final FTPFile f = getParser()
+                .parseFTPEntry(
+                        "-rwxr-xr-x   2 user     my group 500        5000000000 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        assertEquals(2, f.getHardLinkCount());
+    }
+
+    public void testParseFieldsOnFile_4_oe() throws Exception {
+        final FTPFile f = getParser()
+                .parseFTPEntry(
+                        "-rwxr-xr-x   2 user     my group 500        5000000000 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        assertEquals("user", f.getUser());
+    }
+
+    public void testParseFieldsOnFile_5_oe() throws Exception {
+        final FTPFile f = getParser()
+                .parseFTPEntry(
+                        "-rwxr-xr-x   2 user     my group 500        5000000000 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("my group 500", f.getGroup());
+    }
+
+    public void testParseFieldsOnFile_6_oe() throws Exception {
+        final FTPFile f = getParser()
+                .parseFTPEntry(
+                        "-rwxr-xr-x   2 user     my group 500        5000000000 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("zxbox", f.getName());
+    }
+
+    public void testParseFieldsOnFile_7_oe() throws Exception {
+        final FTPFile f = getParser()
+                .parseFTPEntry(
+                        "-rwxr-xr-x   2 user     my group 500        5000000000 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(5000000000L, f.getSize());
+    }
+
+    public void testParseFieldsOnFile_8_oe() throws Exception {
+        final FTPFile f = getParser()
+                .parseFTPEntry(
+                        "-rwxr-xr-x   2 user     my group 500        5000000000 Mar  2 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MONTH, Calendar.MARCH);
+
+        cal.set(Calendar.DAY_OF_MONTH, 1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        if (f.getTimestamp().getTime().before(cal.getTime())) {
+            cal.add(Calendar.YEAR, -1);
+        }
+        cal.set(Calendar.DAY_OF_MONTH, 2);
+        cal.set(Calendar.HOUR_OF_DAY, 15);
+        cal.set(Calendar.MINUTE, 13);
+        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp().getTime()));
+    }
+
+    public void testParseFieldsOnFileJapaneseTime_1_oe()
+    {
+        final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        assertNotNull("Could not parse entry.", f);
+    }
+
+    public void testParseFieldsOnFileJapaneseTime_2_oe()
+    {
+        final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        assertTrue("Should have been a file.", f.isFile());
+    }
+
+    public void testParseFieldsOnFileJapaneseTime_3_oe()
+    {
+        final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        assertEquals(2, f.getHardLinkCount());
+    }
+
+    public void testParseFieldsOnFileJapaneseTime_4_oe()
+    {
+        final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        assertEquals("user", f.getUser());
+    }
+
+    public void testParseFieldsOnFileJapaneseTime_5_oe()
+    {
+        final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("group", f.getGroup());
+    }
+
+    public void testParseFieldsOnFileJapaneseTime_6_oe()
+    {
+        final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("zxbox", f.getName());
+    }
+
+    public void testParseFieldsOnFileJapaneseTime_7_oe()
+    {
+        final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(4096, f.getSize());
+    }
+
+    public void testParseFieldsOnFileJapaneseTime_8_oe()
+    {
+        final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertNotNull("Timestamp not null", f.getTimestamp());
+    }
+
+    public void testParseFieldsOnFileJapaneseTime_9_oe()
+    {
+        final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        final Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MONTH, Calendar.MARCH);
+        cal.set(Calendar.DATE,1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        if (f.getTimestamp().getTime().before(cal.getTime())) {
+            cal.add(Calendar.YEAR, -1);
+        }
+        cal.set(Calendar.DATE,2);
+        cal.set(Calendar.HOUR_OF_DAY, 15);
+        cal.set(Calendar.MINUTE, 13);
+        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp().getTime()));
+    }
+
+    public void testParseFieldsOnFileJapaneseYear_1_oe() {
+        final FTPFile f = getParser().parseFTPEntry(
+                "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        assertNotNull("Could not parse entry.", f);
+    }
+
+    public void testParseFieldsOnFileJapaneseYear_2_oe() {
+        final FTPFile f = getParser().parseFTPEntry(
+                "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        assertTrue("Should have been a file.", f.isFile());
+    }
+
+    public void testParseFieldsOnFileJapaneseYear_3_oe() {
+        final FTPFile f = getParser().parseFTPEntry(
+                "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        assertEquals(2, f.getHardLinkCount());
+    }
+
+    public void testParseFieldsOnFileJapaneseYear_4_oe() {
+        final FTPFile f = getParser().parseFTPEntry(
+                "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        assertEquals("user", f.getUser());
+    }
+
+    public void testParseFieldsOnFileJapaneseYear_5_oe() {
+        final FTPFile f = getParser().parseFTPEntry(
+                "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("group", f.getGroup());
+    }
+
+    public void testParseFieldsOnFileJapaneseYear_6_oe() {
+        final FTPFile f = getParser().parseFTPEntry(
+                "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("\u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv", f.getName());
+    }
+
+    public void testParseFieldsOnFileJapaneseYear_7_oe() {
+        final FTPFile f = getParser().parseFTPEntry(
+                "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(4096, f.getSize());
+    }
+
+    public void testParseFieldsOnFileJapaneseYear_8_oe() {
+        final FTPFile f = getParser().parseFTPEntry(
+                "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertNotNull("Timestamp not null", f.getTimestamp());
+    }
+
+    public void testParseFieldsOnFileJapaneseYear_9_oe() {
+        final FTPFile f = getParser().parseFTPEntry(
+                "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        // removed other assertion
+        // removed other assertion
+        checkPermissions(f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        final Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, 2003);
+        cal.set(Calendar.MONTH, Calendar.MARCH);
+        cal.set(Calendar.DATE, 2);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp().getTime()));
     }
 
 }

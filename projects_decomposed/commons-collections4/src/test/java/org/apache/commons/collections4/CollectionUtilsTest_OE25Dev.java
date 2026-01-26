@@ -192,59 +192,6 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
      * Tests that {@link List}s are handled correctly - e.g. using
      * {@link List#get(int)}.
      */
-    @Test(expected=IndexOutOfBoundsException.class)
-    public void getFromList() throws Exception {
-        // List, entry exists
-        final List<String> list = createMock(List.class);
-        expect(list.get(0)).andReturn("zero");
-        expect(list.get(1)).andReturn("one");
-        replay();
-        final String string = CollectionUtils.get(list, 0);
-        assertEquals("zero", string);
-        assertEquals("one", CollectionUtils.get(list, 1));
-        // list, non-existent entry -- IndexOutOfBoundsException
-        CollectionUtils.get(new ArrayList<>(), 2);
-    }
-
-    @Test(expected = IndexOutOfBoundsException.class)
-    @Deprecated
-    public void getFromIterable() throws Exception {
-        // Collection, entry exists
-        final Bag<String> bag = new HashBag<>();
-        bag.add("element", 1);
-        assertEquals("element", CollectionUtils.get(bag, 0));
-
-        // Collection, non-existent entry
-        CollectionUtils.get(bag, 1);
-    }
-
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void getFromObjectArray() throws Exception {
-        // Object array, entry exists
-        final Object[] objArray = new Object[2];
-        objArray[0] = "zero";
-        objArray[1] = "one";
-        assertEquals("zero", CollectionUtils.get(objArray, 0));
-        assertEquals("one", CollectionUtils.get(objArray, 1));
-
-        // Object array, non-existent entry --
-        // ArrayIndexOutOfBoundsException
-        CollectionUtils.get(objArray, 2);
-    }
-
-    @Test(expected = IndexOutOfBoundsException.class)
-    public void getFromPrimitiveArray() throws Exception {
-        // Primitive array, entry exists
-        final int[] array = new int[2];
-        array[0] = 10;
-        array[1] = 20;
-        assertEquals(10, CollectionUtils.get(array, 0));
-        assertEquals(20, CollectionUtils.get(array, 1));
-
-        // Object array, non-existent entry --
-        // ArrayIndexOutOfBoundsException
-        CollectionUtils.get(array, 2);
-    }
 
     @Test(expected=IllegalArgumentException.class)
     public void getFromObject() throws Exception {
@@ -4799,6 +4746,29 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         assertEquals("one", test.getValue());
     }
 
+    @Test(expected=IndexOutOfBoundsException.class)
+    public void getFromList_1_oe() throws Exception {
+        // List, entry exists
+        final List<String> list = createMock(List.class);
+        expect(list.get(0)).andReturn("zero");
+        expect(list.get(1)).andReturn("one");
+        replay();
+        final String string = CollectionUtils.get(list, 0);
+        assertEquals("zero", string);
+    }
+
+    @Test(expected=IndexOutOfBoundsException.class)
+    public void getFromList_2_oe() throws Exception {
+        // List, entry exists
+        final List<String> list = createMock(List.class);
+        expect(list.get(0)).andReturn("zero");
+        expect(list.get(1)).andReturn("one");
+        replay();
+        final String string = CollectionUtils.get(list, 0);
+        // removed other assertion
+        assertEquals("one", CollectionUtils.get(list, 1));
+    }
+
     @Test
     @Deprecated
     public void getFromIterator_1_oe() throws Exception {
@@ -4880,6 +4850,53 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
             // expected
         }
         assertTrue(!en.hasMoreElements());
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    @Deprecated
+    public void getFromIterable_1_oe() throws Exception {
+        // Collection, entry exists
+        final Bag<String> bag = new HashBag<>();
+        bag.add("element", 1);
+        assertEquals("element", CollectionUtils.get(bag, 0));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getFromObjectArray_1_oe() throws Exception {
+        // Object array, entry exists
+        final Object[] objArray = new Object[2];
+        objArray[0] = "zero";
+        objArray[1] = "one";
+        assertEquals("zero", CollectionUtils.get(objArray, 0));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getFromObjectArray_2_oe() throws Exception {
+        // Object array, entry exists
+        final Object[] objArray = new Object[2];
+        objArray[0] = "zero";
+        objArray[1] = "one";
+        // removed other assertion
+        assertEquals("one", CollectionUtils.get(objArray, 1));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getFromPrimitiveArray_1_oe() throws Exception {
+        // Primitive array, entry exists
+        final int[] array = new int[2];
+        array[0] = 10;
+        array[1] = 20;
+        assertEquals(10, CollectionUtils.get(array, 0));
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getFromPrimitiveArray_2_oe() throws Exception {
+        // Primitive array, entry exists
+        final int[] array = new int[2];
+        array[0] = 10;
+        array[1] = 20;
+        // removed other assertion
+        assertEquals(20, CollectionUtils.get(array, 1));
     }
 
     @Test
@@ -5235,6 +5252,31 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
     }
 
     @Test
+    public void filter_2_oe() {
+        final List<Integer> ints = new ArrayList<>();
+        ints.add(1);
+        ints.add(2);
+        ints.add(3);
+        ints.add(3);
+        final Iterable<Integer> iterable = ints;
+        // removed other assertion
+        assertEquals(1, ints.size());
+    }
+
+    @Test
+    public void filter_3_oe() {
+        final List<Integer> ints = new ArrayList<>();
+        ints.add(1);
+        ints.add(2);
+        ints.add(3);
+        ints.add(3);
+        final Iterable<Integer> iterable = ints;
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, (int) ints.get(0));
+    }
+
+    @Test
     public void filterNullParameters_1_oe() throws Exception {
         final List<Long> longs = Collections.nCopies(4, 10L);
         assertFalse(CollectionUtils.filter(longs, null));
@@ -5297,6 +5339,18 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
     }
 
     @Test
+    public void filterInverse_2_oe() {
+        final List<Integer> ints = new ArrayList<>();
+        ints.add(1);
+        ints.add(2);
+        ints.add(3);
+        ints.add(3);
+        final Iterable<Integer> iterable = ints;
+        // removed other assertion
+        assertEquals(3, ints.size());
+    }
+
+    @Test
     public void filterInverse_3_oe() {
         final List<Integer> ints = new ArrayList<>();
         ints.add(1);
@@ -5307,6 +5361,20 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         // removed other assertion
         // removed other assertion
         assertEquals(1, (int) ints.get(0));
+    }
+
+    @Test
+    public void filterInverse_4_oe() {
+        final List<Integer> ints = new ArrayList<>();
+        ints.add(1);
+        ints.add(2);
+        ints.add(3);
+        ints.add(3);
+        final Iterable<Integer> iterable = ints;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(3, (int) ints.get(1));
     }
 
     @Test
@@ -6136,6 +6204,35 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         // removed other assertion
         // removed other assertion
         assertEquals(true, CollectionUtils.addIgnoreNull(set, "4"));
+    }
+
+    @Test
+    public void addIgnoreNull_6_oe() {
+        final Set<String> set = new HashSet<>();
+        set.add("1");
+        set.add("2");
+        set.add("3");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(4, set.size());
+    }
+
+    @Test
+    public void addIgnoreNull_7_oe() {
+        final Set<String> set = new HashSet<>();
+        set.add("1");
+        set.add("2");
+        set.add("3");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, set.contains("4"));
     }
 
     @Test
@@ -7181,6 +7278,75 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
     }
 
     @Test
+    public void addAllForIterable_3_oe() {
+        final Collection<Integer> inputCollection = createMock(Collection.class);
+        final Iterable<Integer> inputIterable = inputCollection;
+        final Iterable<Long> iterable = createMock(Iterable.class);
+        final Iterator<Long> iterator = createMock(Iterator.class);
+        final Collection<Number> c = createMock(Collection.class);
+
+        expect(iterable.iterator()).andReturn(iterator);
+        next(iterator, 1L);
+        next(iterator, 2L);
+        next(iterator, 3L);
+        expect(iterator.hasNext()).andReturn(false);
+        expect(c.add(1L)).andReturn(true);
+        expect(c.add(2L)).andReturn(true);
+        expect(c.add(3L)).andReturn(true);
+        // Check that the collection is added using
+        // Collection.addAll(Collection)
+        expect(c.addAll(inputCollection)).andReturn(true);
+
+        // Ensure the method returns false if nothing is added
+        expect(iterable.iterator()).andReturn(iterator);
+        next(iterator, 1L);
+        expect(iterator.hasNext()).andReturn(false);
+        expect(c.add(1L)).andReturn(false);
+        expect(c.addAll(inputCollection)).andReturn(false);
+
+        replay();
+        // removed other assertion
+        // removed other assertion
+
+        assertFalse(CollectionUtils.addAll(c, iterable));
+    }
+
+    @Test
+    public void addAllForIterable_4_oe() {
+        final Collection<Integer> inputCollection = createMock(Collection.class);
+        final Iterable<Integer> inputIterable = inputCollection;
+        final Iterable<Long> iterable = createMock(Iterable.class);
+        final Iterator<Long> iterator = createMock(Iterator.class);
+        final Collection<Number> c = createMock(Collection.class);
+
+        expect(iterable.iterator()).andReturn(iterator);
+        next(iterator, 1L);
+        next(iterator, 2L);
+        next(iterator, 3L);
+        expect(iterator.hasNext()).andReturn(false);
+        expect(c.add(1L)).andReturn(true);
+        expect(c.add(2L)).andReturn(true);
+        expect(c.add(3L)).andReturn(true);
+        // Check that the collection is added using
+        // Collection.addAll(Collection)
+        expect(c.addAll(inputCollection)).andReturn(true);
+
+        // Ensure the method returns false if nothing is added
+        expect(iterable.iterator()).andReturn(iterator);
+        next(iterator, 1L);
+        expect(iterator.hasNext()).andReturn(false);
+        expect(c.add(1L)).andReturn(false);
+        expect(c.addAll(inputCollection)).andReturn(false);
+
+        replay();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertFalse(CollectionUtils.addAll(c, inputIterable));
+    }
+
+    @Test
     public void addAllForEnumeration_1_oe() {
         final Hashtable<Integer, Integer> h = new Hashtable<>();
         h.put(5, 5);
@@ -7236,6 +7402,15 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
     }
 
     @Test
+    public void getIterator_4_oe() {
+        final Iterator<Integer> it = collectionA.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(it.hasNext());
+    }
+
+    @Test
     public void getEnumeration_1_oe() {
         final Vector<Integer> vectorA = new Vector<>(collectionA);
         final Enumeration<Integer> e = vectorA.elements();
@@ -7257,6 +7432,16 @@ public class CollectionUtilsTest_OE25Dev extends MockTestCase {
         // removed other assertion
         // removed other assertion
         assertEquals(Integer.valueOf(4), CollectionUtils.get(e, 6));
+    }
+
+    @Test
+    public void getEnumeration_4_oe() {
+        final Vector<Integer> vectorA = new Vector<>(collectionA);
+        final Enumeration<Integer> e = vectorA.elements();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(e.hasMoreElements());
     }
 
     @Test

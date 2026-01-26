@@ -297,6 +297,53 @@ public class CircularFifoQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("B", queue.remove());
     }
 
+    public void testCircularFifoQueueCircular_10_oe() {
+        final List<E> list = new ArrayList<>();
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+        final Queue<E> queue = new CircularFifoQueue<>(list);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        queue.add((E) "D");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C", queue.remove());
+    }
+
+    public void testCircularFifoQueueCircular_11_oe() {
+        final List<E> list = new ArrayList<>();
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+        final Queue<E> queue = new CircularFifoQueue<>(list);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        queue.add((E) "D");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("D", queue.remove());
+    }
+
     public void testCircularFifoQueueRemove_1_oe() {
         resetFull();
         final int size = getConfirmed().size();

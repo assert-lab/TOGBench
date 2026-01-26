@@ -12581,15 +12581,6 @@ conf_238_2,"    @Test
         assertFalse(""Property was added"", conf.containsKey(PropertiesConfiguration.getInclude()));
     }
 ",TestPropertiesConfiguration::testPropertyLoadedIncludeNotAllowed_2_oe
-conf_239_1,"    @Test
-    public void testReadCalledDirectly_1_oe() throws IOException {
-        conf = new PropertiesConfiguration();
-        try (Reader in = new FileReader(ConfigurationAssert.getTestFile(""test.properties""))) {
-            conf.read(in);
-            fail(""No exception thrown!"");
-    }
-    }
-",TestPropertiesConfiguration::testReadCalledDirectly_1_oe
 conf_239_2,"    @Test
     public void testReadCalledDirectly_2_oe() throws IOException {
         conf = new PropertiesConfiguration();
@@ -48533,17 +48524,6 @@ conf_1714_7,"    @Test
         assertFalse(""more than 3 properties founds"", keys.hasNext());
     }
 ",TestXMLPropertyListConfiguration::testSubset_7_oe
-conf_1715_1,"    @Test
-    public void testWriteCalledDirectly_1_oe() throws IOException {
-        config = new XMLPropertyListConfiguration();
-        config.addProperty(""foo"", ""bar"");
-
-        try (Writer out = new FileWriter(folder.newFile())) {
-            config.write(out);
-            fail(""No exception thrown!"");
-    }
-    }
-",TestXMLPropertyListConfiguration::testWriteCalledDirectly_1_oe
 conf_1715_2,"    @Test
     public void testWriteCalledDirectly_2_oe() throws IOException {
         config = new XMLPropertyListConfiguration();
@@ -51478,11 +51458,6 @@ conf_1869_1,"    @Test
         assertNull(""Got a value"", lookup.lookup(""a non existing system property!""));
     }
 ",TestSystemPropertiesLookup::testLookupUnknownProperty_1_oe
-conf_1870_1,"    @Test
-    public void testLookupConstant_1_oe() {
-        assertEquals(""Wrong value of constant"", FIELD, lookup.lookup(variable(""FIELD"")));
-    }
-",TestConstantLookup::testLookupConstant_1_oe
 conf_1871_1,"    @Test
     public void testLookupInvalidSyntax_1_oe() {
         assertNull(""Non null return value for invalid variable name"", lookup.lookup(""InvalidVariableName""));

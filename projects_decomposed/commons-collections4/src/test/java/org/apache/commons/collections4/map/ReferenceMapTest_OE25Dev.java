@@ -214,28 +214,6 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
     }
 
     /** Tests whether purge values setting works */
-    public void testPurgeValues() throws Exception {
-        // many thanks to Juozas Baliuka for suggesting this method
-        final Map<K, V> testMap = buildRefMap();
-
-        int iterations = 0;
-        int bytz = 2;
-        while (true) {
-            System.gc();
-            if (iterations++ > 50) {
-                fail("Max iterations reached before resource released.");
-            }
-            testMap.isEmpty();
-            if (keyReference.get() == null && valueReference.get() == null) {
-                break;
-
-            }
-            // create garbage:
-            @SuppressWarnings("unused")
-            final byte[] b = new byte[bytz];
-            bytz = bytz * 2;
-        }
-    }
 
     /**
      * Test whether after serialization the "data" HashEntry array is the same size as the original.<p>
@@ -326,6 +304,45 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         // removed other assertion
         // removed other assertion
         assertEquals(false, map.values().contains(null));
+    }
+
+    public void testPurgeValues_1_oe() throws Exception {
+        // many thanks to Juozas Baliuka for suggesting this method
+        final Map<K, V> testMap = buildRefMap();
+
+        int iterations = 0;
+        int bytz = 2;
+        while (true) {
+            System.gc();
+            if (iterations++ > 50) {
+                fail("Max iterations reached before resource released.");
+    }
+    }
+    }
+
+    public void testCustomPurge_1_oe() {
+        List<Integer> expiredValues = new ArrayList<>();
+        @SuppressWarnings("unchecked")
+        final Consumer<Integer> consumer = (Consumer<Integer> & Serializable) v -> expiredValues.add(v);
+        final Map<Integer, Integer> map = new ReferenceMap<Integer, Integer>(ReferenceStrength.WEAK, ReferenceStrength.HARD, false) {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            protected ReferenceEntry<Integer, Integer> createEntry(HashEntry<Integer, Integer> next, int hashCode, Integer key, Integer value) {
+                return new AccessibleEntry<>(this, next, hashCode, key, value, consumer);
+            }
+        };
+        for (int i = 100000; i < 100010; i++) {
+            map.put(Integer.valueOf(i), Integer.valueOf(i));
+        }
+        int iterations = 0;
+        int bytz = 2;
+        while (true) {
+            System.gc();
+            if (iterations++ > 50 || bytz < 0) {
+                fail("Max iterations reached before resource released.");
+    }
+    }
     }
 
     public void testCustomPurge_2_oe() {

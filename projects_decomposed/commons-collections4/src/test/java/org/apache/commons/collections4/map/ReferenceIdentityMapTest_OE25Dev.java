@@ -222,30 +222,6 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
     }
 
     /** Tests whether purge values setting works */
-    public void testPurgeValues() throws Exception {
-        // many thanks to Juozas Baliuka for suggesting this method
-        final Map<K, V> testMap = buildRefMap();
-
-        int iterations = 0;
-        int bytz = 2;
-        while (true) {
-            System.gc();
-            if (iterations++ > 50) {
-                fail("Max iterations reached before resource released.");
-            }
-            testMap.isEmpty();
-            if (
-                keyReference.get() == null &&
-                valueReference.get() == null) {
-                break;
-
-            }
-            // create garbage:
-            @SuppressWarnings("unused")
-            final byte[] b =  new byte[bytz];
-            bytz = bytz * 2;
-        }
-    }
 
     @SuppressWarnings("unused")
     private static void gc() {
@@ -782,6 +758,20 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         // removed other assertion
         // removed other assertion
         assertEquals(false, getMap().values().contains(null));
+    }
+
+    public void testPurgeValues_1_oe() throws Exception {
+        // many thanks to Juozas Baliuka for suggesting this method
+        final Map<K, V> testMap = buildRefMap();
+
+        int iterations = 0;
+        int bytz = 2;
+        while (true) {
+            System.gc();
+            if (iterations++ > 50) {
+                fail("Max iterations reached before resource released.");
+    }
+    }
     }
 
 }

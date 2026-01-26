@@ -122,55 +122,10 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
     /**
      * @see org.apache.commons.net.ftp.parser.FTPParseTestFramework#testParseFieldsOnDirectory()
      */
-    @Override
-    public void testParseFieldsOnDirectory() throws Exception
-    {
-        FTPFile dir = getParser().parseFTPEntry("12-05-96  05:03PM       <DIR>          absoft2");
-        assertNotNull("Could not parse entry.", dir);
-        assertEquals("Thu Dec 05 17:03:00 1996",
-                     df.format(dir.getTimestamp().getTime()));
-        assertTrue("Should have been a directory.",
-                   dir.isDirectory());
-        assertEquals("absoft2", dir.getName());
-        assertEquals(0, dir.getSize());
-
-        dir = getParser().parseFTPEntry("12-03-96  06:38AM       <DIR>          123456");
-        assertNotNull("Could not parse entry.", dir);
-        assertTrue("Should have been a directory.",
-                dir.isDirectory());
-        assertEquals("123456", dir.getName());
-        assertEquals(0, dir.getSize());
-
-    }
 
     /**
      * @see org.apache.commons.net.ftp.parser.FTPParseTestFramework#testParseFieldsOnFile()
      */
-    @Override
-    public void testParseFieldsOnFile() throws Exception
-    {
-        FTPFile f = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 AUTOEXEC.BAK");
-        assertNotNull("Could not parse entry.", f);
-        assertEquals("Thu May 22 00:08:00 1997",
-                     df.format(f.getTimestamp().getTime()));
-        assertTrue("Should have been a file.",
-                   f.isFile());
-        assertEquals("AUTOEXEC.BAK", f.getName());
-        assertEquals(5000000000L, f.getSize());
-
-        // test an NT-unix style listing that does NOT have a leading zero
-        // on the hour.
-
-        f = getParser().parseFTPEntry(
-                "-rw-rw-r--   1 mqm        mqm          17707 Mar 12  3:33 killmq.sh.log");
-        assertNotNull("Could not parse entry.", f);
-        final Calendar cal = Calendar.getInstance();
-        cal.setTime(f.getTimestamp().getTime());
-        assertEquals("hour", 3, cal.get(Calendar.HOUR));
-        assertTrue("Should have been a file.",
-                f.isFile());
-        assertEquals(17707, f.getSize());
-    }
 
 
     @Override
@@ -284,6 +239,104 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
     @Override
     public void testRecentPrecision() {
         // Not used
+    }
+
+    public void testParseFieldsOnDirectory_1_oe() throws Exception
+    {
+        FTPFile dir = getParser().parseFTPEntry("12-05-96  05:03PM       <DIR>          absoft2");
+        assertNotNull("Could not parse entry.", dir);
+    }
+
+    public void testParseFieldsOnDirectory_2_oe() throws Exception
+    {
+        FTPFile dir = getParser().parseFTPEntry("12-05-96  05:03PM       <DIR>          absoft2");
+        // removed other assertion
+        assertEquals("Thu Dec 05 17:03:00 1996", df.format(dir.getTimestamp().getTime()));
+    }
+
+    public void testParseFieldsOnDirectory_3_oe() throws Exception
+    {
+        FTPFile dir = getParser().parseFTPEntry("12-05-96  05:03PM       <DIR>          absoft2");
+        // removed other assertion
+        // removed other assertion
+        assertTrue("Should have been a directory.", dir.isDirectory());
+    }
+
+    public void testParseFieldsOnDirectory_4_oe() throws Exception
+    {
+        FTPFile dir = getParser().parseFTPEntry("12-05-96  05:03PM       <DIR>          absoft2");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("absoft2", dir.getName());
+    }
+
+    public void testParseFieldsOnDirectory_5_oe() throws Exception
+    {
+        FTPFile dir = getParser().parseFTPEntry("12-05-96  05:03PM       <DIR>          absoft2");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, dir.getSize());
+    }
+
+    public void testParseFieldsOnDirectory_6_oe() throws Exception
+    {
+        FTPFile dir = getParser().parseFTPEntry("12-05-96  05:03PM       <DIR>          absoft2");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        dir = getParser().parseFTPEntry("12-03-96  06:38AM       <DIR>          123456");
+        assertNotNull("Could not parse entry.", dir);
+    }
+
+    public void testParseFieldsOnDirectory_7_oe() throws Exception
+    {
+        FTPFile dir = getParser().parseFTPEntry("12-05-96  05:03PM       <DIR>          absoft2");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        dir = getParser().parseFTPEntry("12-03-96  06:38AM       <DIR>          123456");
+        // removed other assertion
+        assertTrue("Should have been a directory.", dir.isDirectory());
+    }
+
+    public void testParseFieldsOnDirectory_8_oe() throws Exception
+    {
+        FTPFile dir = getParser().parseFTPEntry("12-05-96  05:03PM       <DIR>          absoft2");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        dir = getParser().parseFTPEntry("12-03-96  06:38AM       <DIR>          123456");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("123456", dir.getName());
+    }
+
+    public void testParseFieldsOnDirectory_9_oe() throws Exception
+    {
+        FTPFile dir = getParser().parseFTPEntry("12-05-96  05:03PM       <DIR>          absoft2");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        dir = getParser().parseFTPEntry("12-03-96  06:38AM       <DIR>          123456");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, dir.getSize());
     }
 
     public void testParseLeadingDigits_1_oe() {
@@ -478,6 +531,126 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
         timestamp = dir.getTimestamp();
         // removed other assertion
         assertEquals("Tue Dec 03 06:38:00 1996",df.format(timestamp.getTime()));
+    }
+
+    public void testParseFieldsOnFile_1_oe() throws Exception
+    {
+        FTPFile f = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 AUTOEXEC.BAK");
+        assertNotNull("Could not parse entry.", f);
+    }
+
+    public void testParseFieldsOnFile_2_oe() throws Exception
+    {
+        FTPFile f = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 AUTOEXEC.BAK");
+        // removed other assertion
+        assertEquals("Thu May 22 00:08:00 1997", df.format(f.getTimestamp().getTime()));
+    }
+
+    public void testParseFieldsOnFile_3_oe() throws Exception
+    {
+        FTPFile f = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 AUTOEXEC.BAK");
+        // removed other assertion
+        // removed other assertion
+        assertTrue("Should have been a file.", f.isFile());
+    }
+
+    public void testParseFieldsOnFile_4_oe() throws Exception
+    {
+        FTPFile f = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 AUTOEXEC.BAK");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("AUTOEXEC.BAK", f.getName());
+    }
+
+    public void testParseFieldsOnFile_5_oe() throws Exception
+    {
+        FTPFile f = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 AUTOEXEC.BAK");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(5000000000L, f.getSize());
+    }
+
+    public void testParseFieldsOnFile_6_oe() throws Exception
+    {
+        FTPFile f = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 AUTOEXEC.BAK");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test an NT-unix style listing that does NOT have a leading zero
+        // on the hour.
+
+        f = getParser().parseFTPEntry(
+                "-rw-rw-r--   1 mqm        mqm          17707 Mar 12  3:33 killmq.sh.log");
+        assertNotNull("Could not parse entry.", f);
+    }
+
+    public void testParseFieldsOnFile_7_oe() throws Exception
+    {
+        FTPFile f = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 AUTOEXEC.BAK");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test an NT-unix style listing that does NOT have a leading zero
+        // on the hour.
+
+        f = getParser().parseFTPEntry(
+                "-rw-rw-r--   1 mqm        mqm          17707 Mar 12  3:33 killmq.sh.log");
+        // removed other assertion
+        final Calendar cal = Calendar.getInstance();
+        cal.setTime(f.getTimestamp().getTime());
+        assertEquals("hour", 3, cal.get(Calendar.HOUR));
+    }
+
+    public void testParseFieldsOnFile_8_oe() throws Exception
+    {
+        FTPFile f = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 AUTOEXEC.BAK");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test an NT-unix style listing that does NOT have a leading zero
+        // on the hour.
+
+        f = getParser().parseFTPEntry(
+                "-rw-rw-r--   1 mqm        mqm          17707 Mar 12  3:33 killmq.sh.log");
+        // removed other assertion
+        final Calendar cal = Calendar.getInstance();
+        cal.setTime(f.getTimestamp().getTime());
+        // removed other assertion
+        assertTrue("Should have been a file.", f.isFile());
+    }
+
+    public void testParseFieldsOnFile_9_oe() throws Exception
+    {
+        FTPFile f = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 AUTOEXEC.BAK");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test an NT-unix style listing that does NOT have a leading zero
+        // on the hour.
+
+        f = getParser().parseFTPEntry(
+                "-rw-rw-r--   1 mqm        mqm          17707 Mar 12  3:33 killmq.sh.log");
+        // removed other assertion
+        final Calendar cal = Calendar.getInstance();
+        cal.setTime(f.getTimestamp().getTime());
+        // removed other assertion
+        // removed other assertion
+        assertEquals(17707, f.getSize());
     }
 
     public void testDirectoryBeginningWithNumber_1_oe()

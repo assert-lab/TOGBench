@@ -315,6 +315,19 @@ public class TransformerUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testCloneTransformer_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        try {
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            return;
+        }
+        fail();
+    }
+
+    @Test
     @SuppressWarnings("boxing") // OK in test code
     public void testMapTransformer_1_oe() {
         final Map<Object, Integer> map = new HashMap<>();

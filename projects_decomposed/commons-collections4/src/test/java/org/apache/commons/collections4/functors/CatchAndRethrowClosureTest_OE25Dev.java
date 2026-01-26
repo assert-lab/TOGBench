@@ -124,6 +124,36 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
     }
 
     @Test
+    public void testThrowingClosure_7_oe() {
+        Closure<Integer> closure = generateNoExceptionClosure();
+        try {
+            closure.execute(Integer.valueOf(0));
+        } catch (final FunctorException ex) {
+            // removed other assertion
+        } catch (final RuntimeException ex) {
+            // removed other assertion
+        }
+
+        closure = generateIOExceptionClosure();
+        try {
+            closure.execute(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final FunctorException ex) {
+            // removed other assertion
+        } catch (final RuntimeException ex) {
+            // removed other assertion
+        }
+
+        closure = generateNullPointerExceptionClosure();
+        try {
+            closure.execute(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final FunctorException ex) {
+            Assert.fail();
+    }
+    }
+
+    @Test
     public void testThrowingClosure_8_oe() {
         Closure<Integer> closure = generateNoExceptionClosure();
         try {

@@ -115,6 +115,14 @@ public class SingletonIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
         assertEquals(testValue, it.next());
     }
 
+    public void testReset_3_oe() {
+        final ResettableIterator<E> it = makeObject();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(false, it.hasNext());
+    }
+
     public void testReset_4_oe() {
         final ResettableIterator<E> it = makeObject();
 
@@ -138,6 +146,20 @@ public class SingletonIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
 
         // removed other assertion
         assertEquals(testValue, it.next());
+    }
+
+    public void testReset_6_oe() {
+        final ResettableIterator<E> it = makeObject();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it.reset();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(false, it.hasNext());
     }
 
     public void testReset_7_oe() {

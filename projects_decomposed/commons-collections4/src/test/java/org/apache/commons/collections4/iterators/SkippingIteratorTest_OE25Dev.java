@@ -156,6 +156,16 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
     }
 
     @Test
+    public void testSkipping_4_oe() {
+        final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 2);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("d", iter.next());
+    }
+
+    @Test
     public void testSkipping_5_oe() {
         final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 2);
 
@@ -164,6 +174,18 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         // removed other assertion
         // removed other assertion
         assertTrue(iter.hasNext());
+    }
+
+    @Test
+    public void testSkipping_6_oe() {
+        final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 2);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("e", iter.next());
     }
 
     @Test
@@ -180,6 +202,20 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
     }
 
     @Test
+    public void testSkipping_8_oe() {
+        final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 2);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("f", iter.next());
+    }
+
+    @Test
     public void testSkipping_9_oe() {
         final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 2);
 
@@ -192,6 +228,40 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         // removed other assertion
         // removed other assertion
         assertTrue(iter.hasNext());
+    }
+
+    @Test
+    public void testSkipping_10_oe() {
+        final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 2);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("g", iter.next());
+    }
+
+    @Test
+    public void testSkipping_11_oe() {
+        final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 2);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertFalse(iter.hasNext());
     }
 
     @Test
@@ -219,6 +289,16 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
     }
 
     @Test
+    public void testSameAsDecorated_4_oe() {
+        final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("b", iter.next());
+    }
+
+    @Test
     public void testSameAsDecorated_5_oe() {
         final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 0);
 
@@ -227,6 +307,18 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         // removed other assertion
         // removed other assertion
         assertTrue(iter.hasNext());
+    }
+
+    @Test
+    public void testSameAsDecorated_6_oe() {
+        final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("c", iter.next());
     }
 
     @Test
@@ -243,6 +335,20 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
     }
 
     @Test
+    public void testSameAsDecorated_8_oe() {
+        final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("d", iter.next());
+    }
+
+    @Test
     public void testSameAsDecorated_9_oe() {
         final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 0);
 
@@ -255,6 +361,22 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         // removed other assertion
         // removed other assertion
         assertTrue(iter.hasNext());
+    }
+
+    @Test
+    public void testSameAsDecorated_10_oe() {
+        final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("e", iter.next());
     }
 
     @Test
@@ -275,6 +397,24 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
     }
 
     @Test
+    public void testSameAsDecorated_12_oe() {
+        final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("f", iter.next());
+    }
+
+    @Test
     public void testSameAsDecorated_13_oe() {
         final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 0);
 
@@ -291,6 +431,48 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         // removed other assertion
         // removed other assertion
         assertTrue(iter.hasNext());
+    }
+
+    @Test
+    public void testSameAsDecorated_14_oe() {
+        final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("g", iter.next());
+    }
+
+    @Test
+    public void testSameAsDecorated_15_oe() {
+        final Iterator<E> iter = new SkippingIterator<>(testList.iterator(), 0);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertFalse(iter.hasNext());
     }
 
     @Test
@@ -334,6 +516,99 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
     }
 
     @Test
+    public void testRemoveFirst_3_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 4);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        assertFalse(testListCopy.contains("e"));
+    }
+
+    @Test
+    public void testRemoveFirst_4_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 4);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        // removed other assertion
+
+        assertTrue(iter.hasNext());
+    }
+
+    @Test
+    public void testRemoveFirst_5_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 4);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals("f", iter.next());
+    }
+
+    @Test
+    public void testRemoveFirst_6_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 4);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iter.hasNext());
+    }
+
+    @Test
+    public void testRemoveFirst_7_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 4);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("g", iter.next());
+    }
+
+    @Test
+    public void testRemoveFirst_8_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 4);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertFalse(iter.hasNext());
+    }
+
+    @Test
     public void testRemoveMiddle_1_oe() {
         final List<E> testListCopy = new ArrayList<>(testList);
         final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 3);
@@ -348,6 +623,138 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
 
         // removed other assertion
         assertEquals("d", iter.next());
+    }
+
+    @Test
+    public void testRemoveMiddle_3_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 3);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        assertFalse(testListCopy.contains("d"));
+    }
+
+    @Test
+    public void testRemoveMiddle_4_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 3);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        // removed other assertion
+
+        assertTrue(iter.hasNext());
+    }
+
+    @Test
+    public void testRemoveMiddle_5_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 3);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals("e", iter.next());
+    }
+
+    @Test
+    public void testRemoveMiddle_6_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 3);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iter.hasNext());
+    }
+
+    @Test
+    public void testRemoveMiddle_7_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 3);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("f", iter.next());
+    }
+
+    @Test
+    public void testRemoveMiddle_8_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 3);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iter.hasNext());
+    }
+
+    @Test
+    public void testRemoveMiddle_9_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 3);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("g", iter.next());
+    }
+
+    @Test
+    public void testRemoveMiddle_10_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 3);
+
+        // removed other assertion
+        // removed other assertion
+
+        iter.remove();
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertFalse(iter.hasNext());
     }
 
     @Test
@@ -375,6 +782,74 @@ public class SkippingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         // removed other assertion
         // removed other assertion
         assertTrue(iter.hasNext());
+    }
+
+    @Test
+    public void testRemoveLast_4_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 5);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("g", iter.next());
+    }
+
+    @Test
+    public void testRemoveLast_5_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 5);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertFalse(iter.hasNext());
+    }
+
+    @Test
+    public void testRemoveLast_7_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 5);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        try {
+            iter.next();
+            // removed other assertion
+        } catch (final NoSuchElementException nsee) { /* Success case */
+        }
+
+        iter.remove();
+        assertFalse(testListCopy.contains("g"));
+    }
+
+    @Test
+    public void testRemoveLast_8_oe() {
+        final List<E> testListCopy = new ArrayList<>(testList);
+        final Iterator<E> iter = new SkippingIterator<>(testListCopy.iterator(), 5);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        try {
+            iter.next();
+            // removed other assertion
+        } catch (final NoSuchElementException nsee) { /* Success case */
+        }
+
+        iter.remove();
+        // removed other assertion
+
+        assertFalse(iter.hasNext());
     }
 
     @Test

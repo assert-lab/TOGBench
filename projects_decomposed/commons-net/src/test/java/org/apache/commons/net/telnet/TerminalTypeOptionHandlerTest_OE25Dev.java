@@ -30,46 +30,12 @@ public class TerminalTypeOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTe
      * test of client-driven subnegotiation.
      * Checks that no subnegotiation is made.
      */
-    @Override
-    public void testStartSubnegotiation()
-    {
-
-        final int resp1[] = opthand1.startSubnegotiationLocal();
-        final int resp2[] = opthand1.startSubnegotiationRemote();
-
-        assertEquals(resp1, null);
-        assertEquals(resp2, null);
-    }
 
 
     /*
      * test of client-driven subnegotiation.
      * Checks that the terminal type is sent
      */
-    @Override
-    public void testAnswerSubnegotiation()
-    {
-        final int subn[] =
-        {
-            TelnetOption.TERMINAL_TYPE, 1
-        };
-
-        final int expected1[] =
-        {
-            TelnetOption.TERMINAL_TYPE, 0, 'V', 'T', '1', '0', '0'
-        };
-
-        final int expected2[] =
-        {
-            TelnetOption.TERMINAL_TYPE, 0, 'A', 'N', 'S', 'I'
-        };
-
-        final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
-        final int resp2[] = opthand2.answerSubnegotiation(subn, subn.length);
-
-        assertTrue(equalInts(resp1, expected1));
-        assertTrue(equalInts(resp2, expected2));
-    }
 
 
     /*
@@ -94,6 +60,72 @@ public class TerminalTypeOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTe
     public void testConstructors_1_oe()
     {
         assertEquals(opthand1.getOptionCode(), TelnetOption.TERMINAL_TYPE);
+    }
+
+    public void testStartSubnegotiation_1_oe()
+    {
+
+        final int resp1[] = opthand1.startSubnegotiationLocal();
+        final int resp2[] = opthand1.startSubnegotiationRemote();
+
+        assertEquals(resp1, null);
+    }
+
+    public void testStartSubnegotiation_2_oe()
+    {
+
+        final int resp1[] = opthand1.startSubnegotiationLocal();
+        final int resp2[] = opthand1.startSubnegotiationRemote();
+
+        // removed other assertion
+        assertEquals(resp2, null);
+    }
+
+    public void testAnswerSubnegotiation_1_oe()
+    {
+        final int subn[] =
+        {
+            TelnetOption.TERMINAL_TYPE, 1
+        };
+
+        final int expected1[] =
+        {
+            TelnetOption.TERMINAL_TYPE, 0, 'V', 'T', '1', '0', '0'
+        };
+
+        final int expected2[] =
+        {
+            TelnetOption.TERMINAL_TYPE, 0, 'A', 'N', 'S', 'I'
+        };
+
+        final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
+        final int resp2[] = opthand2.answerSubnegotiation(subn, subn.length);
+
+        assertTrue(equalInts(resp1, expected1));
+    }
+
+    public void testAnswerSubnegotiation_2_oe()
+    {
+        final int subn[] =
+        {
+            TelnetOption.TERMINAL_TYPE, 1
+        };
+
+        final int expected1[] =
+        {
+            TelnetOption.TERMINAL_TYPE, 0, 'V', 'T', '1', '0', '0'
+        };
+
+        final int expected2[] =
+        {
+            TelnetOption.TERMINAL_TYPE, 0, 'A', 'N', 'S', 'I'
+        };
+
+        final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
+        final int resp2[] = opthand2.answerSubnegotiation(subn, subn.length);
+
+        // removed other assertion
+        assertTrue(equalInts(resp2, expected2));
     }
 
 }

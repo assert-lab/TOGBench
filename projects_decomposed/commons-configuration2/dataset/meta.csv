@@ -721,7 +721,6 @@ conf_237_1,commons-configuration2,TestPropertiesConfiguration,testPropertyLoaded
 conf_237_2,commons-configuration2,TestPropertiesConfiguration,testPropertyLoadedInclude_2_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown
 conf_238_1,commons-configuration2,TestPropertiesConfiguration,testPropertyLoadedIncludeNotAllowed_1_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown
 conf_238_2,commons-configuration2,TestPropertiesConfiguration,testPropertyLoadedIncludeNotAllowed_2_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown
-conf_239_1,commons-configuration2,TestPropertiesConfiguration,testReadCalledDirectly_1_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown
 conf_239_2,commons-configuration2,TestPropertiesConfiguration,testReadCalledDirectly_2_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown
 conf_240_1,commons-configuration2,TestPropertiesConfiguration,testReadFooterComment_1_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown
 conf_240_2,commons-configuration2,TestPropertiesConfiguration,testReadFooterComment_2_oe,src/test/java/org/apache/commons/configuration2/TestPropertiesConfiguration.java,,,,assert,unknown
@@ -3804,7 +3803,6 @@ conf_1714_4,commons-configuration2,TestXMLPropertyListConfiguration,testSubset_4
 conf_1714_5,commons-configuration2,TestXMLPropertyListConfiguration,testSubset_5_oe,src/test/java/org/apache/commons/configuration2/plist/TestXMLPropertyListConfiguration.java,,,,assert,unknown
 conf_1714_6,commons-configuration2,TestXMLPropertyListConfiguration,testSubset_6_oe,src/test/java/org/apache/commons/configuration2/plist/TestXMLPropertyListConfiguration.java,,,,assert,unknown
 conf_1714_7,commons-configuration2,TestXMLPropertyListConfiguration,testSubset_7_oe,src/test/java/org/apache/commons/configuration2/plist/TestXMLPropertyListConfiguration.java,,,,assert,unknown
-conf_1715_1,commons-configuration2,TestXMLPropertyListConfiguration,testWriteCalledDirectly_1_oe,src/test/java/org/apache/commons/configuration2/plist/TestXMLPropertyListConfiguration.java,,,,assert,unknown
 conf_1715_2,commons-configuration2,TestXMLPropertyListConfiguration,testWriteCalledDirectly_2_oe,src/test/java/org/apache/commons/configuration2/plist/TestXMLPropertyListConfiguration.java,,,,assert,unknown
 conf_1716_1,commons-configuration2,TestCombinedBeanDeclaration,testGetBeanClassNameDefined_1_oe,src/test/java/org/apache/commons/configuration2/beanutils/TestCombinedBeanDeclaration.java,,,,assert,unknown
 conf_1717_1,commons-configuration2,TestCombinedBeanDeclaration,testGetBeanClassNameUndefined_1_oe,src/test/java/org/apache/commons/configuration2/beanutils/TestCombinedBeanDeclaration.java,,,,assert,unknown
@@ -4062,7 +4060,6 @@ conf_1866_2,commons-configuration2,TestConfigurationInterpolator,testResolveWith
 conf_1867_2,commons-configuration2,TestConfigurationInterpolator,testDefaultStringLookupsHolder_invalidLookupsDefinition_2_oe,src/test/java/org/apache/commons/configuration2/interpol/TestConfigurationInterpolator.java,,,,assert,unknown
 conf_1868_1,commons-configuration2,TestSystemPropertiesLookup,testLookupProperties_1_oe,src/test/java/org/apache/commons/configuration2/interpol/TestSystemPropertiesLookup.java,,,,assert,unknown
 conf_1869_1,commons-configuration2,TestSystemPropertiesLookup,testLookupUnknownProperty_1_oe,src/test/java/org/apache/commons/configuration2/interpol/TestSystemPropertiesLookup.java,,,,assert,unknown
-conf_1870_1,commons-configuration2,TestConstantLookup,testLookupConstant_1_oe,src/test/java/org/apache/commons/configuration2/interpol/TestConstantLookup.java,,,,assert,unknown
 conf_1871_1,commons-configuration2,TestConstantLookup,testLookupInvalidSyntax_1_oe,src/test/java/org/apache/commons/configuration2/interpol/TestConstantLookup.java,,,,assert,unknown
 conf_1872_1,commons-configuration2,TestConstantLookup,testLookupNonExisting_1_oe,src/test/java/org/apache/commons/configuration2/interpol/TestConstantLookup.java,,,,assert,unknown
 conf_1873_1,commons-configuration2,TestConstantLookup,testLookupNonStringFromCache_1_oe,src/test/java/org/apache/commons/configuration2/interpol/TestConstantLookup.java,,,,assert,unknown

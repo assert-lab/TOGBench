@@ -268,6 +268,2309 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(list1.get(0), iter.next());
     }
 
+    public void testRemove_7_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        assertEquals(0, iter.previousIndex());
+    }
+
+    public void testRemove_8_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, iter.nextIndex());
+    }
+
+    public void testRemove_9_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        assertEquals(--sz, list1.size());
+    }
+
+    public void testRemove_10_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        assertEquals(-1, iter.previousIndex());
+    }
+
+    public void testRemove_11_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        assertEquals(0, iter.nextIndex());
+    }
+
+    public void testRemove_13_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        assertEquals(-1, iter.previousIndex());
+    }
+
+    public void testRemove_14_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        assertEquals(0, iter.nextIndex());
+    }
+
+    public void testRemove_15_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        assertEquals(list1.get(0), iter.next());
+    }
+
+    public void testRemove_16_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        assertEquals(0, iter.previousIndex());
+    }
+
+    public void testRemove_17_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, iter.nextIndex());
+    }
+
+    public void testRemove_18_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(list1.get(1), iter.next());
+    }
+
+    public void testRemove_19_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(1, iter.previousIndex());
+    }
+
+    public void testRemove_20_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, iter.nextIndex());
+    }
+
+    public void testRemove_21_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        assertEquals(list1.get(1), iter.previous());
+    }
+
+    public void testRemove_22_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        assertEquals(0, iter.previousIndex());
+    }
+
+    public void testRemove_23_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, iter.nextIndex());
+    }
+
+    public void testRemove_24_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        assertEquals(--sz, list1.size());
+    }
+
+    public void testRemove_25_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        assertEquals(0, iter.previousIndex());
+    }
+
+    public void testRemove_26_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, iter.nextIndex());
+    }
+
+    public void testRemove_27_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        assertEquals(list1.get(0), iter.previous());
+    }
+
+    public void testRemove_28_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        assertEquals(-1, iter.previousIndex());
+    }
+
+    public void testRemove_29_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, iter.nextIndex());
+    }
+
+    public void testRemove_31_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        assertEquals(-1, iter.previousIndex());
+    }
+
+    public void testRemove_32_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        assertEquals(0, iter.nextIndex());
+    }
+
+    public void testRemove_33_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //dig out of cache, first next() maintains current position:
+        assertEquals(list1.get(0), iter.next());
+    }
+
+    public void testRemove_34_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //dig out of cache, first next() maintains current position:
+        // removed other assertion
+        assertEquals(0, iter.previousIndex());
+    }
+
+    public void testRemove_35_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //dig out of cache, first next() maintains current position:
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, iter.nextIndex());
+    }
+
+    public void testRemove_36_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //dig out of cache, first next() maintains current position:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //continue traversing underlying iterator with this next() call, and we're out of the hole, so to speak:
+        assertEquals(list1.get(1), iter.next());
+    }
+
+    public void testRemove_37_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //dig out of cache, first next() maintains current position:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //continue traversing underlying iterator with this next() call, and we're out of the hole, so to speak:
+        // removed other assertion
+        assertEquals(1, iter.previousIndex());
+    }
+
+    public void testRemove_38_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //dig out of cache, first next() maintains current position:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //continue traversing underlying iterator with this next() call, and we're out of the hole, so to speak:
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, iter.nextIndex());
+    }
+
+    public void testRemove_39_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //dig out of cache, first next() maintains current position:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //continue traversing underlying iterator with this next() call, and we're out of the hole, so to speak:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove() works again:
+        iter.remove();
+        assertEquals(--sz, list1.size());
+    }
+
+    public void testRemove_40_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //dig out of cache, first next() maintains current position:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //continue traversing underlying iterator with this next() call, and we're out of the hole, so to speak:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove() works again:
+        iter.remove();
+        // removed other assertion
+        assertEquals(0, iter.previousIndex());
+    }
+
+    public void testRemove_41_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //dig out of cache, first next() maintains current position:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //continue traversing underlying iterator with this next() call, and we're out of the hole, so to speak:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove() works again:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, iter.nextIndex());
+    }
+
+    public void testRemove_42_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //dig out of cache, first next() maintains current position:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //continue traversing underlying iterator with this next() call, and we're out of the hole, so to speak:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove() works again:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals(list1.get(1), iter.next());
+    }
+
+    public void testRemove_43_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //dig out of cache, first next() maintains current position:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //continue traversing underlying iterator with this next() call, and we're out of the hole, so to speak:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove() works again:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(1, iter.previousIndex());
+    }
+
+    public void testRemove_44_oe() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove():
+        iter.remove();
+        // removed other assertion
+        //like we never started iterating:
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //two consecutive next() calls:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //call previous():
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //dig into cache
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iter.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        // removed other assertion
+        // removed other assertion
+
+        //dig out of cache, first next() maintains current position:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        //continue traversing underlying iterator with this next() call, and we're out of the hole, so to speak:
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        //verify remove() works again:
+        iter.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, iter.nextIndex());
+    }
+
     public void testReset_1_oe() {
         final ResettableListIterator<E> iter = makeObject();
         final E first = iter.next();
@@ -291,6 +2594,44 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
 
         // after reset, the results should be the same as before
         assertEquals("First element should be the same", first, iter.next());
+    }
+
+    public void testReset_3_oe() {
+        final ResettableListIterator<E> iter = makeObject();
+        final E first = iter.next();
+        final E second = iter.next();
+
+        iter.reset();
+
+        // after reset, there shouldn't be any previous elements
+        // removed other assertion
+
+        // after reset, the results should be the same as before
+        // removed other assertion
+        assertEquals("Second elment should be the same", second, iter.next());
+    }
+
+    public void testReset_4_oe() {
+        final ResettableListIterator<E> iter = makeObject();
+        final E first = iter.next();
+        final E second = iter.next();
+
+        iter.reset();
+
+        // after reset, there shouldn't be any previous elements
+        // removed other assertion
+
+        // after reset, the results should be the same as before
+        // removed other assertion
+        // removed other assertion
+
+        // after passing the point, where we resetted, continuation should work as expected
+        for (int i = 2; i < testArray.length; i++) {
+            final Object testValue = testArray[i];
+            final E iterValue = iter.next();
+
+            assertEquals("Iteration value is correct", testValue, iterValue);
+    }
     }
 
 }

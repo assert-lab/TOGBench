@@ -403,6 +403,34 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         assertSame(keys[0], kit.next());
     }
 
+    public void testLRU_11_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit;
+        Iterator<V> vit;
+
+        final LRUMap<K, V> map = new LRUMap<>(2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[0], values[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[1], values[1]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[1], kit.next());
+    }
+
     public void testLRU_12_oe() {
         if (!isPutAddSupported() || !isPutChangeSupported()) {
             return;
@@ -431,6 +459,37 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = map.values().iterator();
         assertSame(values[0], vit.next());
+    }
+
+    public void testLRU_13_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit;
+        Iterator<V> vit;
+
+        final LRUMap<K, V> map = new LRUMap<>(2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[0], values[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[1], values[1]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        assertSame(values[1], vit.next());
     }
 
     public void testLRU_14_oe() {
@@ -576,6 +635,45 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         assertSame(keys[1], kit.next());
     }
 
+    public void testLRU_18_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit;
+        Iterator<V> vit;
+
+        final LRUMap<K, V> map = new LRUMap<>(2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[0], values[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[1], values[1]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[2], values[2]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[2], kit.next());
+    }
+
     public void testLRU_19_oe() {
         if (!isPutAddSupported() || !isPutChangeSupported()) {
             return;
@@ -615,6 +713,48 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = map.values().iterator();
         assertSame(values[1], vit.next());
+    }
+
+    public void testLRU_20_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit;
+        Iterator<V> vit;
+
+        final LRUMap<K, V> map = new LRUMap<>(2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[0], values[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[1], values[1]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[2], values[2]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        assertSame(values[2], vit.next());
     }
 
     public void testLRU_21_oe() {
@@ -804,6 +944,56 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         assertSame(keys[1], kit.next());
     }
 
+    public void testLRU_25_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit;
+        Iterator<V> vit;
+
+        final LRUMap<K, V> map = new LRUMap<>(2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[0], values[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[1], values[1]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[2], values[2]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[2], values[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[2], kit.next());
+    }
+
     public void testLRU_26_oe() {
         if (!isPutAddSupported() || !isPutChangeSupported()) {
             return;
@@ -854,6 +1044,59 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = map.values().iterator();
         assertSame(values[1], vit.next());
+    }
+
+    public void testLRU_27_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit;
+        Iterator<V> vit;
+
+        final LRUMap<K, V> map = new LRUMap<>(2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[0], values[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[1], values[1]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[2], values[2]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[2], values[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        assertSame(values[0], vit.next());
     }
 
     public void testLRU_28_oe() {
@@ -1087,6 +1330,67 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         assertSame(keys[2], kit.next());
     }
 
+    public void testLRU_32_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit;
+        Iterator<V> vit;
+
+        final LRUMap<K, V> map = new LRUMap<>(2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[0], values[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[1], values[1]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[2], values[2]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[2], values[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[1], values[3]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[1], kit.next());
+    }
+
     public void testLRU_33_oe() {
         if (!isPutAddSupported() || !isPutChangeSupported()) {
             return;
@@ -1150,6 +1454,70 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         assertSame(values[0], vit.next());
     }
 
+    public void testLRU_34_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit;
+        Iterator<V> vit;
+
+        final LRUMap<K, V> map = new LRUMap<>(2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[0], values[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[1], values[1]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[2], values[2]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[2], values[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        map.put(keys[1], values[3]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        assertSame(values[3], vit.next());
+    }
+
     public void testReset_1_oe() {
         resetEmpty();
         OrderedMap<K, V> ordered = getMap();
@@ -1160,6 +1528,19 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         final List<K> list = new ArrayList<>(ordered.keySet());
         final ResettableIterator<K> it = (ResettableIterator<K>) ordered.mapIterator();
         assertSame(list.get(0), it.next());
+    }
+
+    public void testReset_2_oe() {
+        resetEmpty();
+        OrderedMap<K, V> ordered = getMap();
+        ((ResettableIterator<K>) ordered.mapIterator()).reset();
+
+        resetFull();
+        ordered = getMap();
+        final List<K> list = new ArrayList<>(ordered.keySet());
+        final ResettableIterator<K> it = (ResettableIterator<K>) ordered.mapIterator();
+        // removed other assertion
+        assertSame(list.get(1), it.next());
     }
 
     public void testReset_3_oe() {
@@ -1193,6 +1574,23 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         assertSame(keys[0], kit.next());
     }
 
+    public void testAccessOrder_2_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[1], kit.next());
+    }
+
     public void testAccessOrder_3_oe() {
         if (!isPutAddSupported() || !isPutChangeSupported()) {
             return;
@@ -1210,6 +1608,26 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = map.values().iterator();
         assertSame(values[0], vit.next());
+    }
+
+    public void testAccessOrder_4_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        assertSame(values[1], vit.next());
     }
 
     public void testAccessOrder_5_oe() {
@@ -1235,6 +1653,32 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         map.put(keys[1], values[1]);
         kit = map.keySet().iterator();
         assertSame(keys[0], kit.next());
+    }
+
+    public void testAccessOrder_6_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[1], kit.next());
     }
 
     public void testAccessOrder_7_oe() {
@@ -1263,6 +1707,35 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = map.values().iterator();
         assertSame(values[0], vit.next());
+    }
+
+    public void testAccessOrder_8_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        assertSame(values[1], vit.next());
     }
 
     public void testAccessOrder_9_oe() {
@@ -1297,6 +1770,41 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         map.put(keys[1], values[2]);
         kit = map.keySet().iterator();
         assertSame(keys[0], kit.next());
+    }
+
+    public void testAccessOrder_10_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[2]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[1], kit.next());
     }
 
     public void testAccessOrder_11_oe() {
@@ -1334,6 +1842,44 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = map.values().iterator();
         assertSame(values[0], vit.next());
+    }
+
+    public void testAccessOrder_12_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[2]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        assertSame(values[2], vit.next());
     }
 
     public void testAccessOrder_13_oe() {
@@ -1377,6 +1923,50 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         map.put(keys[0], values[3]);
         kit = map.keySet().iterator();
         assertSame(keys[1], kit.next());
+    }
+
+    public void testAccessOrder_14_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[2]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.put(keys[0], values[3]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[0], kit.next());
     }
 
     public void testAccessOrder_15_oe() {
@@ -1423,6 +2013,53 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = map.values().iterator();
         assertSame(values[2], vit.next());
+    }
+
+    public void testAccessOrder_16_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[2]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.put(keys[0], values[3]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        assertSame(values[3], vit.next());
     }
 
     public void testAccessOrder_17_oe() {
@@ -1475,6 +2112,59 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         map.get(keys[1]);
         kit = map.keySet().iterator();
         assertSame(keys[0], kit.next());
+    }
+
+    public void testAccessOrder_18_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[2]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.put(keys[0], values[3]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.get(keys[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[1], kit.next());
     }
 
     public void testAccessOrder_19_oe() {
@@ -1530,6 +2220,62 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = map.values().iterator();
         assertSame(values[3], vit.next());
+    }
+
+    public void testAccessOrder_20_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[2]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.put(keys[0], values[3]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.get(keys[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        assertSame(values[2], vit.next());
     }
 
     public void testAccessOrder_21_oe() {
@@ -1591,6 +2337,68 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         map.get(keys[0]);
         kit = map.keySet().iterator();
         assertSame(keys[1], kit.next());
+    }
+
+    public void testAccessOrder_22_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[2]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.put(keys[0], values[3]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.get(keys[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.get(keys[0]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[0], kit.next());
     }
 
     public void testAccessOrder_23_oe() {
@@ -1655,6 +2463,71 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = map.values().iterator();
         assertSame(values[2], vit.next());
+    }
+
+    public void testAccessOrder_24_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[2]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.put(keys[0], values[3]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.get(keys[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.get(keys[0]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        assertSame(values[3], vit.next());
     }
 
     public void testAccessOrder_25_oe() {
@@ -1725,6 +2598,77 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         map.get(keys[0]);
         kit = map.keySet().iterator();
         assertSame(keys[1], kit.next());
+    }
+
+    public void testAccessOrder_26_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[2]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.put(keys[0], values[3]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.get(keys[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.get(keys[0]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.get(keys[0]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[0], kit.next());
     }
 
     public void testAccessOrder_27_oe() {
@@ -1800,6 +2744,80 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         assertSame(values[2], vit.next());
     }
 
+    public void testAccessOrder_28_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.put(keys[1], values[2]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.put(keys[0], values[3]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.get(keys[1]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        map.get(keys[0]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        map.get(keys[0]);
+        kit = map.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = map.values().iterator();
+        // removed other assertion
+        assertSame(values[3], vit.next());
+    }
+
     public void testAccessOrder2_1_oe() {
         if (!isPutAddSupported() || !isPutChangeSupported()) {
             return;
@@ -1816,6 +2834,25 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         lruMap.put(keys[1], values[1]);
         kit = lruMap.keySet().iterator();
         assertSame(keys[0], kit.next());
+    }
+
+    public void testAccessOrder2_2_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        final LRUMap<K, V> lruMap = (LRUMap<K, V>) map;
+
+        lruMap.put(keys[0], values[0]);
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[1], kit.next());
     }
 
     public void testAccessOrder2_3_oe() {
@@ -1837,6 +2874,28 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = lruMap.values().iterator();
         assertSame(values[0], vit.next());
+    }
+
+    public void testAccessOrder2_4_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        final LRUMap<K, V> lruMap = (LRUMap<K, V>) map;
+
+        lruMap.put(keys[0], values[0]);
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        assertSame(values[1], vit.next());
     }
 
     public void testAccessOrder2_5_oe() {
@@ -1864,6 +2923,34 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         lruMap.put(keys[1], values[1]);
         kit = lruMap.keySet().iterator();
         assertSame(keys[0], kit.next());
+    }
+
+    public void testAccessOrder2_6_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        final LRUMap<K, V> lruMap = (LRUMap<K, V>) map;
+
+        lruMap.put(keys[0], values[0]);
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[1], kit.next());
     }
 
     public void testAccessOrder2_7_oe() {
@@ -1894,6 +2981,37 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = lruMap.values().iterator();
         assertSame(values[0], vit.next());
+    }
+
+    public void testAccessOrder2_8_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        final LRUMap<K, V> lruMap = (LRUMap<K, V>) map;
+
+        lruMap.put(keys[0], values[0]);
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        assertSame(values[1], vit.next());
     }
 
     public void testAccessOrder2_9_oe() {
@@ -1930,6 +3048,43 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         lruMap.get(keys[1], false);
         kit = lruMap.keySet().iterator();
         assertSame(keys[0], kit.next());
+    }
+
+    public void testAccessOrder2_10_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        final LRUMap<K, V> lruMap = (LRUMap<K, V>) map;
+
+        lruMap.put(keys[0], values[0]);
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        lruMap.get(keys[1], false);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[1], kit.next());
     }
 
     public void testAccessOrder2_11_oe() {
@@ -1969,6 +3124,46 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = lruMap.values().iterator();
         assertSame(values[0], vit.next());
+    }
+
+    public void testAccessOrder2_12_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        final LRUMap<K, V> lruMap = (LRUMap<K, V>) map;
+
+        lruMap.put(keys[0], values[0]);
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        lruMap.get(keys[1], false);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        assertSame(values[1], vit.next());
     }
 
     public void testAccessOrder2_13_oe() {
@@ -2014,6 +3209,52 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         lruMap.get(keys[0], true);
         kit = lruMap.keySet().iterator();
         assertSame(keys[1], kit.next());
+    }
+
+    public void testAccessOrder2_14_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        final LRUMap<K, V> lruMap = (LRUMap<K, V>) map;
+
+        lruMap.put(keys[0], values[0]);
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        lruMap.get(keys[1], false);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        lruMap.get(keys[0], true);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        assertSame(keys[0], kit.next());
     }
 
     public void testAccessOrder2_15_oe() {
@@ -2062,6 +3303,55 @@ public class LRUMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         // removed other assertion
         vit = lruMap.values().iterator();
         assertSame(values[1], vit.next());
+    }
+
+    public void testAccessOrder2_16_oe() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> kit = null;
+        Iterator<V> vit = null;
+
+        resetEmpty();
+        final LRUMap<K, V> lruMap = (LRUMap<K, V>) map;
+
+        lruMap.put(keys[0], values[0]);
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        lruMap.put(keys[1], values[1]);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // no change to order
+        lruMap.get(keys[1], false);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        // removed other assertion
+
+        // change to order
+        lruMap.get(keys[0], true);
+        kit = lruMap.keySet().iterator();
+        // removed other assertion
+        // removed other assertion
+        vit = lruMap.values().iterator();
+        // removed other assertion
+        assertSame(values[0], vit.next());
     }
 
     public void testClone_1_oe() {

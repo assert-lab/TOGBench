@@ -59,4 +59,43 @@ public class IteratorEnumerationTest_OE25Dev {
         assertEquals("a", enumeration.nextElement());
     }
 
+    @Test
+    public void testEnumeration_4_oe() {
+        final Iterator<String> iterator = Arrays.asList("a", "b", "c").iterator();
+        final IteratorEnumeration<String> enumeration = new IteratorEnumeration<>(iterator);
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("b", enumeration.nextElement());
+    }
+
+    @Test
+    public void testEnumeration_5_oe() {
+        final Iterator<String> iterator = Arrays.asList("a", "b", "c").iterator();
+        final IteratorEnumeration<String> enumeration = new IteratorEnumeration<>(iterator);
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("c", enumeration.nextElement());
+    }
+
+    @Test
+    public void testEnumeration_6_oe() {
+        final Iterator<String> iterator = Arrays.asList("a", "b", "c").iterator();
+        final IteratorEnumeration<String> enumeration = new IteratorEnumeration<>(iterator);
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(enumeration.hasMoreElements());
+    }
+
 }

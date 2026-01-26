@@ -40,34 +40,11 @@ public class SimpleOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTestAbst
      * test of client-driven subnegotiation.
      * Checks that no subnegotiation is made.
      */
-    @Override
-    public void testStartSubnegotiation()
-    {
-
-        final int resp1[] = opthand1.startSubnegotiationLocal();
-        final int resp2[] = opthand1.startSubnegotiationRemote();
-
-        assertEquals(resp1, null);
-        assertEquals(resp2, null);
-    }
 
     /**
      * test of server-driven subnegotiation.
      * Checks that no subnegotiation is made.
      */
-    @Override
-    public void testAnswerSubnegotiation()
-    {
-        final int subn[] =
-        {
-            TelnetCommand.IAC, TelnetCommand.SB, 4,
-            1, TelnetCommand.IAC, TelnetCommand.SE,
-        };
-
-        final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
-
-        assertEquals(resp1, null);
-    }
 
     public void testConstructors_1_oe()
     {
@@ -85,6 +62,38 @@ public class SimpleOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTestAbst
         // removed other assertion
         // removed other assertion
         assertEquals(opthand3.getOptionCode(), 91);
+    }
+
+    public void testStartSubnegotiation_1_oe()
+    {
+
+        final int resp1[] = opthand1.startSubnegotiationLocal();
+        final int resp2[] = opthand1.startSubnegotiationRemote();
+
+        assertEquals(resp1, null);
+    }
+
+    public void testStartSubnegotiation_2_oe()
+    {
+
+        final int resp1[] = opthand1.startSubnegotiationLocal();
+        final int resp2[] = opthand1.startSubnegotiationRemote();
+
+        // removed other assertion
+        assertEquals(resp2, null);
+    }
+
+    public void testAnswerSubnegotiation_1_oe()
+    {
+        final int subn[] =
+        {
+            TelnetCommand.IAC, TelnetCommand.SB, 4,
+            1, TelnetCommand.IAC, TelnetCommand.SE,
+        };
+
+        final int resp1[] = opthand1.answerSubnegotiation(subn, subn.length);
+
+        assertEquals(resp1, null);
     }
 
 }
