@@ -127,6 +127,12 @@ public class TestConfigurationDynaBean_OE25Dev {
     /**
      * Corner cases on getDynaProperty invalid arguments.
      */
+    @Test(expected = IllegalArgumentException.class)
+    public void testGetDescriptorArguments() {
+        final DynaProperty descriptor = bean.getDynaClass().getDynaProperty("unknown");
+        assertNull("Unknown property descriptor should be null", descriptor);
+        bean.getDynaClass().getDynaProperty(null);
+    }
 
     /**
      * Base for testGetDescriptorXxxxx() series of tests.
@@ -367,12 +373,6 @@ public class TestConfigurationDynaBean_OE25Dev {
     /**
      * Test setSimpleProperty on a String property.
      */
-
-    @Test(expected = IllegalArgumentException.class)
-    public void testGetDescriptorArguments_1_oe() {
-        final DynaProperty descriptor = bean.getDynaClass().getDynaProperty("unknown");
-        assertNull("Unknown property descriptor should be null", descriptor);
-    }
 
     @Test
     public void testGetDescriptors_1_oe() {

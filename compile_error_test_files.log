@@ -1,34 +1,34 @@
-START commons-jcs3/commons-jcs-jcache
- ITER 1
 START commons-jcs3/commons-jcs-core
  ITER 1
 START commons-jcs3/commons-jcs-jcache-extras
  ITER 1
-START http-request
- ITER 1
-START commons-jcs3/commons-jcs-jcache-openjpa
+START commons-geometry/commons-geometry-spherical
  ITER 1
 START commons-geometry/commons-geometry-io-euclidean
  ITER 1
+START commons-jcs3/commons-jcs-jcache-openjpa
+ ITER 1
 START commons-geometry/commons-geometry-io-core
-START commons-geometry/commons-geometry-spherical
- ITER 1
- ITER 1
-START commons-geometry/commons-geometry-euclidean
-START springside4/modules/utils
- ITER 1
- ITER 1
-START async-http-client/netty-utils
  ITER 1
 START commons-geometry/commons-geometry-core
  ITER 1
-START commons-configuration2
-START async-http-client/extras/rxjava
+START commons-jcs3/commons-jcs-jcache
+START commons-geometry/commons-geometry-euclidean
  ITER 1
+ ITER 1
+START springside4/modules/utils
+START commons-configuration2
+ ITER 1
+ ITER 1
+START http-request
+ ITER 1
+START commons-lang3
  ITER 1
 START springside4/modules/metrics
  ITER 1
-START commons-lang3
+START async-http-client/extras/rxjava
+ ITER 1
+START async-http-client/netty-utils
  ITER 1
  STOP async-http-client/netty-utils (no compile error, no tests)
 START async-http-client/extras/rxjava2
@@ -47,44 +47,41 @@ START async-http-client/extras/typesafeconfig
  DONE commons-jcs3/commons-jcs-jcache-openjpa (tests ran)
 START async-http-client/extras/retrofit2
  ITER 1
+ DONE async-http-client/extras/registry (tests ran)
+START async-http-client/extras/simple
+ ITER 1
   deleting CollectionUtilTest_OE25Dev.java
   deleting ListUtilTest_OE25Dev.java
   deleting ReflectionUtilTest_OE25Dev.java
  ITER 2
- DONE async-http-client/extras/registry (tests ran)
-START async-http-client/extras/simple
- ITER 1
- DONE async-http-client/extras/rxjava (tests ran)
+ DONE async-http-client/extras/rxjava2 (tests ran)
 START async-http-client/client
  ITER 1
- DONE async-http-client/extras/rxjava2 (tests ran)
+ DONE async-http-client/extras/rxjava (tests ran)
 START commons-vfs/commons-vfs2
  ITER 1
   deleting EncryptingSerializerUnitTest_OE25Dev.java
  ITER 2
- DONE commons-geometry/commons-geometry-core (tests ran)
+ DONE commons-jcs3/commons-jcs-jcache-extras (tests ran)
 START commons-vfs/commons-vfs2-jackrabbit2
  ITER 1
-  deleting AsyncHttpClientTypesafeConfigTest_OE25Dev.java
- ITER 2
  DONE commons-geometry/commons-geometry-io-euclidean (tests ran)
 START commons-jexl3
  ITER 1
- DONE commons-jcs3/commons-jcs-jcache-extras (tests ran)
+ DONE commons-geometry/commons-geometry-core (tests ran)
 START spark
  ITER 1
+  deleting AsyncHttpClientTypesafeConfigTest_OE25Dev.java
+ ITER 2
  DONE commons-geometry/commons-geometry-spherical (tests ran)
 START commons-pool2
  ITER 1
-  deleting TestConstantLookup_OE25Dev.java
-  deleting TestXMLPropertyListConfiguration_OE25Dev.java
- ITER 2
   deleting AsyncHttpClientCallFactoryTest_OE25Dev.java
  ITER 2
- STOP async-http-client/extras/typesafeconfig (no compile error, no tests)
+ DONE commons-geometry/commons-geometry-io-core (tests ran)
 START commons-validator
  ITER 1
- DONE commons-geometry/commons-geometry-io-core (tests ran)
+ STOP async-http-client/extras/typesafeconfig (no compile error, no tests)
 START commons-dbutils
  ITER 1
  DONE async-http-client/extras/simple (tests ran)
@@ -96,17 +93,19 @@ START bcel
   deleting ProxyTest_OE25Dev.java
   deleting Relative302Test_OE25Dev.java
  ITER 2
+ STOP commons-jcs3/commons-jcs-core (no bad files)
+START commons-weaver/processor
+ ITER 1
   deleting EnumUtilsTest_OE25Dev.java
   deleting TypeUtilsTest_OE25Dev.java
   deleting ValidateTest_OE25Dev.java
  ITER 2
- STOP commons-jcs3/commons-jcs-core (no bad files)
-START commons-weaver/processor
- ITER 1
  DONE commons-vfs/commons-vfs2-jackrabbit2 (tests ran)
 START commons-weaver/modules/normalizer
  ITER 1
   deleting Jira733TestCase_OE25Dev.java
+ ITER 2
+  deleting DoWhileTest_OE25Dev.java
  ITER 2
   deleting BooleanColumnHandlerTest_OE25Dev.java
   deleting ByteColumnHandlerTest_OE25Dev.java
@@ -119,43 +118,45 @@ START commons-weaver/modules/normalizer
   deleting StringColumnHandlerTest_OE25Dev.java
   deleting TimestampColumnHandlerTest_OE25Dev.java
  ITER 2
-  deleting DoWhileTest_OE25Dev.java
- ITER 2
-  deleting UrlTest_OE25Dev.java
- ITER 2
  DONE async-http-client/extras/retrofit2 (tests ran)
 START commons-net
  ITER 1
-  deleting TestPropertiesConfiguration_OE25Dev.java
- ITER 3
+  deleting UrlTest_OE25Dev.java
+ ITER 2
  DONE commons-weaver/modules/normalizer (tests ran)
 START JSON-java
  ITER 1
   deleting PerRequestTimeoutTest_OE25Dev.java
  ITER 3
- DONE commons-weaver/processor (tests ran)
+ DONE commons-configuration2 (tests ran)
 START joda-time
  ITER 1
- DONE bcel (tests ran)
+ DONE commons-weaver/processor (tests ran)
 START commons-rng/commons-rng-simple
  ITER 1
- DONE commons-dbutils (tests ran)
+ DONE bcel (tests ran)
 START commons-rng/commons-rng-core
  ITER 1
- DONE JSON-java (tests ran)
+ DONE commons-dbutils (tests ran)
 START commons-rng/commons-rng-examples/examples-stress
  ITER 1
- DONE commons-validator (tests ran)
+ DONE JSON-java (tests ran)
 START commons-rng/commons-rng-examples/examples-sampling
+ ITER 1
+ DONE commons-validator (tests ran)
+START commons-rng/commons-rng-sampling
  ITER 1
   deleting EmptyBodyTest_OE25Dev.java
  ITER 4
- DONE commons-rng/commons-rng-simple (tests ran)
-START commons-rng/commons-rng-sampling
+ DONE commons-rng/commons-rng-examples/examples-stress (tests ran)
+START commons-beanutils
  ITER 1
   deleting ComparableUtilsTest_OE25Dev.java
   deleting FailableFunctionsTest_OE25Dev.java
  ITER 3
+ DONE commons-rng/commons-rng-simple (tests ran)
+START commons-numbers/commons-numbers-gamma
+ ITER 1
   deleting TestAbstractPartial_OE25Dev.java
   deleting TestBaseDateTimeField_OE25Dev.java
   deleting TestBasePartial_OE25Dev.java
@@ -202,6 +203,7 @@ START commons-rng/commons-rng-sampling
   deleting TestLenientChronology_OE25Dev.java
   deleting TestLocalDate_Basics_OE25Dev.java
   deleting TestLocalDate_Constructors_OE25Dev.java
+ STOP commons-rng/commons-rng-examples/examples-sampling (no compile error, no tests)
   deleting TestLocalDateTime_Basics_OE25Dev.java
   deleting TestLocalDateTime_Constructors_OE25Dev.java
   deleting TestLocalDateTime_Properties_OE25Dev.java
@@ -210,6 +212,8 @@ START commons-rng/commons-rng-sampling
   deleting TestLocalTime_Properties_OE25Dev.java
   deleting TestMinMaxLong_OE25Dev.java
   deleting TestMinutes_OE25Dev.java
+START commons-numbers/commons-numbers-combinatorics
+ ITER 1
   deleting TestMonthDay_Basics_OE25Dev.java
   deleting TestMonthDay_Constructors_OE25Dev.java
   deleting TestMonthDay_Properties_OE25Dev.java
@@ -257,32 +261,32 @@ START commons-rng/commons-rng-sampling
   deleting TestYearMonth_Properties_OE25Dev.java
   deleting TestYears_OE25Dev.java
  ITER 2
- STOP commons-rng/commons-rng-examples/examples-sampling (no compile error, no tests)
-START commons-beanutils
- ITER 1
- DONE commons-rng/commons-rng-examples/examples-stress (tests ran)
-START commons-numbers/commons-numbers-gamma
- ITER 1
  DONE commons-rng/commons-rng-core (tests ran)
-START commons-numbers/commons-numbers-combinatorics
- ITER 1
- DONE commons-jexl3 (tests ran)
 START commons-numbers/commons-numbers-complex
- ITER 1
-  deleting RetryRequestTest_OE25Dev.java
- ITER 5
- DONE spark (tests ran)
-START commons-numbers/commons-numbers-angle
  ITER 1
   deleting CoordinatesTest_OE25Dev.java
  ITER 2
+  deleting RetryRequestTest_OE25Dev.java
+ ITER 5
   deleting LogBetaTest_OE25Dev.java
   deleting LogGammaTest_OE25Dev.java
  ITER 2
+ DONE spark (tests ran)
+START commons-numbers/commons-numbers-angle
+ ITER 1
+ DONE commons-jexl3 (tests ran)
+START commons-numbers/commons-numbers-fraction
+ ITER 1
   deleting BasicDynaBeanTestCase_OE25Dev.java
   deleting BeanificationTestCase_OE25Dev.java
   deleting LocaleBeanificationTestCase_OE25Dev.java
  ITER 2
+ DONE commons-numbers/commons-numbers-combinatorics (tests ran)
+START commons-numbers/commons-numbers-arrays
+ ITER 1
+ DONE commons-numbers/commons-numbers-complex (tests ran)
+START commons-numbers/commons-numbers-primes
+ ITER 1
   deleting TestBaseSingleFieldPeriod_OE25Dev.java
   deleting TestBuilder_OE25Dev.java
   deleting TestConverterSet_OE25Dev.java
@@ -309,15 +313,17 @@ START commons-numbers/commons-numbers-angle
   deleting TestYearMonth_Constructors_OE25Dev.java
   deleting TestYearMonthDay_Properties_OE25Dev.java
  ITER 3
- DONE commons-numbers/commons-numbers-complex (tests ran)
-START commons-numbers/commons-numbers-fraction
- ITER 1
  DONE commons-numbers/commons-numbers-angle (tests ran)
-START commons-numbers/commons-numbers-arrays
+START commons-numbers/commons-numbers-quaternion
  ITER 1
- DONE commons-numbers/commons-numbers-combinatorics (tests ran)
-START commons-numbers/commons-numbers-primes
+ DONE commons-numbers/commons-numbers-gamma (tests ran)
+START commons-numbers/commons-numbers-rootfinder
  ITER 1
+ DONE commons-numbers/commons-numbers-fraction (tests ran)
+START commons-numbers/commons-numbers-field
+ ITER 1
+  deleting LazyDynaMapTestCase_OE25Dev.java
+ ITER 3
   deleting ArrayUtilsAddTest_OE25Dev.java
   deleting ArrayUtilsTest_OE25Dev.java
   deleting BackgroundInitializerTest_OE25Dev.java
@@ -328,86 +334,74 @@ START commons-numbers/commons-numbers-primes
   deleting SerializationUtilsTest_OE25Dev.java
   deleting StreamsTest_OE25Dev.java
  ITER 4
-  deleting LazyDynaMapTestCase_OE25Dev.java
- ITER 3
- DONE joda-time (tests ran)
-START commons-numbers/commons-numbers-quaternion
+  deleting BrentSolverTest_OE25Dev.java
+ ITER 2
+ DONE commons-numbers/commons-numbers-primes (tests ran)
+START commons-numbers/commons-numbers-core
+ ITER 1
+ DONE commons-numbers/commons-numbers-arrays (tests ran)
+START scribejava/scribejava-core
  ITER 1
  DONE commons-rng/commons-rng-sampling (tests ran)
-START commons-numbers/commons-numbers-rootfinder
+START commons-imaging
  ITER 1
-  deleting BrentSolverTest_OE25Dev.java
+ DONE commons-numbers/commons-numbers-quaternion (tests ran)
+START jsoup
+ ITER 1
+ DONE joda-time (tests ran)
+START commons-collections4
+ ITER 1
+ DONE commons-numbers/commons-numbers-field (tests ran)
+ STOP commons-numbers/commons-numbers-rootfinder (no compile error, no tests)
+ DONE commons-vfs/commons-vfs2 (tests ran)
+  deleting OAuth2AccessTokenJsonExtractorTest_OE25Dev.java
+ ITER 2
+  deleting EpsilonDoubleEquivalenceTest_OE25Dev.java
  ITER 2
   deleting DynaBeanUtilsTestCase_OE25Dev.java
  ITER 4
- STOP commons-numbers/commons-numbers-rootfinder (no compile error, no tests)
-START commons-numbers/commons-numbers-field
- ITER 1
-  deleting FunctionsTest_OE25Dev.java
- ITER 5
+  deleting PositionTest_OE25Dev.java
+  deleting TextNodeTest_OE25Dev.java
+  deleting TokeniserTest_OE25Dev.java
+ ITER 2
+ DONE scribejava/scribejava-core (tests ran)
+ DONE commons-numbers/commons-numbers-core (tests ran)
   deleting Jira349TestCase_OE25Dev.java
  ITER 5
+  deleting FunctionsTest_OE25Dev.java
+ ITER 5
  DONE commons-geometry/commons-geometry-euclidean (tests ran)
-START commons-numbers/commons-numbers-core
- ITER 1
+  deleting HtmlParserTest_OE25Dev.java
+ ITER 3
   deleting Jira369TestCase_OE25Dev.java
  ITER 6
-  deleting EpsilonDoubleEquivalenceTest_OE25Dev.java
- ITER 2
+  deleting CharacterReaderTest_OE25Dev.java
+ ITER 4
   deleting PropertyUtilsTestCase_OE25Dev.java
  ITER 7
   deleting EventUtilsTest_OE25Dev.java
   deleting ExceptionUtilsTest_OE25Dev.java
   deleting ObjectUtilsTest_OE25Dev.java
  ITER 6
- STOP commons-numbers/commons-numbers-gamma (no compile error, no tests)
-START scribejava/scribejava-core
- ITER 1
-  deleting LazyDynaBeanTestCase_OE25Dev.java
- ITER 8
-  deleting OAuth2AccessTokenJsonExtractorTest_OE25Dev.java
- ITER 2
- STOP commons-numbers/commons-numbers-arrays (no compile error, no tests)
-START commons-imaging
- ITER 1
- STOP commons-numbers/commons-numbers-primes (no compile error, no tests)
-START jsoup
- ITER 1
- DONE scribejava/scribejava-core (tests ran)
-START commons-collections4
- ITER 1
-  deleting BeanUtilsTestCase_OE25Dev.java
- ITER 9
- STOP commons-numbers/commons-numbers-fraction (no compile error, no tests)
- DONE commons-vfs/commons-vfs2 (tests ran)
- STOP commons-numbers/commons-numbers-quaternion (no compile error, no tests)
-  deleting PositionTest_OE25Dev.java
-  deleting TextNodeTest_OE25Dev.java
-  deleting TokeniserTest_OE25Dev.java
- ITER 2
-  deleting DynaPropertyUtilsTestCase_OE25Dev.java
- ITER 10
- STOP commons-numbers/commons-numbers-field (no compile error, no tests)
-  deleting HtmlParserTest_OE25Dev.java
- ITER 3
- DONE commons-numbers/commons-numbers-core (tests ran)
-  deleting CharacterReaderTest_OE25Dev.java
- ITER 4
   deleting EntitiesTest_OE25Dev.java
   deleting SelectorTest_OE25Dev.java
  ITER 5
  DONE commons-collections4 (tests ran)
- DONE http-request (tests ran)
+ DONE commons-imaging (tests ran)
+  deleting LazyDynaBeanTestCase_OE25Dev.java
+ ITER 8
   deleting HttpConnectionTest_OE25Dev.java
   deleting SafelistExtensionTest_OE25Dev.java
   deleting StringUtilTest_OE25Dev.java
  ITER 6
- DONE commons-imaging (tests ran)
+  deleting BeanUtilsTestCase_OE25Dev.java
+ ITER 9
   deleting AttributeParseTest_OE25Dev.java
   deleting CleanerTest_OE25Dev.java
   deleting HtmlTreeBuilderStateTest_OE25Dev.java
   deleting QueryParserTest_OE25Dev.java
  ITER 7
+ DONE http-request (tests ran)
   deleting AttributesTest_OE25Dev.java
   deleting AttributeTest_OE25Dev.java
   deleting DocumentTypeTest_OE25Dev.java
@@ -417,6 +411,8 @@ START commons-collections4
   deleting XmlTreeBuilderTest_OE25Dev.java
   deleting XpathTest_OE25Dev.java
  ITER 8
+  deleting DynaPropertyUtilsTestCase_OE25Dev.java
+ ITER 10
   deleting ElementsTest_OE25Dev.java
   deleting NodeTest_OE25Dev.java
  ITER 9

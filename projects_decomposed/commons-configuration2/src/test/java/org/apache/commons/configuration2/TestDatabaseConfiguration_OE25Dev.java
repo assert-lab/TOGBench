@@ -485,29 +485,11 @@ public class TestDatabaseConfiguration_OE25Dev {
     }
 
     @Test
-    public void testGetKeysMultiple_2_oe() throws ConfigurationException {
-        final Configuration config = helper.setUpMultiConfig();
-        final Iterator<String> it = config.getKeys();
-
-        // removed other assertion
-        assertEquals("2nd key", "key2", it.next());
-    }
-
-    @Test
     public void testGetKeysSingle_1_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
         final Iterator<String> it = config.getKeys();
 
         assertEquals("1st key", "key1", it.next());
-    }
-
-    @Test
-    public void testGetKeysSingle_2_oe() throws ConfigurationException {
-        final Configuration config = setUpConfig();
-        final Iterator<String> it = config.getKeys();
-
-        // removed other assertion
-        assertEquals("2nd key", "key2", it.next());
     }
 
     @Test

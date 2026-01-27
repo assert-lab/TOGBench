@@ -61,11 +61,27 @@ public class Relative302Test_OE25Dev extends AbstractBasicTest {
 
   @Test(groups = "online")
   public void testAllSequentiallyBecauseNotThreadSafe() throws Exception {
-    redirected302Test();
-    redirected302InvalidTest();
-    absolutePathRedirectTest();
-    relativePathRedirectTest();
+    // 302 redirect to Google
+    redirected302Test_1_oe();
+    redirected302Test_2_oe();
+    redirected302Test_3_oe();
+
+    // invalid redirect (localhost:port2)
+    redirected302InvalidTest_1_oe();
+    redirected302InvalidTest_2_oe();
+    redirected302InvalidTest_3_oe();
+
+    // absolute path redirect (/bar/test)
+    absolutePathRedirectTest_1_oe();
+    absolutePathRedirectTest_2_oe();
+    absolutePathRedirectTest_3_oe();
+
+    // relative path redirect (bar/test1)
+    relativePathRedirectTest_1_oe();
+    relativePathRedirectTest_2_oe();
+    relativePathRedirectTest_3_oe();
   }
+
 
   private String getBaseUrl(Uri uri) {
     String url = uri.toString();

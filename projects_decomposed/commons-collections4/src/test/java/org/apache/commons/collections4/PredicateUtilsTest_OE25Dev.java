@@ -312,6 +312,12 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     // nullIsException
     //------------------------------------------------------------------
 
+    @Test(expected=FunctorException.class)
+    public void testNullIsExceptionPredicate() {
+        assertEquals(true, PredicateUtils.nullIsExceptionPredicate(TruePredicate.truePredicate()).evaluate(new Object()));
+        PredicateUtils.nullIsExceptionPredicate(TruePredicate.truePredicate()).evaluate(null);
+    }
+
     @Test(expected=NullPointerException.class)
     public void testNullIsExceptionPredicateEx1() {
         PredicateUtils.nullIsExceptionPredicate(null);
@@ -1735,27 +1741,6 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     }
 
     @Test
-    public void testUniquePredicate_5_oe() {
-        final Predicate<Object> p = PredicateUtils.uniquePredicate();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false, p.evaluate(cString));
-    }
-
-    @Test
-    public void testUniquePredicate_6_oe() {
-        final Predicate<Object> p = PredicateUtils.uniquePredicate();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false, p.evaluate(cString));
-    }
-
-    @Test
     public void testAsPredicateTransformer_1_oe() {
         assertEquals(false, PredicateUtils.asPredicate(TransformerUtils.<Boolean>nopTransformer()).evaluate(false));
     }
@@ -1792,11 +1777,6 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         // removed other assertion
         list.add(cString);
         assertEquals(true, PredicateUtils.invokerPredicate( "contains", new Class[] {Object.class}, new Object[] {cString}).evaluate(list));
-    }
-
-    @Test(expected=FunctorException.class)
-    public void testNullIsExceptionPredicate_1_oe() {
-        assertEquals(true, PredicateUtils.nullIsExceptionPredicate(TruePredicate.truePredicate()).evaluate(new Object()));
     }
 
     @Test

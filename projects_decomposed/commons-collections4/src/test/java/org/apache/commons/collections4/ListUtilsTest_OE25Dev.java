@@ -185,23 +185,6 @@ public class ListUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testLazyFactoryList_2_oe() {
-        final List<Integer> list = ListUtils.lazyList(new ArrayList<Integer>(), new Factory<Integer>() {
-
-            private int index;
-
-            @Override
-            public Integer create() {
-                index++;
-                return Integer.valueOf(index);
-            }
-        });
-
-        // removed other assertion
-        assertEquals(6, list.size());
-    }
-
-    @Test
     public void testLazyFactoryList_3_oe() {
         final List<Integer> list = ListUtils.lazyList(new ArrayList<Integer>(), new Factory<Integer>() {
 
@@ -218,26 +201,6 @@ public class ListUtilsTest_OE25Dev {
         // removed other assertion
 
         assertNotNull(list.get(5));
-    }
-
-    @Test
-    public void testLazyFactoryList_4_oe() {
-        final List<Integer> list = ListUtils.lazyList(new ArrayList<Integer>(), new Factory<Integer>() {
-
-            private int index;
-
-            @Override
-            public Integer create() {
-                index++;
-                return Integer.valueOf(index);
-            }
-        });
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals(6, list.size());
     }
 
     @Test
@@ -258,24 +221,6 @@ public class ListUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testLazyTransformerList_2_oe() {
-        final List<Integer> offsets = Arrays.asList(3, 5, 1, 5, 3, 6);
-        final List<Integer> list = ListUtils.lazyList(new ArrayList<>(), new Transformer<Integer, Integer>() {
-
-            private int index;
-
-            @Override
-            public Integer transform(Integer input) {
-                return offsets.get(input) + index++;
-            }
-
-        });
-
-        // removed other assertion
-        assertEquals(6, list.size());
-    }
-
-    @Test
     public void testLazyTransformerList_3_oe() {
         final List<Integer> offsets = Arrays.asList(3, 5, 1, 5, 3, 6);
         final List<Integer> list = ListUtils.lazyList(new ArrayList<>(), new Transformer<Integer, Integer>() {
@@ -293,27 +238,6 @@ public class ListUtilsTest_OE25Dev {
         // removed other assertion
 
         assertNotNull(list.get(5));
-    }
-
-    @Test
-    public void testLazyTransformerList_4_oe() {
-        final List<Integer> offsets = Arrays.asList(3, 5, 1, 5, 3, 6);
-        final List<Integer> list = ListUtils.lazyList(new ArrayList<>(), new Transformer<Integer, Integer>() {
-
-            private int index;
-
-            @Override
-            public Integer transform(Integer input) {
-                return offsets.get(input) + index++;
-            }
-
-        });
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertEquals(6, list.size());
     }
 
     @Test

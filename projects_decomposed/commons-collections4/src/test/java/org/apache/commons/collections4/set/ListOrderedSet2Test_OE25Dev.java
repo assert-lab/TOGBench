@@ -86,24 +86,6 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
     }
     }
 
-    public void testOrdering_3_oe() {
-        final ListOrderedSet<E> set = setupSet();
-        Iterator<E> it = set.iterator();
-
-        for (int i = 0; i < 10; i++) {
-            // removed other assertion
-        }
-
-        for (int i = 0; i < 10; i += 2) {
-            // removed other assertion
-        }
-
-        it = set.iterator();
-        for (int i = 1; i < 10; i += 2) {
-            assertEquals("Sequence is wrong after remove ", Integer.toString(i), it.next());
-    }
-    }
-
     public void testOrdering_4_oe() {
         final ListOrderedSet<E> set = setupSet();
         Iterator<E> it = set.iterator();
@@ -126,67 +108,6 @@ public class ListOrderedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         }
 
         assertEquals("Size of set is wrong!", 10, set.size());
-    }
-
-    public void testOrdering_5_oe() {
-        final ListOrderedSet<E> set = setupSet();
-        Iterator<E> it = set.iterator();
-
-        for (int i = 0; i < 10; i++) {
-            // removed other assertion
-        }
-
-        for (int i = 0; i < 10; i += 2) {
-            // removed other assertion
-        }
-
-        it = set.iterator();
-        for (int i = 1; i < 10; i += 2) {
-            // removed other assertion
-        }
-
-        for (int i = 0; i < 10; i++) {
-            set.add((E) Integer.toString(i));
-        }
-
-        // removed other assertion
-
-        it = set.iterator();
-        for (int i = 1; i < 10; i += 2) {
-            assertEquals("Sequence is wrong", Integer.toString(i), it.next());
-    }
-    }
-
-    public void testOrdering_6_oe() {
-        final ListOrderedSet<E> set = setupSet();
-        Iterator<E> it = set.iterator();
-
-        for (int i = 0; i < 10; i++) {
-            // removed other assertion
-        }
-
-        for (int i = 0; i < 10; i += 2) {
-            // removed other assertion
-        }
-
-        it = set.iterator();
-        for (int i = 1; i < 10; i += 2) {
-            // removed other assertion
-        }
-
-        for (int i = 0; i < 10; i++) {
-            set.add((E) Integer.toString(i));
-        }
-
-        // removed other assertion
-
-        it = set.iterator();
-        for (int i = 1; i < 10; i += 2) {
-            // removed other assertion
-        }
-        for (int i = 0; i < 10; i += 2) {
-            assertEquals("Sequence is wrong", Integer.toString(i), it.next());
-    }
     }
 
     public void testListAddRemove_1_oe() {

@@ -218,20 +218,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
     }
     }
 
-    public void testIteratorConstructorIteration_Simple_3_oe() {
-        final List<Iterator<String>> iteratorList = new ArrayList<>();
-        iteratorList.add(list1.iterator());
-        iteratorList.add(list2.iterator());
-        iteratorList.add(list3.iterator());
-        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
-
-        for (int i = 0; i < 6; i++) {
-            // removed other assertion
-            // removed other assertion
-        }
-        assertEquals(false, it.hasNext());
-    }
-
     public void testIteratorConstructorIteration_SimpleNoHasNext_1_oe() {
         final List<Iterator<String>> iteratorList = new ArrayList<>();
         iteratorList.add(list1.iterator());
@@ -277,24 +263,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
     }
     }
 
-    public void testIteratorConstructorIteration_WithEmptyIterators_3_oe() {
-        final List<Iterator<String>> iteratorList = new ArrayList<>();
-        iteratorList.add(IteratorUtils.<String>emptyIterator());
-        iteratorList.add(list1.iterator());
-        iteratorList.add(IteratorUtils.<String>emptyIterator());
-        iteratorList.add(list2.iterator());
-        iteratorList.add(IteratorUtils.<String>emptyIterator());
-        iteratorList.add(list3.iterator());
-        iteratorList.add(IteratorUtils.<String>emptyIterator());
-        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
-
-        for (int i = 0; i < 6; i++) {
-            // removed other assertion
-            // removed other assertion
-        }
-        assertEquals(false, it.hasNext());
-    }
-
     public void testIteratorConstructorRemove_1_oe() {
         final List<Iterator<String>> iteratorList = new ArrayList<>();
         iteratorList.add(list1.iterator());
@@ -305,68 +273,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
         for (int i = 0; i < 6; i++) {
             assertEquals(testArray[i], it.next());
     }
-    }
-
-    public void testIteratorConstructorRemove_2_oe() {
-        final List<Iterator<String>> iteratorList = new ArrayList<>();
-        iteratorList.add(list1.iterator());
-        iteratorList.add(list2.iterator());
-        iteratorList.add(list3.iterator());
-        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
-
-        for (int i = 0; i < 6; i++) {
-            // removed other assertion
-            it.remove();
-        }
-        assertEquals(false, it.hasNext());
-    }
-
-    public void testIteratorConstructorRemove_3_oe() {
-        final List<Iterator<String>> iteratorList = new ArrayList<>();
-        iteratorList.add(list1.iterator());
-        iteratorList.add(list2.iterator());
-        iteratorList.add(list3.iterator());
-        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
-
-        for (int i = 0; i < 6; i++) {
-            // removed other assertion
-            it.remove();
-        }
-        // removed other assertion
-        assertEquals(0, list1.size());
-    }
-
-    public void testIteratorConstructorRemove_4_oe() {
-        final List<Iterator<String>> iteratorList = new ArrayList<>();
-        iteratorList.add(list1.iterator());
-        iteratorList.add(list2.iterator());
-        iteratorList.add(list3.iterator());
-        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
-
-        for (int i = 0; i < 6; i++) {
-            // removed other assertion
-            it.remove();
-        }
-        // removed other assertion
-        // removed other assertion
-        assertEquals(0, list2.size());
-    }
-
-    public void testIteratorConstructorRemove_5_oe() {
-        final List<Iterator<String>> iteratorList = new ArrayList<>();
-        iteratorList.add(list1.iterator());
-        iteratorList.add(list2.iterator());
-        iteratorList.add(list3.iterator());
-        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator());
-
-        for (int i = 0; i < 6; i++) {
-            // removed other assertion
-            it.remove();
-        }
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(0, list3.size());
     }
 
     public void testIteration_IteratorOfIterators_1_oe() {
@@ -392,20 +298,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
             // removed other assertion
             assertEquals(testArray[i], it.next());
     }
-    }
-
-    public void testIteration_IteratorOfIterators_3_oe() {
-        final List<Iterator<String>> iteratorList = new ArrayList<>();
-        iteratorList.add(list1.iterator());
-        iteratorList.add(list2.iterator());
-        iteratorList.add(list3.iterator());
-        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator(), null);
-
-        for (int i = 0; i < 6; i++) {
-            // removed other assertion
-            // removed other assertion
-        }
-        assertEquals(false, it.hasNext());
     }
 
     public void testIteration_IteratorOfIteratorsWithEmptyIterators_1_oe() {
@@ -441,24 +333,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
     }
     }
 
-    public void testIteration_IteratorOfIteratorsWithEmptyIterators_3_oe() {
-        final List<Iterator<String>> iteratorList = new ArrayList<>();
-        iteratorList.add(IteratorUtils.<String>emptyIterator());
-        iteratorList.add(list1.iterator());
-        iteratorList.add(IteratorUtils.<String>emptyIterator());
-        iteratorList.add(list2.iterator());
-        iteratorList.add(IteratorUtils.<String>emptyIterator());
-        iteratorList.add(list3.iterator());
-        iteratorList.add(IteratorUtils.<String>emptyIterator());
-        final Iterator<Object> it = new ObjectGraphIterator<>(iteratorList.iterator(), null);
-
-        for (int i = 0; i < 6; i++) {
-            // removed other assertion
-            // removed other assertion
-        }
-        assertEquals(false, it.hasNext());
-    }
-
     public void testIteration_RootNull_1_oe() {
         final Iterator<Object> it = new ObjectGraphIterator<>(null, null);
 
@@ -480,15 +354,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
         assertSame(forest, it.next());
     }
 
-    public void testIteration_RootNoTransformer_3_oe() {
-        final Forest forest = new Forest();
-        final Iterator<Object> it = new ObjectGraphIterator<>(forest, null);
-
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false, it.hasNext());
-    }
-
     public void testIteration_Transformed1_1_oe() {
         final Forest forest = new Forest();
         final Leaf l1 = forest.addTree().addBranch().addLeaf();
@@ -504,16 +369,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
 
         // removed other assertion
         assertSame(l1, it.next());
-    }
-
-    public void testIteration_Transformed1_3_oe() {
-        final Forest forest = new Forest();
-        final Leaf l1 = forest.addTree().addBranch().addLeaf();
-        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
-
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false, it.hasNext());
     }
 
     public void testIteration_Transformed2_1_oe() {
@@ -582,30 +437,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
         assertEquals(true, it.hasNext());
     }
 
-    public void testIteration_Transformed2_4_oe() {
-        final Forest forest = new Forest();
-        forest.addTree();
-        forest.addTree();
-        forest.addTree();
-        final Branch b1 = forest.getTree(0).addBranch();
-        final Branch b2 = forest.getTree(0).addBranch();
-        final Branch b3 = forest.getTree(2).addBranch();
-        /* Branch b4 = */ forest.getTree(2).addBranch();
-        final Branch b5 = forest.getTree(2).addBranch();
-        final Leaf l1 = b1.addLeaf();
-        final Leaf l2 = b1.addLeaf();
-        final Leaf l3 = b2.addLeaf();
-        final Leaf l4 = b3.addLeaf();
-        final Leaf l5 = b5.addLeaf();
-
-        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(l2, it.next());
-    }
-
     public void testIteration_Transformed2_5_oe() {
         final Forest forest = new Forest();
         forest.addTree();
@@ -629,32 +460,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
         // removed other assertion
         // removed other assertion
         assertEquals(true, it.hasNext());
-    }
-
-    public void testIteration_Transformed2_6_oe() {
-        final Forest forest = new Forest();
-        forest.addTree();
-        forest.addTree();
-        forest.addTree();
-        final Branch b1 = forest.getTree(0).addBranch();
-        final Branch b2 = forest.getTree(0).addBranch();
-        final Branch b3 = forest.getTree(2).addBranch();
-        /* Branch b4 = */ forest.getTree(2).addBranch();
-        final Branch b5 = forest.getTree(2).addBranch();
-        final Leaf l1 = b1.addLeaf();
-        final Leaf l2 = b1.addLeaf();
-        final Leaf l3 = b2.addLeaf();
-        final Leaf l4 = b3.addLeaf();
-        final Leaf l5 = b5.addLeaf();
-
-        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(l3, it.next());
     }
 
     public void testIteration_Transformed2_7_oe() {
@@ -684,34 +489,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
         assertEquals(true, it.hasNext());
     }
 
-    public void testIteration_Transformed2_8_oe() {
-        final Forest forest = new Forest();
-        forest.addTree();
-        forest.addTree();
-        forest.addTree();
-        final Branch b1 = forest.getTree(0).addBranch();
-        final Branch b2 = forest.getTree(0).addBranch();
-        final Branch b3 = forest.getTree(2).addBranch();
-        /* Branch b4 = */ forest.getTree(2).addBranch();
-        final Branch b5 = forest.getTree(2).addBranch();
-        final Leaf l1 = b1.addLeaf();
-        final Leaf l2 = b1.addLeaf();
-        final Leaf l3 = b2.addLeaf();
-        final Leaf l4 = b3.addLeaf();
-        final Leaf l5 = b5.addLeaf();
-
-        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(l4, it.next());
-    }
-
     public void testIteration_Transformed2_9_oe() {
         final Forest forest = new Forest();
         forest.addTree();
@@ -739,67 +516,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
         // removed other assertion
         // removed other assertion
         assertEquals(true, it.hasNext());
-    }
-
-    public void testIteration_Transformed2_10_oe() {
-        final Forest forest = new Forest();
-        forest.addTree();
-        forest.addTree();
-        forest.addTree();
-        final Branch b1 = forest.getTree(0).addBranch();
-        final Branch b2 = forest.getTree(0).addBranch();
-        final Branch b3 = forest.getTree(2).addBranch();
-        /* Branch b4 = */ forest.getTree(2).addBranch();
-        final Branch b5 = forest.getTree(2).addBranch();
-        final Leaf l1 = b1.addLeaf();
-        final Leaf l2 = b1.addLeaf();
-        final Leaf l3 = b2.addLeaf();
-        final Leaf l4 = b3.addLeaf();
-        final Leaf l5 = b5.addLeaf();
-
-        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(l5, it.next());
-    }
-
-    public void testIteration_Transformed2_11_oe() {
-        final Forest forest = new Forest();
-        forest.addTree();
-        forest.addTree();
-        forest.addTree();
-        final Branch b1 = forest.getTree(0).addBranch();
-        final Branch b2 = forest.getTree(0).addBranch();
-        final Branch b3 = forest.getTree(2).addBranch();
-        /* Branch b4 = */ forest.getTree(2).addBranch();
-        final Branch b5 = forest.getTree(2).addBranch();
-        final Leaf l1 = b1.addLeaf();
-        final Leaf l2 = b1.addLeaf();
-        final Leaf l3 = b2.addLeaf();
-        final Leaf l4 = b3.addLeaf();
-        final Leaf l5 = b5.addLeaf();
-
-        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false, it.hasNext());
     }
 
     public void testIteration_Transformed3_1_oe() {
@@ -868,30 +584,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
         assertEquals(true, it.hasNext());
     }
 
-    public void testIteration_Transformed3_4_oe() {
-        final Forest forest = new Forest();
-        forest.addTree();
-        forest.addTree();
-        forest.addTree();
-        final Branch b1 = forest.getTree(1).addBranch();
-        final Branch b2 = forest.getTree(1).addBranch();
-        final Branch b3 = forest.getTree(2).addBranch();
-        final Branch b4 = forest.getTree(2).addBranch();
-        /* Branch b5 = */ forest.getTree(2).addBranch();
-        final Leaf l1 = b1.addLeaf();
-        final Leaf l2 = b1.addLeaf();
-        final Leaf l3 = b2.addLeaf();
-        final Leaf l4 = b3.addLeaf();
-        final Leaf l5 = b4.addLeaf();
-
-        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(l2, it.next());
-    }
-
     public void testIteration_Transformed3_5_oe() {
         final Forest forest = new Forest();
         forest.addTree();
@@ -915,32 +607,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
         // removed other assertion
         // removed other assertion
         assertEquals(true, it.hasNext());
-    }
-
-    public void testIteration_Transformed3_6_oe() {
-        final Forest forest = new Forest();
-        forest.addTree();
-        forest.addTree();
-        forest.addTree();
-        final Branch b1 = forest.getTree(1).addBranch();
-        final Branch b2 = forest.getTree(1).addBranch();
-        final Branch b3 = forest.getTree(2).addBranch();
-        final Branch b4 = forest.getTree(2).addBranch();
-        /* Branch b5 = */ forest.getTree(2).addBranch();
-        final Leaf l1 = b1.addLeaf();
-        final Leaf l2 = b1.addLeaf();
-        final Leaf l3 = b2.addLeaf();
-        final Leaf l4 = b3.addLeaf();
-        final Leaf l5 = b4.addLeaf();
-
-        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(l3, it.next());
     }
 
     public void testIteration_Transformed3_7_oe() {
@@ -970,34 +636,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
         assertEquals(true, it.hasNext());
     }
 
-    public void testIteration_Transformed3_8_oe() {
-        final Forest forest = new Forest();
-        forest.addTree();
-        forest.addTree();
-        forest.addTree();
-        final Branch b1 = forest.getTree(1).addBranch();
-        final Branch b2 = forest.getTree(1).addBranch();
-        final Branch b3 = forest.getTree(2).addBranch();
-        final Branch b4 = forest.getTree(2).addBranch();
-        /* Branch b5 = */ forest.getTree(2).addBranch();
-        final Leaf l1 = b1.addLeaf();
-        final Leaf l2 = b1.addLeaf();
-        final Leaf l3 = b2.addLeaf();
-        final Leaf l4 = b3.addLeaf();
-        final Leaf l5 = b4.addLeaf();
-
-        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(l4, it.next());
-    }
-
     public void testIteration_Transformed3_9_oe() {
         final Forest forest = new Forest();
         forest.addTree();
@@ -1025,67 +663,6 @@ public class ObjectGraphIteratorTest_OE25Dev extends AbstractIteratorTest<Object
         // removed other assertion
         // removed other assertion
         assertEquals(true, it.hasNext());
-    }
-
-    public void testIteration_Transformed3_10_oe() {
-        final Forest forest = new Forest();
-        forest.addTree();
-        forest.addTree();
-        forest.addTree();
-        final Branch b1 = forest.getTree(1).addBranch();
-        final Branch b2 = forest.getTree(1).addBranch();
-        final Branch b3 = forest.getTree(2).addBranch();
-        final Branch b4 = forest.getTree(2).addBranch();
-        /* Branch b5 = */ forest.getTree(2).addBranch();
-        final Leaf l1 = b1.addLeaf();
-        final Leaf l2 = b1.addLeaf();
-        final Leaf l3 = b2.addLeaf();
-        final Leaf l4 = b3.addLeaf();
-        final Leaf l5 = b4.addLeaf();
-
-        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(l5, it.next());
-    }
-
-    public void testIteration_Transformed3_11_oe() {
-        final Forest forest = new Forest();
-        forest.addTree();
-        forest.addTree();
-        forest.addTree();
-        final Branch b1 = forest.getTree(1).addBranch();
-        final Branch b2 = forest.getTree(1).addBranch();
-        final Branch b3 = forest.getTree(2).addBranch();
-        final Branch b4 = forest.getTree(2).addBranch();
-        /* Branch b5 = */ forest.getTree(2).addBranch();
-        final Leaf l1 = b1.addLeaf();
-        final Leaf l2 = b1.addLeaf();
-        final Leaf l3 = b2.addLeaf();
-        final Leaf l4 = b3.addLeaf();
-        final Leaf l5 = b4.addLeaf();
-
-        final Iterator<Object> it = new ObjectGraphIterator<>(forest, new LeafFinder());
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(false, it.hasNext());
     }
 
 }

@@ -286,6 +286,13 @@ public class TestSubnodeConfiguration_OE25Dev {
     /**
      * Tests setting the exception on missing flag. The subnode config obtains this flag from its parent.
      */
+    @Test(expected = NoSuchElementException.class)
+    public void testSetThrowExceptionOnMissing() {
+        parent.setThrowExceptionOnMissing(true);
+        setUpSubnodeConfig();
+        assertTrue("Exception flag not fetchted from parent", config.isThrowExceptionOnMissing());
+        config.getString("non existing key");
+    }
 
     /**
      * Tests whether the exception flag can be set independently from the parent.
@@ -605,13 +612,6 @@ public class TestSubnodeConfiguration_OE25Dev {
 
         parent.setProperty("tables.table(0).fields.field(1).name", "testField");
         assertEquals("Field name was not changed", "testField", config.getString("fields.field(1).name"));
-    }
-
-    @Test(expected = NoSuchElementException.class)
-    public void testSetThrowExceptionOnMissing_1_oe() {
-        parent.setThrowExceptionOnMissing(true);
-        setUpSubnodeConfig();
-        assertTrue("Exception flag not fetchted from parent", config.isThrowExceptionOnMissing());
     }
 
     @Test

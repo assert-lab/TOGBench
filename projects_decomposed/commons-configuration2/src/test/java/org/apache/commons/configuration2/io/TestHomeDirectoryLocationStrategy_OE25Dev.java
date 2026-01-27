@@ -127,17 +127,6 @@ public class TestHomeDirectoryLocationStrategy_OE25Dev {
     }
 
     @Test
-    public void testLocateSuccessInSubFolder_2_oe() throws IOException {
-        final File sub = folder.newFolder(BASE_PATH);
-        final File file = new File(sub, FILE_NAME);
-        // removed other assertion
-        final FileLocator locator = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).create();
-        final HomeDirectoryLocationStrategy strategy = setUpStrategy(true);
-        final URL url = strategy.locate(fileSystem, locator);
-        assertEquals("Wrong URL", file.getAbsoluteFile(), FileLocatorUtils.fileFromURL(url).getAbsoluteFile());
-    }
-
-    @Test
     public void testLocateSuccessNoBasePath_1_oe() throws IOException {
         final File file = folder.newFile(FILE_NAME);
         final FileLocator locator = FileLocatorUtils.fileLocator().fileName(FILE_NAME).create();

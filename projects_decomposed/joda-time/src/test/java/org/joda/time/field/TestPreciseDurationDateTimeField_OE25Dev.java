@@ -395,24 +395,10 @@ public class TestPreciseDurationDateTimeField_OE25Dev extends TestCase {
         assertEquals(61, field.add(1L, 1));
     }
 
-    public void test_add_long_int_2_oe() {
-        MockCountingDurationField.add_int = 0;
-        BaseDateTimeField field = new MockPreciseDurationDateTimeField();
-        // removed other assertion
-        assertEquals(1, MockCountingDurationField.add_int);
-    }
-
     public void test_add_long_long_1_oe() {
         MockCountingDurationField.add_long = 0;
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         assertEquals(61, field.add(1L, 1L));
-    }
-
-    public void test_add_long_long_2_oe() {
-        MockCountingDurationField.add_long = 0;
-        BaseDateTimeField field = new MockPreciseDurationDateTimeField();
-        // removed other assertion
-        assertEquals(1, MockCountingDurationField.add_long);
     }
 
     public void test_add_RP_int_intarray_int_1_oe() {
@@ -603,24 +589,10 @@ public class TestPreciseDurationDateTimeField_OE25Dev extends TestCase {
         assertEquals(30, field.getDifference(0L, 0L));
     }
 
-    public void test_getDifference_long_long_2_oe() {
-        MockCountingDurationField.difference_long = 0;
-        BaseDateTimeField field = new MockPreciseDurationDateTimeField();
-        // removed other assertion
-        assertEquals(1, MockCountingDurationField.difference_long);
-    }
-
     public void test_getDifferenceAsLong_long_long_1_oe() {
         MockCountingDurationField.difference_long = 0;
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         assertEquals(30, field.getDifferenceAsLong(0L, 0L));
-    }
-
-    public void test_getDifferenceAsLong_long_long_2_oe() {
-        MockCountingDurationField.difference_long = 0;
-        BaseDateTimeField field = new MockPreciseDurationDateTimeField();
-        // removed other assertion
-        assertEquals(1, MockCountingDurationField.difference_long);
     }
 
     public void test_set_long_int_1_oe() {

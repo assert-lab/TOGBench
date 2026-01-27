@@ -678,17 +678,6 @@ public class TestINIConfiguration_OE25Dev {
     }
 
     @Test
-    public void testGetSectionDuplicate_2_oe() {
-        final INIConfiguration config = new INIConfiguration();
-        config.addProperty("section.var1", "value1");
-        config.addProperty("section(-1).var2", "value2");
-        final HierarchicalConfiguration<ImmutableNode> section = config.getSection("section");
-        final Iterator<String> keys = section.getKeys();
-        // removed other assertion
-        assertFalse("Too many keys", keys.hasNext());
-    }
-
-    @Test
     public void testGetSectionExisting_1_oe() throws ConfigurationException {
         final INIConfiguration config = setUpConfig(INI_DATA);
         final HierarchicalConfiguration<ImmutableNode> section = config.getSection("section1");
@@ -930,21 +919,6 @@ public class TestINIConfiguration_OE25Dev {
         final HierarchicalConfiguration<ImmutableNode> sub = config.getSection(null);
         final Iterator<String> keys = sub.getKeys();
         assertEquals("Wrong key", "globalVar", keys.next());
-    }
-
-    @Test
-    public void testKeysOfGlobalSection_2_oe() throws ConfigurationException {
-        final INIConfiguration config = setUpConfig(INI_DATA_GLOBAL);
-        final HierarchicalConfiguration<ImmutableNode> sub = config.getSection(null);
-        final Iterator<String> keys = sub.getKeys();
-        // removed other assertion
-        if (keys.hasNext()) {
-            final StringBuilder buf = new StringBuilder();
-            do {
-                buf.append(keys.next()).append(' ');
-            } while (keys.hasNext());
-            fail("Got additional keys: " + buf);
-    }
     }
 
     @Test

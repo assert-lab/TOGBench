@@ -105,6 +105,33 @@ public class OS400FTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramew
     /**
      * @see FTPParseTestFramework#testParseFieldsOnDirectory()
      */
+    @Override
+    public void testParseFieldsOnDirectory() throws Exception
+    {
+        final FTPFile f = getParser().parseFTPEntry("PEP             36864 04/03/24 14:06:34 *DIR       dir1/");
+        assertNotNull("Could not parse entry.",
+                      f);
+        assertTrue("Should have been a directory.",
+                   f.isDirectory());
+        assertEquals("PEP",
+                     f.getUser());
+        assertEquals("dir1",
+                     f.getName());
+        assertEquals(36864,
+                     f.getSize());
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MONTH, Calendar.MARCH);
+
+        cal.set(Calendar.YEAR, 2004);
+        cal.set(Calendar.DAY_OF_MONTH, 24);
+        cal.set(Calendar.HOUR_OF_DAY, 14);
+        cal.set(Calendar.MINUTE, 6);
+        cal.set(Calendar.SECOND, 34);
+
+        assertEquals(df.format(cal.getTime()),
+                     df.format(f.getTimestamp().getTime()));
+    }
 
     @Override
     protected void doAdditionalGoodTests(final String test, final FTPFile f)
@@ -119,126 +146,20 @@ public class OS400FTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramew
     /**
      * @see FTPParseTestFramework#testParseFieldsOnFile()
      */
-
     @Override
-    public void testDefaultPrecision() {
-        testPrecision("PEP              4019 04/03/18 18:58:16 *STMF      einladung.zip", CalendarUnit.SECOND);
-    }
-
-    @Override
-    public void testRecentPrecision() {
-        testPrecision("----rwxr-x   1 PEP      0           4019 Mar 18 18:58 einladung.zip", CalendarUnit.MINUTE);
-    }
-
-    public void testParseFieldsOnDirectory_1_oe() throws Exception
-    {
-        final FTPFile f = getParser().parseFTPEntry("PEP             36864 04/03/24 14:06:34 *DIR       dir1/");
-        assertNotNull("Could not parse entry.", f);
-    }
-
-    public void testParseFieldsOnDirectory_2_oe() throws Exception
-    {
-        final FTPFile f = getParser().parseFTPEntry("PEP             36864 04/03/24 14:06:34 *DIR       dir1/");
-        // removed other assertion
-        assertTrue("Should have been a directory.", f.isDirectory());
-    }
-
-    public void testParseFieldsOnDirectory_3_oe() throws Exception
-    {
-        final FTPFile f = getParser().parseFTPEntry("PEP             36864 04/03/24 14:06:34 *DIR       dir1/");
-        // removed other assertion
-        // removed other assertion
-        assertEquals("PEP", f.getUser());
-    }
-
-    public void testParseFieldsOnDirectory_4_oe() throws Exception
-    {
-        final FTPFile f = getParser().parseFTPEntry("PEP             36864 04/03/24 14:06:34 *DIR       dir1/");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("dir1", f.getName());
-    }
-
-    public void testParseFieldsOnDirectory_5_oe() throws Exception
-    {
-        final FTPFile f = getParser().parseFTPEntry("PEP             36864 04/03/24 14:06:34 *DIR       dir1/");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(36864, f.getSize());
-    }
-
-    public void testParseFieldsOnDirectory_6_oe() throws Exception
-    {
-        final FTPFile f = getParser().parseFTPEntry("PEP             36864 04/03/24 14:06:34 *DIR       dir1/");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        final Calendar cal = Calendar.getInstance();
-        cal.set(Calendar.MONTH, Calendar.MARCH);
-
-        cal.set(Calendar.YEAR, 2004);
-        cal.set(Calendar.DAY_OF_MONTH, 24);
-        cal.set(Calendar.HOUR_OF_DAY, 14);
-        cal.set(Calendar.MINUTE, 6);
-        cal.set(Calendar.SECOND, 34);
-
-        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp().getTime()));
-    }
-
-    public void testParseFieldsOnFile_1_oe() throws Exception
+    public void testParseFieldsOnFile() throws Exception
     {
         final FTPFile f = getParser().parseFTPEntry("PEP              5000000000 04/03/24 14:06:29 *STMF      build.xml");
-        assertNotNull("Could not parse entry.", f);
-    }
-
-    public void testParseFieldsOnFile_2_oe() throws Exception
-    {
-        final FTPFile f = getParser().parseFTPEntry("PEP              5000000000 04/03/24 14:06:29 *STMF      build.xml");
-        // removed other assertion
-        assertTrue("Should have been a file.", f.isFile());
-    }
-
-    public void testParseFieldsOnFile_3_oe() throws Exception
-    {
-        final FTPFile f = getParser().parseFTPEntry("PEP              5000000000 04/03/24 14:06:29 *STMF      build.xml");
-        // removed other assertion
-        // removed other assertion
-        assertEquals("PEP", f.getUser());
-    }
-
-    public void testParseFieldsOnFile_4_oe() throws Exception
-    {
-        final FTPFile f = getParser().parseFTPEntry("PEP              5000000000 04/03/24 14:06:29 *STMF      build.xml");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("build.xml", f.getName());
-    }
-
-    public void testParseFieldsOnFile_5_oe() throws Exception
-    {
-        final FTPFile f = getParser().parseFTPEntry("PEP              5000000000 04/03/24 14:06:29 *STMF      build.xml");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(5000000000L, f.getSize());
-    }
-
-    public void testParseFieldsOnFile_6_oe() throws Exception
-    {
-        final FTPFile f = getParser().parseFTPEntry("PEP              5000000000 04/03/24 14:06:29 *STMF      build.xml");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
+        assertNotNull("Could not parse entry.",
+                      f);
+        assertTrue("Should have been a file.",
+                   f.isFile());
+        assertEquals("PEP",
+                     f.getUser());
+        assertEquals("build.xml",
+                     f.getName());
+        assertEquals(5000000000L,
+                     f.getSize());
 
         final Calendar cal = Calendar.getInstance();
 
@@ -248,7 +169,18 @@ public class OS400FTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramew
         cal.set(Calendar.HOUR_OF_DAY, 14);
         cal.set(Calendar.MINUTE, 6);
         cal.set(Calendar.SECOND, 29);
-        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp().getTime()));
+        assertEquals(df.format(cal.getTime()),
+                     df.format(f.getTimestamp().getTime()));
+    }
+
+    @Override
+    public void testDefaultPrecision() {
+        testPrecision("PEP              4019 04/03/18 18:58:16 *STMF      einladung.zip", CalendarUnit.SECOND);
+    }
+
+    @Override
+    public void testRecentPrecision() {
+        testPrecision("----rwxr-x   1 PEP      0           4019 Mar 18 18:58 einladung.zip", CalendarUnit.MINUTE);
     }
 
     public void testNET573_1_oe()

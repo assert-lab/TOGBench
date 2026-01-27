@@ -1,0 +1,104 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------< org.apache.commons:commons-numbers-fraction >-------------
+[INFO] Building Apache Commons Numbers Fraction 1.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-fraction ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-fraction ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-numbers-fraction ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.1.0:parse-version (parse-version) @ commons-numbers-fraction ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-numbers-fraction ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-numbers-fraction ---
+[INFO] Skipping remote resources execution.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-fraction ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction
+[INFO] Storing buildNumber: 4c09e22d8c02f6e925aecd1701912efc953cf025 at timestamp: 1769466546004
+[INFO] Storing buildScmBranch: jan-22-projects
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-fraction ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-numbers-fraction ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 5 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/classes
+[INFO] 
+[INFO] --- maven-bundle-plugin:4.2.1:manifest (bundle-manifest) @ commons-numbers-fraction ---
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.18:check (checkAPIcompatibility) @ commons-numbers-fraction ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-numbers-fraction ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/src/test/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-fraction ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/test-classes
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-fraction ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-fraction ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.numbers.fraction.FractionTest_OE25Dev
+[ERROR] Tests run: 129, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.354 s <<< FAILURE! - in org.apache.commons.numbers.fraction.FractionTest_OE25Dev
+[ERROR] testParse_1_oe  Time elapsed: 0.028 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
+	at org.apache.commons.numbers.fraction.FractionTest_OE25Dev.testParse_1_oe(FractionTest_OE25Dev.java:2318)
+
+[INFO] Running org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
+[ERROR] Tests run: 139, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.574 s <<< FAILURE! - in org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
+[ERROR] testParse_1_oe  Time elapsed: 0.002 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
+	at org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev.testParse_1_oe(BigFractionTest_OE25Dev.java:2222)
+
+[INFO] Running org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
+[INFO] Tests run: 251, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.224 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   BigFractionTest_OE25Dev.testParse_1_oe:2222 expected: <-1 / 2> but was: <1 / 2>
+[ERROR]   FractionTest_OE25Dev.testParse_1_oe:2318 expected: <-1 / 2> but was: <1 / 2>
+[INFO] 
+[ERROR] Tests run: 526, Failures: 2, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  14.783 s
+[INFO] Finished at: 2026-01-26T16:29:17-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-fraction: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -501,25 +501,6 @@ public class TestConfigurationInterpolator_OE25Dev {
     }
 
     @Test
-    public void testDeregisterLookup_2_oe() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        assertFalse("Deregistered prefix still contained", interpolator.prefixSet().contains(TEST_PREFIX));
-    }
-
-    @Test
-    public void testDeregisterLookup_3_oe() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        assertTrue("Lookups not empty", interpolator.getLookups().isEmpty());
-    }
-
-    @Test
     public void testDeregisterLookupNonExisting_1_oe() {
         assertFalse("Could deregister unknown lookup", interpolator.deregisterLookup(TEST_PREFIX));
     }
@@ -1060,27 +1041,6 @@ public class TestConfigurationInterpolator_OE25Dev {
         lookups.add(setUpTestLookup("test", "value"));
         interpolator.addDefaultLookups(lookups);
         assertTrue("Wrong result", interpolator.removeDefaultLookup(lookups.get(0)));
-    }
-
-    @Test
-    public void testRemoveDefaultLookup_2_oe() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup("test", "value"));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        assertFalse("Lookup still available", interpolator.getDefaultLookups().contains(lookups.get(0)));
-    }
-
-    @Test
-    public void testRemoveDefaultLookup_3_oe() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup("test", "value"));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong number of default lookups", 1, interpolator.getDefaultLookups().size());
     }
 
     @Test

@@ -339,42 +339,6 @@ public class TestEventSource_OE25Dev {
     }
 
     @Test
-    public void testFireError_2_oe() {
-        final ErrorListenerTestImpl lstRead = new ErrorListenerTestImpl(source);
-        final ErrorListenerTestImpl lstWrite = new ErrorListenerTestImpl(source);
-        final ErrorListenerTestImpl lstAll = new ErrorListenerTestImpl(source);
-        source.addEventListener(ConfigurationErrorEvent.READ, lstRead);
-        source.addEventListener(ConfigurationErrorEvent.WRITE, lstWrite);
-        source.addEventListener(ConfigurationErrorEvent.ANY, lstAll);
-        final Exception testException = new Exception("A test");
-
-        source.fireError(ConfigurationErrorEvent.WRITE, ConfigurationEvent.ADD_PROPERTY, TEST_PROPNAME, TEST_PROPVALUE, testException);
-        lstRead.done();
-        // removed other assertion
-        lstWrite.done();
-        assertEquals("Wrong exception (2)", testException, lstAll.checkEvent(ConfigurationErrorEvent.WRITE, ConfigurationEvent.ADD_PROPERTY, TEST_PROPNAME, TEST_PROPVALUE));
-    }
-
-    @Test
-    public void testFireError_3_oe() {
-        final ErrorListenerTestImpl lstRead = new ErrorListenerTestImpl(source);
-        final ErrorListenerTestImpl lstWrite = new ErrorListenerTestImpl(source);
-        final ErrorListenerTestImpl lstAll = new ErrorListenerTestImpl(source);
-        source.addEventListener(ConfigurationErrorEvent.READ, lstRead);
-        source.addEventListener(ConfigurationErrorEvent.WRITE, lstWrite);
-        source.addEventListener(ConfigurationErrorEvent.ANY, lstAll);
-        final Exception testException = new Exception("A test");
-
-        source.fireError(ConfigurationErrorEvent.WRITE, ConfigurationEvent.ADD_PROPERTY, TEST_PROPNAME, TEST_PROPVALUE, testException);
-        lstRead.done();
-        // removed other assertion
-        lstWrite.done();
-        // removed other assertion
-        lstAll.done();
-        assertEquals("Wrong number of error events created", 1, source.errorCount);
-    }
-
-    @Test
     public void testFireErrorNoListeners_1_oe() {
         source.fireError(ConfigurationErrorEvent.ANY, ConfigurationEvent.ANY, TEST_PROPNAME, TEST_PROPVALUE, new Exception());
         assertEquals("An error event object was created", 0, source.errorCount);
@@ -443,17 +407,6 @@ public class TestEventSource_OE25Dev {
         source.addEventListener(ConfigurationEvent.ANY, l);
         // removed other assertion
         assertTrue("Could not remove listener", source.removeEventListener(ConfigurationEvent.ANY, l));
-    }
-
-    @Test
-    public void testRemoveEventListener_4_oe() {
-        final EventListenerTestImpl l = new EventListenerTestImpl(this);
-        // removed other assertion
-        source.addEventListener(ConfigurationEvent.ADD_NODES, new EventListenerTestImpl(this));
-        source.addEventListener(ConfigurationEvent.ANY, l);
-        // removed other assertion
-        // removed other assertion
-        assertFalse("Listener still in list", source.getEventListeners(ConfigurationEvent.ANY).contains(l));
     }
 
     @Test

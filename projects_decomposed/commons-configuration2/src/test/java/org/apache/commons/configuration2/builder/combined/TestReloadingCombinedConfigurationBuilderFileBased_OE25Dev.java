@@ -293,40 +293,6 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
     }
 
     @Test
-    public void testConcurrentGetAndReload_2_oe() throws Exception {
-        final int threadCount = 4;
-        final int loopCount = 100;
-        final ReloadingDetectorFactory detectorFactory = (handler, params) -> new RandomReloadingDetector();
-        final BaseHierarchicalConfiguration defConf = new BaseHierarchicalConfiguration();
-        defConf.addProperty("header.result.nodeCombiner[@config-class]", MergeCombiner.class.getName());
-        defConf.addProperty("header.result.expressionEngine[@config-class]", XPathExpressionEngine.class.getName());
-        addReloadSource(defConf, "configA.xml");
-        addReloadSource(defConf, "configB.xml");
-        final Synchronizer sync = new ReadWriteSynchronizer();
-        builder.configure(parameters.combined().setDefinitionBuilder(new ConstantConfigurationBuilder(defConf)).setSynchronizer(sync)
-            .registerChildDefaultsHandler(BasicBuilderProperties.class, new CopyObjectDefaultHandler(new BasicBuilderParameters().setSynchronizer(sync)))
-            .registerChildDefaultsHandler(FileBasedBuilderProperties.class,
-                new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingDetectorFactory(detectorFactory))));
-
-        // removed other assertion
-
-        final Thread testThreads[] = new Thread[threadCount];
-        final int failures[] = new int[threadCount];
-
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i] = new ReloadThread(builder, failures, i, loopCount);
-            testThreads[i].start();
-        }
-
-        int totalFailures = 0;
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i].join();
-            totalFailures += failures[i];
-        }
-        assertEquals(totalFailures + " failures Occurred", 0, totalFailures);
-    }
-
-    @Test
     public void testReloadFromFile_1_oe() throws ConfigurationException, IOException {
         final File xmlConf1 = writeReloadFile(null, 1, 0);
         final File xmlConf2 = writeReloadFile(null, 2, 0);

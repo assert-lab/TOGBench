@@ -421,84 +421,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
     }
 
     @Test
-    public void testConcurrentGetAndReloadFile_3_oe() throws Exception {
-        final int threadCount = 25;
-        System.getProperties().remove("Id");
-        System.setProperty("TemporaryFolder", folder.getRoot().getAbsolutePath());
-        // create a new configuration
-        File input = new File("target/test-classes/testMultiDynamic_default.xml");
-        final File output = folder.newFile("testMultiDynamic_default.xml");
-        output.delete();
-        output.getParentFile().mkdir();
-        copyFile(input, output);
-
-        final ReloadingCombinedConfigurationBuilder builder = new ReloadingCombinedConfigurationBuilder();
-        builder.configure(parameters.combined().setSynchronizer(new ReadWriteSynchronizer())
-            .setDefinitionBuilderParameters(new FileBasedBuilderParametersImpl().setFile(MULTI_DYNAMIC_FILE)).registerChildDefaultsHandler(
-                FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1L))));
-        CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
-
-        final ReaderThread testThreads[] = new ReaderThread[threadCount];
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i] = new ReaderThread(builder);
-            testThreads[i].start();
-        }
-
-        builder.getReloadingController().checkForReloading(null);
-        Thread.sleep(2000);
-
-        input = new File("target/test-classes/testMultiDynamic_default2.xml");
-        copyFile(input, output);
-
-        Thread.sleep(2000);
-        // removed other assertion
-        config = builder.getConfiguration();
-        final String id = config.getString("Product/FIIndex/FI[@id='123456782']");
-        assertNotNull("File did not reload, id is null", id);
-    }
-
-    @Test
-    public void testConcurrentGetAndReloadFile_4_oe() throws Exception {
-        final int threadCount = 25;
-        System.getProperties().remove("Id");
-        System.setProperty("TemporaryFolder", folder.getRoot().getAbsolutePath());
-        // create a new configuration
-        File input = new File("target/test-classes/testMultiDynamic_default.xml");
-        final File output = folder.newFile("testMultiDynamic_default.xml");
-        output.delete();
-        output.getParentFile().mkdir();
-        copyFile(input, output);
-
-        final ReloadingCombinedConfigurationBuilder builder = new ReloadingCombinedConfigurationBuilder();
-        builder.configure(parameters.combined().setSynchronizer(new ReadWriteSynchronizer())
-            .setDefinitionBuilderParameters(new FileBasedBuilderParametersImpl().setFile(MULTI_DYNAMIC_FILE)).registerChildDefaultsHandler(
-                FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1L))));
-        CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
-
-        final ReaderThread testThreads[] = new ReaderThread[threadCount];
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i] = new ReaderThread(builder);
-            testThreads[i].start();
-        }
-
-        builder.getReloadingController().checkForReloading(null);
-        Thread.sleep(2000);
-
-        input = new File("target/test-classes/testMultiDynamic_default2.xml");
-        copyFile(input, output);
-
-        Thread.sleep(2000);
-        // removed other assertion
-        config = builder.getConfiguration();
-        final String id = config.getString("Product/FIIndex/FI[@id='123456782']");
-        // removed other assertion
-        final String rows = config.getString("rowsPerPage");
-        assertEquals("Incorrect value for rowsPerPage", "25", rows);
-    }
-
-    @Test
     public void testConcurrentGetAndReloadFile_5_oe() throws Exception {
         final int threadCount = 25;
         System.getProperties().remove("Id");
@@ -547,55 +469,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
     }
 
     @Test
-    public void testConcurrentGetAndReloadFile_6_oe() throws Exception {
-        final int threadCount = 25;
-        System.getProperties().remove("Id");
-        System.setProperty("TemporaryFolder", folder.getRoot().getAbsolutePath());
-        // create a new configuration
-        File input = new File("target/test-classes/testMultiDynamic_default.xml");
-        final File output = folder.newFile("testMultiDynamic_default.xml");
-        output.delete();
-        output.getParentFile().mkdir();
-        copyFile(input, output);
-
-        final ReloadingCombinedConfigurationBuilder builder = new ReloadingCombinedConfigurationBuilder();
-        builder.configure(parameters.combined().setSynchronizer(new ReadWriteSynchronizer())
-            .setDefinitionBuilderParameters(new FileBasedBuilderParametersImpl().setFile(MULTI_DYNAMIC_FILE)).registerChildDefaultsHandler(
-                FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1L))));
-        CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
-
-        final ReaderThread testThreads[] = new ReaderThread[threadCount];
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i] = new ReaderThread(builder);
-            testThreads[i].start();
-        }
-
-        builder.getReloadingController().checkForReloading(null);
-        Thread.sleep(2000);
-
-        input = new File("target/test-classes/testMultiDynamic_default2.xml");
-        copyFile(input, output);
-
-        Thread.sleep(2000);
-        // removed other assertion
-        config = builder.getConfiguration();
-        final String id = config.getString("Product/FIIndex/FI[@id='123456782']");
-        // removed other assertion
-        final String rows = config.getString("rowsPerPage");
-        // removed other assertion
-
-        for (final ReaderThread testThread : testThreads) {
-            testThread.shutdown();
-            testThread.join();
-        }
-        for (final ReaderThread testThread : testThreads) {
-            // removed other assertion
-        }
-        assertEquals("ID0002", config.getString("Product/FIIndex/FI[@id='123456782']"));
-    }
-
-    @Test
     public void testConcurrentGetAndReloadMultipleClients_1_oe() throws Exception {
         System.getProperties().remove("Id");
         final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
@@ -603,39 +476,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         final CombinedConfiguration config = builder.getConfiguration();
 
         assertEquals(config.getString("rowsPerPage"), "50");
-    }
-
-    @Test
-    public void testConcurrentGetAndReloadMultipleClients_2_oe() throws Exception {
-        System.getProperties().remove("Id");
-        final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
-        builder.configure(parameters.fileBased().setFile(MULTI_TENENT_FILE).setSynchronizer(new ReadWriteSynchronizer()));
-        final CombinedConfiguration config = builder.getConfiguration();
-
-        // removed other assertion
-
-        final Thread testThreads[] = new Thread[THREAD_COUNT];
-        final int failures[] = new int[THREAD_COUNT];
-        final String[] ids = {null, "2002", "3001", "3002", "3003"};
-        final String[] expected = {"50", "25", "15", "25", "50"};
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i] = new ReloadThread(builder, failures, i, LOOP_COUNT, true, ids[i], expected[i]);
-            testThreads[i].start();
-        }
-
-        int totalFailures = 0;
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i].join();
-            totalFailures += failures[i];
-        }
-        System.getProperties().remove("Id");
-        if (totalFailures != 0) {
-            System.out.println("Failures:");
-            for (int i = 0; i < testThreads.length; ++i) {
-                System.out.println("Thread " + i + " " + failures[i]);
-            }
-        }
-        assertEquals(totalFailures + " failures Occurred", 0, totalFailures);
     }
 
     @Test

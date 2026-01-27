@@ -3279,12 +3279,6 @@ public class TestDateTime_Basics_OE25Dev extends TestCase {
         assertNotSame(test, result);
     }
 
-    public void testToDateTime_DateTimeZone_1_oe() {
-        DateTime test = new DateTime(TEST_TIME1);
-        DateTime result = test.toDateTime(LONDON);
-        assertSame(test, result);
-    }
-
     public void testToDateTime_DateTimeZone_2_oe() {
         DateTime test = new DateTime(TEST_TIME1);
         DateTime result = test.toDateTime(LONDON);
@@ -3335,26 +3329,6 @@ public class TestDateTime_Basics_OE25Dev extends TestCase {
         result = test.toDateTime((DateTimeZone) null);
         // removed other assertion
         assertEquals(LONDON, result.getZone());
-    }
-
-    public void testToDateTime_DateTimeZone_6_oe() {
-        DateTime test = new DateTime(TEST_TIME1);
-        DateTime result = test.toDateTime(LONDON);
-        // removed other assertion
-
-        test = new DateTime(TEST_TIME1);
-        result = test.toDateTime(PARIS);
-        // removed other assertion
-        // removed other assertion
-
-        test = new DateTime(TEST_TIME1, PARIS);
-        result = test.toDateTime((DateTimeZone) null);
-        // removed other assertion
-        // removed other assertion
-
-        test = new DateTime(TEST_TIME1);
-        result = test.toDateTime((DateTimeZone) null);
-        assertSame(test, result);
     }
 
     public void testToDateTime_Chronology_1_oe() {
@@ -4056,32 +4030,6 @@ public class TestDateTime_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_PARIS, result.getChronology());
     }
 
-    public void testWithZoneRetainFields_DateTimeZone_3_oe() {
-        DateTime test = new DateTime(TEST_TIME1);
-        DateTime result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1);
-        result = test.withZoneRetainFields(LONDON);
-        assertSame(test, result);
-    }
-
-    public void testWithZoneRetainFields_DateTimeZone_4_oe() {
-        DateTime test = new DateTime(TEST_TIME1);
-        DateTime result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1);
-        result = test.withZoneRetainFields(LONDON);
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1);
-        result = test.withZoneRetainFields(null);
-        assertSame(test, result);
-    }
-
     public void testWithZoneRetainFields_DateTimeZone_5_oe() {
         DateTime test = new DateTime(TEST_TIME1);
         DateTime result = test.withZoneRetainFields(PARIS);
@@ -4119,30 +4067,6 @@ public class TestDateTime_Basics_OE25Dev extends TestCase {
         result = test.withZoneRetainFields(null);
         // removed other assertion
         assertEquals(GREGORIAN_DEFAULT, result.getChronology());
-    }
-
-    public void testWithZoneRetainFields_DateTimeZone_7_oe() {
-        DateTime test = new DateTime(TEST_TIME1);
-        DateTime result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1);
-        result = test.withZoneRetainFields(LONDON);
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1);
-        result = test.withZoneRetainFields(null);
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1, GREGORIAN_PARIS);
-        result = test.withZoneRetainFields(null);
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateTime(TEST_TIME1, new MockNullZoneChronology());
-        result = test.withZoneRetainFields(LONDON);
-        assertSame(test, result);
     }
 
     public void testWithDate_int_int_int_1_oe() {

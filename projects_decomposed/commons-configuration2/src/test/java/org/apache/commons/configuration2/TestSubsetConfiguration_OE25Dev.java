@@ -165,35 +165,6 @@ public class TestSubsetConfiguration_OE25Dev {
     }
 
     @Test
-    public void testGetKeys_2_oe() {
-        final Configuration conf = new BaseConfiguration();
-        conf.setProperty("test", "value0");
-        conf.setProperty("test.key1", "value1");
-        conf.setProperty("testing.key2", "value1");
-
-        final Configuration subset = new SubsetConfiguration(conf, "test", ".");
-
-        final Iterator<String> it = subset.getKeys();
-        // removed other assertion
-        assertEquals("2nd key", "key1", it.next());
-    }
-
-    @Test
-    public void testGetKeys_3_oe() {
-        final Configuration conf = new BaseConfiguration();
-        conf.setProperty("test", "value0");
-        conf.setProperty("test.key1", "value1");
-        conf.setProperty("testing.key2", "value1");
-
-        final Configuration subset = new SubsetConfiguration(conf, "test", ".");
-
-        final Iterator<String> it = subset.getKeys();
-        // removed other assertion
-        // removed other assertion
-        assertFalse("too many elements", it.hasNext());
-    }
-
-    @Test
     public void testGetKeysWithPrefix_1_oe() {
         final Configuration conf = new BaseConfiguration();
         conf.setProperty("test.abc", "value0");
@@ -204,35 +175,6 @@ public class TestSubsetConfiguration_OE25Dev {
 
         final Iterator<String> it = subset.getKeys("abc");
         assertEquals("1st key", "abc", it.next());
-    }
-
-    @Test
-    public void testGetKeysWithPrefix_2_oe() {
-        final Configuration conf = new BaseConfiguration();
-        conf.setProperty("test.abc", "value0");
-        conf.setProperty("test.abc.key1", "value1");
-        conf.setProperty("test.abcdef.key2", "value1");
-
-        final Configuration subset = new SubsetConfiguration(conf, "test", ".");
-
-        final Iterator<String> it = subset.getKeys("abc");
-        // removed other assertion
-        assertEquals("2nd key", "abc.key1", it.next());
-    }
-
-    @Test
-    public void testGetKeysWithPrefix_3_oe() {
-        final Configuration conf = new BaseConfiguration();
-        conf.setProperty("test.abc", "value0");
-        conf.setProperty("test.abc.key1", "value1");
-        conf.setProperty("test.abcdef.key2", "value1");
-
-        final Configuration subset = new SubsetConfiguration(conf, "test", ".");
-
-        final Iterator<String> it = subset.getKeys("abc");
-        // removed other assertion
-        // removed other assertion
-        assertFalse("too many elements", it.hasNext());
     }
 
     @Test

@@ -55,10 +55,25 @@ public class HttpToHttpsRedirectTest_OE25Dev extends AbstractBasicTest {
   @Test
   // FIXME find a way to make this threadsafe, other, set @Test(singleThreaded = true)
   public void runAllSequentiallyBecauseNotThreadSafe() throws Exception {
-    httpToHttpsRedirect();
-    httpToHttpsProperConfig();
-    relativeLocationUrl();
+    // HTTP → HTTPS redirect
+    httpToHttpsRedirect_1_oe();
+    httpToHttpsRedirect_2_oe();
+    httpToHttpsRedirect_3_oe();
+
+    // Proper config + downgrade back to HTTP
+    httpToHttpsProperConfig_1_oe();
+    httpToHttpsProperConfig_2_oe();
+    httpToHttpsProperConfig_3_oe();
+    httpToHttpsProperConfig_4_oe();
+    httpToHttpsProperConfig_5_oe();
+    httpToHttpsProperConfig_6_oe();
+
+    // Relative location URL handling
+    relativeLocationUrl_1_oe();
+    relativeLocationUrl_2_oe();
+    relativeLocationUrl_3_oe();
   }
+
 
   private class Relative302Handler extends AbstractHandler {
 

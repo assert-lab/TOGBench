@@ -64,11 +64,26 @@ public class PerRequestRelative302Test_OE25Dev extends AbstractBasicTest {
   @Test(groups = "online")
   // FIXME threadsafe
   public void runAllSequentiallyBecauseNotThreadSafe() throws Exception {
+    // 302 redirect tests
     redirected302Test();
-    notRedirected302Test();
-    relativeLocationUrl();
-    redirected302InvalidTest();
+    redirected302Test_2_oe();
+    redirected302Test_3_oe();
+
+    // 302 not-redirected tests
+    notRedirected302Test_1_oe();
+    notRedirected302Test_2_oe();
+
+    // relative Location header tests
+    relativeLocationUrl_1_oe();
+    relativeLocationUrl_2_oe();
+    relativeLocationUrl_3_oe();
+
+    // invalid redirect tests
+    redirected302InvalidTest_1_oe();
+    redirected302InvalidTest_2_oe();
+    redirected302InvalidTest_3_oe();
   }
+
 
   private String getBaseUrl(Uri uri) {
     String url = uri.toString();
@@ -105,7 +120,7 @@ public class PerRequestRelative302Test_OE25Dev extends AbstractBasicTest {
   }
 
   @Test(groups = "online", enabled = false)
-  public void redirected302Test_1_oe() throws Exception {
+  public void redirected302Test() throws Exception {
     isSet.getAndSet(false);
     try (AsyncHttpClient c = asyncHttpClient()) {
       Response response = c.prepareGet(getTargetUrl()).setFollowRedirect(true).setHeader("X-redirect", "https://www.microsoft.com/").execute().get();

@@ -839,15 +839,6 @@ public class TestAbstractConfigurationBasicFeatures_OE25Dev {
     }
 
     @Test
-    public void testGetCollection_2_oe() {
-        final PropertiesConfiguration config = new PropertiesConfiguration();
-        final List<Integer> expected = prepareListTest(config);
-        final List<Integer> result = new ArrayList<>(PROP_COUNT);
-        // removed other assertion
-        assertEquals("Wrong converted content", expected, result);
-    }
-
-    @Test
     public void testGetCollectionNullTarget_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
         final List<Integer> expected = prepareListTest(config);

@@ -175,20 +175,6 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
     }
 
     @Test
-    public void testIterateStartsWith_3_oe() {
-        final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(2), handler);
-        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, childPointer);
-        // removed other assertion
-        final List<NodePointer> nodes = iterationElements(it);
-        // removed other assertion
-        int index = 4;
-        for (final NodePointer np : nodes) {
-            final ImmutableNode node = (ImmutableNode) np.getImmediateNode();
-            assertEquals("Wrong node value", String.valueOf(index), node.getValue());
-    }
-    }
-
-    @Test
     public void testIterateStartsWithInvalid_1_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer,
             new ImmutableNode.Builder().name("newNode").create(), handler);

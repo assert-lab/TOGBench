@@ -481,13 +481,6 @@ public class TestPeriodFormatter_OE25Dev extends TestCase {
         assertEquals(20, f.parseInto(result, "P1Y2M3W4DT5H6M7.008S", 0));
     }
 
-    public void testParseInto_simple_2_oe() {
-        MutablePeriod expect = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
-        MutablePeriod result = new MutablePeriod();
-        // removed other assertion
-        assertEquals(expect, result);
-    }
-
     public void testParseInto_simple_4_oe() {
         MutablePeriod expect = new MutablePeriod(1, 2, 3, 4, 5, 6, 7, 8);
         MutablePeriod result = new MutablePeriod();

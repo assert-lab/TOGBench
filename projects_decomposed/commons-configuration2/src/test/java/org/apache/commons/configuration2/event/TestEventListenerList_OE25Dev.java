@@ -199,6 +199,14 @@ public class TestEventListenerList_OE25Dev {
     /**
      * Tests whether the event listener iterator validates the passed in event object.
      */
+    @Test(expected = IllegalArgumentException.class)
+    public void testEventListenerIteratorWrongEvent() {
+        final EventListener<EventSub2> listener = event -> {};
+        list.addEventListener(typeSub2, listener);
+        final EventListenerList.EventListenerIterator<EventSub2> iterator = list.getEventListenerIterator(typeSub2);
+        assertTrue("No elements", iterator.hasNext());
+        iterator.invokeNext(new EventBase(this, typeBase, "Test"));
+    }
 
     /**
      * Tests that a null event is rejected by fire().
@@ -243,6 +251,13 @@ public class TestEventListenerList_OE25Dev {
     /**
      * Tests that the iterator returned by getEventListeners() does not support remove() operations.
      */
+    @Test(expected = UnsupportedOperationException.class)
+    public void testGetEventListenersIteratorRemove() {
+        list.addEventListener(typeBase, new ListenerTestImpl());
+        final Iterator<EventListener<? super EventBase>> iterator = list.getEventListeners(typeBase).iterator();
+        assertTrue("Wrong result", iterator.hasNext());
+        iterator.remove();
+    }
 
     /**
      * Tests whether only matching event listeners are returned by getEventListeners().
@@ -549,14 +564,6 @@ public class TestEventListenerList_OE25Dev {
         assertTrue("Got listeners", list.getRegistrations().isEmpty());
     }
 
-    @Test(expected = IllegalArgumentException.class)
-    public void testEventListenerIteratorWrongEvent_1_oe() {
-        final EventListener<EventSub2> listener = event -> {};
-        list.addEventListener(typeSub2, listener);
-        final EventListenerList.EventListenerIterator<EventSub2> iterator = list.getEventListenerIterator(typeSub2);
-        assertTrue("No elements", iterator.hasNext());
-    }
-
     @Test
     public void testGetEventListenerRegistrationsForSuperType_1_oe() {
         final ListenerTestImpl l1 = new ListenerTestImpl();
@@ -569,44 +576,6 @@ public class TestEventListenerList_OE25Dev {
         final List<EventListenerRegistrationData<? extends EventBase>> regs = list.getRegistrationsForSuperType(typeBase);
         final Iterator<EventListenerRegistrationData<? extends EventBase>> iterator = regs.iterator();
         assertEquals("Wrong listener 1", l1, iterator.next().getListener());
-    }
-
-    @Test
-    public void testGetEventListenerRegistrationsForSuperType_2_oe() {
-        final ListenerTestImpl l1 = new ListenerTestImpl();
-        final ListenerTestImpl l2 = new ListenerTestImpl();
-        final EventListener<Event> l3 = EasyMock.createMock(EventListener.class);
-        list.addEventListener(typeSub1, l1);
-        list.addEventListener(Event.ANY, l3);
-        list.addEventListener(typeBase, l2);
-
-        final List<EventListenerRegistrationData<? extends EventBase>> regs = list.getRegistrationsForSuperType(typeBase);
-        final Iterator<EventListenerRegistrationData<? extends EventBase>> iterator = regs.iterator();
-        // removed other assertion
-        assertEquals("Wrong listener 2", l2, iterator.next().getListener());
-    }
-
-    @Test
-    public void testGetEventListenerRegistrationsForSuperType_3_oe() {
-        final ListenerTestImpl l1 = new ListenerTestImpl();
-        final ListenerTestImpl l2 = new ListenerTestImpl();
-        final EventListener<Event> l3 = EasyMock.createMock(EventListener.class);
-        list.addEventListener(typeSub1, l1);
-        list.addEventListener(Event.ANY, l3);
-        list.addEventListener(typeBase, l2);
-
-        final List<EventListenerRegistrationData<? extends EventBase>> regs = list.getRegistrationsForSuperType(typeBase);
-        final Iterator<EventListenerRegistrationData<? extends EventBase>> iterator = regs.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertFalse("Too many elements", iterator.hasNext());
-    }
-
-    @Test(expected = UnsupportedOperationException.class)
-    public void testGetEventListenersIteratorRemove_1_oe() {
-        list.addEventListener(typeBase, new ListenerTestImpl());
-        final Iterator<EventListener<? super EventBase>> iterator = list.getEventListeners(typeBase).iterator();
-        assertTrue("Wrong result", iterator.hasNext());
     }
 
     @Test

@@ -801,16 +801,6 @@ public class TestPropertiesConfigurationLayout_OE25Dev {
     }
 
     @Test
-    public void testInit_5_oe() {
-        // removed other assertion
-        // removed other assertion
-        final Iterator<EventListener<? super ConfigurationEvent>> it = config.getEventListeners(ConfigurationEvent.ANY).iterator();
-        // removed other assertion
-        // removed other assertion
-        assertFalse("Multiple event listeners registered", it.hasNext());
-    }
-
-    @Test
     public void testInit_6_oe() {
         // removed other assertion
         // removed other assertion

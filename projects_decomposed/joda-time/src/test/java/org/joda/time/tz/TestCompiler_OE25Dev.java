@@ -236,16 +236,6 @@ public class TestCompiler_OE25Dev extends TestCase {
         assertEquals(false, tz.isFixed());
     }
 
-    public void testCompileOnBrokenTimeZoneFile_2_oe() throws Exception {
-        try {
-            Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE);
-            // removed other assertion
-        } catch(NoSuchElementException nsee) {
-            // This used to be thrown in the Rule constructor
-            fail("NoSuchElementException was thrown; broken timezone file?");
-    }
-    }
-
     public void testCompileOnBrokenTimeZoneFile_3_oe() throws Exception {
         try {
             Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE);
@@ -255,16 +245,6 @@ public class TestCompiler_OE25Dev extends TestCase {
             // removed other assertion
         } catch(IllegalArgumentException iae) {
             assertEquals("Attempting to create a Rule from an incomplete tokenizer", iae.getMessage());
-    }
-    }
-
-    public void testCompileOnBrokenTimeZoneFile_2_2_oe() throws Exception {
-        try {
-            Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE_2);
-            // removed other assertion
-        } catch (NoSuchElementException nsee) {
-            // This thrown from the Zone constructor
-            fail("NoSuchElementException was thrown; broken timezone file?");
     }
     }
 

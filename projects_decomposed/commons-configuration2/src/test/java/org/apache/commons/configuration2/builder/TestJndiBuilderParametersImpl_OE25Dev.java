@@ -96,26 +96,9 @@ public class TestJndiBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testSetContext_2_oe() {
-        final Context ctx = EasyMock.createMock(Context.class);
-        EasyMock.replay(ctx);
-        // removed other assertion
-        final Map<String, Object> paramsMap = params.getParameters();
-        assertSame("Context not in map", ctx, paramsMap.get("context"));
-    }
-
-    @Test
     public void testSetPrefix_1_oe() {
         final String prefix = "testJndiPrefix";
         assertSame("Wrong result", params, params.setPrefix(prefix));
-    }
-
-    @Test
-    public void testSetPrefix_2_oe() {
-        final String prefix = "testJndiPrefix";
-        // removed other assertion
-        final Map<String, Object> paramsMap = params.getParameters();
-        assertEquals("Prefix not in map", prefix, paramsMap.get("prefix"));
     }
 
 }

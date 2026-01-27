@@ -1,0 +1,142 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< io.springside:springside-utils >-------------------
+[INFO] Building Springside :: Module :: Utils 5.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ springside-utils ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ springside-utils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 78 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/classes
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[3144,38] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1511,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1535,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1537,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1541,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1542,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1543,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1543,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[712,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[731,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[733,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[737,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[738,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[739,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[739,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6245,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6287,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6289,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6293,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6294,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6295,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6295,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[1032,38] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3230,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3327,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3329,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3333,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3334,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3335,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3335,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[101,38] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[291,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[314,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[316,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[320,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[321,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[322,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[322,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/reflect/ClassUtil.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/reflect/ClassUtil.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ springside-utils ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ springside-utils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 114 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/type/SortedArrayListTest_OE25Dev.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/type/SortedArrayListTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/number/NumberUtilTest_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/number/NumberUtilTest_OE25Dev.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/ListUtilTest_OE25Dev.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/ListUtilTest_OE25Dev.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[462,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[543,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/ListUtilTest_OE25Dev.java:[396,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[78,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[88,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[101,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[116,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[220,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[229,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[268,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[278,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[292,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[309,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[INFO] 13 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  21.236 s
+[INFO] Finished at: 2026-01-26T16:27:52-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project springside-utils: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[462,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[543,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/ListUtilTest_OE25Dev.java:[396,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[78,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[88,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[101,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[116,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[220,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[229,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[268,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[278,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[292,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[309,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

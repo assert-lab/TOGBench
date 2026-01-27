@@ -2067,12 +2067,6 @@ public class TestInstant_Basics_OE25Dev extends TestCase {
         assertEquals(ISOChronology.getInstance(), result.getChronology());
     }
 
-    public void testToDateTime_DateTimeZone_1_oe() {
-        Instant test = new Instant(TEST_TIME1);
-        DateTime result = test.toDateTime(LONDON);
-        assertEquals(test.getMillis(), result.getMillis());
-    }
-
     public void testToDateTime_DateTimeZone_2_oe() {
         Instant test = new Instant(TEST_TIME1);
         DateTime result = test.toDateTime(LONDON);
@@ -2117,23 +2111,6 @@ public class TestInstant_Basics_OE25Dev extends TestCase {
         test = new Instant(TEST_TIME1);
         result = test.toDateTime((DateTimeZone) null);
         assertEquals(test.getMillis(), result.getMillis());
-    }
-
-    public void testToDateTime_DateTimeZone_6_oe() {
-        Instant test = new Instant(TEST_TIME1);
-        DateTime result = test.toDateTime(LONDON);
-        // removed other assertion
-        // removed other assertion
-
-        test = new Instant(TEST_TIME1);
-        result = test.toDateTime(PARIS);
-        // removed other assertion
-        // removed other assertion
-
-        test = new Instant(TEST_TIME1);
-        result = test.toDateTime((DateTimeZone) null);
-        // removed other assertion
-        assertEquals(ISOChronology.getInstance(), result.getChronology());
     }
 
     public void testToDateTime_Chronology_1_oe() {

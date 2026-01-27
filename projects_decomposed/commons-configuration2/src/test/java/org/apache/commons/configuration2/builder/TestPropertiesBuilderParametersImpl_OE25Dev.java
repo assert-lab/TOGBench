@@ -194,14 +194,6 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testSetIncludeListener_2_oe() {
-        final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
-        EasyMock.replay(includeListener);
-        // removed other assertion
-        assertSame("IncludeListener not set", includeListener, params.getParameters().get("includeListener"));
-    }
-
-    @Test
     public void testSetIncludeListenerProperty_1_oe() throws ConfigurationException {
         final ConfigurationConsumer<ConfigurationException> includeListener = PropertiesConfiguration.DEFAULT_INCLUDE_LISTENER;
         final ConfigurationBuilder<PropertiesConfiguration> builder = new FileBasedConfigurationBuilder<>(PropertiesConfiguration.class)
@@ -217,24 +209,10 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testSetIncludesAllowed_2_oe() {
-        // removed other assertion
-        assertEquals("Value not set", Boolean.TRUE, params.getParameters().get("includesAllowed"));
-    }
-
-    @Test
     public void testSetIOFactory_1_oe() {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         EasyMock.replay(factory);
         assertSame("Wrong result", params, params.setIOFactory(factory));
-    }
-
-    @Test
-    public void testSetIOFactory_2_oe() {
-        final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
-        EasyMock.replay(factory);
-        // removed other assertion
-        assertSame("Factory not set", factory, params.getParameters().get("IOFactory"));
     }
 
     @Test
@@ -251,13 +229,6 @@ public class TestPropertiesBuilderParametersImpl_OE25Dev {
     public void testSetLayout_1_oe() {
         final PropertiesConfigurationLayout layout = new PropertiesConfigurationLayout();
         assertSame("Wrong result", params, params.setLayout(layout));
-    }
-
-    @Test
-    public void testSetLayout_2_oe() {
-        final PropertiesConfigurationLayout layout = new PropertiesConfigurationLayout();
-        // removed other assertion
-        assertSame("Layout not set", layout, params.getParameters().get("layout"));
     }
 
 }

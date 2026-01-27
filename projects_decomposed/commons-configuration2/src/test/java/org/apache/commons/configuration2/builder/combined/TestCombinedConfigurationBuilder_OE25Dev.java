@@ -551,6 +551,15 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
     /**
      * Tests whether an entity resolver can be defined in the definition file.
      */
+    @Test
+    public void testCustomEntityResolver() throws ConfigurationException {
+        final File resolverFile = ConfigurationAssert.getTestFile("testCCEntityResolver.xml");
+        builder.configure(createParameters().setFile(resolverFile));
+        final CombinedConfiguration cc = builder.getConfiguration();
+        final XMLConfiguration xmlConf = (XMLConfiguration) cc.getConfiguration("xml");
+        final EntityResolverWithPropertiesTestImpl resolver = (EntityResolverWithPropertiesTestImpl) xmlConf.getEntityResolver();
+        assertFalse("No lookups", resolver.getInterpolator().getLookups().isEmpty());
+    }
 
     /**
      * Tests whether a default file system can be configured in the definition file.
@@ -689,6 +698,49 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
     /**
      * Tests whether reloading support works for MultiFileConfigurationBuilder.
      */
+    @Test
+    public void testMultiTenentConfigurationReloading() throws ConfigurationException, InterruptedException {
+        final CombinedConfiguration config = createMultiFileConfig("testCCMultiTenentReloading.xml");
+        final File outFile = ConfigurationAssert.getOutFile("MultiFileReloadingTest.xml");
+        switchToMultiFile(outFile.getAbsolutePath());
+        final XMLConfiguration reloadConfig = new XMLConfiguration();
+        final FileHandler handler = new FileHandler(reloadConfig);
+        handler.setFile(outFile);
+        final String key = "test.reload";
+        reloadConfig.setProperty(key, "no");
+        handler.save();
+        try {
+            assertEquals("Wrong property", "no", config.getString(key));
+            final ConfigurationBuilder<? extends Configuration> childBuilder = builder.getNamedBuilder("clientConfig");
+            assertTrue("Not a reloading builder", childBuilder instanceof ReloadingControllerSupport);
+            final ReloadingController ctrl = ((ReloadingControllerSupport) childBuilder).getReloadingController();
+            ctrl.checkForReloading(null); // initialize reloading
+            final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
+            childBuilder.addEventListener(ConfigurationBuilderEvent.RESET, listener);
+            reloadConfig.setProperty(key, "yes");
+            handler.save();
+
+            int attempts = 10;
+            boolean changeDetected;
+            do {
+                changeDetected = ctrl.checkForReloading(null);
+                if (!changeDetected) {
+                    Thread.sleep(1000);
+                    handler.save(outFile);
+                }
+            } while (!changeDetected && --attempts > 0);
+            assertTrue("No change detected", changeDetected);
+            assertEquals("Wrong updated property", "yes", builder.getConfiguration().getString(key));
+            final ConfigurationBuilderEvent event = listener.nextEvent(ConfigurationBuilderEvent.RESET);
+            listener.assertNoMoreEvents();
+            final BasicConfigurationBuilder<? extends Configuration> multiBuilder = (BasicConfigurationBuilder<? extends Configuration>) event.getSource();
+            childBuilder.removeEventListener(ConfigurationBuilderEvent.RESET, listener);
+            multiBuilder.resetResult();
+            listener.assertNoMoreEvents();
+        } finally {
+            assertTrue("Output file could not be deleted", outFile.delete());
+        }
+    }
 
     /**
      * Tries to build a configuration if no definition builder is provided.
@@ -1037,16 +1089,6 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
     }
 
     @Test
-    public void testCustomEntityResolver_1_oe() throws ConfigurationException {
-        final File resolverFile = ConfigurationAssert.getTestFile("testCCEntityResolver.xml");
-        builder.configure(createParameters().setFile(resolverFile));
-        final CombinedConfiguration cc = builder.getConfiguration();
-        final XMLConfiguration xmlConf = (XMLConfiguration) cc.getConfiguration("xml");
-        final EntityResolverWithPropertiesTestImpl resolver = (EntityResolverWithPropertiesTestImpl) xmlConf.getEntityResolver();
-        assertFalse("No lookups", resolver.getInterpolator().getLookups().isEmpty());
-    }
-
-    @Test
     public void testCustomLookup_1_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile("testCCLookup.xml");
         builder.configure(createParameters().setFile(testFile));
@@ -1062,16 +1104,6 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         // removed other assertion
         final Configuration xmlConf = cc.getConfiguration("xml");
         assertTrue("Lookup not registered in sub config", xmlConf.getInterpolator().getLookups().containsKey("test"));
-    }
-
-    @Test
-    public void testCustomResultConfiguration_1_oe() throws ConfigurationException {
-        final File testFile = ConfigurationAssert.getTestFile("testCCResultClass.xml");
-        final ListDelimiterHandler listHandler = new DefaultListDelimiterHandler('.');
-        builder.configure(new CombinedBuilderParametersImpl().setDefinitionBuilderParameters(new XMLBuilderParametersImpl().setFile(testFile))
-            .setListDelimiterHandler(listHandler).setThrowExceptionOnMissing(false));
-        final CombinedConfiguration cc = builder.getConfiguration();
-        assertTrue("Wrong configuration class: " + cc.getClass(), cc instanceof CombinedConfigurationTestImpl);
     }
 
     @Test
@@ -1663,50 +1695,6 @@ public class TestCombinedConfigurationBuilder_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals("Wrong text color", "#000000", multiConf.getString("colors/text"));
-    }
-
-    @Test
-    public void testMultiTenentConfigurationReloading_5_oe() throws ConfigurationException, InterruptedException {
-        final CombinedConfiguration config = createMultiFileConfig("testCCMultiTenentReloading.xml");
-        final File outFile = ConfigurationAssert.getOutFile("MultiFileReloadingTest.xml");
-        switchToMultiFile(outFile.getAbsolutePath());
-        final XMLConfiguration reloadConfig = new XMLConfiguration();
-        final FileHandler handler = new FileHandler(reloadConfig);
-        handler.setFile(outFile);
-        final String key = "test.reload";
-        reloadConfig.setProperty(key, "no");
-        handler.save();
-        try {
-            // removed other assertion
-            final ConfigurationBuilder<? extends Configuration> childBuilder = builder.getNamedBuilder("clientConfig");
-            // removed other assertion
-            final ReloadingController ctrl = ((ReloadingControllerSupport) childBuilder).getReloadingController();
-            ctrl.checkForReloading(null); // initialize reloading
-            final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
-            childBuilder.addEventListener(ConfigurationBuilderEvent.RESET, listener);
-            reloadConfig.setProperty(key, "yes");
-            handler.save();
-
-            int attempts = 10;
-            boolean changeDetected;
-            do {
-                changeDetected = ctrl.checkForReloading(null);
-                if (!changeDetected) {
-                    Thread.sleep(1000);
-                    handler.save(outFile);
-                }
-            } while (!changeDetected && --attempts > 0);
-            // removed other assertion
-            // removed other assertion
-            final ConfigurationBuilderEvent event = listener.nextEvent(ConfigurationBuilderEvent.RESET);
-            listener.assertNoMoreEvents();
-            final BasicConfigurationBuilder<? extends Configuration> multiBuilder = (BasicConfigurationBuilder<? extends Configuration>) event.getSource();
-            childBuilder.removeEventListener(ConfigurationBuilderEvent.RESET, listener);
-            multiBuilder.resetResult();
-            listener.assertNoMoreEvents();
-        } finally {
-            assertTrue("Output file could not be deleted", outFile.delete());
-    }
     }
 
     @Test

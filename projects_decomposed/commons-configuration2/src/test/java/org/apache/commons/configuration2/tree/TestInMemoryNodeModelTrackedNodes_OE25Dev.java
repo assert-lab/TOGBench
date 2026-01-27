@@ -916,49 +916,6 @@ public class TestInMemoryNodeModelTrackedNodes_OE25Dev {
     }
 
     @Test
-    public void testTrackChildNodes_2_oe() {
-        final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
-        final ImmutableNode node = NodeStructureHelper.nodeForKey(root, "tables");
-        final String[] keys = new String[node.getChildren().size()];
-        for (int i = 0; i < keys.length; i++) {
-            final ImmutableNode child = node.getChildren().get(i);
-            keys[i] = String.format("%s.%s(%d)", node.getNodeName(), child.getNodeName(), i);
-            expectNodeKey(resolver, child, keys[i]);
-        }
-        EasyMock.expect(resolver.resolveNodeKey(root, TEST_KEY, model.getNodeHandler())).andReturn(Collections.singletonList(node));
-        EasyMock.replay(resolver);
-
-        final Collection<NodeSelector> selectors = model.trackChildNodes(TEST_KEY, resolver);
-        // removed other assertion
-        int idx = 0;
-        for (final NodeSelector sel : selectors) {
-            assertEquals("Wrong selector", new NodeSelector(keys[idx]), sel);
-    }
-    }
-
-    @Test
-    public void testTrackChildNodes_3_oe() {
-        final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
-        final ImmutableNode node = NodeStructureHelper.nodeForKey(root, "tables");
-        final String[] keys = new String[node.getChildren().size()];
-        for (int i = 0; i < keys.length; i++) {
-            final ImmutableNode child = node.getChildren().get(i);
-            keys[i] = String.format("%s.%s(%d)", node.getNodeName(), child.getNodeName(), i);
-            expectNodeKey(resolver, child, keys[i]);
-        }
-        EasyMock.expect(resolver.resolveNodeKey(root, TEST_KEY, model.getNodeHandler())).andReturn(Collections.singletonList(node));
-        EasyMock.replay(resolver);
-
-        final Collection<NodeSelector> selectors = model.trackChildNodes(TEST_KEY, resolver);
-        // removed other assertion
-        int idx = 0;
-        for (final NodeSelector sel : selectors) {
-            // removed other assertion
-            assertEquals("Wrong tracked node for " + sel, node.getChildren().get(idx), model.getTrackedNode(sel));
-    }
-    }
-
-    @Test
     public void testTrackChildNodeWithCreationExisting_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
         final String childName = "name";

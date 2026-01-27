@@ -464,14 +464,6 @@ public class TestConfigurationUtils_OE25Dev {
     }
 
     @Test
-    public void testConvertHierarchicalToHierarchicalEngine_2_oe() {
-        final BaseHierarchicalConfiguration hc = new BaseHierarchicalConfiguration();
-        final ExpressionEngine engine = new DefaultExpressionEngine(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS);
-        // removed other assertion
-        assertSame("Engine was not set", engine, hc.getExpressionEngine());
-    }
-
-    @Test
     public void testConvertHierarchicalToHierarchicalNullEngine_1_oe() {
         final BaseHierarchicalConfiguration hc = new BaseHierarchicalConfiguration();
         final ExpressionEngine engine = new DefaultExpressionEngine(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS);

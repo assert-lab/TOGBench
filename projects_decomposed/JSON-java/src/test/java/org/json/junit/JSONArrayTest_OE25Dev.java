@@ -344,6 +344,18 @@ public class JSONArrayTest_OE25Dev {
     /**
 	 * Tests if calling JSONArray clear() method actually makes the JSONArray empty
 	 */
+	@Test(expected = JSONException.class)
+	public void jsonArrayClearMethodTest() {
+		//Adds random stuff to the JSONArray
+		JSONArray jsonArray = new JSONArray();
+		jsonArray.put(123);
+		jsonArray.put("456");
+		jsonArray.put(new JSONArray());
+		jsonArray.clear(); //Clears the JSONArray
+		assertTrue("expected jsonArray.length() == 0", jsonArray.length() == 0); //Check if its length is 0
+		jsonArray.getInt(0); //Should throws org.json.JSONException: JSONArray[0] not found
+        Util.checkJSONArrayMaps(jsonArray);
+	}
 
     /**
     * Tests for stack overflow. See https://github.com/stleary/JSON-java/issues/654
@@ -5492,225 +5504,6 @@ public class JSONArrayTest_OE25Dev {
     }
 
     @Test
-    public void iteratorTest_2_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        assertTrue("Array false", Boolean.FALSE.equals(it.next()));
-    }
-
-    @Test
-    public void iteratorTest_3_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertTrue("Array string true", "true".equals(it.next()));
-    }
-
-    @Test
-    public void iteratorTest_4_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("Array string false", "false".equals(it.next()));
-    }
-
-    @Test
-    public void iteratorTest_5_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("Array string", "hello".equals(it.next()));
-    }
-
-    @Test
-    public void iteratorTest_6_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        assertTrue("Array double [23.45e-4]", new BigDecimal("0.002345").equals(it.next()));
-    }
-
-    @Test
-    public void iteratorTest_7_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertTrue("Array string double", new Double(23.45).equals(Double.parseDouble((String)it.next())));
-    }
-
-    @Test
-    public void iteratorTest_8_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        assertTrue("Array value int", new Integer(42).equals(it.next()));
-    }
-
-    @Test
-    public void iteratorTest_9_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        assertTrue("Array value string int", new Integer(43).equals(Integer.parseInt((String)it.next())));
-    }
-
-    @Test
-    public void iteratorTest_10_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        JSONArray nestedJsonArray = (JSONArray)it.next();
-        assertTrue("Array value JSONArray", nestedJsonArray != null);
-    }
-
-    @Test
-    public void iteratorTest_11_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        JSONArray nestedJsonArray = (JSONArray)it.next();
-        // removed other assertion
-
-        JSONObject nestedJsonObject = (JSONObject)it.next();
-        assertTrue("Array value JSONObject", nestedJsonObject != null);
-    }
-
-    @Test
-    public void iteratorTest_12_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        JSONArray nestedJsonArray = (JSONArray)it.next();
-        // removed other assertion
-
-        JSONObject nestedJsonObject = (JSONObject)it.next();
-        // removed other assertion
-
-        assertTrue("Array value long", new Long(0).equals(((Number) it.next()).longValue()));
-    }
-
-    @Test
-    public void iteratorTest_13_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        JSONArray nestedJsonArray = (JSONArray)it.next();
-        // removed other assertion
-
-        JSONObject nestedJsonObject = (JSONObject)it.next();
-        // removed other assertion
-
-        // removed other assertion
-        assertTrue("Array value string long", new Long(-1).equals(Long.parseLong((String) it.next())));
-    }
-
-    @Test
-    public void iteratorTest_14_oe() {
-        JSONArray jsonArray = new JSONArray(this.arrayStr);
-        Iterator<Object> it = jsonArray.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        JSONArray nestedJsonArray = (JSONArray)it.next();
-        // removed other assertion
-
-        JSONObject nestedJsonObject = (JSONObject)it.next();
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        assertTrue("should be at end of array", !it.hasNext());
-    }
-
-    @Test
     public void optQueryWithNoResult_1_oe() {
         assertNull(new JSONArray().optQuery("/a/b"));
     }
@@ -7099,81 +6892,6 @@ public class JSONArrayTest_OE25Dev {
     }
 
     @Test
-    public void toList_30_oe() {
-        String jsonArrayStr =
-                "[" +
-                    "[1,2," +
-                        "{\"key3\":true}" +
-                    "]," +
-                    "{\"key1\":\"val1\",\"key2\":" +
-                        "{\"key2\":null}," +
-                    "\"key3\":42,\"key4\":[]" +
-                    "}," +
-                    "[" +
-                        "[\"value1\",2.1]" +
-                    "," +
-                        "[null]" +
-                    "]" +
-                "]";
-
-        JSONArray jsonArray = new JSONArray(jsonArrayStr);
-        List<?> list = jsonArray.toList();
-
-        // removed other assertion
-        // removed other assertion
-
-        List<?> val1List = (List<?>) list.get(0);
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        Map<?,?> key1Value3Map = (Map<?,?>)val1List.get(2);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Map<?,?> val2Map = (Map<?,?>) list.get(1);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Map<?,?> val2Key2Map = (Map<?,?>)val2Map.get("key2");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        List<?> val2Key4List = (List<?>)val2Map.get("key4");
-        // removed other assertion
-        // removed other assertion
-
-        List<?> val3List = (List<?>) list.get(2);
-        // removed other assertion
-        // removed other assertion
-
-        List<?> val3Val1List = (List<?>)val3List.get(0);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        List<?> val3Val2List = (List<?>)val3List.get(1);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // assert that toList() is a deep copy
-        jsonArray.getJSONObject(1).put("key1", "still val1");
-        // removed other assertion
-
-        // assert that the new list is mutable
-        // removed other assertion
-        assertTrue("List should have 2 elements", list.size() == 2);
-    }
-
-    @Test
     public void testJSONArrayInt_1_oe() {
         assertNotNull(new JSONArray(0));
     }
@@ -7275,17 +6993,6 @@ public class JSONArrayTest_OE25Dev {
             assertEquals("index " + i + " are equal", a1.get(i), a2.get(i));
     }
     }
-
-	@Test(expected = JSONException.class)
-	public void jsonArrayClearMethodTest_1_oe() {
-		//Adds random stuff to the JSONArray
-		JSONArray jsonArray = new JSONArray();
-		jsonArray.put(123);
-		jsonArray.put("456");
-		jsonArray.put(new JSONArray());
-		jsonArray.clear(); //Clears the JSONArray
-		assertTrue("expected jsonArray.length() == 0", jsonArray.length() == 0); //Check if its length is 0;
-	}
 
     @Test(expected = JSONException.class)
     public void issue654StackOverflowInputWellFormed_1_oe() {

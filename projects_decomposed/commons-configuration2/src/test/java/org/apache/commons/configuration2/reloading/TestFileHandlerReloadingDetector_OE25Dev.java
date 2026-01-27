@@ -177,18 +177,6 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
     }
 
     @Test
-    public void testIsReloadingRequiredTrue_2_oe() throws Exception {
-        final File f = EasyMock.createMock(File.class);
-        EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 1);
-        EasyMock.replay(f);
-        final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
-        // removed other assertion
-        assertTrue("Reloading not detected", detector.isReloadingRequired());
-    }
-
-    @Test
     public void testLocationAfterInit_1_oe() {
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetector();
         assertFalse("Got a location", detector.getFileHandler().isLocationDefined());
@@ -243,36 +231,6 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
     }
 
     @Test
-    public void testRefreshReloadingAndReset_2_oe() throws Exception {
-        final File f = EasyMock.createMock(File.class);
-        EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED).times(2);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 1).times(3);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 2);
-        EasyMock.replay(f);
-        final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
-        detector.refresh();
-        // removed other assertion
-        assertTrue("Reloading not detected", detector.isReloadingRequired());
-    }
-
-    @Test
-    public void testRefreshReloadingAndReset_3_oe() throws Exception {
-        final File f = EasyMock.createMock(File.class);
-        EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED).times(2);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 1).times(3);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 2);
-        EasyMock.replay(f);
-        final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
-        detector.refresh();
-        // removed other assertion
-        // removed other assertion
-        detector.reloadingPerformed();
-        assertFalse("Still reloading required", detector.isReloadingRequired());
-    }
-
-    @Test
     public void testRefreshReloadingAndReset_4_oe() throws Exception {
         final File f = EasyMock.createMock(File.class);
         EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
@@ -299,34 +257,6 @@ public class TestFileHandlerReloadingDetector_OE25Dev {
         EasyMock.replay(f);
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
         assertFalse("Reloading required", detector.isReloadingRequired());
-    }
-
-    @Test
-    public void testReloadingAndReset_2_oe() throws Exception {
-        final File f = EasyMock.createMock(File.class);
-        EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 1).times(3);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 2);
-        EasyMock.replay(f);
-        final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
-        // removed other assertion
-        assertTrue("Reloading not detected", detector.isReloadingRequired());
-    }
-
-    @Test
-    public void testReloadingAndReset_3_oe() throws Exception {
-        final File f = EasyMock.createMock(File.class);
-        EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 1).times(3);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 2);
-        EasyMock.replay(f);
-        final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
-        // removed other assertion
-        // removed other assertion
-        detector.reloadingPerformed();
-        assertFalse("Still reloading required", detector.isReloadingRequired());
     }
 
     @Test

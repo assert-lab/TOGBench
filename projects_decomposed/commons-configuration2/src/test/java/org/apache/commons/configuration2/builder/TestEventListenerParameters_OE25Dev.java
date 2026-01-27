@@ -54,59 +54,11 @@ public class TestEventListenerParameters_OE25Dev {
     }
 
     @Test
-    public void testAddEventListener_2_oe() {
-        final EventListenerTestImpl listener = new EventListenerTestImpl(null);
-        final EventListenerParameters parameters = new EventListenerParameters();
-        // removed other assertion
-        assertEquals("Wrong number of registrations", 1, parameters.getListeners().getRegistrations().size());
-    }
-
-    @Test
-    public void testAddEventListener_3_oe() {
-        final EventListenerTestImpl listener = new EventListenerTestImpl(null);
-        final EventListenerParameters parameters = new EventListenerParameters();
-        // removed other assertion
-        // removed other assertion
-        final EventListenerRegistrationData<?> reg = parameters.getListeners().getRegistrations().get(0);
-        assertEquals("Wrong event type", ConfigurationEvent.ADD_PROPERTY, reg.getEventType());
-    }
-
-    @Test
-    public void testAddEventListener_4_oe() {
-        final EventListenerTestImpl listener = new EventListenerTestImpl(null);
-        final EventListenerParameters parameters = new EventListenerParameters();
-        // removed other assertion
-        // removed other assertion
-        final EventListenerRegistrationData<?> reg = parameters.getListeners().getRegistrations().get(0);
-        // removed other assertion
-        assertEquals("Wrong listener", listener, reg.getListener());
-    }
-
-    @Test
     public void testAddEventListenerRegistration_1_oe() {
         final EventListenerRegistrationData<ConfigurationEvent> reg = new EventListenerRegistrationData<>(ConfigurationEvent.SET_PROPERTY,
             new EventListenerTestImpl(null));
         final EventListenerParameters parameters = new EventListenerParameters();
         assertSame("Wrong result", parameters, parameters.addEventListener(reg));
-    }
-
-    @Test
-    public void testAddEventListenerRegistration_2_oe() {
-        final EventListenerRegistrationData<ConfigurationEvent> reg = new EventListenerRegistrationData<>(ConfigurationEvent.SET_PROPERTY,
-            new EventListenerTestImpl(null));
-        final EventListenerParameters parameters = new EventListenerParameters();
-        // removed other assertion
-        assertEquals("Wrong number of registrations", 1, parameters.getListeners().getRegistrations().size());
-    }
-
-    @Test
-    public void testAddEventListenerRegistration_3_oe() {
-        final EventListenerRegistrationData<ConfigurationEvent> reg = new EventListenerRegistrationData<>(ConfigurationEvent.SET_PROPERTY,
-            new EventListenerTestImpl(null));
-        final EventListenerParameters parameters = new EventListenerParameters();
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong registration", reg, parameters.getListeners().getRegistrations().get(0));
     }
 
     @Test

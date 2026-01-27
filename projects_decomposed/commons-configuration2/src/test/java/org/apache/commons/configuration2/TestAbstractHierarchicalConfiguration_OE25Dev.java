@@ -1506,14 +1506,6 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     }
 
     @Test
-    public void testGetKeysAttributePrefix_2_oe() {
-        config.addProperty("tables.table(0)[@type]", "system");
-        final Iterator<String> itKeys = config.getKeys("tables.table[@type]");
-        // removed other assertion
-        assertFalse("Too many keys", itKeys.hasNext());
-    }
-
-    @Test
     public void testGetKeysOrder_1_oe() {
         config.addProperty("order.key1", "value1");
         config.addProperty("order.key2", "value2");
@@ -1521,29 +1513,6 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
 
         final Iterator<String> it = config.getKeys("order");
         assertEquals("1st key", "order.key1", it.next());
-    }
-
-    @Test
-    public void testGetKeysOrder_2_oe() {
-        config.addProperty("order.key1", "value1");
-        config.addProperty("order.key2", "value2");
-        config.addProperty("order.key3", "value3");
-
-        final Iterator<String> it = config.getKeys("order");
-        // removed other assertion
-        assertEquals("2nd key", "order.key2", it.next());
-    }
-
-    @Test
-    public void testGetKeysOrder_3_oe() {
-        config.addProperty("order.key1", "value1");
-        config.addProperty("order.key2", "value2");
-        config.addProperty("order.key3", "value3");
-
-        final Iterator<String> it = config.getKeys("order");
-        // removed other assertion
-        // removed other assertion
-        assertEquals("3rd key", "order.key3", it.next());
     }
 
     @Test
@@ -1564,55 +1533,12 @@ public class TestAbstractHierarchicalConfiguration_OE25Dev {
     }
 
     @Test
-    public void testGetKeysWithKeyAsPrefix_3_oe() {
-        config.addProperty("order.key1", "value1");
-        config.addProperty("order.key2", "value2");
-        final Iterator<String> it = config.getKeys("order.key1");
-        // removed other assertion
-        // removed other assertion
-        assertFalse("more keys than expected", it.hasNext());
-    }
-
-    @Test
     public void testGetKeysWithKeyAsPrefixMultiple_1_oe() {
         config.addProperty("order.key1", "value1");
         config.addProperty("order.key1.test", "value2");
         config.addProperty("order.key1.test.complex", "value2");
         final Iterator<String> it = config.getKeys("order.key1");
         assertEquals("Wrong key 1", "order.key1", it.next());
-    }
-
-    @Test
-    public void testGetKeysWithKeyAsPrefixMultiple_2_oe() {
-        config.addProperty("order.key1", "value1");
-        config.addProperty("order.key1.test", "value2");
-        config.addProperty("order.key1.test.complex", "value2");
-        final Iterator<String> it = config.getKeys("order.key1");
-        // removed other assertion
-        assertEquals("Wrong key 2", "order.key1.test", it.next());
-    }
-
-    @Test
-    public void testGetKeysWithKeyAsPrefixMultiple_3_oe() {
-        config.addProperty("order.key1", "value1");
-        config.addProperty("order.key1.test", "value2");
-        config.addProperty("order.key1.test.complex", "value2");
-        final Iterator<String> it = config.getKeys("order.key1");
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong key 3", "order.key1.test.complex", it.next());
-    }
-
-    @Test
-    public void testGetKeysWithKeyAsPrefixMultiple_4_oe() {
-        config.addProperty("order.key1", "value1");
-        config.addProperty("order.key1.test", "value2");
-        config.addProperty("order.key1.test.complex", "value2");
-        final Iterator<String> it = config.getKeys("order.key1");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse("More keys than expected", it.hasNext());
     }
 
     @Test

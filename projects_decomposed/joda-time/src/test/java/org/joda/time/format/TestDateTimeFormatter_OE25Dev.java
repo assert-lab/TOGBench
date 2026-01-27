@@ -1949,14 +1949,6 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(20, g.parseInto(result, "2004-06-09T10:20:30Z", 0));
     }
 
-    public void testParseInto_simple_2_oe() {
-        MutableDateTime expect = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        MutableDateTime result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
-    }
-
     public void testParseInto_simple_4_oe() {
         MutableDateTime expect = null;
         expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
@@ -2013,15 +2005,6 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(20, g.withZone(LONDON).parseInto(result, "2004-06-09T10:20:30Z", 0));
     }
 
-    public void testParseInto_zone_2_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
-    }
-
     public void testParseInto_zone_3_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -2033,20 +2016,6 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
         result = new MutableDateTime(0L);
         assertEquals(20, g.withZone(null).parseInto(result, "2004-06-09T10:20:30Z", 0));
-    }
-
-    public void testParseInto_zone_4_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
     }
 
     public void testParseInto_zone_5_oe() {
@@ -2067,40 +2036,12 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(20, g.withZone(PARIS).parseInto(result, "2004-06-09T10:20:30Z", 0));
     }
 
-    public void testParseInto_zone_6_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
-    }
-
     public void testParseInto_zone2_1_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
         expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
         result = new MutableDateTime(0L);
         assertEquals(25, g.withZone(LONDON).parseInto(result, "2004-06-09T06:20:30-04:00", 0));
-    }
-
-    public void testParseInto_zone2_2_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
     }
 
     public void testParseInto_zone2_3_oe() {
@@ -2113,19 +2054,6 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         
         expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
         assertEquals(25, g.withZone(null).parseInto(result, "2004-06-09T06:20:30-04:00", 0));
-    }
-
-    public void testParseInto_zone2_4_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        // removed other assertion
-        assertEquals(expect, result);
     }
 
     public void testParseInto_zone2_5_oe() {
@@ -2144,23 +2072,6 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(25, g.withZone(PARIS).parseInto(result, "2004-06-09T06:20:30-04:00", 0));
     }
 
-    public void testParseInto_zone2_6_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        // removed other assertion
-        assertEquals(expect, result);
-    }
-
     public void testParseInto_zone3_1_oe() {
         DateTimeFormatter h = new DateTimeFormatterBuilder()
         .append(ISODateTimeFormat.date())
@@ -2173,21 +2084,6 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, LONDON);
         result = new MutableDateTime(0L);
         assertEquals(19, h.withZone(LONDON).parseInto(result, "2004-06-09T10:20:30", 0));
-    }
-
-    public void testParseInto_zone3_2_oe() {
-        DateTimeFormatter h = new DateTimeFormatterBuilder()
-        .append(ISODateTimeFormat.date())
-        .appendLiteral('T')
-        .append(ISODateTimeFormat.timeElementParser())
-        .toFormatter();
-        
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
     }
 
     public void testParseInto_zone3_3_oe() {
@@ -2207,26 +2103,6 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, LONDON);
         result = new MutableDateTime(0L);
         assertEquals(19, h.withZone(null).parseInto(result, "2004-06-09T10:20:30", 0));
-    }
-
-    public void testParseInto_zone3_4_oe() {
-        DateTimeFormatter h = new DateTimeFormatterBuilder()
-        .append(ISODateTimeFormat.date())
-        .appendLiteral('T')
-        .append(ISODateTimeFormat.timeElementParser())
-        .toFormatter();
-        
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
     }
 
     public void testParseInto_zone3_5_oe() {
@@ -2253,31 +2129,6 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(19, h.withZone(PARIS).parseInto(result, "2004-06-09T10:20:30", 0));
     }
 
-    public void testParseInto_zone3_6_oe() {
-        DateTimeFormatter h = new DateTimeFormatterBuilder()
-        .append(ISODateTimeFormat.date())
-        .appendLiteral('T')
-        .append(ISODateTimeFormat.timeElementParser())
-        .toFormatter();
-        
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
-    }
-
     public void testParseInto_simple_precedence_1_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
@@ -2287,31 +2138,12 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(24, f.parseInto(result, "Mon 2004-06-09T10:20:30Z", 0));
     }
 
-    public void testParseInto_simple_precedence_2_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 7, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // DayOfWeek takes precedence, because week < month in length
-        // removed other assertion
-        assertEquals(expect, result);
-    }
-
     public void testParseInto_offsetParsed_1_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
         expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
         result = new MutableDateTime(0L);
         assertEquals(20, g.withOffsetParsed().parseInto(result, "2004-06-09T10:20:30Z", 0));
-    }
-
-    public void testParseInto_offsetParsed_2_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
     }
 
     public void testParseInto_offsetParsed_3_oe() {
@@ -2325,20 +2157,6 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         expect = new MutableDateTime(2004, 6, 9, 6, 20, 30, 0, DateTimeZone.forOffsetHours(-4));
         result = new MutableDateTime(0L);
         assertEquals(25, g.withOffsetParsed().parseInto(result, "2004-06-09T06:20:30-04:00", 0));
-    }
-
-    public void testParseInto_offsetParsed_4_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 6, 20, 30, 0, DateTimeZone.forOffsetHours(-4));
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
     }
 
     public void testParseInto_offsetParsed_5_oe() {
@@ -2357,25 +2175,6 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
         result = new MutableDateTime(0L);
         assertEquals(20, g.withZone(PARIS).withOffsetParsed().parseInto(result, "2004-06-09T10:20:30Z", 0));
-    }
-
-    public void testParseInto_offsetParsed_6_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 6, 20, 30, 0, DateTimeZone.forOffsetHours(-4));
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
     }
 
     public void testParseInto_offsetParsed_7_oe() {
@@ -2400,44 +2199,12 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(20, g.withOffsetParsed().withZone(PARIS).parseInto(result, "2004-06-09T10:20:30Z", 0));
     }
 
-    public void testParseInto_offsetParsed_8_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 6, 20, 30, 0, DateTimeZone.forOffsetHours(-4));
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 10, 20, 30, 0, UTC);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
-    }
-
     public void testParseInto_chrono_1_oe() {
         MutableDateTime expect = null;
         MutableDateTime result = null;
         expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
         result = new MutableDateTime(0L);
         assertEquals(20, g.withChronology(ISO_PARIS).parseInto(result, "2004-06-09T10:20:30Z", 0));
-    }
-
-    public void testParseInto_chrono_2_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
     }
 
     public void testParseInto_chrono_3_oe() {
@@ -2451,20 +2218,6 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
         result = new MutableDateTime(0L);
         assertEquals(20, g.withChronology(null).parseInto(result, "2004-06-09T10:20:30Z", 0));
-    }
-
-    public void testParseInto_chrono_4_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
     }
 
     public void testParseInto_chrono_5_oe() {
@@ -2483,25 +2236,6 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         expect = new MutableDateTime(2547, 6, 9, 12, 20, 30, 0, BUDDHIST_PARIS);
         result = new MutableDateTime(0L);
         assertEquals(20, g.withChronology(BUDDHIST_PARIS).parseInto(result, "2547-06-09T10:20:30Z", 0));
-    }
-
-    public void testParseInto_chrono_6_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2547, 6, 9, 12, 20, 30, 0, BUDDHIST_PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
     }
 
     public void testParseInto_chrono_7_oe() {
@@ -2527,41 +2261,10 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(20, g.withChronology(BUDDHIST_PARIS).parseInto(result, "2004-06-09T10:20:30Z", 0));
     }
 
-    public void testParseInto_chrono_8_oe() {
-        MutableDateTime expect = null;
-        MutableDateTime result = null;
-        expect = new MutableDateTime(2004, 6, 9, 12, 20, 30, 0, PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2547, 6, 9, 12, 20, 30, 0, BUDDHIST_PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        // removed other assertion
-        
-        expect = new MutableDateTime(2004, 6, 9, 10, 29, 51, 0, BUDDHIST_PARIS);
-        result = new MutableDateTime(0L);
-        // removed other assertion
-        assertEquals(expect, result);
-    }
-
     public void testParseInto_monthOnly_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern("M").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, LONDON);
         assertEquals(1, f.parseInto(result, "5", 0));
-    }
-
-    public void testParseInto_monthOnly_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, LONDON);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 5, 9, 12, 20, 30, 0, LONDON), result);
     }
 
     public void testParseInto_monthOnly_baseStartYear_1_oe() {
@@ -2570,24 +2273,10 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(1, f.parseInto(result, "5", 0));
     }
 
-    public void testParseInto_monthOnly_baseStartYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 1, 12, 20, 30, 0, TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 5, 1, 12, 20, 30, 0, TOKYO), result);
-    }
-
     public void testParseInto_monthOnly_parseStartYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern("M").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 2, 1, 12, 20, 30, 0, TOKYO);
         assertEquals(1, f.parseInto(result, "1", 0));
-    }
-
-    public void testParseInto_monthOnly_parseStartYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 2, 1, 12, 20, 30, 0, TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 1, 1, 12, 20, 30, 0, TOKYO), result);
     }
 
     public void testParseInto_monthOnly_baseEndYear_1_oe() {
@@ -2596,24 +2285,10 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(1, f.parseInto(result, "5", 0));
     }
 
-    public void testParseInto_monthOnly_baseEndYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 12, 31, 12, 20, 30, 0, TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 5, 31, 12, 20, 30, 0, TOKYO), result);
-    }
-
     public void testParseInto_monthOnly_parseEndYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern("M").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 31, 12, 20, 30, 0,TOKYO);
         assertEquals(2, f.parseInto(result, "12", 0));
-    }
-
-    public void testParseInto_monthOnly_parseEndYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 31, 12, 20, 30, 0,TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 12, 31, 12, 20, 30, 0, TOKYO), result);
     }
 
     public void testParseInto_monthDay_feb29_1_oe() {
@@ -2622,24 +2297,10 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(4, f.parseInto(result, "2 29", 0));
     }
 
-    public void testParseInto_monthDay_feb29_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, LONDON);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 2, 29, 12, 20, 30, 0, LONDON), result);
-    }
-
     public void testParseInto_monthDay_feb29_startOfYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 1, 0, 0, 0, 0, LONDON);
         assertEquals(4, f.parseInto(result, "2 29", 0));
-    }
-
-    public void testParseInto_monthDay_feb29_startOfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 1, 0, 0, 0, 0, LONDON);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 2, 29, 0, 0, 0, 0, LONDON), result);
     }
 
     public void testParseInto_monthDay_feb29_OfYear_1_oe() {
@@ -2648,24 +2309,10 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(4, f.parseInto(result, "2 29", 0));
     }
 
-    public void testParseInto_monthDay_feb29_OfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 12, 31, 23, 59, 59, 999, LONDON);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 2, 29, 23, 59, 59, 999, LONDON), result);
-    }
-
     public void testParseInto_monthDay_feb29_newYork_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, NEWYORK);
         assertEquals(4, f.parseInto(result, "2 29", 0));
-    }
-
-    public void testParseInto_monthDay_feb29_newYork_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, NEWYORK);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 2, 29, 12, 20, 30, 0, NEWYORK), result);
     }
 
     public void testParseInto_monthDay_feb29_newYork_startOfYear_1_oe() {
@@ -2674,24 +2321,10 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(4, f.parseInto(result, "2 29", 0));
     }
 
-    public void testParseInto_monthDay_feb29_newYork_startOfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 1, 0, 0, 0, 0, NEWYORK);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 2, 29, 0, 0, 0, 0, NEWYORK), result);
-    }
-
     public void testParseInto_monthDay_feb29_newYork_endOfYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 12, 31, 23, 59, 59, 999, NEWYORK);
         assertEquals(4, f.parseInto(result, "2 29", 0));
-    }
-
-    public void testParseInto_monthDay_feb29_newYork_endOfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 12, 31, 23, 59, 59, 999, NEWYORK);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 2, 29, 23, 59, 59, 999, NEWYORK), result);
     }
 
     public void testParseInto_monthDay_feb29_tokyo_1_oe() {
@@ -2700,24 +2333,10 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(4, f.parseInto(result, "2 29", 0));
     }
 
-    public void testParseInto_monthDay_feb29_tokyo_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 2, 29, 12, 20, 30, 0, TOKYO), result);
-    }
-
     public void testParseInto_monthDay_feb29_tokyo_startOfYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
         MutableDateTime result = new MutableDateTime(2004, 1, 1, 0, 0, 0, 0, TOKYO);
         assertEquals(4, f.parseInto(result, "2 29", 0));
-    }
-
-    public void testParseInto_monthDay_feb29_tokyo_startOfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 1, 1, 0, 0, 0, 0, TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 2, 29, 0, 0, 0, 0, TOKYO), result);
     }
 
     public void testParseInto_monthDay_feb29_tokyo_endOfYear_1_oe() {
@@ -2726,24 +2345,10 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(4, f.parseInto(result, "2 29", 0));
     }
 
-    public void testParseInto_monthDay_feb29_tokyo_endOfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withLocale(Locale.UK);
-        MutableDateTime result = new MutableDateTime(2004, 12, 31, 23, 59, 59, 999, TOKYO);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 2, 29, 23, 59, 59, 999, TOKYO), result);
-    }
-
     public void testParseInto_monthDay_withDefaultYear_feb29_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern("M d").withDefaultYear(2012);
         MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, LONDON);
         assertEquals(4, f.parseInto(result, "2 29", 0));
-    }
-
-    public void testParseInto_monthDay_withDefaultYear_feb29_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withDefaultYear(2012);
-        MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, LONDON);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 2, 29, 12, 20, 30, 0, LONDON), result);
     }
 
     public void testParseInto_monthDay_withDefaultYear_feb29_newYork_1_oe() {
@@ -2752,24 +2357,10 @@ public class TestDateTimeFormatter_OE25Dev extends TestCase {
         assertEquals(4, f.parseInto(result, "2 29", 0));
     }
 
-    public void testParseInto_monthDay_withDefaultYear_feb29_newYork_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withDefaultYear(2012);
-        MutableDateTime result = new MutableDateTime(2004, 1, 9, 12, 20, 30, 0, NEWYORK);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 2, 29, 12, 20, 30, 0, NEWYORK), result);
-    }
-
     public void testParseInto_monthDay_withDefaultYear_feb29_newYork_endOfYear_1_oe() {
         DateTimeFormatter f = DateTimeFormat.forPattern("M d").withDefaultYear(2012);
         MutableDateTime result = new MutableDateTime(2004, 12, 9, 12, 20, 30, 0, NEWYORK);
         assertEquals(4, f.parseInto(result, "2 29", 0));
-    }
-
-    public void testParseInto_monthDay_withDefaultYear_feb29_newYork_endOfYear_2_oe() {
-        DateTimeFormatter f = DateTimeFormat.forPattern("M d").withDefaultYear(2012);
-        MutableDateTime result = new MutableDateTime(2004, 12, 9, 12, 20, 30, 0, NEWYORK);
-        // removed other assertion
-        assertEquals(new MutableDateTime(2004, 2, 29, 12, 20, 30, 0, NEWYORK), result);
     }
 
     public void testParseMillis_fractionOfSecondLong_1_oe() {

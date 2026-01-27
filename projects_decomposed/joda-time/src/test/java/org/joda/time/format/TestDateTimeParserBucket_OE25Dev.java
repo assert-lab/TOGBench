@@ -315,18 +315,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         assertEquals(true, test.restoreState(state));
     }
 
-    public void testSaveRestoreState_5_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400, test.computeMillis(false));
-    }
-
     public void testSaveRestoreState_6_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -354,22 +342,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         test.saveField(DateTimeFieldType.minuteOfHour(), 7);
         // removed other assertion
         assertEquals(true, test.restoreState(state));
-    }
-
-    public void testSaveRestoreState_8_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 7);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400, test.computeMillis(false));
     }
 
     public void testSaveRestoreState_avoidSideEffects_1_oe() {
@@ -402,19 +374,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         test.saveField(DateTimeFieldType.minuteOfHour(), 7);
         // removed other assertion
         assertEquals(true, test.restoreState(state));
-    }
-
-    public void testSaveRestoreState_avoidSideEffects_4_oe() {
-        // computeMillis() has side effects, so check works without it
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        Object state = test.saveState();
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 7);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400, test.computeMillis(false));
     }
 
     public void testSaveRestoreState_offset_1_oe() {
@@ -452,18 +411,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         assertEquals(true, test.restoreState(state));
     }
 
-    public void testSaveRestoreState_offset_5_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state = test.saveState();
-        // removed other assertion
-        test.setOffset((Integer) 0);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400, test.computeMillis(false));
-    }
-
     public void testSaveRestoreState_zone_1_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -499,18 +446,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         assertEquals(true, test.restoreState(state));
     }
 
-    public void testSaveRestoreState_zone_5_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state = test.saveState();
-        // removed other assertion
-        test.setZone(DateTimeZone.UTC);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400, test.computeMillis(false));
-    }
-
     public void testSaveRestoreState_text_1_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), "2", Locale.ENGLISH);
@@ -544,18 +479,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         test.saveField(DateTimeFieldType.minuteOfHour(), "6", Locale.ENGLISH);
         // removed other assertion
         assertEquals(true, test.restoreState(state));
-    }
-
-    public void testSaveRestoreState_text_5_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), "2", Locale.ENGLISH);
-        // removed other assertion
-        Object state = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), "6", Locale.ENGLISH);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400, test.computeMillis(false));
     }
 
     public void testSaveRestoreState_twoStates_1_oe() {
@@ -623,22 +546,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         assertEquals(true, test.restoreState(state2));
     }
 
-    public void testSaveRestoreState_twoStates_7_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.secondOfMinute(), 8);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 6 * MILLIS_PER_MINUTE + 100 - OFFSET_0400, test.computeMillis(false));
-    }
-
     public void testSaveRestoreState_twoStates_8_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -654,24 +561,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         assertEquals(true, test.restoreState(state1));
-    }
-
-    public void testSaveRestoreState_twoStates_9_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.secondOfMinute(), 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400, test.computeMillis(false));
     }
 
     public void testSaveRestoreState_twoStates_10_oe() {
@@ -693,26 +582,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         assertEquals(true, test.restoreState(state2));
     }
 
-    public void testSaveRestoreState_twoStates_11_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.secondOfMinute(), 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 6 * MILLIS_PER_MINUTE + 100 - OFFSET_0400, test.computeMillis(false));
-    }
-
     public void testSaveRestoreState_twoStates_12_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -732,28 +601,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         assertEquals(true, test.restoreState(state1));
-    }
-
-    public void testSaveRestoreState_twoStates_13_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.secondOfMinute(), 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400, test.computeMillis(false));
     }
 
     public void testSaveRestoreState_sameStates_1_oe() {
@@ -794,19 +641,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         assertEquals(true, test.restoreState(state2));
     }
 
-    public void testSaveRestoreState_sameStates_5_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400, test.computeMillis(false));
-    }
-
     public void testSaveRestoreState_sameStates_6_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -838,23 +672,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         assertEquals(true, test.restoreState(state1));
     }
 
-    public void testSaveRestoreState_sameStates_8_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 8);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400, test.computeMillis(false));
-    }
-
     public void testSaveRestoreState_sameStates_9_oe() {
         DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
         test.saveField(DateTimeFieldType.hourOfDay(), 2);
@@ -871,25 +688,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         assertEquals(true, test.restoreState(state2));
-    }
-
-    public void testSaveRestoreState_sameStates_10_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400, test.computeMillis(false));
     }
 
     public void testSaveRestoreState_sameStates_11_oe() {
@@ -910,27 +708,6 @@ public class TestDateTimeParserBucket_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         assertEquals(true, test.restoreState(state1));
-    }
-
-    public void testSaveRestoreState_sameStates_12_oe() {
-        DateTimeParserBucket test = new DateTimeParserBucket(100, ISO_0400, LOCALE, 2000, 2000);
-        test.saveField(DateTimeFieldType.hourOfDay(), 2);
-        // removed other assertion
-        Object state1 = test.saveState();
-        Object state2 = test.saveState();
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 6);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        test.saveField(DateTimeFieldType.minuteOfHour(), 8);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2 * MILLIS_PER_HOUR + 100 - OFFSET_0400, test.computeMillis(false));
     }
 
     public void testSaveRestoreState_badType_1_oe() {

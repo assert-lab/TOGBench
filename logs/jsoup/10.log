@@ -1,0 +1,319 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------------< org.jsoup:jsoup >---------------------------
+[INFO] Building jsoup Java HTML Parser 1.15.3
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:resources (default-resources) @ jsoup ---
+[INFO] Copying 3 resources to META-INF/
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ jsoup ---
+[INFO] Compiling 75 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/classes
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.21:check (animal-sniffer) @ jsoup ---
+[INFO] Signature version is: null
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.8:manifest (bundle-manifest) @ jsoup ---
+[INFO] No MANIFEST.MF file found, generating manifest.
+[INFO] Writing manifest: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/classes/META-INF/MANIFEST.MF
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.0:testResources (default-testResources) @ jsoup ---
+[INFO] Copying 70 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ jsoup ---
+[INFO] Compiling 80 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[197,23] method replaceElement() is already defined in class org.jsoup.select.TraversorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[223,23] method replaceElement() is already defined in class org.jsoup.select.TraversorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[250,23] method canAddChildren() is already defined in class org.jsoup.select.TraversorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[275,23] method canSpecifyOnlyHead() is already defined in class org.jsoup.select.TraversorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[283,23] method canRemoveDuringHead() is already defined in class org.jsoup.select.TraversorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1295,23] method requestCookiesSurviveRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1307,23] method requestCookiesSurviveRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1321,23] method requestCookiesSurviveRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1336,23] method requestCookiesSurviveRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1407,23] method handlesRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1416,23] method handlesRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1427,23] method handlesEmptyRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1437,23] method handlesEmptyRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1449,23] method doesNotPostFor302() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1458,23] method doesNotPostFor302() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1468,23] method doesNotPostFor302() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1479,23] method doesPostFor307() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1489,23] method doesPostFor307() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1500,23] method doesPostFor307() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1512,23] method getUtf8Bom() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1519,23] method getUtf8Bom() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[1747,16] method testIndentLevel() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[1761,16] method testIndentLevel() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[1777,16] method testIndentLevel() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[1796,16] method testIndentLevel() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[1817,16] method testIndentLevel() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[1841,16] method testIndentLevel() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[7843,16] method testTraverseLambda() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[7849,16] method testTraverseLambda() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[7860,16] method testTraverseLambda() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[7901,16] method testFilterAsLambda() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[7910,16] method testForEach() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8652,16] method emptyChildrenElementsIsModifiable() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8659,16] method emptyChildrenElementsIsModifiable() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8668,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8674,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8681,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8689,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8698,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8710,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8723,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8739,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8747,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8757,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8771,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8786,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8802,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8819,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8840,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8862,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8885,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8924,16] method prettyPrintScriptsDoesNotGrowOnRepeat() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8940,16] method elementBrText() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8948,16] method elementBrText() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8957,16] method elementBrText() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8967,16] method elementBrText() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8978,16] method preformatFlowsToChildTextNodes() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8988,16] method preformatFlowsToChildTextNodes() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9010,16] method preformatFlowsToChildTextNodes() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9041,16] method preformatFlowsToChildTextNodes() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9078,16] method testExpectFirst() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9085,16] method testExpectFirst() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9094,16] method testExpectFirst() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9110,16] method testExpectFirstMessage() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9122,16] method testExpectFirstMessage() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9135,16] method testExpectFirstMessageDoc() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9147,16] method testExpectFirstMessageDoc() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9160,16] method spanRunsMaintainSpace() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9168,16] method spanRunsMaintainSpace() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9181,16] method spanRunsMaintainSpace() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9196,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9208,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9222,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9239,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9257,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9276,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9296,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9317,16] method textnodeInBlockIndent() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9323,16] method stripTrailing() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9329,16] method elementIndentAndSpaceTrims() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9335,16] method divAInlineable() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[201,29] cannot find symbol
+  symbol:   method parse_1_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[227,29] cannot find symbol
+  symbol:   method parse_2_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[251,29] cannot find symbol
+  symbol:   method parse_1_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[277,29] cannot find symbol
+  symbol:   method parse_1_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[284,29] cannot find symbol
+  symbol:   method parse_1_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1298,31] cannot find symbol
+  symbol:   method connect_1_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1310,31] cannot find symbol
+  symbol:   method connect_2_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1324,31] cannot find symbol
+  symbol:   method connect_3_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1339,31] cannot find symbol
+  symbol:   method connect_4_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1408,29] cannot find symbol
+  symbol:   method connect_1_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1417,29] cannot find symbol
+  symbol:   method connect_2_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1430,44] cannot find symbol
+  symbol:   method connect_1_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1440,44] cannot find symbol
+  symbol:   method connect_2_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1450,35] cannot find symbol
+  symbol:   method connect_1_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1459,35] cannot find symbol
+  symbol:   method connect_2_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1469,35] cannot find symbol
+  symbol:   method connect_3_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1480,35] cannot find symbol
+  symbol:   method connect_1_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1490,35] cannot find symbol
+  symbol:   method connect_2_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1501,35] cannot find symbol
+  symbol:   method connect_3_oe(java.lang.String)
+  location: class org.jsoup.Jsoup
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.819 s
+[INFO] Finished at: 2026-01-26T16:30:20-06:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project jsoup: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[197,23] method replaceElement() is already defined in class org.jsoup.select.TraversorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[223,23] method replaceElement() is already defined in class org.jsoup.select.TraversorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[250,23] method canAddChildren() is already defined in class org.jsoup.select.TraversorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[275,23] method canSpecifyOnlyHead() is already defined in class org.jsoup.select.TraversorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[283,23] method canRemoveDuringHead() is already defined in class org.jsoup.select.TraversorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1295,23] method requestCookiesSurviveRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1307,23] method requestCookiesSurviveRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1321,23] method requestCookiesSurviveRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1336,23] method requestCookiesSurviveRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1407,23] method handlesRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1416,23] method handlesRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1427,23] method handlesEmptyRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1437,23] method handlesEmptyRedirect() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1449,23] method doesNotPostFor302() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1458,23] method doesNotPostFor302() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1468,23] method doesNotPostFor302() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1479,23] method doesPostFor307() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1489,23] method doesPostFor307() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1500,23] method doesPostFor307() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1512,23] method getUtf8Bom() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1519,23] method getUtf8Bom() is already defined in class org.jsoup.integration.ConnectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[1747,16] method testIndentLevel() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[1761,16] method testIndentLevel() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[1777,16] method testIndentLevel() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[1796,16] method testIndentLevel() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[1817,16] method testIndentLevel() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[1841,16] method testIndentLevel() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[7843,16] method testTraverseLambda() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[7849,16] method testTraverseLambda() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[7860,16] method testTraverseLambda() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[7901,16] method testFilterAsLambda() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[7910,16] method testForEach() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8652,16] method emptyChildrenElementsIsModifiable() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8659,16] method emptyChildrenElementsIsModifiable() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8668,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8674,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8681,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8689,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8698,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8710,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8723,23] method attributeSizeDoesNotAutoVivify() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8739,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8747,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8757,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8771,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8786,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8802,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8819,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8840,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8862,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8885,16] method clonedElementsHaveOwnerDocsAndIndependentSettings() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8924,16] method prettyPrintScriptsDoesNotGrowOnRepeat() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8940,16] method elementBrText() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8948,16] method elementBrText() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8957,16] method elementBrText() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8967,16] method elementBrText() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8978,16] method preformatFlowsToChildTextNodes() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[8988,16] method preformatFlowsToChildTextNodes() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9010,16] method preformatFlowsToChildTextNodes() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9041,16] method preformatFlowsToChildTextNodes() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9078,16] method testExpectFirst() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9085,16] method testExpectFirst() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9094,16] method testExpectFirst() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9110,16] method testExpectFirstMessage() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9122,16] method testExpectFirstMessage() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9135,16] method testExpectFirstMessageDoc() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9147,16] method testExpectFirstMessageDoc() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9160,16] method spanRunsMaintainSpace() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9168,16] method spanRunsMaintainSpace() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9181,16] method spanRunsMaintainSpace() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9196,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9208,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9222,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9239,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9257,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9276,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9296,16] method doctypeIsPrettyPrinted() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9317,16] method textnodeInBlockIndent() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9323,16] method stripTrailing() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9329,16] method elementIndentAndSpaceTrims() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/ElementTest_OE25Dev.java:[9335,16] method divAInlineable() is already defined in class org.jsoup.nodes.ElementTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[201,29] cannot find symbol
+[ERROR]   symbol:   method parse_1_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[227,29] cannot find symbol
+[ERROR]   symbol:   method parse_2_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[251,29] cannot find symbol
+[ERROR]   symbol:   method parse_1_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[277,29] cannot find symbol
+[ERROR]   symbol:   method parse_1_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/select/TraversorTest_OE25Dev.java:[284,29] cannot find symbol
+[ERROR]   symbol:   method parse_1_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1298,31] cannot find symbol
+[ERROR]   symbol:   method connect_1_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1310,31] cannot find symbol
+[ERROR]   symbol:   method connect_2_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1324,31] cannot find symbol
+[ERROR]   symbol:   method connect_3_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1339,31] cannot find symbol
+[ERROR]   symbol:   method connect_4_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1408,29] cannot find symbol
+[ERROR]   symbol:   method connect_1_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1417,29] cannot find symbol
+[ERROR]   symbol:   method connect_2_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1430,44] cannot find symbol
+[ERROR]   symbol:   method connect_1_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1440,44] cannot find symbol
+[ERROR]   symbol:   method connect_2_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1450,35] cannot find symbol
+[ERROR]   symbol:   method connect_1_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1459,35] cannot find symbol
+[ERROR]   symbol:   method connect_2_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1469,35] cannot find symbol
+[ERROR]   symbol:   method connect_3_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1480,35] cannot find symbol
+[ERROR]   symbol:   method connect_1_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1490,35] cannot find symbol
+[ERROR]   symbol:   method connect_2_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/integration/ConnectTest_OE25Dev.java:[1501,35] cannot find symbol
+[ERROR]   symbol:   method connect_3_oe(java.lang.String)
+[ERROR]   location: class org.jsoup.Jsoup
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

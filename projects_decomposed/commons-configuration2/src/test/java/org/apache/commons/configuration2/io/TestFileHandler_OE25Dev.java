@@ -1285,25 +1285,6 @@ public class TestFileHandler_OE25Dev {
     }
 
     @Test
-    public void testLocateSuccess_2_oe() throws ConfigurationException {
-        final FileHandler handler = new FileHandler();
-        handler.setFileName(TEST_FILENAME);
-        // removed other assertion
-        final FileLocator locator = handler.getFileLocator();
-        assertNotNull("URL not filled", locator.getSourceURL());
-    }
-
-    @Test
-    public void testLocateSuccess_3_oe() throws ConfigurationException {
-        final FileHandler handler = new FileHandler();
-        handler.setFileName(TEST_FILENAME);
-        // removed other assertion
-        final FileLocator locator = handler.getFileLocator();
-        // removed other assertion
-        assertNotNull("Base path not filled", locator.getBasePath());
-    }
-
-    @Test
     public void testLocateSuccess_4_oe() throws ConfigurationException {
         final FileHandler handler = new FileHandler();
         handler.setFileName(TEST_FILENAME);
@@ -1312,24 +1293,6 @@ public class TestFileHandler_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals("Wrong file name", TEST_FILENAME, locator.getFileName());
-    }
-
-    @Test
-    public void testLocateSuccess_5_oe() throws ConfigurationException {
-        final FileHandler handler = new FileHandler();
-        handler.setFileName(TEST_FILENAME);
-        // removed other assertion
-        final FileLocator locator = handler.getFileLocator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // check whether the correct URL was obtained
-        final PropertiesConfiguration config = new PropertiesConfiguration();
-        final FileHandler h2 = new FileHandler(config);
-        h2.setURL(locator.getSourceURL());
-        h2.load();
-        assertTrue("Configuration not loaded", config.getBoolean("configuration.loaded"));
     }
 
     @Test

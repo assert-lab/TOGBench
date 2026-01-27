@@ -54,22 +54,22 @@ class CoordinatesTest_OE25Dev {
     }
     }
 
-    @Test
-    void testRequireFiniteWithMessageThrows_3_oe() {
-        final double[] c = {0, 1, 2};
-        final String message = "This should be prepended";
-        // removed other assertion
-        final double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
-        for (int i = 0; i < c.length; i++) {
-            final int ii = i;
-            for (final double d : bad) {
-                final double value = c[i];
-                c[i] = d;
-                // removed other assertion
-                Assertions.assertTrue(ex.getMessage().startsWith(message), "Missing message prefix");
-    }
-    }
-    }
+    // @Test
+    // void testRequireFiniteWithMessageThrows_3_oe() {
+    //     final double[] c = {0, 1, 2};
+    //     final String message = "This should be prepended";
+    //     // removed other assertion
+    //     final double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
+    //     for (int i = 0; i < c.length; i++) {
+    //         final int ii = i;
+    //         for (final double d : bad) {
+    //             final double value = c[i];
+    //             c[i] = d;
+    //             // removed other assertion
+    //             Assertions.assertTrue(ex.getMessage().startsWith(message), "Missing message prefix");
+    // }
+    // }
+    // }
 
     @Test
     void testRequireLengthWithMessageThrows_1_oe() {
@@ -90,40 +90,40 @@ class CoordinatesTest_OE25Dev {
     }
     }
 
-    @Test
-    void testRequireLengthWithMessageThrows_3_oe() {
-        final String message = "This should be prepended";
-        for (final double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
-            final int length = c.length;
-            // removed other assertion
-            // removed other assertion
-            Assertions.assertTrue(ex.getMessage().startsWith(message), "Missing message prefix");
-    }
-    }
+    // @Test
+    // void testRequireLengthWithMessageThrows_3_oe() {
+    //     final String message = "This should be prepended";
+    //     for (final double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
+    //         final int length = c.length;
+    //         // removed other assertion
+    //         // removed other assertion
+    //         Assertions.assertTrue(ex.getMessage().startsWith(message), "Missing message prefix");
+    // }
+    // }
 
-    @Test
-    void testRequireLengthWithMessageThrows_4_oe() {
-        final String message = "This should be prepended";
-        for (final double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
-            final int length = c.length;
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            ex = Assertions.assertThrows(IllegalArgumentException.class, () -> Coordinates.requireLength(c, length + 1, message), () -> "Did not detect length was too short: " + (length + 1));
-    }
-    }
+    // @Test
+    // void testRequireLengthWithMessageThrows_4_oe() {
+    //     final String message = "This should be prepended";
+    //     for (final double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
+    //         final int length = c.length;
+    //         // removed other assertion
+    //         // removed other assertion
+    //         // removed other assertion
+    //         ex = Assertions.assertThrows(IllegalArgumentException.class, () -> Coordinates.requireLength(c, length + 1, message), () -> "Did not detect length was too short: " + (length + 1));
+    // }
+    // }
 
-    @Test
-    void testRequireLengthWithMessageThrows_5_oe() {
-        final String message = "This should be prepended";
-        for (final double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
-            final int length = c.length;
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            // removed other assertion
-            Assertions.assertTrue(ex.getMessage().startsWith(message), "Missing message prefix");
-    }
-    }
+    // @Test
+    // void testRequireLengthWithMessageThrows_5_oe() {
+    //     final String message = "This should be prepended";
+    //     for (final double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
+    //         final int length = c.length;
+    //         // removed other assertion
+    //         // removed other assertion
+    //         // removed other assertion
+    //         // removed other assertion
+    //         Assertions.assertTrue(ex.getMessage().startsWith(message), "Missing message prefix");
+    // }
+    // }
 
 }

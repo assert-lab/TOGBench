@@ -370,18 +370,6 @@ public class TestBasicConfigurationBuilder_OE25Dev {
     }
 
     @Test
-    public void testAddParameters_3_oe() {
-        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class,
-            createTestParameters());
-        final Map<String, Object> params = createTestParameters();
-        params.put("anotherParameter", "value");
-        // removed other assertion
-        final Map<String, Object> params2 = builder.getParameters();
-        // removed other assertion
-        assertEquals("Additional parameter not found", "value", params2.get("anotherParameter"));
-    }
-
-    @Test
     public void testAddParametersNull_1_oe() {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class,
             createTestParameters());
@@ -442,22 +430,6 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         controller.checkForReloading(null);
         // removed other assertion
         assertNotSame("No new configuration created", configuration, builder.getConfiguration());
-    }
-
-    @Test
-    public void testConnectToReloadingController_3_oe() throws ConfigurationException {
-        final ReloadingDetector detector = EasyMock.createNiceMock(ReloadingDetector.class);
-        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
-        EasyMock.replay(detector);
-        final ReloadingController controller = new ReloadingController(detector);
-        final BasicConfigurationBuilder<Configuration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
-        final Configuration configuration = builder.getConfiguration();
-
-        builder.connectToReloadingController(controller);
-        controller.checkForReloading(null);
-        // removed other assertion
-        // removed other assertion
-        assertFalse("Still in reloading state", controller.isInReloadingState());
     }
 
     @Test
@@ -723,19 +695,6 @@ public class TestBasicConfigurationBuilder_OE25Dev {
     }
 
     @Test
-    public void testRemoveConfigurationListener_2_oe() throws ConfigurationException {
-        final EventListener<ConfigurationEvent> l1 = createEventListener();
-        final EventListener<ConfigurationEvent> l2 = createEventListener();
-        EasyMock.replay(l1, l2);
-        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
-        builder.addEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l1);
-        builder.addEventListener(ConfigurationEvent.ANY, l2);
-        // removed other assertion
-        final PropertiesConfiguration config = builder.getConfiguration();
-        assertFalse("Removed listener was registered", config.getEventListeners(ConfigurationEvent.ANY).contains(l2));
-    }
-
-    @Test
     public void testRemoveConfigurationListener_3_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
         final EventListener<ConfigurationEvent> l2 = createEventListener();
@@ -831,16 +790,6 @@ public class TestBasicConfigurationBuilder_OE25Dev {
         params1.put("someParameter", "value");
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class, params1);
         assertSame("Wrong result", builder, builder.setParameters(createTestParameters()));
-    }
-
-    @Test
-    public void testSetParameters_2_oe() {
-        final Map<String, Object> params1 = new HashMap<>();
-        params1.put("someParameter", "value");
-        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class, params1);
-        // removed other assertion
-        final Map<String, Object> params2 = new HashMap<>(builder.getParameters());
-        assertEquals("Wrong parameters", createTestParameters(), params2);
     }
 
 }

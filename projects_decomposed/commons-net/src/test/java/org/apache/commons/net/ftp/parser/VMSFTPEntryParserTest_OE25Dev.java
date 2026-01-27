@@ -104,6 +104,80 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
     }
 
     @Override
+    public void testParseFieldsOnDirectory() throws Exception
+    {
+
+        FTPFile dir = getParser().parseFTPEntry(
+            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
+        assertTrue("Should be a directory.",
+                   dir.isDirectory());
+        assertEquals("DATA.DIR",
+                     dir.getName());
+        assertEquals(512,
+                     dir.getSize());
+        assertEquals("Tue Jun 02 07:32:04 1998",
+                     df.format(dir.getTimestamp().getTime()));
+        assertEquals("GROUP",
+                     dir.getGroup());
+        assertEquals("OWNER",
+                     dir.getUser());
+        checkPermisions(dir, 0775);
+
+
+        dir = getParser().parseFTPEntry(
+                "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RWED,,RE)");
+        assertTrue("Should be a directory.",
+                           dir.isDirectory());
+        assertEquals("DATA.DIR",
+                             dir.getName());
+        assertEquals(512,
+                             dir.getSize());
+        assertEquals("Tue Jun 02 07:32:04 1998",
+                             df.format(dir.getTimestamp().getTime()));
+        assertEquals(null,
+                     dir.getGroup());
+        assertEquals("TRANSLATED",
+                     dir.getUser());
+        checkPermisions(dir, 0705);
+    }
+
+    @Override
+    public void testParseFieldsOnFile() throws Exception
+    {
+        FTPFile file = getParser().parseFTPEntry(
+            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
+        assertTrue("Should be a file.",
+                   file.isFile());
+        assertEquals("1-JUN.LIS",
+                     file.getName());
+        assertEquals(9 * 512,
+                     file.getSize());
+        assertEquals("Tue Jun 02 07:32:04 1998",
+                     df.format(file.getTimestamp().getTime()));
+        assertEquals("GROUP",
+                     file.getGroup());
+        assertEquals("OWNER",
+                     file.getUser());
+        checkPermisions(file, 0764);
+
+
+        file = getParser().parseFTPEntry("1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RD,,)");
+        assertTrue("Should be a file.",
+                   file.isFile());
+        assertEquals("1-JUN.LIS",
+                     file.getName());
+        assertEquals(9 * 512,
+                     file.getSize());
+        assertEquals("Tue Jun 02 07:32:04 1998",
+                     df.format(file.getTimestamp().getTime()));
+        assertEquals(null,
+                     file.getGroup());
+        assertEquals("TRANSLATED",
+                     file.getUser());
+        checkPermisions(file, 0400);
+    }
+
+    @Override
     public void testDefaultPrecision() {
         testPrecision(
                 "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RD,,)", CalendarUnit.SECOND);
@@ -209,372 +283,6 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
                 new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
         final FTPFile[] files = engine.getFiles();
         assertEquals(3, files.length);
-    }
-
-    public void testParseFieldsOnDirectory_1_oe() throws Exception
-    {
-
-        FTPFile dir = getParser().parseFTPEntry(
-            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
-        assertTrue("Should be a directory.", dir.isDirectory());
-    }
-
-    public void testParseFieldsOnDirectory_2_oe() throws Exception
-    {
-
-        FTPFile dir = getParser().parseFTPEntry(
-            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
-        // removed other assertion
-        assertEquals("DATA.DIR", dir.getName());
-    }
-
-    public void testParseFieldsOnDirectory_3_oe() throws Exception
-    {
-
-        FTPFile dir = getParser().parseFTPEntry(
-            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
-        // removed other assertion
-        // removed other assertion
-        assertEquals(512, dir.getSize());
-    }
-
-    public void testParseFieldsOnDirectory_4_oe() throws Exception
-    {
-
-        FTPFile dir = getParser().parseFTPEntry(
-            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Tue Jun 02 07:32:04 1998", df.format(dir.getTimestamp().getTime()));
-    }
-
-    public void testParseFieldsOnDirectory_5_oe() throws Exception
-    {
-
-        FTPFile dir = getParser().parseFTPEntry(
-            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("GROUP", dir.getGroup());
-    }
-
-    public void testParseFieldsOnDirectory_6_oe() throws Exception
-    {
-
-        FTPFile dir = getParser().parseFTPEntry(
-            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("OWNER", dir.getUser());
-    }
-
-    public void testParseFieldsOnDirectory_7_oe() throws Exception
-    {
-
-        FTPFile dir = getParser().parseFTPEntry(
-            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkPermisions(dir, 0775);
-
-
-        dir = getParser().parseFTPEntry(
-                "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RWED,,RE)");
-        assertTrue("Should be a directory.", dir.isDirectory());
-    }
-
-    public void testParseFieldsOnDirectory_8_oe() throws Exception
-    {
-
-        FTPFile dir = getParser().parseFTPEntry(
-            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkPermisions(dir, 0775);
-
-
-        dir = getParser().parseFTPEntry(
-                "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RWED,,RE)");
-        // removed other assertion
-        assertEquals("DATA.DIR", dir.getName());
-    }
-
-    public void testParseFieldsOnDirectory_9_oe() throws Exception
-    {
-
-        FTPFile dir = getParser().parseFTPEntry(
-            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkPermisions(dir, 0775);
-
-
-        dir = getParser().parseFTPEntry(
-                "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RWED,,RE)");
-        // removed other assertion
-        // removed other assertion
-        assertEquals(512, dir.getSize());
-    }
-
-    public void testParseFieldsOnDirectory_10_oe() throws Exception
-    {
-
-        FTPFile dir = getParser().parseFTPEntry(
-            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkPermisions(dir, 0775);
-
-
-        dir = getParser().parseFTPEntry(
-                "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RWED,,RE)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Tue Jun 02 07:32:04 1998", df.format(dir.getTimestamp().getTime()));
-    }
-
-    public void testParseFieldsOnDirectory_11_oe() throws Exception
-    {
-
-        FTPFile dir = getParser().parseFTPEntry(
-            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkPermisions(dir, 0775);
-
-
-        dir = getParser().parseFTPEntry(
-                "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RWED,,RE)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(null, dir.getGroup());
-    }
-
-    public void testParseFieldsOnDirectory_12_oe() throws Exception
-    {
-
-        FTPFile dir = getParser().parseFTPEntry(
-            "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RWED,RE)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkPermisions(dir, 0775);
-
-
-        dir = getParser().parseFTPEntry(
-                "DATA.DIR;1               1/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RWED,,RE)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("TRANSLATED", dir.getUser());
-    }
-
-    public void testParseFieldsOnFile_1_oe() throws Exception
-    {
-        FTPFile file = getParser().parseFTPEntry(
-            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
-        assertTrue("Should be a file.", file.isFile());
-    }
-
-    public void testParseFieldsOnFile_2_oe() throws Exception
-    {
-        FTPFile file = getParser().parseFTPEntry(
-            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
-        // removed other assertion
-        assertEquals("1-JUN.LIS", file.getName());
-    }
-
-    public void testParseFieldsOnFile_3_oe() throws Exception
-    {
-        FTPFile file = getParser().parseFTPEntry(
-            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
-        // removed other assertion
-        // removed other assertion
-        assertEquals(9 * 512, file.getSize());
-    }
-
-    public void testParseFieldsOnFile_4_oe() throws Exception
-    {
-        FTPFile file = getParser().parseFTPEntry(
-            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Tue Jun 02 07:32:04 1998", df.format(file.getTimestamp().getTime()));
-    }
-
-    public void testParseFieldsOnFile_5_oe() throws Exception
-    {
-        FTPFile file = getParser().parseFTPEntry(
-            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("GROUP", file.getGroup());
-    }
-
-    public void testParseFieldsOnFile_6_oe() throws Exception
-    {
-        FTPFile file = getParser().parseFTPEntry(
-            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("OWNER", file.getUser());
-    }
-
-    public void testParseFieldsOnFile_7_oe() throws Exception
-    {
-        FTPFile file = getParser().parseFTPEntry(
-            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkPermisions(file, 0764);
-
-
-        file = getParser().parseFTPEntry("1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RD,,)");
-        assertTrue("Should be a file.", file.isFile());
-    }
-
-    public void testParseFieldsOnFile_8_oe() throws Exception
-    {
-        FTPFile file = getParser().parseFTPEntry(
-            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkPermisions(file, 0764);
-
-
-        file = getParser().parseFTPEntry("1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RD,,)");
-        // removed other assertion
-        assertEquals("1-JUN.LIS", file.getName());
-    }
-
-    public void testParseFieldsOnFile_9_oe() throws Exception
-    {
-        FTPFile file = getParser().parseFTPEntry(
-            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkPermisions(file, 0764);
-
-
-        file = getParser().parseFTPEntry("1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RD,,)");
-        // removed other assertion
-        // removed other assertion
-        assertEquals(9 * 512, file.getSize());
-    }
-
-    public void testParseFieldsOnFile_10_oe() throws Exception
-    {
-        FTPFile file = getParser().parseFTPEntry(
-            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkPermisions(file, 0764);
-
-
-        file = getParser().parseFTPEntry("1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RD,,)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Tue Jun 02 07:32:04 1998", df.format(file.getTimestamp().getTime()));
-    }
-
-    public void testParseFieldsOnFile_11_oe() throws Exception
-    {
-        FTPFile file = getParser().parseFTPEntry(
-            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkPermisions(file, 0764);
-
-
-        file = getParser().parseFTPEntry("1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RD,,)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(null, file.getGroup());
-    }
-
-    public void testParseFieldsOnFile_12_oe() throws Exception
-    {
-        FTPFile file = getParser().parseFTPEntry(
-            "1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [GROUP,OWNER]    (RWED,RWED,RW,R)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkPermisions(file, 0764);
-
-
-        file = getParser().parseFTPEntry("1-JUN.LIS;1              9/9           2-JUN-1998 07:32:04  [TRANSLATED]    (RWED,RD,,)");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("TRANSLATED", file.getUser());
     }
 
 }

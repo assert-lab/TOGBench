@@ -1,138 +1,141 @@
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] --------------< org.apache.commons:commons-numbers-gamma >--------------
-[INFO] Building Apache Commons Numbers Gamma 1.0
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-gamma ---
-[INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-gamma ---
-[INFO] 
-[INFO] --- apache-rat:0.13:check (rat-check) @ commons-numbers-gamma ---
-[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
-[INFO] 
-[INFO] --- build-helper:3.1.0:parse-version (parse-version) @ commons-numbers-gamma ---
-[INFO] 
-[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-numbers-gamma ---
-[INFO] Executing tasks
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------------< [0;36morg.apache.commons:commons-numbers-gamma[0;1m >--------------[m
+[[1;34mINFO[m] [1mBuilding Apache Commons Numbers Gamma 1.0[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:3.1.0:clean[m [1m(default-clean)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M3:enforce[m [1m(enforce-maven-version)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M3:enforce[m [1m(enforce-maven-3)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat-plugin:0.13:check[m [1m(rat-check)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mbuild-helper-maven-plugin:3.1.0:parse-version[m [1m(parse-version)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-antrun-plugin:1.8:run[m [1m(javadoc.resources)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] Executing tasks
 
 main:
-[INFO] Executed tasks
-[INFO] 
-[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-numbers-gamma ---
-[INFO] Skipping remote resources execution.
-[INFO] 
-[INFO] --- buildnumber:1.4:create (default) @ commons-numbers-gamma ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma
-[INFO] Storing buildNumber: b467cf2e4e818b0489514385e833d64c6545dc91 at timestamp: 1768576794509
-[INFO] Storing buildScmBranch: main
-[INFO] 
-[INFO] --- resources:3.1.0:resources (default-resources) @ commons-numbers-gamma ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/main/resources
-[INFO] Copying 2 resources to META-INF
-[INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-numbers-gamma ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 18 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/target/classes
-[INFO] 
-[INFO] --- bundle:4.2.1:manifest (bundle-manifest) @ commons-numbers-gamma ---
-[INFO] 
-[INFO] --- animal-sniffer:1.18:check (checkAPIcompatibility) @ commons-numbers-gamma ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-numbers-gamma ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/resources
-[INFO] Copying 2 resources to META-INF
-[INFO] 
-[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-numbers-gamma ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 32 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[180,9] cannot find symbol
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/apidocs/META-INF
+[[1;34mINFO[m] Executed tasks
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-remote-resources-plugin:1.7.0:process[m [1m(process-resource-bundles)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mbuildnumber-maven-plugin:1.4:create[m [1m(default)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma' && 'git' 'rev-parse' '--verify' 'HEAD'
+[[1;34mINFO[m] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma
+[[1;34mINFO[m] Storing buildNumber: 4c09e22d8c02f6e925aecd1701912efc953cf025 at timestamp: 1769536326792
+[[1;34mINFO[m] Storing buildScmBranch: jan-22-projects
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:resources[m [1m(default-resources)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/main/resources
+[[1;34mINFO[m] Copying 2 resources to META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 18 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-bundle-plugin:4.2.1:manifest[m [1m(bundle-manifest)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32manimal-sniffer-maven-plugin:1.18:check[m [1m(checkAPIcompatibility)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:testResources[m [1m(default-testResources)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/resources
+[[1;34mINFO[m] Copying 2 resources to META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mcommons-numbers-gamma[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 32 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/target/test-classes
+[[1;34mINFO[m] -------------------------------------------------------------
+[[1;31mERROR[m] COMPILATION ERROR : 
+[[1;34mINFO[m] -------------------------------------------------------------
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[180,9] cannot find symbol
   symbol:   method testLogGamma(double,double)
   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[185,9] cannot find symbol
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[185,9] cannot find symbol
   symbol:   method testLogGamma(double,double)
   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[190,9] cannot find symbol
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[190,9] cannot find symbol
   symbol:   method testLogGamma(double,double)
   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[195,9] cannot find symbol
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[195,9] cannot find symbol
   symbol:   method testLogGamma(double,double)
   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[538,9] cannot find symbol
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[538,9] cannot find symbol
   symbol:   method testLogBeta(double,double,int)
   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[543,9] cannot find symbol
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[543,9] cannot find symbol
   symbol:   method testLogBeta(double,int,double)
   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[548,9] cannot find symbol
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[548,9] cannot find symbol
   symbol:   method testLogBeta(double,int,int)
   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[553,9] cannot find symbol
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[553,9] cannot find symbol
   symbol:   method testLogBeta(double,int,int)
   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[558,9] cannot find symbol
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[558,9] cannot find symbol
   symbol:   method testLogBeta(double,int,int)
   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[563,9] cannot find symbol
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[563,9] cannot find symbol
   symbol:   method testLogBeta(double,int,int)
   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[568,9] cannot find symbol
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[568,9] cannot find symbol
   symbol:   method testLogBeta(double,int,int)
   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[INFO] 11 errors 
-[INFO] -------------------------------------------------------------
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  3.310 s
-[INFO] Finished at: 2026-01-16T10:19:56-05:00
-[INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-gamma: Compilation failure: Compilation failure: 
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[180,9] cannot find symbol
-[ERROR]   symbol:   method testLogGamma(double,double)
-[ERROR]   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[185,9] cannot find symbol
-[ERROR]   symbol:   method testLogGamma(double,double)
-[ERROR]   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[190,9] cannot find symbol
-[ERROR]   symbol:   method testLogGamma(double,double)
-[ERROR]   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[195,9] cannot find symbol
-[ERROR]   symbol:   method testLogGamma(double,double)
-[ERROR]   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[538,9] cannot find symbol
-[ERROR]   symbol:   method testLogBeta(double,double,int)
-[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[543,9] cannot find symbol
-[ERROR]   symbol:   method testLogBeta(double,int,double)
-[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[548,9] cannot find symbol
-[ERROR]   symbol:   method testLogBeta(double,int,int)
-[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[553,9] cannot find symbol
-[ERROR]   symbol:   method testLogBeta(double,int,int)
-[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[558,9] cannot find symbol
-[ERROR]   symbol:   method testLogBeta(double,int,int)
-[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[563,9] cannot find symbol
-[ERROR]   symbol:   method testLogBeta(double,int,int)
-[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[568,9] cannot find symbol
-[ERROR]   symbol:   method testLogBeta(double,int,int)
-[ERROR]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[[1;34mINFO[m] 11 errors 
+[[1;34mINFO[m] -------------------------------------------------------------
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;31mBUILD FAILURE[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  1.521 s
+[[1;34mINFO[m] Finished at: 2026-01-27T11:52:07-06:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;31mERROR[m] Failed to execute goal [32morg.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m on project [36mcommons-numbers-gamma[m: [1;31mCompilation failure[m: Compilation failure: 
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[180,9] cannot find symbol
+[[1;31mERROR[m]   symbol:   method testLogGamma(double,double)
+[[1;31mERROR[m]   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[185,9] cannot find symbol
+[[1;31mERROR[m]   symbol:   method testLogGamma(double,double)
+[[1;31mERROR[m]   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[190,9] cannot find symbol
+[[1;31mERROR[m]   symbol:   method testLogGamma(double,double)
+[[1;31mERROR[m]   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogGammaTest_OE25Dev.java:[195,9] cannot find symbol
+[[1;31mERROR[m]   symbol:   method testLogGamma(double,double)
+[[1;31mERROR[m]   location: class org.apache.commons.numbers.gamma.LogGammaTest_OE25Dev
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[538,9] cannot find symbol
+[[1;31mERROR[m]   symbol:   method testLogBeta(double,double,int)
+[[1;31mERROR[m]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[543,9] cannot find symbol
+[[1;31mERROR[m]   symbol:   method testLogBeta(double,int,double)
+[[1;31mERROR[m]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[548,9] cannot find symbol
+[[1;31mERROR[m]   symbol:   method testLogBeta(double,int,int)
+[[1;31mERROR[m]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[553,9] cannot find symbol
+[[1;31mERROR[m]   symbol:   method testLogBeta(double,int,int)
+[[1;31mERROR[m]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[558,9] cannot find symbol
+[[1;31mERROR[m]   symbol:   method testLogBeta(double,int,int)
+[[1;31mERROR[m]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[563,9] cannot find symbol
+[[1;31mERROR[m]   symbol:   method testLogBeta(double,int,int)
+[[1;31mERROR[m]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[[1;31mERROR[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-gamma/src/test/java/org/apache/commons/numbers/gamma/LogBetaTest_OE25Dev.java:[568,9] cannot find symbol
+[[1;31mERROR[m]   symbol:   method testLogBeta(double,int,int)
+[[1;31mERROR[m]   location: class org.apache.commons.numbers.gamma.LogBetaTest_OE25Dev
+[[1;31mERROR[m] -> [1m[Help 1][m
+[[1;31mERROR[m] 
+[[1;31mERROR[m] To see the full stack trace of the errors, re-run Maven with the [1m-e[m switch.
+[[1;31mERROR[m] Re-run Maven using the [1m-X[m switch to enable full debug logging.
+[[1;31mERROR[m] 
+[[1;31mERROR[m] For more information about the errors and possible solutions, please read the following articles:
+[[1;31mERROR[m] [1m[Help 1][m http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

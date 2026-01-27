@@ -96,35 +96,15 @@ public class TestDatabaseBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testSetAutoCommit_2_oe() {
-        // removed other assertion
-        assertEquals("Wrong auto commit flag", Boolean.TRUE, params.getParameters().get("autoCommit"));
-    }
-
-    @Test
     public void testSetConfigurationName_1_oe() {
         final String confName = "TestConfiguration";
         assertSame("Wrong result", params, params.setConfigurationName(confName));
     }
 
     @Test
-    public void testSetConfigurationName_2_oe() {
-        final String confName = "TestConfiguration";
-        // removed other assertion
-        assertEquals("Wrong configuration name", confName, params.getParameters().get("configurationName"));
-    }
-
-    @Test
     public void testSetConfigurationNameColumn_1_oe() {
         final String colName = "CONFIG_COLUMN";
         assertSame("Wrong result", params, params.setConfigurationNameColumn(colName));
-    }
-
-    @Test
-    public void testSetConfigurationNameColumn_2_oe() {
-        final String colName = "CONFIG_COLUMN";
-        // removed other assertion
-        assertEquals("Wrong configuration name column", colName, params.getParameters().get("configurationNameColumn"));
     }
 
     @Test
@@ -135,24 +115,9 @@ public class TestDatabaseBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testSetDataSource_2_oe() {
-        final DataSource src = EasyMock.createMock(DataSource.class);
-        EasyMock.replay(src);
-        // removed other assertion
-        assertSame("Data source not set", src, params.getParameters().get("dataSource"));
-    }
-
-    @Test
     public void testSetKeyColumn_1_oe() {
         final String colName = "KEY_COLUMN";
         assertSame("Wrong result", params, params.setKeyColumn(colName));
-    }
-
-    @Test
-    public void testSetKeyColumn_2_oe() {
-        final String colName = "KEY_COLUMN";
-        // removed other assertion
-        assertEquals("Wrong key column name", colName, params.getParameters().get("keyColumn"));
     }
 
     @Test
@@ -162,23 +127,9 @@ public class TestDatabaseBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testSetTable_2_oe() {
-        final String table = "TestTable";
-        // removed other assertion
-        assertEquals("Wrong table name", table, params.getParameters().get("table"));
-    }
-
-    @Test
     public void testSetValueColumn_1_oe() {
         final String colName = "VALUE_COLUMN";
         assertSame("Wrong result", params, params.setValueColumn(colName));
-    }
-
-    @Test
-    public void testSetValueColumn_2_oe() {
-        final String colName = "VALUE_COLUMN";
-        // removed other assertion
-        assertEquals("Wrong value column name", colName, params.getParameters().get("valueColumn"));
     }
 
 }

@@ -2746,12 +2746,6 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(ISO_PARIS, result.getChronology());
     }
 
-    public void testToDateTime_DateTimeZone_1_oe() {
-        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
-        DateTime result = test.toDateTime(LONDON);
-        assertEquals(test.getMillis(), result.getMillis());
-    }
-
     public void testToDateTime_DateTimeZone_2_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateTime result = test.toDateTime(LONDON);
@@ -2790,20 +2784,6 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         result = test.toDateTime(PARIS);
         // removed other assertion
         assertEquals(TEST_TIME1_LONDON, result.getMillis());
-    }
-
-    public void testToDateTime_DateTimeZone_6_oe() {
-        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
-        DateTime result = test.toDateTime(LONDON);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        test = new DateMidnight(TEST_TIME1_UTC);
-        result = test.toDateTime(PARIS);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(PARIS, result.getZone());
     }
 
     public void testToDateTime_DateTimeZone_7_oe() {
@@ -3717,26 +3697,6 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         assertEquals(TEST_TIME1_PARIS, result.getMillis());
     }
 
-    public void testWithZoneRetainFields_DateTimeZone_3_oe() {
-        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
-        DateMidnight result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(ISO_PARIS, result.getChronology());
-    }
-
-    public void testWithZoneRetainFields_DateTimeZone_4_oe() {
-        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
-        DateMidnight result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateMidnight(TEST_TIME1_UTC, GREGORIAN_PARIS);
-        result = test.withZoneRetainFields(null);
-        assertEquals(TEST_TIME1_PARIS, test.getMillis());
-    }
-
     public void testWithZoneRetainFields_DateTimeZone_5_oe() {
         DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
         DateMidnight result = test.withZoneRetainFields(PARIS);
@@ -3762,46 +3722,6 @@ public class TestDateMidnight_Basics_OE25Dev extends TestCase {
         // removed other assertion
         // removed other assertion
         assertEquals(GREGORIAN_DEFAULT, result.getChronology());
-    }
-
-    public void testWithZoneRetainFields_DateTimeZone_7_oe() {
-        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
-        DateMidnight result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateMidnight(TEST_TIME1_UTC, GREGORIAN_PARIS);
-        result = test.withZoneRetainFields(null);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateMidnight(TEST_TIME1_UTC);
-        result = test.withZoneRetainFields(LONDON);
-        assertSame(test, result);
-    }
-
-    public void testWithZoneRetainFields_DateTimeZone_8_oe() {
-        DateMidnight test = new DateMidnight(TEST_TIME1_UTC);
-        DateMidnight result = test.withZoneRetainFields(PARIS);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateMidnight(TEST_TIME1_UTC, GREGORIAN_PARIS);
-        result = test.withZoneRetainFields(null);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        test = new DateMidnight(TEST_TIME1_UTC);
-        result = test.withZoneRetainFields(LONDON);
-        // removed other assertion
-        
-        test = new DateMidnight(TEST_TIME1_UTC);
-        result = test.withZoneRetainFields(null);
-        assertSame(test, result);
     }
 
     public void testWithZoneRetainFields_DateTimeZone_9_oe() {

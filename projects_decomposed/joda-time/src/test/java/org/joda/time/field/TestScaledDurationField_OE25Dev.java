@@ -293,11 +293,6 @@ public class TestScaledDurationField_OE25Dev extends TestCase {
         assertEquals(567L, iField.add(567L, 0));
     }
 
-    public void test_add_long_int_2_oe() {
-        // removed other assertion
-        assertEquals(567L + 1234L * 90L, iField.add(567L, 1234));
-    }
-
     public void test_add_long_int_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -306,11 +301,6 @@ public class TestScaledDurationField_OE25Dev extends TestCase {
 
     public void test_add_long_long_1_oe() {
         assertEquals(567L, iField.add(567L, 0L));
-    }
-
-    public void test_add_long_long_2_oe() {
-        // removed other assertion
-        assertEquals(567L + 1234L * 90L, iField.add(567L, 1234L));
     }
 
     public void test_add_long_long_3_oe() {
@@ -343,11 +333,6 @@ public class TestScaledDurationField_OE25Dev extends TestCase {
 
     public void test_getDifferenceAsLong_long_long_1_oe() {
         assertEquals(0L, iField.getDifferenceAsLong(1L, 0L));
-    }
-
-    public void test_getDifferenceAsLong_long_long_2_oe() {
-        // removed other assertion
-        assertEquals(567L, iField.getDifferenceAsLong(567L * 90L, 0L));
     }
 
     public void test_getDifferenceAsLong_long_long_3_oe() {

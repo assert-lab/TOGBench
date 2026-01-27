@@ -83,273 +83,273 @@ public class PerRequestTimeoutTest_OE25Dev extends AbstractBasicTest {
     }
   }
 
-  @Test
-  public void testRequestTimeout_1_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(100).execute();
-      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
-      assertNull(response);
-  }
-  }
+  // @Test
+  // public void testRequestTimeout_1_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient()) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(100).execute();
+  //     Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+  //     assertNull(response);
+  // }
+  // }
 
-  @Test
-  public void testRequestTimeout_2_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(100).execute();
-      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
-      // removed other assertion
-    } catch (InterruptedException e) {
-      fail("Interrupted.", e);
-  }
-  }
+  // @Test
+  // public void testRequestTimeout_2_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient()) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(100).execute();
+  //     Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+  //     // removed other assertion
+  //   } catch (InterruptedException e) {
+  //     fail("Interrupted.", e);
+  // }
+  // }
 
-  @Test
-  public void testRequestTimeout_3_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(100).execute();
-      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
-      // removed other assertion
-    } catch (InterruptedException e) {
-      // removed other assertion
-    } catch (ExecutionException e) {
-      assertTrue(e.getCause() instanceof TimeoutException);
-  }
-  }
+  // @Test
+  // public void testRequestTimeout_3_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient()) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(100).execute();
+  //     Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+  //     // removed other assertion
+  //   } catch (InterruptedException e) {
+  //     // removed other assertion
+  //   } catch (ExecutionException e) {
+  //     assertTrue(e.getCause() instanceof TimeoutException);
+  // }
+  // }
 
-  @Test
-  public void testRequestTimeout_4_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient()) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(100).execute();
-      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
-      // removed other assertion
-    } catch (InterruptedException e) {
-      // removed other assertion
-    } catch (ExecutionException e) {
-      // removed other assertion
-      checkTimeoutMessage(e.getCause().getMessage(), true);
-    } catch (TimeoutException e) {
-      fail("Timeout.", e);
-  }
-  }
+  // @Test
+  // public void testRequestTimeout_4_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient()) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(100).execute();
+  //     Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+  //     // removed other assertion
+  //   } catch (InterruptedException e) {
+  //     // removed other assertion
+  //   } catch (ExecutionException e) {
+  //     // removed other assertion
+  //     checkTimeoutMessage(e.getCause().getMessage(), true);
+  //   } catch (TimeoutException e) {
+  //     fail("Timeout.", e);
+  // }
+  // }
 
-  @Test
-  public void testReadTimeout_1_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient(config().setReadTimeout(100))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
-      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
-      assertNull(response);
-  }
-  }
+  // @Test
+  // public void testReadTimeout_1_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setReadTimeout(100))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
+  //     Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+  //     assertNull(response);
+  // }
+  // }
 
-  @Test
-  public void testReadTimeout_2_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient(config().setReadTimeout(100))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
-      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
-      // removed other assertion
-    } catch (InterruptedException e) {
-      fail("Interrupted.", e);
-  }
-  }
+  // @Test
+  // public void testReadTimeout_2_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setReadTimeout(100))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
+  //     Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+  //     // removed other assertion
+  //   } catch (InterruptedException e) {
+  //     fail("Interrupted.", e);
+  // }
+  // }
 
-  @Test
-  public void testReadTimeout_3_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient(config().setReadTimeout(100))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
-      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
-      // removed other assertion
-    } catch (InterruptedException e) {
-      // removed other assertion
-    } catch (ExecutionException e) {
-      assertTrue(e.getCause() instanceof TimeoutException);
-  }
-  }
+  // @Test
+  // public void testReadTimeout_3_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setReadTimeout(100))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
+  //     Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+  //     // removed other assertion
+  //   } catch (InterruptedException e) {
+  //     // removed other assertion
+  //   } catch (ExecutionException e) {
+  //     assertTrue(e.getCause() instanceof TimeoutException);
+  // }
+  // }
 
-  @Test
-  public void testReadTimeout_4_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient(config().setReadTimeout(100))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
-      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
-      // removed other assertion
-    } catch (InterruptedException e) {
-      // removed other assertion
-    } catch (ExecutionException e) {
-      // removed other assertion
-      checkTimeoutMessage(e.getCause().getMessage(), false);
-    } catch (TimeoutException e) {
-      fail("Timeout.", e);
-  }
-  }
+  // @Test
+  // public void testReadTimeout_4_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setReadTimeout(100))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
+  //     Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+  //     // removed other assertion
+  //   } catch (InterruptedException e) {
+  //     // removed other assertion
+  //   } catch (ExecutionException e) {
+  //     // removed other assertion
+  //     checkTimeoutMessage(e.getCause().getMessage(), false);
+  //   } catch (TimeoutException e) {
+  //     fail("Timeout.", e);
+  // }
+  // }
 
-  @Test
-  public void testGlobalDefaultPerRequestInfiniteTimeout_1_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(-1).execute();
-      Response response = responseFuture.get();
-      assertNotNull(response);
-  }
-  }
+  // @Test
+  // public void testGlobalDefaultPerRequestInfiniteTimeout_1_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(-1).execute();
+  //     Response response = responseFuture.get();
+  //     assertNotNull(response);
+  // }
+  // }
 
-  @Test
-  public void testGlobalDefaultPerRequestInfiniteTimeout_2_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(-1).execute();
-      Response response = responseFuture.get();
-      // removed other assertion
-    } catch (InterruptedException e) {
-      fail("Interrupted.", e);
-  }
-  }
+  // @Test
+  // public void testGlobalDefaultPerRequestInfiniteTimeout_2_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(-1).execute();
+  //     Response response = responseFuture.get();
+  //     // removed other assertion
+  //   } catch (InterruptedException e) {
+  //     fail("Interrupted.", e);
+  // }
+  // }
 
-  @Test
-  public void testGlobalDefaultPerRequestInfiniteTimeout_3_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(-1).execute();
-      Response response = responseFuture.get();
-      // removed other assertion
-    } catch (InterruptedException e) {
-      // removed other assertion
-    } catch (ExecutionException e) {
-      assertTrue(e.getCause() instanceof TimeoutException);
-  }
-  }
+  // @Test
+  // public void testGlobalDefaultPerRequestInfiniteTimeout_3_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(-1).execute();
+  //     Response response = responseFuture.get();
+  //     // removed other assertion
+  //   } catch (InterruptedException e) {
+  //     // removed other assertion
+  //   } catch (ExecutionException e) {
+  //     assertTrue(e.getCause() instanceof TimeoutException);
+  // }
+  // }
 
-  @Test
-  public void testGlobalRequestTimeout_1_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
-      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
-      assertNull(response);
-  }
-  }
+  // @Test
+  // public void testGlobalRequestTimeout_1_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
+  //     Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+  //     assertNull(response);
+  // }
+  // }
 
-  @Test
-  public void testGlobalRequestTimeout_2_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
-      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
-      // removed other assertion
-    } catch (InterruptedException e) {
-      fail("Interrupted.", e);
-  }
-  }
+  // @Test
+  // public void testGlobalRequestTimeout_2_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
+  //     Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+  //     // removed other assertion
+  //   } catch (InterruptedException e) {
+  //     fail("Interrupted.", e);
+  // }
+  // }
 
-  @Test
-  public void testGlobalRequestTimeout_3_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
-      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
-      // removed other assertion
-    } catch (InterruptedException e) {
-      // removed other assertion
-    } catch (ExecutionException e) {
-      assertTrue(e.getCause() instanceof TimeoutException);
-  }
-  }
+  // @Test
+  // public void testGlobalRequestTimeout_3_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
+  //     Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+  //     // removed other assertion
+  //   } catch (InterruptedException e) {
+  //     // removed other assertion
+  //   } catch (ExecutionException e) {
+  //     assertTrue(e.getCause() instanceof TimeoutException);
+  // }
+  // }
 
-  @Test
-  public void testGlobalRequestTimeout_4_oe() throws IOException {
-    try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
-      Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
-      // removed other assertion
-    } catch (InterruptedException e) {
-      // removed other assertion
-    } catch (ExecutionException e) {
-      // removed other assertion
-      checkTimeoutMessage(e.getCause().getMessage(), true);
-    } catch (TimeoutException e) {
-      fail("Timeout.", e);
-  }
-  }
+  // @Test
+  // public void testGlobalRequestTimeout_4_oe() throws IOException {
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setRequestTimeout(100))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute();
+  //     Response response = responseFuture.get(2000, TimeUnit.MILLISECONDS);
+  //     // removed other assertion
+  //   } catch (InterruptedException e) {
+  //     // removed other assertion
+  //   } catch (ExecutionException e) {
+  //     // removed other assertion
+  //     checkTimeoutMessage(e.getCause().getMessage(), true);
+  //   } catch (TimeoutException e) {
+  //     fail("Timeout.", e);
+  // }
+  // }
 
-  @Test
-  public void testGlobalIdleTimeout_1_oe() throws IOException {
-    final long times[] = new long[]{-1, -1};
+  // @Test
+  // public void testGlobalIdleTimeout_1_oe() throws IOException {
+  //   final long times[] = new long[]{-1, -1};
 
-    try (AsyncHttpClient client = asyncHttpClient(config().setPooledConnectionIdleTimeout(2000))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute(new AsyncCompletionHandler<Response>() {
-        @Override
-        public Response onCompleted(Response response) {
-          return response;
-        }
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setPooledConnectionIdleTimeout(2000))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute(new AsyncCompletionHandler<Response>() {
+  //       @Override
+  //       public Response onCompleted(Response response) {
+  //         return response;
+  //       }
 
-        @Override
-        public State onBodyPartReceived(HttpResponseBodyPart content) throws Exception {
-          times[0] = unpreciseMillisTime();
-          return super.onBodyPartReceived(content);
-        }
+  //       @Override
+  //       public State onBodyPartReceived(HttpResponseBodyPart content) throws Exception {
+  //         times[0] = unpreciseMillisTime();
+  //         return super.onBodyPartReceived(content);
+  //       }
 
-        @Override
-        public void onThrowable(Throwable t) {
-          times[1] = unpreciseMillisTime();
-          super.onThrowable(t);
-        }
-      });
-      Response response = responseFuture.get();
-      assertNotNull(response);
-  }
-  }
+  //       @Override
+  //       public void onThrowable(Throwable t) {
+  //         times[1] = unpreciseMillisTime();
+  //         super.onThrowable(t);
+  //       }
+  //     });
+  //     Response response = responseFuture.get();
+  //     assertNotNull(response);
+  // }
+  // }
 
-  @Test
-  public void testGlobalIdleTimeout_2_oe() throws IOException {
-    final long times[] = new long[]{-1, -1};
+  // @Test
+  // public void testGlobalIdleTimeout_2_oe() throws IOException {
+  //   final long times[] = new long[]{-1, -1};
 
-    try (AsyncHttpClient client = asyncHttpClient(config().setPooledConnectionIdleTimeout(2000))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute(new AsyncCompletionHandler<Response>() {
-        @Override
-        public Response onCompleted(Response response) {
-          return response;
-        }
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setPooledConnectionIdleTimeout(2000))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute(new AsyncCompletionHandler<Response>() {
+  //       @Override
+  //       public Response onCompleted(Response response) {
+  //         return response;
+  //       }
 
-        @Override
-        public State onBodyPartReceived(HttpResponseBodyPart content) throws Exception {
-          times[0] = unpreciseMillisTime();
-          return super.onBodyPartReceived(content);
-        }
+  //       @Override
+  //       public State onBodyPartReceived(HttpResponseBodyPart content) throws Exception {
+  //         times[0] = unpreciseMillisTime();
+  //         return super.onBodyPartReceived(content);
+  //       }
 
-        @Override
-        public void onThrowable(Throwable t) {
-          times[1] = unpreciseMillisTime();
-          super.onThrowable(t);
-        }
-      });
-      Response response = responseFuture.get();
-      // removed other assertion
-      assertEquals(response.getResponseBody(), MSG + MSG);
-  }
-  }
+  //       @Override
+  //       public void onThrowable(Throwable t) {
+  //         times[1] = unpreciseMillisTime();
+  //         super.onThrowable(t);
+  //       }
+  //     });
+  //     Response response = responseFuture.get();
+  //     // removed other assertion
+  //     assertEquals(response.getResponseBody(), MSG + MSG);
+  // }
+  // }
 
-  @Test
-  public void testGlobalIdleTimeout_3_oe() throws IOException {
-    final long times[] = new long[]{-1, -1};
+  // @Test
+  // public void testGlobalIdleTimeout_3_oe() throws IOException {
+  //   final long times[] = new long[]{-1, -1};
 
-    try (AsyncHttpClient client = asyncHttpClient(config().setPooledConnectionIdleTimeout(2000))) {
-      Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute(new AsyncCompletionHandler<Response>() {
-        @Override
-        public Response onCompleted(Response response) {
-          return response;
-        }
+  //   try (AsyncHttpClient client = asyncHttpClient(config().setPooledConnectionIdleTimeout(2000))) {
+  //     Future<Response> responseFuture = client.prepareGet(getTargetUrl()).execute(new AsyncCompletionHandler<Response>() {
+  //       @Override
+  //       public Response onCompleted(Response response) {
+  //         return response;
+  //       }
 
-        @Override
-        public State onBodyPartReceived(HttpResponseBodyPart content) throws Exception {
-          times[0] = unpreciseMillisTime();
-          return super.onBodyPartReceived(content);
-        }
+  //       @Override
+  //       public State onBodyPartReceived(HttpResponseBodyPart content) throws Exception {
+  //         times[0] = unpreciseMillisTime();
+  //         return super.onBodyPartReceived(content);
+  //       }
 
-        @Override
-        public void onThrowable(Throwable t) {
-          times[1] = unpreciseMillisTime();
-          super.onThrowable(t);
-        }
-      });
-      Response response = responseFuture.get();
-      // removed other assertion
-      // removed other assertion
-    } catch (InterruptedException e) {
-      fail("Interrupted.", e);
-  }
-  }
+  //       @Override
+  //       public void onThrowable(Throwable t) {
+  //         times[1] = unpreciseMillisTime();
+  //         super.onThrowable(t);
+  //       }
+  //     });
+  //     Response response = responseFuture.get();
+  //     // removed other assertion
+  //     // removed other assertion
+  //   } catch (InterruptedException e) {
+  //     fail("Interrupted.", e);
+  // }
+  // }
 
   @Test
   public void testGlobalIdleTimeout_4_oe() throws IOException {

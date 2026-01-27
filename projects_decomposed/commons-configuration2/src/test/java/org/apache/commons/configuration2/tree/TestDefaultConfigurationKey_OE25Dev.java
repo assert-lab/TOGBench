@@ -190,6 +190,15 @@ public class TestDefaultConfigurationKey_OE25Dev {
     /**
      * Tests an iteration where the remove() method is called. This is not supported.
      */
+    @Test(expected = UnsupportedOperationException.class)
+    public void testIterateWithRemove() {
+        assertFalse(key.iterator().hasNext());
+        key.append("simple");
+        final DefaultConfigurationKey.KeyIterator it = key.iterator();
+        assertTrue(it.hasNext());
+        assertEquals("simple", it.next());
+        it.remove();
+    }
 
     /**
      * Tests getting and setting the key's length.
@@ -693,25 +702,6 @@ public class TestDefaultConfigurationKey_OE25Dev {
     }
 
     @Test
-    public void testIterate_3_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong key part", "table", it.nextKey());
-    }
-
-    @Test
-    public void testIterate_4_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("No index found", it.hasIndex());
-    }
-
-    @Test
     public void testIterate_5_oe() {
         key.append(TESTKEY);
         final DefaultConfigurationKey.KeyIterator it = key.iterator();
@@ -720,18 +710,6 @@ public class TestDefaultConfigurationKey_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals("Wrong index", 0, it.getIndex());
-    }
-
-    @Test
-    public void testIterate_6_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong key part", "fields", it.nextKey());
     }
 
     @Test
@@ -748,35 +726,6 @@ public class TestDefaultConfigurationKey_OE25Dev {
     }
 
     @Test
-    public void testIterate_8_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong key part", "field", it.nextKey(true));
-    }
-
-    @Test
-    public void testIterate_9_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong index", 1, it.getIndex());
-    }
-
-    @Test
     public void testIterate_10_oe() {
         key.append(TESTKEY);
         final DefaultConfigurationKey.KeyIterator it = key.iterator();
@@ -790,101 +739,6 @@ public class TestDefaultConfigurationKey_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertFalse("Found an attribute", it.isAttribute());
-    }
-
-    @Test
-    public void testIterate_11_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong current key", "field", it.currentKey(true));
-    }
-
-    @Test
-    public void testIterate_12_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong key part", "dataType", it.nextKey());
-    }
-
-    @Test
-    public void testIterate_13_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong decorated key part", "[@dataType]", it.currentKey(true));
-    }
-
-    @Test
-    public void testIterate_14_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("Attribute not found", it.isAttribute());
-    }
-
-    @Test
-    public void testIterate_15_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse("Too many key parts", it.hasNext());
     }
 
     @Test
@@ -907,48 +761,6 @@ public class TestDefaultConfigurationKey_OE25Dev {
         // removed other assertion
         final DefaultConfigurationKey.KeyIterator kit = key.iterator();
         assertEquals("Wrong first part", ".my.elem", kit.nextKey());
-    }
-
-    @Test
-    public void testIterateAlternativeEscapeDelimiter_3_oe() {
-        expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter("\\.").create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append("\\.my\\.elem");
-        key.append("trailing\\.dot\\.");
-        key.append(".strange");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        assertEquals("Wrong second part", "trailing.dot.", kit.nextKey());
-    }
-
-    @Test
-    public void testIterateAlternativeEscapeDelimiter_4_oe() {
-        expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter("\\.").create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append("\\.my\\.elem");
-        key.append("trailing\\.dot\\.");
-        key.append(".strange");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong third part", "strange", kit.nextKey());
-    }
-
-    @Test
-    public void testIterateAlternativeEscapeDelimiter_5_oe() {
-        expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter("\\.").create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append("\\.my\\.elem");
-        key.append("trailing\\.dot\\.");
-        key.append(".strange");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse("Too many parts", kit.hasNext());
     }
 
     @Test
@@ -985,19 +797,6 @@ public class TestDefaultConfigurationKey_OE25Dev {
     }
 
     @Test
-    public void testIterateAttributeEqualsPropertyDelimiter_4_oe() {
-        expressionEngine = new DefaultExpressionEngine(
-            symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append("this.isa.key");
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong second key part", "isa", kit.next());
-    }
-
-    @Test
     public void testIterateAttributeEqualsPropertyDelimiter_5_oe() {
         expressionEngine = new DefaultExpressionEngine(
             symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
@@ -1027,39 +826,6 @@ public class TestDefaultConfigurationKey_OE25Dev {
     }
 
     @Test
-    public void testIterateAttributeEqualsPropertyDelimiter_7_oe() {
-        expressionEngine = new DefaultExpressionEngine(
-            symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append("this.isa.key");
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong third key part", "key", kit.next());
-    }
-
-    @Test
-    public void testIterateAttributeEqualsPropertyDelimiter_8_oe() {
-        expressionEngine = new DefaultExpressionEngine(
-            symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append("this.isa.key");
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("Third part is not an attribute", kit.isAttribute());
-    }
-
-    @Test
     public void testIterateAttributeEqualsPropertyDelimiter_9_oe() {
         expressionEngine = new DefaultExpressionEngine(
             symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
@@ -1075,25 +841,6 @@ public class TestDefaultConfigurationKey_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertTrue("Third part is not a property key", kit.isPropertyKey());
-    }
-
-    @Test
-    public void testIterateAttributeEqualsPropertyDelimiter_10_oe() {
-        expressionEngine = new DefaultExpressionEngine(
-            symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append("this.isa.key");
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong decorated key part", "key", kit.currentKey(true));
     }
 
     @Test
@@ -1115,42 +862,6 @@ public class TestDefaultConfigurationKey_OE25Dev {
     }
 
     @Test
-    public void testIterateEscapedDelimiters_3_oe() {
-        key.append("my..elem");
-        key.append("trailing..dot..");
-        key.append(".strange");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        assertEquals("Wrong second part", "trailing.dot.", kit.nextKey());
-    }
-
-    @Test
-    public void testIterateEscapedDelimiters_4_oe() {
-        key.append("my..elem");
-        key.append("trailing..dot..");
-        key.append(".strange");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong third part", "strange", kit.nextKey());
-    }
-
-    @Test
-    public void testIterateEscapedDelimiters_5_oe() {
-        key.append("my..elem");
-        key.append("trailing..dot..");
-        key.append(".strange");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse("Too many parts", kit.hasNext());
-    }
-
-    @Test
     public void testIterateStrangeKeys_1_oe() {
         key = new DefaultConfigurationKey(expressionEngine, "key.");
         DefaultConfigurationKey.KeyIterator it = key.iterator();
@@ -1163,15 +874,6 @@ public class TestDefaultConfigurationKey_OE25Dev {
         DefaultConfigurationKey.KeyIterator it = key.iterator();
         // removed other assertion
         assertEquals("Wrong key part", "key", it.next());
-    }
-
-    @Test
-    public void testIterateStrangeKeys_3_oe() {
-        key = new DefaultConfigurationKey(expressionEngine, "key.");
-        DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertFalse("Too many key parts", it.hasNext());
     }
 
     @Test
@@ -1220,45 +922,6 @@ public class TestDefaultConfigurationKey_OE25Dev {
         it = key.iterator();
         // removed other assertion
         assertFalse("Index detected in first part", it.hasIndex());
-    }
-
-    @Test
-    public void testIterateStrangeKeys_7_oe() {
-        key = new DefaultConfigurationKey(expressionEngine, "key.");
-        DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        key = new DefaultConfigurationKey(expressionEngine, ".");
-        it = key.iterator();
-        // removed other assertion
-
-        key = new DefaultConfigurationKey(expressionEngine, "key().index()undefined(0).test");
-        it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong second part", "index()undefined", it.nextKey(false));
-    }
-
-    @Test
-    public void testIterateStrangeKeys_8_oe() {
-        key = new DefaultConfigurationKey(expressionEngine, "key.");
-        DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        key = new DefaultConfigurationKey(expressionEngine, ".");
-        it = key.iterator();
-        // removed other assertion
-
-        key = new DefaultConfigurationKey(expressionEngine, "key().index()undefined(0).test");
-        it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("No index detected in second part", it.hasIndex());
     }
 
     @Test
@@ -1386,42 +1049,6 @@ public class TestDefaultConfigurationKey_OE25Dev {
         for (int i = 0; i < parts.length; i++) {
             assertEquals("Wrong key part " + i, parts[i], kit.next());
     }
-    }
-
-    @Test
-    public void testIterateWithoutEscapeDelimiter_3_oe() {
-        expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter(null).create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append("..my..elem.trailing..dot...strange");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        final String[] parts = {"my", "elem", "trailing", "dot", "strange"};
-        for (int i = 0; i < parts.length; i++) {
-            // removed other assertion
-        }
-        assertFalse("Too many parts", kit.hasNext());
-    }
-
-    @Test(expected = UnsupportedOperationException.class)
-    public void testIterateWithRemove_1_oe() {
-        assertFalse(key.iterator().hasNext());
-    }
-
-    @Test(expected = UnsupportedOperationException.class)
-    public void testIterateWithRemove_2_oe() {
-        // removed other assertion
-        key.append("simple");
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        assertTrue(it.hasNext());
-    }
-
-    @Test(expected = UnsupportedOperationException.class)
-    public void testIterateWithRemove_3_oe() {
-        // removed other assertion
-        key.append("simple");
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        assertEquals("simple", it.next());
     }
 
     @Test

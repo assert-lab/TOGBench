@@ -70,6 +70,41 @@ public class TestBaseConfiguration_OE25Dev {
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
     }
 
+    @Test
+    public void testAddProperty() throws Exception {
+        Collection<Object> props = new ArrayList<>();
+        props.add("one");
+        props.add("two,three,four");
+        props.add(new String[] {"5.1", "5.2", "5.3,5.4", "5.5"});
+        props.add("six");
+        config.addProperty("complex.property", props);
+
+        Object val = config.getProperty("complex.property");
+        assertTrue(val instanceof Collection);
+        Collection<?> col = (Collection<?>) val;
+        assertEquals(10, col.size());
+
+        props = new ArrayList<>();
+        props.add("quick");
+        props.add("brown");
+        props.add("fox,jumps");
+        final Object[] data = {"The", props, "over,the", "lazy", "dog."};
+        config.setProperty("complex.property", data);
+        val = config.getProperty("complex.property");
+        assertTrue(val instanceof Collection);
+        col = (Collection<?>) val;
+        final Iterator<?> it = col.iterator();
+        final StringTokenizer tok = new StringTokenizer("The quick brown fox jumps over the lazy dog.", " ");
+        while (tok.hasMoreTokens()) {
+            assertTrue(it.hasNext());
+            assertEquals(tok.nextToken(), it.next());
+        }
+        assertFalse(it.hasNext());
+
+        config.setProperty("complex.property", null);
+        assertFalse(config.containsKey("complex.property"));
+    }
+
     /**
      * Tests cloning a BaseConfiguration.
      */
@@ -300,186 +335,6 @@ public class TestBaseConfiguration_OE25Dev {
     /**
      * Tests the specific size() implementation.
      */
-
-    @Test
-    public void testAddProperty_1_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add("one");
-        props.add("two,three,four");
-        props.add(new String[] {"5.1", "5.2", "5.3,5.4", "5.5"});
-        props.add("six");
-        config.addProperty("complex.property", props);
-
-        Object val = config.getProperty("complex.property");
-        assertTrue(val instanceof Collection);
-    }
-
-    @Test
-    public void testAddProperty_2_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add("one");
-        props.add("two,three,four");
-        props.add(new String[] {"5.1", "5.2", "5.3,5.4", "5.5"});
-        props.add("six");
-        config.addProperty("complex.property", props);
-
-        Object val = config.getProperty("complex.property");
-        // removed other assertion
-        Collection<?> col = (Collection<?>) val;
-        assertEquals(10, col.size());
-    }
-
-    @Test
-    public void testAddProperty_3_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add("one");
-        props.add("two,three,four");
-        props.add(new String[] {"5.1", "5.2", "5.3,5.4", "5.5"});
-        props.add("six");
-        config.addProperty("complex.property", props);
-
-        Object val = config.getProperty("complex.property");
-        // removed other assertion
-        Collection<?> col = (Collection<?>) val;
-        // removed other assertion
-
-        props = new ArrayList<>();
-        props.add("quick");
-        props.add("brown");
-        props.add("fox,jumps");
-        final Object[] data = {"The", props, "over,the", "lazy", "dog."};
-        config.setProperty("complex.property", data);
-        val = config.getProperty("complex.property");
-        assertTrue(val instanceof Collection);
-    }
-
-    @Test
-    public void testAddProperty_4_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add("one");
-        props.add("two,three,four");
-        props.add(new String[] {"5.1", "5.2", "5.3,5.4", "5.5"});
-        props.add("six");
-        config.addProperty("complex.property", props);
-
-        Object val = config.getProperty("complex.property");
-        // removed other assertion
-        Collection<?> col = (Collection<?>) val;
-        // removed other assertion
-
-        props = new ArrayList<>();
-        props.add("quick");
-        props.add("brown");
-        props.add("fox,jumps");
-        final Object[] data = {"The", props, "over,the", "lazy", "dog."};
-        config.setProperty("complex.property", data);
-        val = config.getProperty("complex.property");
-        // removed other assertion
-        col = (Collection<?>) val;
-        final Iterator<?> it = col.iterator();
-        final StringTokenizer tok = new StringTokenizer("The quick brown fox jumps over the lazy dog.", " ");
-        while (tok.hasMoreTokens()) {
-            assertTrue(it.hasNext());
-    }
-    }
-
-    @Test
-    public void testAddProperty_5_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add("one");
-        props.add("two,three,four");
-        props.add(new String[] {"5.1", "5.2", "5.3,5.4", "5.5"});
-        props.add("six");
-        config.addProperty("complex.property", props);
-
-        Object val = config.getProperty("complex.property");
-        // removed other assertion
-        Collection<?> col = (Collection<?>) val;
-        // removed other assertion
-
-        props = new ArrayList<>();
-        props.add("quick");
-        props.add("brown");
-        props.add("fox,jumps");
-        final Object[] data = {"The", props, "over,the", "lazy", "dog."};
-        config.setProperty("complex.property", data);
-        val = config.getProperty("complex.property");
-        // removed other assertion
-        col = (Collection<?>) val;
-        final Iterator<?> it = col.iterator();
-        final StringTokenizer tok = new StringTokenizer("The quick brown fox jumps over the lazy dog.", " ");
-        while (tok.hasMoreTokens()) {
-            // removed other assertion
-            assertEquals(tok.nextToken(), it.next());
-    }
-    }
-
-    @Test
-    public void testAddProperty_6_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add("one");
-        props.add("two,three,four");
-        props.add(new String[] {"5.1", "5.2", "5.3,5.4", "5.5"});
-        props.add("six");
-        config.addProperty("complex.property", props);
-
-        Object val = config.getProperty("complex.property");
-        // removed other assertion
-        Collection<?> col = (Collection<?>) val;
-        // removed other assertion
-
-        props = new ArrayList<>();
-        props.add("quick");
-        props.add("brown");
-        props.add("fox,jumps");
-        final Object[] data = {"The", props, "over,the", "lazy", "dog."};
-        config.setProperty("complex.property", data);
-        val = config.getProperty("complex.property");
-        // removed other assertion
-        col = (Collection<?>) val;
-        final Iterator<?> it = col.iterator();
-        final StringTokenizer tok = new StringTokenizer("The quick brown fox jumps over the lazy dog.", " ");
-        while (tok.hasMoreTokens()) {
-            // removed other assertion
-            // removed other assertion
-        }
-        assertFalse(it.hasNext());
-    }
-
-    @Test
-    public void testAddProperty_7_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add("one");
-        props.add("two,three,four");
-        props.add(new String[] {"5.1", "5.2", "5.3,5.4", "5.5"});
-        props.add("six");
-        config.addProperty("complex.property", props);
-
-        Object val = config.getProperty("complex.property");
-        // removed other assertion
-        Collection<?> col = (Collection<?>) val;
-        // removed other assertion
-
-        props = new ArrayList<>();
-        props.add("quick");
-        props.add("brown");
-        props.add("fox,jumps");
-        final Object[] data = {"The", props, "over,the", "lazy", "dog."};
-        config.setProperty("complex.property", data);
-        val = config.getProperty("complex.property");
-        // removed other assertion
-        col = (Collection<?>) val;
-        final Iterator<?> it = col.iterator();
-        final StringTokenizer tok = new StringTokenizer("The quick brown fox jumps over the lazy dog.", " ");
-        while (tok.hasMoreTokens()) {
-            // removed other assertion
-            // removed other assertion
-        }
-        // removed other assertion
-
-        config.setProperty("complex.property", null);
-        assertFalse(config.containsKey("complex.property"));
-    }
 
     @Test
     public void testClone_1_oe() {

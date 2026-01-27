@@ -528,26 +528,6 @@ public class TestInMemoryNodeModel_OE25Dev {
     }
 
     @Test
-    public void testAddPropertyWithPathNodes_3_oe() {
-        final NodeKeyResolver<ImmutableNode> resolver = createResolver();
-        final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Homer/Ilias"), "location", false,
-            Collections.singleton("locations"));
-        final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
-        EasyMock.expect(resolver.resolveAddKey(ROOT_AUTHORS_TREE, KEY, model.getNodeHandler())).andReturn(addData);
-        EasyMock.replay(resolver);
-        final String[] locations = {"Troja", "Beach", "Olympos"};
-
-        model.addProperty(KEY, Arrays.asList(locations), resolver);
-        final ImmutableNode nodeLocs = nodeForKey(model, "Homer/Ilias/locations");
-        // removed other assertion
-        int idx = 0;
-        for (final ImmutableNode c : nodeLocs) {
-            // removed other assertion
-            assertEquals("Wrong value", locations[idx], c.getValue());
-    }
-    }
-
-    @Test
     public void testAddPropertyWithPathNodes_4_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
         final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, "Homer/Ilias"), "location", false,
@@ -979,92 +959,6 @@ public class TestInMemoryNodeModel_OE25Dev {
             final Matcher m = patternAuthorName.matcher(String.valueOf(node.getValue()));
             assertTrue("Wrong value: " + node.getValue(), m.matches());
     }
-    }
-
-    @Test
-    public void testConcurrentUpdate_2_oe() throws InterruptedException {
-        final NodeKeyResolver<ImmutableNode> resolver = createResolver();
-        final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_AUTHORS_TREE);
-        EasyMock.expect(resolver.resolveAddKey(EasyMock.anyObject(ImmutableNode.class), EasyMock.eq(KEY), EasyMock.anyObject(TreeData.class))).andAnswer(() -> {
-            final ImmutableNode addParent = (ImmutableNode) EasyMock.getCurrentArguments()[0];
-            return new NodeAddData<>(addParent, "name", false, Collections.singleton("author"));
-        }).anyTimes();
-        EasyMock.replay(resolver);
-
-        final CountDownLatch latch = new CountDownLatch(1);
-        final String authorPrefix = "newAuthor";
-        final int threadCount = 32;
-        final Thread[] threads = new Thread[threadCount];
-        for (int i = 0; i < threadCount; i++) {
-            final String authorName = authorPrefix + i;
-            threads[i] = new Thread(() -> {
-                try {
-                    latch.await();
-                    model.addProperty(KEY, Collections.singleton(authorName), resolver);
-                } catch (final InterruptedException iex) {
-                    // ignore
-                }
-            });
-            threads[i].start();
-        }
-        latch.countDown();
-        for (final Thread t : threads) {
-            t.join();
-        }
-
-        final Pattern patternAuthorName = Pattern.compile(Pattern.quote(authorPrefix) + "(\\d+)");
-        final Set<Integer> indices = new HashSet<>();
-        for (int i = 0; i < threadCount; i++) {
-            final ImmutableNode node = nodeForKey(model, "author(" + i + ")/name");
-            final Matcher m = patternAuthorName.matcher(String.valueOf(node.getValue()));
-            // removed other assertion
-            final int idx = Integer.parseInt(m.group(1));
-            assertTrue("Invalid index: " + idx, idx >= 0 && idx < threadCount);
-    }
-    }
-
-    @Test
-    public void testConcurrentUpdate_3_oe() throws InterruptedException {
-        final NodeKeyResolver<ImmutableNode> resolver = createResolver();
-        final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_AUTHORS_TREE);
-        EasyMock.expect(resolver.resolveAddKey(EasyMock.anyObject(ImmutableNode.class), EasyMock.eq(KEY), EasyMock.anyObject(TreeData.class))).andAnswer(() -> {
-            final ImmutableNode addParent = (ImmutableNode) EasyMock.getCurrentArguments()[0];
-            return new NodeAddData<>(addParent, "name", false, Collections.singleton("author"));
-        }).anyTimes();
-        EasyMock.replay(resolver);
-
-        final CountDownLatch latch = new CountDownLatch(1);
-        final String authorPrefix = "newAuthor";
-        final int threadCount = 32;
-        final Thread[] threads = new Thread[threadCount];
-        for (int i = 0; i < threadCount; i++) {
-            final String authorName = authorPrefix + i;
-            threads[i] = new Thread(() -> {
-                try {
-                    latch.await();
-                    model.addProperty(KEY, Collections.singleton(authorName), resolver);
-                } catch (final InterruptedException iex) {
-                    // ignore
-                }
-            });
-            threads[i].start();
-        }
-        latch.countDown();
-        for (final Thread t : threads) {
-            t.join();
-        }
-
-        final Pattern patternAuthorName = Pattern.compile(Pattern.quote(authorPrefix) + "(\\d+)");
-        final Set<Integer> indices = new HashSet<>();
-        for (int i = 0; i < threadCount; i++) {
-            final ImmutableNode node = nodeForKey(model, "author(" + i + ")/name");
-            final Matcher m = patternAuthorName.matcher(String.valueOf(node.getValue()));
-            // removed other assertion
-            final int idx = Integer.parseInt(m.group(1));
-            // removed other assertion
-            indices.add(idx);
-        }
-        assertEquals("Not all authors were created", threadCount, indices.size());
     }
 
     @Test

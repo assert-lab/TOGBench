@@ -2893,12 +2893,6 @@ public class TestMutableDateTime_Basics_OE25Dev extends TestCase {
         assertEquals(ISOChronology.getInstance(PARIS), result.getChronology());
     }
 
-    public void testToDateTime_DateTimeZone_1_oe() {
-        MutableDateTime test = new MutableDateTime(TEST_TIME1);
-        MutableDateTime result = test.toMutableDateTime(LONDON);
-        assertEquals(test.getMillis(), result.getMillis());
-    }
-
     public void testToDateTime_DateTimeZone_2_oe() {
         MutableDateTime test = new MutableDateTime(TEST_TIME1);
         MutableDateTime result = test.toMutableDateTime(LONDON);
@@ -2937,23 +2931,6 @@ public class TestMutableDateTime_Basics_OE25Dev extends TestCase {
         result = test.toMutableDateTime(PARIS);
         // removed other assertion
         assertEquals(PARIS, result.getZone());
-    }
-
-    public void testToDateTime_DateTimeZone_6_oe() {
-        MutableDateTime test = new MutableDateTime(TEST_TIME1);
-        MutableDateTime result = test.toMutableDateTime(LONDON);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        test = new MutableDateTime(TEST_TIME1);
-        result = test.toMutableDateTime(PARIS);
-        // removed other assertion
-        // removed other assertion
-
-        test = new MutableDateTime(TEST_TIME1, GregorianChronology.getInstance(PARIS));
-        result = test.toMutableDateTime((DateTimeZone) null);
-        assertEquals(test.getMillis(), result.getMillis());
     }
 
     public void testToDateTime_DateTimeZone_7_oe() {

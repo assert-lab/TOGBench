@@ -545,26 +545,10 @@ public class TestFileBasedBuilderParameters_OE25Dev {
     }
 
     @Test
-    public void testSetBasePath_2_oe() {
-        final String path = ConfigurationAssert.getTestFile("test.properties").getParentFile().getAbsolutePath();
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertEquals("Wrong path", path, params.getFileHandler().getBasePath());
-    }
-
-    @Test
     public void testSetEncoding_1_oe() {
         final String enc = "ISO-8859-1";
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         assertSame("Wrong result", params, params.setEncoding(enc));
-    }
-
-    @Test
-    public void testSetEncoding_2_oe() {
-        final String enc = "ISO-8859-1";
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertSame("Wrong encoding", enc, params.getFileHandler().getEncoding());
     }
 
     @Test
@@ -575,26 +559,10 @@ public class TestFileBasedBuilderParameters_OE25Dev {
     }
 
     @Test
-    public void testSetFile_2_oe() {
-        final File file = ConfigurationAssert.getTestFile("test.properties").getAbsoluteFile();
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertEquals("Wrong file", file, params.getFileHandler().getFile());
-    }
-
-    @Test
     public void testSetFileName_1_oe() {
         final String name = "testConfig.xml";
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         assertSame("Wrong result", params, params.setFileName(name));
-    }
-
-    @Test
-    public void testSetFileName_2_oe() {
-        final String name = "testConfig.xml";
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertEquals("Wrong name", name, params.getFileHandler().getFileName());
     }
 
     @Test
@@ -606,15 +574,6 @@ public class TestFileBasedBuilderParameters_OE25Dev {
     }
 
     @Test
-    public void testSetFileSystem_2_oe() {
-        final FileSystem fs = EasyMock.createMock(FileSystem.class);
-        EasyMock.replay(fs);
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertSame("Wrong file system", fs, params.getFileHandler().getFileSystem());
-    }
-
-    @Test
     public void testSetLocationStrategy_1_oe() {
         final FileLocationStrategy strat = EasyMock.createMock(FileLocationStrategy.class);
         EasyMock.replay(strat);
@@ -623,27 +582,10 @@ public class TestFileBasedBuilderParameters_OE25Dev {
     }
 
     @Test
-    public void testSetLocationStrategy_2_oe() {
-        final FileLocationStrategy strat = EasyMock.createMock(FileLocationStrategy.class);
-        EasyMock.replay(strat);
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertSame("Wrong location strategy", strat, params.getFileHandler().getLocationStrategy());
-    }
-
-    @Test
     public void testSetPath_1_oe() {
         final String path = ConfigurationAssert.getTestFile("test.properties").getAbsolutePath();
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         assertSame("Wrong result", params, params.setPath(path));
-    }
-
-    @Test
-    public void testSetPath_2_oe() {
-        final String path = ConfigurationAssert.getTestFile("test.properties").getAbsolutePath();
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertEquals("Wrong path", path, params.getFileHandler().getPath());
     }
 
     @Test
@@ -664,16 +606,6 @@ public class TestFileBasedBuilderParameters_OE25Dev {
     }
 
     @Test
-    public void testSetReloadingDetectorFactory_3_oe() {
-        final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
-        EasyMock.replay(factory);
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        // removed other assertion
-        assertSame("Factory not set", factory, params.getReloadingDetectorFactory());
-    }
-
-    @Test
     public void testSetReloadingRefreshDelay_1_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         final Long delay = 10000L;
@@ -681,26 +613,10 @@ public class TestFileBasedBuilderParameters_OE25Dev {
     }
 
     @Test
-    public void testSetReloadingRefreshDelay_2_oe() {
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        final Long delay = 10000L;
-        // removed other assertion
-        assertEquals("Wrong delay", delay, params.getReloadingRefreshDelay());
-    }
-
-    @Test
     public void testSetURL_1_oe() {
         final URL url = ConfigurationAssert.getTestURL("test.properties");
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
         assertSame("Wrong result", params, params.setURL(url));
-    }
-
-    @Test
-    public void testSetURL_2_oe() {
-        final URL url = ConfigurationAssert.getTestURL("test.properties");
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertEquals("Wrong URL", url.toExternalForm(), params.getFileHandler().getURL().toExternalForm());
     }
 
 }

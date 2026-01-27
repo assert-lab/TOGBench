@@ -220,19 +220,6 @@ public class TestReloadingFileBasedConfigurationBuilder_OE25Dev {
     }
 
     @Test
-    public void testReloadingDetectorIsReloadingRequired_2_oe() throws ConfigurationException {
-        final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
-        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
-        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.FALSE);
-        EasyMock.replay(detector);
-        final ReloadingFileBasedConfigurationBuilderTestImpl builder = new ReloadingFileBasedConfigurationBuilderTestImpl(detector);
-        builder.getConfiguration();
-        final ReloadingDetector ctrlDetector = builder.getReloadingController().getDetector();
-        // removed other assertion
-        assertFalse("Wrong result (2)", ctrlDetector.isReloadingRequired());
-    }
-
-    @Test
     public void testReloadingDetectorIsReloadingRequired_3_oe() throws ConfigurationException {
         final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
         EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);

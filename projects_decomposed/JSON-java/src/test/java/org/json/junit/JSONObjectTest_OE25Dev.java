@@ -209,6 +209,42 @@ public class JSONObjectTest_OE25Dev {
      * JSONObject built from a bean. In this case all but one of the 
      * bean getters return valid JSON types
      */
+    @SuppressWarnings("boxing")
+    @Test
+    public void jsonObjectByBean1() {
+        /**
+         * Default access classes have to be mocked since JSONObject, which is
+         * not in the same package, cannot call MyBean methods by reflection.
+         */
+        MyBean myBean = mock(MyBean.class);
+        when(myBean.getDoubleKey()).thenReturn(-23.45e7);
+        when(myBean.getIntKey()).thenReturn(42);
+        when(myBean.getStringKey()).thenReturn("hello world!");
+        when(myBean.getEscapeStringKey()).thenReturn("h\be\tllo w\u1234orld!");
+        when(myBean.isTrueKey()).thenReturn(true);
+        when(myBean.isFalseKey()).thenReturn(false);
+        when(myBean.getStringReaderKey()).thenReturn(
+            new StringReader("") {
+            });
+
+        JSONObject jsonObject = new JSONObject(myBean);
+
+        // validate JSON
+        Object doc = Configuration.defaultConfiguration().jsonProvider().parse(jsonObject.toString());
+        assertTrue("expected 8 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 8);
+        assertTrue("expected 0 items in stringReaderKey", ((Map<?, ?>) (JsonPath.read(doc, "$.stringReaderKey"))).size() == 0);
+        assertTrue("expected true", Boolean.TRUE.equals(jsonObject.query("/trueKey")));
+        assertTrue("expected false", Boolean.FALSE.equals(jsonObject.query("/falseKey")));
+        assertTrue("expected hello world!","hello world!".equals(jsonObject.query("/stringKey")));
+        assertTrue("expected h\be\tllo w\u1234orld!", "h\be\tllo w\u1234orld!".equals(jsonObject.query("/escapeStringKey")));
+        assertTrue("expected 42", Integer.valueOf("42").equals(jsonObject.query("/intKey")));
+        assertTrue("expected -23.45e7", Double.valueOf("-23.45e7").equals(jsonObject.query("/doubleKey")));
+        // sorry, mockito artifact
+        assertTrue("expected 2 callbacks items", ((List<?>)(JsonPath.read(doc, "$.callbacks"))).size() == 2);
+        assertTrue("expected 0 handler items", ((Map<?,?>)(JsonPath.read(doc, "$.callbacks[0].handler"))).size() == 0);
+        assertTrue("expected 0 callbacks[1] items", ((Map<?,?>)(JsonPath.read(doc, "$.callbacks[1]"))).size() == 0);
+        Util.checkJSONObjectMaps(jsonObject);
+    }
 
     /**
      * JSONObject built from a bean that has custom field names.
@@ -638,6 +674,18 @@ public class JSONObjectTest_OE25Dev {
     /**
     * Tests if calling JSONObject clear() method actually makes the JSONObject empty
     */
+    @Test(expected = JSONException.class)
+    public void jsonObjectClearMethodTest() {
+        //Adds random stuff to the JSONObject
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("key1", 123);
+        jsonObject.put("key2", "456");
+        jsonObject.put("key3", new JSONObject());
+        jsonObject.clear(); //Clears the JSONObject
+        assertTrue("expected jsonObject.length() == 0", jsonObject.length() == 0); //Check if its length is 0
+        jsonObject.getInt("key1"); //Should throws org.json.JSONException: JSONObject["asd"] not found
+        Util.checkJSONObjectMaps(jsonObject);
+    }
 
     /**
     * Tests for stack overflow. See https://github.com/stleary/JSON-java/issues/654
@@ -664,6 +712,15 @@ public class JSONObjectTest_OE25Dev {
     /**
     * Tests for stack overflow. See https://github.com/stleary/JSON-java/issues/654
     */
+    @Test(expected = JSONException.class)
+    public void issue654StackOverflowInputWellFormed() {
+        //String input = new String(java.util.Base64.getDecoder().decode(base64Bytes));
+        final InputStream resourceAsStream = JSONObjectTest_OE25Dev.class.getClassLoader().getResourceAsStream("Issue654WellFormedObject.json");
+        JSONTokener tokener = new JSONTokener(resourceAsStream);
+        JSONObject json_input = new JSONObject(tokener);
+        assertNotNull(json_input);
+        fail("Excepected Exception.");
+    }
 
     @Test
     public void verifySimilar_1_oe() {
@@ -2200,328 +2257,6 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertTrue("expected \"doubleKey\":-23.45e67", Double.valueOf("-23.45e67").equals(jsonObject.query("/doubleKey")));
-    }
-
-    @Test
-    public void jsonObjectByBean1_1_oe() {
-        /**
-         * Default access classes have to be mocked since JSONObject, which is
-         * not in the same package, cannot call MyBean methods by reflection.
-         */
-        MyBean myBean = mock(MyBean.class);
-        when(myBean.getDoubleKey()).thenReturn(-23.45e7);
-        when(myBean.getIntKey()).thenReturn(42);
-        when(myBean.getStringKey()).thenReturn("hello world!");
-        when(myBean.getEscapeStringKey()).thenReturn("h\be\tllo w\u1234orld!");
-        when(myBean.isTrueKey()).thenReturn(true);
-        when(myBean.isFalseKey()).thenReturn(false);
-        when(myBean.getStringReaderKey()).thenReturn(
-            new StringReader("") {
-            });
-
-        JSONObject jsonObject = new JSONObject(myBean);
-
-        // validate JSON
-        Object doc = Configuration.defaultConfiguration().jsonProvider().parse(jsonObject.toString());
-        assertTrue("expected 8 top level items", ((Map<?,?>)(JsonPath.read(doc, "$"))).size() == 8);
-    }
-
-    @Test
-    public void jsonObjectByBean1_2_oe() {
-        /**
-         * Default access classes have to be mocked since JSONObject, which is
-         * not in the same package, cannot call MyBean methods by reflection.
-         */
-        MyBean myBean = mock(MyBean.class);
-        when(myBean.getDoubleKey()).thenReturn(-23.45e7);
-        when(myBean.getIntKey()).thenReturn(42);
-        when(myBean.getStringKey()).thenReturn("hello world!");
-        when(myBean.getEscapeStringKey()).thenReturn("h\be\tllo w\u1234orld!");
-        when(myBean.isTrueKey()).thenReturn(true);
-        when(myBean.isFalseKey()).thenReturn(false);
-        when(myBean.getStringReaderKey()).thenReturn(
-            new StringReader("") {
-            });
-
-        JSONObject jsonObject = new JSONObject(myBean);
-
-        // validate JSON
-        Object doc = Configuration.defaultConfiguration().jsonProvider().parse(jsonObject.toString());
-        // removed other assertion
-        assertTrue("expected 0 items in stringReaderKey", ((Map<?, ?>) (JsonPath.read(doc, "$.stringReaderKey"))).size() == 0);
-    }
-
-    @Test
-    public void jsonObjectByBean1_3_oe() {
-        /**
-         * Default access classes have to be mocked since JSONObject, which is
-         * not in the same package, cannot call MyBean methods by reflection.
-         */
-        MyBean myBean = mock(MyBean.class);
-        when(myBean.getDoubleKey()).thenReturn(-23.45e7);
-        when(myBean.getIntKey()).thenReturn(42);
-        when(myBean.getStringKey()).thenReturn("hello world!");
-        when(myBean.getEscapeStringKey()).thenReturn("h\be\tllo w\u1234orld!");
-        when(myBean.isTrueKey()).thenReturn(true);
-        when(myBean.isFalseKey()).thenReturn(false);
-        when(myBean.getStringReaderKey()).thenReturn(
-            new StringReader("") {
-            });
-
-        JSONObject jsonObject = new JSONObject(myBean);
-
-        // validate JSON
-        Object doc = Configuration.defaultConfiguration().jsonProvider().parse(jsonObject.toString());
-        // removed other assertion
-        // removed other assertion
-        assertTrue("expected true", Boolean.TRUE.equals(jsonObject.query("/trueKey")));
-    }
-
-    @Test
-    public void jsonObjectByBean1_4_oe() {
-        /**
-         * Default access classes have to be mocked since JSONObject, which is
-         * not in the same package, cannot call MyBean methods by reflection.
-         */
-        MyBean myBean = mock(MyBean.class);
-        when(myBean.getDoubleKey()).thenReturn(-23.45e7);
-        when(myBean.getIntKey()).thenReturn(42);
-        when(myBean.getStringKey()).thenReturn("hello world!");
-        when(myBean.getEscapeStringKey()).thenReturn("h\be\tllo w\u1234orld!");
-        when(myBean.isTrueKey()).thenReturn(true);
-        when(myBean.isFalseKey()).thenReturn(false);
-        when(myBean.getStringReaderKey()).thenReturn(
-            new StringReader("") {
-            });
-
-        JSONObject jsonObject = new JSONObject(myBean);
-
-        // validate JSON
-        Object doc = Configuration.defaultConfiguration().jsonProvider().parse(jsonObject.toString());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("expected false", Boolean.FALSE.equals(jsonObject.query("/falseKey")));
-    }
-
-    @Test
-    public void jsonObjectByBean1_5_oe() {
-        /**
-         * Default access classes have to be mocked since JSONObject, which is
-         * not in the same package, cannot call MyBean methods by reflection.
-         */
-        MyBean myBean = mock(MyBean.class);
-        when(myBean.getDoubleKey()).thenReturn(-23.45e7);
-        when(myBean.getIntKey()).thenReturn(42);
-        when(myBean.getStringKey()).thenReturn("hello world!");
-        when(myBean.getEscapeStringKey()).thenReturn("h\be\tllo w\u1234orld!");
-        when(myBean.isTrueKey()).thenReturn(true);
-        when(myBean.isFalseKey()).thenReturn(false);
-        when(myBean.getStringReaderKey()).thenReturn(
-            new StringReader("") {
-            });
-
-        JSONObject jsonObject = new JSONObject(myBean);
-
-        // validate JSON
-        Object doc = Configuration.defaultConfiguration().jsonProvider().parse(jsonObject.toString());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("expected hello world!","hello world!".equals(jsonObject.query("/stringKey")));
-    }
-
-    @Test
-    public void jsonObjectByBean1_6_oe() {
-        /**
-         * Default access classes have to be mocked since JSONObject, which is
-         * not in the same package, cannot call MyBean methods by reflection.
-         */
-        MyBean myBean = mock(MyBean.class);
-        when(myBean.getDoubleKey()).thenReturn(-23.45e7);
-        when(myBean.getIntKey()).thenReturn(42);
-        when(myBean.getStringKey()).thenReturn("hello world!");
-        when(myBean.getEscapeStringKey()).thenReturn("h\be\tllo w\u1234orld!");
-        when(myBean.isTrueKey()).thenReturn(true);
-        when(myBean.isFalseKey()).thenReturn(false);
-        when(myBean.getStringReaderKey()).thenReturn(
-            new StringReader("") {
-            });
-
-        JSONObject jsonObject = new JSONObject(myBean);
-
-        // validate JSON
-        Object doc = Configuration.defaultConfiguration().jsonProvider().parse(jsonObject.toString());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("expected h\be\tllo w\u1234orld!", "h\be\tllo w\u1234orld!".equals(jsonObject.query("/escapeStringKey")));
-    }
-
-    @Test
-    public void jsonObjectByBean1_7_oe() {
-        /**
-         * Default access classes have to be mocked since JSONObject, which is
-         * not in the same package, cannot call MyBean methods by reflection.
-         */
-        MyBean myBean = mock(MyBean.class);
-        when(myBean.getDoubleKey()).thenReturn(-23.45e7);
-        when(myBean.getIntKey()).thenReturn(42);
-        when(myBean.getStringKey()).thenReturn("hello world!");
-        when(myBean.getEscapeStringKey()).thenReturn("h\be\tllo w\u1234orld!");
-        when(myBean.isTrueKey()).thenReturn(true);
-        when(myBean.isFalseKey()).thenReturn(false);
-        when(myBean.getStringReaderKey()).thenReturn(
-            new StringReader("") {
-            });
-
-        JSONObject jsonObject = new JSONObject(myBean);
-
-        // validate JSON
-        Object doc = Configuration.defaultConfiguration().jsonProvider().parse(jsonObject.toString());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("expected 42", Integer.valueOf("42").equals(jsonObject.query("/intKey")));
-    }
-
-    @Test
-    public void jsonObjectByBean1_8_oe() {
-        /**
-         * Default access classes have to be mocked since JSONObject, which is
-         * not in the same package, cannot call MyBean methods by reflection.
-         */
-        MyBean myBean = mock(MyBean.class);
-        when(myBean.getDoubleKey()).thenReturn(-23.45e7);
-        when(myBean.getIntKey()).thenReturn(42);
-        when(myBean.getStringKey()).thenReturn("hello world!");
-        when(myBean.getEscapeStringKey()).thenReturn("h\be\tllo w\u1234orld!");
-        when(myBean.isTrueKey()).thenReturn(true);
-        when(myBean.isFalseKey()).thenReturn(false);
-        when(myBean.getStringReaderKey()).thenReturn(
-            new StringReader("") {
-            });
-
-        JSONObject jsonObject = new JSONObject(myBean);
-
-        // validate JSON
-        Object doc = Configuration.defaultConfiguration().jsonProvider().parse(jsonObject.toString());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("expected -23.45e7", Double.valueOf("-23.45e7").equals(jsonObject.query("/doubleKey")));
-    }
-
-    @Test
-    public void jsonObjectByBean1_9_oe() {
-        /**
-         * Default access classes have to be mocked since JSONObject, which is
-         * not in the same package, cannot call MyBean methods by reflection.
-         */
-        MyBean myBean = mock(MyBean.class);
-        when(myBean.getDoubleKey()).thenReturn(-23.45e7);
-        when(myBean.getIntKey()).thenReturn(42);
-        when(myBean.getStringKey()).thenReturn("hello world!");
-        when(myBean.getEscapeStringKey()).thenReturn("h\be\tllo w\u1234orld!");
-        when(myBean.isTrueKey()).thenReturn(true);
-        when(myBean.isFalseKey()).thenReturn(false);
-        when(myBean.getStringReaderKey()).thenReturn(
-            new StringReader("") {
-            });
-
-        JSONObject jsonObject = new JSONObject(myBean);
-
-        // validate JSON
-        Object doc = Configuration.defaultConfiguration().jsonProvider().parse(jsonObject.toString());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // sorry, mockito artifact
-        assertTrue("expected 2 callbacks items", ((List<?>)(JsonPath.read(doc, "$.callbacks"))).size() == 2);
-    }
-
-    @Test
-    public void jsonObjectByBean1_10_oe() {
-        /**
-         * Default access classes have to be mocked since JSONObject, which is
-         * not in the same package, cannot call MyBean methods by reflection.
-         */
-        MyBean myBean = mock(MyBean.class);
-        when(myBean.getDoubleKey()).thenReturn(-23.45e7);
-        when(myBean.getIntKey()).thenReturn(42);
-        when(myBean.getStringKey()).thenReturn("hello world!");
-        when(myBean.getEscapeStringKey()).thenReturn("h\be\tllo w\u1234orld!");
-        when(myBean.isTrueKey()).thenReturn(true);
-        when(myBean.isFalseKey()).thenReturn(false);
-        when(myBean.getStringReaderKey()).thenReturn(
-            new StringReader("") {
-            });
-
-        JSONObject jsonObject = new JSONObject(myBean);
-
-        // validate JSON
-        Object doc = Configuration.defaultConfiguration().jsonProvider().parse(jsonObject.toString());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // sorry, mockito artifact
-        // removed other assertion
-        assertTrue("expected 0 handler items", ((Map<?,?>)(JsonPath.read(doc, "$.callbacks[0].handler"))).size() == 0);
-    }
-
-    @Test
-    public void jsonObjectByBean1_11_oe() {
-        /**
-         * Default access classes have to be mocked since JSONObject, which is
-         * not in the same package, cannot call MyBean methods by reflection.
-         */
-        MyBean myBean = mock(MyBean.class);
-        when(myBean.getDoubleKey()).thenReturn(-23.45e7);
-        when(myBean.getIntKey()).thenReturn(42);
-        when(myBean.getStringKey()).thenReturn("hello world!");
-        when(myBean.getEscapeStringKey()).thenReturn("h\be\tllo w\u1234orld!");
-        when(myBean.isTrueKey()).thenReturn(true);
-        when(myBean.isFalseKey()).thenReturn(false);
-        when(myBean.getStringReaderKey()).thenReturn(
-            new StringReader("") {
-            });
-
-        JSONObject jsonObject = new JSONObject(myBean);
-
-        // validate JSON
-        Object doc = Configuration.defaultConfiguration().jsonProvider().parse(jsonObject.toString());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // sorry, mockito artifact
-        // removed other assertion
-        // removed other assertion
-        assertTrue("expected 0 callbacks[1] items", ((Map<?,?>)(JsonPath.read(doc, "$.callbacks[1]"))).size() == 0);
     }
 
     @Test
@@ -15494,79 +15229,6 @@ public class JSONObjectTest_OE25Dev {
     }
 
     @Test
-    public void toMap_28_oe() {
-        String jsonObjectStr =
-                "{" +
-                "\"key1\":" +
-                    "[1,2," +
-                        "{\"key3\":true}" +
-                    "]," +
-                "\"key2\":" +
-                    "{\"key1\":\"val1\",\"key2\":" +
-                        "{\"key2\":null}," +
-                    "\"key3\":42" +
-                    "}," +
-                "\"key3\":" +
-                    "[" +
-                        "[\"value1\",2.1]" +
-                    "," +
-                        "[null]" +
-                    "]" +
-                "}";
-
-        JSONObject jsonObject = new JSONObject(jsonObjectStr);
-        Map<?,?> map = jsonObject.toMap();
-
-        // removed other assertion
-        // removed other assertion
-
-        List<?> key1List = (List<?>)map.get("key1");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Map<?,?> key1Value3Map = (Map<?,?>)key1List.get(2);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Map<?,?> key2Map = (Map<?,?>)map.get("key2");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        Map<?,?> key2Val2Map = (Map<?,?>)key2Map.get("key2");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        List<?> key3List = (List<?>)map.get("key3");
-        // removed other assertion
-        // removed other assertion
-
-        List<?> key3Val1List = (List<?>)key3List.get(0);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        List<?> key3Val2List = (List<?>)key3List.get(1);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Assert that toMap() is a deep copy
-        jsonObject.getJSONArray("key3").getJSONArray(0).put(0, "still value 1");
-        // removed other assertion
-
-        // assert that the new map is mutable
-        // removed other assertion
-        assertTrue("Map should have 2 elements", map.size() == 2);
-    }
-
-    @Test
     public void testSingletonBean_1_oe() {
         final JSONObject jo = new JSONObject(Singleton.getInstance());
         assertEquals(jo.keySet().toString(), 1, jo.length());
@@ -15633,45 +15295,6 @@ public class JSONObjectTest_OE25Dev {
     }
 
     @Test
-    public void testSingletonBean_7_oe() {
-        final JSONObject jo = new JSONObject(Singleton.getInstance());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // Update the singleton values
-        Singleton.getInstance().setSomeInt(42);
-        Singleton.getInstance().setSomeString("Something");
-        final JSONObject jo2 = new JSONObject(Singleton.getInstance());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // ensure our original jo hasn't changed.
-        assertEquals(0, jo.get("someInt"));
-    }
-
-    @Test
-    public void testSingletonBean_8_oe() {
-        final JSONObject jo = new JSONObject(Singleton.getInstance());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // Update the singleton values
-        Singleton.getInstance().setSomeInt(42);
-        Singleton.getInstance().setSomeString("Something");
-        final JSONObject jo2 = new JSONObject(Singleton.getInstance());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // ensure our original jo hasn't changed.
-        // removed other assertion
-        assertEquals(null, jo.opt("someString"));
-    }
-
-    @Test
     public void testSingletonEnumBean_1_oe() {
         final JSONObject jo = new JSONObject(SingletonEnum.getInstance());
         assertEquals(jo.keySet().toString(), 1, jo.length());
@@ -15735,45 +15358,6 @@ public class JSONObjectTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals("Something", jo2.get("someString"));
-    }
-
-    @Test
-    public void testSingletonEnumBean_7_oe() {
-        final JSONObject jo = new JSONObject(SingletonEnum.getInstance());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // Update the singleton values
-        SingletonEnum.getInstance().setSomeInt(42);
-        SingletonEnum.getInstance().setSomeString("Something");
-        final JSONObject jo2 = new JSONObject(SingletonEnum.getInstance());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // ensure our original jo hasn't changed.
-        assertEquals(0, jo.get("someInt"));
-    }
-
-    @Test
-    public void testSingletonEnumBean_8_oe() {
-        final JSONObject jo = new JSONObject(SingletonEnum.getInstance());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        
-        // Update the singleton values
-        SingletonEnum.getInstance().setSomeInt(42);
-        SingletonEnum.getInstance().setSomeString("Something");
-        final JSONObject jo2 = new JSONObject(SingletonEnum.getInstance());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // ensure our original jo hasn't changed.
-        // removed other assertion
-        assertEquals(null, jo.opt("someString"));
     }
 
     @Test
@@ -16057,17 +15641,6 @@ public class JSONObjectTest_OE25Dev {
     }
 
     @Test(expected = JSONException.class)
-    public void jsonObjectClearMethodTest_1_oe() {
-        //Adds random stuff to the JSONObject
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("key1", 123);
-        jsonObject.put("key2", "456");
-        jsonObject.put("key3", new JSONObject());
-        jsonObject.clear(); //Clears the JSONObject
-        assertTrue("expected jsonObject.length() == 0", jsonObject.length() == 0); //Check if its length is 0;
-    }
-
-    @Test(expected = JSONException.class)
     public void issue654IncorrectNestingNoKey1_1_oe() {
         JSONObject json_input = new JSONObject("{{\"a\":0}}");
         assertNotNull(json_input);
@@ -16089,25 +15662,6 @@ public class JSONObjectTest_OE25Dev {
     @Test(expected = JSONException.class)
     public void issue654IncorrectNestingNoKey2_2_oe() {
         JSONObject json_input = new JSONObject("{[\"a\"]}");
-        // removed other assertion
-        fail("Excepected Exception.");
-    }
-
-    @Test(expected = JSONException.class)
-    public void issue654StackOverflowInputWellFormed_1_oe() {
-        //String input = new String(java.util.Base64.getDecoder().decode(base64Bytes));
-        final InputStream resourceAsStream = JSONObjectTest.class.getClassLoader().getResourceAsStream("Issue654WellFormedObject.json");
-        JSONTokener tokener = new JSONTokener(resourceAsStream);
-        JSONObject json_input = new JSONObject(tokener);
-        assertNotNull(json_input);
-    }
-
-    @Test(expected = JSONException.class)
-    public void issue654StackOverflowInputWellFormed_2_oe() {
-        //String input = new String(java.util.Base64.getDecoder().decode(base64Bytes));
-        final InputStream resourceAsStream = JSONObjectTest.class.getClassLoader().getResourceAsStream("Issue654WellFormedObject.json");
-        JSONTokener tokener = new JSONTokener(resourceAsStream);
-        JSONObject json_input = new JSONObject(tokener);
         // removed other assertion
         fail("Excepected Exception.");
     }

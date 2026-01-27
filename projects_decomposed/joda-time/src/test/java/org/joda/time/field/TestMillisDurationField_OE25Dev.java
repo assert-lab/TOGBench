@@ -230,11 +230,6 @@ public class TestMillisDurationField_OE25Dev extends TestCase {
         assertEquals(567L, MillisDurationField.INSTANCE.add(567L, 0));
     }
 
-    public void test_add_long_int_2_oe() {
-        // removed other assertion
-        assertEquals(567L + 1234L, MillisDurationField.INSTANCE.add(567L, 1234));
-    }
-
     public void test_add_long_int_3_oe() {
         // removed other assertion
         // removed other assertion
@@ -243,11 +238,6 @@ public class TestMillisDurationField_OE25Dev extends TestCase {
 
     public void test_add_long_long_1_oe() {
         assertEquals(567L, MillisDurationField.INSTANCE.add(567L, 0L));
-    }
-
-    public void test_add_long_long_2_oe() {
-        // removed other assertion
-        assertEquals(567L + 1234L, MillisDurationField.INSTANCE.add(567L, 1234L));
     }
 
     public void test_add_long_long_3_oe() {
@@ -273,11 +263,6 @@ public class TestMillisDurationField_OE25Dev extends TestCase {
 
     public void test_getDifferenceAsLong_long_long_1_oe() {
         assertEquals(567L, MillisDurationField.INSTANCE.getDifferenceAsLong(567L, 0L));
-    }
-
-    public void test_getDifferenceAsLong_long_long_2_oe() {
-        // removed other assertion
-        assertEquals(567L - 1234L, MillisDurationField.INSTANCE.getDifferenceAsLong(567L, 1234L));
     }
 
     public void test_getDifferenceAsLong_long_long_3_oe() {

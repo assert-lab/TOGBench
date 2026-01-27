@@ -36,7 +36,7 @@ python3 scripts_trial/3_rebuild_tests.py
 # ./scripts_trial/clean_loop.sh > compile_error_test_files.log
 
 
-./scripts_trial/clean_loop.sh projects_decomposed/commons-configuration2
+# ./scripts_trial/clean_loop.sh projects_decomposed/commons-configuration2
 
 # python3 scripts_trial/test_count.py
 

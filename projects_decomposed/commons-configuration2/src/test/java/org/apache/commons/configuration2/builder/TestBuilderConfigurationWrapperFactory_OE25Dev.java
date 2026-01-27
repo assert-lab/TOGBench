@@ -182,20 +182,6 @@ public class TestBuilderConfigurationWrapperFactory_OE25Dev {
     }
 
     @Test
-    public void testEventSourceSupportBuilder_2_oe() throws ConfigurationException {
-        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
-        final EventListener<ConfigurationEvent> l1 = new EventListenerTestImpl(null);
-        final EventListener<ConfigurationEvent> l2 = new EventListenerTestImpl(null);
-        final BuilderConfigurationWrapperFactory factory = new BuilderConfigurationWrapperFactory(EventSourceSupport.BUILDER);
-        final EventSource src = (EventSource) factory.createBuilderConfigurationWrapper(Configuration.class, builder);
-
-        src.addEventListener(ConfigurationEvent.ANY, l1);
-        src.addEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l2);
-        // removed other assertion
-        assertFalse("Wrong result for non-existing listener", src.removeEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l2));
-    }
-
-    @Test
     public void testEventSourceSupportBuilder_3_oe() throws ConfigurationException {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
         final EventListener<ConfigurationEvent> l1 = new EventListenerTestImpl(null);
@@ -210,24 +196,6 @@ public class TestBuilderConfigurationWrapperFactory_OE25Dev {
         final PropertiesConfiguration config = builder.getConfiguration();
         final Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
         assertTrue("Registered listener not found", listeners.contains(l1));
-    }
-
-    @Test
-    public void testEventSourceSupportBuilder_4_oe() throws ConfigurationException {
-        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
-        final EventListener<ConfigurationEvent> l1 = new EventListenerTestImpl(null);
-        final EventListener<ConfigurationEvent> l2 = new EventListenerTestImpl(null);
-        final BuilderConfigurationWrapperFactory factory = new BuilderConfigurationWrapperFactory(EventSourceSupport.BUILDER);
-        final EventSource src = (EventSource) factory.createBuilderConfigurationWrapper(Configuration.class, builder);
-
-        src.addEventListener(ConfigurationEvent.ANY, l1);
-        src.addEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l2);
-        // removed other assertion
-        // removed other assertion
-        final PropertiesConfiguration config = builder.getConfiguration();
-        final Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
-        // removed other assertion
-        assertFalse("Removed listener still found", listeners.contains(l2));
     }
 
     @Test

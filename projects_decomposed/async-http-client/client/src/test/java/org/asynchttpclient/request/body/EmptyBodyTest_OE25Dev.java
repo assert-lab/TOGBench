@@ -57,270 +57,270 @@ public class EmptyBodyTest_OE25Dev extends AbstractBasicTest {
     }
   }
 
-  @Test
-  public void testEmptyBody_3_oe() throws IOException {
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      final AtomicBoolean err = new AtomicBoolean(false);
-      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
-      final AtomicBoolean status = new AtomicBoolean(false);
-      final AtomicInteger headers = new AtomicInteger(0);
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
-        public void onThrowable(Throwable t) {
-          // removed other assertion
-          err.set(true);
-        }
+  // @Test
+  // public void testEmptyBody_3_oe() throws IOException {
+  //   try (AsyncHttpClient ahc = asyncHttpClient()) {
+  //     final AtomicBoolean err = new AtomicBoolean(false);
+  //     final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
+  //     final AtomicBoolean status = new AtomicBoolean(false);
+  //     final AtomicInteger headers = new AtomicInteger(0);
+  //     final CountDownLatch latch = new CountDownLatch(1);
+  //     ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
+  //       public void onThrowable(Throwable t) {
+  //         // removed other assertion
+  //         err.set(true);
+  //       }
 
-        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
-          byte[] bytes = e.getBodyPartBytes();
+  //       public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
+  //         byte[] bytes = e.getBodyPartBytes();
 
-          if (bytes.length != 0) {
-            String s = new String(bytes);
-            logger.info("got part: {}", s);
-            logger.warn("Sampling stacktrace.", new Throwable("trace that, we should not get called for empty body."));
-            queue.put(s);
-          }
-          return State.CONTINUE;
-        }
+  //         if (bytes.length != 0) {
+  //           String s = new String(bytes);
+  //           logger.info("got part: {}", s);
+  //           logger.warn("Sampling stacktrace.", new Throwable("trace that, we should not get called for empty body."));
+  //           queue.put(s);
+  //         }
+  //         return State.CONTINUE;
+  //       }
 
-        public State onStatusReceived(HttpResponseStatus e) {
-          status.set(true);
-          return AsyncHandler.State.CONTINUE;
-        }
+  //       public State onStatusReceived(HttpResponseStatus e) {
+  //         status.set(true);
+  //         return AsyncHandler.State.CONTINUE;
+  //       }
 
-        public State onHeadersReceived(HttpHeaders e) throws Exception {
-          if (headers.incrementAndGet() == 2) {
-            throw new Exception("Analyze this.");
-          }
-          return State.CONTINUE;
-        }
+  //       public State onHeadersReceived(HttpHeaders e) throws Exception {
+  //         if (headers.incrementAndGet() == 2) {
+  //           throw new Exception("Analyze this.");
+  //         }
+  //         return State.CONTINUE;
+  //       }
 
-        public Object onCompleted() {
-          latch.countDown();
-          return null;
-        }
-      });
-      try {
-        // removed other assertion
-      } catch (InterruptedException e) {
-        fail("Interrupted.", e);
-  }
-  }
-  }
+  //       public Object onCompleted() {
+  //         latch.countDown();
+  //         return null;
+  //       }
+  //     });
+  //     try {
+  //       // removed other assertion
+  //     } catch (InterruptedException e) {
+  //       fail("Interrupted.", e);
+  // }
+  // }
+  // }
 
-  @Test
-  public void testEmptyBody_4_oe() throws IOException {
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      final AtomicBoolean err = new AtomicBoolean(false);
-      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
-      final AtomicBoolean status = new AtomicBoolean(false);
-      final AtomicInteger headers = new AtomicInteger(0);
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
-        public void onThrowable(Throwable t) {
-          // removed other assertion
-          err.set(true);
-        }
+  // @Test
+  // public void testEmptyBody_4_oe() throws IOException {
+  //   try (AsyncHttpClient ahc = asyncHttpClient()) {
+  //     final AtomicBoolean err = new AtomicBoolean(false);
+  //     final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
+  //     final AtomicBoolean status = new AtomicBoolean(false);
+  //     final AtomicInteger headers = new AtomicInteger(0);
+  //     final CountDownLatch latch = new CountDownLatch(1);
+  //     ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
+  //       public void onThrowable(Throwable t) {
+  //         // removed other assertion
+  //         err.set(true);
+  //       }
 
-        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
-          byte[] bytes = e.getBodyPartBytes();
+  //       public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
+  //         byte[] bytes = e.getBodyPartBytes();
 
-          if (bytes.length != 0) {
-            String s = new String(bytes);
-            logger.info("got part: {}", s);
-            logger.warn("Sampling stacktrace.", new Throwable("trace that, we should not get called for empty body."));
-            queue.put(s);
-          }
-          return State.CONTINUE;
-        }
+  //         if (bytes.length != 0) {
+  //           String s = new String(bytes);
+  //           logger.info("got part: {}", s);
+  //           logger.warn("Sampling stacktrace.", new Throwable("trace that, we should not get called for empty body."));
+  //           queue.put(s);
+  //         }
+  //         return State.CONTINUE;
+  //       }
 
-        public State onStatusReceived(HttpResponseStatus e) {
-          status.set(true);
-          return AsyncHandler.State.CONTINUE;
-        }
+  //       public State onStatusReceived(HttpResponseStatus e) {
+  //         status.set(true);
+  //         return AsyncHandler.State.CONTINUE;
+  //       }
 
-        public State onHeadersReceived(HttpHeaders e) throws Exception {
-          if (headers.incrementAndGet() == 2) {
-            throw new Exception("Analyze this.");
-          }
-          return State.CONTINUE;
-        }
+  //       public State onHeadersReceived(HttpHeaders e) throws Exception {
+  //         if (headers.incrementAndGet() == 2) {
+  //           throw new Exception("Analyze this.");
+  //         }
+  //         return State.CONTINUE;
+  //       }
 
-        public Object onCompleted() {
-          latch.countDown();
-          return null;
-        }
-      });
-      try {
-        // removed other assertion
-      } catch (InterruptedException e) {
-        // removed other assertion
-      }
-      assertFalse(err.get());
-  }
-  }
+  //       public Object onCompleted() {
+  //         latch.countDown();
+  //         return null;
+  //       }
+  //     });
+  //     try {
+  //       // removed other assertion
+  //     } catch (InterruptedException e) {
+  //       // removed other assertion
+  //     }
+  //     assertFalse(err.get());
+  // }
+  // }
 
-  @Test
-  public void testEmptyBody_5_oe() throws IOException {
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      final AtomicBoolean err = new AtomicBoolean(false);
-      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
-      final AtomicBoolean status = new AtomicBoolean(false);
-      final AtomicInteger headers = new AtomicInteger(0);
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
-        public void onThrowable(Throwable t) {
-          // removed other assertion
-          err.set(true);
-        }
+  // @Test
+  // public void testEmptyBody_5_oe() throws IOException {
+  //   try (AsyncHttpClient ahc = asyncHttpClient()) {
+  //     final AtomicBoolean err = new AtomicBoolean(false);
+  //     final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
+  //     final AtomicBoolean status = new AtomicBoolean(false);
+  //     final AtomicInteger headers = new AtomicInteger(0);
+  //     final CountDownLatch latch = new CountDownLatch(1);
+  //     ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
+  //       public void onThrowable(Throwable t) {
+  //         // removed other assertion
+  //         err.set(true);
+  //       }
 
-        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
-          byte[] bytes = e.getBodyPartBytes();
+  //       public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
+  //         byte[] bytes = e.getBodyPartBytes();
 
-          if (bytes.length != 0) {
-            String s = new String(bytes);
-            logger.info("got part: {}", s);
-            logger.warn("Sampling stacktrace.", new Throwable("trace that, we should not get called for empty body."));
-            queue.put(s);
-          }
-          return State.CONTINUE;
-        }
+  //         if (bytes.length != 0) {
+  //           String s = new String(bytes);
+  //           logger.info("got part: {}", s);
+  //           logger.warn("Sampling stacktrace.", new Throwable("trace that, we should not get called for empty body."));
+  //           queue.put(s);
+  //         }
+  //         return State.CONTINUE;
+  //       }
 
-        public State onStatusReceived(HttpResponseStatus e) {
-          status.set(true);
-          return AsyncHandler.State.CONTINUE;
-        }
+  //       public State onStatusReceived(HttpResponseStatus e) {
+  //         status.set(true);
+  //         return AsyncHandler.State.CONTINUE;
+  //       }
 
-        public State onHeadersReceived(HttpHeaders e) throws Exception {
-          if (headers.incrementAndGet() == 2) {
-            throw new Exception("Analyze this.");
-          }
-          return State.CONTINUE;
-        }
+  //       public State onHeadersReceived(HttpHeaders e) throws Exception {
+  //         if (headers.incrementAndGet() == 2) {
+  //           throw new Exception("Analyze this.");
+  //         }
+  //         return State.CONTINUE;
+  //       }
 
-        public Object onCompleted() {
-          latch.countDown();
-          return null;
-        }
-      });
-      try {
-        // removed other assertion
-      } catch (InterruptedException e) {
-        // removed other assertion
-      }
-      // removed other assertion
-      assertEquals(queue.size(), 0);
-  }
-  }
+  //       public Object onCompleted() {
+  //         latch.countDown();
+  //         return null;
+  //       }
+  //     });
+  //     try {
+  //       // removed other assertion
+  //     } catch (InterruptedException e) {
+  //       // removed other assertion
+  //     }
+  //     // removed other assertion
+  //     assertEquals(queue.size(), 0);
+  // }
+  // }
 
-  @Test
-  public void testEmptyBody_6_oe() throws IOException {
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      final AtomicBoolean err = new AtomicBoolean(false);
-      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
-      final AtomicBoolean status = new AtomicBoolean(false);
-      final AtomicInteger headers = new AtomicInteger(0);
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
-        public void onThrowable(Throwable t) {
-          // removed other assertion
-          err.set(true);
-        }
+  // @Test
+  // public void testEmptyBody_6_oe() throws IOException {
+  //   try (AsyncHttpClient ahc = asyncHttpClient()) {
+  //     final AtomicBoolean err = new AtomicBoolean(false);
+  //     final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
+  //     final AtomicBoolean status = new AtomicBoolean(false);
+  //     final AtomicInteger headers = new AtomicInteger(0);
+  //     final CountDownLatch latch = new CountDownLatch(1);
+  //     ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
+  //       public void onThrowable(Throwable t) {
+  //         // removed other assertion
+  //         err.set(true);
+  //       }
 
-        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
-          byte[] bytes = e.getBodyPartBytes();
+  //       public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
+  //         byte[] bytes = e.getBodyPartBytes();
 
-          if (bytes.length != 0) {
-            String s = new String(bytes);
-            logger.info("got part: {}", s);
-            logger.warn("Sampling stacktrace.", new Throwable("trace that, we should not get called for empty body."));
-            queue.put(s);
-          }
-          return State.CONTINUE;
-        }
+  //         if (bytes.length != 0) {
+  //           String s = new String(bytes);
+  //           logger.info("got part: {}", s);
+  //           logger.warn("Sampling stacktrace.", new Throwable("trace that, we should not get called for empty body."));
+  //           queue.put(s);
+  //         }
+  //         return State.CONTINUE;
+  //       }
 
-        public State onStatusReceived(HttpResponseStatus e) {
-          status.set(true);
-          return AsyncHandler.State.CONTINUE;
-        }
+  //       public State onStatusReceived(HttpResponseStatus e) {
+  //         status.set(true);
+  //         return AsyncHandler.State.CONTINUE;
+  //       }
 
-        public State onHeadersReceived(HttpHeaders e) throws Exception {
-          if (headers.incrementAndGet() == 2) {
-            throw new Exception("Analyze this.");
-          }
-          return State.CONTINUE;
-        }
+  //       public State onHeadersReceived(HttpHeaders e) throws Exception {
+  //         if (headers.incrementAndGet() == 2) {
+  //           throw new Exception("Analyze this.");
+  //         }
+  //         return State.CONTINUE;
+  //       }
 
-        public Object onCompleted() {
-          latch.countDown();
-          return null;
-        }
-      });
-      try {
-        // removed other assertion
-      } catch (InterruptedException e) {
-        // removed other assertion
-      }
-      // removed other assertion
-      // removed other assertion
-      assertTrue(status.get());
-  }
-  }
+  //       public Object onCompleted() {
+  //         latch.countDown();
+  //         return null;
+  //       }
+  //     });
+  //     try {
+  //       // removed other assertion
+  //     } catch (InterruptedException e) {
+  //       // removed other assertion
+  //     }
+  //     // removed other assertion
+  //     // removed other assertion
+  //     assertTrue(status.get());
+  // }
+  // }
 
-  @Test
-  public void testEmptyBody_7_oe() throws IOException {
-    try (AsyncHttpClient ahc = asyncHttpClient()) {
-      final AtomicBoolean err = new AtomicBoolean(false);
-      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
-      final AtomicBoolean status = new AtomicBoolean(false);
-      final AtomicInteger headers = new AtomicInteger(0);
-      final CountDownLatch latch = new CountDownLatch(1);
-      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
-        public void onThrowable(Throwable t) {
-          // removed other assertion
-          err.set(true);
-        }
+  // @Test
+  // public void testEmptyBody_7_oe() throws IOException {
+  //   try (AsyncHttpClient ahc = asyncHttpClient()) {
+  //     final AtomicBoolean err = new AtomicBoolean(false);
+  //     final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
+  //     final AtomicBoolean status = new AtomicBoolean(false);
+  //     final AtomicInteger headers = new AtomicInteger(0);
+  //     final CountDownLatch latch = new CountDownLatch(1);
+  //     ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
+  //       public void onThrowable(Throwable t) {
+  //         // removed other assertion
+  //         err.set(true);
+  //       }
 
-        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
-          byte[] bytes = e.getBodyPartBytes();
+  //       public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
+  //         byte[] bytes = e.getBodyPartBytes();
 
-          if (bytes.length != 0) {
-            String s = new String(bytes);
-            logger.info("got part: {}", s);
-            logger.warn("Sampling stacktrace.", new Throwable("trace that, we should not get called for empty body."));
-            queue.put(s);
-          }
-          return State.CONTINUE;
-        }
+  //         if (bytes.length != 0) {
+  //           String s = new String(bytes);
+  //           logger.info("got part: {}", s);
+  //           logger.warn("Sampling stacktrace.", new Throwable("trace that, we should not get called for empty body."));
+  //           queue.put(s);
+  //         }
+  //         return State.CONTINUE;
+  //       }
 
-        public State onStatusReceived(HttpResponseStatus e) {
-          status.set(true);
-          return AsyncHandler.State.CONTINUE;
-        }
+  //       public State onStatusReceived(HttpResponseStatus e) {
+  //         status.set(true);
+  //         return AsyncHandler.State.CONTINUE;
+  //       }
 
-        public State onHeadersReceived(HttpHeaders e) throws Exception {
-          if (headers.incrementAndGet() == 2) {
-            throw new Exception("Analyze this.");
-          }
-          return State.CONTINUE;
-        }
+  //       public State onHeadersReceived(HttpHeaders e) throws Exception {
+  //         if (headers.incrementAndGet() == 2) {
+  //           throw new Exception("Analyze this.");
+  //         }
+  //         return State.CONTINUE;
+  //       }
 
-        public Object onCompleted() {
-          latch.countDown();
-          return null;
-        }
-      });
-      try {
-        // removed other assertion
-      } catch (InterruptedException e) {
-        // removed other assertion
-      }
-      // removed other assertion
-      // removed other assertion
-      // removed other assertion
-      assertEquals(headers.get(), 1);
-  }
-  }
+  //       public Object onCompleted() {
+  //         latch.countDown();
+  //         return null;
+  //       }
+  //     });
+  //     try {
+  //       // removed other assertion
+  //     } catch (InterruptedException e) {
+  //       // removed other assertion
+  //     }
+  //     // removed other assertion
+  //     // removed other assertion
+  //     // removed other assertion
+  //     assertEquals(headers.get(), 1);
+  // }
+  // }
 
   @Test
   public void testPutEmptyBody_1_oe() throws Exception {

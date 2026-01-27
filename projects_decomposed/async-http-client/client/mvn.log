@@ -1,42 +1,35 @@
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] ---------------< org.asynchttpclient:async-http-client >----------------
-[INFO] Building Asynchronous Http Client 2.12.3
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- enforcer:1.4.1:enforce (enforce-versions) @ async-http-client ---
-[INFO] 
-[INFO] --- resources:3.0.2:resources (default-resources) @ async-http-client ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 3 resources
-[INFO] 
-[INFO] --- compiler:3.6.1:compile (default-compile) @ async-http-client ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] 
-[INFO] --- resources:3.0.2:testResources (default-testResources) @ async-http-client ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 14 resources
-[INFO] 
-[INFO] --- compiler:3.6.1:testCompile (default-testCompile) @ async-http-client ---
-[INFO] Nothing to compile - all classes are up to date
-[INFO] 
-[INFO] --- surefire:2.19.1:test (default-test) @ async-http-client ---
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------< [0;36morg.asynchttpclient:async-http-client[0;1m >----------------[m
+[[1;34mINFO[m] [1mBuilding Asynchronous Http Client 2.12.3[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:1.4.1:enforce[m [1m(enforce-versions)[m @ [36masync-http-client[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.0.2:resources[m [1m(default-resources)[m @ [36masync-http-client[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 3 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.6.1:compile[m [1m(default-compile)[m @ [36masync-http-client[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.0.2:testResources[m [1m(default-testResources)[m @ [36masync-http-client[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] Copying 14 resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.6.1:testCompile[m [1m(default-testCompile)[m @ [36masync-http-client[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 179 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/target/test-classes
+[[1;34mINFO[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/test/TestUtils.java: Some input files use or override a deprecated API.
+[[1;34mINFO[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/test/TestUtils.java: Recompile with -Xlint:deprecation for details.
+[[1;34mINFO[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/RC1KTest_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
+[[1;34mINFO[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/RC1KTest_OE25Dev.java: Recompile with -Xlint:removal for details.
+[[1;34mINFO[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/reactivestreams/ReactiveStreamsTest.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/reactivestreams/ReactiveStreamsTest.java uses unchecked or unsafe operations.
+[[1;34mINFO[m] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/reactivestreams/ReactiveStreamsTest.java: Recompile with -Xlint:unchecked for details.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.19.1:test[m [1m(default-test)[m @ [36masync-http-client[0;1m ---[m
 
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
 Running TestSuite
-Tests run: 857, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 179.877 sec - in TestSuite
-
-Results :
-
-Tests run: 857, Failures: 0, Errors: 0, Skipped: 0
-
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  03:01 min
-[INFO] Finished at: 2026-01-15T01:01:47-05:00
-[INFO] ------------------------------------------------------------------------

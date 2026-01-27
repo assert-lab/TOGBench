@@ -101,20 +101,6 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
     }
 
     @Test
-    public void testSetValue_5_oe() {
-        final Map<K, V> map = new HashMap<>();
-        map.put((K) "A", (V) "a");
-        map.put((K) "B", (V) "b");
-        map.put((K) "C", (V) "c");
-        Map.Entry<K, V> entry = new TiedMapEntry<>(map, (K) "A");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame("x", entry.getValue());
-    }
-
-    @Test
     public void testSetValue_6_oe() {
         final Map<K, V> map = new HashMap<>();
         map.put((K) "A", (V) "a");
@@ -186,27 +172,6 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         // removed other assertion
         // removed other assertion
         assertSame("B", entry.getKey());
-    }
-
-    @Test
-    public void testSetValue_10_oe() {
-        final Map<K, V> map = new HashMap<>();
-        map.put((K) "A", (V) "a");
-        map.put((K) "B", (V) "b");
-        map.put((K) "C", (V) "c");
-        Map.Entry<K, V> entry = new TiedMapEntry<>(map, (K) "A");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        entry = new TiedMapEntry<>(map, (K) "B");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame("y", entry.getValue());
     }
 
     @Test
@@ -309,34 +274,6 @@ public class TiedMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest<K, V> {
         // removed other assertion
         // removed other assertion
         assertSame("C", entry.getKey());
-    }
-
-    @Test
-    public void testSetValue_15_oe() {
-        final Map<K, V> map = new HashMap<>();
-        map.put((K) "A", (V) "a");
-        map.put((K) "B", (V) "b");
-        map.put((K) "C", (V) "c");
-        Map.Entry<K, V> entry = new TiedMapEntry<>(map, (K) "A");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        entry = new TiedMapEntry<>(map, (K) "B");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        entry = new TiedMapEntry<>(map, (K) "C");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame("z", entry.getValue());
     }
 
 }

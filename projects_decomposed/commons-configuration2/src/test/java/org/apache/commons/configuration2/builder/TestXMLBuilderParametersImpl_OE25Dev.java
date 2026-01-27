@@ -213,35 +213,10 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testSetDocumentBuilder_2_oe() {
-        final DocumentBuilder builder = EasyMock.createMock(DocumentBuilder.class);
-        EasyMock.replay(builder);
-        // removed other assertion
-        assertSame("Builder not in parameters", builder, params.getParameters().get("documentBuilder"));
-    }
-
-    @Test
     public void testSetEntityResolver_1_oe() {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
         EasyMock.replay(resolver);
         assertSame("Wrong result", params, params.setEntityResolver(resolver));
-    }
-
-    @Test
-    public void testSetEntityResolver_2_oe() {
-        final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
-        EasyMock.replay(resolver);
-        // removed other assertion
-        assertSame("Resolver not set", resolver, params.getEntityResolver());
-    }
-
-    @Test
-    public void testSetEntityResolver_3_oe() {
-        final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
-        EasyMock.replay(resolver);
-        // removed other assertion
-        // removed other assertion
-        assertSame("Resolver not in parameters", resolver, params.getParameters().get("entityResolver"));
     }
 
     @Test
@@ -251,21 +226,8 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testSetPublicID_2_oe() {
-        final String pubID = "testPublicID";
-        // removed other assertion
-        assertEquals("ID not in parameters", pubID, params.getParameters().get("publicID"));
-    }
-
-    @Test
     public void testSetSchemaValidation_1_oe() {
         assertSame("Wrong result", params, params.setSchemaValidation(false));
-    }
-
-    @Test
-    public void testSetSchemaValidation_2_oe() {
-        // removed other assertion
-        assertEquals("Flag not in parameters", Boolean.FALSE, params.getParameters().get("schemaValidation"));
     }
 
     @Test
@@ -275,21 +237,8 @@ public class TestXMLBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testSetSystemID_2_oe() {
-        final String sysID = "testSystemID";
-        // removed other assertion
-        assertEquals("ID not in parameters", sysID, params.getParameters().get("systemID"));
-    }
-
-    @Test
     public void testSetValidating_1_oe() {
         assertSame("Wrong result", params, params.setValidating(true));
-    }
-
-    @Test
-    public void testSetValidating_2_oe() {
-        // removed other assertion
-        assertEquals("Flag not in parameters", Boolean.TRUE, params.getParameters().get("validating"));
     }
 
 }

@@ -499,14 +499,6 @@ public class TestBeanHelper_OE25Dev {
     }
 
     @Test
-    public void testDeregisterBeanFactory_2_oe() {
-        final BeanFactory factory = new TestBeanFactory();
-        helper.registerBeanFactory(TEST_FACTORY, factory);
-        // removed other assertion
-        assertTrue("List of factories is not empty", helper.registeredFactoryNames().isEmpty());
-    }
-
-    @Test
     public void testDeregisterBeanFactoryNonExisting_1_oe() {
         assertNull("deregistering non existing factory", helper.deregisterBeanFactory(TEST_FACTORY));
     }

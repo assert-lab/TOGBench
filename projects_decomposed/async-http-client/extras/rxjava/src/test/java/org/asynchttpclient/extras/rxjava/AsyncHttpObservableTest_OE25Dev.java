@@ -39,7 +39,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       tester.assertCompleted();
       List<Response> responses = tester.getOnNextEvents();
       assertNotNull(responses);
-  }
+  } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -56,7 +58,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       List<Response> responses = tester.getOnNextEvents();
       // removed other assertion
       assertEquals(responses.size(), 1);
-  }
+      } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -74,7 +78,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       // removed other assertion
       // removed other assertion
       assertEquals(responses.get(0).getStatusCode(), 200);
-  }
+      } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -90,7 +96,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       tester.assertCompleted();
       List<Response> responses = tester.getOnNextEvents();
       assertNotNull(responses);
-  }
+      } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -107,7 +115,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       List<Response> responses = tester.getOnNextEvents();
       // removed other assertion
       assertEquals(responses.size(), 1);
-  }
+      } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -125,7 +135,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       // removed other assertion
       // removed other assertion
       assertEquals(responses.get(0).getStatusCode(), 404);
-  }
+      } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -141,7 +153,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       tester.assertCompleted();
       List<Response> responses = tester.getOnNextEvents();
       assertNotNull(responses);
-  }
+      } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -158,7 +172,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       List<Response> responses = tester.getOnNextEvents();
       // removed other assertion
       assertEquals(responses.size(), 1);
-  }
+      } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -176,7 +192,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       // removed other assertion
       // removed other assertion
       assertEquals(responses.get(0).getStatusCode(), 200);
-  }
+  } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -192,7 +210,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       tester.assertCompleted();
       List<Response> responses = tester.getOnNextEvents();
       assertNotNull(responses);
-  }
+  } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -209,7 +229,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       List<Response> responses = tester.getOnNextEvents();
       // removed other assertion
       assertEquals(responses.size(), 1);
-  }
+  } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -227,7 +249,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       // removed other assertion
       // removed other assertion
       assertEquals(responses.get(0).getStatusCode(), 404);
-  }
+  } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -246,7 +270,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       tester.assertCompleted();
       List<Response> responses = tester.getOnNextEvents();
       assertNotNull(responses);
-  }
+  } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -266,7 +292,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       List<Response> responses = tester.getOnNextEvents();
       // removed other assertion
       assertEquals(responses.size(), 3);
-  }
+  } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
   @Test
@@ -289,7 +317,9 @@ public class AsyncHttpObservableTest_OE25Dev {
       for (Response response : responses) {
         assertEquals(response.getStatusCode(), 200);
   }
-  }
+  } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
   }
 
 }

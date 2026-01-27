@@ -184,25 +184,10 @@ public class TestMultiFileBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testSetFilePattern_2_oe() {
-        final String pattern = "somePattern";
-        // removed other assertion
-        assertEquals("Pattern not set", pattern, params.getFilePattern());
-    }
-
-    @Test
     public void testSetManagedBuilderParameters_1_oe() {
         final BuilderParameters bp = EasyMock.createMock(BuilderParameters.class);
         EasyMock.replay(bp);
         assertSame("Wrong result", params, params.setManagedBuilderParameters(bp));
-    }
-
-    @Test
-    public void testSetManagedBuilderParameters_2_oe() {
-        final BuilderParameters bp = EasyMock.createMock(BuilderParameters.class);
-        EasyMock.replay(bp);
-        // removed other assertion
-        assertSame("Parameters not set", bp, params.getManagedBuilderParameters());
     }
 
 }

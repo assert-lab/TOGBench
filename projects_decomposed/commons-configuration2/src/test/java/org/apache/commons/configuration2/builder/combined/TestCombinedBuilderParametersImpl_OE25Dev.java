@@ -261,15 +261,6 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testGetChildDefaultParametersManagerSpecific_2_oe() {
-        final DefaultParametersManager manager = EasyMock.createMock(DefaultParametersManager.class);
-        EasyMock.replay(manager);
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        assertSame("Wrong manager", manager, params.getChildDefaultParametersManager());
-    }
-
-    @Test
     public void testGetChildDefaultParametersManagerUndefined_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         assertNotNull("No default manager", params.getChildDefaultParametersManager());
@@ -381,21 +372,6 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testRegisterMissingProviders_2_oe() {
-        final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider3 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final String tagPrefix = "testTag";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        params.registerProvider(tagPrefix, provider1);
-        final Map<String, ConfigurationBuilderProvider> map = new HashMap<>();
-        map.put(tagPrefix, provider2);
-        map.put(tagPrefix + 1, provider3);
-        // removed other assertion
-        assertEquals("Wrong number of providers", 2, params.getProviders().size());
-    }
-
-    @Test
     public void testRegisterMissingProviders_3_oe() {
         final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
         final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
@@ -412,23 +388,6 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testRegisterMissingProviders_4_oe() {
-        final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider3 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final String tagPrefix = "testTag";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        params.registerProvider(tagPrefix, provider1);
-        final Map<String, ConfigurationBuilderProvider> map = new HashMap<>();
-        map.put(tagPrefix, provider2);
-        map.put(tagPrefix + 1, provider3);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame("Wrong provider (2)", provider3, params.providerForTag(tagPrefix + 1));
-    }
-
-    @Test
     public void testRegisterMissingProvidersParams_1_oe() {
         final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
         final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
@@ -440,21 +399,6 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         params2.registerProvider(tagPrefix, provider2);
         params2.registerProvider(tagPrefix + 1, provider3);
         assertSame("Wrong result", params, params.registerMissingProviders(params2));
-    }
-
-    @Test
-    public void testRegisterMissingProvidersParams_2_oe() {
-        final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider3 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final String tagPrefix = "testTag";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        final CombinedBuilderParametersImpl params2 = new CombinedBuilderParametersImpl();
-        params.registerProvider(tagPrefix, provider1);
-        params2.registerProvider(tagPrefix, provider2);
-        params2.registerProvider(tagPrefix + 1, provider3);
-        // removed other assertion
-        assertEquals("Wrong number of providers", 2, params.getProviders().size());
     }
 
     @Test
@@ -474,23 +418,6 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testRegisterMissingProvidersParams_4_oe() {
-        final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider3 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final String tagPrefix = "testTag";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        final CombinedBuilderParametersImpl params2 = new CombinedBuilderParametersImpl();
-        params.registerProvider(tagPrefix, provider1);
-        params2.registerProvider(tagPrefix, provider2);
-        params2.registerProvider(tagPrefix + 1, provider3);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame("Wrong provider (2)", provider3, params.providerForTag(tagPrefix + 1));
-    }
-
-    @Test
     public void testRegisterProvider_1_oe() {
         final ConfigurationBuilderProvider provider = EasyMock.createMock(ConfigurationBuilderProvider.class);
         EasyMock.replay(provider);
@@ -500,54 +427,10 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testRegisterProvider_2_oe() {
-        final ConfigurationBuilderProvider provider = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        EasyMock.replay(provider);
-        final String tagName = "testTag";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        final Map<String, ConfigurationBuilderProvider> providers = params.getProviders();
-        assertEquals("Wrong number of providers", 1, providers.size());
-    }
-
-    @Test
-    public void testRegisterProvider_3_oe() {
-        final ConfigurationBuilderProvider provider = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        EasyMock.replay(provider);
-        final String tagName = "testTag";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        final Map<String, ConfigurationBuilderProvider> providers = params.getProviders();
-        // removed other assertion
-        assertSame("Wrong provider (1)", provider, providers.get(tagName));
-    }
-
-    @Test
-    public void testRegisterProvider_4_oe() {
-        final ConfigurationBuilderProvider provider = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        EasyMock.replay(provider);
-        final String tagName = "testTag";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        final Map<String, ConfigurationBuilderProvider> providers = params.getProviders();
-        // removed other assertion
-        // removed other assertion
-        assertSame("Wrong provider (2)", provider, params.providerForTag(tagName));
-    }
-
-    @Test
     public void testSetBasePath_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         final String basePath = ConfigurationAssert.OUT_DIR.getAbsolutePath();
         assertSame("Wrong result", params, params.setBasePath(basePath));
-    }
-
-    @Test
-    public void testSetBasePath_2_oe() {
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        final String basePath = ConfigurationAssert.OUT_DIR.getAbsolutePath();
-        // removed other assertion
-        assertEquals("Wrong base path", basePath, params.getBasePath());
     }
 
     @Test
@@ -601,29 +484,11 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
     }
 
     @Test
-    public void testSetDefinitionBuilder_3_oe() {
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        final ConfigurationBuilder<XMLConfiguration> builder = new BasicConfigurationBuilder<>(XMLConfiguration.class);
-        // removed other assertion
-        assertSame("Builder was not set", builder, params.getDefinitionBuilder());
-    }
-
-    @Test
     public void testSetDefinitionBuilderParameters_1_oe() {
         final BuilderParameters defparams = EasyMock.createMock(BuilderParameters.class);
         EasyMock.replay(defparams);
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         assertSame("Wrong result", params, params.setDefinitionBuilderParameters(defparams));
-    }
-
-    @Test
-    public void testSetDefinitionBuilderParameters_2_oe() {
-        final BuilderParameters defparams = EasyMock.createMock(BuilderParameters.class);
-        EasyMock.replay(defparams);
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        assertSame("Wrong parameters object", defparams, params.getDefinitionBuilderParameters());
     }
 
     @Test
@@ -637,14 +502,6 @@ public class TestCombinedBuilderParametersImpl_OE25Dev {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
         // removed other assertion
         assertSame("Wrong result", params, params.setInheritSettings(false));
-    }
-
-    @Test
-    public void testSetInheritSettings_3_oe() {
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        // removed other assertion
-        assertFalse("Property not set", params.isInheritSettings());
     }
 
 }

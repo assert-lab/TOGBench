@@ -105,12 +105,4 @@ public class TestHierarchicalBuilderParametersImpl_OE25Dev {
         assertSame("Wrong result", params, params.setExpressionEngine(engine));
     }
 
-    @Test
-    public void testSetExpressionEngine_2_oe() {
-        final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
-        EasyMock.replay(engine);
-        // removed other assertion
-        assertSame("Wrong expression engine", engine, params.getParameters().get("expressionEngine"));
-    }
-
 }

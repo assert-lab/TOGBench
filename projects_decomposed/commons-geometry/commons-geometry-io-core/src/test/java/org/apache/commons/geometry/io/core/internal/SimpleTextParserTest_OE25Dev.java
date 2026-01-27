@@ -1471,16 +1471,16 @@ class SimpleTextParserTest_OE25Dev {
         final Throwable exc = Assertions.assertThrows(IllegalStateException.class, () -> p.getCurrentTokenAsDouble());
     }
 
-    @Test
-    void testGetCurrentTokenAsDouble_includedNumberFormatExceptionOnFailure_2_oe() {
-        // arrange
-        final SimpleTextParser p = parser("abc");
-        p.nextLine();
+    // @Test
+    // void testGetCurrentTokenAsDouble_includedNumberFormatExceptionOnFailure_2_oe() {
+    //     // arrange
+    //     final SimpleTextParser p = parser("abc");
+    //     p.nextLine();
 
-        // act/assert
-        // removed other assertion
-        Assertions.assertEquals(NumberFormatException.class, exc.getCause().getClass());
-    }
+    //     // act/assert
+    //     // removed other assertion
+    //     Assertions.assertEquals(NumberFormatException.class, exc.getCause().getClass());
+    // }
 
     @Test
     void testGetCurrentTokenAsInt_1_oe() {
@@ -1531,16 +1531,16 @@ class SimpleTextParserTest_OE25Dev {
         final Throwable exc = Assertions.assertThrows(IllegalStateException.class, () -> p.getCurrentTokenAsInt());
     }
 
-    @Test
-    void testGetCurrentTokenAsInt_includedNumberFormatExceptionOnFailure_2_oe() {
-        // arrange
-        final SimpleTextParser p = parser("abc");
-        p.nextLine();
+    // @Test
+    // void testGetCurrentTokenAsInt_includedNumberFormatExceptionOnFailure_2_oe() {
+    //     // arrange
+    //     final SimpleTextParser p = parser("abc");
+    //     p.nextLine();
 
-        // act/assert
-        // removed other assertion
-        Assertions.assertEquals(NumberFormatException.class, exc.getCause().getClass());
-    }
+    //     // act/assert
+    //     // removed other assertion
+    //     Assertions.assertEquals(NumberFormatException.class, exc.getCause().getClass());
+    // }
 
     @Test
     void testPeek_lenArg_1_oe() {

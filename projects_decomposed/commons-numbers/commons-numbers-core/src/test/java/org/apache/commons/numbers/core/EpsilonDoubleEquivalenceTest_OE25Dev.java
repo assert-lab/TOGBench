@@ -73,16 +73,16 @@ class EpsilonDoubleEquivalenceTest_OE25Dev {
         msg = Assertions.assertThrows(IllegalArgumentException.class, () -> Precision.doubleEquivalenceOfEpsilon(Double.NaN)).getMessage();
     }
 
-    @Test
-    void testInvalidEpsilonValues_3_oe() {
-        // act/assert
-        // removed other assertion
+    // @Test
+    // void testInvalidEpsilonValues_3_oe() {
+    //     // act/assert
+    //     // removed other assertion
 
-        String msg;
+    //     String msg;
 
-        // removed other assertion
-        Assertions.assertEquals("Invalid epsilon value: NaN", msg);
-    }
+    //     // removed other assertion
+    //     Assertions.assertEquals("Invalid epsilon value: NaN", msg);
+    // }
 
     @Test
     void testInvalidEpsilonValues_4_oe() {
@@ -97,19 +97,19 @@ class EpsilonDoubleEquivalenceTest_OE25Dev {
         msg = Assertions.assertThrows(IllegalArgumentException.class, () -> Precision.doubleEquivalenceOfEpsilon(Double.POSITIVE_INFINITY)).getMessage();
     }
 
-    @Test
-    void testInvalidEpsilonValues_5_oe() {
-        // act/assert
-        // removed other assertion
+    // @Test
+    // void testInvalidEpsilonValues_5_oe() {
+    //     // act/assert
+    //     // removed other assertion
 
-        String msg;
+    //     String msg;
 
-        // removed other assertion
-        // removed other assertion
+    //     // removed other assertion
+    //     // removed other assertion
 
-        // removed other assertion
-        Assertions.assertEquals("Invalid epsilon value: Infinity", msg);
-    }
+    //     // removed other assertion
+    //     Assertions.assertEquals("Invalid epsilon value: Infinity", msg);
+    // }
 
     @Test
     void testInvalidEpsilonValues_6_oe() {
@@ -127,22 +127,22 @@ class EpsilonDoubleEquivalenceTest_OE25Dev {
         msg = Assertions.assertThrows(IllegalArgumentException.class, () -> Precision.doubleEquivalenceOfEpsilon(Double.NEGATIVE_INFINITY)).getMessage();
     }
 
-    @Test
-    void testInvalidEpsilonValues_7_oe() {
-        // act/assert
-        // removed other assertion
+    // @Test
+    // void testInvalidEpsilonValues_7_oe() {
+    //     // act/assert
+    //     // removed other assertion
 
-        String msg;
+    //     String msg;
 
-        // removed other assertion
-        // removed other assertion
+    //     // removed other assertion
+    //     // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
+    //     // removed other assertion
+    //     // removed other assertion
 
-        // removed other assertion
-        Assertions.assertEquals("Invalid epsilon value: -Infinity", msg);
-    }
+    //     // removed other assertion
+    //     Assertions.assertEquals("Invalid epsilon value: -Infinity", msg);
+    // }
 
     @Test
     void testSignum_1_oe() {

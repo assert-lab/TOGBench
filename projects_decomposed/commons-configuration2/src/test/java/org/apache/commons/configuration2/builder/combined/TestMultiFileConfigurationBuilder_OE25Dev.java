@@ -226,59 +226,6 @@ public class TestMultiFileConfigurationBuilder_OE25Dev extends AbstractMultiFile
     }
 
     @Test
-    public void testAddConfigurationListener_4_oe() throws ConfigurationException {
-        final EventListener<ConfigurationEvent> l1 = new EventListenerTestImpl(null);
-        final EventListener<Event> l2 = EasyMock.createMock(EventListener.class);
-        EasyMock.replay(l2);
-        final MultiFileConfigurationBuilder<XMLConfiguration> builder = createTestBuilder(null);
-        builder.addEventListener(ConfigurationEvent.ANY, l1);
-        switchToConfig(1);
-        final XMLConfiguration config = builder.getConfiguration();
-        // removed other assertion
-        builder.addEventListener(Event.ANY, l2);
-        // removed other assertion
-        // removed other assertion
-        assertFalse("Wrong result after removal", builder.removeEventListener(Event.ANY, l2));
-    }
-
-    @Test
-    public void testAddConfigurationListener_5_oe() throws ConfigurationException {
-        final EventListener<ConfigurationEvent> l1 = new EventListenerTestImpl(null);
-        final EventListener<Event> l2 = EasyMock.createMock(EventListener.class);
-        EasyMock.replay(l2);
-        final MultiFileConfigurationBuilder<XMLConfiguration> builder = createTestBuilder(null);
-        builder.addEventListener(ConfigurationEvent.ANY, l1);
-        switchToConfig(1);
-        final XMLConfiguration config = builder.getConfiguration();
-        // removed other assertion
-        builder.addEventListener(Event.ANY, l2);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse("Listener not removed", config.getEventListeners(Event.ANY).contains(l2));
-    }
-
-    @Test
-    public void testAddConfigurationListener_6_oe() throws ConfigurationException {
-        final EventListener<ConfigurationEvent> l1 = new EventListenerTestImpl(null);
-        final EventListener<Event> l2 = EasyMock.createMock(EventListener.class);
-        EasyMock.replay(l2);
-        final MultiFileConfigurationBuilder<XMLConfiguration> builder = createTestBuilder(null);
-        builder.addEventListener(ConfigurationEvent.ANY, l1);
-        switchToConfig(1);
-        final XMLConfiguration config = builder.getConfiguration();
-        // removed other assertion
-        builder.addEventListener(Event.ANY, l2);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        switchToConfig(2);
-        final XMLConfiguration config2 = builder.getConfiguration();
-        assertFalse("Listener not globally removed", config2.getEventListeners(Event.ANY).contains(l2));
-    }
-
-    @Test
     public void testBuilderListenerOtherTypes_1_oe() throws ConfigurationException {
         final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
         final MultiFileConfigurationBuilder<XMLConfiguration> builder = createTestBuilder(null);

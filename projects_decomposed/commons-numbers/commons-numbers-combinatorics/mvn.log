@@ -1,95 +1,98 @@
-[INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-numbers-combinatorics:jar:1.0
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.commons:commons-numbers-core:jar -> version (?) vs ${project.version} @ line 73, column 17
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-[INFO] 
-[INFO] ----------< org.apache.commons:commons-numbers-combinatorics >----------
-[INFO] Building Apache Commons Numbers Combinatorics 1.0
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-[INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-version) @ commons-numbers-combinatorics ---
-[INFO] 
-[INFO] --- enforcer:3.0.0-M3:enforce (enforce-maven-3) @ commons-numbers-combinatorics ---
-[INFO] 
-[INFO] --- apache-rat:0.13:check (rat-check) @ commons-numbers-combinatorics ---
-[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
-[INFO] 
-[INFO] --- build-helper:3.1.0:parse-version (parse-version) @ commons-numbers-combinatorics ---
-[INFO] 
-[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-numbers-combinatorics ---
-[INFO] Executing tasks
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for org.apache.commons:commons-numbers-combinatorics:jar:1.0
+[[1;33mWARNING[m] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: org.apache.commons:commons-numbers-core:jar -> version (?) vs ${project.version} @ line 73, column 17
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------< [0;36morg.apache.commons:commons-numbers-combinatorics[0;1m >----------[m
+[[1;34mINFO[m] [1mBuilding Apache Commons Numbers Combinatorics 1.0[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:3.1.0:clean[m [1m(default-clean)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-combinatorics/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M3:enforce[m [1m(enforce-maven-version)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-enforcer-plugin:3.0.0-M3:enforce[m [1m(enforce-maven-3)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat-plugin:0.13:check[m [1m(rat-check)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mbuild-helper-maven-plugin:3.1.0:parse-version[m [1m(parse-version)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-antrun-plugin:1.8:run[m [1m(javadoc.resources)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] Executing tasks
 
 main:
-[INFO] Executed tasks
-[INFO] 
-[INFO] --- remote-resources:1.7.0:process (process-resource-bundles) @ commons-numbers-combinatorics ---
-[INFO] Skipping remote resources execution.
-[INFO] 
-[INFO] --- buildnumber:1.4:create (default) @ commons-numbers-combinatorics ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-combinatorics' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-combinatorics
-[INFO] Storing buildNumber: b467cf2e4e818b0489514385e833d64c6545dc91 at timestamp: 1768576806138
-[INFO] Storing buildScmBranch: main
-[INFO] 
-[INFO] --- resources:3.1.0:resources (default-resources) @ commons-numbers-combinatorics ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-combinatorics/src/main/resources
-[INFO] Copying 2 resources to META-INF
-[INFO] 
-[INFO] --- compiler:3.8.1:compile (default-compile) @ commons-numbers-combinatorics ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 9 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-combinatorics/target/classes
-[INFO] 
-[INFO] --- bundle:4.2.1:manifest (bundle-manifest) @ commons-numbers-combinatorics ---
-[INFO] 
-[INFO] --- animal-sniffer:1.18:check (checkAPIcompatibility) @ commons-numbers-combinatorics ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- resources:3.1.0:testResources (default-testResources) @ commons-numbers-combinatorics ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-combinatorics/src/test/resources
-[INFO] Copying 2 resources to META-INF
-[INFO] 
-[INFO] --- compiler:3.8.1:testCompile (default-testCompile) @ commons-numbers-combinatorics ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 14 source files to /sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-combinatorics/target/test-classes
-[INFO] 
-[INFO] --- jacoco:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-combinatorics ---
-[INFO] argLine set to -javaagent:/home/wxw9rr/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/sfs/weka/scratch/wxw9rr/OE25-DEV/projects_decomposed/commons-numbers-1.0-src/commons-numbers-combinatorics/target/jacoco.exec
-[INFO] 
-[INFO] --- surefire:2.22.0:test (default-test) @ commons-numbers-combinatorics ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.numbers.combinatorics.BinomialCoefficientDoubleTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.605 s - in org.apache.commons.numbers.combinatorics.BinomialCoefficientDoubleTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.combinatorics.FactorialTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.numbers.combinatorics.FactorialTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.combinatorics.LogFactorialTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.numbers.combinatorics.LogFactorialTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.combinatorics.CombinationsTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.numbers.combinatorics.CombinationsTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.combinatorics.FactorialDoubleTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.combinatorics.FactorialDoubleTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.combinatorics.LogBinomialCoefficientTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.586 s - in org.apache.commons.numbers.combinatorics.LogBinomialCoefficientTest_OE25Dev
-[INFO] Running org.apache.commons.numbers.combinatorics.BinomialCoefficientTest_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.782 s - in org.apache.commons.numbers.combinatorics.BinomialCoefficientTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 85, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  7.838 s
-[INFO] Finished at: 2026-01-16T10:20:13-05:00
-[INFO] ------------------------------------------------------------------------
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-combinatorics/target/apidocs/META-INF
+[[1;34mINFO[m] Executed tasks
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-remote-resources-plugin:1.7.0:process[m [1m(process-resource-bundles)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mbuildnumber-maven-plugin:1.4:create[m [1m(default)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-combinatorics' && 'git' 'rev-parse' '--verify' 'HEAD'
+[[1;34mINFO[m] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-combinatorics
+[[1;34mINFO[m] Storing buildNumber: 4c09e22d8c02f6e925aecd1701912efc953cf025 at timestamp: 1769536330752
+[[1;34mINFO[m] Storing buildScmBranch: jan-22-projects
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:resources[m [1m(default-resources)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-combinatorics/src/main/resources
+[[1;34mINFO[m] Copying 2 resources to META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:compile[m [1m(default-compile)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-combinatorics/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-bundle-plugin:4.2.1:manifest[m [1m(bundle-manifest)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32manimal-sniffer-maven-plugin:1.18:check[m [1m(checkAPIcompatibility)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.1.0:testResources[m [1m(default-testResources)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-combinatorics/src/test/resources
+[[1;34mINFO[m] Copying 2 resources to META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.8.1:testCompile[m [1m(default-testCompile)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 14 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-combinatorics/target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.8.5:prepare-agent[m [1m(prepare-agent)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-combinatorics/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.22.0:test[m [1m(default-test)[m @ [36mcommons-numbers-combinatorics[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running org.apache.commons.numbers.combinatorics.[1mBinomialCoefficientTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m10[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s - in org.apache.commons.numbers.combinatorics.[1mBinomialCoefficientTest[m
+[[1;34mINFO[m] Running org.apache.commons.numbers.combinatorics.[1mLogBinomialCoefficientTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m5[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.134 s - in org.apache.commons.numbers.combinatorics.[1mLogBinomialCoefficientTest[m
+[[1;34mINFO[m] Running org.apache.commons.numbers.combinatorics.[1mBinomialCoefficientDoubleTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m6[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.146 s - in org.apache.commons.numbers.combinatorics.[1mBinomialCoefficientDoubleTest[m
+[[1;34mINFO[m] Running org.apache.commons.numbers.combinatorics.[1mFactorialDoubleTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m12[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.numbers.combinatorics.[1mFactorialDoubleTest[m
+[[1;34mINFO[m] Running org.apache.commons.numbers.combinatorics.[1mFactorialTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m4[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.combinatorics.[1mFactorialTest[m
+[[1;34mINFO[m] Running org.apache.commons.numbers.combinatorics.[1mLogFactorialTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m9[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.numbers.combinatorics.[1mLogFactorialTest[m
+[[1;34mINFO[m] Running org.apache.commons.numbers.combinatorics.[1mCombinationsTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m16[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.numbers.combinatorics.[1mCombinationsTest[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 62, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  2.816 s
+[[1;34mINFO[m] Finished at: 2026-01-27T11:52:13-06:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

@@ -7049,19 +7049,6 @@ public class TestDataConfiguration_OE25Dev {
     }
 
     @Test
-    public void testGetKeys_3_oe() {
-        final Configuration baseconf = new BaseConfiguration();
-        final DataConfiguration conf = new DataConfiguration(baseconf);
-
-        baseconf.setProperty("foo", "bar");
-
-        final Iterator<String> it = conf.getKeys();
-        // removed other assertion
-        // removed other assertion
-        assertFalse("the iterator is not exhausted", it.hasNext());
-    }
-
-    @Test
     public void testGetLocale_1_oe() {
         // language
         conf.setProperty("locale", "fr");

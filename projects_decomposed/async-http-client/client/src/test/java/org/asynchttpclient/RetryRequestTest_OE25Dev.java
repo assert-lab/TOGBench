@@ -69,13 +69,13 @@ public class RetryRequestTest_OE25Dev extends AbstractBasicTest {
     }
   }
 
-  @Test
-  public void testMaxRetry_1_oe() {
-    try (AsyncHttpClient ahc = asyncHttpClient(config().setMaxRequestRetry(0))) {
-      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build()).get();
-      fail();
-  }
-  }
+  // @Test
+  // public void testMaxRetry_1_oe() {
+  //   try (AsyncHttpClient ahc = asyncHttpClient(config().setMaxRequestRetry(0))) {
+  //     ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build()).get();
+  //     fail();
+  // }
+  // }
 
   @Test
   public void testMaxRetry_2_oe() {

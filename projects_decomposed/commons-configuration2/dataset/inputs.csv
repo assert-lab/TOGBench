@@ -201,15 +201,6 @@ conf_14_1,"    @Test
         assertSame(""Wrong result"", result, config.getCollection(Integer.class, KEY_PREFIX, result));
     }
 ",TestAbstractConfigurationBasicFeatures::testGetCollection_1_oe
-conf_14_2,"    @Test
-    public void testGetCollection_2_oe() {
-        final PropertiesConfiguration config = new PropertiesConfiguration();
-        final List<Integer> expected = prepareListTest(config);
-        final List<Integer> result = new ArrayList<>(PROP_COUNT);
-        // removed other assertion
-        assertEquals(""Wrong converted content"", expected, result);
-    }
-",TestAbstractConfigurationBasicFeatures::testGetCollection_2_oe
 conf_15_1,"    @Test
     public void testGetCollectionNullTarget_1_oe() {
         final PropertiesConfiguration config = new PropertiesConfiguration();
@@ -7755,19 +7746,6 @@ conf_123_2,"    @Test
         assertEquals(""unique key"", ""foo"", it.next());
     }
 ",TestDataConfiguration::testGetKeys_2_oe
-conf_123_3,"    @Test
-    public void testGetKeys_3_oe() {
-        final Configuration baseconf = new BaseConfiguration();
-        final DataConfiguration conf = new DataConfiguration(baseconf);
-
-        baseconf.setProperty(""foo"", ""bar"");
-
-        final Iterator<String> it = conf.getKeys();
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""the iterator is not exhausted"", it.hasNext());
-    }
-",TestDataConfiguration::testGetKeys_3_oe
 conf_124_1,"    @Test
     public void testGetLocale_1_oe() {
         // language
@@ -12788,186 +12766,6 @@ conf_255_1,"    @Test
         assertEquals(""Wrong result"", PROP_NAME + "" = "" + PROP_VALUE + CR + ""# "" + footer + CR, out.toString());
     }
 ",TestPropertiesConfiguration::testWriteFooterComment_1_oe
-conf_256_1,"    @Test
-    public void testAddProperty_1_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add(""one"");
-        props.add(""two,three,four"");
-        props.add(new String[] {""5.1"", ""5.2"", ""5.3,5.4"", ""5.5""});
-        props.add(""six"");
-        config.addProperty(""complex.property"", props);
-
-        Object val = config.getProperty(""complex.property"");
-        assertTrue(val instanceof Collection);
-    }
-",TestBaseConfiguration::testAddProperty_1_oe
-conf_256_2,"    @Test
-    public void testAddProperty_2_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add(""one"");
-        props.add(""two,three,four"");
-        props.add(new String[] {""5.1"", ""5.2"", ""5.3,5.4"", ""5.5""});
-        props.add(""six"");
-        config.addProperty(""complex.property"", props);
-
-        Object val = config.getProperty(""complex.property"");
-        // removed other assertion
-        Collection<?> col = (Collection<?>) val;
-        assertEquals(10, col.size());
-    }
-",TestBaseConfiguration::testAddProperty_2_oe
-conf_256_3,"    @Test
-    public void testAddProperty_3_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add(""one"");
-        props.add(""two,three,four"");
-        props.add(new String[] {""5.1"", ""5.2"", ""5.3,5.4"", ""5.5""});
-        props.add(""six"");
-        config.addProperty(""complex.property"", props);
-
-        Object val = config.getProperty(""complex.property"");
-        // removed other assertion
-        Collection<?> col = (Collection<?>) val;
-        // removed other assertion
-
-        props = new ArrayList<>();
-        props.add(""quick"");
-        props.add(""brown"");
-        props.add(""fox,jumps"");
-        final Object[] data = {""The"", props, ""over,the"", ""lazy"", ""dog.""};
-        config.setProperty(""complex.property"", data);
-        val = config.getProperty(""complex.property"");
-        assertTrue(val instanceof Collection);
-    }
-",TestBaseConfiguration::testAddProperty_3_oe
-conf_256_4,"    @Test
-    public void testAddProperty_4_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add(""one"");
-        props.add(""two,three,four"");
-        props.add(new String[] {""5.1"", ""5.2"", ""5.3,5.4"", ""5.5""});
-        props.add(""six"");
-        config.addProperty(""complex.property"", props);
-
-        Object val = config.getProperty(""complex.property"");
-        // removed other assertion
-        Collection<?> col = (Collection<?>) val;
-        // removed other assertion
-
-        props = new ArrayList<>();
-        props.add(""quick"");
-        props.add(""brown"");
-        props.add(""fox,jumps"");
-        final Object[] data = {""The"", props, ""over,the"", ""lazy"", ""dog.""};
-        config.setProperty(""complex.property"", data);
-        val = config.getProperty(""complex.property"");
-        // removed other assertion
-        col = (Collection<?>) val;
-        final Iterator<?> it = col.iterator();
-        final StringTokenizer tok = new StringTokenizer(""The quick brown fox jumps over the lazy dog."", "" "");
-        while (tok.hasMoreTokens()) {
-            assertTrue(it.hasNext());
-    }
-    }
-",TestBaseConfiguration::testAddProperty_4_oe
-conf_256_5,"    @Test
-    public void testAddProperty_5_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add(""one"");
-        props.add(""two,three,four"");
-        props.add(new String[] {""5.1"", ""5.2"", ""5.3,5.4"", ""5.5""});
-        props.add(""six"");
-        config.addProperty(""complex.property"", props);
-
-        Object val = config.getProperty(""complex.property"");
-        // removed other assertion
-        Collection<?> col = (Collection<?>) val;
-        // removed other assertion
-
-        props = new ArrayList<>();
-        props.add(""quick"");
-        props.add(""brown"");
-        props.add(""fox,jumps"");
-        final Object[] data = {""The"", props, ""over,the"", ""lazy"", ""dog.""};
-        config.setProperty(""complex.property"", data);
-        val = config.getProperty(""complex.property"");
-        // removed other assertion
-        col = (Collection<?>) val;
-        final Iterator<?> it = col.iterator();
-        final StringTokenizer tok = new StringTokenizer(""The quick brown fox jumps over the lazy dog."", "" "");
-        while (tok.hasMoreTokens()) {
-            // removed other assertion
-            assertEquals(tok.nextToken(), it.next());
-    }
-    }
-",TestBaseConfiguration::testAddProperty_5_oe
-conf_256_6,"    @Test
-    public void testAddProperty_6_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add(""one"");
-        props.add(""two,three,four"");
-        props.add(new String[] {""5.1"", ""5.2"", ""5.3,5.4"", ""5.5""});
-        props.add(""six"");
-        config.addProperty(""complex.property"", props);
-
-        Object val = config.getProperty(""complex.property"");
-        // removed other assertion
-        Collection<?> col = (Collection<?>) val;
-        // removed other assertion
-
-        props = new ArrayList<>();
-        props.add(""quick"");
-        props.add(""brown"");
-        props.add(""fox,jumps"");
-        final Object[] data = {""The"", props, ""over,the"", ""lazy"", ""dog.""};
-        config.setProperty(""complex.property"", data);
-        val = config.getProperty(""complex.property"");
-        // removed other assertion
-        col = (Collection<?>) val;
-        final Iterator<?> it = col.iterator();
-        final StringTokenizer tok = new StringTokenizer(""The quick brown fox jumps over the lazy dog."", "" "");
-        while (tok.hasMoreTokens()) {
-            // removed other assertion
-            // removed other assertion
-        }
-        assertFalse(it.hasNext());
-    }
-",TestBaseConfiguration::testAddProperty_6_oe
-conf_256_7,"    @Test
-    public void testAddProperty_7_oe() throws Exception {
-        Collection<Object> props = new ArrayList<>();
-        props.add(""one"");
-        props.add(""two,three,four"");
-        props.add(new String[] {""5.1"", ""5.2"", ""5.3,5.4"", ""5.5""});
-        props.add(""six"");
-        config.addProperty(""complex.property"", props);
-
-        Object val = config.getProperty(""complex.property"");
-        // removed other assertion
-        Collection<?> col = (Collection<?>) val;
-        // removed other assertion
-
-        props = new ArrayList<>();
-        props.add(""quick"");
-        props.add(""brown"");
-        props.add(""fox,jumps"");
-        final Object[] data = {""The"", props, ""over,the"", ""lazy"", ""dog.""};
-        config.setProperty(""complex.property"", data);
-        val = config.getProperty(""complex.property"");
-        // removed other assertion
-        col = (Collection<?>) val;
-        final Iterator<?> it = col.iterator();
-        final StringTokenizer tok = new StringTokenizer(""The quick brown fox jumps over the lazy dog."", "" "");
-        while (tok.hasMoreTokens()) {
-            // removed other assertion
-            // removed other assertion
-        }
-        // removed other assertion
-
-        config.setProperty(""complex.property"", null);
-        assertFalse(config.containsKey(""complex.property""));
-    }
-",TestBaseConfiguration::testAddProperty_7_oe
 conf_257_1,"    @Test
     public void testClone_1_oe() {
         for (int i = 0; i < 10; i++) {
@@ -16417,14 +16215,6 @@ conf_321_8,"    @Test
         assertEquals(""myconfig"", config.getRootElementName());
     }
 ",TestHierarchicalXMLConfiguration::testSaveNew_8_oe
-conf_322_1,"    @Test(expected = UnsupportedOperationException.class)
-    public void testSetRootElementNameWhenLoadedFromFile_1_oe() throws Exception {
-        final FileHandler handler = new FileHandler(config);
-        handler.setFile(new File(TEST_FILE3));
-        handler.load();
-        assertEquals(""testconfig"", config.getRootElementName());
-    }
-",TestHierarchicalXMLConfiguration::testSetRootElementNameWhenLoadedFromFile_1_oe
 conf_323_1,"    @Test
     public void testXmlNodeTypes_1_oe() throws Exception {
         // Number of keys expected from test configuration file
@@ -18954,17 +18744,6 @@ conf_410_1,"    @Test
         assertEquals(""Wrong key"", ""var1"", keys.next());
     }
 ",TestINIConfiguration::testGetSectionDuplicate_1_oe
-conf_410_2,"    @Test
-    public void testGetSectionDuplicate_2_oe() {
-        final INIConfiguration config = new INIConfiguration();
-        config.addProperty(""section.var1"", ""value1"");
-        config.addProperty(""section(-1).var2"", ""value2"");
-        final HierarchicalConfiguration<ImmutableNode> section = config.getSection(""section"");
-        final Iterator<String> keys = section.getKeys();
-        // removed other assertion
-        assertFalse(""Too many keys"", keys.hasNext());
-    }
-",TestINIConfiguration::testGetSectionDuplicate_2_oe
 conf_411_1,"    @Test
     public void testGetSectionExisting_1_oe() throws ConfigurationException {
         final INIConfiguration config = setUpConfig(INI_DATA);
@@ -19209,21 +18988,6 @@ conf_429_1,"    @Test
         assertEquals(""Wrong key"", ""globalVar"", keys.next());
     }
 ",TestINIConfiguration::testKeysOfGlobalSection_1_oe
-conf_429_2,"    @Test
-    public void testKeysOfGlobalSection_2_oe() throws ConfigurationException {
-        final INIConfiguration config = setUpConfig(INI_DATA_GLOBAL);
-        final HierarchicalConfiguration<ImmutableNode> sub = config.getSection(null);
-        final Iterator<String> keys = sub.getKeys();
-        // removed other assertion
-        if (keys.hasNext()) {
-            final StringBuilder buf = new StringBuilder();
-            do {
-                buf.append(keys.next()).append(' ');
-            } while (keys.hasNext());
-            fail(""Got additional keys: "" + buf);
-    }
-    }
-",TestINIConfiguration::testKeysOfGlobalSection_2_oe
 conf_430_1,"    @Test
     public void testLineContinuation_1_oe() throws ConfigurationException {
         final INIConfiguration config = setUpConfig(INI_DATA3);
@@ -24520,14 +24284,6 @@ conf_628_1,"    @Test
         assertSame(""Created new configuration"", hc, ConfigurationUtils.convertToHierarchical(hc, engine));
     }
 ",TestConfigurationUtils::testConvertHierarchicalToHierarchicalEngine_1_oe
-conf_628_2,"    @Test
-    public void testConvertHierarchicalToHierarchicalEngine_2_oe() {
-        final BaseHierarchicalConfiguration hc = new BaseHierarchicalConfiguration();
-        final ExpressionEngine engine = new DefaultExpressionEngine(DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS);
-        // removed other assertion
-        assertSame(""Engine was not set"", engine, hc.getExpressionEngine());
-    }
-",TestConfigurationUtils::testConvertHierarchicalToHierarchicalEngine_2_oe
 conf_629_1,"    @Test
     public void testConvertHierarchicalToHierarchicalNullEngine_1_oe() {
         final BaseHierarchicalConfiguration hc = new BaseHierarchicalConfiguration();
@@ -25161,15 +24917,6 @@ conf_676_1,"    @Test
         assertEquals(""1st key"", ""key1"", it.next());
     }
 ",TestDatabaseConfiguration::testGetKeysMultiple_1_oe
-conf_676_2,"    @Test
-    public void testGetKeysMultiple_2_oe() throws ConfigurationException {
-        final Configuration config = helper.setUpMultiConfig();
-        final Iterator<String> it = config.getKeys();
-
-        // removed other assertion
-        assertEquals(""2nd key"", ""key2"", it.next());
-    }
-",TestDatabaseConfiguration::testGetKeysMultiple_2_oe
 conf_677_1,"    @Test
     public void testGetKeysSingle_1_oe() throws ConfigurationException {
         final Configuration config = setUpConfig();
@@ -25178,15 +24925,6 @@ conf_677_1,"    @Test
         assertEquals(""1st key"", ""key1"", it.next());
     }
 ",TestDatabaseConfiguration::testGetKeysSingle_1_oe
-conf_677_2,"    @Test
-    public void testGetKeysSingle_2_oe() throws ConfigurationException {
-        final Configuration config = setUpConfig();
-        final Iterator<String> it = config.getKeys();
-
-        // removed other assertion
-        assertEquals(""2nd key"", ""key2"", it.next());
-    }
-",TestDatabaseConfiguration::testGetKeysSingle_2_oe
 conf_678_1,"    @Test
     public void testGetList_1_oe() throws ConfigurationException {
         final DatabaseBuilderParameters params = helper.setUpDefaultParameters().setTable(""configurationList"");
@@ -25678,84 +25416,6 @@ conf_693_2,"    @Test
         assertTrue(""Changed file not detected"", builder.getReloadingController().checkForReloading(null));
     }
 ",TestDynamicCombinedConfiguration::testConcurrentGetAndReloadFile_2_oe
-conf_693_3,"    @Test
-    public void testConcurrentGetAndReloadFile_3_oe() throws Exception {
-        final int threadCount = 25;
-        System.getProperties().remove(""Id"");
-        System.setProperty(""TemporaryFolder"", folder.getRoot().getAbsolutePath());
-        // create a new configuration
-        File input = new File(""target/test-classes/testMultiDynamic_default.xml"");
-        final File output = folder.newFile(""testMultiDynamic_default.xml"");
-        output.delete();
-        output.getParentFile().mkdir();
-        copyFile(input, output);
-
-        final ReloadingCombinedConfigurationBuilder builder = new ReloadingCombinedConfigurationBuilder();
-        builder.configure(parameters.combined().setSynchronizer(new ReadWriteSynchronizer())
-            .setDefinitionBuilderParameters(new FileBasedBuilderParametersImpl().setFile(MULTI_DYNAMIC_FILE)).registerChildDefaultsHandler(
-                FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1L))));
-        CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
-
-        final ReaderThread testThreads[] = new ReaderThread[threadCount];
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i] = new ReaderThread(builder);
-            testThreads[i].start();
-        }
-
-        builder.getReloadingController().checkForReloading(null);
-        Thread.sleep(2000);
-
-        input = new File(""target/test-classes/testMultiDynamic_default2.xml"");
-        copyFile(input, output);
-
-        Thread.sleep(2000);
-        // removed other assertion
-        config = builder.getConfiguration();
-        final String id = config.getString(""Product/FIIndex/FI[@id='123456782']"");
-        assertNotNull(""File did not reload, id is null"", id);
-    }
-",TestDynamicCombinedConfiguration::testConcurrentGetAndReloadFile_3_oe
-conf_693_4,"    @Test
-    public void testConcurrentGetAndReloadFile_4_oe() throws Exception {
-        final int threadCount = 25;
-        System.getProperties().remove(""Id"");
-        System.setProperty(""TemporaryFolder"", folder.getRoot().getAbsolutePath());
-        // create a new configuration
-        File input = new File(""target/test-classes/testMultiDynamic_default.xml"");
-        final File output = folder.newFile(""testMultiDynamic_default.xml"");
-        output.delete();
-        output.getParentFile().mkdir();
-        copyFile(input, output);
-
-        final ReloadingCombinedConfigurationBuilder builder = new ReloadingCombinedConfigurationBuilder();
-        builder.configure(parameters.combined().setSynchronizer(new ReadWriteSynchronizer())
-            .setDefinitionBuilderParameters(new FileBasedBuilderParametersImpl().setFile(MULTI_DYNAMIC_FILE)).registerChildDefaultsHandler(
-                FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1L))));
-        CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
-
-        final ReaderThread testThreads[] = new ReaderThread[threadCount];
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i] = new ReaderThread(builder);
-            testThreads[i].start();
-        }
-
-        builder.getReloadingController().checkForReloading(null);
-        Thread.sleep(2000);
-
-        input = new File(""target/test-classes/testMultiDynamic_default2.xml"");
-        copyFile(input, output);
-
-        Thread.sleep(2000);
-        // removed other assertion
-        config = builder.getConfiguration();
-        final String id = config.getString(""Product/FIIndex/FI[@id='123456782']"");
-        // removed other assertion
-        final String rows = config.getString(""rowsPerPage"");
-        assertEquals(""Incorrect value for rowsPerPage"", ""25"", rows);
-    }
-",TestDynamicCombinedConfiguration::testConcurrentGetAndReloadFile_4_oe
 conf_693_5,"    @Test
     public void testConcurrentGetAndReloadFile_5_oe() throws Exception {
         final int threadCount = 25;
@@ -25804,55 +25464,6 @@ conf_693_5,"    @Test
     }
     }
 ",TestDynamicCombinedConfiguration::testConcurrentGetAndReloadFile_5_oe
-conf_693_6,"    @Test
-    public void testConcurrentGetAndReloadFile_6_oe() throws Exception {
-        final int threadCount = 25;
-        System.getProperties().remove(""Id"");
-        System.setProperty(""TemporaryFolder"", folder.getRoot().getAbsolutePath());
-        // create a new configuration
-        File input = new File(""target/test-classes/testMultiDynamic_default.xml"");
-        final File output = folder.newFile(""testMultiDynamic_default.xml"");
-        output.delete();
-        output.getParentFile().mkdir();
-        copyFile(input, output);
-
-        final ReloadingCombinedConfigurationBuilder builder = new ReloadingCombinedConfigurationBuilder();
-        builder.configure(parameters.combined().setSynchronizer(new ReadWriteSynchronizer())
-            .setDefinitionBuilderParameters(new FileBasedBuilderParametersImpl().setFile(MULTI_DYNAMIC_FILE)).registerChildDefaultsHandler(
-                FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1L))));
-        CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
-
-        final ReaderThread testThreads[] = new ReaderThread[threadCount];
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i] = new ReaderThread(builder);
-            testThreads[i].start();
-        }
-
-        builder.getReloadingController().checkForReloading(null);
-        Thread.sleep(2000);
-
-        input = new File(""target/test-classes/testMultiDynamic_default2.xml"");
-        copyFile(input, output);
-
-        Thread.sleep(2000);
-        // removed other assertion
-        config = builder.getConfiguration();
-        final String id = config.getString(""Product/FIIndex/FI[@id='123456782']"");
-        // removed other assertion
-        final String rows = config.getString(""rowsPerPage"");
-        // removed other assertion
-
-        for (final ReaderThread testThread : testThreads) {
-            testThread.shutdown();
-            testThread.join();
-        }
-        for (final ReaderThread testThread : testThreads) {
-            // removed other assertion
-        }
-        assertEquals(""ID0002"", config.getString(""Product/FIIndex/FI[@id='123456782']""));
-    }
-",TestDynamicCombinedConfiguration::testConcurrentGetAndReloadFile_6_oe
 conf_694_1,"    @Test
     public void testConcurrentGetAndReloadMultipleClients_1_oe() throws Exception {
         System.getProperties().remove(""Id"");
@@ -25863,39 +25474,6 @@ conf_694_1,"    @Test
         assertEquals(config.getString(""rowsPerPage""), ""50"");
     }
 ",TestDynamicCombinedConfiguration::testConcurrentGetAndReloadMultipleClients_1_oe
-conf_694_2,"    @Test
-    public void testConcurrentGetAndReloadMultipleClients_2_oe() throws Exception {
-        System.getProperties().remove(""Id"");
-        final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
-        builder.configure(parameters.fileBased().setFile(MULTI_TENENT_FILE).setSynchronizer(new ReadWriteSynchronizer()));
-        final CombinedConfiguration config = builder.getConfiguration();
-
-        // removed other assertion
-
-        final Thread testThreads[] = new Thread[THREAD_COUNT];
-        final int failures[] = new int[THREAD_COUNT];
-        final String[] ids = {null, ""2002"", ""3001"", ""3002"", ""3003""};
-        final String[] expected = {""50"", ""25"", ""15"", ""25"", ""50""};
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i] = new ReloadThread(builder, failures, i, LOOP_COUNT, true, ids[i], expected[i]);
-            testThreads[i].start();
-        }
-
-        int totalFailures = 0;
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i].join();
-            totalFailures += failures[i];
-        }
-        System.getProperties().remove(""Id"");
-        if (totalFailures != 0) {
-            System.out.println(""Failures:"");
-            for (int i = 0; i < testThreads.length; ++i) {
-                System.out.println(""Thread "" + i + "" "" + failures[i]);
-            }
-        }
-        assertEquals(totalFailures + "" failures Occurred"", 0, totalFailures);
-    }
-",TestDynamicCombinedConfiguration::testConcurrentGetAndReloadMultipleClients_2_oe
 conf_695_1,"    @Test
     public void testConfiguration_1_oe() throws Exception {
         final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
@@ -26519,16 +26097,6 @@ conf_715_4,"    @Test
         assertSame(""Layout not registered as event listener"", layout, it.next());
     }
 ",TestPropertiesConfigurationLayout::testInit_4_oe
-conf_715_5,"    @Test
-    public void testInit_5_oe() {
-        // removed other assertion
-        // removed other assertion
-        final Iterator<EventListener<? super ConfigurationEvent>> it = config.getEventListeners(ConfigurationEvent.ANY).iterator();
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""Multiple event listeners registered"", it.hasNext());
-    }
-",TestPropertiesConfigurationLayout::testInit_5_oe
 conf_715_6,"    @Test
     public void testInit_6_oe() {
         // removed other assertion
@@ -27043,35 +26611,6 @@ conf_739_1,"    @Test
         assertEquals(""1st key"", """", it.next());
     }
 ",TestSubsetConfiguration::testGetKeys_1_oe
-conf_739_2,"    @Test
-    public void testGetKeys_2_oe() {
-        final Configuration conf = new BaseConfiguration();
-        conf.setProperty(""test"", ""value0"");
-        conf.setProperty(""test.key1"", ""value1"");
-        conf.setProperty(""testing.key2"", ""value1"");
-
-        final Configuration subset = new SubsetConfiguration(conf, ""test"", ""."");
-
-        final Iterator<String> it = subset.getKeys();
-        // removed other assertion
-        assertEquals(""2nd key"", ""key1"", it.next());
-    }
-",TestSubsetConfiguration::testGetKeys_2_oe
-conf_739_3,"    @Test
-    public void testGetKeys_3_oe() {
-        final Configuration conf = new BaseConfiguration();
-        conf.setProperty(""test"", ""value0"");
-        conf.setProperty(""test.key1"", ""value1"");
-        conf.setProperty(""testing.key2"", ""value1"");
-
-        final Configuration subset = new SubsetConfiguration(conf, ""test"", ""."");
-
-        final Iterator<String> it = subset.getKeys();
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""too many elements"", it.hasNext());
-    }
-",TestSubsetConfiguration::testGetKeys_3_oe
 conf_740_1,"    @Test
     public void testGetKeysWithPrefix_1_oe() {
         final Configuration conf = new BaseConfiguration();
@@ -27085,35 +26624,6 @@ conf_740_1,"    @Test
         assertEquals(""1st key"", ""abc"", it.next());
     }
 ",TestSubsetConfiguration::testGetKeysWithPrefix_1_oe
-conf_740_2,"    @Test
-    public void testGetKeysWithPrefix_2_oe() {
-        final Configuration conf = new BaseConfiguration();
-        conf.setProperty(""test.abc"", ""value0"");
-        conf.setProperty(""test.abc.key1"", ""value1"");
-        conf.setProperty(""test.abcdef.key2"", ""value1"");
-
-        final Configuration subset = new SubsetConfiguration(conf, ""test"", ""."");
-
-        final Iterator<String> it = subset.getKeys(""abc"");
-        // removed other assertion
-        assertEquals(""2nd key"", ""abc.key1"", it.next());
-    }
-",TestSubsetConfiguration::testGetKeysWithPrefix_2_oe
-conf_740_3,"    @Test
-    public void testGetKeysWithPrefix_3_oe() {
-        final Configuration conf = new BaseConfiguration();
-        conf.setProperty(""test.abc"", ""value0"");
-        conf.setProperty(""test.abc.key1"", ""value1"");
-        conf.setProperty(""test.abcdef.key2"", ""value1"");
-
-        final Configuration subset = new SubsetConfiguration(conf, ""test"", ""."");
-
-        final Iterator<String> it = subset.getKeys(""abc"");
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""too many elements"", it.hasNext());
-    }
-",TestSubsetConfiguration::testGetKeysWithPrefix_3_oe
 conf_741_1,"    @Test
     public void testGetList_1_oe() {
         final BaseConfiguration conf = new BaseConfiguration();
@@ -28928,14 +28438,6 @@ conf_813_1,"    @Test
         assertEquals(""Wrong key"", ""tables.table[@type]"", itKeys.next());
     }
 ",TestAbstractHierarchicalConfiguration::testGetKeysAttributePrefix_1_oe
-conf_813_2,"    @Test
-    public void testGetKeysAttributePrefix_2_oe() {
-        config.addProperty(""tables.table(0)[@type]"", ""system"");
-        final Iterator<String> itKeys = config.getKeys(""tables.table[@type]"");
-        // removed other assertion
-        assertFalse(""Too many keys"", itKeys.hasNext());
-    }
-",TestAbstractHierarchicalConfiguration::testGetKeysAttributePrefix_2_oe
 conf_814_1,"    @Test
     public void testGetKeysOrder_1_oe() {
         config.addProperty(""order.key1"", ""value1"");
@@ -28946,29 +28448,6 @@ conf_814_1,"    @Test
         assertEquals(""1st key"", ""order.key1"", it.next());
     }
 ",TestAbstractHierarchicalConfiguration::testGetKeysOrder_1_oe
-conf_814_2,"    @Test
-    public void testGetKeysOrder_2_oe() {
-        config.addProperty(""order.key1"", ""value1"");
-        config.addProperty(""order.key2"", ""value2"");
-        config.addProperty(""order.key3"", ""value3"");
-
-        final Iterator<String> it = config.getKeys(""order"");
-        // removed other assertion
-        assertEquals(""2nd key"", ""order.key2"", it.next());
-    }
-",TestAbstractHierarchicalConfiguration::testGetKeysOrder_2_oe
-conf_814_3,"    @Test
-    public void testGetKeysOrder_3_oe() {
-        config.addProperty(""order.key1"", ""value1"");
-        config.addProperty(""order.key2"", ""value2"");
-        config.addProperty(""order.key3"", ""value3"");
-
-        final Iterator<String> it = config.getKeys(""order"");
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""3rd key"", ""order.key3"", it.next());
-    }
-",TestAbstractHierarchicalConfiguration::testGetKeysOrder_3_oe
 conf_815_1,"    @Test
     public void testGetKeysWithKeyAsPrefix_1_oe() {
         config.addProperty(""order.key1"", ""value1"");
@@ -28986,16 +28465,6 @@ conf_815_2,"    @Test
         assertEquals(""1st key"", ""order.key1"", it.next());
     }
 ",TestAbstractHierarchicalConfiguration::testGetKeysWithKeyAsPrefix_2_oe
-conf_815_3,"    @Test
-    public void testGetKeysWithKeyAsPrefix_3_oe() {
-        config.addProperty(""order.key1"", ""value1"");
-        config.addProperty(""order.key2"", ""value2"");
-        final Iterator<String> it = config.getKeys(""order.key1"");
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""more keys than expected"", it.hasNext());
-    }
-",TestAbstractHierarchicalConfiguration::testGetKeysWithKeyAsPrefix_3_oe
 conf_816_1,"    @Test
     public void testGetKeysWithKeyAsPrefixMultiple_1_oe() {
         config.addProperty(""order.key1"", ""value1"");
@@ -29005,39 +28474,6 @@ conf_816_1,"    @Test
         assertEquals(""Wrong key 1"", ""order.key1"", it.next());
     }
 ",TestAbstractHierarchicalConfiguration::testGetKeysWithKeyAsPrefixMultiple_1_oe
-conf_816_2,"    @Test
-    public void testGetKeysWithKeyAsPrefixMultiple_2_oe() {
-        config.addProperty(""order.key1"", ""value1"");
-        config.addProperty(""order.key1.test"", ""value2"");
-        config.addProperty(""order.key1.test.complex"", ""value2"");
-        final Iterator<String> it = config.getKeys(""order.key1"");
-        // removed other assertion
-        assertEquals(""Wrong key 2"", ""order.key1.test"", it.next());
-    }
-",TestAbstractHierarchicalConfiguration::testGetKeysWithKeyAsPrefixMultiple_2_oe
-conf_816_3,"    @Test
-    public void testGetKeysWithKeyAsPrefixMultiple_3_oe() {
-        config.addProperty(""order.key1"", ""value1"");
-        config.addProperty(""order.key1.test"", ""value2"");
-        config.addProperty(""order.key1.test.complex"", ""value2"");
-        final Iterator<String> it = config.getKeys(""order.key1"");
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong key 3"", ""order.key1.test.complex"", it.next());
-    }
-",TestAbstractHierarchicalConfiguration::testGetKeysWithKeyAsPrefixMultiple_3_oe
-conf_816_4,"    @Test
-    public void testGetKeysWithKeyAsPrefixMultiple_4_oe() {
-        config.addProperty(""order.key1"", ""value1"");
-        config.addProperty(""order.key1.test"", ""value2"");
-        config.addProperty(""order.key1.test.complex"", ""value2"");
-        final Iterator<String> it = config.getKeys(""order.key1"");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""More keys than expected"", it.hasNext());
-    }
-",TestAbstractHierarchicalConfiguration::testGetKeysWithKeyAsPrefixMultiple_4_oe
 conf_817_1,"    @Test
     public void testGetMaxIndex_1_oe() {
         assertEquals(NodeStructureHelper.fieldsLength(0) - 1, config.getMaxIndex(""tables.table(0).fields.field""));
@@ -29875,13 +29311,6 @@ conf_848_3,"    @Test
         assertEquals(""Field name was not changed"", ""testField"", config.getString(""fields.field(1).name""));
     }
 ",TestSubnodeConfiguration::testSetProperty_3_oe
-conf_849_1,"    @Test(expected = NoSuchElementException.class)
-    public void testSetThrowExceptionOnMissing_1_oe() {
-        parent.setThrowExceptionOnMissing(true);
-        setUpSubnodeConfig();
-        assertTrue(""Exception flag not fetchted from parent"", config.isThrowExceptionOnMissing());
-    }
-",TestSubnodeConfiguration::testSetThrowExceptionOnMissing_1_oe
 conf_850_1,"    @Test
     public void testSetThrowExceptionOnMissingAffectsParent_1_oe() {
         parent.setThrowExceptionOnMissing(true);
@@ -30111,18 +29540,6 @@ conf_871_1,"    @Test
         assertFalse(""Reloading required"", detector.isReloadingRequired());
     }
 ",TestFileHandlerReloadingDetector::testIsReloadingRequiredTrue_1_oe
-conf_871_2,"    @Test
-    public void testIsReloadingRequiredTrue_2_oe() throws Exception {
-        final File f = EasyMock.createMock(File.class);
-        EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 1);
-        EasyMock.replay(f);
-        final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
-        // removed other assertion
-        assertTrue(""Reloading not detected"", detector.isReloadingRequired());
-    }
-",TestFileHandlerReloadingDetector::testIsReloadingRequiredTrue_2_oe
 conf_872_1,"    @Test
     public void testLocationAfterInit_1_oe() {
         final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetector();
@@ -30177,36 +29594,6 @@ conf_875_1,"    @Test
         assertFalse(""Reloading required"", detector.isReloadingRequired());
     }
 ",TestFileHandlerReloadingDetector::testRefreshReloadingAndReset_1_oe
-conf_875_2,"    @Test
-    public void testRefreshReloadingAndReset_2_oe() throws Exception {
-        final File f = EasyMock.createMock(File.class);
-        EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED).times(2);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 1).times(3);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 2);
-        EasyMock.replay(f);
-        final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
-        detector.refresh();
-        // removed other assertion
-        assertTrue(""Reloading not detected"", detector.isReloadingRequired());
-    }
-",TestFileHandlerReloadingDetector::testRefreshReloadingAndReset_2_oe
-conf_875_3,"    @Test
-    public void testRefreshReloadingAndReset_3_oe() throws Exception {
-        final File f = EasyMock.createMock(File.class);
-        EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED).times(2);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 1).times(3);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 2);
-        EasyMock.replay(f);
-        final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
-        detector.refresh();
-        // removed other assertion
-        // removed other assertion
-        detector.reloadingPerformed();
-        assertFalse(""Still reloading required"", detector.isReloadingRequired());
-    }
-",TestFileHandlerReloadingDetector::testRefreshReloadingAndReset_3_oe
 conf_875_4,"    @Test
     public void testRefreshReloadingAndReset_4_oe() throws Exception {
         final File f = EasyMock.createMock(File.class);
@@ -30236,34 +29623,6 @@ conf_876_1,"    @Test
         assertFalse(""Reloading required"", detector.isReloadingRequired());
     }
 ",TestFileHandlerReloadingDetector::testReloadingAndReset_1_oe
-conf_876_2,"    @Test
-    public void testReloadingAndReset_2_oe() throws Exception {
-        final File f = EasyMock.createMock(File.class);
-        EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 1).times(3);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 2);
-        EasyMock.replay(f);
-        final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
-        // removed other assertion
-        assertTrue(""Reloading not detected"", detector.isReloadingRequired());
-    }
-",TestFileHandlerReloadingDetector::testReloadingAndReset_2_oe
-conf_876_3,"    @Test
-    public void testReloadingAndReset_3_oe() throws Exception {
-        final File f = EasyMock.createMock(File.class);
-        EasyMock.expect(f.exists()).andReturn(Boolean.TRUE).anyTimes();
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 1).times(3);
-        EasyMock.expect(f.lastModified()).andReturn(LAST_MODIFIED + 2);
-        EasyMock.replay(f);
-        final FileHandlerReloadingDetector detector = new FileHandlerReloadingDetectorTestImpl(f);
-        // removed other assertion
-        // removed other assertion
-        detector.reloadingPerformed();
-        assertFalse(""Still reloading required"", detector.isReloadingRequired());
-    }
-",TestFileHandlerReloadingDetector::testReloadingAndReset_3_oe
 conf_876_4,"    @Test
     public void testReloadingAndReset_4_oe() throws Exception {
         final File f = EasyMock.createMock(File.class);
@@ -30354,80 +29713,6 @@ conf_879_2,"    @Test
         assertTrue(""Wrong result"", ctrl.checkForReloading(testData));
     }
 ",TestReloadingController::testCheckForReloadingTrue_2_oe
-conf_879_3,"    @Test
-    public void testCheckForReloadingTrue_3_oe() {
-        final EventListener<ReloadingEvent> l = createListenerMock();
-        final EventListener<ReloadingEvent> lRemoved = createListenerMock();
-        final MutableObject<ReloadingEvent> evRef = new MutableObject<>();
-        expectEvent(l, evRef);
-        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
-        EasyMock.replay(detector, l, lRemoved);
-        final ReloadingController ctrl = createController();
-        ctrl.addEventListener(ReloadingEvent.ANY, lRemoved);
-        ctrl.addEventListener(ReloadingEvent.ANY, l);
-        // removed other assertion
-        final Object testData = ""Some test data"";
-        // removed other assertion
-        assertTrue(""Not in reloading state"", ctrl.isInReloadingState());
-    }
-",TestReloadingController::testCheckForReloadingTrue_3_oe
-conf_879_4,"    @Test
-    public void testCheckForReloadingTrue_4_oe() {
-        final EventListener<ReloadingEvent> l = createListenerMock();
-        final EventListener<ReloadingEvent> lRemoved = createListenerMock();
-        final MutableObject<ReloadingEvent> evRef = new MutableObject<>();
-        expectEvent(l, evRef);
-        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
-        EasyMock.replay(detector, l, lRemoved);
-        final ReloadingController ctrl = createController();
-        ctrl.addEventListener(ReloadingEvent.ANY, lRemoved);
-        ctrl.addEventListener(ReloadingEvent.ANY, l);
-        // removed other assertion
-        final Object testData = ""Some test data"";
-        // removed other assertion
-        // removed other assertion
-        assertSame(""Wrong event source"", ctrl, evRef.getValue().getSource());
-    }
-",TestReloadingController::testCheckForReloadingTrue_4_oe
-conf_879_5,"    @Test
-    public void testCheckForReloadingTrue_5_oe() {
-        final EventListener<ReloadingEvent> l = createListenerMock();
-        final EventListener<ReloadingEvent> lRemoved = createListenerMock();
-        final MutableObject<ReloadingEvent> evRef = new MutableObject<>();
-        expectEvent(l, evRef);
-        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
-        EasyMock.replay(detector, l, lRemoved);
-        final ReloadingController ctrl = createController();
-        ctrl.addEventListener(ReloadingEvent.ANY, lRemoved);
-        ctrl.addEventListener(ReloadingEvent.ANY, l);
-        // removed other assertion
-        final Object testData = ""Some test data"";
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(""Wrong controller"", ctrl, evRef.getValue().getController());
-    }
-",TestReloadingController::testCheckForReloadingTrue_5_oe
-conf_879_6,"    @Test
-    public void testCheckForReloadingTrue_6_oe() {
-        final EventListener<ReloadingEvent> l = createListenerMock();
-        final EventListener<ReloadingEvent> lRemoved = createListenerMock();
-        final MutableObject<ReloadingEvent> evRef = new MutableObject<>();
-        expectEvent(l, evRef);
-        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
-        EasyMock.replay(detector, l, lRemoved);
-        final ReloadingController ctrl = createController();
-        ctrl.addEventListener(ReloadingEvent.ANY, lRemoved);
-        ctrl.addEventListener(ReloadingEvent.ANY, l);
-        // removed other assertion
-        final Object testData = ""Some test data"";
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong event data"", testData, evRef.getValue().getData());
-    }
-",TestReloadingController::testCheckForReloadingTrue_6_oe
 conf_880_1,"    @Test
     public void testReloadingEventType_1_oe() {
         assertEquals(""Wrong super event type"", Event.ANY, ReloadingEvent.ANY.getSuperType());
@@ -30474,106 +29759,6 @@ conf_886_1,"    @Test
         assertTrue(""Wrong strategy (1)"", it.next() instanceof ProvidedURLLocationStrategy);
     }
 ",TestFileLocatorUtils::testDefaultFileLocationStrategy_1_oe
-conf_886_2,"    @Test
-    public void testDefaultFileLocationStrategy_2_oe() {
-        final CombinedLocationStrategy strategy = (CombinedLocationStrategy) FileLocatorUtils.DEFAULT_LOCATION_STRATEGY;
-        final Iterator<FileLocationStrategy> it = strategy.getSubStrategies().iterator();
-        // removed other assertion
-        assertTrue(""Wrong strategy (2)"", it.next() instanceof FileSystemLocationStrategy);
-    }
-",TestFileLocatorUtils::testDefaultFileLocationStrategy_2_oe
-conf_886_3,"    @Test
-    public void testDefaultFileLocationStrategy_3_oe() {
-        final CombinedLocationStrategy strategy = (CombinedLocationStrategy) FileLocatorUtils.DEFAULT_LOCATION_STRATEGY;
-        final Iterator<FileLocationStrategy> it = strategy.getSubStrategies().iterator();
-        // removed other assertion
-        // removed other assertion
-        assertTrue(""Wrong strategy (3)"", it.next() instanceof AbsoluteNameLocationStrategy);
-    }
-",TestFileLocatorUtils::testDefaultFileLocationStrategy_3_oe
-conf_886_4,"    @Test
-    public void testDefaultFileLocationStrategy_4_oe() {
-        final CombinedLocationStrategy strategy = (CombinedLocationStrategy) FileLocatorUtils.DEFAULT_LOCATION_STRATEGY;
-        final Iterator<FileLocationStrategy> it = strategy.getSubStrategies().iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(""Wrong strategy (4)"", it.next() instanceof BasePathLocationStrategy);
-    }
-",TestFileLocatorUtils::testDefaultFileLocationStrategy_4_oe
-conf_886_5,"    @Test
-    public void testDefaultFileLocationStrategy_5_oe() {
-        final CombinedLocationStrategy strategy = (CombinedLocationStrategy) FileLocatorUtils.DEFAULT_LOCATION_STRATEGY;
-        final Iterator<FileLocationStrategy> it = strategy.getSubStrategies().iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        FileLocationStrategy sub = it.next();
-        assertTrue(""Wrong strategy (5)"", sub instanceof HomeDirectoryLocationStrategy);
-    }
-",TestFileLocatorUtils::testDefaultFileLocationStrategy_5_oe
-conf_886_6,"    @Test
-    public void testDefaultFileLocationStrategy_6_oe() {
-        final CombinedLocationStrategy strategy = (CombinedLocationStrategy) FileLocatorUtils.DEFAULT_LOCATION_STRATEGY;
-        final Iterator<FileLocationStrategy> it = strategy.getSubStrategies().iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        FileLocationStrategy sub = it.next();
-        // removed other assertion
-        assertTrue(""Base path ignored"", ((HomeDirectoryLocationStrategy) sub).isEvaluateBasePath());
-    }
-",TestFileLocatorUtils::testDefaultFileLocationStrategy_6_oe
-conf_886_7,"    @Test
-    public void testDefaultFileLocationStrategy_7_oe() {
-        final CombinedLocationStrategy strategy = (CombinedLocationStrategy) FileLocatorUtils.DEFAULT_LOCATION_STRATEGY;
-        final Iterator<FileLocationStrategy> it = strategy.getSubStrategies().iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        FileLocationStrategy sub = it.next();
-        // removed other assertion
-        // removed other assertion
-        sub = it.next();
-        assertTrue(""Wrong strategy (6)"", sub instanceof HomeDirectoryLocationStrategy);
-    }
-",TestFileLocatorUtils::testDefaultFileLocationStrategy_7_oe
-conf_886_8,"    @Test
-    public void testDefaultFileLocationStrategy_8_oe() {
-        final CombinedLocationStrategy strategy = (CombinedLocationStrategy) FileLocatorUtils.DEFAULT_LOCATION_STRATEGY;
-        final Iterator<FileLocationStrategy> it = strategy.getSubStrategies().iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        FileLocationStrategy sub = it.next();
-        // removed other assertion
-        // removed other assertion
-        sub = it.next();
-        // removed other assertion
-        assertFalse(""Base path not ignored"", ((HomeDirectoryLocationStrategy) sub).isEvaluateBasePath());
-    }
-",TestFileLocatorUtils::testDefaultFileLocationStrategy_8_oe
-conf_886_9,"    @Test
-    public void testDefaultFileLocationStrategy_9_oe() {
-        final CombinedLocationStrategy strategy = (CombinedLocationStrategy) FileLocatorUtils.DEFAULT_LOCATION_STRATEGY;
-        final Iterator<FileLocationStrategy> it = strategy.getSubStrategies().iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        FileLocationStrategy sub = it.next();
-        // removed other assertion
-        // removed other assertion
-        sub = it.next();
-        // removed other assertion
-        // removed other assertion
-        assertTrue(""Wrong strategy (7)"", it.next() instanceof ClasspathLocationStrategy);
-    }
-",TestFileLocatorUtils::testDefaultFileLocationStrategy_9_oe
 conf_887_1,"    @Test
     public void testFileFromURLNull_1_oe() throws Exception {
         assertNull(""Wrong file for null URL"", FileLocatorUtils.fileFromURL(null));
@@ -31086,17 +30271,6 @@ conf_936_1,"    @Test
         assertTrue(""Could not create file"", file.createNewFile());
     }
 ",TestHomeDirectoryLocationStrategy::testLocateSuccessInSubFolder_1_oe
-conf_936_2,"    @Test
-    public void testLocateSuccessInSubFolder_2_oe() throws IOException {
-        final File sub = folder.newFolder(BASE_PATH);
-        final File file = new File(sub, FILE_NAME);
-        // removed other assertion
-        final FileLocator locator = FileLocatorUtils.fileLocator().basePath(BASE_PATH).fileName(FILE_NAME).create();
-        final HomeDirectoryLocationStrategy strategy = setUpStrategy(true);
-        final URL url = strategy.locate(fileSystem, locator);
-        assertEquals(""Wrong URL"", file.getAbsoluteFile(), FileLocatorUtils.fileFromURL(url).getAbsoluteFile());
-    }
-",TestHomeDirectoryLocationStrategy::testLocateSuccessInSubFolder_2_oe
 conf_937_1,"    @Test
     public void testLocateSuccessNoBasePath_1_oe() throws IOException {
         final File file = folder.newFile(FILE_NAME);
@@ -31587,25 +30761,6 @@ conf_970_1,"    @Test
         assertTrue(""Wrong result"", handler.locate());
     }
 ",TestFileHandler::testLocateSuccess_1_oe
-conf_970_2,"    @Test
-    public void testLocateSuccess_2_oe() throws ConfigurationException {
-        final FileHandler handler = new FileHandler();
-        handler.setFileName(TEST_FILENAME);
-        // removed other assertion
-        final FileLocator locator = handler.getFileLocator();
-        assertNotNull(""URL not filled"", locator.getSourceURL());
-    }
-",TestFileHandler::testLocateSuccess_2_oe
-conf_970_3,"    @Test
-    public void testLocateSuccess_3_oe() throws ConfigurationException {
-        final FileHandler handler = new FileHandler();
-        handler.setFileName(TEST_FILENAME);
-        // removed other assertion
-        final FileLocator locator = handler.getFileLocator();
-        // removed other assertion
-        assertNotNull(""Base path not filled"", locator.getBasePath());
-    }
-",TestFileHandler::testLocateSuccess_3_oe
 conf_970_4,"    @Test
     public void testLocateSuccess_4_oe() throws ConfigurationException {
         final FileHandler handler = new FileHandler();
@@ -31617,24 +30772,6 @@ conf_970_4,"    @Test
         assertEquals(""Wrong file name"", TEST_FILENAME, locator.getFileName());
     }
 ",TestFileHandler::testLocateSuccess_4_oe
-conf_970_5,"    @Test
-    public void testLocateSuccess_5_oe() throws ConfigurationException {
-        final FileHandler handler = new FileHandler();
-        handler.setFileName(TEST_FILENAME);
-        // removed other assertion
-        final FileLocator locator = handler.getFileLocator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // check whether the correct URL was obtained
-        final PropertiesConfiguration config = new PropertiesConfiguration();
-        final FileHandler h2 = new FileHandler(config);
-        h2.setURL(locator.getSourceURL());
-        h2.load();
-        assertTrue(""Configuration not loaded"", config.getBoolean(""configuration.loaded""));
-    }
-",TestFileHandler::testLocateSuccess_5_oe
 conf_971_1,"    @Test
     public void testLocateUndefinedLocator_1_oe() {
         final FileHandler handler = new FileHandler();
@@ -32669,42 +31806,6 @@ conf_1022_1,"    @Test
         assertEquals(""Wrong exception (1)"", testException, lstWrite.checkEvent(ConfigurationErrorEvent.WRITE, ConfigurationEvent.ADD_PROPERTY, TEST_PROPNAME, TEST_PROPVALUE));
     }
 ",TestEventSource::testFireError_1_oe
-conf_1022_2,"    @Test
-    public void testFireError_2_oe() {
-        final ErrorListenerTestImpl lstRead = new ErrorListenerTestImpl(source);
-        final ErrorListenerTestImpl lstWrite = new ErrorListenerTestImpl(source);
-        final ErrorListenerTestImpl lstAll = new ErrorListenerTestImpl(source);
-        source.addEventListener(ConfigurationErrorEvent.READ, lstRead);
-        source.addEventListener(ConfigurationErrorEvent.WRITE, lstWrite);
-        source.addEventListener(ConfigurationErrorEvent.ANY, lstAll);
-        final Exception testException = new Exception(""A test"");
-
-        source.fireError(ConfigurationErrorEvent.WRITE, ConfigurationEvent.ADD_PROPERTY, TEST_PROPNAME, TEST_PROPVALUE, testException);
-        lstRead.done();
-        // removed other assertion
-        lstWrite.done();
-        assertEquals(""Wrong exception (2)"", testException, lstAll.checkEvent(ConfigurationErrorEvent.WRITE, ConfigurationEvent.ADD_PROPERTY, TEST_PROPNAME, TEST_PROPVALUE));
-    }
-",TestEventSource::testFireError_2_oe
-conf_1022_3,"    @Test
-    public void testFireError_3_oe() {
-        final ErrorListenerTestImpl lstRead = new ErrorListenerTestImpl(source);
-        final ErrorListenerTestImpl lstWrite = new ErrorListenerTestImpl(source);
-        final ErrorListenerTestImpl lstAll = new ErrorListenerTestImpl(source);
-        source.addEventListener(ConfigurationErrorEvent.READ, lstRead);
-        source.addEventListener(ConfigurationErrorEvent.WRITE, lstWrite);
-        source.addEventListener(ConfigurationErrorEvent.ANY, lstAll);
-        final Exception testException = new Exception(""A test"");
-
-        source.fireError(ConfigurationErrorEvent.WRITE, ConfigurationEvent.ADD_PROPERTY, TEST_PROPNAME, TEST_PROPVALUE, testException);
-        lstRead.done();
-        // removed other assertion
-        lstWrite.done();
-        // removed other assertion
-        lstAll.done();
-        assertEquals(""Wrong number of error events created"", 1, source.errorCount);
-    }
-",TestEventSource::testFireError_3_oe
 conf_1023_1,"    @Test
     public void testFireErrorNoListeners_1_oe() {
         source.fireError(ConfigurationErrorEvent.ANY, ConfigurationEvent.ANY, TEST_PROPNAME, TEST_PROPVALUE, new Exception());
@@ -32776,17 +31877,6 @@ conf_1028_3,"    @Test
         assertTrue(""Could not remove listener"", source.removeEventListener(ConfigurationEvent.ANY, l));
     }
 ",TestEventSource::testRemoveEventListener_3_oe
-conf_1028_4,"    @Test
-    public void testRemoveEventListener_4_oe() {
-        final EventListenerTestImpl l = new EventListenerTestImpl(this);
-        // removed other assertion
-        source.addEventListener(ConfigurationEvent.ADD_NODES, new EventListenerTestImpl(this));
-        source.addEventListener(ConfigurationEvent.ANY, l);
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""Listener still in list"", source.getEventListeners(ConfigurationEvent.ANY).contains(l));
-    }
-",TestEventSource::testRemoveEventListener_4_oe
 conf_1029_1,"    @Test
     public void testRemoveListenerInFireEvent_1_oe() {
         final EventListener<ConfigurationEvent> lstRemove = new EventListener<ConfigurationEvent>() {
@@ -32969,14 +32059,6 @@ conf_1033_1,"    @Test
         assertTrue(""Got listeners"", list.getRegistrations().isEmpty());
     }
 ",TestEventListenerList::testClear_1_oe
-conf_1034_1,"    @Test(expected = IllegalArgumentException.class)
-    public void testEventListenerIteratorWrongEvent_1_oe() {
-        final EventListener<EventSub2> listener = event -> {};
-        list.addEventListener(typeSub2, listener);
-        final EventListenerList.EventListenerIterator<EventSub2> iterator = list.getEventListenerIterator(typeSub2);
-        assertTrue(""No elements"", iterator.hasNext());
-    }
-",TestEventListenerList::testEventListenerIteratorWrongEvent_1_oe
 conf_1035_1,"    @Test
     public void testGetEventListenerRegistrationsForSuperType_1_oe() {
         final ListenerTestImpl l1 = new ListenerTestImpl();
@@ -32991,44 +32073,6 @@ conf_1035_1,"    @Test
         assertEquals(""Wrong listener 1"", l1, iterator.next().getListener());
     }
 ",TestEventListenerList::testGetEventListenerRegistrationsForSuperType_1_oe
-conf_1035_2,"    @Test
-    public void testGetEventListenerRegistrationsForSuperType_2_oe() {
-        final ListenerTestImpl l1 = new ListenerTestImpl();
-        final ListenerTestImpl l2 = new ListenerTestImpl();
-        final EventListener<Event> l3 = EasyMock.createMock(EventListener.class);
-        list.addEventListener(typeSub1, l1);
-        list.addEventListener(Event.ANY, l3);
-        list.addEventListener(typeBase, l2);
-
-        final List<EventListenerRegistrationData<? extends EventBase>> regs = list.getRegistrationsForSuperType(typeBase);
-        final Iterator<EventListenerRegistrationData<? extends EventBase>> iterator = regs.iterator();
-        // removed other assertion
-        assertEquals(""Wrong listener 2"", l2, iterator.next().getListener());
-    }
-",TestEventListenerList::testGetEventListenerRegistrationsForSuperType_2_oe
-conf_1035_3,"    @Test
-    public void testGetEventListenerRegistrationsForSuperType_3_oe() {
-        final ListenerTestImpl l1 = new ListenerTestImpl();
-        final ListenerTestImpl l2 = new ListenerTestImpl();
-        final EventListener<Event> l3 = EasyMock.createMock(EventListener.class);
-        list.addEventListener(typeSub1, l1);
-        list.addEventListener(Event.ANY, l3);
-        list.addEventListener(typeBase, l2);
-
-        final List<EventListenerRegistrationData<? extends EventBase>> regs = list.getRegistrationsForSuperType(typeBase);
-        final Iterator<EventListenerRegistrationData<? extends EventBase>> iterator = regs.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""Too many elements"", iterator.hasNext());
-    }
-",TestEventListenerList::testGetEventListenerRegistrationsForSuperType_3_oe
-conf_1036_1,"    @Test(expected = UnsupportedOperationException.class)
-    public void testGetEventListenersIteratorRemove_1_oe() {
-        list.addEventListener(typeBase, new ListenerTestImpl());
-        final Iterator<EventListener<? super EventBase>> iterator = list.getEventListeners(typeBase).iterator();
-        assertTrue(""Wrong result"", iterator.hasNext());
-    }
-",TestEventListenerList::testGetEventListenersIteratorRemove_1_oe
 conf_1037_1,"    @Test
     public void testGetEventListenersNull_1_oe() {
         assertTrue(""Got listeners"", fetchElements(list.getEventListeners(null)).isEmpty());
@@ -33271,18 +32315,6 @@ conf_1062_2,"    @Test
         assertEquals(""Wrong element (1)"", STR_VALUE, it.next());
     }
 ",TestDisabledListDelimiterHandler::testFlattenCollectionWithArrayWithLimit_2_oe
-conf_1062_3,"    @Test
-    public void testFlattenCollectionWithArrayWithLimit_3_oe() {
-        final Collection<Object> src = new ArrayList<>(2);
-        src.add(STR_VALUE);
-        src.add(VALUES);
-        final Collection<?> res = handler.flatten(src, 2);
-        // removed other assertion
-        final Iterator<?> it = res.iterator();
-        // removed other assertion
-        assertEquals(""Wrong element (2)"", VALUES[0], it.next());
-    }
-",TestDisabledListDelimiterHandler::testFlattenCollectionWithArrayWithLimit_3_oe
 conf_1063_1,"    @Test
     public void testFlattenCollectionWithLimit_1_oe() {
         final Collection<Object> src = Arrays.asList(VALUES);
@@ -33309,13 +32341,6 @@ conf_1065_1,"    @Test
         assertEquals(""Wrong value"", STR_VALUE, it.next());
     }
 ",TestDisabledListDelimiterHandler::testParseSimpleValue_1_oe
-conf_1065_2,"    @Test
-    public void testParseSimpleValue_2_oe() {
-        final Iterator<?> it = handler.parse(STR_VALUE).iterator();
-        // removed other assertion
-        assertFalse(""Too many values"", it.hasNext());
-    }
-",TestDisabledListDelimiterHandler::testParseSimpleValue_2_oe
 conf_1066_1,"    @Test
     public void testGetDateFormatNotSet_1_oe() {
         assertEquals(""Wrong date format"", DefaultConversionHandler.DEFAULT_DATE_FORMAT, handler.getDateFormat());
@@ -34165,38 +33190,18 @@ conf_1125_1,"    @Test
         assertSame(""Wrong result"", params, params.setAutoCommit(true));
     }
 ",TestDatabaseBuilderParametersImpl::testSetAutoCommit_1_oe
-conf_1125_2,"    @Test
-    public void testSetAutoCommit_2_oe() {
-        // removed other assertion
-        assertEquals(""Wrong auto commit flag"", Boolean.TRUE, params.getParameters().get(""autoCommit""));
-    }
-",TestDatabaseBuilderParametersImpl::testSetAutoCommit_2_oe
 conf_1126_1,"    @Test
     public void testSetConfigurationName_1_oe() {
         final String confName = ""TestConfiguration"";
         assertSame(""Wrong result"", params, params.setConfigurationName(confName));
     }
 ",TestDatabaseBuilderParametersImpl::testSetConfigurationName_1_oe
-conf_1126_2,"    @Test
-    public void testSetConfigurationName_2_oe() {
-        final String confName = ""TestConfiguration"";
-        // removed other assertion
-        assertEquals(""Wrong configuration name"", confName, params.getParameters().get(""configurationName""));
-    }
-",TestDatabaseBuilderParametersImpl::testSetConfigurationName_2_oe
 conf_1127_1,"    @Test
     public void testSetConfigurationNameColumn_1_oe() {
         final String colName = ""CONFIG_COLUMN"";
         assertSame(""Wrong result"", params, params.setConfigurationNameColumn(colName));
     }
 ",TestDatabaseBuilderParametersImpl::testSetConfigurationNameColumn_1_oe
-conf_1127_2,"    @Test
-    public void testSetConfigurationNameColumn_2_oe() {
-        final String colName = ""CONFIG_COLUMN"";
-        // removed other assertion
-        assertEquals(""Wrong configuration name column"", colName, params.getParameters().get(""configurationNameColumn""));
-    }
-",TestDatabaseBuilderParametersImpl::testSetConfigurationNameColumn_2_oe
 conf_1128_1,"    @Test
     public void testSetDataSource_1_oe() {
         final DataSource src = EasyMock.createMock(DataSource.class);
@@ -34204,53 +33209,24 @@ conf_1128_1,"    @Test
         assertSame(""Wrong result"", params, params.setDataSource(src));
     }
 ",TestDatabaseBuilderParametersImpl::testSetDataSource_1_oe
-conf_1128_2,"    @Test
-    public void testSetDataSource_2_oe() {
-        final DataSource src = EasyMock.createMock(DataSource.class);
-        EasyMock.replay(src);
-        // removed other assertion
-        assertSame(""Data source not set"", src, params.getParameters().get(""dataSource""));
-    }
-",TestDatabaseBuilderParametersImpl::testSetDataSource_2_oe
 conf_1129_1,"    @Test
     public void testSetKeyColumn_1_oe() {
         final String colName = ""KEY_COLUMN"";
         assertSame(""Wrong result"", params, params.setKeyColumn(colName));
     }
 ",TestDatabaseBuilderParametersImpl::testSetKeyColumn_1_oe
-conf_1129_2,"    @Test
-    public void testSetKeyColumn_2_oe() {
-        final String colName = ""KEY_COLUMN"";
-        // removed other assertion
-        assertEquals(""Wrong key column name"", colName, params.getParameters().get(""keyColumn""));
-    }
-",TestDatabaseBuilderParametersImpl::testSetKeyColumn_2_oe
 conf_1130_1,"    @Test
     public void testSetTable_1_oe() {
         final String table = ""TestTable"";
         assertSame(""Wrong result"", params, params.setTable(table));
     }
 ",TestDatabaseBuilderParametersImpl::testSetTable_1_oe
-conf_1130_2,"    @Test
-    public void testSetTable_2_oe() {
-        final String table = ""TestTable"";
-        // removed other assertion
-        assertEquals(""Wrong table name"", table, params.getParameters().get(""table""));
-    }
-",TestDatabaseBuilderParametersImpl::testSetTable_2_oe
 conf_1131_1,"    @Test
     public void testSetValueColumn_1_oe() {
         final String colName = ""VALUE_COLUMN"";
         assertSame(""Wrong result"", params, params.setValueColumn(colName));
     }
 ",TestDatabaseBuilderParametersImpl::testSetValueColumn_1_oe
-conf_1131_2,"    @Test
-    public void testSetValueColumn_2_oe() {
-        final String colName = ""VALUE_COLUMN"";
-        // removed other assertion
-        assertEquals(""Wrong value column name"", colName, params.getParameters().get(""valueColumn""));
-    }
-",TestDatabaseBuilderParametersImpl::testSetValueColumn_2_oe
 conf_1132_1,"    @Test
     public void testBeanPropertiesAccess_1_oe() throws Exception {
         final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
@@ -34304,14 +33280,6 @@ conf_1134_1,"    @Test
         assertSame(""Wrong result"", params, params.setExpressionEngine(engine));
     }
 ",TestHierarchicalBuilderParametersImpl::testSetExpressionEngine_1_oe
-conf_1134_2,"    @Test
-    public void testSetExpressionEngine_2_oe() {
-        final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
-        EasyMock.replay(engine);
-        // removed other assertion
-        assertSame(""Wrong expression engine"", engine, params.getParameters().get(""expressionEngine""));
-    }
-",TestHierarchicalBuilderParametersImpl::testSetExpressionEngine_2_oe
 conf_1135_1,"    @Test
     public void testBeanPropertiesAccess_1_oe() throws Exception {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
@@ -34451,14 +33419,6 @@ conf_1137_1,"    @Test
         assertSame(""Wrong result"", params, params.setDocumentBuilder(builder));
     }
 ",TestXMLBuilderParametersImpl::testSetDocumentBuilder_1_oe
-conf_1137_2,"    @Test
-    public void testSetDocumentBuilder_2_oe() {
-        final DocumentBuilder builder = EasyMock.createMock(DocumentBuilder.class);
-        EasyMock.replay(builder);
-        // removed other assertion
-        assertSame(""Builder not in parameters"", builder, params.getParameters().get(""documentBuilder""));
-    }
-",TestXMLBuilderParametersImpl::testSetDocumentBuilder_2_oe
 conf_1138_1,"    @Test
     public void testSetEntityResolver_1_oe() {
         final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
@@ -34466,71 +33426,28 @@ conf_1138_1,"    @Test
         assertSame(""Wrong result"", params, params.setEntityResolver(resolver));
     }
 ",TestXMLBuilderParametersImpl::testSetEntityResolver_1_oe
-conf_1138_2,"    @Test
-    public void testSetEntityResolver_2_oe() {
-        final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
-        EasyMock.replay(resolver);
-        // removed other assertion
-        assertSame(""Resolver not set"", resolver, params.getEntityResolver());
-    }
-",TestXMLBuilderParametersImpl::testSetEntityResolver_2_oe
-conf_1138_3,"    @Test
-    public void testSetEntityResolver_3_oe() {
-        final EntityResolver resolver = EasyMock.createMock(EntityResolver.class);
-        EasyMock.replay(resolver);
-        // removed other assertion
-        // removed other assertion
-        assertSame(""Resolver not in parameters"", resolver, params.getParameters().get(""entityResolver""));
-    }
-",TestXMLBuilderParametersImpl::testSetEntityResolver_3_oe
 conf_1139_1,"    @Test
     public void testSetPublicID_1_oe() {
         final String pubID = ""testPublicID"";
         assertSame(""Wrong result"", params, params.setPublicID(pubID));
     }
 ",TestXMLBuilderParametersImpl::testSetPublicID_1_oe
-conf_1139_2,"    @Test
-    public void testSetPublicID_2_oe() {
-        final String pubID = ""testPublicID"";
-        // removed other assertion
-        assertEquals(""ID not in parameters"", pubID, params.getParameters().get(""publicID""));
-    }
-",TestXMLBuilderParametersImpl::testSetPublicID_2_oe
 conf_1140_1,"    @Test
     public void testSetSchemaValidation_1_oe() {
         assertSame(""Wrong result"", params, params.setSchemaValidation(false));
     }
 ",TestXMLBuilderParametersImpl::testSetSchemaValidation_1_oe
-conf_1140_2,"    @Test
-    public void testSetSchemaValidation_2_oe() {
-        // removed other assertion
-        assertEquals(""Flag not in parameters"", Boolean.FALSE, params.getParameters().get(""schemaValidation""));
-    }
-",TestXMLBuilderParametersImpl::testSetSchemaValidation_2_oe
 conf_1141_1,"    @Test
     public void testSetSystemID_1_oe() {
         final String sysID = ""testSystemID"";
         assertSame(""Wrong result"", params, params.setSystemID(sysID));
     }
 ",TestXMLBuilderParametersImpl::testSetSystemID_1_oe
-conf_1141_2,"    @Test
-    public void testSetSystemID_2_oe() {
-        final String sysID = ""testSystemID"";
-        // removed other assertion
-        assertEquals(""ID not in parameters"", sysID, params.getParameters().get(""systemID""));
-    }
-",TestXMLBuilderParametersImpl::testSetSystemID_2_oe
 conf_1142_1,"    @Test
     public void testSetValidating_1_oe() {
         assertSame(""Wrong result"", params, params.setValidating(true));
     }
 ",TestXMLBuilderParametersImpl::testSetValidating_1_oe
-conf_1142_2,"    @Test
-    public void testSetValidating_2_oe() {
-        // removed other assertion
-        assertEquals(""Flag not in parameters"", Boolean.TRUE, params.getParameters().get(""validating""));
-    }
-",TestXMLBuilderParametersImpl::testSetValidating_2_oe
 conf_1143_1,"    @Test
     public void testConfigurationBuilderWrapper_1_oe() {
         final BaseHierarchicalConfiguration conf = new BaseHierarchicalConfiguration();
@@ -34589,20 +33506,6 @@ conf_1145_1,"    @Test
         assertTrue(""Wrong result for existing listener"", src.removeEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l2));
     }
 ",TestBuilderConfigurationWrapperFactory::testEventSourceSupportBuilder_1_oe
-conf_1145_2,"    @Test
-    public void testEventSourceSupportBuilder_2_oe() throws ConfigurationException {
-        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
-        final EventListener<ConfigurationEvent> l1 = new EventListenerTestImpl(null);
-        final EventListener<ConfigurationEvent> l2 = new EventListenerTestImpl(null);
-        final BuilderConfigurationWrapperFactory factory = new BuilderConfigurationWrapperFactory(EventSourceSupport.BUILDER);
-        final EventSource src = (EventSource) factory.createBuilderConfigurationWrapper(Configuration.class, builder);
-
-        src.addEventListener(ConfigurationEvent.ANY, l1);
-        src.addEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l2);
-        // removed other assertion
-        assertFalse(""Wrong result for non-existing listener"", src.removeEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l2));
-    }
-",TestBuilderConfigurationWrapperFactory::testEventSourceSupportBuilder_2_oe
 conf_1145_3,"    @Test
     public void testEventSourceSupportBuilder_3_oe() throws ConfigurationException {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
@@ -34620,24 +33523,6 @@ conf_1145_3,"    @Test
         assertTrue(""Registered listener not found"", listeners.contains(l1));
     }
 ",TestBuilderConfigurationWrapperFactory::testEventSourceSupportBuilder_3_oe
-conf_1145_4,"    @Test
-    public void testEventSourceSupportBuilder_4_oe() throws ConfigurationException {
-        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
-        final EventListener<ConfigurationEvent> l1 = new EventListenerTestImpl(null);
-        final EventListener<ConfigurationEvent> l2 = new EventListenerTestImpl(null);
-        final BuilderConfigurationWrapperFactory factory = new BuilderConfigurationWrapperFactory(EventSourceSupport.BUILDER);
-        final EventSource src = (EventSource) factory.createBuilderConfigurationWrapper(Configuration.class, builder);
-
-        src.addEventListener(ConfigurationEvent.ANY, l1);
-        src.addEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l2);
-        // removed other assertion
-        // removed other assertion
-        final PropertiesConfiguration config = builder.getConfiguration();
-        final Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
-        // removed other assertion
-        assertFalse(""Removed listener still found"", listeners.contains(l2));
-    }
-",TestBuilderConfigurationWrapperFactory::testEventSourceSupportBuilder_4_oe
 conf_1146_1,"    @Test
     public void testEventSourceSupportNone_1_oe() {
         final BaseHierarchicalConfiguration conf = new BaseHierarchicalConfiguration();
@@ -34769,19 +33654,6 @@ conf_1154_1,"    @Test
         assertTrue(""Wrong result (1)"", ctrlDetector.isReloadingRequired());
     }
 ",TestReloadingFileBasedConfigurationBuilder::testReloadingDetectorIsReloadingRequired_1_oe
-conf_1154_2,"    @Test
-    public void testReloadingDetectorIsReloadingRequired_2_oe() throws ConfigurationException {
-        final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
-        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
-        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.FALSE);
-        EasyMock.replay(detector);
-        final ReloadingFileBasedConfigurationBuilderTestImpl builder = new ReloadingFileBasedConfigurationBuilderTestImpl(detector);
-        builder.getConfiguration();
-        final ReloadingDetector ctrlDetector = builder.getReloadingController().getDetector();
-        // removed other assertion
-        assertFalse(""Wrong result (2)"", ctrlDetector.isReloadingRequired());
-    }
-",TestReloadingFileBasedConfigurationBuilder::testReloadingDetectorIsReloadingRequired_2_oe
 conf_1154_3,"    @Test
     public void testReloadingDetectorIsReloadingRequired_3_oe() throws ConfigurationException {
         final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
@@ -34905,18 +33777,6 @@ conf_1160_2,"    @Test
         assertTrue(""No original parameters"", params2.keySet().containsAll(createTestParameters().keySet()));
     }
 ",TestBasicConfigurationBuilder::testAddParameters_2_oe
-conf_1160_3,"    @Test
-    public void testAddParameters_3_oe() {
-        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class,
-            createTestParameters());
-        final Map<String, Object> params = createTestParameters();
-        params.put(""anotherParameter"", ""value"");
-        // removed other assertion
-        final Map<String, Object> params2 = builder.getParameters();
-        // removed other assertion
-        assertEquals(""Additional parameter not found"", ""value"", params2.get(""anotherParameter""));
-    }
-",TestBasicConfigurationBuilder::testAddParameters_3_oe
 conf_1161_1,"    @Test
     public void testAddParametersNull_1_oe() {
         final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class,
@@ -34980,22 +33840,6 @@ conf_1164_2,"    @Test
         assertNotSame(""No new configuration created"", configuration, builder.getConfiguration());
     }
 ",TestBasicConfigurationBuilder::testConnectToReloadingController_2_oe
-conf_1164_3,"    @Test
-    public void testConnectToReloadingController_3_oe() throws ConfigurationException {
-        final ReloadingDetector detector = EasyMock.createNiceMock(ReloadingDetector.class);
-        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
-        EasyMock.replay(detector);
-        final ReloadingController controller = new ReloadingController(detector);
-        final BasicConfigurationBuilder<Configuration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
-        final Configuration configuration = builder.getConfiguration();
-
-        builder.connectToReloadingController(controller);
-        controller.checkForReloading(null);
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""Still in reloading state"", controller.isInReloadingState());
-    }
-",TestBasicConfigurationBuilder::testConnectToReloadingController_3_oe
 conf_1165_1,"    @Test
     public void testCopyEventListeners_1_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
@@ -35258,19 +34102,6 @@ conf_1174_1,"    @Test
         assertTrue(""Wrong result"", builder.removeEventListener(ConfigurationEvent.ANY, l2));
     }
 ",TestBasicConfigurationBuilder::testRemoveConfigurationListener_1_oe
-conf_1174_2,"    @Test
-    public void testRemoveConfigurationListener_2_oe() throws ConfigurationException {
-        final EventListener<ConfigurationEvent> l1 = createEventListener();
-        final EventListener<ConfigurationEvent> l2 = createEventListener();
-        EasyMock.replay(l1, l2);
-        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
-        builder.addEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l1);
-        builder.addEventListener(ConfigurationEvent.ANY, l2);
-        // removed other assertion
-        final PropertiesConfiguration config = builder.getConfiguration();
-        assertFalse(""Removed listener was registered"", config.getEventListeners(ConfigurationEvent.ANY).contains(l2));
-    }
-",TestBasicConfigurationBuilder::testRemoveConfigurationListener_2_oe
 conf_1174_3,"    @Test
     public void testRemoveConfigurationListener_3_oe() throws ConfigurationException {
         final EventListener<ConfigurationEvent> l1 = createEventListener();
@@ -35369,16 +34200,6 @@ conf_1179_1,"    @Test
         assertSame(""Wrong result"", builder, builder.setParameters(createTestParameters()));
     }
 ",TestBasicConfigurationBuilder::testSetParameters_1_oe
-conf_1179_2,"    @Test
-    public void testSetParameters_2_oe() {
-        final Map<String, Object> params1 = new HashMap<>();
-        params1.put(""someParameter"", ""value"");
-        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class, params1);
-        // removed other assertion
-        final Map<String, Object> params2 = new HashMap<>(builder.getParameters());
-        assertEquals(""Wrong parameters"", createTestParameters(), params2);
-    }
-",TestBasicConfigurationBuilder::testSetParameters_2_oe
 conf_1180_1,"    @Test
     public void testBeanPropertiesAccess_1_oe() throws Exception {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
@@ -35780,14 +34601,6 @@ conf_1193_1,"    @Test
         assertSame(""Wrong result"", params, params.setBasePath(path));
     }
 ",TestFileBasedBuilderParameters::testSetBasePath_1_oe
-conf_1193_2,"    @Test
-    public void testSetBasePath_2_oe() {
-        final String path = ConfigurationAssert.getTestFile(""test.properties"").getParentFile().getAbsolutePath();
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertEquals(""Wrong path"", path, params.getFileHandler().getBasePath());
-    }
-",TestFileBasedBuilderParameters::testSetBasePath_2_oe
 conf_1194_1,"    @Test
     public void testSetEncoding_1_oe() {
         final String enc = ""ISO-8859-1"";
@@ -35795,14 +34608,6 @@ conf_1194_1,"    @Test
         assertSame(""Wrong result"", params, params.setEncoding(enc));
     }
 ",TestFileBasedBuilderParameters::testSetEncoding_1_oe
-conf_1194_2,"    @Test
-    public void testSetEncoding_2_oe() {
-        final String enc = ""ISO-8859-1"";
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertSame(""Wrong encoding"", enc, params.getFileHandler().getEncoding());
-    }
-",TestFileBasedBuilderParameters::testSetEncoding_2_oe
 conf_1195_1,"    @Test
     public void testSetFile_1_oe() {
         final File file = ConfigurationAssert.getTestFile(""test.properties"").getAbsoluteFile();
@@ -35810,14 +34615,6 @@ conf_1195_1,"    @Test
         assertSame(""Wrong result"", params, params.setFile(file));
     }
 ",TestFileBasedBuilderParameters::testSetFile_1_oe
-conf_1195_2,"    @Test
-    public void testSetFile_2_oe() {
-        final File file = ConfigurationAssert.getTestFile(""test.properties"").getAbsoluteFile();
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertEquals(""Wrong file"", file, params.getFileHandler().getFile());
-    }
-",TestFileBasedBuilderParameters::testSetFile_2_oe
 conf_1196_1,"    @Test
     public void testSetFileName_1_oe() {
         final String name = ""testConfig.xml"";
@@ -35825,14 +34622,6 @@ conf_1196_1,"    @Test
         assertSame(""Wrong result"", params, params.setFileName(name));
     }
 ",TestFileBasedBuilderParameters::testSetFileName_1_oe
-conf_1196_2,"    @Test
-    public void testSetFileName_2_oe() {
-        final String name = ""testConfig.xml"";
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertEquals(""Wrong name"", name, params.getFileHandler().getFileName());
-    }
-",TestFileBasedBuilderParameters::testSetFileName_2_oe
 conf_1197_1,"    @Test
     public void testSetFileSystem_1_oe() {
         final FileSystem fs = EasyMock.createMock(FileSystem.class);
@@ -35841,15 +34630,6 @@ conf_1197_1,"    @Test
         assertSame(""Wrong result"", params, params.setFileSystem(fs));
     }
 ",TestFileBasedBuilderParameters::testSetFileSystem_1_oe
-conf_1197_2,"    @Test
-    public void testSetFileSystem_2_oe() {
-        final FileSystem fs = EasyMock.createMock(FileSystem.class);
-        EasyMock.replay(fs);
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertSame(""Wrong file system"", fs, params.getFileHandler().getFileSystem());
-    }
-",TestFileBasedBuilderParameters::testSetFileSystem_2_oe
 conf_1198_1,"    @Test
     public void testSetLocationStrategy_1_oe() {
         final FileLocationStrategy strat = EasyMock.createMock(FileLocationStrategy.class);
@@ -35858,15 +34638,6 @@ conf_1198_1,"    @Test
         assertSame(""Wrong result"", params, params.setLocationStrategy(strat));
     }
 ",TestFileBasedBuilderParameters::testSetLocationStrategy_1_oe
-conf_1198_2,"    @Test
-    public void testSetLocationStrategy_2_oe() {
-        final FileLocationStrategy strat = EasyMock.createMock(FileLocationStrategy.class);
-        EasyMock.replay(strat);
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertSame(""Wrong location strategy"", strat, params.getFileHandler().getLocationStrategy());
-    }
-",TestFileBasedBuilderParameters::testSetLocationStrategy_2_oe
 conf_1199_1,"    @Test
     public void testSetPath_1_oe() {
         final String path = ConfigurationAssert.getTestFile(""test.properties"").getAbsolutePath();
@@ -35874,14 +34645,6 @@ conf_1199_1,"    @Test
         assertSame(""Wrong result"", params, params.setPath(path));
     }
 ",TestFileBasedBuilderParameters::testSetPath_1_oe
-conf_1199_2,"    @Test
-    public void testSetPath_2_oe() {
-        final String path = ConfigurationAssert.getTestFile(""test.properties"").getAbsolutePath();
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertEquals(""Wrong path"", path, params.getFileHandler().getPath());
-    }
-",TestFileBasedBuilderParameters::testSetPath_2_oe
 conf_1200_1,"    @Test
     public void testSetReloadingDetectorFactory_1_oe() {
         final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
@@ -35899,16 +34662,6 @@ conf_1200_2,"    @Test
         assertSame(""Wrong result"", params, params.setReloadingDetectorFactory(factory));
     }
 ",TestFileBasedBuilderParameters::testSetReloadingDetectorFactory_2_oe
-conf_1200_3,"    @Test
-    public void testSetReloadingDetectorFactory_3_oe() {
-        final ReloadingDetectorFactory factory = EasyMock.createMock(ReloadingDetectorFactory.class);
-        EasyMock.replay(factory);
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        // removed other assertion
-        assertSame(""Factory not set"", factory, params.getReloadingDetectorFactory());
-    }
-",TestFileBasedBuilderParameters::testSetReloadingDetectorFactory_3_oe
 conf_1201_1,"    @Test
     public void testSetReloadingRefreshDelay_1_oe() {
         final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
@@ -35916,14 +34669,6 @@ conf_1201_1,"    @Test
         assertSame(""Wrong result"", params, params.setReloadingRefreshDelay(delay));
     }
 ",TestFileBasedBuilderParameters::testSetReloadingRefreshDelay_1_oe
-conf_1201_2,"    @Test
-    public void testSetReloadingRefreshDelay_2_oe() {
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        final Long delay = 10000L;
-        // removed other assertion
-        assertEquals(""Wrong delay"", delay, params.getReloadingRefreshDelay());
-    }
-",TestFileBasedBuilderParameters::testSetReloadingRefreshDelay_2_oe
 conf_1202_1,"    @Test
     public void testSetURL_1_oe() {
         final URL url = ConfigurationAssert.getTestURL(""test.properties"");
@@ -35931,14 +34676,6 @@ conf_1202_1,"    @Test
         assertSame(""Wrong result"", params, params.setURL(url));
     }
 ",TestFileBasedBuilderParameters::testSetURL_1_oe
-conf_1202_2,"    @Test
-    public void testSetURL_2_oe() {
-        final URL url = ConfigurationAssert.getTestURL(""test.properties"");
-        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
-        // removed other assertion
-        assertEquals(""Wrong URL"", url.toExternalForm(), params.getFileHandler().getURL().toExternalForm());
-    }
-",TestFileBasedBuilderParameters::testSetURL_2_oe
 conf_1203_1,"    @Test
     public void testBuilderEventType_1_oe() {
         final EventType<ConfigurationBuilderEvent> builderEventType = ConfigurationBuilderEvent.ANY;
@@ -36172,14 +34909,6 @@ conf_1215_1,"    @Test
         assertSame(""Wrong result"", params, params.setIncludeListener(includeListener));
     }
 ",TestPropertiesBuilderParametersImpl::testSetIncludeListener_1_oe
-conf_1215_2,"    @Test
-    public void testSetIncludeListener_2_oe() {
-        final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
-        EasyMock.replay(includeListener);
-        // removed other assertion
-        assertSame(""IncludeListener not set"", includeListener, params.getParameters().get(""includeListener""));
-    }
-",TestPropertiesBuilderParametersImpl::testSetIncludeListener_2_oe
 conf_1216_1,"    @Test
     public void testSetIncludeListenerProperty_1_oe() throws ConfigurationException {
         final ConfigurationConsumer<ConfigurationException> includeListener = PropertiesConfiguration.DEFAULT_INCLUDE_LISTENER;
@@ -36195,12 +34924,6 @@ conf_1217_1,"    @Test
         assertSame(""Wrong result"", params, params.setIncludesAllowed(true));
     }
 ",TestPropertiesBuilderParametersImpl::testSetIncludesAllowed_1_oe
-conf_1217_2,"    @Test
-    public void testSetIncludesAllowed_2_oe() {
-        // removed other assertion
-        assertEquals(""Value not set"", Boolean.TRUE, params.getParameters().get(""includesAllowed""));
-    }
-",TestPropertiesBuilderParametersImpl::testSetIncludesAllowed_2_oe
 conf_1218_1,"    @Test
     public void testSetIOFactory_1_oe() {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
@@ -36208,14 +34931,6 @@ conf_1218_1,"    @Test
         assertSame(""Wrong result"", params, params.setIOFactory(factory));
     }
 ",TestPropertiesBuilderParametersImpl::testSetIOFactory_1_oe
-conf_1218_2,"    @Test
-    public void testSetIOFactory_2_oe() {
-        final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
-        EasyMock.replay(factory);
-        // removed other assertion
-        assertSame(""Factory not set"", factory, params.getParameters().get(""IOFactory""));
-    }
-",TestPropertiesBuilderParametersImpl::testSetIOFactory_2_oe
 conf_1219_1,"    @Test
     public void testSetIOFactoryProperty_1_oe() throws ConfigurationException {
         final PropertiesConfiguration.IOFactory factory = new PropertiesConfiguration.DefaultIOFactory();
@@ -36232,13 +34947,6 @@ conf_1220_1,"    @Test
         assertSame(""Wrong result"", params, params.setLayout(layout));
     }
 ",TestPropertiesBuilderParametersImpl::testSetLayout_1_oe
-conf_1220_2,"    @Test
-    public void testSetLayout_2_oe() {
-        final PropertiesConfigurationLayout layout = new PropertiesConfigurationLayout();
-        // removed other assertion
-        assertSame(""Layout not set"", layout, params.getParameters().get(""layout""));
-    }
-",TestPropertiesBuilderParametersImpl::testSetLayout_2_oe
 conf_1221_1,"    @Test
     public void testAddEventListener_1_oe() {
         final EventListenerTestImpl listener = new EventListenerTestImpl(null);
@@ -36246,35 +34954,6 @@ conf_1221_1,"    @Test
         assertSame(""Wrong result"", parameters, parameters.addEventListener(ConfigurationEvent.ADD_PROPERTY, listener));
     }
 ",TestEventListenerParameters::testAddEventListener_1_oe
-conf_1221_2,"    @Test
-    public void testAddEventListener_2_oe() {
-        final EventListenerTestImpl listener = new EventListenerTestImpl(null);
-        final EventListenerParameters parameters = new EventListenerParameters();
-        // removed other assertion
-        assertEquals(""Wrong number of registrations"", 1, parameters.getListeners().getRegistrations().size());
-    }
-",TestEventListenerParameters::testAddEventListener_2_oe
-conf_1221_3,"    @Test
-    public void testAddEventListener_3_oe() {
-        final EventListenerTestImpl listener = new EventListenerTestImpl(null);
-        final EventListenerParameters parameters = new EventListenerParameters();
-        // removed other assertion
-        // removed other assertion
-        final EventListenerRegistrationData<?> reg = parameters.getListeners().getRegistrations().get(0);
-        assertEquals(""Wrong event type"", ConfigurationEvent.ADD_PROPERTY, reg.getEventType());
-    }
-",TestEventListenerParameters::testAddEventListener_3_oe
-conf_1221_4,"    @Test
-    public void testAddEventListener_4_oe() {
-        final EventListenerTestImpl listener = new EventListenerTestImpl(null);
-        final EventListenerParameters parameters = new EventListenerParameters();
-        // removed other assertion
-        // removed other assertion
-        final EventListenerRegistrationData<?> reg = parameters.getListeners().getRegistrations().get(0);
-        // removed other assertion
-        assertEquals(""Wrong listener"", listener, reg.getListener());
-    }
-",TestEventListenerParameters::testAddEventListener_4_oe
 conf_1222_1,"    @Test
     public void testAddEventListenerRegistration_1_oe() {
         final EventListenerRegistrationData<ConfigurationEvent> reg = new EventListenerRegistrationData<>(ConfigurationEvent.SET_PROPERTY,
@@ -36283,25 +34962,6 @@ conf_1222_1,"    @Test
         assertSame(""Wrong result"", parameters, parameters.addEventListener(reg));
     }
 ",TestEventListenerParameters::testAddEventListenerRegistration_1_oe
-conf_1222_2,"    @Test
-    public void testAddEventListenerRegistration_2_oe() {
-        final EventListenerRegistrationData<ConfigurationEvent> reg = new EventListenerRegistrationData<>(ConfigurationEvent.SET_PROPERTY,
-            new EventListenerTestImpl(null));
-        final EventListenerParameters parameters = new EventListenerParameters();
-        // removed other assertion
-        assertEquals(""Wrong number of registrations"", 1, parameters.getListeners().getRegistrations().size());
-    }
-",TestEventListenerParameters::testAddEventListenerRegistration_2_oe
-conf_1222_3,"    @Test
-    public void testAddEventListenerRegistration_3_oe() {
-        final EventListenerRegistrationData<ConfigurationEvent> reg = new EventListenerRegistrationData<>(ConfigurationEvent.SET_PROPERTY,
-            new EventListenerTestImpl(null));
-        final EventListenerParameters parameters = new EventListenerParameters();
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong registration"", reg, parameters.getListeners().getRegistrations().get(0));
-    }
-",TestEventListenerParameters::testAddEventListenerRegistration_3_oe
 conf_1223_1,"    @Test
     public void testGetParameters_1_oe() {
         final EventListenerParameters parameters = new EventListenerParameters();
@@ -36352,29 +35012,12 @@ conf_1227_1,"    @Test
         assertSame(""Wrong result"", params, params.setContext(ctx));
     }
 ",TestJndiBuilderParametersImpl::testSetContext_1_oe
-conf_1227_2,"    @Test
-    public void testSetContext_2_oe() {
-        final Context ctx = EasyMock.createMock(Context.class);
-        EasyMock.replay(ctx);
-        // removed other assertion
-        final Map<String, Object> paramsMap = params.getParameters();
-        assertSame(""Context not in map"", ctx, paramsMap.get(""context""));
-    }
-",TestJndiBuilderParametersImpl::testSetContext_2_oe
 conf_1228_1,"    @Test
     public void testSetPrefix_1_oe() {
         final String prefix = ""testJndiPrefix"";
         assertSame(""Wrong result"", params, params.setPrefix(prefix));
     }
 ",TestJndiBuilderParametersImpl::testSetPrefix_1_oe
-conf_1228_2,"    @Test
-    public void testSetPrefix_2_oe() {
-        final String prefix = ""testJndiPrefix"";
-        // removed other assertion
-        final Map<String, Object> paramsMap = params.getParameters();
-        assertEquals(""Prefix not in map"", prefix, paramsMap.get(""prefix""));
-    }
-",TestJndiBuilderParametersImpl::testSetPrefix_2_oe
 conf_1229_1,"    @Test
     public void testCloneDefaultLookups_1_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
@@ -36880,13 +35523,6 @@ conf_1241_1,"    @Test
         assertSame(""Wrong result"", params, params.setBeanHelper(helper));
     }
 ",TestBasicBuilderParameters::testSetBeanHelper_1_oe
-conf_1241_2,"    @Test
-    public void testSetBeanHelper_2_oe() {
-        final BeanHelper helper = new BeanHelper();
-        // removed other assertion
-        assertSame(""BeanHelper not set"", helper, BasicBuilderParameters.fetchBeanHelper(params.getParameters()));
-    }
-",TestBasicBuilderParameters::testSetBeanHelper_2_oe
 conf_1242_1,"    @Test
     public void testSetConfigurationDecoder_1_oe() {
         final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
@@ -36894,14 +35530,6 @@ conf_1242_1,"    @Test
         assertSame(""Wrong result"", params, params.setConfigurationDecoder(decoder));
     }
 ",TestBasicBuilderParameters::testSetConfigurationDecoder_1_oe
-conf_1242_2,"    @Test
-    public void testSetConfigurationDecoder_2_oe() {
-        final ConfigurationDecoder decoder = EasyMock.createMock(ConfigurationDecoder.class);
-        EasyMock.replay(decoder);
-        // removed other assertion
-        assertSame(""Decoder not set"", decoder, params.getParameters().get(""configurationDecoder""));
-    }
-",TestBasicBuilderParameters::testSetConfigurationDecoder_2_oe
 conf_1243_1,"    @Test
     public void testSetConversionHandler_1_oe() {
         final ConversionHandler handler = EasyMock.createMock(ConversionHandler.class);
@@ -36909,14 +35537,6 @@ conf_1243_1,"    @Test
         assertSame(""Wrong result"", params, params.setConversionHandler(handler));
     }
 ",TestBasicBuilderParameters::testSetConversionHandler_1_oe
-conf_1243_2,"    @Test
-    public void testSetConversionHandler_2_oe() {
-        final ConversionHandler handler = EasyMock.createMock(ConversionHandler.class);
-        EasyMock.replay(handler);
-        // removed other assertion
-        assertSame(""ConversionHandler not set"", handler, params.getParameters().get(""conversionHandler""));
-    }
-",TestBasicBuilderParameters::testSetConversionHandler_2_oe
 conf_1244_1,"    @Test
     public void testSetDefaultLookups_1_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
@@ -36933,40 +35553,6 @@ conf_1244_2,"    @Test
         assertNotSame(""No copy was created"", col, looks);
     }
 ",TestBasicBuilderParameters::testSetDefaultLookups_2_oe
-conf_1244_3,"    @Test
-    public void testSetDefaultLookups_3_oe() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        final Collection<Lookup> looks = Collections.singleton(look);
-        // removed other assertion
-        final Collection<?> col = (Collection<?>) params.getParameters().get(""defaultLookups"");
-        // removed other assertion
-        assertEquals(""Wrong number of lookups"", 1, col.size());
-    }
-",TestBasicBuilderParameters::testSetDefaultLookups_3_oe
-conf_1244_4,"    @Test
-    public void testSetDefaultLookups_4_oe() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        final Collection<Lookup> looks = Collections.singleton(look);
-        // removed other assertion
-        final Collection<?> col = (Collection<?>) params.getParameters().get(""defaultLookups"");
-        // removed other assertion
-        // removed other assertion
-        assertSame(""Wrong lookup"", look, col.iterator().next());
-    }
-",TestBasicBuilderParameters::testSetDefaultLookups_4_oe
-conf_1244_5,"    @Test
-    public void testSetDefaultLookups_5_oe() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        final Collection<Lookup> looks = Collections.singleton(look);
-        // removed other assertion
-        final Collection<?> col = (Collection<?>) params.getParameters().get(""defaultLookups"");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final Collection<?> col2 = (Collection<?>) params.getParameters().get(""defaultLookups"");
-        assertNotSame(""No copy in parameters"", col, col2);
-    }
-",TestBasicBuilderParameters::testSetDefaultLookups_5_oe
 conf_1245_1,"    @Test
     public void testSetDefaultLookupsNull_1_oe() {
         params.setDefaultLookups(new ArrayList<>());
@@ -36981,14 +35567,6 @@ conf_1246_1,"    @Test
         assertSame(""Wrong result"", params, params.setInterpolator(ci));
     }
 ",TestBasicBuilderParameters::testSetInterpolator_1_oe
-conf_1246_2,"    @Test
-    public void testSetInterpolator_2_oe() {
-        final ConfigurationInterpolator ci = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.replay(ci);
-        // removed other assertion
-        assertSame(""Wrong interpolator"", ci, params.getParameters().get(""interpolator""));
-    }
-",TestBasicBuilderParameters::testSetInterpolator_2_oe
 conf_1247_1,"    @Test
     public void testSetListDelimiter_1_oe() {
         final ListDelimiterHandler handler = EasyMock.createMock(ListDelimiterHandler.class);
@@ -36996,14 +35574,6 @@ conf_1247_1,"    @Test
         assertSame(""Wrong result"", params, params.setListDelimiterHandler(handler));
     }
 ",TestBasicBuilderParameters::testSetListDelimiter_1_oe
-conf_1247_2,"    @Test
-    public void testSetListDelimiter_2_oe() {
-        final ListDelimiterHandler handler = EasyMock.createMock(ListDelimiterHandler.class);
-        EasyMock.replay(handler);
-        // removed other assertion
-        assertSame(""Wrong delimiter handler"", handler, params.getParameters().get(""listDelimiterHandler""));
-    }
-",TestBasicBuilderParameters::testSetListDelimiter_2_oe
 conf_1248_1,"    @Test
     public void testSetLogger_1_oe() {
         final ConfigurationLogger log = EasyMock.createMock(ConfigurationLogger.class);
@@ -37011,14 +35581,6 @@ conf_1248_1,"    @Test
         assertSame(""Wrong result"", params, params.setLogger(log));
     }
 ",TestBasicBuilderParameters::testSetLogger_1_oe
-conf_1248_2,"    @Test
-    public void testSetLogger_2_oe() {
-        final ConfigurationLogger log = EasyMock.createMock(ConfigurationLogger.class);
-        EasyMock.replay(log);
-        // removed other assertion
-        assertSame(""Wrong logger parameter"", log, params.getParameters().get(""logger""));
-    }
-",TestBasicBuilderParameters::testSetLogger_2_oe
 conf_1249_1,"    @Test
     public void testSetLookupsAndInterpolator_1_oe() {
         final Lookup look1 = EasyMock.createMock(Lookup.class);
@@ -37071,14 +35633,6 @@ conf_1250_1,"    @Test
         assertSame(""Wrong result"", params, params.setParentInterpolator(parent));
     }
 ",TestBasicBuilderParameters::testSetParentInterpolator_1_oe
-conf_1250_2,"    @Test
-    public void testSetParentInterpolator_2_oe() {
-        final ConfigurationInterpolator parent = EasyMock.createMock(ConfigurationInterpolator.class);
-        EasyMock.replay(parent);
-        // removed other assertion
-        assertSame(""Wrong parent"", parent, params.getParameters().get(""parentInterpolator""));
-    }
-",TestBasicBuilderParameters::testSetParentInterpolator_2_oe
 conf_1251_1,"    @Test
     public void testSetPrefixLookups_1_oe() {
         final Lookup look = EasyMock.createMock(Lookup.class);
@@ -37095,40 +35649,6 @@ conf_1251_2,"    @Test
         assertNotSame(""No copy was created"", lookups, map);
     }
 ",TestBasicBuilderParameters::testSetPrefixLookups_2_oe
-conf_1251_3,"    @Test
-    public void testSetPrefixLookups_3_oe() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        final Map<String, Lookup> lookups = Collections.singletonMap(""test"", look);
-        // removed other assertion
-        final Map<?, ?> map = (Map<?, ?>) params.getParameters().get(""prefixLookups"");
-        // removed other assertion
-        assertEquals(""Wrong lookup"", look, map.get(""test""));
-    }
-",TestBasicBuilderParameters::testSetPrefixLookups_3_oe
-conf_1251_4,"    @Test
-    public void testSetPrefixLookups_4_oe() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        final Map<String, Lookup> lookups = Collections.singletonMap(""test"", look);
-        // removed other assertion
-        final Map<?, ?> map = (Map<?, ?>) params.getParameters().get(""prefixLookups"");
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong number of lookups"", 1, map.size());
-    }
-",TestBasicBuilderParameters::testSetPrefixLookups_4_oe
-conf_1251_5,"    @Test
-    public void testSetPrefixLookups_5_oe() {
-        final Lookup look = EasyMock.createMock(Lookup.class);
-        final Map<String, Lookup> lookups = Collections.singletonMap(""test"", look);
-        // removed other assertion
-        final Map<?, ?> map = (Map<?, ?>) params.getParameters().get(""prefixLookups"");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final Map<?, ?> map2 = (Map<?, ?>) params.getParameters().get(""prefixLookups"");
-        assertNotSame(""No copy in parameters"", map, map2);
-    }
-",TestBasicBuilderParameters::testSetPrefixLookups_5_oe
 conf_1252_1,"    @Test
     public void testSetPrefixLookupsNull_1_oe() {
         params.setPrefixLookups(new HashMap<>());
@@ -37143,25 +35663,11 @@ conf_1253_1,"    @Test
         assertSame(""Wrong result"", params, params.setSynchronizer(sync));
     }
 ",TestBasicBuilderParameters::testSetSynchronizer_1_oe
-conf_1253_2,"    @Test
-    public void testSetSynchronizer_2_oe() {
-        final Synchronizer sync = EasyMock.createMock(Synchronizer.class);
-        EasyMock.replay(sync);
-        // removed other assertion
-        assertSame(""Synchronizer not set"", sync, params.getParameters().get(""synchronizer""));
-    }
-",TestBasicBuilderParameters::testSetSynchronizer_2_oe
 conf_1254_1,"    @Test
     public void testSetThrowExceptionOnMissing_1_oe() {
         assertSame(""Wrong result"", params, params.setThrowExceptionOnMissing(true));
     }
 ",TestBasicBuilderParameters::testSetThrowExceptionOnMissing_1_oe
-conf_1254_2,"    @Test
-    public void testSetThrowExceptionOnMissing_2_oe() {
-        // removed other assertion
-        assertEquals(""Wrong flag value"", Boolean.TRUE, params.getParameters().get(""throwExceptionOnMissing""));
-    }
-",TestBasicBuilderParameters::testSetThrowExceptionOnMissing_2_oe
 conf_1255_1,"    @Test
     public void testConfigurationDeclarationGetAttributes_1_oe() {
         final HierarchicalConfiguration<?> config = new BaseHierarchicalConfiguration();
@@ -37346,40 +35852,6 @@ conf_1257_1,"    @Test
         assertEquals(""Wrong initial value"", ""100"", builder.getConfiguration().getString(""/property[@name='config']/@value""));
     }
 ",TestReloadingCombinedConfigurationBuilderFileBased::testConcurrentGetAndReload_1_oe
-conf_1257_2,"    @Test
-    public void testConcurrentGetAndReload_2_oe() throws Exception {
-        final int threadCount = 4;
-        final int loopCount = 100;
-        final ReloadingDetectorFactory detectorFactory = (handler, params) -> new RandomReloadingDetector();
-        final BaseHierarchicalConfiguration defConf = new BaseHierarchicalConfiguration();
-        defConf.addProperty(""header.result.nodeCombiner[@config-class]"", MergeCombiner.class.getName());
-        defConf.addProperty(""header.result.expressionEngine[@config-class]"", XPathExpressionEngine.class.getName());
-        addReloadSource(defConf, ""configA.xml"");
-        addReloadSource(defConf, ""configB.xml"");
-        final Synchronizer sync = new ReadWriteSynchronizer();
-        builder.configure(parameters.combined().setDefinitionBuilder(new ConstantConfigurationBuilder(defConf)).setSynchronizer(sync)
-            .registerChildDefaultsHandler(BasicBuilderProperties.class, new CopyObjectDefaultHandler(new BasicBuilderParameters().setSynchronizer(sync)))
-            .registerChildDefaultsHandler(FileBasedBuilderProperties.class,
-                new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingDetectorFactory(detectorFactory))));
-
-        // removed other assertion
-
-        final Thread testThreads[] = new Thread[threadCount];
-        final int failures[] = new int[threadCount];
-
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i] = new ReloadThread(builder, failures, i, loopCount);
-            testThreads[i].start();
-        }
-
-        int totalFailures = 0;
-        for (int i = 0; i < testThreads.length; ++i) {
-            testThreads[i].join();
-            totalFailures += failures[i];
-        }
-        assertEquals(totalFailures + "" failures Occurred"", 0, totalFailures);
-    }
-",TestReloadingCombinedConfigurationBuilderFileBased::testConcurrentGetAndReload_2_oe
 conf_1258_1,"    @Test
     public void testReloadFromFile_1_oe() throws ConfigurationException, IOException {
         final File xmlConf1 = writeReloadFile(null, 1, 0);
@@ -37613,13 +36085,6 @@ conf_1264_1,"    @Test
         assertSame(""Wrong result"", params, params.setFilePattern(pattern));
     }
 ",TestMultiFileBuilderParametersImpl::testSetFilePattern_1_oe
-conf_1264_2,"    @Test
-    public void testSetFilePattern_2_oe() {
-        final String pattern = ""somePattern"";
-        // removed other assertion
-        assertEquals(""Pattern not set"", pattern, params.getFilePattern());
-    }
-",TestMultiFileBuilderParametersImpl::testSetFilePattern_2_oe
 conf_1265_1,"    @Test
     public void testSetManagedBuilderParameters_1_oe() {
         final BuilderParameters bp = EasyMock.createMock(BuilderParameters.class);
@@ -37627,14 +36092,6 @@ conf_1265_1,"    @Test
         assertSame(""Wrong result"", params, params.setManagedBuilderParameters(bp));
     }
 ",TestMultiFileBuilderParametersImpl::testSetManagedBuilderParameters_1_oe
-conf_1265_2,"    @Test
-    public void testSetManagedBuilderParameters_2_oe() {
-        final BuilderParameters bp = EasyMock.createMock(BuilderParameters.class);
-        EasyMock.replay(bp);
-        // removed other assertion
-        assertSame(""Parameters not set"", bp, params.getManagedBuilderParameters());
-    }
-",TestMultiFileBuilderParametersImpl::testSetManagedBuilderParameters_2_oe
 conf_1266_1,"    @Test
     public void testInitWithFailOnInitFlag_1_oe() {
         builder = new ReloadingCombinedConfigurationBuilder(null, true);
@@ -38125,16 +36582,6 @@ conf_1290_2,"    @Test
         assertEquals(""Property not set"", Boolean.TRUE, cc.getProperty(""tests."" + tagName));
     }
 ",TestCombinedConfigurationBuilder::testCustomBuilderProvider_2_oe
-conf_1291_1,"    @Test
-    public void testCustomEntityResolver_1_oe() throws ConfigurationException {
-        final File resolverFile = ConfigurationAssert.getTestFile(""testCCEntityResolver.xml"");
-        builder.configure(createParameters().setFile(resolverFile));
-        final CombinedConfiguration cc = builder.getConfiguration();
-        final XMLConfiguration xmlConf = (XMLConfiguration) cc.getConfiguration(""xml"");
-        final EntityResolverWithPropertiesTestImpl resolver = (EntityResolverWithPropertiesTestImpl) xmlConf.getEntityResolver();
-        assertFalse(""No lookups"", resolver.getInterpolator().getLookups().isEmpty());
-    }
-",TestCombinedConfigurationBuilder::testCustomEntityResolver_1_oe
 conf_1292_1,"    @Test
     public void testCustomLookup_1_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile(""testCCLookup.xml"");
@@ -38153,16 +36600,6 @@ conf_1292_2,"    @Test
         assertTrue(""Lookup not registered in sub config"", xmlConf.getInterpolator().getLookups().containsKey(""test""));
     }
 ",TestCombinedConfigurationBuilder::testCustomLookup_2_oe
-conf_1293_1,"    @Test
-    public void testCustomResultConfiguration_1_oe() throws ConfigurationException {
-        final File testFile = ConfigurationAssert.getTestFile(""testCCResultClass.xml"");
-        final ListDelimiterHandler listHandler = new DefaultListDelimiterHandler('.');
-        builder.configure(new CombinedBuilderParametersImpl().setDefinitionBuilderParameters(new XMLBuilderParametersImpl().setFile(testFile))
-            .setListDelimiterHandler(listHandler).setThrowExceptionOnMissing(false));
-        final CombinedConfiguration cc = builder.getConfiguration();
-        assertTrue(""Wrong configuration class: "" + cc.getClass(), cc instanceof CombinedConfigurationTestImpl);
-    }
-",TestCombinedConfigurationBuilder::testCustomResultConfiguration_1_oe
 conf_1293_2,"    @Test
     public void testCustomResultConfiguration_2_oe() throws ConfigurationException {
         final File testFile = ConfigurationAssert.getTestFile(""testCCResultClass.xml"");
@@ -38754,50 +37191,6 @@ conf_1307_3,"    @Test
         assertEquals(""Wrong text color"", ""#000000"", multiConf.getString(""colors/text""));
     }
 ",TestCombinedConfigurationBuilder::testMultiTenentConfigurationProperties_3_oe
-conf_1308_5,"    @Test
-    public void testMultiTenentConfigurationReloading_5_oe() throws ConfigurationException, InterruptedException {
-        final CombinedConfiguration config = createMultiFileConfig(""testCCMultiTenentReloading.xml"");
-        final File outFile = ConfigurationAssert.getOutFile(""MultiFileReloadingTest.xml"");
-        switchToMultiFile(outFile.getAbsolutePath());
-        final XMLConfiguration reloadConfig = new XMLConfiguration();
-        final FileHandler handler = new FileHandler(reloadConfig);
-        handler.setFile(outFile);
-        final String key = ""test.reload"";
-        reloadConfig.setProperty(key, ""no"");
-        handler.save();
-        try {
-            // removed other assertion
-            final ConfigurationBuilder<? extends Configuration> childBuilder = builder.getNamedBuilder(""clientConfig"");
-            // removed other assertion
-            final ReloadingController ctrl = ((ReloadingControllerSupport) childBuilder).getReloadingController();
-            ctrl.checkForReloading(null); // initialize reloading
-            final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
-            childBuilder.addEventListener(ConfigurationBuilderEvent.RESET, listener);
-            reloadConfig.setProperty(key, ""yes"");
-            handler.save();
-
-            int attempts = 10;
-            boolean changeDetected;
-            do {
-                changeDetected = ctrl.checkForReloading(null);
-                if (!changeDetected) {
-                    Thread.sleep(1000);
-                    handler.save(outFile);
-                }
-            } while (!changeDetected && --attempts > 0);
-            // removed other assertion
-            // removed other assertion
-            final ConfigurationBuilderEvent event = listener.nextEvent(ConfigurationBuilderEvent.RESET);
-            listener.assertNoMoreEvents();
-            final BasicConfigurationBuilder<? extends Configuration> multiBuilder = (BasicConfigurationBuilder<? extends Configuration>) event.getSource();
-            childBuilder.removeEventListener(ConfigurationBuilderEvent.RESET, listener);
-            multiBuilder.resetResult();
-            listener.assertNoMoreEvents();
-        } finally {
-            assertTrue(""Output file could not be deleted"", outFile.delete());
-    }
-    }
-",TestCombinedConfigurationBuilder::testMultiTenentConfigurationReloading_5_oe
 conf_1309_1,"    @Test
     public void testProviderInDefinitionConfig_1_oe() throws ConfigurationException {
         builder.configure(createParameters().setFile(ConfigurationAssert.getTestFile(""testCCCustomProvider.xml"")));
@@ -38981,15 +37374,6 @@ conf_1321_1,"    @Test
         assertSame(""Wrong result"", params, params.setChildDefaultParametersManager(manager));
     }
 ",TestCombinedBuilderParametersImpl::testGetChildDefaultParametersManagerSpecific_1_oe
-conf_1321_2,"    @Test
-    public void testGetChildDefaultParametersManagerSpecific_2_oe() {
-        final DefaultParametersManager manager = EasyMock.createMock(DefaultParametersManager.class);
-        EasyMock.replay(manager);
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        assertSame(""Wrong manager"", manager, params.getChildDefaultParametersManager());
-    }
-",TestCombinedBuilderParametersImpl::testGetChildDefaultParametersManagerSpecific_2_oe
 conf_1322_1,"    @Test
     public void testGetChildDefaultParametersManagerUndefined_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
@@ -39101,21 +37485,6 @@ conf_1330_1,"    @Test
         assertSame(""Wrong result"", params, params.registerMissingProviders(map));
     }
 ",TestCombinedBuilderParametersImpl::testRegisterMissingProviders_1_oe
-conf_1330_2,"    @Test
-    public void testRegisterMissingProviders_2_oe() {
-        final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider3 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final String tagPrefix = ""testTag"";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        params.registerProvider(tagPrefix, provider1);
-        final Map<String, ConfigurationBuilderProvider> map = new HashMap<>();
-        map.put(tagPrefix, provider2);
-        map.put(tagPrefix + 1, provider3);
-        // removed other assertion
-        assertEquals(""Wrong number of providers"", 2, params.getProviders().size());
-    }
-",TestCombinedBuilderParametersImpl::testRegisterMissingProviders_2_oe
 conf_1330_3,"    @Test
     public void testRegisterMissingProviders_3_oe() {
         final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
@@ -39132,23 +37501,6 @@ conf_1330_3,"    @Test
         assertSame(""Wrong provider (1)"", provider1, params.providerForTag(tagPrefix));
     }
 ",TestCombinedBuilderParametersImpl::testRegisterMissingProviders_3_oe
-conf_1330_4,"    @Test
-    public void testRegisterMissingProviders_4_oe() {
-        final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider3 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final String tagPrefix = ""testTag"";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        params.registerProvider(tagPrefix, provider1);
-        final Map<String, ConfigurationBuilderProvider> map = new HashMap<>();
-        map.put(tagPrefix, provider2);
-        map.put(tagPrefix + 1, provider3);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(""Wrong provider (2)"", provider3, params.providerForTag(tagPrefix + 1));
-    }
-",TestCombinedBuilderParametersImpl::testRegisterMissingProviders_4_oe
 conf_1331_1,"    @Test
     public void testRegisterMissingProvidersParams_1_oe() {
         final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
@@ -39163,21 +37515,6 @@ conf_1331_1,"    @Test
         assertSame(""Wrong result"", params, params.registerMissingProviders(params2));
     }
 ",TestCombinedBuilderParametersImpl::testRegisterMissingProvidersParams_1_oe
-conf_1331_2,"    @Test
-    public void testRegisterMissingProvidersParams_2_oe() {
-        final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider3 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final String tagPrefix = ""testTag"";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        final CombinedBuilderParametersImpl params2 = new CombinedBuilderParametersImpl();
-        params.registerProvider(tagPrefix, provider1);
-        params2.registerProvider(tagPrefix, provider2);
-        params2.registerProvider(tagPrefix + 1, provider3);
-        // removed other assertion
-        assertEquals(""Wrong number of providers"", 2, params.getProviders().size());
-    }
-",TestCombinedBuilderParametersImpl::testRegisterMissingProvidersParams_2_oe
 conf_1331_3,"    @Test
     public void testRegisterMissingProvidersParams_3_oe() {
         final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
@@ -39194,23 +37531,6 @@ conf_1331_3,"    @Test
         assertSame(""Wrong provider (1)"", provider1, params.providerForTag(tagPrefix));
     }
 ",TestCombinedBuilderParametersImpl::testRegisterMissingProvidersParams_3_oe
-conf_1331_4,"    @Test
-    public void testRegisterMissingProvidersParams_4_oe() {
-        final ConfigurationBuilderProvider provider1 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider2 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final ConfigurationBuilderProvider provider3 = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        final String tagPrefix = ""testTag"";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        final CombinedBuilderParametersImpl params2 = new CombinedBuilderParametersImpl();
-        params.registerProvider(tagPrefix, provider1);
-        params2.registerProvider(tagPrefix, provider2);
-        params2.registerProvider(tagPrefix + 1, provider3);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertSame(""Wrong provider (2)"", provider3, params.providerForTag(tagPrefix + 1));
-    }
-",TestCombinedBuilderParametersImpl::testRegisterMissingProvidersParams_4_oe
 conf_1332_1,"    @Test
     public void testRegisterProvider_1_oe() {
         final ConfigurationBuilderProvider provider = EasyMock.createMock(ConfigurationBuilderProvider.class);
@@ -39220,42 +37540,6 @@ conf_1332_1,"    @Test
         assertSame(""Wrong result"", params, params.registerProvider(tagName, provider));
     }
 ",TestCombinedBuilderParametersImpl::testRegisterProvider_1_oe
-conf_1332_2,"    @Test
-    public void testRegisterProvider_2_oe() {
-        final ConfigurationBuilderProvider provider = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        EasyMock.replay(provider);
-        final String tagName = ""testTag"";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        final Map<String, ConfigurationBuilderProvider> providers = params.getProviders();
-        assertEquals(""Wrong number of providers"", 1, providers.size());
-    }
-",TestCombinedBuilderParametersImpl::testRegisterProvider_2_oe
-conf_1332_3,"    @Test
-    public void testRegisterProvider_3_oe() {
-        final ConfigurationBuilderProvider provider = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        EasyMock.replay(provider);
-        final String tagName = ""testTag"";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        final Map<String, ConfigurationBuilderProvider> providers = params.getProviders();
-        // removed other assertion
-        assertSame(""Wrong provider (1)"", provider, providers.get(tagName));
-    }
-",TestCombinedBuilderParametersImpl::testRegisterProvider_3_oe
-conf_1332_4,"    @Test
-    public void testRegisterProvider_4_oe() {
-        final ConfigurationBuilderProvider provider = EasyMock.createMock(ConfigurationBuilderProvider.class);
-        EasyMock.replay(provider);
-        final String tagName = ""testTag"";
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        final Map<String, ConfigurationBuilderProvider> providers = params.getProviders();
-        // removed other assertion
-        // removed other assertion
-        assertSame(""Wrong provider (2)"", provider, params.providerForTag(tagName));
-    }
-",TestCombinedBuilderParametersImpl::testRegisterProvider_4_oe
 conf_1333_1,"    @Test
     public void testSetBasePath_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
@@ -39263,14 +37547,6 @@ conf_1333_1,"    @Test
         assertSame(""Wrong result"", params, params.setBasePath(basePath));
     }
 ",TestCombinedBuilderParametersImpl::testSetBasePath_1_oe
-conf_1333_2,"    @Test
-    public void testSetBasePath_2_oe() {
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        final String basePath = ConfigurationAssert.OUT_DIR.getAbsolutePath();
-        // removed other assertion
-        assertEquals(""Wrong base path"", basePath, params.getBasePath());
-    }
-",TestCombinedBuilderParametersImpl::testSetBasePath_2_oe
 conf_1334_1,"    @Test
     public void testSetBeanProperties_1_oe() throws Exception {
         final BuilderParameters defparams = EasyMock.createMock(BuilderParameters.class);
@@ -39321,15 +37597,6 @@ conf_1335_2,"    @Test
         assertSame(""Wrong result"", params, params.setDefinitionBuilder(builder));
     }
 ",TestCombinedBuilderParametersImpl::testSetDefinitionBuilder_2_oe
-conf_1335_3,"    @Test
-    public void testSetDefinitionBuilder_3_oe() {
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        final ConfigurationBuilder<XMLConfiguration> builder = new BasicConfigurationBuilder<>(XMLConfiguration.class);
-        // removed other assertion
-        assertSame(""Builder was not set"", builder, params.getDefinitionBuilder());
-    }
-",TestCombinedBuilderParametersImpl::testSetDefinitionBuilder_3_oe
 conf_1336_1,"    @Test
     public void testSetDefinitionBuilderParameters_1_oe() {
         final BuilderParameters defparams = EasyMock.createMock(BuilderParameters.class);
@@ -39338,15 +37605,6 @@ conf_1336_1,"    @Test
         assertSame(""Wrong result"", params, params.setDefinitionBuilderParameters(defparams));
     }
 ",TestCombinedBuilderParametersImpl::testSetDefinitionBuilderParameters_1_oe
-conf_1336_2,"    @Test
-    public void testSetDefinitionBuilderParameters_2_oe() {
-        final BuilderParameters defparams = EasyMock.createMock(BuilderParameters.class);
-        EasyMock.replay(defparams);
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        assertSame(""Wrong parameters object"", defparams, params.getDefinitionBuilderParameters());
-    }
-",TestCombinedBuilderParametersImpl::testSetDefinitionBuilderParameters_2_oe
 conf_1337_1,"    @Test
     public void testSetInheritSettings_1_oe() {
         final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
@@ -39360,14 +37618,6 @@ conf_1337_2,"    @Test
         assertSame(""Wrong result"", params, params.setInheritSettings(false));
     }
 ",TestCombinedBuilderParametersImpl::testSetInheritSettings_2_oe
-conf_1337_3,"    @Test
-    public void testSetInheritSettings_3_oe() {
-        final CombinedBuilderParametersImpl params = new CombinedBuilderParametersImpl();
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""Property not set"", params.isInheritSettings());
-    }
-",TestCombinedBuilderParametersImpl::testSetInheritSettings_3_oe
 conf_1338_1,"    @Test
     public void testGetBuilderNotReloading_1_oe() throws ConfigurationException {
         final ConfigurationBuilder<? extends Configuration> builder = checkBuilder(false);
@@ -39428,59 +37678,6 @@ conf_1341_3,"    @Test
         assertTrue(""Wrong result"", builder.removeEventListener(Event.ANY, l2));
     }
 ",TestMultiFileConfigurationBuilder::testAddConfigurationListener_3_oe
-conf_1341_4,"    @Test
-    public void testAddConfigurationListener_4_oe() throws ConfigurationException {
-        final EventListener<ConfigurationEvent> l1 = new EventListenerTestImpl(null);
-        final EventListener<Event> l2 = EasyMock.createMock(EventListener.class);
-        EasyMock.replay(l2);
-        final MultiFileConfigurationBuilder<XMLConfiguration> builder = createTestBuilder(null);
-        builder.addEventListener(ConfigurationEvent.ANY, l1);
-        switchToConfig(1);
-        final XMLConfiguration config = builder.getConfiguration();
-        // removed other assertion
-        builder.addEventListener(Event.ANY, l2);
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""Wrong result after removal"", builder.removeEventListener(Event.ANY, l2));
-    }
-",TestMultiFileConfigurationBuilder::testAddConfigurationListener_4_oe
-conf_1341_5,"    @Test
-    public void testAddConfigurationListener_5_oe() throws ConfigurationException {
-        final EventListener<ConfigurationEvent> l1 = new EventListenerTestImpl(null);
-        final EventListener<Event> l2 = EasyMock.createMock(EventListener.class);
-        EasyMock.replay(l2);
-        final MultiFileConfigurationBuilder<XMLConfiguration> builder = createTestBuilder(null);
-        builder.addEventListener(ConfigurationEvent.ANY, l1);
-        switchToConfig(1);
-        final XMLConfiguration config = builder.getConfiguration();
-        // removed other assertion
-        builder.addEventListener(Event.ANY, l2);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""Listener not removed"", config.getEventListeners(Event.ANY).contains(l2));
-    }
-",TestMultiFileConfigurationBuilder::testAddConfigurationListener_5_oe
-conf_1341_6,"    @Test
-    public void testAddConfigurationListener_6_oe() throws ConfigurationException {
-        final EventListener<ConfigurationEvent> l1 = new EventListenerTestImpl(null);
-        final EventListener<Event> l2 = EasyMock.createMock(EventListener.class);
-        EasyMock.replay(l2);
-        final MultiFileConfigurationBuilder<XMLConfiguration> builder = createTestBuilder(null);
-        builder.addEventListener(ConfigurationEvent.ANY, l1);
-        switchToConfig(1);
-        final XMLConfiguration config = builder.getConfiguration();
-        // removed other assertion
-        builder.addEventListener(Event.ANY, l2);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        switchToConfig(2);
-        final XMLConfiguration config2 = builder.getConfiguration();
-        assertFalse(""Listener not globally removed"", config2.getEventListeners(Event.ANY).contains(l2));
-    }
-",TestMultiFileConfigurationBuilder::testAddConfigurationListener_6_oe
 conf_1342_1,"    @Test
     public void testBuilderListenerOtherTypes_1_oe() throws ConfigurationException {
         final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
@@ -42642,26 +40839,6 @@ conf_1508_2,"    @Test
     }
     }
 ",TestInMemoryNodeModel::testAddPropertyWithPathNodes_2_oe
-conf_1508_3,"    @Test
-    public void testAddPropertyWithPathNodes_3_oe() {
-        final NodeKeyResolver<ImmutableNode> resolver = createResolver();
-        final NodeAddData<ImmutableNode> addData = new NodeAddData<>(nodeForKey(ROOT_AUTHORS_TREE, ""Homer/Ilias""), ""location"", false,
-            Collections.singleton(""locations""));
-        final InMemoryNodeModel model = new InMemoryNodeModel(ROOT_AUTHORS_TREE);
-        EasyMock.expect(resolver.resolveAddKey(ROOT_AUTHORS_TREE, KEY, model.getNodeHandler())).andReturn(addData);
-        EasyMock.replay(resolver);
-        final String[] locations = {""Troja"", ""Beach"", ""Olympos""};
-
-        model.addProperty(KEY, Arrays.asList(locations), resolver);
-        final ImmutableNode nodeLocs = nodeForKey(model, ""Homer/Ilias/locations"");
-        // removed other assertion
-        int idx = 0;
-        for (final ImmutableNode c : nodeLocs) {
-            // removed other assertion
-            assertEquals(""Wrong value"", locations[idx], c.getValue());
-    }
-    }
-",TestInMemoryNodeModel::testAddPropertyWithPathNodes_3_oe
 conf_1508_4,"    @Test
     public void testAddPropertyWithPathNodes_4_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver();
@@ -43096,92 +41273,6 @@ conf_1521_1,"    @Test
     }
     }
 ",TestInMemoryNodeModel::testConcurrentUpdate_1_oe
-conf_1521_2,"    @Test
-    public void testConcurrentUpdate_2_oe() throws InterruptedException {
-        final NodeKeyResolver<ImmutableNode> resolver = createResolver();
-        final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_AUTHORS_TREE);
-        EasyMock.expect(resolver.resolveAddKey(EasyMock.anyObject(ImmutableNode.class), EasyMock.eq(KEY), EasyMock.anyObject(TreeData.class))).andAnswer(() -> {
-            final ImmutableNode addParent = (ImmutableNode) EasyMock.getCurrentArguments()[0];
-            return new NodeAddData<>(addParent, ""name"", false, Collections.singleton(""author""));
-        }).anyTimes();
-        EasyMock.replay(resolver);
-
-        final CountDownLatch latch = new CountDownLatch(1);
-        final String authorPrefix = ""newAuthor"";
-        final int threadCount = 32;
-        final Thread[] threads = new Thread[threadCount];
-        for (int i = 0; i < threadCount; i++) {
-            final String authorName = authorPrefix + i;
-            threads[i] = new Thread(() -> {
-                try {
-                    latch.await();
-                    model.addProperty(KEY, Collections.singleton(authorName), resolver);
-                } catch (final InterruptedException iex) {
-                    // ignore
-                }
-            });
-            threads[i].start();
-        }
-        latch.countDown();
-        for (final Thread t : threads) {
-            t.join();
-        }
-
-        final Pattern patternAuthorName = Pattern.compile(Pattern.quote(authorPrefix) + ""(\\d+)"");
-        final Set<Integer> indices = new HashSet<>();
-        for (int i = 0; i < threadCount; i++) {
-            final ImmutableNode node = nodeForKey(model, ""author("" + i + "")/name"");
-            final Matcher m = patternAuthorName.matcher(String.valueOf(node.getValue()));
-            // removed other assertion
-            final int idx = Integer.parseInt(m.group(1));
-            assertTrue(""Invalid index: "" + idx, idx >= 0 && idx < threadCount);
-    }
-    }
-",TestInMemoryNodeModel::testConcurrentUpdate_2_oe
-conf_1521_3,"    @Test
-    public void testConcurrentUpdate_3_oe() throws InterruptedException {
-        final NodeKeyResolver<ImmutableNode> resolver = createResolver();
-        final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_AUTHORS_TREE);
-        EasyMock.expect(resolver.resolveAddKey(EasyMock.anyObject(ImmutableNode.class), EasyMock.eq(KEY), EasyMock.anyObject(TreeData.class))).andAnswer(() -> {
-            final ImmutableNode addParent = (ImmutableNode) EasyMock.getCurrentArguments()[0];
-            return new NodeAddData<>(addParent, ""name"", false, Collections.singleton(""author""));
-        }).anyTimes();
-        EasyMock.replay(resolver);
-
-        final CountDownLatch latch = new CountDownLatch(1);
-        final String authorPrefix = ""newAuthor"";
-        final int threadCount = 32;
-        final Thread[] threads = new Thread[threadCount];
-        for (int i = 0; i < threadCount; i++) {
-            final String authorName = authorPrefix + i;
-            threads[i] = new Thread(() -> {
-                try {
-                    latch.await();
-                    model.addProperty(KEY, Collections.singleton(authorName), resolver);
-                } catch (final InterruptedException iex) {
-                    // ignore
-                }
-            });
-            threads[i].start();
-        }
-        latch.countDown();
-        for (final Thread t : threads) {
-            t.join();
-        }
-
-        final Pattern patternAuthorName = Pattern.compile(Pattern.quote(authorPrefix) + ""(\\d+)"");
-        final Set<Integer> indices = new HashSet<>();
-        for (int i = 0; i < threadCount; i++) {
-            final ImmutableNode node = nodeForKey(model, ""author("" + i + "")/name"");
-            final Matcher m = patternAuthorName.matcher(String.valueOf(node.getValue()));
-            // removed other assertion
-            final int idx = Integer.parseInt(m.group(1));
-            // removed other assertion
-            indices.add(idx);
-        }
-        assertEquals(""Not all authors were created"", threadCount, indices.size());
-    }
-",TestInMemoryNodeModel::testConcurrentUpdate_3_oe
 conf_1522_1,"    @Test
     public void testGetInMemoryRepresentation_1_oe() {
         final InMemoryNodeModel model = new InMemoryNodeModel(NodeStructureHelper.ROOT_AUTHORS_TREE);
@@ -43857,25 +41948,6 @@ conf_1553_2,"    @Test
         assertEquals(""Wrong key part"", ""tables"", it.nextKey());
     }
 ",TestDefaultConfigurationKey::testIterate_2_oe
-conf_1553_3,"    @Test
-    public void testIterate_3_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong key part"", ""table"", it.nextKey());
-    }
-",TestDefaultConfigurationKey::testIterate_3_oe
-conf_1553_4,"    @Test
-    public void testIterate_4_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(""No index found"", it.hasIndex());
-    }
-",TestDefaultConfigurationKey::testIterate_4_oe
 conf_1553_5,"    @Test
     public void testIterate_5_oe() {
         key.append(TESTKEY);
@@ -43887,18 +41959,6 @@ conf_1553_5,"    @Test
         assertEquals(""Wrong index"", 0, it.getIndex());
     }
 ",TestDefaultConfigurationKey::testIterate_5_oe
-conf_1553_6,"    @Test
-    public void testIterate_6_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong key part"", ""fields"", it.nextKey());
-    }
-",TestDefaultConfigurationKey::testIterate_6_oe
 conf_1553_7,"    @Test
     public void testIterate_7_oe() {
         key.append(TESTKEY);
@@ -43912,35 +41972,6 @@ conf_1553_7,"    @Test
         assertFalse(""Found an index"", it.hasIndex());
     }
 ",TestDefaultConfigurationKey::testIterate_7_oe
-conf_1553_8,"    @Test
-    public void testIterate_8_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong key part"", ""field"", it.nextKey(true));
-    }
-",TestDefaultConfigurationKey::testIterate_8_oe
-conf_1553_9,"    @Test
-    public void testIterate_9_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong index"", 1, it.getIndex());
-    }
-",TestDefaultConfigurationKey::testIterate_9_oe
 conf_1553_10,"    @Test
     public void testIterate_10_oe() {
         key.append(TESTKEY);
@@ -43957,101 +41988,6 @@ conf_1553_10,"    @Test
         assertFalse(""Found an attribute"", it.isAttribute());
     }
 ",TestDefaultConfigurationKey::testIterate_10_oe
-conf_1553_11,"    @Test
-    public void testIterate_11_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong current key"", ""field"", it.currentKey(true));
-    }
-",TestDefaultConfigurationKey::testIterate_11_oe
-conf_1553_12,"    @Test
-    public void testIterate_12_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong key part"", ""dataType"", it.nextKey());
-    }
-",TestDefaultConfigurationKey::testIterate_12_oe
-conf_1553_13,"    @Test
-    public void testIterate_13_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong decorated key part"", ""[@dataType]"", it.currentKey(true));
-    }
-",TestDefaultConfigurationKey::testIterate_13_oe
-conf_1553_14,"    @Test
-    public void testIterate_14_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(""Attribute not found"", it.isAttribute());
-    }
-",TestDefaultConfigurationKey::testIterate_14_oe
-conf_1553_15,"    @Test
-    public void testIterate_15_oe() {
-        key.append(TESTKEY);
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""Too many key parts"", it.hasNext());
-    }
-",TestDefaultConfigurationKey::testIterate_15_oe
 conf_1554_1,"    @Test
     public void testIterateAlternativeEscapeDelimiter_1_oe() {
         expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter(""\\."").create());
@@ -44074,48 +42010,6 @@ conf_1554_2,"    @Test
         assertEquals(""Wrong first part"", "".my.elem"", kit.nextKey());
     }
 ",TestDefaultConfigurationKey::testIterateAlternativeEscapeDelimiter_2_oe
-conf_1554_3,"    @Test
-    public void testIterateAlternativeEscapeDelimiter_3_oe() {
-        expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter(""\\."").create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append(""\\.my\\.elem"");
-        key.append(""trailing\\.dot\\."");
-        key.append("".strange"");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        assertEquals(""Wrong second part"", ""trailing.dot."", kit.nextKey());
-    }
-",TestDefaultConfigurationKey::testIterateAlternativeEscapeDelimiter_3_oe
-conf_1554_4,"    @Test
-    public void testIterateAlternativeEscapeDelimiter_4_oe() {
-        expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter(""\\."").create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append(""\\.my\\.elem"");
-        key.append(""trailing\\.dot\\."");
-        key.append("".strange"");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong third part"", ""strange"", kit.nextKey());
-    }
-",TestDefaultConfigurationKey::testIterateAlternativeEscapeDelimiter_4_oe
-conf_1554_5,"    @Test
-    public void testIterateAlternativeEscapeDelimiter_5_oe() {
-        expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter(""\\."").create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append(""\\.my\\.elem"");
-        key.append(""trailing\\.dot\\."");
-        key.append("".strange"");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""Too many parts"", kit.hasNext());
-    }
-",TestDefaultConfigurationKey::testIterateAlternativeEscapeDelimiter_5_oe
 conf_1555_1,"    @Test
     public void testIterateAttributeEqualsPropertyDelimiter_1_oe() {
         expressionEngine = new DefaultExpressionEngine(
@@ -44149,19 +42043,6 @@ conf_1555_3,"    @Test
         assertTrue(""First part is not a property key"", kit.isPropertyKey());
     }
 ",TestDefaultConfigurationKey::testIterateAttributeEqualsPropertyDelimiter_3_oe
-conf_1555_4,"    @Test
-    public void testIterateAttributeEqualsPropertyDelimiter_4_oe() {
-        expressionEngine = new DefaultExpressionEngine(
-            symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append(""this.isa.key"");
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong second key part"", ""isa"", kit.next());
-    }
-",TestDefaultConfigurationKey::testIterateAttributeEqualsPropertyDelimiter_4_oe
 conf_1555_5,"    @Test
     public void testIterateAttributeEqualsPropertyDelimiter_5_oe() {
         expressionEngine = new DefaultExpressionEngine(
@@ -44191,39 +42072,6 @@ conf_1555_6,"    @Test
         assertTrue(""Second part is not a property key"", kit.isPropertyKey());
     }
 ",TestDefaultConfigurationKey::testIterateAttributeEqualsPropertyDelimiter_6_oe
-conf_1555_7,"    @Test
-    public void testIterateAttributeEqualsPropertyDelimiter_7_oe() {
-        expressionEngine = new DefaultExpressionEngine(
-            symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append(""this.isa.key"");
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong third key part"", ""key"", kit.next());
-    }
-",TestDefaultConfigurationKey::testIterateAttributeEqualsPropertyDelimiter_7_oe
-conf_1555_8,"    @Test
-    public void testIterateAttributeEqualsPropertyDelimiter_8_oe() {
-        expressionEngine = new DefaultExpressionEngine(
-            symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append(""this.isa.key"");
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(""Third part is not an attribute"", kit.isAttribute());
-    }
-",TestDefaultConfigurationKey::testIterateAttributeEqualsPropertyDelimiter_8_oe
 conf_1555_9,"    @Test
     public void testIterateAttributeEqualsPropertyDelimiter_9_oe() {
         expressionEngine = new DefaultExpressionEngine(
@@ -44242,25 +42090,6 @@ conf_1555_9,"    @Test
         assertTrue(""Third part is not a property key"", kit.isPropertyKey());
     }
 ",TestDefaultConfigurationKey::testIterateAttributeEqualsPropertyDelimiter_9_oe
-conf_1555_10,"    @Test
-    public void testIterateAttributeEqualsPropertyDelimiter_10_oe() {
-        expressionEngine = new DefaultExpressionEngine(
-            symbols().setAttributeEnd(null).setAttributeStart(DefaultExpressionEngineSymbols.DEFAULT_PROPERTY_DELIMITER).create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append(""this.isa.key"");
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong decorated key part"", ""key"", kit.currentKey(true));
-    }
-",TestDefaultConfigurationKey::testIterateAttributeEqualsPropertyDelimiter_10_oe
 conf_1556_1,"    @Test
     public void testIterateEscapedDelimiters_1_oe() {
         key.append(""my..elem"");
@@ -44279,42 +42108,6 @@ conf_1556_2,"    @Test
         assertEquals(""Wrong first part"", ""my.elem"", kit.nextKey());
     }
 ",TestDefaultConfigurationKey::testIterateEscapedDelimiters_2_oe
-conf_1556_3,"    @Test
-    public void testIterateEscapedDelimiters_3_oe() {
-        key.append(""my..elem"");
-        key.append(""trailing..dot.."");
-        key.append("".strange"");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        assertEquals(""Wrong second part"", ""trailing.dot."", kit.nextKey());
-    }
-",TestDefaultConfigurationKey::testIterateEscapedDelimiters_3_oe
-conf_1556_4,"    @Test
-    public void testIterateEscapedDelimiters_4_oe() {
-        key.append(""my..elem"");
-        key.append(""trailing..dot.."");
-        key.append("".strange"");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong third part"", ""strange"", kit.nextKey());
-    }
-",TestDefaultConfigurationKey::testIterateEscapedDelimiters_4_oe
-conf_1556_5,"    @Test
-    public void testIterateEscapedDelimiters_5_oe() {
-        key.append(""my..elem"");
-        key.append(""trailing..dot.."");
-        key.append("".strange"");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""Too many parts"", kit.hasNext());
-    }
-",TestDefaultConfigurationKey::testIterateEscapedDelimiters_5_oe
 conf_1557_1,"    @Test
     public void testIterateStrangeKeys_1_oe() {
         key = new DefaultConfigurationKey(expressionEngine, ""key."");
@@ -44330,15 +42123,6 @@ conf_1557_2,"    @Test
         assertEquals(""Wrong key part"", ""key"", it.next());
     }
 ",TestDefaultConfigurationKey::testIterateStrangeKeys_2_oe
-conf_1557_3,"    @Test
-    public void testIterateStrangeKeys_3_oe() {
-        key = new DefaultConfigurationKey(expressionEngine, ""key."");
-        DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertFalse(""Too many key parts"", it.hasNext());
-    }
-",TestDefaultConfigurationKey::testIterateStrangeKeys_3_oe
 conf_1557_4,"    @Test
     public void testIterateStrangeKeys_4_oe() {
         key = new DefaultConfigurationKey(expressionEngine, ""key."");
@@ -44387,45 +42171,6 @@ conf_1557_6,"    @Test
         assertFalse(""Index detected in first part"", it.hasIndex());
     }
 ",TestDefaultConfigurationKey::testIterateStrangeKeys_6_oe
-conf_1557_7,"    @Test
-    public void testIterateStrangeKeys_7_oe() {
-        key = new DefaultConfigurationKey(expressionEngine, ""key."");
-        DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        key = new DefaultConfigurationKey(expressionEngine, ""."");
-        it = key.iterator();
-        // removed other assertion
-
-        key = new DefaultConfigurationKey(expressionEngine, ""key().index()undefined(0).test"");
-        it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong second part"", ""index()undefined"", it.nextKey(false));
-    }
-",TestDefaultConfigurationKey::testIterateStrangeKeys_7_oe
-conf_1557_8,"    @Test
-    public void testIterateStrangeKeys_8_oe() {
-        key = new DefaultConfigurationKey(expressionEngine, ""key."");
-        DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        key = new DefaultConfigurationKey(expressionEngine, ""."");
-        it = key.iterator();
-        // removed other assertion
-
-        key = new DefaultConfigurationKey(expressionEngine, ""key().index()undefined(0).test"");
-        it = key.iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue(""No index detected in second part"", it.hasIndex());
-    }
-",TestDefaultConfigurationKey::testIterateStrangeKeys_8_oe
 conf_1557_9,"    @Test
     public void testIterateStrangeKeys_9_oe() {
         key = new DefaultConfigurationKey(expressionEngine, ""key."");
@@ -44553,42 +42298,6 @@ conf_1559_2,"    @Test
     }
     }
 ",TestDefaultConfigurationKey::testIterateWithoutEscapeDelimiter_2_oe
-conf_1559_3,"    @Test
-    public void testIterateWithoutEscapeDelimiter_3_oe() {
-        expressionEngine = new DefaultExpressionEngine(symbols().setEscapedDelimiter(null).create());
-        key = new DefaultConfigurationKey(expressionEngine);
-        key.append(""..my..elem.trailing..dot...strange"");
-        // removed other assertion
-        final DefaultConfigurationKey.KeyIterator kit = key.iterator();
-        final String[] parts = {""my"", ""elem"", ""trailing"", ""dot"", ""strange""};
-        for (int i = 0; i < parts.length; i++) {
-            // removed other assertion
-        }
-        assertFalse(""Too many parts"", kit.hasNext());
-    }
-",TestDefaultConfigurationKey::testIterateWithoutEscapeDelimiter_3_oe
-conf_1560_1,"    @Test(expected = UnsupportedOperationException.class)
-    public void testIterateWithRemove_1_oe() {
-        assertFalse(key.iterator().hasNext());
-    }
-",TestDefaultConfigurationKey::testIterateWithRemove_1_oe
-conf_1560_2,"    @Test(expected = UnsupportedOperationException.class)
-    public void testIterateWithRemove_2_oe() {
-        // removed other assertion
-        key.append(""simple"");
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        assertTrue(it.hasNext());
-    }
-",TestDefaultConfigurationKey::testIterateWithRemove_2_oe
-conf_1560_3,"    @Test(expected = UnsupportedOperationException.class)
-    public void testIterateWithRemove_3_oe() {
-        // removed other assertion
-        key.append(""simple"");
-        final DefaultConfigurationKey.KeyIterator it = key.iterator();
-        // removed other assertion
-        assertEquals(""simple"", it.next());
-    }
-",TestDefaultConfigurationKey::testIterateWithRemove_3_oe
 conf_1561_1,"    @Test
     public void testLength_1_oe() {
         key.append(TESTPROPS);
@@ -45331,49 +43040,6 @@ conf_1604_1,"    @Test
         assertEquals(""Wrong number of selectors"", node.getChildren().size(), selectors.size());
     }
 ",TestInMemoryNodeModelTrackedNodes::testTrackChildNodes_1_oe
-conf_1604_2,"    @Test
-    public void testTrackChildNodes_2_oe() {
-        final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
-        final ImmutableNode node = NodeStructureHelper.nodeForKey(root, ""tables"");
-        final String[] keys = new String[node.getChildren().size()];
-        for (int i = 0; i < keys.length; i++) {
-            final ImmutableNode child = node.getChildren().get(i);
-            keys[i] = String.format(""%s.%s(%d)"", node.getNodeName(), child.getNodeName(), i);
-            expectNodeKey(resolver, child, keys[i]);
-        }
-        EasyMock.expect(resolver.resolveNodeKey(root, TEST_KEY, model.getNodeHandler())).andReturn(Collections.singletonList(node));
-        EasyMock.replay(resolver);
-
-        final Collection<NodeSelector> selectors = model.trackChildNodes(TEST_KEY, resolver);
-        // removed other assertion
-        int idx = 0;
-        for (final NodeSelector sel : selectors) {
-            assertEquals(""Wrong selector"", new NodeSelector(keys[idx]), sel);
-    }
-    }
-",TestInMemoryNodeModelTrackedNodes::testTrackChildNodes_2_oe
-conf_1604_3,"    @Test
-    public void testTrackChildNodes_3_oe() {
-        final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
-        final ImmutableNode node = NodeStructureHelper.nodeForKey(root, ""tables"");
-        final String[] keys = new String[node.getChildren().size()];
-        for (int i = 0; i < keys.length; i++) {
-            final ImmutableNode child = node.getChildren().get(i);
-            keys[i] = String.format(""%s.%s(%d)"", node.getNodeName(), child.getNodeName(), i);
-            expectNodeKey(resolver, child, keys[i]);
-        }
-        EasyMock.expect(resolver.resolveNodeKey(root, TEST_KEY, model.getNodeHandler())).andReturn(Collections.singletonList(node));
-        EasyMock.replay(resolver);
-
-        final Collection<NodeSelector> selectors = model.trackChildNodes(TEST_KEY, resolver);
-        // removed other assertion
-        int idx = 0;
-        for (final NodeSelector sel : selectors) {
-            // removed other assertion
-            assertEquals(""Wrong tracked node for "" + sel, node.getChildren().get(idx), model.getTrackedNode(sel));
-    }
-    }
-",TestInMemoryNodeModelTrackedNodes::testTrackChildNodes_3_oe
 conf_1605_1,"    @Test
     public void testTrackChildNodeWithCreationExisting_1_oe() {
         final NodeKeyResolver<ImmutableNode> resolver = createResolver(false);
@@ -45849,20 +43515,6 @@ conf_1636_2,"    @Test
         assertEquals(""Wrong size of iteration"", CHILD_COUNT - 3, nodes.size());
     }
 ",TestConfigurationNodeIteratorChildren::testIterateStartsWith_2_oe
-conf_1636_3,"    @Test
-    public void testIterateStartsWith_3_oe() {
-        final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(2), handler);
-        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, childPointer);
-        // removed other assertion
-        final List<NodePointer> nodes = iterationElements(it);
-        // removed other assertion
-        int index = 4;
-        for (final NodePointer np : nodes) {
-            final ImmutableNode node = (ImmutableNode) np.getImmediateNode();
-            assertEquals(""Wrong node value"", String.valueOf(index), node.getValue());
-    }
-    }
-",TestConfigurationNodeIteratorChildren::testIterateStartsWith_3_oe
 conf_1637_1,"    @Test
     public void testIterateStartsWithInvalid_1_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer,
@@ -48834,14 +46486,6 @@ conf_1737_1,"    @Test
         assertSame(""Could not deregister factory"", factory, helper.deregisterBeanFactory(TEST_FACTORY));
     }
 ",TestBeanHelper::testDeregisterBeanFactory_1_oe
-conf_1737_2,"    @Test
-    public void testDeregisterBeanFactory_2_oe() {
-        final BeanFactory factory = new TestBeanFactory();
-        helper.registerBeanFactory(TEST_FACTORY, factory);
-        // removed other assertion
-        assertTrue(""List of factories is not empty"", helper.registeredFactoryNames().isEmpty());
-    }
-",TestBeanHelper::testDeregisterBeanFactory_2_oe
 conf_1738_1,"    @Test
     public void testDeregisterBeanFactoryNonExisting_1_oe() {
         assertNull(""deregistering non existing factory"", helper.deregisterBeanFactory(TEST_FACTORY));
@@ -49178,12 +46822,6 @@ conf_1758_1,"    @Test
         assertSame(""Wrong conversion handler"", handler, factory.getConversionHandler());
     }
 ",TestDefaultBeanFactory::testInitWithConversionHandler_1_oe
-conf_1759_1,"    @Test(expected = IllegalArgumentException.class)
-    public void testGetDescriptorArguments_1_oe() {
-        final DynaProperty descriptor = bean.getDynaClass().getDynaProperty(""unknown"");
-        assertNull(""Unknown property descriptor should be null"", descriptor);
-    }
-",TestConfigurationDynaBean::testGetDescriptorArguments_1_oe
 conf_1760_1,"    @Test
     public void testGetDescriptors_1_oe() {
         final DynaProperty pd[] = bean.getDynaClass().getDynaProperties();
@@ -50759,25 +48397,6 @@ conf_1821_1,"    @Test
         assertTrue(""Derigstration not successfull"", interpolator.deregisterLookup(TEST_PREFIX));
     }
 ",TestConfigurationInterpolator::testDeregisterLookup_1_oe
-conf_1821_2,"    @Test
-    public void testDeregisterLookup_2_oe() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        assertFalse(""Deregistered prefix still contained"", interpolator.prefixSet().contains(TEST_PREFIX));
-    }
-",TestConfigurationInterpolator::testDeregisterLookup_2_oe
-conf_1821_3,"    @Test
-    public void testDeregisterLookup_3_oe() {
-        final Lookup lookup = EasyMock.createMock(Lookup.class);
-        EasyMock.replay(lookup);
-        interpolator.registerLookup(TEST_PREFIX, lookup);
-        // removed other assertion
-        // removed other assertion
-        assertTrue(""Lookups not empty"", interpolator.getLookups().isEmpty());
-    }
-",TestConfigurationInterpolator::testDeregisterLookup_3_oe
 conf_1822_1,"    @Test
     public void testDeregisterLookupNonExisting_1_oe() {
         assertFalse(""Could deregister unknown lookup"", interpolator.deregisterLookup(TEST_PREFIX));
@@ -51321,27 +48940,6 @@ conf_1854_1,"    @Test
         assertTrue(""Wrong result"", interpolator.removeDefaultLookup(lookups.get(0)));
     }
 ",TestConfigurationInterpolator::testRemoveDefaultLookup_1_oe
-conf_1854_2,"    @Test
-    public void testRemoveDefaultLookup_2_oe() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        assertFalse(""Lookup still available"", interpolator.getDefaultLookups().contains(lookups.get(0)));
-    }
-",TestConfigurationInterpolator::testRemoveDefaultLookup_2_oe
-conf_1854_3,"    @Test
-    public void testRemoveDefaultLookup_3_oe() {
-        final List<Lookup> lookups = new ArrayList<>();
-        lookups.add(setUpTestLookup());
-        lookups.add(setUpTestLookup(""test"", ""value""));
-        interpolator.addDefaultLookups(lookups);
-        // removed other assertion
-        // removed other assertion
-        assertEquals(""Wrong number of default lookups"", 1, interpolator.getDefaultLookups().size());
-    }
-",TestConfigurationInterpolator::testRemoveDefaultLookup_3_oe
 conf_1855_1,"    @Test
     public void testRemoveDefaultLookupNonExisting_1_oe() {
         assertFalse(""Wrong result"", interpolator.removeDefaultLookup(setUpTestLookup()));

@@ -141,6 +141,14 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
     /**
      * Tests that it is not allowed to change the root element name when the configuration was loaded from a file.
      */
+    @Test(expected = UnsupportedOperationException.class)
+    public void testSetRootElementNameWhenLoadedFromFile() throws Exception {
+        final FileHandler handler = new FileHandler(config);
+        handler.setFile(new File(TEST_FILE3));
+        handler.load();
+        assertEquals("testconfig", config.getRootElementName());
+        config.setRootElementName("anotherRootElement");
+    }
 
     /**
      * Ensure various node types are correctly processed in config.
@@ -904,14 +912,6 @@ public class TestHierarchicalXMLConfiguration_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertEquals("myconfig", config.getRootElementName());
-    }
-
-    @Test(expected = UnsupportedOperationException.class)
-    public void testSetRootElementNameWhenLoadedFromFile_1_oe() throws Exception {
-        final FileHandler handler = new FileHandler(config);
-        handler.setFile(new File(TEST_FILE3));
-        handler.load();
-        assertEquals("testconfig", config.getRootElementName());
     }
 
     @Test
