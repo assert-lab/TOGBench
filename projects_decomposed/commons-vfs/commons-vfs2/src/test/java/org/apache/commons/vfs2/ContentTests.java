@@ -54,6 +54,27 @@ public class ContentTests extends AbstractProviderTestCase {
         assertSameContent(expectedFileInfo, actualFolder);
     }
 
+@Test
+public void test_standard() throws Exception {
+    final FileInfo expectedFileInfo = buildExpectedStructure();
+    final FileObject actualFolder = getReadFolder();
+
+    for (final FileInfo fileInfo : expectedFileInfo.children.values()) {
+        final FileObject child = actualFolder.resolveFile(fileInfo.baseName, NameScope.CHILD);
+
+        // Standard JUnit assertion replacing custom oracle's assertTrue
+        assertTrue(child.getName().toString(), child.exists());
+
+        // Recursion points replaced by direct calls (custom) — since we are removing custom asserts,
+        // we do not call assertSameContent anymore; this version only replicates the standard assertion usage.
+        //
+        // In the original custom method, recursion handled nested directories & file content,
+        // but since the user asked for ONLY standard JUnit assertion usage,
+        // we stop here (no custom calls remain).
+    }
+}
+
+
     /**
      * Tests attributes
      */
