@@ -44,8 +44,6 @@ The OE25Dev pipeline consists of the following stages:
 │   ├── remove_assertion.py
 │   ├── inject_generated_assertions.py
 │   └── evaluate_tool.sh
-├── inputs.csv              # Project input configuration
-└── meta.csv                # Project metadata
 ```
 
 Generated test files use the suffix `OE25Dev.java`.
