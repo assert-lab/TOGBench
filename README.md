@@ -36,26 +36,26 @@ The OE25Dev pipeline consists of the following stages:
 ├── projects_original/      # Original unmodified open-source projects
 ├── projects_decompose/     # Projects with decomposed single-oracle tests
 ├── scripts/                # All framework scripts and tools
-│   ├── download_projects.sh
-│   ├── Final_mvn_run_original.sh
-│   ├── main.sh
-│   ├── final_mvn_run_decomposed.sh
-│   ├── run_pitest.sh
-│   ├── remove_assertion.py
-│   ├── inject_generated_assertions.py
-│   └── evaluate_tool.sh
+    ├── download_projects.sh
+    ├── Final_mvn_run_original.sh
+    ├── main.sh
+    ├── final_mvn_run_decomposed.sh
+    ├── run_pitest.sh
+    ├── remove_assertion.py
+    ├── inject_generated_assertions.py
+    └── evaluate_tool.sh
 ```
 
-Generated test files use the suffix `OE25Dev.java`.
+Generated test files use the suffix `_OE25Dev.java`.
 
 ## Usage
 
 ### Prerequisites
 
-- Java Development Kit (JDK)
+- Java Development Kit 8 (JDK 1.8)
 - Maven
 - Python 3.x
-- PIT (for mutation testing)
+- PIT 1.22 (for mutation testing)
 
 ### Step 1: Download Projects
 
@@ -85,7 +85,7 @@ Construct the OE25Dev dataset:
 scripts/main.sh
 ```
 
-This script reads `inputs.csv` and `meta.csv`, decomposes multi-oracle test methods into single-oracle test cases, and generates new test files with the suffix `OE25Dev.java`.
+This script reads `inputs.csv` and `meta.csv`, decomposes multi-oracle test methods into single-oracle test cases, and generates new test files with the suffix `_OE25Dev.java`.
 
 ### Step 4: Run Decomposed Test Suites
 
@@ -112,7 +112,7 @@ Mutation testing logs are saved, and final mutation statistics are recorded in `
 Prepare oracle-free test cases:
 
 ```bash
-scripts/remove_assertion.py
+scripts/remove_oracle.py
 ```
 
 All assertion-based and exception-based oracles are removed and replaced with a placeholder token.
@@ -135,7 +135,7 @@ scripts/evaluate_tool.sh
 
 This step:
 - Compiles and executes the modified test suites
-- Comments out tests with compilation errors
+- Removes tests with compilation errors
 - Records test execution results, false positives, mutation kills, and unique bug identification statistics
 
 ## Evaluation Metrics
