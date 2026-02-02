@@ -408,29 +408,6 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
-    public void testAgeFileFilterLongBoolean_7_oe() throws FileSystemException {
-
-        AgeFileFilter testee;
-
-        testee = new AgeFileFilter(NOW_MILLIS, true);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        testee = new AgeFileFilter(NOW_MILLIS, false);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Same test with ZIP file
-        FileObject[] files;
-
-        files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
-        assertContains(files, oldFile.getName(), currentFile.getName());
-        Assert.assertEquals(2, files.length);
-    }
-
-    @Test
     public void testAgeFileFilterLongBoolean_8_oe() throws FileSystemException {
 
         AgeFileFilter testee;
@@ -449,11 +426,34 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
-        assertContains(files, oldFile.getName(), currentFile.getName());
+        // removed other assertion
+        Assert.assertEquals(2, files.length);
+    }
+
+    @Test
+    public void testAgeFileFilterLongBoolean_10_oe() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        testee = new AgeFileFilter(NOW_MILLIS, false);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
+        // removed other assertion
         // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, false)));
-        assertContains(files, newFile.getName());
+        // removed other assertion
         Assert.assertEquals(1, files.length);
     }
 

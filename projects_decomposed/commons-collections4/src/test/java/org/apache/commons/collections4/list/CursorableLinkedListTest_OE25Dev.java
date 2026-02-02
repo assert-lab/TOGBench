@@ -116,11 +116,25 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(list.add((E) Integer.valueOf(1)));
     }
 
+    public void testAdd_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[1]",list.toString());
+    }
+
     public void testAdd_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertTrue(list.add((E) Integer.valueOf(2)));
+    }
+
+    public void testAdd_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[1, 2]",list.toString());
     }
 
     public void testAdd_6_oe() {
@@ -130,6 +144,16 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(list.add((E) Integer.valueOf(3)));
+    }
+
+    public void testAdd_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[1, 2, 3]",list.toString());
     }
 
     public void testAdd_8_oe() {
@@ -143,6 +167,18 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(list.addFirst((E) Integer.valueOf(0)));
     }
 
+    public void testAdd_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[0, 1, 2, 3]",list.toString());
+    }
+
     public void testAdd_10_oe() {
         // removed other assertion
         // removed other assertion
@@ -154,6 +190,188 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(list.addLast((E) Integer.valueOf(4)));
+    }
+
+    public void testAdd_11_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[0, 1, 2, 3, 4]",list.toString());
+    }
+
+    public void testAdd_12_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        list.add(0,(E) Integer.valueOf(-2));
+        assertEquals("[-2, 0, 1, 2, 3, 4]",list.toString());
+    }
+
+    public void testAdd_13_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        list.add(0,(E) Integer.valueOf(-2));
+        // removed other assertion
+        list.add(1,(E) Integer.valueOf(-1));
+        assertEquals("[-2, -1, 0, 1, 2, 3, 4]",list.toString());
+    }
+
+    public void testAdd_14_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        list.add(0,(E) Integer.valueOf(-2));
+        // removed other assertion
+        list.add(1,(E) Integer.valueOf(-1));
+        // removed other assertion
+        list.add(7,(E) Integer.valueOf(5));
+        assertEquals("[-2, -1, 0, 1, 2, 3, 4, 5]",list.toString());
+    }
+
+    public void testAdd_15_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        list.add(0,(E) Integer.valueOf(-2));
+        // removed other assertion
+        list.add(1,(E) Integer.valueOf(-1));
+        // removed other assertion
+        list.add(7,(E) Integer.valueOf(5));
+        // removed other assertion
+
+        final List<E> list2 = new LinkedList<>();
+        list2.add((E) "A");
+        list2.add((E) "B");
+        list2.add((E) "C");
+
+        assertTrue(list.addAll(list2));
+    }
+
+    public void testAdd_16_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        list.add(0,(E) Integer.valueOf(-2));
+        // removed other assertion
+        list.add(1,(E) Integer.valueOf(-1));
+        // removed other assertion
+        list.add(7,(E) Integer.valueOf(5));
+        // removed other assertion
+
+        final List<E> list2 = new LinkedList<>();
+        list2.add((E) "A");
+        list2.add((E) "B");
+        list2.add((E) "C");
+
+        // removed other assertion
+        assertEquals("[-2, -1, 0, 1, 2, 3, 4, 5, A, B, C]",list.toString());
+    }
+
+    public void testAdd_17_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        list.add(0,(E) Integer.valueOf(-2));
+        // removed other assertion
+        list.add(1,(E) Integer.valueOf(-1));
+        // removed other assertion
+        list.add(7,(E) Integer.valueOf(5));
+        // removed other assertion
+
+        final List<E> list2 = new LinkedList<>();
+        list2.add((E) "A");
+        list2.add((E) "B");
+        list2.add((E) "C");
+
+        // removed other assertion
+        // removed other assertion
+        assertTrue(list.addAll(3,list2));
+    }
+
+    public void testAdd_18_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        list.add(0,(E) Integer.valueOf(-2));
+        // removed other assertion
+        list.add(1,(E) Integer.valueOf(-1));
+        // removed other assertion
+        list.add(7,(E) Integer.valueOf(5));
+        // removed other assertion
+
+        final List<E> list2 = new LinkedList<>();
+        list2.add((E) "A");
+        list2.add((E) "B");
+        list2.add((E) "C");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[-2, -1, 0, A, B, C, 1, 2, 3, 4, 5, A, B, C]",list.toString());
     }
 
     public void testClear_1_oe() {
@@ -463,11 +681,25 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(list.add((E) "A"));
     }
 
+    public void testContains_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        assertTrue(list.contains("A"));
+    }
+
     public void testContains_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
         assertTrue(list.add((E) "B"));
+    }
+
+    public void testContains_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(list.contains("A"));
     }
 
     public void testContains_6_oe() {
@@ -477,6 +709,52 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(list.addFirst((E) "a"));
+    }
+
+    public void testContains_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(list.contains("A"));
+    }
+
+    public void testContains_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(list.remove("a"));
+    }
+
+    public void testContains_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(list.contains("A"));
+    }
+
+    public void testContains_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(list.remove("A"));
     }
 
     public void testContains_11_oe() {
@@ -652,6 +930,35 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(it.hasNext());
     }
 
+    public void testCursorNavigation_5_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testCursorNavigation_6_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1", it.previous());
+    }
+
     public void testCursorNavigation_7_oe() {
         list.add((E) "1");
         list.add((E) "2");
@@ -722,6 +1029,47 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(it.hasNext());
     }
 
+    public void testCursorNavigation_11_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testCursorNavigation_12_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", it.next());
+    }
+
     public void testCursorNavigation_13_oe() {
         list.add((E) "1");
         list.add((E) "2");
@@ -742,6 +1090,53 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testCursorNavigation_14_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testCursorNavigation_15_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", it.previous());
     }
 
     public void testCursorNavigation_16_oe() {
@@ -767,6 +1162,59 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testCursorNavigation_17_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testCursorNavigation_18_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", it.next());
     }
 
     public void testCursorNavigation_19_oe() {
@@ -795,6 +1243,65 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testCursorNavigation_20_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testCursorNavigation_21_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", it.next());
     }
 
     public void testCursorNavigation_22_oe() {
@@ -826,6 +1333,71 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testCursorNavigation_23_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testCursorNavigation_24_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("4", it.next());
     }
 
     public void testCursorNavigation_25_oe() {
@@ -860,6 +1432,191 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testCursorNavigation_26_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testCursorNavigation_27_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("5", it.next());
+    }
+
+    public void testCursorNavigation_28_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!it.hasNext());
+    }
+
+    public void testCursorNavigation_29_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testCursorNavigation_30_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("5", it.previous());
     }
 
     public void testCursorNavigation_31_oe() {
@@ -900,6 +1657,89 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testCursorNavigation_32_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testCursorNavigation_33_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("4", it.previous());
     }
 
     public void testCursorNavigation_34_oe() {
@@ -943,6 +1783,95 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testCursorNavigation_35_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testCursorNavigation_36_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", it.previous());
     }
 
     public void testCursorNavigation_37_oe() {
@@ -989,6 +1918,101 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testCursorNavigation_38_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testCursorNavigation_39_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", it.previous());
     }
 
     public void testCursorNavigation_40_oe() {
@@ -1038,6 +2062,107 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testCursorNavigation_41_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testCursorNavigation_42_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1", it.previous());
     }
 
     public void testCursorNavigation_43_oe() {
@@ -1156,6 +2281,131 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("1", it.next());
     }
 
+    public void testCursorSet_2_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        it.set((E) "a");
+        assertEquals("a", it.previous());
+    }
+
+    public void testCursorSet_3_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        it.set((E) "a");
+        // removed other assertion
+        it.set((E) "A");
+        assertEquals("A", it.next());
+    }
+
+    public void testCursorSet_4_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        it.set((E) "a");
+        // removed other assertion
+        it.set((E) "A");
+        // removed other assertion
+        assertEquals("2", it.next());
+    }
+
+    public void testCursorSet_5_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        it.set((E) "a");
+        // removed other assertion
+        it.set((E) "A");
+        // removed other assertion
+        // removed other assertion
+        it.set((E) "B");
+        assertEquals("3", it.next());
+    }
+
+    public void testCursorSet_6_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        it.set((E) "a");
+        // removed other assertion
+        it.set((E) "A");
+        // removed other assertion
+        // removed other assertion
+        it.set((E) "B");
+        // removed other assertion
+        assertEquals("4", it.next());
+    }
+
+    public void testCursorSet_7_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        it.set((E) "a");
+        // removed other assertion
+        it.set((E) "A");
+        // removed other assertion
+        // removed other assertion
+        it.set((E) "B");
+        // removed other assertion
+        // removed other assertion
+        it.set((E) "D");
+        assertEquals("5", it.next());
+    }
+
+    public void testCursorSet_8_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        // removed other assertion
+        it.set((E) "a");
+        // removed other assertion
+        it.set((E) "A");
+        // removed other assertion
+        // removed other assertion
+        it.set((E) "B");
+        // removed other assertion
+        // removed other assertion
+        it.set((E) "D");
+        // removed other assertion
+        it.set((E) "E");
+        assertEquals("[A, B, 3, D, E]", list.toString());
+    }
+
     public void testCursorRemove_2_oe() {
         list.add((E) "1");
         list.add((E) "2");
@@ -1171,6 +2421,24 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
             // expected
         }
         assertEquals("1", it.next());
+    }
+
+    public void testCursorRemove_3_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        assertEquals("2", it.next());
     }
 
     public void testCursorRemove_4_oe() {
@@ -1190,6 +2458,401 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertEquals("[1, 2, 3, 4, 5]", list.toString());
+    }
+
+    public void testCursorRemove_5_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[1, 3, 4, 5]", list.toString());
+    }
+
+    public void testCursorRemove_6_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        assertEquals("3", it.next());
+    }
+
+    public void testCursorRemove_7_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", it.previous());
+    }
+
+    public void testCursorRemove_8_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1", it.previous());
+    }
+
+    public void testCursorRemove_9_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[3, 4, 5]", list.toString());
+    }
+
+    public void testCursorRemove_10_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        assertTrue(!it.hasPrevious());
+    }
+
+    public void testCursorRemove_11_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", it.next());
+    }
+
+    public void testCursorRemove_12_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[4, 5]", list.toString());
+    }
+
+    public void testCursorRemove_13_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        try {
+            it.remove();
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        assertEquals("4", it.next());
+    }
+
+    public void testCursorRemove_14_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        try {
+            it.remove();
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        assertEquals("5", it.next());
+    }
+
+    public void testCursorRemove_15_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        try {
+            it.remove();
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[4]", list.toString());
+    }
+
+    public void testCursorRemove_16_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        try {
+            it.remove();
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        assertEquals("4", it.previous());
+    }
+
+    public void testCursorRemove_17_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        try {
+            it.remove();
+            // removed other assertion
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        try {
+            it.remove();
+        } catch (final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[]", list.toString());
     }
 
     public void testCursorAdd_1_oe() {
@@ -1227,6 +2890,19 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("5", it.previous());
     }
 
+    public void testCursorAdd_5_oe() {
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        it.add((E) "1");
+        // removed other assertion
+        it.add((E) "3");
+        // removed other assertion
+        it.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        it.add((E) "4");
+        assertEquals("[1, 3, 4, 5]", list.toString());
+    }
+
     public void testCursorAdd_6_oe() {
         final CursorableLinkedList.Cursor<E> it = list.cursor();
         it.add((E) "1");
@@ -1239,6 +2915,38 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         it.add((E) "4");
         // removed other assertion
         assertEquals("4", it.previous());
+    }
+
+    public void testCursorAdd_7_oe() {
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        it.add((E) "1");
+        // removed other assertion
+        it.add((E) "3");
+        // removed other assertion
+        it.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        it.add((E) "4");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", it.previous());
+    }
+
+    public void testCursorAdd_8_oe() {
+        final CursorableLinkedList.Cursor<E> it = list.cursor();
+        it.add((E) "1");
+        // removed other assertion
+        it.add((E) "3");
+        // removed other assertion
+        it.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        it.add((E) "4");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.add((E) "2");
+        assertEquals("[1, 2, 3, 4, 5]", list.toString());
     }
 
     public void testCursorConcurrentModification_1_oe() {
@@ -1260,6 +2968,544 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("1", li.next());
     }
 
+    public void testCursorConcurrentModification_2_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        assertEquals("2", li.next());
+    }
+
+    public void testCursorConcurrentModification_3_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        assertEquals("3", li.next());
+    }
+
+    public void testCursorConcurrentModification_4_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        assertEquals("1", c1.next());
+    }
+
+    public void testCursorConcurrentModification_5_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", c1.next());
+    }
+
+    public void testCursorConcurrentModification_6_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1", c2.next());
+    }
+
+    public void testCursorConcurrentModification_7_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursor c1 can remove elements from previously modified list
+        // test cursor c2 skips elements removed via different cursor
+        c1.remove();
+        assertEquals("5", c2.next());
+    }
+
+    public void testCursorConcurrentModification_8_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursor c1 can remove elements from previously modified list
+        // test cursor c2 skips elements removed via different cursor
+        c1.remove();
+        // removed other assertion
+        c2.add((E) "6");
+        assertEquals("5", c1.next());
+    }
+
+    public void testCursorConcurrentModification_9_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursor c1 can remove elements from previously modified list
+        // test cursor c2 skips elements removed via different cursor
+        c1.remove();
+        // removed other assertion
+        c2.add((E) "6");
+        // removed other assertion
+        assertEquals("6", c1.next());
+    }
+
+    public void testCursorConcurrentModification_10_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursor c1 can remove elements from previously modified list
+        // test cursor c2 skips elements removed via different cursor
+        c1.remove();
+        // removed other assertion
+        c2.add((E) "6");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("7", c1.next());
+    }
+
+    public void testCursorConcurrentModification_11_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursor c1 can remove elements from previously modified list
+        // test cursor c2 skips elements removed via different cursor
+        c1.remove();
+        // removed other assertion
+        c2.add((E) "6");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursors remain valid when list mod via CursorableLinkedList
+        // test cursor remains valid when elements inserted into list before
+        // the current position of the cursor.
+        list.add(0, (E) "0");
+
+        // test cursor remains valid when element inserted immediately after
+        // current element of a cursor, and the element is seen on the
+        // next call to the next method of that cursor.
+        list.add(5, (E) "8");
+
+        assertEquals("8", c1.next());
+    }
+
+    public void testCursorConcurrentModification_12_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursor c1 can remove elements from previously modified list
+        // test cursor c2 skips elements removed via different cursor
+        c1.remove();
+        // removed other assertion
+        c2.add((E) "6");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursors remain valid when list mod via CursorableLinkedList
+        // test cursor remains valid when elements inserted into list before
+        // the current position of the cursor.
+        list.add(0, (E) "0");
+
+        // test cursor remains valid when element inserted immediately after
+        // current element of a cursor, and the element is seen on the
+        // next call to the next method of that cursor.
+        list.add(5, (E) "8");
+
+        // removed other assertion
+        assertEquals("9", c1.next());
+    }
+
+    public void testCursorConcurrentModification_13_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursor c1 can remove elements from previously modified list
+        // test cursor c2 skips elements removed via different cursor
+        c1.remove();
+        // removed other assertion
+        c2.add((E) "6");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursors remain valid when list mod via CursorableLinkedList
+        // test cursor remains valid when elements inserted into list before
+        // the current position of the cursor.
+        list.add(0, (E) "0");
+
+        // test cursor remains valid when element inserted immediately after
+        // current element of a cursor, and the element is seen on the
+        // next call to the next method of that cursor.
+        list.add(5, (E) "8");
+
+        // removed other assertion
+        // removed other assertion
+        c1.add((E) "10");
+        assertEquals("7", c2.next());
+    }
+
+    public void testCursorConcurrentModification_14_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursor c1 can remove elements from previously modified list
+        // test cursor c2 skips elements removed via different cursor
+        c1.remove();
+        // removed other assertion
+        c2.add((E) "6");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursors remain valid when list mod via CursorableLinkedList
+        // test cursor remains valid when elements inserted into list before
+        // the current position of the cursor.
+        list.add(0, (E) "0");
+
+        // test cursor remains valid when element inserted immediately after
+        // current element of a cursor, and the element is seen on the
+        // next call to the next method of that cursor.
+        list.add(5, (E) "8");
+
+        // removed other assertion
+        // removed other assertion
+        c1.add((E) "10");
+        // removed other assertion
+        assertEquals("8", c2.next());
+    }
+
+    public void testCursorConcurrentModification_15_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursor c1 can remove elements from previously modified list
+        // test cursor c2 skips elements removed via different cursor
+        c1.remove();
+        // removed other assertion
+        c2.add((E) "6");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursors remain valid when list mod via CursorableLinkedList
+        // test cursor remains valid when elements inserted into list before
+        // the current position of the cursor.
+        list.add(0, (E) "0");
+
+        // test cursor remains valid when element inserted immediately after
+        // current element of a cursor, and the element is seen on the
+        // next call to the next method of that cursor.
+        list.add(5, (E) "8");
+
+        // removed other assertion
+        // removed other assertion
+        c1.add((E) "10");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("9", c2.next());
+    }
+
+    public void testCursorConcurrentModification_16_oe() {
+        // this test verifies that cursors remain valid when the list
+        // is modified via other means.
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+        list.add((E) "7");
+        list.add((E) "9");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final CursorableLinkedList.Cursor<E> c2 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursor c1 can remove elements from previously modified list
+        // test cursor c2 skips elements removed via different cursor
+        c1.remove();
+        // removed other assertion
+        c2.add((E) "6");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // test cursors remain valid when list mod via CursorableLinkedList
+        // test cursor remains valid when elements inserted into list before
+        // the current position of the cursor.
+        list.add(0, (E) "0");
+
+        // test cursor remains valid when element inserted immediately after
+        // current element of a cursor, and the element is seen on the
+        // next call to the next method of that cursor.
+        list.add(5, (E) "8");
+
+        // removed other assertion
+        // removed other assertion
+        c1.add((E) "10");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("10", c2.next());
+    }
+
     public void testCursorNextIndexMid_1_oe() {
         list.add((E) "1");
         list.add((E) "2");
@@ -1272,6 +3518,95 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // test cursors remain valid when list modified by std Iterator
         // test cursors skip elements removed via ListIterator
         assertEquals("1", li.next());
+    }
+
+    public void testCursorNextIndexMid_2_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        assertEquals("2", li.next());
+    }
+
+    public void testCursorNextIndexMid_3_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        assertEquals(0, c1.nextIndex());
+    }
+
+    public void testCursorNextIndexMid_4_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        assertEquals("1", c1.next());
+    }
+
+    public void testCursorNextIndexMid_5_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, c1.nextIndex());
+    }
+
+    public void testCursorNextIndexMid_6_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        final Iterator<E> li = list.iterator();
+
+        // test cursors remain valid when list modified by std Iterator
+        // test cursors skip elements removed via ListIterator
+        // removed other assertion
+        // removed other assertion
+        li.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", c1.next());
     }
 
     public void testCursorNextIndexFirst_1_oe() {
@@ -1312,6 +3647,37 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("2", c1.next());
     }
 
+    public void testCursorNextIndexFirst_4_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+
+        // removed other assertion
+        list.remove(0);
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, c1.nextIndex());
+    }
+
+    public void testCursorNextIndexFirst_5_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+
+        // removed other assertion
+        list.remove(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", c1.next());
+    }
+
     public void testCursorNextIndexAddBefore_1_oe() {
         list.add((E) "1");
         list.add((E) "2");
@@ -1333,6 +3699,35 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         // removed other assertion
         assertEquals("1", c1.next());
+    }
+
+    public void testCursorNextIndexAddBefore_3_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+
+        // removed other assertion
+        // removed other assertion
+        list.add(0, (E) "0");
+        assertEquals(2, c1.nextIndex());
+    }
+
+    public void testCursorNextIndexAddBefore_4_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+
+        // removed other assertion
+        // removed other assertion
+        list.add(0, (E) "0");
+        // removed other assertion
+        assertEquals("2", c1.next());
     }
 
     public void testCursorNextIndexAddNext_1_oe() {
@@ -1373,6 +3768,37 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("0", c1.next());
     }
 
+    public void testCursorNextIndexAddNext_4_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+
+        // removed other assertion
+        list.add(0, (E) "0");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, c1.nextIndex());
+    }
+
+    public void testCursorNextIndexAddNext_5_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+
+        // removed other assertion
+        list.add(0, (E) "0");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1", c1.next());
+    }
+
     public void testCursorNextIndexAddAfter_1_oe() {
         list.add((E) "1");
         list.add((E) "2");
@@ -1411,6 +3837,37 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("1", c1.next());
     }
 
+    public void testCursorNextIndexAddAfter_4_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+
+        // removed other assertion
+        list.add(1, (E) "0");
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, c1.nextIndex());
+    }
+
+    public void testCursorNextIndexAddAfter_5_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "5");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+
+        // removed other assertion
+        list.add(1, (E) "0");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("0", c1.next());
+    }
+
     public void testInternalState_CursorNextNextPreviousRemoveIndex1ByList_1_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1418,6 +3875,27 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         final CursorableLinkedList.Cursor<E> c1 = list.cursor();
         assertEquals("A", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveIndex1ByList_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        assertEquals("B", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveIndex1ByList_3_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("B", c1.previous());
     }
 
     public void testInternalState_CursorNextNextPreviousRemoveIndex1ByList_4_oe() {
@@ -1448,6 +3926,39 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals(true, c1.nextIndexValid);
     }
 
+    public void testInternalState_CursorNextNextPreviousRemoveIndex1ByList_6_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(1, c1.nextIndex);
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveIndex1ByList_7_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, c1.currentRemovedByAnother);
+    }
+
     public void testInternalState_CursorNextNextPreviousRemoveIndex1ByList_8_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1464,6 +3975,69 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertEquals(null, c1.current);
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveIndex1ByList_9_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C", c1.next.value);
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveIndex1ByList_10_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("[A, C]", list.toString());
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveIndex1ByList_11_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        c1.remove();  // works ok
+        assertEquals("[A, C]", list.toString());
     }
 
     public void testInternalState_CursorNextRemoveIndex1ByList_1_oe() {
@@ -1499,6 +4073,20 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals(true, c1.nextIndexValid);
     }
 
+    public void testInternalState_CursorNextRemoveIndex1ByList_4_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(1, c1.nextIndex);
+    }
+
     public void testInternalState_CursorNextRemoveIndex1ByList_5_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1514,6 +4102,79 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals(false, c1.currentRemovedByAnother);
     }
 
+    public void testInternalState_CursorNextRemoveIndex1ByList_6_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("A", c1.current.value);
+    }
+
+    public void testInternalState_CursorNextRemoveIndex1ByList_7_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C", c1.next.value);
+    }
+
+    public void testInternalState_CursorNextRemoveIndex1ByList_8_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("[A, C]", list.toString());
+    }
+
+    public void testInternalState_CursorNextRemoveIndex1ByList_9_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        c1.remove();  // works ok
+        assertEquals("[C]", list.toString());
+    }
+
     public void testInternalState_CursorNextNextRemoveIndex1ByList_1_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1521,6 +4182,16 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         final CursorableLinkedList.Cursor<E> c1 = list.cursor();
         assertEquals("A", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextRemoveIndex1ByList_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        assertEquals("B", c1.next());
     }
 
     public void testInternalState_CursorNextNextRemoveIndex1ByList_3_oe() {
@@ -1549,6 +4220,37 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals(true, c1.nextIndexValid);
     }
 
+    public void testInternalState_CursorNextNextRemoveIndex1ByList_5_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        assertEquals(1, c1.nextIndex);
+    }
+
+    public void testInternalState_CursorNextNextRemoveIndex1ByList_6_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, c1.currentRemovedByAnother);
+    }
+
     public void testInternalState_CursorNextNextRemoveIndex1ByList_7_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1566,6 +4268,66 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals(null, c1.current);
     }
 
+    public void testInternalState_CursorNextNextRemoveIndex1ByList_8_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C", c1.next.value);
+    }
+
+    public void testInternalState_CursorNextNextRemoveIndex1ByList_9_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("[A, C]", list.toString());
+    }
+
+    public void testInternalState_CursorNextNextRemoveIndex1ByList_10_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        c1.remove();  // works ok
+        assertEquals("[A, C]", list.toString());
+    }
+
     public void testInternalState_CursorNextNextNextRemoveIndex1ByList_1_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1574,6 +4336,29 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         final CursorableLinkedList.Cursor<E> c1 = list.cursor();
         assertEquals("A", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextNextRemoveIndex1ByList_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+        list.add((E) "D");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        assertEquals("B", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextNextRemoveIndex1ByList_3_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+        list.add((E) "D");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C", c1.next());
     }
 
     public void testInternalState_CursorNextNextNextRemoveIndex1ByList_4_oe() {
@@ -1588,6 +4373,22 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
 
         assertEquals("B", list.remove(1));
+    }
+
+    public void testInternalState_CursorNextNextNextRemoveIndex1ByList_5_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+        list.add((E) "D");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        assertEquals(false, c1.nextIndexValid);
     }
 
     public void testInternalState_CursorNextNextNextRemoveIndex1ByList_6_oe() {
@@ -1607,6 +4408,87 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals(false, c1.currentRemovedByAnother);
     }
 
+    public void testInternalState_CursorNextNextNextRemoveIndex1ByList_7_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+        list.add((E) "D");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C", c1.current.value);
+    }
+
+    public void testInternalState_CursorNextNextNextRemoveIndex1ByList_8_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+        list.add((E) "D");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("D", c1.next.value);
+    }
+
+    public void testInternalState_CursorNextNextNextRemoveIndex1ByList_9_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+        list.add((E) "D");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("[A, C, D]", list.toString());
+    }
+
+    public void testInternalState_CursorNextNextNextRemoveIndex1ByList_10_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+        list.add((E) "D");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        c1.remove();  // works ok
+        assertEquals("[A, D]", list.toString());
+    }
+
     public void testInternalState_CursorNextNextPreviousRemoveByIterator_1_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1614,6 +4496,133 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         final CursorableLinkedList.Cursor<E> c1 = list.cursor();
         assertEquals("A", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveByIterator_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        assertEquals("B", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveByIterator_3_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("B", c1.previous());
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveByIterator_4_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.remove();
+
+        assertEquals(true, c1.nextIndexValid);
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveByIterator_5_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.remove();
+
+        // removed other assertion
+        assertEquals(1, c1.nextIndex);
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveByIterator_6_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.remove();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(false, c1.currentRemovedByAnother);
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveByIterator_7_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.remove();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(null, c1.current);
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveByIterator_8_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.remove();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C", c1.next.value);
+    }
+
+    public void testInternalState_CursorNextNextPreviousRemoveByIterator_9_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.remove();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("[A, C]", list.toString());
     }
 
     public void testInternalState_CursorNextNextRemoveByIterator_1_oe() {
@@ -1625,6 +4634,116 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("A", c1.next());
     }
 
+    public void testInternalState_CursorNextNextRemoveByIterator_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        assertEquals("B", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextRemoveByIterator_3_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.remove();
+
+        assertEquals(true, c1.nextIndexValid);
+    }
+
+    public void testInternalState_CursorNextNextRemoveByIterator_4_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.remove();
+
+        // removed other assertion
+        assertEquals(1, c1.nextIndex);
+    }
+
+    public void testInternalState_CursorNextNextRemoveByIterator_5_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.remove();
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals(false, c1.currentRemovedByAnother);
+    }
+
+    public void testInternalState_CursorNextNextRemoveByIterator_6_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.remove();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(null, c1.current);
+    }
+
+    public void testInternalState_CursorNextNextRemoveByIterator_7_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.remove();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C", c1.next.value);
+    }
+
+    public void testInternalState_CursorNextNextRemoveByIterator_8_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.remove();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("[A, C]", list.toString());
+    }
+
     public void testInternalState_CursorNextNextPreviousAddIndex1ByList_1_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1632,6 +4751,93 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         final CursorableLinkedList.Cursor<E> c1 = list.cursor();
         assertEquals("A", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextPreviousAddIndex1ByList_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        assertEquals("B", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextPreviousAddIndex1ByList_3_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("B", c1.previous());
+    }
+
+    public void testInternalState_CursorNextNextPreviousAddIndex1ByList_4_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        assertEquals(true, c1.nextIndexValid);
+    }
+
+    public void testInternalState_CursorNextNextPreviousAddIndex1ByList_5_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        // removed other assertion
+        assertEquals(1, c1.nextIndex);
+    }
+
+    public void testInternalState_CursorNextNextPreviousAddIndex1ByList_6_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("B", c1.current.value);
+    }
+
+    public void testInternalState_CursorNextNextPreviousAddIndex1ByList_7_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Z", c1.next.value);
     }
 
     public void testInternalState_CursorNextNextPreviousAddIndex1ByList_8_oe() {
@@ -1654,6 +4860,28 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("[A, Z, B, C]", list.toString());
     }
 
+    public void testInternalState_CursorNextNextPreviousAddIndex1ByList_9_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        c1.remove();  // works ok
+        assertEquals("[A, Z, C]", list.toString());
+    }
+
     public void testInternalState_CursorNextAddIndex1ByList_1_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1661,6 +4889,64 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         final CursorableLinkedList.Cursor<E> c1 = list.cursor();
         assertEquals("A", c1.next());
+    }
+
+    public void testInternalState_CursorNextAddIndex1ByList_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        assertEquals(true, c1.nextIndexValid);
+    }
+
+    public void testInternalState_CursorNextAddIndex1ByList_3_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        // removed other assertion
+        assertEquals(1, c1.nextIndex);
+    }
+
+    public void testInternalState_CursorNextAddIndex1ByList_4_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("A", c1.current.value);
+    }
+
+    public void testInternalState_CursorNextAddIndex1ByList_5_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Z", c1.next.value);
     }
 
     public void testInternalState_CursorNextAddIndex1ByList_6_oe() {
@@ -1681,6 +4967,26 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("[A, Z, B, C]", list.toString());
     }
 
+    public void testInternalState_CursorNextAddIndex1ByList_7_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        c1.remove();  // works ok
+        assertEquals("[Z, B, C]", list.toString());
+    }
+
     public void testInternalState_CursorNextNextAddIndex1ByList_1_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1688,6 +4994,16 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         final CursorableLinkedList.Cursor<E> c1 = list.cursor();
         assertEquals("A", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextAddIndex1ByList_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        assertEquals("B", c1.next());
     }
 
     public void testInternalState_CursorNextNextAddIndex1ByList_3_oe() {
@@ -1702,6 +5018,37 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         list.add(1, (E) "Z");
 
         assertEquals(false, c1.nextIndexValid);
+    }
+
+    public void testInternalState_CursorNextNextAddIndex1ByList_4_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        // removed other assertion
+        assertEquals("B", c1.current.value);
+    }
+
+    public void testInternalState_CursorNextNextAddIndex1ByList_5_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C", c1.next.value);
     }
 
     public void testInternalState_CursorNextNextAddIndex1ByList_6_oe() {
@@ -1722,6 +5069,26 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("[A, Z, B, C]", list.toString());
     }
 
+    public void testInternalState_CursorNextNextAddIndex1ByList_7_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        list.add(1, (E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        c1.remove();  // works ok
+        assertEquals("[A, Z, C]", list.toString());
+    }
+
     public void testInternalState_CursorNextNextPreviousAddByIterator_1_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1729,6 +5096,27 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         final CursorableLinkedList.Cursor<E> c1 = list.cursor();
         assertEquals("A", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextPreviousAddByIterator_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        assertEquals("B", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextPreviousAddByIterator_3_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("B", c1.previous());
     }
 
     public void testInternalState_CursorNextNextPreviousAddByIterator_4_oe() {
@@ -1744,6 +5132,22 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         c1.add((E) "Z");
 
         assertEquals(true, c1.nextIndexValid);
+    }
+
+    public void testInternalState_CursorNextNextPreviousAddByIterator_5_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.add((E) "Z");
+
+        // removed other assertion
+        assertEquals(2, c1.nextIndex);
     }
 
     public void testInternalState_CursorNextNextPreviousAddByIterator_6_oe() {
@@ -1763,6 +5167,44 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals(null, c1.current);
     }
 
+    public void testInternalState_CursorNextNextPreviousAddByIterator_7_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.add((E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("B", c1.next.value);
+    }
+
+    public void testInternalState_CursorNextNextPreviousAddByIterator_8_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.add((E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("[A, Z, B, C]", list.toString());
+    }
+
     public void testInternalState_CursorNextNextAddByIterator_1_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1770,6 +5212,16 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         final CursorableLinkedList.Cursor<E> c1 = list.cursor();
         assertEquals("A", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextAddByIterator_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        assertEquals("B", c1.next());
     }
 
     public void testInternalState_CursorNextNextAddByIterator_3_oe() {
@@ -1784,6 +5236,21 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         c1.add((E) "Z");
 
         assertEquals(true, c1.nextIndexValid);
+    }
+
+    public void testInternalState_CursorNextNextAddByIterator_4_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.add((E) "Z");
+
+        // removed other assertion
+        assertEquals(3, c1.nextIndex);
     }
 
     public void testInternalState_CursorNextNextAddByIterator_5_oe() {
@@ -1819,6 +5286,44 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals(null, c1.current);
     }
 
+    public void testInternalState_CursorNextNextAddByIterator_7_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.add((E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C", c1.next.value);
+    }
+
+    public void testInternalState_CursorNextNextAddByIterator_8_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.add((E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("[A, B, Z, C]", list.toString());
+    }
+
     public void testInternalState_CursorNextNextRemoveByListSetByIterator_1_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1826,6 +5331,45 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         final CursorableLinkedList.Cursor<E> c1 = list.cursor();
         assertEquals("A", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextRemoveByListSetByIterator_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        assertEquals("B", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextRemoveByListSetByIterator_3_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        list.remove(1);
+
+        assertEquals(true, c1.nextIndexValid);
+    }
+
+    public void testInternalState_CursorNextNextRemoveByListSetByIterator_4_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        list.remove(1);
+
+        // removed other assertion
+        assertEquals(1, c1.nextIndex);
     }
 
     public void testInternalState_CursorNextNextRemoveByListSetByIterator_5_oe() {
@@ -1842,6 +5386,23 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertEquals(null, c1.current);
+    }
+
+    public void testInternalState_CursorNextNextRemoveByListSetByIterator_6_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        list.remove(1);
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C", c1.next.value);
     }
 
     public void testInternalState_CursorNextNextRemoveByListSetByIterator_7_oe() {
@@ -1871,6 +5432,135 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("A", c1.next());
     }
 
+    public void testInternalState_CursorNextNextPreviousSetByIterator_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        assertEquals("B", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextPreviousSetByIterator_3_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("B", c1.previous());
+    }
+
+    public void testInternalState_CursorNextNextPreviousSetByIterator_4_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.set((E) "Z");
+
+        assertEquals(true, c1.nextIndexValid);
+    }
+
+    public void testInternalState_CursorNextNextPreviousSetByIterator_5_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.set((E) "Z");
+
+        // removed other assertion
+        assertEquals(1, c1.nextIndex);
+    }
+
+    public void testInternalState_CursorNextNextPreviousSetByIterator_6_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.set((E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Z", c1.current.value);
+    }
+
+    public void testInternalState_CursorNextNextPreviousSetByIterator_7_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.set((E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Z", c1.next.value);
+    }
+
+    public void testInternalState_CursorNextNextPreviousSetByIterator_8_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.set((E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("[A, Z, C]", list.toString());
+    }
+
+    public void testInternalState_CursorNextNextPreviousSetByIterator_9_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        c1.set((E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        c1.remove();  // works ok
+        assertEquals("[A, C]", list.toString());
+    }
+
     public void testInternalState_CursorNextNextSetByIterator_1_oe() {
         list.add((E) "A");
         list.add((E) "B");
@@ -1878,6 +5568,118 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         final CursorableLinkedList.Cursor<E> c1 = list.cursor();
         assertEquals("A", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextSetByIterator_2_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        assertEquals("B", c1.next());
+    }
+
+    public void testInternalState_CursorNextNextSetByIterator_3_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.set((E) "Z");
+
+        assertEquals(true, c1.nextIndexValid);
+    }
+
+    public void testInternalState_CursorNextNextSetByIterator_4_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.set((E) "Z");
+
+        // removed other assertion
+        assertEquals(2, c1.nextIndex);
+    }
+
+    public void testInternalState_CursorNextNextSetByIterator_5_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.set((E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        assertEquals("Z", c1.current.value);
+    }
+
+    public void testInternalState_CursorNextNextSetByIterator_6_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.set((E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C", c1.next.value);
+    }
+
+    public void testInternalState_CursorNextNextSetByIterator_7_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.set((E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("[A, Z, C]", list.toString());
+    }
+
+    public void testInternalState_CursorNextNextSetByIterator_8_oe() {
+        list.add((E) "A");
+        list.add((E) "B");
+        list.add((E) "C");
+
+        final CursorableLinkedList.Cursor<E> c1 = list.cursor();
+        // removed other assertion
+        // removed other assertion
+
+        c1.set((E) "Z");
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        c1.remove();  // works ok
+        assertEquals("[A, C]", list.toString());
     }
 
     public void testEqualsAndHashCode_1_oe() {
@@ -3204,6 +7006,18 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(list.add((E) "A"));
     }
 
+    public void testGet_3_oe() {
+        try {
+            list.get(0);
+            // removed other assertion
+        } catch(final IndexOutOfBoundsException e) {
+            // expected
+        }
+
+        // removed other assertion
+        assertEquals("A",list.get(0));
+    }
+
     public void testGet_4_oe() {
         try {
             list.get(0);
@@ -3215,6 +7029,35 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(list.add((E) "B"));
+    }
+
+    public void testGet_5_oe() {
+        try {
+            list.get(0);
+            // removed other assertion
+        } catch(final IndexOutOfBoundsException e) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("A",list.get(0));
+    }
+
+    public void testGet_6_oe() {
+        try {
+            list.get(0);
+            // removed other assertion
+        } catch(final IndexOutOfBoundsException e) {
+            // expected
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("B",list.get(1));
     }
 
     public void testIndexOf_1_oe() {
@@ -3461,6 +7304,19 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(it.hasNext());
     }
 
+    public void testIterator_4_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", it.next());
+    }
+
     public void testIterator_5_oe() {
         list.add((E) "1");
         list.add((E) "2");
@@ -3473,6 +7329,21 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testIterator_6_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", it.next());
     }
 
     public void testIterator_7_oe() {
@@ -3491,6 +7362,23 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(it.hasNext());
     }
 
+    public void testIterator_8_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("4", it.next());
+    }
+
     public void testIterator_9_oe() {
         list.add((E) "1");
         list.add((E) "2");
@@ -3507,6 +7395,45 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testIterator_10_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("5", it.next());
+    }
+
+    public void testIterator_11_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!it.hasNext());
     }
 
     public void testIterator_12_oe() {
@@ -3554,6 +7481,487 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         it = list.iterator();
         // removed other assertion
         assertEquals("1", it.next());
+    }
+
+    public void testIterator_14_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[2, 3, 4, 5]", list.toString());
+    }
+
+    public void testIterator_15_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        assertTrue(it.hasNext());
+    }
+
+    public void testIterator_16_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", it.next());
+    }
+
+    public void testIterator_17_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[3, 4, 5]", list.toString());
+    }
+
+    public void testIterator_18_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        assertTrue(it.hasNext());
+    }
+
+    public void testIterator_19_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", it.next());
+    }
+
+    public void testIterator_20_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[4, 5]", list.toString());
+    }
+
+    public void testIterator_21_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        assertTrue(it.hasNext());
+    }
+
+    public void testIterator_22_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("4", it.next());
+    }
+
+    public void testIterator_23_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[5]", list.toString());
+    }
+
+    public void testIterator_24_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        assertTrue(it.hasNext());
+    }
+
+    public void testIterator_25_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("5", it.next());
+    }
+
+    public void testIterator_26_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[]", list.toString());
+    }
+
+    public void testIterator_27_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        Iterator<E> it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it = list.iterator();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        assertTrue(!it.hasNext());
     }
 
     public void testListIteratorNavigation_1_oe() {
@@ -3629,6 +8037,76 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testListIteratorNavigation_7_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testListIteratorNavigation_8_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, it.previousIndex());
+    }
+
+    public void testListIteratorNavigation_9_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, it.nextIndex());
+    }
+
+    public void testListIteratorNavigation_10_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1", it.previous());
     }
 
     public void testListIteratorNavigation_11_oe() {
@@ -3766,6 +8244,116 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(it.hasNext());
     }
 
+    public void testListIteratorNavigation_17_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testListIteratorNavigation_18_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, it.previousIndex());
+    }
+
+    public void testListIteratorNavigation_19_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, it.nextIndex());
+    }
+
+    public void testListIteratorNavigation_20_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", it.next());
+    }
+
     public void testListIteratorNavigation_21_oe() {
         list.add((E) "1");
         list.add((E) "2");
@@ -3794,6 +8382,136 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testListIteratorNavigation_22_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testListIteratorNavigation_23_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, it.previousIndex());
+    }
+
+    public void testListIteratorNavigation_24_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, it.nextIndex());
+    }
+
+    public void testListIteratorNavigation_25_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", it.previous());
     }
 
     public void testListIteratorNavigation_26_oe() {
@@ -3829,6 +8547,156 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testListIteratorNavigation_27_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testListIteratorNavigation_28_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, it.previousIndex());
+    }
+
+    public void testListIteratorNavigation_29_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, it.nextIndex());
+    }
+
+    public void testListIteratorNavigation_30_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", it.next());
     }
 
     public void testListIteratorNavigation_31_oe() {
@@ -3869,6 +8737,176 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testListIteratorNavigation_32_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testListIteratorNavigation_33_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, it.previousIndex());
+    }
+
+    public void testListIteratorNavigation_34_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, it.nextIndex());
+    }
+
+    public void testListIteratorNavigation_35_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", it.next());
     }
 
     public void testListIteratorNavigation_36_oe() {
@@ -3914,6 +8952,196 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testListIteratorNavigation_37_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testListIteratorNavigation_38_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, it.previousIndex());
+    }
+
+    public void testListIteratorNavigation_39_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(3, it.nextIndex());
+    }
+
+    public void testListIteratorNavigation_40_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("4", it.next());
     }
 
     public void testListIteratorNavigation_41_oe() {
@@ -3964,6 +9192,501 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testListIteratorNavigation_42_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testListIteratorNavigation_43_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(3, it.previousIndex());
+    }
+
+    public void testListIteratorNavigation_44_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(4, it.nextIndex());
+    }
+
+    public void testListIteratorNavigation_45_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("5", it.next());
+    }
+
+    public void testListIteratorNavigation_46_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!it.hasNext());
+    }
+
+    public void testListIteratorNavigation_47_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testListIteratorNavigation_48_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(4, it.previousIndex());
+    }
+
+    public void testListIteratorNavigation_49_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(5, it.nextIndex());
+    }
+
+    public void testListIteratorNavigation_50_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("5", it.previous());
     }
 
     public void testListIteratorNavigation_51_oe() {
@@ -4024,6 +9747,256 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testListIteratorNavigation_52_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testListIteratorNavigation_53_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(3, it.previousIndex());
+    }
+
+    public void testListIteratorNavigation_54_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(4, it.nextIndex());
+    }
+
+    public void testListIteratorNavigation_55_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("4", it.previous());
     }
 
     public void testListIteratorNavigation_56_oe() {
@@ -4089,6 +10062,276 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testListIteratorNavigation_57_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testListIteratorNavigation_58_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, it.previousIndex());
+    }
+
+    public void testListIteratorNavigation_59_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(3, it.nextIndex());
+    }
+
+    public void testListIteratorNavigation_60_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", it.previous());
     }
 
     public void testListIteratorNavigation_61_oe() {
@@ -4159,6 +10402,296 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testListIteratorNavigation_62_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testListIteratorNavigation_63_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, it.previousIndex());
+    }
+
+    public void testListIteratorNavigation_64_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(2, it.nextIndex());
+    }
+
+    public void testListIteratorNavigation_65_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", it.previous());
     }
 
     public void testListIteratorNavigation_66_oe() {
@@ -4234,6 +10767,316 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    public void testListIteratorNavigation_67_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(it.hasPrevious());
+    }
+
+    public void testListIteratorNavigation_68_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(0, it.previousIndex());
+    }
+
+    public void testListIteratorNavigation_69_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(1, it.nextIndex());
+    }
+
+    public void testListIteratorNavigation_70_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1", it.previous());
     }
 
     public void testListIteratorNavigation_71_oe() {
@@ -4573,6 +11416,131 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("1", it.next());
     }
 
+    public void testListIteratorSet_2_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        it.set((E) "a");
+        assertEquals("a", it.previous());
+    }
+
+    public void testListIteratorSet_3_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        it.set((E) "a");
+        // removed other assertion
+        it.set((E) "A");
+        assertEquals("A", it.next());
+    }
+
+    public void testListIteratorSet_4_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        it.set((E) "a");
+        // removed other assertion
+        it.set((E) "A");
+        // removed other assertion
+        assertEquals("2", it.next());
+    }
+
+    public void testListIteratorSet_5_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        it.set((E) "a");
+        // removed other assertion
+        it.set((E) "A");
+        // removed other assertion
+        // removed other assertion
+        it.set((E) "B");
+        assertEquals("3", it.next());
+    }
+
+    public void testListIteratorSet_6_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        it.set((E) "a");
+        // removed other assertion
+        it.set((E) "A");
+        // removed other assertion
+        // removed other assertion
+        it.set((E) "B");
+        // removed other assertion
+        assertEquals("4", it.next());
+    }
+
+    public void testListIteratorSet_7_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        it.set((E) "a");
+        // removed other assertion
+        it.set((E) "A");
+        // removed other assertion
+        // removed other assertion
+        it.set((E) "B");
+        // removed other assertion
+        // removed other assertion
+        it.set((E) "D");
+        assertEquals("5", it.next());
+    }
+
+    public void testListIteratorSet_8_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        // removed other assertion
+        it.set((E) "a");
+        // removed other assertion
+        it.set((E) "A");
+        // removed other assertion
+        // removed other assertion
+        it.set((E) "B");
+        // removed other assertion
+        // removed other assertion
+        it.set((E) "D");
+        // removed other assertion
+        it.set((E) "E");
+        assertEquals("[A, B, 3, D, E]", list.toString());
+    }
+
     public void testListIteratorRemove_1_oe() {
         list.add((E) "1");
         list.add((E) "2");
@@ -4587,6 +11555,23 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
             // expected
         }
         assertEquals("1",it.next());
+    }
+
+    public void testListIteratorRemove_2_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        assertEquals("2",it.next());
     }
 
     public void testListIteratorRemove_3_oe() {
@@ -4605,6 +11590,388 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertEquals("[1, 2, 3, 4, 5]",list.toString());
+    }
+
+    public void testListIteratorRemove_4_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[1, 3, 4, 5]",list.toString());
+    }
+
+    public void testListIteratorRemove_5_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        assertEquals("3",it.next());
+    }
+
+    public void testListIteratorRemove_6_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3",it.previous());
+    }
+
+    public void testListIteratorRemove_7_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1",it.previous());
+    }
+
+    public void testListIteratorRemove_8_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[3, 4, 5]",list.toString());
+    }
+
+    public void testListIteratorRemove_9_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        assertTrue(!it.hasPrevious());
+    }
+
+    public void testListIteratorRemove_10_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3",it.next());
+    }
+
+    public void testListIteratorRemove_11_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[4, 5]",list.toString());
+    }
+
+    public void testListIteratorRemove_12_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        assertEquals("4",it.next());
+    }
+
+    public void testListIteratorRemove_13_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        assertEquals("5",it.next());
+    }
+
+    public void testListIteratorRemove_14_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[4]",list.toString());
+    }
+
+    public void testListIteratorRemove_15_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        assertEquals("4",it.previous());
+    }
+
+    public void testListIteratorRemove_16_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final ListIterator<E> it = list.listIterator();
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        try {
+            it.remove();
+        } catch(final IllegalStateException e) {
+            // expected
+        }
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        // removed other assertion
+        // removed other assertion
+        it.remove();
+        assertEquals("[]",list.toString());
     }
 
     public void testListIteratorAdd_1_oe() {
@@ -4642,6 +12009,19 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertEquals("5", it.previous());
     }
 
+    public void testListIteratorAdd_5_oe() {
+        final ListIterator<E> it = list.listIterator();
+        it.add((E) "1");
+        // removed other assertion
+        it.add((E) "3");
+        // removed other assertion
+        it.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        it.add((E) "4");
+        assertEquals("[1, 3, 4, 5]", list.toString());
+    }
+
     public void testListIteratorAdd_6_oe() {
         final ListIterator<E> it = list.listIterator();
         it.add((E) "1");
@@ -4654,6 +12034,38 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         it.add((E) "4");
         // removed other assertion
         assertEquals("4", it.previous());
+    }
+
+    public void testListIteratorAdd_7_oe() {
+        final ListIterator<E> it = list.listIterator();
+        it.add((E) "1");
+        // removed other assertion
+        it.add((E) "3");
+        // removed other assertion
+        it.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        it.add((E) "4");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", it.previous());
+    }
+
+    public void testListIteratorAdd_8_oe() {
+        final ListIterator<E> it = list.listIterator();
+        it.add((E) "1");
+        // removed other assertion
+        it.add((E) "3");
+        // removed other assertion
+        it.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        it.add((E) "4");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        it.add((E) "2");
+        assertEquals("[1, 2, 3, 4, 5]", list.toString());
     }
 
     public void testRemoveAll_1_oe() {
@@ -4673,6 +12085,43 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(list.removeAll(set));
     }
 
+    public void testRemoveAll_2_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final HashSet<E> set = new HashSet<>();
+        set.add((E) "A");
+        set.add((E) "2");
+        set.add((E) "C");
+        set.add((E) "4");
+        set.add((E) "D");
+
+        // removed other assertion
+        assertEquals("[1, 3, 5]", list.toString());
+    }
+
+    public void testRemoveAll_3_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final HashSet<E> set = new HashSet<>();
+        set.add((E) "A");
+        set.add((E) "2");
+        set.add((E) "C");
+        set.add((E) "4");
+        set.add((E) "D");
+
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!list.removeAll(set));
+    }
+
     public void testRemoveByIndex_1_oe() {
         list.add((E) "1");
         list.add((E) "2");
@@ -4690,6 +12139,141 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         list.add((E) "5");
         // removed other assertion
         assertEquals("1", list.remove(0));
+    }
+
+    public void testRemoveByIndex_3_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[2, 3, 4, 5]", list.toString());
+    }
+
+    public void testRemoveByIndex_4_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", list.remove(1));
+    }
+
+    public void testRemoveByIndex_5_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[2, 4, 5]", list.toString());
+    }
+
+    public void testRemoveByIndex_6_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("4", list.remove(1));
+    }
+
+    public void testRemoveByIndex_7_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[2, 5]", list.toString());
+    }
+
+    public void testRemoveByIndex_8_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("5", list.remove(1));
+    }
+
+    public void testRemoveByIndex_9_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[2]", list.toString());
+    }
+
+    public void testRemoveByIndex_10_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", list.remove(0));
+    }
+
+    public void testRemoveByIndex_11_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[]", list.toString());
     }
 
     public void testRemove_1_oe() {
@@ -4737,6 +12321,23 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(list.remove("5"));
     }
 
+    public void testRemove_4_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[1, 1, 2, 3, 4, 2, 3, 4, 5]", list.toString());
+    }
+
     public void testRemove_5_oe() {
         list.add((E) "1");
         list.add((E) "1");
@@ -4753,6 +12354,45 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(list.remove("5"));
+    }
+
+    public void testRemove_6_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[1, 1, 2, 3, 4, 2, 3, 4]", list.toString());
+    }
+
+    public void testRemove_7_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!list.remove("5"));
     }
 
     public void testRemove_8_oe() {
@@ -4774,6 +12414,28 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(list.remove("1"));
+    }
+
+    public void testRemove_9_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[1, 2, 3, 4, 2, 3, 4]", list.toString());
     }
 
     public void testRemove_10_oe() {
@@ -4799,6 +12461,30 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(list.remove("1"));
     }
 
+    public void testRemove_11_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[2, 3, 4, 2, 3, 4]", list.toString());
+    }
+
     public void testRemove_12_oe() {
         list.add((E) "1");
         list.add((E) "1");
@@ -4822,6 +12508,32 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(list.remove("2"));
+    }
+
+    public void testRemove_13_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[3, 4, 2, 3, 4]", list.toString());
     }
 
     public void testRemove_14_oe() {
@@ -4851,6 +12563,34 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(list.remove("2"));
     }
 
+    public void testRemove_15_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[3, 4, 3, 4]", list.toString());
+    }
+
     public void testRemove_16_oe() {
         list.add((E) "1");
         list.add((E) "1");
@@ -4878,6 +12618,36 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(list.remove("3"));
+    }
+
+    public void testRemove_17_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[4, 3, 4]", list.toString());
     }
 
     public void testRemove_18_oe() {
@@ -4911,6 +12681,38 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(list.remove("3"));
     }
 
+    public void testRemove_19_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[4, 4]", list.toString());
+    }
+
     public void testRemove_20_oe() {
         list.add((E) "1");
         list.add((E) "1");
@@ -4942,6 +12744,40 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         // removed other assertion
         // removed other assertion
         assertTrue(list.remove("4"));
+    }
+
+    public void testRemove_21_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[4]", list.toString());
     }
 
     public void testRemove_22_oe() {
@@ -4979,6 +12815,42 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         assertTrue(list.remove("4"));
     }
 
+    public void testRemove_23_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("[]", list.toString());
+    }
+
     public void testRetainAll_1_oe() {
         list.add((E) "1");
         list.add((E) "1");
@@ -4999,6 +12871,53 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
         set.add((E) "D");
 
         assertTrue(list.retainAll(set));
+    }
+
+    public void testRetainAll_2_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "5");
+
+        final HashSet<E> set = new HashSet<>();
+        set.add((E) "A");
+        set.add((E) "2");
+        set.add((E) "C");
+        set.add((E) "4");
+        set.add((E) "D");
+
+        // removed other assertion
+        assertEquals("[2, 2, 4, 4]", list.toString());
+    }
+
+    public void testRetainAll_3_oe() {
+        list.add((E) "1");
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "4");
+        list.add((E) "5");
+        list.add((E) "5");
+
+        final HashSet<E> set = new HashSet<>();
+        set.add((E) "A");
+        set.add((E) "2");
+        set.add((E) "C");
+        set.add((E) "4");
+        set.add((E) "D");
+
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!list.retainAll(set));
     }
 
     public void testSet_1_oe() {
@@ -5707,6 +13626,156 @@ public class CursorableLinkedListTest_OE25Dev<E> extends AbstractLinkedListTest<
 
         final String[] elts3 = new String[5];
         assertSame(elts3, list.toArray(elts3));
+    }
+
+    public void testToArray_14_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final Object[] elts = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String[] elts2 = list.toArray(new String[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String[] elts3 = new String[5];
+        // removed other assertion
+        assertEquals("1", elts3[0]);
+    }
+
+    public void testToArray_15_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final Object[] elts = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String[] elts2 = list.toArray(new String[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String[] elts3 = new String[5];
+        // removed other assertion
+        // removed other assertion
+        assertEquals("2", elts3[1]);
+    }
+
+    public void testToArray_16_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final Object[] elts = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String[] elts2 = list.toArray(new String[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String[] elts3 = new String[5];
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("3", elts3[2]);
+    }
+
+    public void testToArray_17_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final Object[] elts = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String[] elts2 = list.toArray(new String[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String[] elts3 = new String[5];
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("4", elts3[3]);
+    }
+
+    public void testToArray_18_oe() {
+        list.add((E) "1");
+        list.add((E) "2");
+        list.add((E) "3");
+        list.add((E) "4");
+        list.add((E) "5");
+
+        final Object[] elts = list.toArray();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String[] elts2 = list.toArray(new String[0]);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final String[] elts3 = new String[5];
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("5", elts3[4]);
     }
 
     public void testToArray_19_oe() {

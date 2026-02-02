@@ -5,7 +5,7 @@ from typing import List, Tuple
 _STRING_RE = re.compile(r'"(?:\\.|[^"\\])*"')
 _CHAR_RE = re.compile(r"'(?:\\.|[^'\\])'")
 
-JUNIT_ASSERT_NAMES = [
+STANDARD_JUNIT_ASSERT_NAMES = {
     "assertEquals",
     "assertNotEquals",
     "assertTrue",
@@ -25,19 +25,16 @@ JUNIT_ASSERT_NAMES = [
     "assertTimeoutPreemptively",
     "assertEqualsTypeNotNull",
     "fail",
-]
-
-ASSERT_PATTERNS = [
-    re.compile(
-        rf"(?:\bAssertions\s*\.\s*|"
-        rf"\borg\.junit[^\s;]*\.\s*Assertions\s*\.\s*|"
-        rf"\borg\.junit[^\s;]*\.\s*Assert\s*\.\s*)?"
-        rf"{name}\s*\("
-    )
-    for name in JUNIT_ASSERT_NAMES
-]
+}
 
 JAVA_ASSERT_STMT = re.compile(r"^\s*assert\b")
+
+_ASSERT_CALL_NAME_RE = re.compile(
+    r"(?:\bAssertions\s*\.\s*|"
+    r"\borg\.junit[^\s;]*\.\s*Assertions\s*\.\s*|"
+    r"\borg\.junit[^\s;]*\.\s*Assert\s*\.\s*)?"
+    r"(?P<name>[A-Za-z_][A-Za-z0-9_]*)\s*\("
+)
 
 
 def _strip_line_comment(s: str) -> str:
@@ -72,16 +69,37 @@ def sanitize_for_counting(line: str, in_block_comment: bool) -> Tuple[str, bool]
     return (s2, in_block_comment)
 
 
-def is_assert_line(line: str, *, in_block_comment: bool = False) -> bool:
+def classify_assert_line(line: str, *, in_block_comment: bool = False) -> Tuple[str | None, str | None]:
     sanitized, _ = sanitize_for_counting(line, in_block_comment)
     s = sanitized.strip()
     if not s:
-        return False
+        return (None, None)
+
     if JAVA_ASSERT_STMT.match(s):
-        return True
+        return ("java_assert", "assert")
+
     if "assert" not in s and "fail(" not in s:
-        return False
-    return any(p.search(s) for p in ASSERT_PATTERNS)
+        return (None, None)
+
+    m = _ASSERT_CALL_NAME_RE.search(s)
+    if not m:
+        return (None, None)
+
+    name = m.group("name")
+    if name == "fail":
+        return ("standard", name)
+
+    if name.startswith("assert"):
+        if name in STANDARD_JUNIT_ASSERT_NAMES:
+            return ("standard", name)
+        return ("custom", name)
+
+    return (None, None)
+
+
+def is_assert_line(line: str, *, in_block_comment: bool = False) -> bool:
+    kind, _ = classify_assert_line(line, in_block_comment=in_block_comment)
+    return kind is not None
 
 
 def get_method_header(lines: List[str]) -> str:
@@ -149,15 +167,18 @@ def rebalance_braces(lines: List[str]) -> List[str]:
     return lines
 
 
-def collapse_oracle_blocks(method_lines: List[str]) -> Tuple[List[str], List[int]]:
+def collapse_oracle_blocks(method_lines: List[str]) -> Tuple[List[str], List[int], List[Tuple[str, str]]]:
     out: List[str] = []
     oracle_idxs: List[int] = []
+    oracle_kinds: List[Tuple[str, str]] = []
 
     i = 0
     in_block = False
     while i < len(method_lines):
         ln = method_lines[i]
-        if is_assert_line(ln, in_block_comment=in_block):
+        kind, name = classify_assert_line(ln, in_block_comment=in_block)
+
+        if kind is not None:
             block, end_idx = extract_oracle_block(method_lines, i)
             indent = ln[: len(ln) - len(ln.lstrip())]
 
@@ -167,6 +188,7 @@ def collapse_oracle_blocks(method_lines: List[str]) -> Tuple[List[str], List[int
 
             out.append(indent + joined + "\n")
             oracle_idxs.append(len(out) - 1)
+            oracle_kinds.append((kind, name if name else ""))
 
             for k in range(i, end_idx + 1):
                 _, in_block = sanitize_for_counting(method_lines[k], in_block)
@@ -177,7 +199,7 @@ def collapse_oracle_blocks(method_lines: List[str]) -> Tuple[List[str], List[int
         _, in_block = sanitize_for_counting(ln, in_block)
         i += 1
 
-    return out, oracle_idxs
+    return out, oracle_idxs, oracle_kinds
 
 
 def build_single_oracle_test(

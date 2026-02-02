@@ -105,27 +105,6 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
-    public void testAcceptZipFile_1_oe() throws FileSystemException {
-
-        FileObject[] files;
-
-        // FILE Filter
-        files = zipFileObj.findFiles(new FileSelector() {
-            @Override
-            public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
-                return FileFileFilter.FILE.accept(fileInfo);
-            }
-
-            @Override
-            public boolean traverseDescendents(final FileSelectInfo fileInfo) throws Exception {
-                return true;
-            }
-        });
-        assertContains(files, FILE);
-        Assert.assertEquals(1, files.length);
-    }
-
-    @Test
     public void testAcceptZipFile_2_oe() throws FileSystemException {
 
         FileObject[] files;
@@ -142,12 +121,33 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
                 return true;
             }
         });
-        assertContains(files, FILE);
+        // removed other assertion
+        Assert.assertEquals(1, files.length);
+    }
+
+    @Test
+    public void testAcceptZipFile_4_oe() throws FileSystemException {
+
+        FileObject[] files;
+
+        // FILE Filter
+        files = zipFileObj.findFiles(new FileSelector() {
+            @Override
+            public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
+                return FileFileFilter.FILE.accept(fileInfo);
+            }
+
+            @Override
+            public boolean traverseDescendents(final FileSelectInfo fileInfo) throws Exception {
+                return true;
+            }
+        });
+        // removed other assertion
         // removed other assertion
 
         // DIRECTORY Filter
         files = zipFileObj.findFiles(new FileFilterSelector(DirectoryFileFilter.DIRECTORY));
-        assertContains(files, DIR);
+        // removed other assertion
         Assert.assertEquals(1, files.length);
     }
 

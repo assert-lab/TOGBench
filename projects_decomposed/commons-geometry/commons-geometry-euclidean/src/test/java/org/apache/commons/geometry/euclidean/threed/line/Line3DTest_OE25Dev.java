@@ -99,37 +99,37 @@ class Line3DTest_OE25Dev {
     }
 
     @Test
-    void testFromPointAndDirection_1_oe() {
+    void testFromPointAndDirection_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 1, 0), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
 
         // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, 0, 0), line.getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Y, line.getDirection(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(TEST_PRECISION, line.getPrecision());
     }
 
     @Test
-    void testFromPointAndDirection_normalizesDirection_1_oe() {
+    void testFromPointAndDirection_normalizesDirection_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
 
         // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, line.getOrigin(), TEST_EPS);
+        // removed other assertion
 
         final double invSqrt3 = 1.0 / Math.sqrt(3);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(invSqrt3, invSqrt3, invSqrt3), line.getDirection(), TEST_EPS);
+        // removed other assertion
         Assertions.assertSame(TEST_PRECISION, line.getPrecision());
     }
 
     @Test
-    void testFromPoints_1_oe() {
+    void testFromPoints_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(-1, 1, 0), Vector3D.of(-1, 7, 0), TEST_PRECISION);
 
         // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, 0, 0), line.getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Y, line.getDirection(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertSame(TEST_PRECISION, line.getPrecision());
     }
 
@@ -198,7 +198,7 @@ class Line3DTest_OE25Dev {
     }
 
     @Test
-    void testSubspaceTransform_1_oe() {
+    void testSubspaceTransform_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 0), TEST_PRECISION);
 
@@ -214,14 +214,14 @@ class Line3DTest_OE25Dev {
         final Line3D tLine = result.getLine();
         final Transform<Vector1D> tSub = result.getTransform();
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 0), tLine.getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, -1), tLine.getDirection(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0.5, tSub.apply(Vector1D.ZERO).getX(), TEST_EPS);
     }
 
     @Test
-    void testSubspaceTransform_2_oe() {
+    void testSubspaceTransform_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 0), TEST_PRECISION);
 
@@ -237,8 +237,8 @@ class Line3DTest_OE25Dev {
         final Line3D tLine = result.getLine();
         final Transform<Vector1D> tSub = result.getTransform();
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 0), tLine.getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, -1), tLine.getDirection(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertEquals(4.5, tSub.apply(Vector1D.of(2)).getX(), TEST_EPS);
@@ -709,7 +709,7 @@ class Line3DTest_OE25Dev {
     }
 
     @Test
-    void testSpan_7_oe() {
+    void testSpan_10_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
@@ -726,16 +726,16 @@ class Line3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertNegativeInfinity(span.getSubspaceStart());
-        GeometryTestUtils.assertPositiveInfinity(span.getSubspaceEnd());
+        // removed other assertion
+        // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(span.getSize());
+        // removed other assertion
 
         Assertions.assertSame(line, span.getLine());
     }
 
     @Test
-    void testSpan_8_oe() {
+    void testSpan_11_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
 
@@ -752,10 +752,10 @@ class Line3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertNegativeInfinity(span.getSubspaceStart());
-        GeometryTestUtils.assertPositiveInfinity(span.getSubspaceEnd());
+        // removed other assertion
+        // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(span.getSize());
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertTrue(span.getInterval().isFull());
@@ -949,41 +949,6 @@ class Line3DTest_OE25Dev {
     }
 
     @Test
-    void testSubsetMethods_2_oe() {
-        // arrange
-        final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
-
-        // act/assert
-        final Segment3D doubleArgResult = line.segment(3, 4);
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 3, 0), doubleArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 3, 0), doubleArgResult.getEndPoint(), TEST_EPS);
-
-        final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
-        Assertions.assertSame(line, ptArgResult.getLine());
-    }
-
-    @Test
-    void testSubsetMethods_3_oe() {
-        // arrange
-        final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
-
-        // act/assert
-        final Segment3D doubleArgResult = line.segment(3, 4);
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 3, 0), doubleArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 3, 0), doubleArgResult.getEndPoint(), TEST_EPS);
-
-        final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 3, 0), ptArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), ptArgResult.getEndPoint(), TEST_EPS);
-
-        final Ray3D rayDoubleResult = line.rayFrom(2);
-        Assertions.assertSame(line, rayDoubleResult.getLine());
-    }
-
-    @Test
     void testSubsetMethods_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
@@ -991,70 +956,11 @@ class Line3DTest_OE25Dev {
         // act/assert
         final Segment3D doubleArgResult = line.segment(3, 4);
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 3, 0), doubleArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 3, 0), doubleArgResult.getEndPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 3, 0), ptArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), ptArgResult.getEndPoint(), TEST_EPS);
-
-        final Ray3D rayDoubleResult = line.rayFrom(2);
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), rayDoubleResult.getStartPoint(), TEST_EPS);
-        Assertions.assertNull(rayDoubleResult.getEndPoint());
-    }
-
-    @Test
-    void testSubsetMethods_5_oe() {
-        // arrange
-        final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
-
-        // act/assert
-        final Segment3D doubleArgResult = line.segment(3, 4);
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 3, 0), doubleArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 3, 0), doubleArgResult.getEndPoint(), TEST_EPS);
-
-        final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 3, 0), ptArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), ptArgResult.getEndPoint(), TEST_EPS);
-
-        final Ray3D rayDoubleResult = line.rayFrom(2);
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), rayDoubleResult.getStartPoint(), TEST_EPS);
-        // removed other assertion
-
-        final Ray3D rayPtResult = line.rayFrom(Vector3D.of(1, 4, 0));
-        Assertions.assertSame(line, rayPtResult.getLine());
-    }
-
-    @Test
-    void testSubsetMethods_6_oe() {
-        // arrange
-        final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
-
-        // act/assert
-        final Segment3D doubleArgResult = line.segment(3, 4);
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 3, 0), doubleArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 3, 0), doubleArgResult.getEndPoint(), TEST_EPS);
-
-        final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 3, 0), ptArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), ptArgResult.getEndPoint(), TEST_EPS);
-
-        final Ray3D rayDoubleResult = line.rayFrom(2);
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), rayDoubleResult.getStartPoint(), TEST_EPS);
-        // removed other assertion
-
-        final Ray3D rayPtResult = line.rayFrom(Vector3D.of(1, 4, 0));
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 3, 0), rayPtResult.getStartPoint(), TEST_EPS);
-        Assertions.assertNull(rayPtResult.getEndPoint());
+        Assertions.assertSame(line, ptArgResult.getLine());
     }
 
     @Test
@@ -1065,57 +971,16 @@ class Line3DTest_OE25Dev {
         // act/assert
         final Segment3D doubleArgResult = line.segment(3, 4);
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 3, 0), doubleArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 3, 0), doubleArgResult.getEndPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 3, 0), ptArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), ptArgResult.getEndPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final Ray3D rayDoubleResult = line.rayFrom(2);
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), rayDoubleResult.getStartPoint(), TEST_EPS);
-        // removed other assertion
-
-        final Ray3D rayPtResult = line.rayFrom(Vector3D.of(1, 4, 0));
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 3, 0), rayPtResult.getStartPoint(), TEST_EPS);
-        // removed other assertion
-
-        final ReverseRay3D toDoubleResult = line.reverseRayTo(-1);
-        Assertions.assertSame(line, toDoubleResult.getLine());
-    }
-
-    @Test
-    void testSubsetMethods_8_oe() {
-        // arrange
-        final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
-
-        // act/assert
-        final Segment3D doubleArgResult = line.segment(3, 4);
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 3, 0), doubleArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 3, 0), doubleArgResult.getEndPoint(), TEST_EPS);
-
-        final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 3, 0), ptArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), ptArgResult.getEndPoint(), TEST_EPS);
-
-        final Ray3D rayDoubleResult = line.rayFrom(2);
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), rayDoubleResult.getStartPoint(), TEST_EPS);
-        // removed other assertion
-
-        final Ray3D rayPtResult = line.rayFrom(Vector3D.of(1, 4, 0));
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 3, 0), rayPtResult.getStartPoint(), TEST_EPS);
-        // removed other assertion
-
-        final ReverseRay3D toDoubleResult = line.reverseRayTo(-1);
-        // removed other assertion
-        Assertions.assertNull(toDoubleResult.getStartPoint());
+        Assertions.assertSame(line, rayDoubleResult.getLine());
     }
 
     @Test
@@ -1126,31 +991,18 @@ class Line3DTest_OE25Dev {
         // act/assert
         final Segment3D doubleArgResult = line.segment(3, 4);
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 3, 0), doubleArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 3, 0), doubleArgResult.getEndPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 3, 0), ptArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), ptArgResult.getEndPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final Ray3D rayDoubleResult = line.rayFrom(2);
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), rayDoubleResult.getStartPoint(), TEST_EPS);
         // removed other assertion
-
-        final Ray3D rayPtResult = line.rayFrom(Vector3D.of(1, 4, 0));
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 3, 0), rayPtResult.getStartPoint(), TEST_EPS);
-        // removed other assertion
-
-        final ReverseRay3D toDoubleResult = line.reverseRayTo(-1);
-        // removed other assertion
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, 3, 0), toDoubleResult.getEndPoint(), TEST_EPS);
-
-        final ReverseRay3D toPtResult = line.reverseRayTo(Vector3D.of(1, 4, 0));
-        Assertions.assertSame(line, toPtResult.getLine());
+        Assertions.assertNull(rayDoubleResult.getEndPoint());
     }
 
     @Test
@@ -1161,28 +1013,176 @@ class Line3DTest_OE25Dev {
         // act/assert
         final Segment3D doubleArgResult = line.segment(3, 4);
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 3, 0), doubleArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 3, 0), doubleArgResult.getEndPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 3, 0), ptArgResult.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), ptArgResult.getEndPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final Ray3D rayDoubleResult = line.rayFrom(2);
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2, 3, 0), rayDoubleResult.getStartPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+
+        final Ray3D rayPtResult = line.rayFrom(Vector3D.of(1, 4, 0));
+        Assertions.assertSame(line, rayPtResult.getLine());
+    }
+
+    @Test
+    void testSubsetMethods_12_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
+
+        // act/assert
+        final Segment3D doubleArgResult = line.segment(3, 4);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Ray3D rayDoubleResult = line.rayFrom(2);
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         final Ray3D rayPtResult = line.rayFrom(Vector3D.of(1, 4, 0));
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 3, 0), rayPtResult.getStartPoint(), TEST_EPS);
+        // removed other assertion
+        Assertions.assertNull(rayPtResult.getEndPoint());
+    }
+
+    @Test
+    void testSubsetMethods_13_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
+
+        // act/assert
+        final Segment3D doubleArgResult = line.segment(3, 4);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Ray3D rayDoubleResult = line.rayFrom(2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Ray3D rayPtResult = line.rayFrom(Vector3D.of(1, 4, 0));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final ReverseRay3D toDoubleResult = line.reverseRayTo(-1);
+        Assertions.assertSame(line, toDoubleResult.getLine());
+    }
+
+    @Test
+    void testSubsetMethods_14_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
+
+        // act/assert
+        final Segment3D doubleArgResult = line.segment(3, 4);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Ray3D rayDoubleResult = line.rayFrom(2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Ray3D rayPtResult = line.rayFrom(Vector3D.of(1, 4, 0));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final ReverseRay3D toDoubleResult = line.reverseRayTo(-1);
+        // removed other assertion
+        Assertions.assertNull(toDoubleResult.getStartPoint());
+    }
+
+    @Test
+    void testSubsetMethods_16_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
+
+        // act/assert
+        final Segment3D doubleArgResult = line.segment(3, 4);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Ray3D rayDoubleResult = line.rayFrom(2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Ray3D rayPtResult = line.rayFrom(Vector3D.of(1, 4, 0));
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         final ReverseRay3D toDoubleResult = line.reverseRayTo(-1);
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, 3, 0), toDoubleResult.getEndPoint(), TEST_EPS);
+        // removed other assertion
+
+        final ReverseRay3D toPtResult = line.reverseRayTo(Vector3D.of(1, 4, 0));
+        Assertions.assertSame(line, toPtResult.getLine());
+    }
+
+    @Test
+    void testSubsetMethods_17_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPoints(Vector3D.of(0, 3, 0), Vector3D.of(1, 3, 0), TEST_PRECISION);
+
+        // act/assert
+        final Segment3D doubleArgResult = line.segment(3, 4);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Segment3D ptArgResult = line.segment(Vector3D.of(0, 4, 0), Vector3D.of(2, 5, 1));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Ray3D rayDoubleResult = line.rayFrom(2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final Ray3D rayPtResult = line.rayFrom(Vector3D.of(1, 4, 0));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final ReverseRay3D toDoubleResult = line.reverseRayTo(-1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final ReverseRay3D toPtResult = line.reverseRayTo(Vector3D.of(1, 4, 0));
         // removed other assertion
@@ -1521,22 +1521,6 @@ class Line3DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
-        final Line3D b = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, -1), Vector3D.of(4, 5, 6), TEST_PRECISION);
-        final Line3D c = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, -1), TEST_PRECISION);
-        final Line3D d = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), Precision.doubleEquivalenceOfEpsilon(TEST_EPS + 1e-3));
-
-        final Line3D e = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, b);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
@@ -1547,10 +1531,9 @@ class Line3DTest_OE25Dev {
         final Line3D e = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
         // removed other assertion
-        Assertions.assertNotEquals(a, c);
+
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -1564,11 +1547,10 @@ class Line3DTest_OE25Dev {
         final Line3D e = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(a, d);
+        Assertions.assertNotEquals(a, c);
     }
 
     @Test
@@ -1582,13 +1564,11 @@ class Line3DTest_OE25Dev {
         final Line3D e = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(a, e);
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(a, d);
     }
 
     @Test
@@ -1602,7 +1582,27 @@ class Line3DTest_OE25Dev {
         final Line3D e = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(a, e);
+    }
+
+    @Test
+    void testEquals_6_oe() {
+        // arrange
+        final Line3D a = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
+        final Line3D b = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, -1), Vector3D.of(4, 5, 6), TEST_PRECISION);
+        final Line3D c = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, -1), TEST_PRECISION);
+        final Line3D d = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), Precision.doubleEquivalenceOfEpsilon(TEST_EPS + 1e-3));
+
+        final Line3D e = Lines3D.fromPointAndDirection(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

@@ -208,7 +208,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
     }
 
     @Test
-    void testProperties_6_oe() {
+    void testProperties_7_oe() {
         // act
         final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, TRIANGLE_VERTICES);
 
@@ -219,7 +219,7 @@ class VertexListConvexPolygon3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1.0 / 3.0, 1.0 / 3.0, 1), p.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertSame(XY_PLANE_Z1, p.getPlane());
     }
@@ -392,31 +392,6 @@ class VertexListConvexPolygon3DTest_OE25Dev {
     }
 
     @Test
-    void testToTriangles_fiveVertices_3_oe() {
-        // arrange
-        final Vector3D p1 = Vector3D.of(1, 1, 1);
-        final Vector3D p2 = Vector3D.of(2, 1.2, 1);
-        final Vector3D p3 = Vector3D.of(3, 2, 1);
-        final Vector3D p4 = Vector3D.of(1, 4, 1);
-        final Vector3D p5 = Vector3D.of(0, 2, 1);
-
-        final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, Arrays.asList(p1, p2, p3, p4, p5));
-
-        // act
-        final List<Triangle3D> tris = p.toTriangles();
-
-        // assert
-        // removed other assertion
-
-        final Triangle3D a = tris.get(0);
-        // removed other assertion
-        EuclideanTestUtils.assertVertexLoopSequence(Arrays.asList(p2, p3, p4), a.getVertices(), TEST_PRECISION);
-
-        final Triangle3D b = tris.get(1);
-        Assertions.assertSame(XY_PLANE_Z1, b.getPlane());
-    }
-
-    @Test
     void testToTriangles_fiveVertices_4_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 1, 1);
@@ -435,11 +410,36 @@ class VertexListConvexPolygon3DTest_OE25Dev {
 
         final Triangle3D a = tris.get(0);
         // removed other assertion
-        EuclideanTestUtils.assertVertexLoopSequence(Arrays.asList(p2, p3, p4), a.getVertices(), TEST_PRECISION);
+        // removed other assertion
+
+        final Triangle3D b = tris.get(1);
+        Assertions.assertSame(XY_PLANE_Z1, b.getPlane());
+    }
+
+    @Test
+    void testToTriangles_fiveVertices_6_oe() {
+        // arrange
+        final Vector3D p1 = Vector3D.of(1, 1, 1);
+        final Vector3D p2 = Vector3D.of(2, 1.2, 1);
+        final Vector3D p3 = Vector3D.of(3, 2, 1);
+        final Vector3D p4 = Vector3D.of(1, 4, 1);
+        final Vector3D p5 = Vector3D.of(0, 2, 1);
+
+        final VertexListConvexPolygon3D p = new VertexListConvexPolygon3D(XY_PLANE_Z1, Arrays.asList(p1, p2, p3, p4, p5));
+
+        // act
+        final List<Triangle3D> tris = p.toTriangles();
+
+        // assert
+        // removed other assertion
+
+        final Triangle3D a = tris.get(0);
+        // removed other assertion
+        // removed other assertion
 
         final Triangle3D b = tris.get(1);
         // removed other assertion
-        EuclideanTestUtils.assertVertexLoopSequence(Arrays.asList(p2, p4, p5), b.getVertices(), TEST_PRECISION);
+        // removed other assertion
 
         final Triangle3D c = tris.get(2);
         Assertions.assertSame(XY_PLANE_Z1, c.getPlane());

@@ -944,7 +944,7 @@ class SphereTest_OE25Dev {
     }
 
     @Test
-    void testToMesh_zeroSubdivisions_3_oe() {
+    void testToMesh_zeroSubdivisions_5_oe() {
         // arrange
         final Sphere s = Sphere.from(Vector3D.of(1, 2, 3), 2, TEST_PRECISION);
 
@@ -956,8 +956,8 @@ class SphereTest_OE25Dev {
         // removed other assertion
 
         final Bounds3D bounds = mesh.getBounds();
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, 0, 1), bounds.getMin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 4, 5), bounds.getMax(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(mesh.toTree().isFinite());
     }
@@ -976,7 +976,7 @@ class SphereTest_OE25Dev {
     }
 
     @Test
-    void testToMesh_manySubdivisions_2_oe() {
+    void testToMesh_manySubdivisions_4_oe() {
         // arrange
         final Sphere s = Sphere.from(Vector3D.of(1, 2, 3), 2, TEST_PRECISION);
         final int subdivisions = 5;
@@ -988,8 +988,8 @@ class SphereTest_OE25Dev {
         // removed other assertion
 
         final Bounds3D bounds = mesh.getBounds();
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, 0, 1), bounds.getMin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 4, 5), bounds.getMax(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final RegionBSPTree3D tree = RegionBSPTree3D.partitionedRegionBuilder()
                 .insertAxisAlignedGrid(bounds, 3, TEST_PRECISION)
@@ -1000,7 +1000,7 @@ class SphereTest_OE25Dev {
     }
 
     @Test
-    void testToMesh_manySubdivisions_3_oe() {
+    void testToMesh_manySubdivisions_5_oe() {
         // arrange
         final Sphere s = Sphere.from(Vector3D.of(1, 2, 3), 2, TEST_PRECISION);
         final int subdivisions = 5;
@@ -1012,8 +1012,8 @@ class SphereTest_OE25Dev {
         // removed other assertion
 
         final Bounds3D bounds = mesh.getBounds();
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, 0, 1), bounds.getMin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 4, 5), bounds.getMax(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final RegionBSPTree3D tree = RegionBSPTree3D.partitionedRegionBuilder()
                 .insertAxisAlignedGrid(bounds, 3, TEST_PRECISION)
@@ -1027,7 +1027,7 @@ class SphereTest_OE25Dev {
     }
 
     @Test
-    void testToMesh_manySubdivisions_4_oe() {
+    void testToMesh_manySubdivisions_6_oe() {
         // arrange
         final Sphere s = Sphere.from(Vector3D.of(1, 2, 3), 2, TEST_PRECISION);
         final int subdivisions = 5;
@@ -1039,8 +1039,8 @@ class SphereTest_OE25Dev {
         // removed other assertion
 
         final Bounds3D bounds = mesh.getBounds();
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, 0, 1), bounds.getMin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(3, 4, 5), bounds.getMax(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final RegionBSPTree3D tree = RegionBSPTree3D.partitionedRegionBuilder()
                 .insertAxisAlignedGrid(bounds, 3, TEST_PRECISION)
@@ -1160,23 +1160,6 @@ class SphereTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
-
-        final Sphere a = Sphere.from(Vector3D.of(1, 2, 3), 3, TEST_PRECISION);
-        final Sphere b = Sphere.from(Vector3D.of(1, 1, 3), 3, TEST_PRECISION);
-        final Sphere c = Sphere.from(Vector3D.of(1, 2, 3), 4, TEST_PRECISION);
-        final Sphere d = Sphere.from(Vector3D.of(1, 2, 3), 3, precision);
-        final Sphere e = Sphere.from(Vector3D.of(1, 2, 3), 3, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, b);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -1188,10 +1171,9 @@ class SphereTest_OE25Dev {
         final Sphere e = Sphere.from(Vector3D.of(1, 2, 3), 3, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
         // removed other assertion
-        Assertions.assertNotEquals(a, c);
+
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -1206,11 +1188,10 @@ class SphereTest_OE25Dev {
         final Sphere e = Sphere.from(Vector3D.of(1, 2, 3), 3, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(a, d);
+        Assertions.assertNotEquals(a, c);
     }
 
     @Test
@@ -1225,7 +1206,26 @@ class SphereTest_OE25Dev {
         final Sphere e = Sphere.from(Vector3D.of(1, 2, 3), 3, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(a, d);
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        final Sphere a = Sphere.from(Vector3D.of(1, 2, 3), 3, TEST_PRECISION);
+        final Sphere b = Sphere.from(Vector3D.of(1, 1, 3), 3, TEST_PRECISION);
+        final Sphere c = Sphere.from(Vector3D.of(1, 2, 3), 4, TEST_PRECISION);
+        final Sphere d = Sphere.from(Vector3D.of(1, 2, 3), 3, precision);
+        final Sphere e = Sphere.from(Vector3D.of(1, 2, 3), 3, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

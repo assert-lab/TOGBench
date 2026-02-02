@@ -523,6 +523,25 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
         assertEquals(testValue, it.next());
     }
 
+    public void testReset_4_oe() {
+        final ResettableListIterator<E> it = makeObject();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(false, it.hasNext());
+    }
+
+    public void testReset_5_oe() {
+        final ResettableListIterator<E> it = makeObject();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, it.hasPrevious());
+    }
+
     public void testReset_6_oe() {
         final ResettableListIterator<E> it = makeObject();
 
@@ -566,6 +585,41 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
         // removed other assertion
         // removed other assertion
         assertEquals(testValue, it.next());
+    }
+
+    public void testReset_9_oe() {
+        final ResettableListIterator<E> it = makeObject();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it.reset();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(false, it.hasNext());
+    }
+
+    public void testReset_10_oe() {
+        final ResettableListIterator<E> it = makeObject();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        it.reset();
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(true, it.hasPrevious());
     }
 
     public void testReset_11_oe() {

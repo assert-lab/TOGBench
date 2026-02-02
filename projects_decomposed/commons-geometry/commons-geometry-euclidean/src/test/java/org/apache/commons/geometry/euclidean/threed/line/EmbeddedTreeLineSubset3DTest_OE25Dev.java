@@ -179,19 +179,6 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
     }
 
     @Test
-    void testProperties_full_3_oe() {
-        // arrange
-        final EmbeddedTreeLineSubset3D full = new EmbeddedTreeLineSubset3D(testLine, true);
-
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(full.getSize());
-        Assertions.assertNull(full.getCentroid());
-    }
-
-    @Test
     void testProperties_full_4_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D full = new EmbeddedTreeLineSubset3D(testLine, true);
@@ -200,7 +187,20 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(full.getSize());
+        // removed other assertion
+        Assertions.assertNull(full.getCentroid());
+    }
+
+    @Test
+    void testProperties_full_5_oe() {
+        // arrange
+        final EmbeddedTreeLineSubset3D full = new EmbeddedTreeLineSubset3D(testLine, true);
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         Assertions.assertNull(full.getBounds());
     }
@@ -285,20 +285,6 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
     }
 
     @Test
-    void testProperties_half_3_oe() {
-        // arrange
-        final EmbeddedTreeLineSubset3D half = new EmbeddedTreeLineSubset3D(testLine, false);
-        half.getSubspaceRegion().add(Interval.min(1, TEST_PRECISION));
-
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(half.getSize());
-        Assertions.assertNull(half.getCentroid());
-    }
-
-    @Test
     void testProperties_half_4_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D half = new EmbeddedTreeLineSubset3D(testLine, false);
@@ -308,7 +294,21 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(half.getSize());
+        // removed other assertion
+        Assertions.assertNull(half.getCentroid());
+    }
+
+    @Test
+    void testProperties_half_5_oe() {
+        // arrange
+        final EmbeddedTreeLineSubset3D half = new EmbeddedTreeLineSubset3D(testLine, false);
+        half.getSubspaceRegion().add(Interval.min(1, TEST_PRECISION));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         Assertions.assertNull(half.getBounds());
     }
@@ -360,7 +360,7 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
     }
 
     @Test
-    void testTransform_full_1_oe() {
+    void testTransform_full_3_oe() {
         // arrange
         final EmbeddedTreeLineSubset3D sub = new EmbeddedTreeLineSubset3D(testLine, true);
 
@@ -378,14 +378,14 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         final Vector3D expectedOrigin = Lines3D.fromPoints(Vector3D.of(0, 0, -2), Vector3D.of(0, 1, -4), TEST_PRECISION)
                 .getOrigin();
 
-        EuclideanTestUtils.assertCoordinatesEqual(expectedOrigin, resultLine.getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 1, -2).normalize(), resultLine.getDirection(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(result.getSubspaceRegion().isFull());
     }
 
     @Test
-    void testTransform_finite_1_oe() {
+    void testTransform_finite_3_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
         tree.add(Interval.of(
@@ -408,14 +408,14 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         final Vector3D expectedOrigin = Lines3D.fromPoints(Vector3D.of(0, 0, -2), Vector3D.of(0, 1, -4), TEST_PRECISION)
                 .getOrigin();
 
-        EuclideanTestUtils.assertCoordinatesEqual(expectedOrigin, resultLine.getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 1, -2).normalize(), resultLine.getDirection(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(result.getSubspaceRegion().isFull());
     }
 
     @Test
-    void testTransform_finite_2_oe() {
+    void testTransform_finite_4_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.empty();
         tree.add(Interval.of(
@@ -438,8 +438,8 @@ class EmbeddedTreeLineSubset3DTest_OE25Dev {
         final Vector3D expectedOrigin = Lines3D.fromPoints(Vector3D.of(0, 0, -2), Vector3D.of(0, 1, -4), TEST_PRECISION)
                 .getOrigin();
 
-        EuclideanTestUtils.assertCoordinatesEqual(expectedOrigin, resultLine.getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 1, -2).normalize(), resultLine.getDirection(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
 

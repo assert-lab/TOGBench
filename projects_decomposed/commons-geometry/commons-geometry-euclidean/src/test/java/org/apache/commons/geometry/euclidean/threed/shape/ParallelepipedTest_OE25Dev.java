@@ -86,14 +86,14 @@ class ParallelepipedTest_OE25Dev {
     }
 
     @Test
-    void testUnitCube_3_oe() {
+    void testUnitCube_4_oe() {
         // act
         final Parallelepiped p = Parallelepiped.unitCube(TEST_PRECISION);
 
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, p.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<PlaneConvexSubset> boundaries = p.getBoundaries();
         Assertions.assertEquals(6, boundaries.size());
@@ -257,7 +257,7 @@ class ParallelepipedTest_OE25Dev {
     }
 
     @Test
-    void testBuilder_defaultValues_3_oe() {
+    void testBuilder_defaultValues_4_oe() {
         // arrange
         final Parallelepiped.Builder builder = Parallelepiped.builder(TEST_PRECISION);
 
@@ -267,7 +267,7 @@ class ParallelepipedTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, p.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<PlaneConvexSubset> boundaries = p.getBoundaries();
         Assertions.assertEquals(6, boundaries.size());

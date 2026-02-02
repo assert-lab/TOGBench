@@ -1093,24 +1093,6 @@ class Bounds3DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
-
-        final Bounds3D b2 = Bounds3D.from(Vector3D.of(-1, 1, 1), Vector3D.of(2, 2, 2));
-        final Bounds3D b3 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(3, 2, 2));
-        final Bounds3D b4 = Bounds3D.from(Vector3D.of(1 + 1e-15, 1, 1), Vector3D.of(2, 2, 2));
-        final Bounds3D b5 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2 + 1e-15, 2, 2));
-
-        final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(b1);
-
-        Assertions.assertNotEquals(b1, b2);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
@@ -1123,10 +1105,9 @@ class Bounds3DTest_OE25Dev {
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(b1);
-
         // removed other assertion
-        Assertions.assertNotEquals(b1, b3);
+
+        Assertions.assertNotEquals(b1, b2);
     }
 
     @Test
@@ -1142,11 +1123,10 @@ class Bounds3DTest_OE25Dev {
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(b1);
+        // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(b1, b4);
+        Assertions.assertNotEquals(b1, b3);
     }
 
     @Test
@@ -1162,12 +1142,11 @@ class Bounds3DTest_OE25Dev {
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(b1);
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(b1, b5);
+        Assertions.assertNotEquals(b1, b4);
     }
 
     @Test
@@ -1183,7 +1162,28 @@ class Bounds3DTest_OE25Dev {
         final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(b1);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(b1, b5);
+    }
+
+    @Test
+    void testEquals_6_oe() {
+        // arrange
+        final Bounds3D b1 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
+
+        final Bounds3D b2 = Bounds3D.from(Vector3D.of(-1, 1, 1), Vector3D.of(2, 2, 2));
+        final Bounds3D b3 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(3, 2, 2));
+        final Bounds3D b4 = Bounds3D.from(Vector3D.of(1 + 1e-15, 1, 1), Vector3D.of(2, 2, 2));
+        final Bounds3D b5 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2 + 1e-15, 2, 2));
+
+        final Bounds3D b6 = Bounds3D.from(Vector3D.of(1, 1, 1), Vector3D.of(2, 2, 2));
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

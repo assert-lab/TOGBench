@@ -333,25 +333,6 @@ class RayTest_OE25Dev {
     }
 
     @Test
-    void testFromPointAndDirection_5_oe() {
-        // arrange
-        final Vector2D p0 = Vector2D.of(1, 2);
-        final Vector2D p1 = Vector2D.of(2, 2);
-
-        // act
-        final Ray ray = Lines.rayFromPointAndDirection(p0, p0.vectorTo(p1), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        EuclideanTestUtils.assertCoordinatesEqual(p0, ray.getStartPoint(), TEST_EPS);
-        Assertions.assertNull(ray.getEndPoint());
-    }
-
-    @Test
     void testFromPointAndDirection_6_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 2);
@@ -366,10 +347,8 @@ class RayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(p0, ray.getStartPoint(), TEST_EPS);
         // removed other assertion
-
-        Assertions.assertEquals(1, ray.getSubspaceStart(), TEST_EPS);
+        Assertions.assertNull(ray.getEndPoint());
     }
 
     @Test
@@ -387,18 +366,14 @@ class RayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(p0, ray.getStartPoint(), TEST_EPS);
+        // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        GeometryTestUtils.assertPositiveInfinity(ray.getSubspaceEnd());
-
-        GeometryTestUtils.assertPositiveInfinity(ray.getSize());
-        Assertions.assertNull(ray.getCentroid());
+        Assertions.assertEquals(1, ray.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
-    void testFromPointAndDirection_8_oe() {
+    void testFromPointAndDirection_10_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 2);
         final Vector2D p1 = Vector2D.of(2, 2);
@@ -412,13 +387,38 @@ class RayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(p0, ray.getStartPoint(), TEST_EPS);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
-        GeometryTestUtils.assertPositiveInfinity(ray.getSubspaceEnd());
+        // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(ray.getSize());
+        // removed other assertion
+        Assertions.assertNull(ray.getCentroid());
+    }
+
+    @Test
+    void testFromPointAndDirection_11_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 2);
+        final Vector2D p1 = Vector2D.of(2, 2);
+
+        // act
+        final Ray ray = Lines.rayFromPointAndDirection(p0, p0.vectorTo(p1), TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         Assertions.assertNull(ray.getBounds());
     }
@@ -494,28 +494,6 @@ class RayTest_OE25Dev {
     }
 
     @Test
-    void testFromPoint_5_oe() {
-        // arrange
-        final Vector2D p0 = Vector2D.of(1, 1);
-        final Vector2D p1 = Vector2D.of(1, 2);
-        final Vector2D p3 = Vector2D.of(3, 3);
-
-        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
-
-        // act
-        final Ray ray = Lines.rayFromPoint(line, p3);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 3), ray.getStartPoint(), TEST_EPS);
-        Assertions.assertNull(ray.getEndPoint());
-    }
-
-    @Test
     void testFromPoint_6_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -533,10 +511,8 @@ class RayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 3), ray.getStartPoint(), TEST_EPS);
         // removed other assertion
-
-        Assertions.assertEquals(3, ray.getSubspaceStart(), TEST_EPS);
+        Assertions.assertNull(ray.getEndPoint());
     }
 
     @Test
@@ -557,18 +533,14 @@ class RayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 3), ray.getStartPoint(), TEST_EPS);
+        // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        GeometryTestUtils.assertPositiveInfinity(ray.getSubspaceEnd());
-
-        GeometryTestUtils.assertPositiveInfinity(ray.getSize());
-        Assertions.assertNull(ray.getCentroid());
+        Assertions.assertEquals(3, ray.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
-    void testFromPoint_8_oe() {
+    void testFromPoint_10_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
         final Vector2D p1 = Vector2D.of(1, 2);
@@ -585,13 +557,41 @@ class RayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 3), ray.getStartPoint(), TEST_EPS);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
-        GeometryTestUtils.assertPositiveInfinity(ray.getSubspaceEnd());
+        // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(ray.getSize());
+        // removed other assertion
+        Assertions.assertNull(ray.getCentroid());
+    }
+
+    @Test
+    void testFromPoint_11_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 1);
+        final Vector2D p1 = Vector2D.of(1, 2);
+        final Vector2D p3 = Vector2D.of(3, 3);
+
+        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
+
+        // act
+        final Ray ray = Lines.rayFromPoint(line, p3);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         Assertions.assertNull(ray.getBounds());
     }
@@ -663,27 +663,6 @@ class RayTest_OE25Dev {
     }
 
     @Test
-    void testFromLocation_5_oe() {
-        // arrange
-        final Vector2D p0 = Vector2D.of(1, 1);
-        final Vector2D p1 = Vector2D.of(1, 2);
-
-        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
-
-        // act
-        final Ray ray = Lines.rayFromLocation(line, -2);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, -2), ray.getStartPoint(), TEST_EPS);
-        Assertions.assertNull(ray.getEndPoint());
-    }
-
-    @Test
     void testFromLocation_6_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -700,10 +679,8 @@ class RayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, -2), ray.getStartPoint(), TEST_EPS);
         // removed other assertion
-
-        Assertions.assertEquals(-2, ray.getSubspaceStart(), TEST_EPS);
+        Assertions.assertNull(ray.getEndPoint());
     }
 
     @Test
@@ -723,18 +700,14 @@ class RayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, -2), ray.getStartPoint(), TEST_EPS);
+        // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        GeometryTestUtils.assertPositiveInfinity(ray.getSubspaceEnd());
-
-        GeometryTestUtils.assertPositiveInfinity(ray.getSize());
-        Assertions.assertNull(ray.getCentroid());
+        Assertions.assertEquals(-2, ray.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
-    void testFromLocation_8_oe() {
+    void testFromLocation_10_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
         final Vector2D p1 = Vector2D.of(1, 2);
@@ -750,13 +723,40 @@ class RayTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, -2), ray.getStartPoint(), TEST_EPS);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
-        GeometryTestUtils.assertPositiveInfinity(ray.getSubspaceEnd());
+        // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(ray.getSize());
+        // removed other assertion
+        Assertions.assertNull(ray.getCentroid());
+    }
+
+    @Test
+    void testFromLocation_11_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 1);
+        final Vector2D p1 = Vector2D.of(1, 2);
+
+        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
+
+        // act
+        final Ray ray = Lines.rayFromLocation(line, -2);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         Assertions.assertNull(ray.getBounds());
     }
@@ -827,7 +827,7 @@ class RayTest_OE25Dev {
     }
 
     @Test
-    void testGetInterval_2_oe() {
+    void testGetInterval_3_oe() {
         // arrange
         final Ray ray = Lines.rayFromPointAndDirection(Vector2D.of(2, -1), Vector2D.Unit.PLUS_X, TEST_PRECISION);
 
@@ -836,7 +836,7 @@ class RayTest_OE25Dev {
 
         // assert
         // removed other assertion
-        GeometryTestUtils.assertPositiveInfinity(interval.getMax());
+        // removed other assertion
 
         Assertions.assertSame(ray.getLine().getPrecision(), interval.getMinBoundary().getPrecision());
     }

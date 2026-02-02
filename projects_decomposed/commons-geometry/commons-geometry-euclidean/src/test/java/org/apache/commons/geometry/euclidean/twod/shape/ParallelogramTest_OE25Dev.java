@@ -61,14 +61,14 @@ class ParallelogramTest_OE25Dev {
     }
 
     @Test
-    void testUnitSquare_3_oe() {
+    void testUnitSquare_4_oe() {
         // act
         final Parallelogram box = Parallelogram.unitSquare(TEST_PRECISION);
 
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.ZERO, box.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<Vector2D> vertices = box.getVertices();
         Assertions.assertEquals(4, vertices.size());
@@ -110,7 +110,7 @@ class ParallelogramTest_OE25Dev {
     }
 
     @Test
-    void testFromTransformedUnitSquare_3_oe() {
+    void testFromTransformedUnitSquare_4_oe() {
         // arrange
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
                 .rotate(Math.PI * 0.25)
@@ -125,7 +125,7 @@ class ParallelogramTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2 * invSqrt2, invSqrt2), p.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<Vector2D> vertices = p.getVertices();
         Assertions.assertEquals(4, vertices.size());
@@ -167,7 +167,7 @@ class ParallelogramTest_OE25Dev {
     }
 
     @Test
-    void testFromTransformedUnitSquare_transformDoesNotPreserveOrientation_3_oe() {
+    void testFromTransformedUnitSquare_transformDoesNotPreserveOrientation_4_oe() {
         // arrange
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createTranslation(Vector2D.of(1, 0))
                 .rotate(Math.PI * 0.25)
@@ -182,7 +182,7 @@ class ParallelogramTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-2 * invSqrt2, invSqrt2), p.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<Vector2D> vertices = p.getVertices();
         Assertions.assertEquals(4, vertices.size());
@@ -296,7 +296,7 @@ class ParallelogramTest_OE25Dev {
     }
 
     @Test
-    void testBuilder_defaultValues_3_oe() {
+    void testBuilder_defaultValues_4_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
 
@@ -306,7 +306,7 @@ class ParallelogramTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.ZERO, p.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<Vector2D> vertices = p.getVertices();
         Assertions.assertEquals(4, vertices.size());
@@ -346,7 +346,7 @@ class ParallelogramTest_OE25Dev {
     }
 
     @Test
-    void testBuilder_rotatedRect_withXDirection_3_oe() {
+    void testBuilder_rotatedRect_withXDirection_4_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
 
@@ -360,7 +360,7 @@ class ParallelogramTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), p.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<Vector2D> vertices = p.getVertices();
         Assertions.assertEquals(4, vertices.size());
@@ -400,7 +400,7 @@ class ParallelogramTest_OE25Dev {
     }
 
     @Test
-    void testBuilder_rotatedRect_withYDirection_3_oe() {
+    void testBuilder_rotatedRect_withYDirection_4_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
 
@@ -414,7 +414,7 @@ class ParallelogramTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), p.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<Vector2D> vertices = p.getVertices();
         Assertions.assertEquals(4, vertices.size());
@@ -454,7 +454,7 @@ class ParallelogramTest_OE25Dev {
     }
 
     @Test
-    void testBuilder_rotatedRect_withRotation_3_oe() {
+    void testBuilder_rotatedRect_withRotation_4_oe() {
         // arrange
         final Parallelogram.Builder builder = Parallelogram.builder(TEST_PRECISION);
 
@@ -468,7 +468,7 @@ class ParallelogramTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), p.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<Vector2D> vertices = p.getVertices();
         Assertions.assertEquals(4, vertices.size());

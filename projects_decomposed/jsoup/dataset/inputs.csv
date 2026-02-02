@@ -13063,25 +13063,25 @@ jsoup_293_1,"    @Test public void handlesUnclosedTitleAtEof() {
         }
 ",HtmlParserTest::assertEquals_1_oe
 jsoup_293_2,"    @Test public void handlesUnclosedTitleAtEof() {
-        assertEquals_2_oe(""Data"", Jsoup.parse(""<title>Data"").title());
+        // removed other assertion
         assertEquals(""Data<"", Jsoup.parse(""<title>Data<"").title());
         }
 ",HtmlParserTest::assertEquals_2_oe
 jsoup_293_3,"    @Test public void handlesUnclosedTitleAtEof() {
-        assertEquals_3_oe(""Data"", Jsoup.parse(""<title>Data"").title());
+        // removed other assertion
         // removed other assertion
         assertEquals(""Data</"", Jsoup.parse(""<title>Data</"").title());
         }
 ",HtmlParserTest::assertEquals_3_oe
 jsoup_293_4,"    @Test public void handlesUnclosedTitleAtEof() {
-        assertEquals_4_oe(""Data"", Jsoup.parse(""<title>Data"").title());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(""Data</t"", Jsoup.parse(""<title>Data</t"").title());
         }
 ",HtmlParserTest::assertEquals_4_oe
 jsoup_293_5,"    @Test public void handlesUnclosedTitleAtEof() {
-        assertEquals_5_oe(""Data"", Jsoup.parse(""<title>Data"").title());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13089,7 +13089,7 @@ jsoup_293_5,"    @Test public void handlesUnclosedTitleAtEof() {
         }
 ",HtmlParserTest::assertEquals_5_oe
 jsoup_293_6,"    @Test public void handlesUnclosedTitleAtEof() {
-        assertEquals_6_oe(""Data"", Jsoup.parse(""<title>Data"").title());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13098,7 +13098,7 @@ jsoup_293_6,"    @Test public void handlesUnclosedTitleAtEof() {
         }
 ",HtmlParserTest::assertEquals_6_oe
 jsoup_293_7,"    @Test public void handlesUnclosedTitleAtEof() {
-        assertEquals_7_oe(""Data"", Jsoup.parse(""<title>Data"").title());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13142,25 +13142,25 @@ jsoup_295_1,"    @Test public void handlesUnclosedScriptAtEof() {
         }
 ",HtmlParserTest::assertEquals_1_oe
 jsoup_295_2,"    @Test public void handlesUnclosedScriptAtEof() {
-        assertEquals_2_oe(""Data"", Jsoup.parse(""<script>Data"").select(""script"").first().data());
+        // removed other assertion
         assertEquals(""Data<"", Jsoup.parse(""<script>Data<"").select(""script"").first().data());
         }
 ",HtmlParserTest::assertEquals_2_oe
 jsoup_295_3,"    @Test public void handlesUnclosedScriptAtEof() {
-        assertEquals_3_oe(""Data"", Jsoup.parse(""<script>Data"").select(""script"").first().data());
+        // removed other assertion
         // removed other assertion
         assertEquals(""Data</sc"", Jsoup.parse(""<script>Data</sc"").select(""script"").first().data());
         }
 ",HtmlParserTest::assertEquals_3_oe
 jsoup_295_4,"    @Test public void handlesUnclosedScriptAtEof() {
-        assertEquals_4_oe(""Data"", Jsoup.parse(""<script>Data"").select(""script"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(""Data</-sc"", Jsoup.parse(""<script>Data</-sc"").select(""script"").first().data());
         }
 ",HtmlParserTest::assertEquals_4_oe
 jsoup_295_5,"    @Test public void handlesUnclosedScriptAtEof() {
-        assertEquals_5_oe(""Data"", Jsoup.parse(""<script>Data"").select(""script"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13168,7 +13168,7 @@ jsoup_295_5,"    @Test public void handlesUnclosedScriptAtEof() {
         }
 ",HtmlParserTest::assertEquals_5_oe
 jsoup_295_6,"    @Test public void handlesUnclosedScriptAtEof() {
-        assertEquals_6_oe(""Data"", Jsoup.parse(""<script>Data"").select(""script"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13177,7 +13177,7 @@ jsoup_295_6,"    @Test public void handlesUnclosedScriptAtEof() {
         }
 ",HtmlParserTest::assertEquals_6_oe
 jsoup_295_7,"    @Test public void handlesUnclosedScriptAtEof() {
-        assertEquals_7_oe(""Data"", Jsoup.parse(""<script>Data"").select(""script"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13187,7 +13187,7 @@ jsoup_295_7,"    @Test public void handlesUnclosedScriptAtEof() {
         }
 ",HtmlParserTest::assertEquals_7_oe
 jsoup_295_8,"    @Test public void handlesUnclosedScriptAtEof() {
-        assertEquals_8_oe(""Data"", Jsoup.parse(""<script>Data"").select(""script"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13198,7 +13198,7 @@ jsoup_295_8,"    @Test public void handlesUnclosedScriptAtEof() {
         }
 ",HtmlParserTest::assertEquals_8_oe
 jsoup_295_9,"    @Test public void handlesUnclosedScriptAtEof() {
-        assertEquals_9_oe(""Data"", Jsoup.parse(""<script>Data"").select(""script"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13210,7 +13210,7 @@ jsoup_295_9,"    @Test public void handlesUnclosedScriptAtEof() {
         }
 ",HtmlParserTest::assertEquals_9_oe
 jsoup_295_10,"    @Test public void handlesUnclosedScriptAtEof() {
-        assertEquals_10_oe(""Data"", Jsoup.parse(""<script>Data"").select(""script"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13223,7 +13223,7 @@ jsoup_295_10,"    @Test public void handlesUnclosedScriptAtEof() {
         }
 ",HtmlParserTest::assertEquals_10_oe
 jsoup_295_11,"    @Test public void handlesUnclosedScriptAtEof() {
-        assertEquals_11_oe(""Data"", Jsoup.parse(""<script>Data"").select(""script"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13237,7 +13237,7 @@ jsoup_295_11,"    @Test public void handlesUnclosedScriptAtEof() {
         }
 ",HtmlParserTest::assertEquals_11_oe
 jsoup_295_12,"    @Test public void handlesUnclosedScriptAtEof() {
-        assertEquals_12_oe(""Data"", Jsoup.parse(""<script>Data"").select(""script"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13252,7 +13252,7 @@ jsoup_295_12,"    @Test public void handlesUnclosedScriptAtEof() {
         }
 ",HtmlParserTest::assertEquals_12_oe
 jsoup_295_13,"    @Test public void handlesUnclosedScriptAtEof() {
-        assertEquals_13_oe(""Data"", Jsoup.parse(""<script>Data"").select(""script"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13272,25 +13272,25 @@ jsoup_296_1,"    @Test public void handlesUnclosedRawtextAtEof() {
         }
 ",HtmlParserTest::assertEquals_1_oe
 jsoup_296_2,"    @Test public void handlesUnclosedRawtextAtEof() {
-        assertEquals_2_oe(""Data"", Jsoup.parse(""<style>Data"").select(""style"").first().data());
+        // removed other assertion
         assertEquals(""Data</st"", Jsoup.parse(""<style>Data</st"").select(""style"").first().data());
         }
 ",HtmlParserTest::assertEquals_2_oe
 jsoup_296_3,"    @Test public void handlesUnclosedRawtextAtEof() {
-        assertEquals_3_oe(""Data"", Jsoup.parse(""<style>Data"").select(""style"").first().data());
+        // removed other assertion
         // removed other assertion
         assertEquals(""Data"", Jsoup.parse(""<style>Data</style>"").select(""style"").first().data());
         }
 ",HtmlParserTest::assertEquals_3_oe
 jsoup_296_4,"    @Test public void handlesUnclosedRawtextAtEof() {
-        assertEquals_4_oe(""Data"", Jsoup.parse(""<style>Data"").select(""style"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(""Data</style"", Jsoup.parse(""<style>Data</style"").select(""style"").first().data());
         }
 ",HtmlParserTest::assertEquals_4_oe
 jsoup_296_5,"    @Test public void handlesUnclosedRawtextAtEof() {
-        assertEquals_5_oe(""Data"", Jsoup.parse(""<style>Data"").select(""style"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13298,7 +13298,7 @@ jsoup_296_5,"    @Test public void handlesUnclosedRawtextAtEof() {
         }
 ",HtmlParserTest::assertEquals_5_oe
 jsoup_296_6,"    @Test public void handlesUnclosedRawtextAtEof() {
-        assertEquals_6_oe(""Data"", Jsoup.parse(""<style>Data"").select(""style"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -13307,7 +13307,7 @@ jsoup_296_6,"    @Test public void handlesUnclosedRawtextAtEof() {
         }
 ",HtmlParserTest::assertEquals_6_oe
 jsoup_296_7,"    @Test public void handlesUnclosedRawtextAtEof() {
-        assertEquals_7_oe(""Data"", Jsoup.parse(""<style>Data"").select(""style"").first().data());
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -14548,7 +14548,7 @@ jsoup_363_2,"    @Test public void canDetectAutomaticallyAddedElements() {
         String bare = ""<script>One</script>"";
         String full = ""<html><head><title>Check</title></head><body><p>One</p></body></html>"";
 
-        assertTrue_2_oe(didAddElements(bare));
+        // removed other assertion
         assertFalse(didAddElements(full));
         }
 ",HtmlParserTest::assertTrue_2_oe
@@ -15139,7 +15139,7 @@ jsoup_400_1,"    @Test public void knownTags() {
         }
 ",TagTest::assertTrue_1_oe
 jsoup_400_2,"    @Test public void knownTags() {
-        assertTrue_2_oe(Tag.isKnownTag(""div""));
+        // removed other assertion
         assertFalse(Tag.isKnownTag(""explain""));
         }
 ",TagTest::assertTrue_2_oe
@@ -16203,12 +16203,12 @@ jsoup_442_1,"    @Test public void cp1252Entities() {
         }
 ",TokeniserTest::assertEquals_1_oe
 jsoup_442_2,"    @Test public void cp1252Entities() {
-        assertEquals_2_oe(""\u20ac"", Jsoup.parse(""&#0128;"").text());
+        // removed other assertion
         assertEquals(""\u201a"", Jsoup.parse(""&#0130;"").text());
         }
 ",TokeniserTest::assertEquals_2_oe
 jsoup_442_3,"    @Test public void cp1252Entities() {
-        assertEquals_3_oe(""\u20ac"", Jsoup.parse(""&#0128;"").text());
+        // removed other assertion
         // removed other assertion
         assertEquals(""\u20ac"", Jsoup.parse(""&#x80;"").text());
         }
@@ -16523,7 +16523,7 @@ jsoup_468_2,"    @Test public void testIsValidBodyHtml() {
         String nok5 = ""<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>"";
         String nok6 = ""<p>Test <b><a href='http://example.com/'>OK</b></p>""; // missing close tag
         String nok7 = ""</div>What"";
-        assertTrue_2_oe(Jsoup.isValid(ok, Safelist.basic()));
+        // removed other assertion
         assertTrue(Jsoup.isValid(ok1, Safelist.basic()));
         }
 ",CleanerTest::assertTrue_2_oe
@@ -16537,7 +16537,7 @@ jsoup_468_3,"    @Test public void testIsValidBodyHtml() {
         String nok5 = ""<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>"";
         String nok6 = ""<p>Test <b><a href='http://example.com/'>OK</b></p>""; // missing close tag
         String nok7 = ""</div>What"";
-        assertTrue_3_oe(Jsoup.isValid(ok, Safelist.basic()));
+        // removed other assertion
         // removed other assertion
         assertFalse(Jsoup.isValid(nok1, Safelist.basic()));
         }
@@ -16552,7 +16552,7 @@ jsoup_468_4,"    @Test public void testIsValidBodyHtml() {
         String nok5 = ""<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>"";
         String nok6 = ""<p>Test <b><a href='http://example.com/'>OK</b></p>""; // missing close tag
         String nok7 = ""</div>What"";
-        assertTrue_4_oe(Jsoup.isValid(ok, Safelist.basic()));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertFalse(Jsoup.isValid(nok2, Safelist.basic()));
@@ -16568,7 +16568,7 @@ jsoup_468_5,"    @Test public void testIsValidBodyHtml() {
         String nok5 = ""<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>"";
         String nok6 = ""<p>Test <b><a href='http://example.com/'>OK</b></p>""; // missing close tag
         String nok7 = ""</div>What"";
-        assertTrue_5_oe(Jsoup.isValid(ok, Safelist.basic()));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -16585,7 +16585,7 @@ jsoup_468_6,"    @Test public void testIsValidBodyHtml() {
         String nok5 = ""<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>"";
         String nok6 = ""<p>Test <b><a href='http://example.com/'>OK</b></p>""; // missing close tag
         String nok7 = ""</div>What"";
-        assertTrue_6_oe(Jsoup.isValid(ok, Safelist.basic()));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -16603,7 +16603,7 @@ jsoup_468_7,"    @Test public void testIsValidBodyHtml() {
         String nok5 = ""<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>"";
         String nok6 = ""<p>Test <b><a href='http://example.com/'>OK</b></p>""; // missing close tag
         String nok7 = ""</div>What"";
-        assertTrue_7_oe(Jsoup.isValid(ok, Safelist.basic()));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -16622,7 +16622,7 @@ jsoup_468_8,"    @Test public void testIsValidBodyHtml() {
         String nok5 = ""<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>"";
         String nok6 = ""<p>Test <b><a href='http://example.com/'>OK</b></p>""; // missing close tag
         String nok7 = ""</div>What"";
-        assertTrue_8_oe(Jsoup.isValid(ok, Safelist.basic()));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -16642,7 +16642,7 @@ jsoup_468_9,"    @Test public void testIsValidBodyHtml() {
         String nok5 = ""<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>"";
         String nok6 = ""<p>Test <b><a href='http://example.com/'>OK</b></p>""; // missing close tag
         String nok7 = ""</div>What"";
-        assertTrue_9_oe(Jsoup.isValid(ok, Safelist.basic()));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -16663,7 +16663,7 @@ jsoup_468_10,"    @Test public void testIsValidBodyHtml() {
         String nok5 = ""<p>Test <b><a href='http://example.com/' rel='nofollowme'>OK</a></b></p>"";
         String nok6 = ""<p>Test <b><a href='http://example.com/'>OK</b></p>""; // missing close tag
         String nok7 = ""</div>What"";
-        assertTrue_10_oe(Jsoup.isValid(ok, Safelist.basic()));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17010,25 +17010,25 @@ jsoup_490_1,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_1_oe
 jsoup_490_2,"    @Test public void padding() {
-        assertEquals_2_oe("""", StringUtil.padding(0));
+        // removed other assertion
         assertEquals("" "", StringUtil.padding(1));
         }
 ",StringUtilTest::assertEquals_2_oe
 jsoup_490_3,"    @Test public void padding() {
-        assertEquals_3_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         assertEquals(""  "", StringUtil.padding(2));
         }
 ",StringUtilTest::assertEquals_3_oe
 jsoup_490_4,"    @Test public void padding() {
-        assertEquals_4_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(""               "", StringUtil.padding(15));
         }
 ",StringUtilTest::assertEquals_4_oe
 jsoup_490_5,"    @Test public void padding() {
-        assertEquals_5_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17036,7 +17036,7 @@ jsoup_490_5,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_5_oe
 jsoup_490_6,"    @Test public void padding() {
-        assertEquals_6_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17047,7 +17047,7 @@ jsoup_490_6,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_6_oe
 jsoup_490_7,"    @Test public void padding() {
-        assertEquals_7_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17059,7 +17059,7 @@ jsoup_490_7,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_7_oe
 jsoup_490_8,"    @Test public void padding() {
-        assertEquals_8_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17074,7 +17074,7 @@ jsoup_490_8,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_8_oe
 jsoup_490_9,"    @Test public void padding() {
-        assertEquals_9_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17092,7 +17092,7 @@ jsoup_490_9,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_9_oe
 jsoup_490_10,"    @Test public void padding() {
-        assertEquals_10_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17111,7 +17111,7 @@ jsoup_490_10,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_10_oe
 jsoup_490_11,"    @Test public void padding() {
-        assertEquals_11_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17133,7 +17133,7 @@ jsoup_490_11,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_11_oe
 jsoup_490_12,"    @Test public void padding() {
-        assertEquals_12_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17158,7 +17158,7 @@ jsoup_490_12,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_12_oe
 jsoup_490_13,"    @Test public void padding() {
-        assertEquals_13_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17186,7 +17186,7 @@ jsoup_490_13,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_13_oe
 jsoup_490_14,"    @Test public void padding() {
-        assertEquals_14_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17215,7 +17215,7 @@ jsoup_490_14,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_14_oe
 jsoup_490_15,"    @Test public void padding() {
-        assertEquals_15_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17245,7 +17245,7 @@ jsoup_490_15,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_15_oe
 jsoup_490_16,"    @Test public void padding() {
-        assertEquals_16_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17276,7 +17276,7 @@ jsoup_490_16,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_16_oe
 jsoup_490_17,"    @Test public void padding() {
-        assertEquals_17_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17308,7 +17308,7 @@ jsoup_490_17,"    @Test public void padding() {
         }
 ",StringUtilTest::assertEquals_17_oe
 jsoup_490_18,"    @Test public void padding() {
-        assertEquals_18_oe("""", StringUtil.padding(0));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17349,7 +17349,7 @@ jsoup_491_1,"    @Test public void paddingInACan() {
 ",StringUtilTest::assertEquals_1_oe
 jsoup_491_2,"    @Test public void paddingInACan() {
         String[] padding = StringUtil.padding;
-        assertEquals_2_oe(21, padding.length);
+        // removed other assertion
         for (int i = 0; i < padding.length; i++) {
             assertEquals(i, padding[i].length());
         }
@@ -17360,25 +17360,25 @@ jsoup_492_1,"    @Test public void isBlank() {
         }
 ",StringUtilTest::assertTrue_1_oe
 jsoup_492_2,"    @Test public void isBlank() {
-        assertTrue_2_oe(StringUtil.isBlank(null));
+        // removed other assertion
         assertTrue(StringUtil.isBlank(""""));
         }
 ",StringUtilTest::assertTrue_2_oe
 jsoup_492_3,"    @Test public void isBlank() {
-        assertTrue_3_oe(StringUtil.isBlank(null));
+        // removed other assertion
         // removed other assertion
         assertTrue(StringUtil.isBlank(""      ""));
         }
 ",StringUtilTest::assertTrue_3_oe
 jsoup_492_4,"    @Test public void isBlank() {
-        assertTrue_4_oe(StringUtil.isBlank(null));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertTrue(StringUtil.isBlank(""   \r\n  ""));
         }
 ",StringUtilTest::assertTrue_4_oe
 jsoup_492_5,"    @Test public void isBlank() {
-        assertTrue_5_oe(StringUtil.isBlank(null));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17387,7 +17387,7 @@ jsoup_492_5,"    @Test public void isBlank() {
         }
 ",StringUtilTest::assertTrue_5_oe
 jsoup_492_6,"    @Test public void isBlank() {
-        assertTrue_6_oe(StringUtil.isBlank(null));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17401,25 +17401,25 @@ jsoup_493_1,"    @Test public void isNumeric() {
         }
 ",StringUtilTest::assertFalse_1_oe
 jsoup_493_2,"    @Test public void isNumeric() {
-        assertFalse_2_oe(StringUtil.isNumeric(null));
+        // removed other assertion
         assertFalse(StringUtil.isNumeric("" ""));
         }
 ",StringUtilTest::assertFalse_2_oe
 jsoup_493_3,"    @Test public void isNumeric() {
-        assertFalse_3_oe(StringUtil.isNumeric(null));
+        // removed other assertion
         // removed other assertion
         assertFalse(StringUtil.isNumeric(""123 546""));
         }
 ",StringUtilTest::assertFalse_3_oe
 jsoup_493_4,"    @Test public void isNumeric() {
-        assertFalse_4_oe(StringUtil.isNumeric(null));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertFalse(StringUtil.isNumeric(""hello""));
         }
 ",StringUtilTest::assertFalse_4_oe
 jsoup_493_5,"    @Test public void isNumeric() {
-        assertFalse_5_oe(StringUtil.isNumeric(null));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17427,7 +17427,7 @@ jsoup_493_5,"    @Test public void isNumeric() {
         }
 ",StringUtilTest::assertFalse_5_oe
 jsoup_493_6,"    @Test public void isNumeric() {
-        assertFalse_6_oe(StringUtil.isNumeric(null));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17437,7 +17437,7 @@ jsoup_493_6,"    @Test public void isNumeric() {
         }
 ",StringUtilTest::assertFalse_6_oe
 jsoup_493_7,"    @Test public void isNumeric() {
-        assertFalse_7_oe(StringUtil.isNumeric(null));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17452,25 +17452,25 @@ jsoup_494_1,"    @Test public void isWhitespace() {
         }
 ",StringUtilTest::assertTrue_1_oe
 jsoup_494_2,"    @Test public void isWhitespace() {
-        assertTrue_2_oe(StringUtil.isWhitespace('\t'));
+        // removed other assertion
         assertTrue(StringUtil.isWhitespace('\n'));
         }
 ",StringUtilTest::assertTrue_2_oe
 jsoup_494_3,"    @Test public void isWhitespace() {
-        assertTrue_3_oe(StringUtil.isWhitespace('\t'));
+        // removed other assertion
         // removed other assertion
         assertTrue(StringUtil.isWhitespace('\r'));
         }
 ",StringUtilTest::assertTrue_3_oe
 jsoup_494_4,"    @Test public void isWhitespace() {
-        assertTrue_4_oe(StringUtil.isWhitespace('\t'));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertTrue(StringUtil.isWhitespace('\f'));
         }
 ",StringUtilTest::assertTrue_4_oe
 jsoup_494_5,"    @Test public void isWhitespace() {
-        assertTrue_5_oe(StringUtil.isWhitespace('\t'));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17478,7 +17478,7 @@ jsoup_494_5,"    @Test public void isWhitespace() {
         }
 ",StringUtilTest::assertTrue_5_oe
 jsoup_494_6,"    @Test public void isWhitespace() {
-        assertTrue_6_oe(StringUtil.isWhitespace('\t'));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17488,7 +17488,7 @@ jsoup_494_6,"    @Test public void isWhitespace() {
         }
 ",StringUtilTest::assertTrue_6_oe
 jsoup_494_7,"    @Test public void isWhitespace() {
-        assertTrue_7_oe(StringUtil.isWhitespace('\t'));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17499,7 +17499,7 @@ jsoup_494_7,"    @Test public void isWhitespace() {
         }
 ",StringUtilTest::assertTrue_7_oe
 jsoup_494_8,"    @Test public void isWhitespace() {
-        assertTrue_8_oe(StringUtil.isWhitespace('\t'));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17515,18 +17515,18 @@ jsoup_495_1,"    @Test public void normaliseWhiteSpace() {
         }
 ",StringUtilTest::assertEquals_1_oe
 jsoup_495_2,"    @Test public void normaliseWhiteSpace() {
-        assertEquals_2_oe("" "", normaliseWhitespace(""    \r \n \r\n""));
+        // removed other assertion
         assertEquals("" hello there "", normaliseWhitespace(""   hello   \r \n  there    \n""));
         }
 ",StringUtilTest::assertEquals_2_oe
 jsoup_495_3,"    @Test public void normaliseWhiteSpace() {
-        assertEquals_3_oe("" "", normaliseWhitespace(""    \r \n \r\n""));
+        // removed other assertion
         // removed other assertion
         assertEquals(""hello"", normaliseWhitespace(""hello""));
         }
 ",StringUtilTest::assertEquals_3_oe
 jsoup_495_4,"    @Test public void normaliseWhiteSpace() {
-        assertEquals_4_oe("" "", normaliseWhitespace(""    \r \n \r\n""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(""hello there"", normaliseWhitespace(""hello\nthere""));
@@ -17543,7 +17543,7 @@ jsoup_496_2,"    @Test public void normaliseWhiteSpaceHandlesHighSurrogates() {
         String test71540chars = ""\ud869\udeb2\u304b\u309a  1"";
         String test71540charsExpectedSingleWhitespace = ""\ud869\udeb2\u304b\u309a 1"";
 
-        assertEquals_2_oe(test71540charsExpectedSingleWhitespace, normaliseWhitespace(test71540chars));
+        // removed other assertion
         String extractedText = Jsoup.parse(test71540chars).text();
         assertEquals(test71540charsExpectedSingleWhitespace, extractedText);
         }
@@ -17553,25 +17553,25 @@ jsoup_497_1,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_1_oe
 jsoup_497_2,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_2_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         assertEquals(""http://example.com/one/two?three"", resolve(""http://example.com?one"", ""./one/two?three""));
         }
 ",StringUtilTest::assertEquals_2_oe
 jsoup_497_3,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_3_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         assertEquals(""http://example.com/one/two?three#four"", resolve(""http://example.com"", ""./one/two?three#four""));
         }
 ",StringUtilTest::assertEquals_3_oe
 jsoup_497_4,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_4_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(""https://example.com/one"", resolve(""http://example.com/"", ""https://example.com/one""));
         }
 ",StringUtilTest::assertEquals_4_oe
 jsoup_497_5,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_5_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17579,7 +17579,7 @@ jsoup_497_5,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_5_oe
 jsoup_497_6,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_6_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17588,7 +17588,7 @@ jsoup_497_6,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_6_oe
 jsoup_497_7,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_7_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17598,7 +17598,7 @@ jsoup_497_7,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_7_oe
 jsoup_497_8,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_8_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17609,7 +17609,7 @@ jsoup_497_8,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_8_oe
 jsoup_497_9,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_9_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17621,7 +17621,7 @@ jsoup_497_9,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_9_oe
 jsoup_497_10,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_10_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17634,7 +17634,7 @@ jsoup_497_10,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_10_oe
 jsoup_497_11,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_11_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17648,7 +17648,7 @@ jsoup_497_11,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_11_oe
 jsoup_497_12,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_12_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17663,7 +17663,7 @@ jsoup_497_12,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_12_oe
 jsoup_497_13,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_13_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17679,7 +17679,7 @@ jsoup_497_13,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_13_oe
 jsoup_497_14,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_14_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17696,7 +17696,7 @@ jsoup_497_14,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_14_oe
 jsoup_497_15,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_15_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17715,7 +17715,7 @@ jsoup_497_15,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_15_oe
 jsoup_497_16,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_16_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17735,7 +17735,7 @@ jsoup_497_16,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_16_oe
 jsoup_497_17,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_17_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17756,7 +17756,7 @@ jsoup_497_17,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_17_oe
 jsoup_497_18,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_18_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17778,7 +17778,7 @@ jsoup_497_18,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_18_oe
 jsoup_497_19,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_19_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17801,7 +17801,7 @@ jsoup_497_19,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_19_oe
 jsoup_497_20,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_20_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17825,7 +17825,7 @@ jsoup_497_20,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_20_oe
 jsoup_497_21,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_21_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17850,7 +17850,7 @@ jsoup_497_21,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_21_oe
 jsoup_497_22,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_22_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17876,7 +17876,7 @@ jsoup_497_22,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_22_oe
 jsoup_497_23,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_23_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17903,7 +17903,7 @@ jsoup_497_23,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_23_oe
 jsoup_497_24,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_24_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17931,7 +17931,7 @@ jsoup_497_24,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_24_oe
 jsoup_497_25,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_25_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17960,7 +17960,7 @@ jsoup_497_25,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_25_oe
 jsoup_497_26,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_26_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -17990,7 +17990,7 @@ jsoup_497_26,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_26_oe
 jsoup_497_27,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_27_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -18021,7 +18021,7 @@ jsoup_497_27,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_27_oe
 jsoup_497_28,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_28_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -18053,7 +18053,7 @@ jsoup_497_28,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_28_oe
 jsoup_497_29,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_29_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -18086,7 +18086,7 @@ jsoup_497_29,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_29_oe
 jsoup_497_30,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_30_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -18120,7 +18120,7 @@ jsoup_497_30,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_30_oe
 jsoup_497_31,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_31_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -18155,7 +18155,7 @@ jsoup_497_31,"    @Test public void resolvesRelativeUrls() {
         }
 ",StringUtilTest::assertEquals_31_oe
 jsoup_497_32,"    @Test public void resolvesRelativeUrls() {
-        assertEquals_32_oe(""http://example.com/one/two?three"", resolve(""http://example.com"", ""./one/two?three""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -18342,13 +18342,13 @@ jsoup_503_1,"    @Test public void testRoundTrip() {
 ",DocumentTypeTest::assertEquals_1_oe
 jsoup_503_2,"    @Test public void testRoundTrip() {
         String base = ""<!DOCTYPE html>"";
-        assertEquals_2_oe(""<!doctype html>"", htmlOutput(base));
+        // removed other assertion
         assertEquals(base, xmlOutput(base));
         }
 ",DocumentTypeTest::assertEquals_2_oe
 jsoup_503_3,"    @Test public void testRoundTrip() {
         String base = ""<!DOCTYPE html>"";
-        assertEquals_3_oe(""<!doctype html>"", htmlOutput(base));
+        // removed other assertion
         // removed other assertion
 
         String publicDoc = ""<!DOCTYPE html PUBLIC \""-//W3C//DTD XHTML 1.0 Transitional//EN\"" \""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"">"";
@@ -18357,7 +18357,7 @@ jsoup_503_3,"    @Test public void testRoundTrip() {
 ",DocumentTypeTest::assertEquals_3_oe
 jsoup_503_4,"    @Test public void testRoundTrip() {
         String base = ""<!DOCTYPE html>"";
-        assertEquals_4_oe(""<!doctype html>"", htmlOutput(base));
+        // removed other assertion
         // removed other assertion
 
         String publicDoc = ""<!DOCTYPE html PUBLIC \""-//W3C//DTD XHTML 1.0 Transitional//EN\"" \""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"">"";
@@ -18367,7 +18367,7 @@ jsoup_503_4,"    @Test public void testRoundTrip() {
 ",DocumentTypeTest::assertEquals_4_oe
 jsoup_503_5,"    @Test public void testRoundTrip() {
         String base = ""<!DOCTYPE html>"";
-        assertEquals_5_oe(""<!doctype html>"", htmlOutput(base));
+        // removed other assertion
         // removed other assertion
 
         String publicDoc = ""<!DOCTYPE html PUBLIC \""-//W3C//DTD XHTML 1.0 Transitional//EN\"" \""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"">"";
@@ -18380,7 +18380,7 @@ jsoup_503_5,"    @Test public void testRoundTrip() {
 ",DocumentTypeTest::assertEquals_5_oe
 jsoup_503_6,"    @Test public void testRoundTrip() {
         String base = ""<!DOCTYPE html>"";
-        assertEquals_6_oe(""<!doctype html>"", htmlOutput(base));
+        // removed other assertion
         // removed other assertion
 
         String publicDoc = ""<!DOCTYPE html PUBLIC \""-//W3C//DTD XHTML 1.0 Transitional//EN\"" \""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"">"";
@@ -18394,7 +18394,7 @@ jsoup_503_6,"    @Test public void testRoundTrip() {
 ",DocumentTypeTest::assertEquals_6_oe
 jsoup_503_7,"    @Test public void testRoundTrip() {
         String base = ""<!DOCTYPE html>"";
-        assertEquals_7_oe(""<!doctype html>"", htmlOutput(base));
+        // removed other assertion
         // removed other assertion
 
         String publicDoc = ""<!DOCTYPE html PUBLIC \""-//W3C//DTD XHTML 1.0 Transitional//EN\"" \""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"">"";
@@ -18411,7 +18411,7 @@ jsoup_503_7,"    @Test public void testRoundTrip() {
 ",DocumentTypeTest::assertEquals_7_oe
 jsoup_503_8,"    @Test public void testRoundTrip() {
         String base = ""<!DOCTYPE html>"";
-        assertEquals_8_oe(""<!doctype html>"", htmlOutput(base));
+        // removed other assertion
         // removed other assertion
 
         String publicDoc = ""<!DOCTYPE html PUBLIC \""-//W3C//DTD XHTML 1.0 Transitional//EN\"" \""http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"">"";
@@ -34626,20 +34626,20 @@ jsoup_785_1,"    @Test void booleanAttributesAreNotCaseSensitive() {
 ",AttributeTest::assertTrue_1_oe
 jsoup_785_2,"    @Test void booleanAttributesAreNotCaseSensitive() {
         // https://github.com/jhy/jsoup/issues/1656
-        assertTrue_2_oe(Attribute.isBooleanAttribute(""required""));
+        // removed other assertion
         assertTrue(Attribute.isBooleanAttribute(""REQUIRED""));
         }
 ",AttributeTest::assertTrue_2_oe
 jsoup_785_3,"    @Test void booleanAttributesAreNotCaseSensitive() {
         // https://github.com/jhy/jsoup/issues/1656
-        assertTrue_3_oe(Attribute.isBooleanAttribute(""required""));
+        // removed other assertion
         // removed other assertion
         assertTrue(Attribute.isBooleanAttribute(""rEQUIREd""));
         }
 ",AttributeTest::assertTrue_3_oe
 jsoup_785_4,"    @Test void booleanAttributesAreNotCaseSensitive() {
         // https://github.com/jhy/jsoup/issues/1656
-        assertTrue_4_oe(Attribute.isBooleanAttribute(""required""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertFalse(Attribute.isBooleanAttribute(""random string""));
@@ -34647,7 +34647,7 @@ jsoup_785_4,"    @Test void booleanAttributesAreNotCaseSensitive() {
 ",AttributeTest::assertTrue_4_oe
 jsoup_785_5,"    @Test void booleanAttributesAreNotCaseSensitive() {
         // https://github.com/jhy/jsoup/issues/1656
-        assertTrue_5_oe(Attribute.isBooleanAttribute(""required""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -34659,7 +34659,7 @@ jsoup_785_5,"    @Test void booleanAttributesAreNotCaseSensitive() {
 ",AttributeTest::assertTrue_5_oe
 jsoup_785_6,"    @Test void booleanAttributesAreNotCaseSensitive() {
         // https://github.com/jhy/jsoup/issues/1656
-        assertTrue_6_oe(Attribute.isBooleanAttribute(""required""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -35287,7 +35287,7 @@ jsoup_789_1,"    @Test public void unescapeMultiChars() {
 jsoup_789_2,"    @Test public void unescapeMultiChars() {
         String text = ""&NestedGreaterGreater; &nGg; &nGt; &nGtv; &Gt; &gg;""; // gg is not combo, but 8811 could conflict with NestedGreaterGreater or others
         String un = ""≫ ⋙̸ ≫⃒ ≫̸ ≫ ≫"";
-        assertEquals_2_oe(un, Entities.unescape(text));
+        // removed other assertion
         String escaped = Entities.escape(un, new OutputSettings().charset(""ascii"").escapeMode(extended));
         assertEquals(""&Gt; &Gg;&#x338; &Gt;&#x20d2; &Gt;&#x338; &Gt; &Gt;"", escaped);
         }
@@ -35295,7 +35295,7 @@ jsoup_789_2,"    @Test public void unescapeMultiChars() {
 jsoup_789_3,"    @Test public void unescapeMultiChars() {
         String text = ""&NestedGreaterGreater; &nGg; &nGt; &nGtv; &Gt; &gg;""; // gg is not combo, but 8811 could conflict with NestedGreaterGreater or others
         String un = ""≫ ⋙̸ ≫⃒ ≫̸ ≫ ≫"";
-        assertEquals_3_oe(un, Entities.unescape(text));
+        // removed other assertion
         String escaped = Entities.escape(un, new OutputSettings().charset(""ascii"").escapeMode(extended));
         // removed other assertion
         assertEquals(un, Entities.unescape(escaped));
@@ -35306,25 +35306,25 @@ jsoup_790_1,"    @Test public void xhtml() {
         }
 ",EntitiesTest::assertEquals_1_oe
 jsoup_790_2,"    @Test public void xhtml() {
-        assertEquals_2_oe(38, xhtml.codepointForName(""amp""));
+        // removed other assertion
         assertEquals(62, xhtml.codepointForName(""gt""));
         }
 ",EntitiesTest::assertEquals_2_oe
 jsoup_790_3,"    @Test public void xhtml() {
-        assertEquals_3_oe(38, xhtml.codepointForName(""amp""));
+        // removed other assertion
         // removed other assertion
         assertEquals(60, xhtml.codepointForName(""lt""));
         }
 ",EntitiesTest::assertEquals_3_oe
 jsoup_790_4,"    @Test public void xhtml() {
-        assertEquals_4_oe(38, xhtml.codepointForName(""amp""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(34, xhtml.codepointForName(""quot""));
         }
 ",EntitiesTest::assertEquals_4_oe
 jsoup_790_5,"    @Test public void xhtml() {
-        assertEquals_5_oe(38, xhtml.codepointForName(""amp""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -35333,7 +35333,7 @@ jsoup_790_5,"    @Test public void xhtml() {
         }
 ",EntitiesTest::assertEquals_5_oe
 jsoup_790_6,"    @Test public void xhtml() {
-        assertEquals_6_oe(38, xhtml.codepointForName(""amp""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -35343,7 +35343,7 @@ jsoup_790_6,"    @Test public void xhtml() {
         }
 ",EntitiesTest::assertEquals_6_oe
 jsoup_790_7,"    @Test public void xhtml() {
-        assertEquals_7_oe(38, xhtml.codepointForName(""amp""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -35354,7 +35354,7 @@ jsoup_790_7,"    @Test public void xhtml() {
         }
 ",EntitiesTest::assertEquals_7_oe
 jsoup_790_8,"    @Test public void xhtml() {
-        assertEquals_8_oe(38, xhtml.codepointForName(""amp""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -35370,18 +35370,18 @@ jsoup_791_1,"    @Test public void getByName() {
         }
 ",EntitiesTest::assertEquals_1_oe
 jsoup_791_2,"    @Test public void getByName() {
-        assertEquals_2_oe(""≫⃒"", Entities.getByName(""nGt""));
+        // removed other assertion
         assertEquals(""fj"", Entities.getByName(""fjlig""));
         }
 ",EntitiesTest::assertEquals_2_oe
 jsoup_791_3,"    @Test public void getByName() {
-        assertEquals_3_oe(""≫⃒"", Entities.getByName(""nGt""));
+        // removed other assertion
         // removed other assertion
         assertEquals(""≫"", Entities.getByName(""gg""));
         }
 ",EntitiesTest::assertEquals_3_oe
 jsoup_791_4,"    @Test public void getByName() {
-        assertEquals_4_oe(""≫⃒"", Entities.getByName(""nGt""));
+        // removed other assertion
         // removed other assertion
         // removed other assertion
         assertEquals(""©"", Entities.getByName(""copy""));
@@ -35420,7 +35420,7 @@ jsoup_795_1,"    @Test public void unescape() {
 ",EntitiesTest::assertEquals_1_oe
 jsoup_795_2,"    @Test public void unescape() {
         String text = ""Hello &AElig; &amp;&LT&gt; &reg &angst; &angst &#960; &#960 &#x65B0; there &! &frac34; &copy; &COPY;"";
-        assertEquals_2_oe(""Hello Æ &<> ® Å &angst π π 新 there &! ¾ © ©"", Entities.unescape(text));
+        // removed other assertion
 
         assertEquals(""&0987654321; &unknown"", Entities.unescape(""&0987654321; &unknown""));
         }
@@ -35432,13 +35432,13 @@ jsoup_796_1,"    @Test public void strictUnescape() { // for attributes, enforce
 ",EntitiesTest::assertEquals_1_oe
 jsoup_796_2,"    @Test public void strictUnescape() { // for attributes, enforce strict unescaping (must look like &#xxx; , not just &#xxx)
         String text = ""Hello &amp= &amp;"";
-        assertEquals_2_oe(""Hello &amp= &"", Entities.unescape(text, true));
+        // removed other assertion
         assertEquals(""Hello &= &"", Entities.unescape(text));
         }
 ",EntitiesTest::assertEquals_2_oe
 jsoup_796_3,"    @Test public void strictUnescape() { // for attributes, enforce strict unescaping (must look like &#xxx; , not just &#xxx)
         String text = ""Hello &amp= &amp;"";
-        assertEquals_3_oe(""Hello &amp= &"", Entities.unescape(text, true));
+        // removed other assertion
         // removed other assertion
         assertEquals(""Hello &= &"", Entities.unescape(text, false));
         }
@@ -35450,7 +35450,7 @@ jsoup_797_1,"    @Test public void caseSensitive() {
 ",EntitiesTest::assertEquals_1_oe
 jsoup_797_2,"    @Test public void caseSensitive() {
         String unescaped = ""Ü ü & &"";
-        assertEquals_2_oe(""&Uuml; &uuml; &amp; &amp;"", Entities.escape(unescaped, new OutputSettings().charset(""ascii"").escapeMode(extended)));
+        // removed other assertion
 
         String escaped = ""&Uuml; &uuml; &amp; &AMP"";
         assertEquals(""Ü ü & &"", Entities.unescape(escaped));
@@ -36977,76 +36977,6 @@ jsoup_840_4,"    @Test
         assertEquals(""Root"", cookies.get(""One""));
     }
 ",SessionTest::testPathScopedCookies_4_oe
-jsoup_840_5,"    @Test
-    public void testPathScopedCookies_5_oe() throws IOException {
-        final Connection session = Jsoup.newSession();
-        final String userAgent = ""Jsoup Testalot v0.1"";
-
-        session.userAgent(userAgent);
-        session.url(CookieServlet.Url);
-
-        // should have no cookies:
-        Connection con1 = session.newRequest();
-        Document doc1 = con1.get();
-        // removed other assertion
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, ""1"");
-        Document doc2 = con2.get();
-        // removed other assertion
-        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named ""One"", so should be first sent
-        // removed other assertion
-        // removed other assertion
-
-        // todo - interrogate cookie-store
-
-        // check that they are sent and filtered to the right path
-        Connection con3 = session.newRequest();
-        Document doc3 = con3.get();
-        assertCookieServlet(doc3);
-
-        Document echo = session.newRequest().url(EchoServlet.Url).get();
-        assertEchoServlet(echo);
-        assertEquals(userAgent, keyText(""User-Agent"", echo)); // check that customer user agent sent on session arrived;
-    }
-",SessionTest::testPathScopedCookies_5_oe
-jsoup_840_6,"    @Test
-    public void testPathScopedCookies_6_oe() throws IOException {
-        final Connection session = Jsoup.newSession();
-        final String userAgent = ""Jsoup Testalot v0.1"";
-
-        session.userAgent(userAgent);
-        session.url(CookieServlet.Url);
-
-        // should have no cookies:
-        Connection con1 = session.newRequest();
-        Document doc1 = con1.get();
-        // removed other assertion
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, ""1"");
-        Document doc2 = con2.get();
-        // removed other assertion
-        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named ""One"", so should be first sent
-        // removed other assertion
-        // removed other assertion
-
-        // todo - interrogate cookie-store
-
-        // check that they are sent and filtered to the right path
-        Connection con3 = session.newRequest();
-        Document doc3 = con3.get();
-        assertCookieServlet(doc3);
-
-        Document echo = session.newRequest().url(EchoServlet.Url).get();
-        assertEchoServlet(echo);
-        // removed other assertion
-
-        // check that cookies aren't set out of the session
-        Document doc4 = Jsoup.newSession().url(CookieServlet.Url).get();
-        assertEquals(0, doc4.select(""table tr"").size()); // none sent to servlet;
-    }
-",SessionTest::testPathScopedCookies_6_oe
 jsoup_840_7,"    @Test
     public void testPathScopedCookies_7_oe() throws IOException {
         final Connection session = Jsoup.newSession();
@@ -37073,10 +37003,80 @@ jsoup_840_7,"    @Test
         // check that they are sent and filtered to the right path
         Connection con3 = session.newRequest();
         Document doc3 = con3.get();
-        assertCookieServlet(doc3);
+        // removed other assertion
 
         Document echo = session.newRequest().url(EchoServlet.Url).get();
-        assertEchoServlet(echo);
+        // removed other assertion
+        assertEquals(userAgent, keyText(""User-Agent"", echo)); // check that customer user agent sent on session arrived;
+    }
+",SessionTest::testPathScopedCookies_7_oe
+jsoup_840_8,"    @Test
+    public void testPathScopedCookies_8_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+
+        // set the cookies
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, ""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named ""One"", so should be first sent
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+        // removed other assertion
+
+        Document echo = session.newRequest().url(EchoServlet.Url).get();
+        // removed other assertion
+        // removed other assertion
+
+        // check that cookies aren't set out of the session
+        Document doc4 = Jsoup.newSession().url(CookieServlet.Url).get();
+        assertEquals(0, doc4.select(""table tr"").size()); // none sent to servlet;
+    }
+",SessionTest::testPathScopedCookies_8_oe
+jsoup_840_9,"    @Test
+    public void testPathScopedCookies_9_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = ""Jsoup Testalot v0.1"";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+
+        // set the cookies
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, ""1"");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named ""One"", so should be first sent
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+        // removed other assertion
+
+        Document echo = session.newRequest().url(EchoServlet.Url).get();
+        // removed other assertion
         // removed other assertion
 
         // check that cookies aren't set out of the session
@@ -37088,7 +37088,7 @@ jsoup_840_7,"    @Test
         Elements doc5Bar = keyEls(""Bar"", doc5);
         assertEquals(""Qux"", doc5Bar.first().text());
     }
-",SessionTest::testPathScopedCookies_7_oe
+",SessionTest::testPathScopedCookies_9_oe
 jsoup_841_1,"    @Test
     public void testPathScopedCookiesOnRedirect_1_oe() throws IOException {
         Connection session = Jsoup.newSession();

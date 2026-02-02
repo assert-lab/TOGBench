@@ -328,24 +328,13 @@ class AbstractRegionBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testDefaultConstructor_3_oe() {
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        PartitionTestUtils.assertIsLeafNode(root);
-        Assertions.assertFalse(root.isPlus());
-    }
-
-    @Test
     void testDefaultConstructor_4_oe() {
         // assert
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertIsLeafNode(root);
         // removed other assertion
-        Assertions.assertFalse(root.isMinus());
+        Assertions.assertFalse(root.isPlus());
     }
 
     @Test
@@ -354,11 +343,9 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertIsLeafNode(root);
         // removed other assertion
         // removed other assertion
-
-        Assertions.assertSame(tree, root.getTree());
+        Assertions.assertFalse(root.isMinus());
     }
 
     @Test
@@ -367,7 +354,20 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertIsLeafNode(root);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertSame(tree, root.getTree());
+    }
+
+    @Test
+    void testDefaultConstructor_7_oe() {
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         // removed other assertion
 
@@ -398,20 +398,6 @@ class AbstractRegionBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testParameterizedConstructor_true_3_oe() {
-        // act
-        tree = new TestRegionBSPTree(true);
-        root = tree.getRoot();
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        PartitionTestUtils.assertIsLeafNode(root);
-        Assertions.assertFalse(root.isPlus());
-    }
-
-    @Test
     void testParameterizedConstructor_true_4_oe() {
         // act
         tree = new TestRegionBSPTree(true);
@@ -421,9 +407,8 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertIsLeafNode(root);
         // removed other assertion
-        Assertions.assertFalse(root.isMinus());
+        Assertions.assertFalse(root.isPlus());
     }
 
     @Test
@@ -436,11 +421,9 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertIsLeafNode(root);
         // removed other assertion
         // removed other assertion
-
-        Assertions.assertSame(tree, root.getTree());
+        Assertions.assertFalse(root.isMinus());
     }
 
     @Test
@@ -453,7 +436,24 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertIsLeafNode(root);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertSame(tree, root.getTree());
+    }
+
+    @Test
+    void testParameterizedConstructor_true_7_oe() {
+        // act
+        tree = new TestRegionBSPTree(true);
+        root = tree.getRoot();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         // removed other assertion
 
@@ -484,20 +484,6 @@ class AbstractRegionBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testParameterizedConstructor_false_3_oe() {
-        // act
-        tree = new TestRegionBSPTree(false);
-        root = tree.getRoot();
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        PartitionTestUtils.assertIsLeafNode(root);
-        Assertions.assertFalse(root.isPlus());
-    }
-
-    @Test
     void testParameterizedConstructor_false_4_oe() {
         // act
         tree = new TestRegionBSPTree(false);
@@ -507,9 +493,8 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertIsLeafNode(root);
         // removed other assertion
-        Assertions.assertFalse(root.isMinus());
+        Assertions.assertFalse(root.isPlus());
     }
 
     @Test
@@ -522,11 +507,9 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertIsLeafNode(root);
         // removed other assertion
         // removed other assertion
-
-        Assertions.assertSame(tree, root.getTree());
+        Assertions.assertFalse(root.isMinus());
     }
 
     @Test
@@ -539,7 +522,24 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertIsLeafNode(root);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertSame(tree, root.getTree());
+    }
+
+    @Test
+    void testParameterizedConstructor_false_7_oe() {
+        // act
+        tree = new TestRegionBSPTree(false);
+        root = tree.getRoot();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         // removed other assertion
 
@@ -2399,7 +2399,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testGetCutBoundary_singleCorner_2_oe() {
+    void testGetCutBoundary_singleCorner_3_oe() {
         // arrange
         tree.insert(new TestLineSegment(new TestPoint2D(-1, 0), new TestPoint2D(1, 0)));
         tree.insert(new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(0, 1)));
@@ -2408,8 +2408,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         final RegionCutBoundary<TestPoint2D> rootBoundary = root.getCutBoundary();
 
         // removed other assertion
-        assertCutBoundarySegment(rootBoundary.getOutsideFacing(),
-                new TestPoint2D(Double.NEGATIVE_INFINITY, 0.0), TestPoint2D.ZERO);
+        // removed other assertion
 
         final RegionCutBoundary<TestPoint2D> childBoundary = tree.getRoot().getMinus().getCutBoundary();
         Assertions.assertTrue(childBoundary.getInsideFacing().isEmpty());
@@ -4115,59 +4114,6 @@ class AbstractRegionBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testComplement_getCutBoundary_4_oe() {
-        // arrange
-        tree.insert(Arrays.asList(
-                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)),
-                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(0, 1))));
-        tree.complement();
-
-        // act
-        final RegionCutBoundary<TestPoint2D> xAxisBoundary = root.getCutBoundary();
-        final RegionCutBoundary<TestPoint2D> yAxisBoundary = root.getMinus().getCutBoundary();
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        final List<HyperplaneConvexSubset<TestPoint2D>> xAxisInsideFacing = xAxisBoundary.getInsideFacing();
-        // removed other assertion
-
-        final TestLineSegment xAxisSeg = (TestLineSegment) xAxisInsideFacing.get(0);
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(Double.NEGATIVE_INFINITY, 0), xAxisSeg.getStartPoint());
-        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, xAxisSeg.getEndPoint());
-
-        Assertions.assertTrue(yAxisBoundary.getOutsideFacing().isEmpty());
-    }
-
-    @Test
-    void testComplement_getCutBoundary_5_oe() {
-        // arrange
-        tree.insert(Arrays.asList(
-                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)),
-                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(0, 1))));
-        tree.complement();
-
-        // act
-        final RegionCutBoundary<TestPoint2D> xAxisBoundary = root.getCutBoundary();
-        final RegionCutBoundary<TestPoint2D> yAxisBoundary = root.getMinus().getCutBoundary();
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        final List<HyperplaneConvexSubset<TestPoint2D>> xAxisInsideFacing = xAxisBoundary.getInsideFacing();
-        // removed other assertion
-
-        final TestLineSegment xAxisSeg = (TestLineSegment) xAxisInsideFacing.get(0);
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(Double.NEGATIVE_INFINITY, 0), xAxisSeg.getStartPoint());
-        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, xAxisSeg.getEndPoint());
-
-        // removed other assertion
-        Assertions.assertFalse(yAxisBoundary.getInsideFacing().isEmpty());
-    }
-
-    @Test
     void testComplement_getCutBoundary_6_oe() {
         // arrange
         tree.insert(Arrays.asList(
@@ -4187,8 +4133,61 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         // removed other assertion
 
         final TestLineSegment xAxisSeg = (TestLineSegment) xAxisInsideFacing.get(0);
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(Double.NEGATIVE_INFINITY, 0), xAxisSeg.getStartPoint());
-        PartitionTestUtils.assertPointsEqual(TestPoint2D.ZERO, xAxisSeg.getEndPoint());
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertTrue(yAxisBoundary.getOutsideFacing().isEmpty());
+    }
+
+    @Test
+    void testComplement_getCutBoundary_7_oe() {
+        // arrange
+        tree.insert(Arrays.asList(
+                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)),
+                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(0, 1))));
+        tree.complement();
+
+        // act
+        final RegionCutBoundary<TestPoint2D> xAxisBoundary = root.getCutBoundary();
+        final RegionCutBoundary<TestPoint2D> yAxisBoundary = root.getMinus().getCutBoundary();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final List<HyperplaneConvexSubset<TestPoint2D>> xAxisInsideFacing = xAxisBoundary.getInsideFacing();
+        // removed other assertion
+
+        final TestLineSegment xAxisSeg = (TestLineSegment) xAxisInsideFacing.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertFalse(yAxisBoundary.getInsideFacing().isEmpty());
+    }
+
+    @Test
+    void testComplement_getCutBoundary_8_oe() {
+        // arrange
+        tree.insert(Arrays.asList(
+                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)),
+                new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(0, 1))));
+        tree.complement();
+
+        // act
+        final RegionCutBoundary<TestPoint2D> xAxisBoundary = root.getCutBoundary();
+        final RegionCutBoundary<TestPoint2D> yAxisBoundary = root.getMinus().getCutBoundary();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        final List<HyperplaneConvexSubset<TestPoint2D>> xAxisInsideFacing = xAxisBoundary.getInsideFacing();
+        // removed other assertion
+
+        final TestLineSegment xAxisSeg = (TestLineSegment) xAxisInsideFacing.get(0);
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -5086,7 +5085,7 @@ class AbstractRegionBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testSplit_box_onMinusOnly_2_oe() {
+    void testSplit_box_onMinusOnly_4_oe() {
         // arrange
         insertBox(tree, new TestPoint2D(0, 1), new TestPoint2D(1, 0));
 
@@ -5099,10 +5098,8 @@ class AbstractRegionBSPTreeTest_OE25Dev {
         // removed other assertion
 
         final TestRegionBSPTree minus = split.getMinus();
-        PartitionTestUtils.assertPointLocations(minus, RegionLocation.INSIDE, new TestPoint2D(0.5, 0.5));
-        PartitionTestUtils.assertPointLocations(minus, RegionLocation.BOUNDARY,
-                new TestPoint2D(0.5, 0), new TestPoint2D(0, 0.5),
-                new TestPoint2D(1, 0.5), new TestPoint2D(0.5, 1));
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNull(split.getPlus());
     }

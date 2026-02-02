@@ -149,6 +149,24 @@ public class ListOrderedSetTest_OE25Dev<E>
     }
     }
 
+    public void testOrdering_3_oe() {
+        final ListOrderedSet<E> set = setupSet();
+        Iterator<E> it = set.iterator();
+
+        for (int i = 0; i < 10; i++) {
+            // removed other assertion
+        }
+
+        for (int i = 0; i < 10; i += 2) {
+            // removed other assertion
+        }
+
+        it = set.iterator();
+        for (int i = 1; i < 10; i += 2) {
+            assertEquals("Sequence is wrong after remove ", Integer.toString(i), it.next());
+    }
+    }
+
     public void testOrdering_4_oe() {
         final ListOrderedSet<E> set = setupSet();
         Iterator<E> it = set.iterator();
@@ -171,6 +189,67 @@ public class ListOrderedSetTest_OE25Dev<E>
         }
 
         assertEquals("Size of set is wrong!", 10, set.size());
+    }
+
+    public void testOrdering_5_oe() {
+        final ListOrderedSet<E> set = setupSet();
+        Iterator<E> it = set.iterator();
+
+        for (int i = 0; i < 10; i++) {
+            // removed other assertion
+        }
+
+        for (int i = 0; i < 10; i += 2) {
+            // removed other assertion
+        }
+
+        it = set.iterator();
+        for (int i = 1; i < 10; i += 2) {
+            // removed other assertion
+        }
+
+        for (int i = 0; i < 10; i++) {
+            set.add((E) Integer.toString(i));
+        }
+
+        // removed other assertion
+
+        it = set.iterator();
+        for (int i = 1; i < 10; i += 2) {
+            assertEquals("Sequence is wrong", Integer.toString(i), it.next());
+    }
+    }
+
+    public void testOrdering_6_oe() {
+        final ListOrderedSet<E> set = setupSet();
+        Iterator<E> it = set.iterator();
+
+        for (int i = 0; i < 10; i++) {
+            // removed other assertion
+        }
+
+        for (int i = 0; i < 10; i += 2) {
+            // removed other assertion
+        }
+
+        it = set.iterator();
+        for (int i = 1; i < 10; i += 2) {
+            // removed other assertion
+        }
+
+        for (int i = 0; i < 10; i++) {
+            set.add((E) Integer.toString(i));
+        }
+
+        // removed other assertion
+
+        it = set.iterator();
+        for (int i = 1; i < 10; i += 2) {
+            // removed other assertion
+        }
+        for (int i = 0; i < 10; i += 2) {
+            assertEquals("Sequence is wrong", Integer.toString(i), it.next());
+    }
     }
 
     public void testListAddRemove_1_oe() {
@@ -971,6 +1050,128 @@ public class ListOrderedSetTest_OE25Dev<E>
         }
 
         assertTrue(orderedSet.retainAll(retained));
+    }
+
+    public void testRetainAll_2_oe() {
+        final List<E> list = new ArrayList<>(10);
+        final Set<E> set = new HashSet<>(10);
+        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(set, list);
+        for (int i = 0; i < 10; ++i) {
+            orderedSet.add((E) Integer.valueOf(10 - i - 1));
+        }
+
+        final Collection<E> retained = new ArrayList<>(5);
+        for (int i = 0; i < 5; ++i) {
+            retained.add((E) Integer.valueOf(i * 2));
+        }
+
+        // removed other assertion
+        assertEquals(5, orderedSet.size());
+    }
+
+    public void testRetainAll_3_oe() {
+        final List<E> list = new ArrayList<>(10);
+        final Set<E> set = new HashSet<>(10);
+        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(set, list);
+        for (int i = 0; i < 10; ++i) {
+            orderedSet.add((E) Integer.valueOf(10 - i - 1));
+        }
+
+        final Collection<E> retained = new ArrayList<>(5);
+        for (int i = 0; i < 5; ++i) {
+            retained.add((E) Integer.valueOf(i * 2));
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // insertion order preserved?
+        assertEquals(Integer.valueOf(8), orderedSet.get(0));
+    }
+
+    public void testRetainAll_4_oe() {
+        final List<E> list = new ArrayList<>(10);
+        final Set<E> set = new HashSet<>(10);
+        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(set, list);
+        for (int i = 0; i < 10; ++i) {
+            orderedSet.add((E) Integer.valueOf(10 - i - 1));
+        }
+
+        final Collection<E> retained = new ArrayList<>(5);
+        for (int i = 0; i < 5; ++i) {
+            retained.add((E) Integer.valueOf(i * 2));
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // insertion order preserved?
+        // removed other assertion
+        assertEquals(Integer.valueOf(6), orderedSet.get(1));
+    }
+
+    public void testRetainAll_5_oe() {
+        final List<E> list = new ArrayList<>(10);
+        final Set<E> set = new HashSet<>(10);
+        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(set, list);
+        for (int i = 0; i < 10; ++i) {
+            orderedSet.add((E) Integer.valueOf(10 - i - 1));
+        }
+
+        final Collection<E> retained = new ArrayList<>(5);
+        for (int i = 0; i < 5; ++i) {
+            retained.add((E) Integer.valueOf(i * 2));
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // insertion order preserved?
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.valueOf(4), orderedSet.get(2));
+    }
+
+    public void testRetainAll_6_oe() {
+        final List<E> list = new ArrayList<>(10);
+        final Set<E> set = new HashSet<>(10);
+        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(set, list);
+        for (int i = 0; i < 10; ++i) {
+            orderedSet.add((E) Integer.valueOf(10 - i - 1));
+        }
+
+        final Collection<E> retained = new ArrayList<>(5);
+        for (int i = 0; i < 5; ++i) {
+            retained.add((E) Integer.valueOf(i * 2));
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // insertion order preserved?
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.valueOf(2), orderedSet.get(3));
+    }
+
+    public void testRetainAll_7_oe() {
+        final List<E> list = new ArrayList<>(10);
+        final Set<E> set = new HashSet<>(10);
+        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(set, list);
+        for (int i = 0; i < 10; ++i) {
+            orderedSet.add((E) Integer.valueOf(10 - i - 1));
+        }
+
+        final Collection<E> retained = new ArrayList<>(5);
+        for (int i = 0; i < 5; ++i) {
+            retained.add((E) Integer.valueOf(i * 2));
+        }
+
+        // removed other assertion
+        // removed other assertion
+        // insertion order preserved?
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.valueOf(0), orderedSet.get(4));
     }
 
     public void testDuplicates_1_oe() {

@@ -932,40 +932,6 @@ class PolygonObjParserTest_OE25Dev {
     }
 
     @Test
-    void testParse_1_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "# test content",
-                "o test",
-                "g test",
-                "s test",
-                "mtllib mylib.mtl",
-                "usemtl mymaterial",
-                "",
-                "\\", // line continuation
-                " \\", // line continuation
-                "",
-                "v 0 0 0",
-                "v 1\\", ".0 0 0", // line continuation
-                "v 1 1 0",
-                "v 0 1 0",
-                "",
-                "vt 0 0",
-                "vt 1 0",
-                "vt 1 1",
-                "",
-                "vn 0 0 1",
-                "",
-                "f 1 2 4",
-                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
-        ));
-
-        // act/assert
-        assertNextKeyword("o", p);
-        Assertions.assertEquals("test", p.readDataLine());
-    }
-
-    @Test
     void testParse_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
@@ -995,50 +961,7 @@ class PolygonObjParserTest_OE25Dev {
         ));
 
         // act/assert
-        assertNextKeyword("o", p);
         // removed other assertion
-
-        assertNextKeyword("g", p);
-        Assertions.assertEquals("test", p.readDataLine());
-    }
-
-    @Test
-    void testParse_3_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "# test content",
-                "o test",
-                "g test",
-                "s test",
-                "mtllib mylib.mtl",
-                "usemtl mymaterial",
-                "",
-                "\\", // line continuation
-                " \\", // line continuation
-                "",
-                "v 0 0 0",
-                "v 1\\", ".0 0 0", // line continuation
-                "v 1 1 0",
-                "v 0 1 0",
-                "",
-                "vt 0 0",
-                "vt 1 0",
-                "vt 1 1",
-                "",
-                "vn 0 0 1",
-                "",
-                "f 1 2 4",
-                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
-        ));
-
-        // act/assert
-        assertNextKeyword("o", p);
-        // removed other assertion
-
-        assertNextKeyword("g", p);
-        // removed other assertion
-
-        assertNextKeyword("s", p);
         Assertions.assertEquals("test", p.readDataLine());
     }
 
@@ -1072,63 +995,11 @@ class PolygonObjParserTest_OE25Dev {
         ));
 
         // act/assert
-        assertNextKeyword("o", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("g", p);
         // removed other assertion
-
-        assertNextKeyword("s", p);
-        // removed other assertion
-
-        assertNextKeyword("mtllib", p);
-        Assertions.assertEquals("mylib.mtl", p.readDataLine());
-    }
-
-    @Test
-    void testParse_5_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "# test content",
-                "o test",
-                "g test",
-                "s test",
-                "mtllib mylib.mtl",
-                "usemtl mymaterial",
-                "",
-                "\\", // line continuation
-                " \\", // line continuation
-                "",
-                "v 0 0 0",
-                "v 1\\", ".0 0 0", // line continuation
-                "v 1 1 0",
-                "v 0 1 0",
-                "",
-                "vt 0 0",
-                "vt 1 0",
-                "vt 1 1",
-                "",
-                "vn 0 0 1",
-                "",
-                "f 1 2 4",
-                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
-        ));
-
-        // act/assert
-        assertNextKeyword("o", p);
-        // removed other assertion
-
-        assertNextKeyword("g", p);
-        // removed other assertion
-
-        assertNextKeyword("s", p);
-        // removed other assertion
-
-        assertNextKeyword("mtllib", p);
-        // removed other assertion
-
-        assertNextKeyword("usemtl", p);
-        Assertions.assertEquals("mymaterial", p.readDataLine());
+        Assertions.assertEquals("test", p.readDataLine());
     }
 
     @Test
@@ -1161,99 +1032,14 @@ class PolygonObjParserTest_OE25Dev {
         ));
 
         // act/assert
-        assertNextKeyword("o", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("g", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("s", p);
         // removed other assertion
-
-        assertNextKeyword("mtllib", p);
-        // removed other assertion
-
-        assertNextKeyword("usemtl", p);
-        // removed other assertion
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_X, p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 0), p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Y, p.readVector(), EPS);
-
-        assertNextKeyword("vt", p);
-        Assertions.assertArrayEquals(new double[] {0, 0}, p.readDoubles(),  EPS);
-    }
-
-    @Test
-    void testParse_7_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "# test content",
-                "o test",
-                "g test",
-                "s test",
-                "mtllib mylib.mtl",
-                "usemtl mymaterial",
-                "",
-                "\\", // line continuation
-                " \\", // line continuation
-                "",
-                "v 0 0 0",
-                "v 1\\", ".0 0 0", // line continuation
-                "v 1 1 0",
-                "v 0 1 0",
-                "",
-                "vt 0 0",
-                "vt 1 0",
-                "vt 1 1",
-                "",
-                "vn 0 0 1",
-                "",
-                "f 1 2 4",
-                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
-        ));
-
-        // act/assert
-        assertNextKeyword("o", p);
-        // removed other assertion
-
-        assertNextKeyword("g", p);
-        // removed other assertion
-
-        assertNextKeyword("s", p);
-        // removed other assertion
-
-        assertNextKeyword("mtllib", p);
-        // removed other assertion
-
-        assertNextKeyword("usemtl", p);
-        // removed other assertion
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_X, p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 0), p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Y, p.readVector(), EPS);
-
-        assertNextKeyword("vt", p);
-        // removed other assertion
-
-        assertNextKeyword("vt", p);
-        Assertions.assertArrayEquals(new double[] {1, 0}, p.readDoubles(),  EPS);
+        Assertions.assertEquals("test", p.readDataLine());
     }
 
     @Test
@@ -1286,127 +1072,17 @@ class PolygonObjParserTest_OE25Dev {
         ));
 
         // act/assert
-        assertNextKeyword("o", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("g", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("s", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("mtllib", p);
         // removed other assertion
-
-        assertNextKeyword("usemtl", p);
-        // removed other assertion
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_X, p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 0), p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Y, p.readVector(), EPS);
-
-        assertNextKeyword("vt", p);
-        // removed other assertion
-
-        assertNextKeyword("vt", p);
-        // removed other assertion
-
-        assertNextKeyword("vt", p);
-        Assertions.assertArrayEquals(new double[] {1, 1}, p.readDoubles(),  EPS);
-    }
-
-    @Test
-    void testParse_9_oe() {
-        // arrange
-        final PolygonObjParser p = parser(lines(
-                "# test content",
-                "o test",
-                "g test",
-                "s test",
-                "mtllib mylib.mtl",
-                "usemtl mymaterial",
-                "",
-                "\\", // line continuation
-                " \\", // line continuation
-                "",
-                "v 0 0 0",
-                "v 1\\", ".0 0 0", // line continuation
-                "v 1 1 0",
-                "v 0 1 0",
-                "",
-                "vt 0 0",
-                "vt 1 0",
-                "vt 1 1",
-                "",
-                "vn 0 0 1",
-                "",
-                "f 1 2 4",
-                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
-        ));
-
-        // act/assert
-        assertNextKeyword("o", p);
-        // removed other assertion
-
-        assertNextKeyword("g", p);
-        // removed other assertion
-
-        assertNextKeyword("s", p);
-        // removed other assertion
-
-        assertNextKeyword("mtllib", p);
-        // removed other assertion
-
-        assertNextKeyword("usemtl", p);
-        // removed other assertion
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_X, p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 0), p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Y, p.readVector(), EPS);
-
-        assertNextKeyword("vt", p);
-        // removed other assertion
-
-        assertNextKeyword("vt", p);
-        // removed other assertion
-
-        assertNextKeyword("vt", p);
-        // removed other assertion
-
-        assertNextKeyword("vn", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, p.readVector(), EPS);
-
-        assertNextKeyword("f", p);
-        assertFace(new int[][] {
-            {0, -1, -1},
-            {1, -1, -1},
-            {3, -1, -1},
-        }, p.readFace());
-
-        assertNextKeyword("f", p);
-        assertFace(new int[][] {
-            {0, 0, 0},
-            {1, 1, 0},
-            {2, 2, 0},
-        }, p.readFace());
-
-        Assertions.assertEquals(4, p.getVertexCount());
+        Assertions.assertEquals("mylib.mtl", p.readDataLine());
     }
 
     @Test
@@ -1439,65 +1115,24 @@ class PolygonObjParserTest_OE25Dev {
         ));
 
         // act/assert
-        assertNextKeyword("o", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("g", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("s", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("mtllib", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("usemtl", p);
         // removed other assertion
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_X, p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 0), p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Y, p.readVector(), EPS);
-
-        assertNextKeyword("vt", p);
-        // removed other assertion
-
-        assertNextKeyword("vt", p);
-        // removed other assertion
-
-        assertNextKeyword("vt", p);
-        // removed other assertion
-
-        assertNextKeyword("vn", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, p.readVector(), EPS);
-
-        assertNextKeyword("f", p);
-        assertFace(new int[][] {
-            {0, -1, -1},
-            {1, -1, -1},
-            {3, -1, -1},
-        }, p.readFace());
-
-        assertNextKeyword("f", p);
-        assertFace(new int[][] {
-            {0, 0, 0},
-            {1, 1, 0},
-            {2, 2, 0},
-        }, p.readFace());
-
-        // removed other assertion
-        Assertions.assertEquals(3, p.getTextureCoordinateCount());
+        Assertions.assertEquals("mymaterial", p.readDataLine());
     }
 
     @Test
-    void testParse_11_oe() {
+    void testParse_20_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "# test content",
@@ -1526,58 +1161,399 @@ class PolygonObjParserTest_OE25Dev {
         ));
 
         // act/assert
-        assertNextKeyword("o", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("g", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("s", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("mtllib", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("usemtl", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_X, p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 0), p.readVector(), EPS);
-
-        assertNextKeyword("v", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Y, p.readVector(), EPS);
-
-        assertNextKeyword("vt", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("vt", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("vt", p);
+        // removed other assertion
         // removed other assertion
 
-        assertNextKeyword("vn", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, p.readVector(), EPS);
+        // removed other assertion
+        // removed other assertion
 
-        assertNextKeyword("f", p);
-        assertFace(new int[][] {
-            {0, -1, -1},
-            {1, -1, -1},
-            {3, -1, -1},
-        }, p.readFace());
+        // removed other assertion
+        Assertions.assertArrayEquals(new double[] {0, 0}, p.readDoubles(),  EPS);
+    }
 
-        assertNextKeyword("f", p);
-        assertFace(new int[][] {
-            {0, 0, 0},
-            {1, 1, 0},
-            {2, 2, 0},
-        }, p.readFace());
+    @Test
+    void testParse_22_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertArrayEquals(new double[] {1, 0}, p.readDoubles(),  EPS);
+    }
+
+    @Test
+    void testParse_24_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertArrayEquals(new double[] {1, 1}, p.readDoubles(),  EPS);
+    }
+
+    @Test
+    void testParse_31_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(4, p.getVertexCount());
+    }
+
+    @Test
+    void testParse_32_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(3, p.getTextureCoordinateCount());
+    }
+
+    @Test
+    void testParse_33_oe() {
+        // arrange
+        final PolygonObjParser p = parser(lines(
+                "# test content",
+                "o test",
+                "g test",
+                "s test",
+                "mtllib mylib.mtl",
+                "usemtl mymaterial",
+                "",
+                "\\", // line continuation
+                " \\", // line continuation
+                "",
+                "v 0 0 0",
+                "v 1\\", ".0 0 0", // line continuation
+                "v 1 1 0",
+                "v 0 1 0",
+                "",
+                "vt 0 0",
+                "vt 1 0",
+                "vt 1 1",
+                "",
+                "vn 0 0 1",
+                "",
+                "f 1 2 4",
+                "f 1/1/1 2/2/1 3\\", "/3/1" // line continuation
+        ));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -1618,7 +1594,7 @@ class PolygonObjParserTest_OE25Dev {
     }
 
     @Test
-    void testFace_getDefinedCompositeNormal_2_oe() {
+    void testFace_getDefinedCompositeNormal_4_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
@@ -1650,19 +1626,17 @@ class PolygonObjParserTest_OE25Dev {
         // removed other assertion
 
         nextMatchingKeyword("f", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z,
-                p.readFace().getDefinedCompositeNormal(normalFn), EPS);
+        // removed other assertion
 
         nextMatchingKeyword("f", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z,
-                p.readFace().getDefinedCompositeNormal(normalFn), EPS);
+        // removed other assertion
 
         nextMatchingKeyword("f", p);
         Assertions.assertNull(p.readFace().getDefinedCompositeNormal(normalFn));
     }
 
     @Test
-    void testFace_computeNormalFromVertices_1_oe() {
+    void testFace_computeNormalFromVertices_2_oe() {
         // arrange
         final PolygonObjParser p = parser(lines(
                 "v 0 0 0",
@@ -1685,8 +1659,7 @@ class PolygonObjParserTest_OE25Dev {
 
         // act/assert
         nextMatchingKeyword("f", p);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z,
-                p.readFace().computeNormalFromVertices(vertexFn), EPS);
+        // removed other assertion
 
         nextMatchingKeyword("f", p);
         Assertions.assertNull(p.readFace().computeNormalFromVertices(vertexFn));

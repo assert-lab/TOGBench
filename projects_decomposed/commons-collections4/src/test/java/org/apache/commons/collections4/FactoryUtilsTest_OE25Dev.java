@@ -361,6 +361,16 @@ public class FactoryUtilsTest_OE25Dev {
     }
 
     @Test
+    public void instantiateFactorySimple_3_oe() {
+        final Factory<Mock3> factory = FactoryUtils.instantiateFactory(Mock3.class);
+        // removed other assertion
+        Mock3 created = factory.create();
+        // removed other assertion
+        created = factory.create();
+        assertEquals(1, created.getValue());
+    }
+
+    @Test
     public void instantiateFactoryComplex_1_oe() {
         TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
         // 2nd Jan 1970

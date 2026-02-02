@@ -719,7 +719,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
-    public void testRanges_34_oe() throws Exception {
+    public void testRanges_28_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
         // removed other assertion
@@ -764,12 +764,12 @@ public class RangeTest_OE25Dev extends JexlTestCase {
             // removed other assertion
             try {
                 switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
+                    case 10:  il0.remove(); Assert.fail(); break;
+                    case 11: lr1.add(v0); Assert.fail(); break;
+                    case 12: lr1.remove(v0); Assert.fail(); break;
+                    case 13: lr1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 14: lr1.removeAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 15: lr1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
                 }
             } catch(final UnsupportedOperationException xuo) {
                 // ok
@@ -780,7 +780,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
-    public void testRanges_36_oe() throws Exception {
+    public void testRanges_30_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
         // removed other assertion
@@ -825,12 +825,12 @@ public class RangeTest_OE25Dev extends JexlTestCase {
             // removed other assertion
             try {
                 switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
+                    case 10:  il0.remove(); Assert.fail(); break;
+                    case 11: lr1.add(v0); Assert.fail(); break;
+                    case 12: lr1.remove(v0); Assert.fail(); break;
+                    case 13: lr1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 14: lr1.removeAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 15: lr1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
                 }
             } catch(final UnsupportedOperationException xuo) {
                 // ok
@@ -854,7 +854,7 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
-    public void testRanges_43_oe() throws Exception {
+    public void testRanges_31_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
         // removed other assertion
@@ -899,12 +899,12 @@ public class RangeTest_OE25Dev extends JexlTestCase {
             // removed other assertion
             try {
                 switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
+                    case 10:  il0.remove(); Assert.fail(); break;
+                    case 11: lr1.add(v0); Assert.fail(); break;
+                    case 12: lr1.remove(v0); Assert.fail(); break;
+                    case 13: lr1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 14: lr1.removeAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 15: lr1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
                 }
             } catch(final UnsupportedOperationException xuo) {
                 // ok
@@ -926,12 +926,12 @@ public class RangeTest_OE25Dev extends JexlTestCase {
             // removed other assertion
             try {
                 switch(v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
+                    case 10: ii0.remove(); Assert.fail(); break;
+                    case 11: ir1.add(v0); Assert.fail(); break;
+                    case 12: ir1.remove(v0); Assert.fail(); break;
+                    case 13: ir1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 14: ir1.removeAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 15: ir1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
                 }
             } catch(final UnsupportedOperationException xuo) {
                 // ok

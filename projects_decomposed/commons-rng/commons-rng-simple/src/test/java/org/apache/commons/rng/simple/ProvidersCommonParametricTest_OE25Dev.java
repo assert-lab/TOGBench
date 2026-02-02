@@ -536,7 +536,7 @@ class ProvidersCommonParametricTest_OE25Dev {
 
     @ParameterizedTest
     @MethodSource("getProvidersTestData")
-    void testUnrestorable_1_oe(ProvidersList.Data data) {
+    void testUnrestorable_2_oe(ProvidersList.Data data) {
         final RandomSource originalSource = data.getSource();
         final Object originalSeed = data.getSeed();
         final Object[] originalArgs = data.getArgs();
@@ -545,7 +545,7 @@ class ProvidersCommonParametricTest_OE25Dev {
         final UniformRandomProvider rng2 = RandomSource.unrestorable(originalSource.create(originalSeed, originalArgs));
 
         // Ensure that they generate the same values.
-        RandomAssert.assertProduceSameSequence(rng1, rng2);
+        // removed other assertion
 
         // Cast must work.
         final RestorableUniformRandomProvider restorable = (RestorableUniformRandomProvider) rng1;

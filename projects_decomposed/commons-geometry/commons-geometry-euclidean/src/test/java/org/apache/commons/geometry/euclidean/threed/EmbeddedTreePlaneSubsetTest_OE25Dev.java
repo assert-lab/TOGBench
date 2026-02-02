@@ -774,7 +774,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
     }
 
     @Test
-    void testTransform_empty_2_oe() {
+    void testTransform_empty_4_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
 
@@ -787,14 +787,14 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         // removed other assertion
 
         final Plane resultPlane = result.getPlane();
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 1), resultPlane.getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, resultPlane.getNormal(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertFalse(result.isFull());
     }
 
     @Test
-    void testTransform_empty_3_oe() {
+    void testTransform_empty_5_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, false);
 
@@ -807,8 +807,8 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         // removed other assertion
 
         final Plane resultPlane = result.getPlane();
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 1), resultPlane.getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, resultPlane.getNormal(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertTrue(result.isEmpty());
@@ -829,7 +829,7 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
     }
 
     @Test
-    void testTransform_full_2_oe() {
+    void testTransform_full_4_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
 
@@ -842,14 +842,14 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         // removed other assertion
 
         final Plane resultPlane = result.getPlane();
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 1), resultPlane.getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, resultPlane.getNormal(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(result.isFull());
     }
 
     @Test
-    void testTransform_full_3_oe() {
+    void testTransform_full_5_oe() {
         // arrange
         final EmbeddedTreePlaneSubset ps = new EmbeddedTreePlaneSubset(XY_PLANE, true);
 
@@ -862,8 +862,8 @@ class EmbeddedTreePlaneSubsetTest_OE25Dev {
         // removed other assertion
 
         final Plane resultPlane = result.getPlane();
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 1), resultPlane.getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, resultPlane.getNormal(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertFalse(result.isEmpty());

@@ -1281,7 +1281,7 @@ class QuaternionRotationTest_OE25Dev {
     }
 
     @Test
-    void testMultiply_sameAxis_simple_1_oe() {
+    void testMultiply_sameAxis_simple_2_oe() {
         // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.1 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.4 * Math.PI);
@@ -1290,12 +1290,12 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation result = q1.multiply(q2);
 
         // assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_X, result.getAxis(), EPS);
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, result.getAngle(), EPS);
     }
 
     @Test
-    void testMultiply_sameAxis_multiple_1_oe() {
+    void testMultiply_sameAxis_multiple_2_oe() {
         // arrange
         final double oneThird = 1.0 / 3.0;
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, 0.1 * Math.PI);
@@ -1308,12 +1308,12 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation result = q1.multiply(q2).multiply(q3).multiply(q4).multiply(q5);
 
         // assert
-        EuclideanTestUtils.assertCoordinatesEqual(PLUS_DIAGONAL.normalize(), result.getAxis(), EPS);
+        // removed other assertion
         Assertions.assertEquals(2.0 * Math.PI / 3.0, result.getAngle(), EPS);
     }
 
     @Test
-    void testMultiply_differentAxes_1_oe() {
+    void testMultiply_differentAxes_2_oe() {
         // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Angle.PI_OVER_TWO);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, Angle.PI_OVER_TWO);
@@ -1322,7 +1322,7 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation result = q1.multiply(q2);
 
         // assert
-        EuclideanTestUtils.assertCoordinatesEqual(PLUS_DIAGONAL.normalize(), result.getAxis(), EPS);
+        // removed other assertion
         Assertions.assertEquals(2.0 * Math.PI / 3.0, result.getAngle(), EPS);
     }
 
@@ -1374,7 +1374,7 @@ class QuaternionRotationTest_OE25Dev {
     }
 
     @Test
-    void testPremultiply_sameAxis_simple_1_oe() {
+    void testPremultiply_sameAxis_simple_2_oe() {
         // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.1 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, 0.4 * Math.PI);
@@ -1383,12 +1383,12 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation result = q1.premultiply(q2);
 
         // assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_X, result.getAxis(), EPS);
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, result.getAngle(), EPS);
     }
 
     @Test
-    void testPremultiply_sameAxis_multiple_1_oe() {
+    void testPremultiply_sameAxis_multiple_2_oe() {
         // arrange
         final double oneThird = 1.0 / 3.0;
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(PLUS_DIAGONAL, 0.1 * Math.PI);
@@ -1401,12 +1401,12 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation result = q1.premultiply(q2).premultiply(q3).premultiply(q4).premultiply(q5);
 
         // assert
-        EuclideanTestUtils.assertCoordinatesEqual(PLUS_DIAGONAL.normalize(), result.getAxis(), EPS);
+        // removed other assertion
         Assertions.assertEquals(2.0 * Math.PI / 3.0, result.getAngle(), EPS);
     }
 
     @Test
-    void testPremultiply_differentAxes_1_oe() {
+    void testPremultiply_differentAxes_2_oe() {
         // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_X, Angle.PI_OVER_TWO);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, Angle.PI_OVER_TWO);
@@ -1415,12 +1415,12 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation result = q2.premultiply(q1);
 
         // assert
-        EuclideanTestUtils.assertCoordinatesEqual(PLUS_DIAGONAL.normalize(), result.getAxis(), EPS);
+        // removed other assertion
         Assertions.assertEquals(2.0 * Math.PI / 3.0, result.getAngle(), EPS);
     }
 
     @Test
-    void testSlerp_followsShortestPath_1_oe() {
+    void testSlerp_followsShortestPath_3_oe() {
         // arrange
         final QuaternionRotation q1 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, 0.75 * Math.PI);
         final QuaternionRotation q2 = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, -0.75 * Math.PI);
@@ -1431,14 +1431,14 @@ class QuaternionRotationTest_OE25Dev {
         // assert
         // the slerp should have followed the path around the pi coordinate of the circle rather than
         // the one through the zero coordinate
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_X, result.apply(Vector3D.Unit.PLUS_X), EPS);
+        // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, result.getAxis(), EPS);
+        // removed other assertion
         Assertions.assertEquals(Math.PI, result.getAngle(), EPS);
     }
 
     @Test
-    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_1_oe() {
+    void testSlerp_inputQuaternionsHaveMinusOneDotProduct_2_oe() {
         // arrange
         final QuaternionRotation q1 = QuaternionRotation.of(1, 0, 0, 1); // pi/2 around +z
         final QuaternionRotation q2 = QuaternionRotation.of(-1, 0, 0, -1); // 3pi/2 around -z
@@ -1447,7 +1447,7 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation result = q1.slerp(q2).apply(0.5);
 
         // assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Y, result.apply(Vector3D.Unit.PLUS_X), EPS);
+        // removed other assertion
 
         Assertions.assertEquals(Angle.PI_OVER_TWO, result.getAngle(), EPS);
     }
@@ -1936,18 +1936,6 @@ class QuaternionRotationTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final double delta = 100 * Precision.EPSILON;
-        final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
-        final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(q1);
-        Assertions.assertEquals(q1, q2);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final double delta = 100 * Precision.EPSILON;
@@ -1955,10 +1943,8 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(q1);
         // removed other assertion
-
-        Assertions.assertNotEquals(q1, QuaternionRotation.of(-1, -2, -3, 4));
+        Assertions.assertEquals(q1, q2);
     }
 
     @Test
@@ -1969,11 +1955,10 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(q1);
+        // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        Assertions.assertNotEquals(q1, QuaternionRotation.of(1, 2, 3, -4));
+        Assertions.assertNotEquals(q1, QuaternionRotation.of(-1, -2, -3, 4));
     }
 
     @Test
@@ -1984,13 +1969,11 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(q1);
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertNotEquals(q1, QuaternionRotation.of(1 + delta, 2, 3, 4));
+        // removed other assertion
+        Assertions.assertNotEquals(q1, QuaternionRotation.of(1, 2, 3, -4));
     }
 
     @Test
@@ -2001,14 +1984,13 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(q1);
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertNotEquals(q1, QuaternionRotation.of(1, 2 + delta, 3, 4));
+        // removed other assertion
+
+        Assertions.assertNotEquals(q1, QuaternionRotation.of(1 + delta, 2, 3, 4));
     }
 
     @Test
@@ -2019,7 +2001,25 @@ class QuaternionRotationTest_OE25Dev {
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(q1);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(q1, QuaternionRotation.of(1, 2 + delta, 3, 4));
+    }
+
+    @Test
+    void testEquals_7_oe() {
+        // arrange
+        final double delta = 100 * Precision.EPSILON;
+        final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
+        final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
+
+        // act/assert
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -2031,14 +2031,14 @@ class QuaternionRotationTest_OE25Dev {
     }
 
     @Test
-    void testEquals_7_oe() {
+    void testEquals_8_oe() {
         // arrange
         final double delta = 100 * Precision.EPSILON;
         final QuaternionRotation q1 = QuaternionRotation.of(1, 2, 3, 4);
         final QuaternionRotation q2 = QuaternionRotation.of(1, 2, 3, 4);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(q1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -2061,7 +2061,7 @@ class QuaternionRotationTest_OE25Dev {
     }
 
     @Test
-    void testCreateVectorRotation_simple_1_oe() {
+    void testCreateVectorRotation_simple_2_oe() {
         // arrange
         final Vector3D u1 = Vector3D.Unit.PLUS_X;
         final Vector3D u2 = Vector3D.Unit.PLUS_Y;
@@ -2074,12 +2074,12 @@ class QuaternionRotationTest_OE25Dev {
 
         checkQuaternion(q, val, 0, 0, val);
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, q.getAxis(), EPS);
+        // removed other assertion
         Assertions.assertEquals(Angle.PI_OVER_TWO, q.getAngle(), EPS);
     }
 
     @Test
-    void testCreateVectorRotation_identity_1_oe() {
+    void testCreateVectorRotation_identity_2_oe() {
         // arrange
         final Vector3D u1 = Vector3D.of(0, 2, 0);
 
@@ -2089,12 +2089,12 @@ class QuaternionRotationTest_OE25Dev {
         // assert
         checkQuaternion(q, 1, 0, 0, 0);
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_X, q.getAxis(), EPS);
+        // removed other assertion
         Assertions.assertEquals(0.0, q.getAngle(), EPS);
     }
 
     @Test
-    void testCreateVectorRotation_parallel_1_oe() {
+    void testCreateVectorRotation_parallel_2_oe() {
         // arrange
         final Vector3D u1 = Vector3D.of(0, 2, 0);
         final Vector3D u2 = Vector3D.of(0, 3, 0);
@@ -2105,7 +2105,7 @@ class QuaternionRotationTest_OE25Dev {
         // assert
         checkQuaternion(q, 1, 0, 0, 0);
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_X, q.getAxis(), EPS);
+        // removed other assertion
         Assertions.assertEquals(0.0, q.getAngle(), EPS);
     }
 

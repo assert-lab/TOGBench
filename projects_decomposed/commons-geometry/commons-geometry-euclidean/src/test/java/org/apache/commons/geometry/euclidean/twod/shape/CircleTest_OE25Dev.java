@@ -710,23 +710,6 @@ class CircleTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
-
-        final Circle a = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);
-        final Circle b = Circle.from(Vector2D.of(1, 1), 3, TEST_PRECISION);
-        final Circle c = Circle.from(Vector2D.of(1, 2), 4, TEST_PRECISION);
-        final Circle d = Circle.from(Vector2D.of(1, 2), 3, precision);
-        final Circle e = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, b);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
@@ -738,10 +721,9 @@ class CircleTest_OE25Dev {
         final Circle e = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
         // removed other assertion
-        Assertions.assertNotEquals(a, c);
+
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -756,11 +738,10 @@ class CircleTest_OE25Dev {
         final Circle e = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(a, d);
+        Assertions.assertNotEquals(a, c);
     }
 
     @Test
@@ -775,7 +756,26 @@ class CircleTest_OE25Dev {
         final Circle e = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(a, d);
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        final Circle a = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);
+        final Circle b = Circle.from(Vector2D.of(1, 1), 3, TEST_PRECISION);
+        final Circle c = Circle.from(Vector2D.of(1, 2), 4, TEST_PRECISION);
+        final Circle d = Circle.from(Vector2D.of(1, 2), 3, precision);
+        final Circle e = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

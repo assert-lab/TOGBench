@@ -219,25 +219,6 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
     }
 
     @Test
-    void testProperties_infinite_5_oe() {
-        // arrange
-        final ConvexArea area = ConvexArea.full();
-
-        // act
-        final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, area);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(ps.getSize());
-
-        Assertions.assertSame(XY_PLANE_Z1, ps.getPlane());
-    }
-
-    @Test
     void testProperties_infinite_6_oe() {
         // arrange
         final ConvexArea area = ConvexArea.full();
@@ -251,10 +232,9 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(ps.getSize());
-
         // removed other assertion
-        Assertions.assertSame(area, ps.getSubspaceRegion());
+
+        Assertions.assertSame(XY_PLANE_Z1, ps.getPlane());
     }
 
     @Test
@@ -271,7 +251,27 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(ps.getSize());
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertSame(area, ps.getSubspaceRegion());
+    }
+
+    @Test
+    void testProperties_infinite_8_oe() {
+        // arrange
+        final ConvexArea area = ConvexArea.full();
+
+        // act
+        final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, area);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

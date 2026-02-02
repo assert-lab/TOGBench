@@ -65,21 +65,6 @@ class FacetDefinitionsTest_OE25Dev {
     }
 
     @Test
-    void testToPolygon_noNormal_2_oe() {
-        // arrange
-        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
-
-        // act
-        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, p.getPlane().getNormal(), TEST_EPS);
-        Assertions.assertEquals(4, p.getVertices().size());
-    }
-
-    @Test
     void testToPolygon_noNormal_3_oe() {
         // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
@@ -90,7 +75,22 @@ class FacetDefinitionsTest_OE25Dev {
         // assert
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, p.getPlane().getNormal(), TEST_EPS);
+        // removed other assertion
+        Assertions.assertEquals(4, p.getVertices().size());
+    }
+
+    @Test
+    void testToPolygon_noNormal_4_oe() {
+        // arrange
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS);
+
+        // act
+        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         Assertions.assertEquals(1.0, p.getSize(), TEST_EPS);
     }
@@ -109,22 +109,6 @@ class FacetDefinitionsTest_OE25Dev {
     }
 
     @Test
-    void testToPolygon_withNormal_similarDirection_2_oe() {
-        // arrange
-        final Vector3D normal = Vector3D.of(0.1, 0.2, 0.3);
-        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
-
-        // act
-        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, p.getPlane().getNormal(), TEST_EPS);
-        Assertions.assertEquals(4, p.getVertices().size());
-    }
-
-    @Test
     void testToPolygon_withNormal_similarDirection_3_oe() {
         // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, 0.3);
@@ -136,7 +120,23 @@ class FacetDefinitionsTest_OE25Dev {
         // assert
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, p.getPlane().getNormal(), TEST_EPS);
+        // removed other assertion
+        Assertions.assertEquals(4, p.getVertices().size());
+    }
+
+    @Test
+    void testToPolygon_withNormal_similarDirection_4_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.of(0.1, 0.2, 0.3);
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
+
+        // act
+        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         Assertions.assertEquals(1.0, p.getSize(), TEST_EPS);
     }
@@ -155,22 +155,6 @@ class FacetDefinitionsTest_OE25Dev {
     }
 
     @Test
-    void testToPolygon_withNormal_differentDirection_2_oe() {
-        // arrange
-        final Vector3D normal = Vector3D.of(0.1, 0.2, -0.3);
-        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
-
-        // act
-        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_Z, p.getPlane().getNormal(), TEST_EPS);
-        Assertions.assertEquals(4, p.getVertices().size());
-    }
-
-    @Test
     void testToPolygon_withNormal_differentDirection_3_oe() {
         // arrange
         final Vector3D normal = Vector3D.of(0.1, 0.2, -0.3);
@@ -182,7 +166,23 @@ class FacetDefinitionsTest_OE25Dev {
         // assert
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_Z, p.getPlane().getNormal(), TEST_EPS);
+        // removed other assertion
+        Assertions.assertEquals(4, p.getVertices().size());
+    }
+
+    @Test
+    void testToPolygon_withNormal_differentDirection_4_oe() {
+        // arrange
+        final Vector3D normal = Vector3D.of(0.1, 0.2, -0.3);
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, normal);
+
+        // act
+        final ConvexPolygon3D p = FacetDefinitions.toPolygon(f, TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         Assertions.assertEquals(1.0, p.getSize(), TEST_EPS);
     }

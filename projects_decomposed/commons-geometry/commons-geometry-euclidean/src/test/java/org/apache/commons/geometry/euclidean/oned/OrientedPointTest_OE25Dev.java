@@ -931,29 +931,6 @@ class OrientedPointTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
-        final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
-
-        final OrientedPoint a = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
-        final OrientedPoint b = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionA);
-
-        final OrientedPoint c = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionA);
-        final OrientedPoint d = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, precisionA);
-
-        final OrientedPoint e = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionA);
-        final OrientedPoint f = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionB);
-
-        final OrientedPoint g = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, b);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
@@ -971,10 +948,9 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint g = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
         // removed other assertion
-        Assertions.assertNotEquals(c, d);
+
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -995,11 +971,10 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint g = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(e, f);
+        Assertions.assertNotEquals(c, d);
     }
 
     @Test
@@ -1020,13 +995,11 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint g = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(a, g);
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(e, f);
     }
 
     @Test
@@ -1047,7 +1020,34 @@ class OrientedPointTest_OE25Dev {
         final OrientedPoint g = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(a, g);
+    }
+
+    @Test
+    void testEquals_6_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precisionA = Precision.doubleEquivalenceOfEpsilon(1e-10);
+        final Precision.DoubleEquivalence precisionB = Precision.doubleEquivalenceOfEpsilon(1e-15);
+
+        final OrientedPoint a = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
+        final OrientedPoint b = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionA);
+
+        final OrientedPoint c = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionA);
+        final OrientedPoint d = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), false, precisionA);
+
+        final OrientedPoint e = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionA);
+        final OrientedPoint f = OrientedPoints.fromPointAndDirection(Vector1D.of(2.0), true, precisionB);
+
+        final OrientedPoint g = OrientedPoints.fromPointAndDirection(Vector1D.of(1.0), true, precisionA);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -1172,25 +1172,6 @@ class OrientedPointTest_OE25Dev {
     }
 
     @Test
-    void testSubset_simpleMethods_7_oe() {
-        // arrange
-        final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
-        final HyperplaneConvexSubset<Vector1D> sub = pt.span();
-
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(2), sub.getCentroid(), TEST_EPS);
-
-        final List<? extends HyperplaneConvexSubset<Vector1D>> list = sub.toConvex();
-        Assertions.assertEquals(1, list.size());
-    }
-
-    @Test
     void testSubset_simpleMethods_8_oe() {
         // arrange
         final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
@@ -1203,7 +1184,26 @@ class OrientedPointTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(2), sub.getCentroid(), TEST_EPS);
+        // removed other assertion
+
+        final List<? extends HyperplaneConvexSubset<Vector1D>> list = sub.toConvex();
+        Assertions.assertEquals(1, list.size());
+    }
+
+    @Test
+    void testSubset_simpleMethods_9_oe() {
+        // arrange
+        final OrientedPoint pt = OrientedPoints.createPositiveFacing(2, TEST_PRECISION);
+        final HyperplaneConvexSubset<Vector1D> sub = pt.span();
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<? extends HyperplaneConvexSubset<Vector1D>> list = sub.toConvex();
         // removed other assertion

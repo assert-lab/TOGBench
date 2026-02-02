@@ -909,24 +909,6 @@ class Bounds2DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
-
-        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-1, 1), Vector2D.of(2, 2));
-        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
-        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
-        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
-
-        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(b1);
-
-        Assertions.assertNotEquals(b1, b2);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
@@ -939,10 +921,9 @@ class Bounds2DTest_OE25Dev {
         final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(b1);
-
         // removed other assertion
-        Assertions.assertNotEquals(b1, b3);
+
+        Assertions.assertNotEquals(b1, b2);
     }
 
     @Test
@@ -958,11 +939,10 @@ class Bounds2DTest_OE25Dev {
         final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(b1);
+        // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(b1, b4);
+        Assertions.assertNotEquals(b1, b3);
     }
 
     @Test
@@ -978,12 +958,11 @@ class Bounds2DTest_OE25Dev {
         final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(b1);
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(b1, b5);
+        Assertions.assertNotEquals(b1, b4);
     }
 
     @Test
@@ -999,7 +978,28 @@ class Bounds2DTest_OE25Dev {
         final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(b1);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(b1, b5);
+    }
+
+    @Test
+    void testEquals_6_oe() {
+        // arrange
+        final Bounds2D b1 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        final Bounds2D b2 = Bounds2D.from(Vector2D.of(-1, 1), Vector2D.of(2, 2));
+        final Bounds2D b3 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(3, 2));
+        final Bounds2D b4 = Bounds2D.from(Vector2D.of(1 + 1e-15, 1), Vector2D.of(2, 2));
+        final Bounds2D b5 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2 + 1e-15, 2));
+
+        final Bounds2D b6 = Bounds2D.from(Vector2D.of(1, 1), Vector2D.of(2, 2));
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

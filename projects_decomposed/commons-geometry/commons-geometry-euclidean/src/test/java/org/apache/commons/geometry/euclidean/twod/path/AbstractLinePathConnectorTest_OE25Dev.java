@@ -331,42 +331,6 @@ class AbstractLinePathConnectorTest_OE25Dev {
     }
 
     @Test
-    void testConnectAll_mixOfOpenConnectedAndInfinite_2_oe() {
-        // arrange
-        final LineConvexSubset inputYInf = Y_AXIS.reverseRayTo(Vector2D.ZERO);
-        final LineConvexSubset inputXInf = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.MINUS_X, TEST_PRECISION)
-                .rayFrom(Vector2D.ZERO);
-
-        final LinePath closedPath = LinePath.builder(TEST_PRECISION)
-                .appendVertices(Vector2D.of(0, 2), Vector2D.of(1, 2), Vector2D.of(1, 3))
-                .close();
-
-        final LinePath openPath = LinePath.builder(TEST_PRECISION)
-                .appendVertices(Vector2D.of(-1, 3), Vector2D.of(0, 1), Vector2D.of(1, 1))
-                .build();
-
-        final List<LineConvexSubset> segments = new ArrayList<>();
-        segments.add(inputYInf);
-        segments.add(inputXInf);
-        segments.addAll(closedPath.getElements());
-        segments.addAll(openPath.getElements());
-
-        shuffle(segments);
-
-        // act
-        final List<LinePath> paths = connector.connectAll(segments);
-
-        // assert
-        // removed other assertion
-
-        assertFinitePath(paths.get(0),
-                Vector2D.of(-1, 3), Vector2D.of(0, 1), Vector2D.of(1, 1));
-
-        final LinePath infPath = paths.get(1);
-        Assertions.assertTrue(infPath.isInfinite());
-    }
-
-    @Test
     void testConnectAll_mixOfOpenConnectedAndInfinite_3_oe() {
         // arrange
         final LineConvexSubset inputYInf = Y_AXIS.reverseRayTo(Vector2D.ZERO);
@@ -395,12 +359,10 @@ class AbstractLinePathConnectorTest_OE25Dev {
         // assert
         // removed other assertion
 
-        assertFinitePath(paths.get(0),
-                Vector2D.of(-1, 3), Vector2D.of(0, 1), Vector2D.of(1, 1));
+        // removed other assertion
 
         final LinePath infPath = paths.get(1);
-        // removed other assertion
-        Assertions.assertEquals(2, infPath.getElements().size());
+        Assertions.assertTrue(infPath.isInfinite());
     }
 
     @Test
@@ -432,13 +394,11 @@ class AbstractLinePathConnectorTest_OE25Dev {
         // assert
         // removed other assertion
 
-        assertFinitePath(paths.get(0),
-                Vector2D.of(-1, 3), Vector2D.of(0, 1), Vector2D.of(1, 1));
+        // removed other assertion
 
         final LinePath infPath = paths.get(1);
         // removed other assertion
-        // removed other assertion
-        Assertions.assertSame(inputYInf, infPath.getElements().get(0));
+        Assertions.assertEquals(2, infPath.getElements().size());
     }
 
     @Test
@@ -470,8 +430,44 @@ class AbstractLinePathConnectorTest_OE25Dev {
         // assert
         // removed other assertion
 
-        assertFinitePath(paths.get(0),
-                Vector2D.of(-1, 3), Vector2D.of(0, 1), Vector2D.of(1, 1));
+        // removed other assertion
+
+        final LinePath infPath = paths.get(1);
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertSame(inputYInf, infPath.getElements().get(0));
+    }
+
+    @Test
+    void testConnectAll_mixOfOpenConnectedAndInfinite_6_oe() {
+        // arrange
+        final LineConvexSubset inputYInf = Y_AXIS.reverseRayTo(Vector2D.ZERO);
+        final LineConvexSubset inputXInf = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.MINUS_X, TEST_PRECISION)
+                .rayFrom(Vector2D.ZERO);
+
+        final LinePath closedPath = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(0, 2), Vector2D.of(1, 2), Vector2D.of(1, 3))
+                .close();
+
+        final LinePath openPath = LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.of(-1, 3), Vector2D.of(0, 1), Vector2D.of(1, 1))
+                .build();
+
+        final List<LineConvexSubset> segments = new ArrayList<>();
+        segments.add(inputYInf);
+        segments.add(inputXInf);
+        segments.addAll(closedPath.getElements());
+        segments.addAll(openPath.getElements());
+
+        shuffle(segments);
+
+        // act
+        final List<LinePath> paths = connector.connectAll(segments);
+
+        // assert
+        // removed other assertion
+
+        // removed other assertion
 
         final LinePath infPath = paths.get(1);
         // removed other assertion

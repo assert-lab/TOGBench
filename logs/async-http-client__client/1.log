@@ -22,153 +22,183 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 179 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/target/test-classes
+[INFO] Compiling 171 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/test/TestUtils.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/test/TestUtils.java: Recompile with -Xlint:deprecation for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/RC1KTest_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/RC1KTest_OE25Dev.java: Recompile with -Xlint:removal for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/reactivestreams/ReactiveStreamsTest.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/reactivestreams/ReactiveStreamsTest.java uses unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/reactivestreams/ReactiveStreamsTest.java: Recompile with -Xlint:unchecked for details.
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[180,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[193,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[211,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[234,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[262,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[295,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[333,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[376,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[424,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[477,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[535,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[598,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[666,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[739,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[817,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[900,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[988,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[1081,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[1179,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[1282,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[1398,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[1530,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PerRequestRelative302Test_OE25Dev.java:[67,5] cannot find symbol
-  symbol:   method redirected302Test()
-  location: class org.asynchttpclient.PerRequestRelative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PerRequestRelative302Test_OE25Dev.java:[68,5] cannot find symbol
-  symbol:   method notRedirected302Test()
-  location: class org.asynchttpclient.PerRequestRelative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PerRequestRelative302Test_OE25Dev.java:[69,5] cannot find symbol
-  symbol:   method relativeLocationUrl()
-  location: class org.asynchttpclient.PerRequestRelative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PerRequestRelative302Test_OE25Dev.java:[70,5] cannot find symbol
-  symbol:   method redirected302InvalidTest()
-  location: class org.asynchttpclient.PerRequestRelative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/Relative302Test_OE25Dev.java:[64,5] cannot find symbol
-  symbol:   method redirected302Test()
-  location: class org.asynchttpclient.Relative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/Relative302Test_OE25Dev.java:[65,5] cannot find symbol
-  symbol:   method redirected302InvalidTest()
-  location: class org.asynchttpclient.Relative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/Relative302Test_OE25Dev.java:[66,5] cannot find symbol
-  symbol:   method absolutePathRedirectTest()
-  location: class org.asynchttpclient.Relative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/Relative302Test_OE25Dev.java:[67,5] cannot find symbol
-  symbol:   method relativePathRedirectTest()
-  location: class org.asynchttpclient.Relative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/proxy/ProxyTest_OE25Dev.java:[86,5] cannot find symbol
-  symbol:   method testProxyProperties()
-  location: class org.asynchttpclient.proxy.ProxyTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/proxy/ProxyTest_OE25Dev.java:[88,5] cannot find symbol
-  symbol:   method testProxyActivationProperty()
-  location: class org.asynchttpclient.proxy.ProxyTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/proxy/ProxyTest_OE25Dev.java:[90,5] cannot find symbol
-  symbol:   method testUseProxySelector()
-  location: class org.asynchttpclient.proxy.ProxyTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/HttpToHttpsRedirectTest_OE25Dev.java:[58,5] cannot find symbol
-  symbol:   method httpToHttpsRedirect()
-  location: class org.asynchttpclient.HttpToHttpsRedirectTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/HttpToHttpsRedirectTest_OE25Dev.java:[59,5] cannot find symbol
-  symbol:   method httpToHttpsProperConfig()
-  location: class org.asynchttpclient.HttpToHttpsRedirectTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/HttpToHttpsRedirectTest_OE25Dev.java:[60,5] cannot find symbol
-  symbol:   method relativeLocationUrl()
-  location: class org.asynchttpclient.HttpToHttpsRedirectTest_OE25Dev
-[INFO] 36 errors 
-[INFO] -------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestSuite
+Tests run: 679, Failures: 25, Errors: 0, Skipped: 0, Time elapsed: 540.074 sec <<< FAILURE! - in TestSuite
+testGetCompleteServicePrincipalName_2_oe(org.asynchttpclient.spnego.SpnegoEngineTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.AssertionError: did not expect [HTTP@localhost] but found [HTTP@localhost]
+	at org.asynchttpclient.spnego.SpnegoEngineTest_OE25Dev.testGetCompleteServicePrincipalName_2_oe(SpnegoEngineTest_OE25Dev.java:199)
+
+maxConnectionsText_1_oe(org.asynchttpclient.filter.FilterTest_OE25Dev)  Time elapsed: 1.006 sec  <<< FAILURE!
+java.util.concurrent.ExecutionException: preProcessRequest failed
+	at org.asynchttpclient.filter.FilterTest_OE25Dev.maxConnectionsText_1_oe(FilterTest_OE25Dev.java:113)
+Caused by: org.asynchttpclient.filter.FilterException: No slot available for processing Request http://localhost:45843/foo/test	POST	headers: with AsyncHandler org.asynchttpclient.AsyncCompletionHandlerBase@4a5d5b38
+	at org.asynchttpclient.filter.FilterTest_OE25Dev.maxConnectionsText_1_oe(FilterTest_OE25Dev.java:113)
+
+testGetWithRequestBuilderAndQuery_3_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_3_oe(OAuthSignatureCalculatorTest_OE25Dev.java:459)
+
+testGetWithRequestBuilderAndQuery_4_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_4_oe(OAuthSignatureCalculatorTest_OE25Dev.java:493)
+
+testGetWithRequestBuilderAndQuery_5_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_5_oe(OAuthSignatureCalculatorTest_OE25Dev.java:528)
+
+testGetWithRequestBuilder_3_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_3_oe(OAuthSignatureCalculatorTest_OE25Dev.java:341)
+
+testGetWithRequestBuilder_4_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_4_oe(OAuthSignatureCalculatorTest_OE25Dev.java:377)
+
+testPostCalculateSignature_2_oe(org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.IllegalStateException: No match found
+	at org.asynchttpclient.oauth.OAuthSignatureCalculatorTest_OE25Dev.testPostCalculateSignature_2_oe(OAuthSignatureCalculatorTest_OE25Dev.java:254)
+
+wrongProtocolCode_1_oe(org.asynchttpclient.ws.CloseCodeReasonMessageTest_OE25Dev)  Time elapsed: 0.11 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method CloseCodeReasonMessageTest_OE25Dev.wrongProtocolCode_1_oe()[pri:0, instance:org.asynchttpclient.ws.CloseCodeReasonMessageTest_OE25Dev@f627d13] should have thrown an exception of type class java.io.IOException
+
+wrongStatusCode_1_oe(org.asynchttpclient.ws.CloseCodeReasonMessageTest_OE25Dev)  Time elapsed: 0.005 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method CloseCodeReasonMessageTest_OE25Dev.wrongStatusCode_1_oe()[pri:0, instance:org.asynchttpclient.ws.CloseCodeReasonMessageTest_OE25Dev@f627d13] should have thrown an exception of type class java.lang.IllegalArgumentException
+
+onFailureTest_1_oe(org.asynchttpclient.ws.TextMessageTest_OE25Dev)  Time elapsed: 0.005 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Expected exception of any of types [class java.net.UnknownHostException, class java.net.ConnectException] but got java.lang.AssertionError: expected [true] but found [false]
+	at org.asynchttpclient.ws.TextMessageTest_OE25Dev.onFailureTest_1_oe(TextMessageTest_OE25Dev.java:93)
+
+deferredInputStreamTrickWithCloseConnectionAndRetry_1_oe(org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev)  Time elapsed: 0.006 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithCloseConnectionAndRetry_1_oe()[pri:0, instance:org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev@5f77d0f9] should have thrown an exception of type class java.lang.UnsupportedOperationException
+
+deferredInputStreamTrickWithCloseConnectionAndRetry_2_oe(org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithCloseConnectionAndRetry_2_oe()[pri:0, instance:org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev@5f77d0f9] should have thrown an exception of type class java.lang.UnsupportedOperationException
+
+deferredInputStreamTrickWithCloseConnectionAndRetry_3_oe(org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithCloseConnectionAndRetry_3_oe()[pri:0, instance:org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev@5f77d0f9] should have thrown an exception of type class java.lang.UnsupportedOperationException
+
+deferredInputStreamTrickWithFailure_1_oe(org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithFailure_1_oe()[pri:0, instance:org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev@5f77d0f9] should have thrown an exception of type class org.asynchttpclient.exception.RemotelyClosedException
+
+deferredInputStreamTrickWithFailure_2_oe(org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithFailure_2_oe()[pri:0, instance:org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev@5f77d0f9] should have thrown an exception of type class org.asynchttpclient.exception.RemotelyClosedException
+
+deferredInputStreamTrickWithFailure_3_oe(org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithFailure_3_oe()[pri:0, instance:org.asynchttpclient.handler.BodyDeferringAsyncHandlerTest_OE25Dev@5f77d0f9] should have thrown an exception of type class org.asynchttpclient.exception.RemotelyClosedException
+
+multipleMaxConnectionOpenTest_1_oe(org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method ConnectionPoolTest_OE25Dev.multipleMaxConnectionOpenTest_1_oe()[pri:0, instance:org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev@1b266842] should have thrown an exception of type class org.asynchttpclient.exception.TooManyConnectionsException
+
+multipleMaxConnectionOpenTest_3_oe(org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method ConnectionPoolTest_OE25Dev.multipleMaxConnectionOpenTest_3_oe()[pri:0, instance:org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev@1b266842] should have thrown an exception of type class org.asynchttpclient.exception.TooManyConnectionsException
+
+testMaxTotalConnectionsException_1_oe(org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+org.testng.TestException: 
+
+Method ConnectionPoolTest_OE25Dev.testMaxTotalConnectionsException_1_oe()[pri:0, instance:org.asynchttpclient.channel.ConnectionPoolTest_OE25Dev@1b266842] should have thrown an exception of type class org.asynchttpclient.exception.TooManyConnectionsException
+
+testStream_4_oe(org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev)  Time elapsed: 0.004 sec  <<< FAILURE!
+java.lang.AssertionError: expected [2] but found [0]
+	at org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev.testStream_4_oe(AsyncStreamLifecycleTest_OE25Dev.java:216)
+
+testStream_5_oe(org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev.testStream_5_oe(AsyncStreamLifecycleTest_OE25Dev.java:263)
+
+testStream_6_oe(org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev.testStream_6_oe(AsyncStreamLifecycleTest_OE25Dev.java:311)
+
+testStream_7_oe(org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.AssertionError: expected [true] but found [false]
+	at org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev.testStream_7_oe(AsyncStreamLifecycleTest_OE25Dev.java:360)
+
+testStream_8_oe(org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.AssertionError: expected [1] but found [0]
+	at org.asynchttpclient.AsyncStreamLifecycleTest_OE25Dev.testStream_8_oe(AsyncStreamLifecycleTest_OE25Dev.java:410)
+
+
+Results :
+
+Failed tests: 
+  AsyncStreamLifecycleTest_OE25Dev.testStream_4_oe:216 expected [2] but found [0]
+  AsyncStreamLifecycleTest_OE25Dev.testStream_5_oe:263 expected [true] but found [false]
+  AsyncStreamLifecycleTest_OE25Dev.testStream_6_oe:311 expected [true] but found [false]
+  AsyncStreamLifecycleTest_OE25Dev.testStream_7_oe:360 expected [true] but found [false]
+  AsyncStreamLifecycleTest_OE25Dev.testStream_8_oe:410 expected [1] but found [0]
+  ConnectionPoolTest_OE25Dev.multipleMaxConnectionOpenTest_1_oe » Test 
+Method C...
+  ConnectionPoolTest_OE25Dev.multipleMaxConnectionOpenTest_3_oe » Test 
+Method C...
+  ConnectionPoolTest_OE25Dev.testMaxTotalConnectionsException_1_oe » Test 
+Metho...
+  FilterTest_OE25Dev.maxConnectionsText_1_oe:113 » Execution preProcessRequest f...
+  BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithCloseConnectionAndRetry_1_oe » Test
+  BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithCloseConnectionAndRetry_2_oe » Test
+  BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithCloseConnectionAndRetry_3_oe » Test
+  BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithFailure_1_oe » Test
+  BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithFailure_2_oe » Test
+  BodyDeferringAsyncHandlerTest_OE25Dev.deferredInputStreamTrickWithFailure_3_oe » Test
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_3_oe:459 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_4_oe:493 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilderAndQuery_5_oe:528 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_3_oe:341 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testGetWithRequestBuilder_4_oe:377 » IllegalState
+  OAuthSignatureCalculatorTest_OE25Dev.testPostCalculateSignature_2_oe:254 » IllegalState
+  SpnegoEngineTest_OE25Dev.testGetCompleteServicePrincipalName_2_oe:199 did not expect [HTTP@localhost] but found [HTTP@localhost]
+  CloseCodeReasonMessageTest_OE25Dev.wrongProtocolCode_1_oe » Test 
+Method Close...
+  CloseCodeReasonMessageTest_OE25Dev.wrongStatusCode_1_oe » Test 
+Method CloseCo...
+  TextMessageTest_OE25Dev.onFailureTest_1_oe » Test 
+Expected exception of any o...
+
+Tests run: 679, Failures: 25, Errors: 0, Skipped: 0
+
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  17.796 s
-[INFO] Finished at: 2026-01-26T16:28:13-06:00
+[INFO] Total time:  09:18 min
+[INFO] Finished at: 2026-02-02T13:47:58-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[180,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[193,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[211,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[234,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[262,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[295,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[333,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[376,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[424,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[477,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[535,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[598,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[666,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[739,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[817,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[900,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[988,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[1081,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[1179,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[1282,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[1398,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/AsyncHttpClientDefaultsTest_OE25Dev.java:[1530,8] class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev.AsyncHttpClientDefaultsTest is already defined in class org.asynchttpclient.AsyncHttpClientDefaultsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PerRequestRelative302Test_OE25Dev.java:[67,5] cannot find symbol
-[ERROR]   symbol:   method redirected302Test()
-[ERROR]   location: class org.asynchttpclient.PerRequestRelative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PerRequestRelative302Test_OE25Dev.java:[68,5] cannot find symbol
-[ERROR]   symbol:   method notRedirected302Test()
-[ERROR]   location: class org.asynchttpclient.PerRequestRelative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PerRequestRelative302Test_OE25Dev.java:[69,5] cannot find symbol
-[ERROR]   symbol:   method relativeLocationUrl()
-[ERROR]   location: class org.asynchttpclient.PerRequestRelative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/PerRequestRelative302Test_OE25Dev.java:[70,5] cannot find symbol
-[ERROR]   symbol:   method redirected302InvalidTest()
-[ERROR]   location: class org.asynchttpclient.PerRequestRelative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/Relative302Test_OE25Dev.java:[64,5] cannot find symbol
-[ERROR]   symbol:   method redirected302Test()
-[ERROR]   location: class org.asynchttpclient.Relative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/Relative302Test_OE25Dev.java:[65,5] cannot find symbol
-[ERROR]   symbol:   method redirected302InvalidTest()
-[ERROR]   location: class org.asynchttpclient.Relative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/Relative302Test_OE25Dev.java:[66,5] cannot find symbol
-[ERROR]   symbol:   method absolutePathRedirectTest()
-[ERROR]   location: class org.asynchttpclient.Relative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/Relative302Test_OE25Dev.java:[67,5] cannot find symbol
-[ERROR]   symbol:   method relativePathRedirectTest()
-[ERROR]   location: class org.asynchttpclient.Relative302Test_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/proxy/ProxyTest_OE25Dev.java:[86,5] cannot find symbol
-[ERROR]   symbol:   method testProxyProperties()
-[ERROR]   location: class org.asynchttpclient.proxy.ProxyTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/proxy/ProxyTest_OE25Dev.java:[88,5] cannot find symbol
-[ERROR]   symbol:   method testProxyActivationProperty()
-[ERROR]   location: class org.asynchttpclient.proxy.ProxyTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/proxy/ProxyTest_OE25Dev.java:[90,5] cannot find symbol
-[ERROR]   symbol:   method testUseProxySelector()
-[ERROR]   location: class org.asynchttpclient.proxy.ProxyTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/HttpToHttpsRedirectTest_OE25Dev.java:[58,5] cannot find symbol
-[ERROR]   symbol:   method httpToHttpsRedirect()
-[ERROR]   location: class org.asynchttpclient.HttpToHttpsRedirectTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/HttpToHttpsRedirectTest_OE25Dev.java:[59,5] cannot find symbol
-[ERROR]   symbol:   method httpToHttpsProperConfig()
-[ERROR]   location: class org.asynchttpclient.HttpToHttpsRedirectTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/src/test/java/org/asynchttpclient/HttpToHttpsRedirectTest_OE25Dev.java:[60,5] cannot find symbol
-[ERROR]   symbol:   method relativeLocationUrl()
-[ERROR]   location: class org.asynchttpclient.HttpToHttpsRedirectTest_OE25Dev
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/client/target/surefire-reports for the individual test results.
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

@@ -161,43 +161,6 @@ class LineConvexSubset3DTest_OE25Dev {
     }
 
     @Test
-    void testFromInterval_intervalArg_full_3_oe() {
-        // arrange
-        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
-
-        // act
-        final LineConvexSubset3D span = Lines3D.subsetFromInterval(line, Interval.full());
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertNegativeInfinity(span.getSubspaceStart());
-        GeometryTestUtils.assertPositiveInfinity(span.getSubspaceEnd());
-
-        Assertions.assertNull(span.getStartPoint());
-    }
-
-    @Test
-    void testFromInterval_intervalArg_full_4_oe() {
-        // arrange
-        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
-
-        // act
-        final LineConvexSubset3D span = Lines3D.subsetFromInterval(line, Interval.full());
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertNegativeInfinity(span.getSubspaceStart());
-        GeometryTestUtils.assertPositiveInfinity(span.getSubspaceEnd());
-
-        // removed other assertion
-        Assertions.assertNull(span.getEndPoint());
-    }
-
-    @Test
     void testFromInterval_intervalArg_full_5_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
@@ -209,8 +172,45 @@ class LineConvexSubset3DTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertNegativeInfinity(span.getSubspaceStart());
-        GeometryTestUtils.assertPositiveInfinity(span.getSubspaceEnd());
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertNull(span.getStartPoint());
+    }
+
+    @Test
+    void testFromInterval_intervalArg_full_6_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
+
+        // act
+        final LineConvexSubset3D span = Lines3D.subsetFromInterval(line, Interval.full());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(span.getEndPoint());
+    }
+
+    @Test
+    void testFromInterval_intervalArg_full_7_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
+
+        // act
+        final LineConvexSubset3D span = Lines3D.subsetFromInterval(line, Interval.full());
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -268,7 +268,7 @@ class LineConvexSubset3DTest_OE25Dev {
     }
 
     @Test
-    void testFromInterval_intervalArg_positiveHalfSpace_4_oe() {
+    void testFromInterval_intervalArg_positiveHalfSpace_6_oe() {
         // arrange
         final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
         final Interval interval = Interval.min(-1, intervalPrecision);
@@ -283,28 +283,12 @@ class LineConvexSubset3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        GeometryTestUtils.assertPositiveInfinity(ray.getSubspaceEnd());
+        // removed other assertion
 
         final double side = 1.0 / Math.sqrt(3);
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-side, -side, -side), ray.getStartPoint(), TEST_EPS);
+        // removed other assertion
         Assertions.assertNull(ray.getEndPoint());
-    }
-
-    @Test
-    void testFromInterval_intervalArg_negativeHalfSpace_1_oe() {
-        // arrange
-        final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
-        final Interval interval = Interval.max(2, intervalPrecision);
-
-        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
-
-        // act
-        final ReverseRay3D halfLine = (ReverseRay3D) Lines3D.subsetFromInterval(line, interval);
-
-        // assert
-        GeometryTestUtils.assertNegativeInfinity(halfLine.getSubspaceStart());
-        Assertions.assertEquals(2, halfLine.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
@@ -319,7 +303,23 @@ class LineConvexSubset3DTest_OE25Dev {
         final ReverseRay3D halfLine = (ReverseRay3D) Lines3D.subsetFromInterval(line, interval);
 
         // assert
-        GeometryTestUtils.assertNegativeInfinity(halfLine.getSubspaceStart());
+        // removed other assertion
+        Assertions.assertEquals(2, halfLine.getSubspaceEnd(), TEST_EPS);
+    }
+
+    @Test
+    void testFromInterval_intervalArg_negativeHalfSpace_3_oe() {
+        // arrange
+        final Precision.DoubleEquivalence intervalPrecision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.max(2, intervalPrecision);
+
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
+
+        // act
+        final ReverseRay3D halfLine = (ReverseRay3D) Lines3D.subsetFromInterval(line, interval);
+
+        // assert
+        // removed other assertion
         // removed other assertion
 
         final double side = 1.0 / Math.sqrt(3);
@@ -328,7 +328,7 @@ class LineConvexSubset3DTest_OE25Dev {
     }
 
     @Test
-    void testFromInterval_doubleArgs_full_1_oe() {
+    void testFromInterval_doubleArgs_full_3_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
 
@@ -336,14 +336,14 @@ class LineConvexSubset3DTest_OE25Dev {
         final LineConvexSubset3D span = Lines3D.subsetFromInterval(line, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
 
         // assert
-        GeometryTestUtils.assertNegativeInfinity(span.getSubspaceStart());
-        GeometryTestUtils.assertPositiveInfinity(span.getSubspaceEnd());
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNull(span.getStartPoint());
     }
 
     @Test
-    void testFromInterval_doubleArgs_full_2_oe() {
+    void testFromInterval_doubleArgs_full_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
 
@@ -351,8 +351,8 @@ class LineConvexSubset3DTest_OE25Dev {
         final LineConvexSubset3D span = Lines3D.subsetFromInterval(line, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY);
 
         // assert
-        GeometryTestUtils.assertNegativeInfinity(span.getSubspaceStart());
-        GeometryTestUtils.assertPositiveInfinity(span.getSubspaceEnd());
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertNull(span.getEndPoint());
@@ -371,7 +371,7 @@ class LineConvexSubset3DTest_OE25Dev {
     }
 
     @Test
-    void testFromInterval_doubleArgs_positiveHalfSpace_2_oe() {
+    void testFromInterval_doubleArgs_positiveHalfSpace_4_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
 
@@ -380,25 +380,12 @@ class LineConvexSubset3DTest_OE25Dev {
 
         // assert
         // removed other assertion
-        GeometryTestUtils.assertPositiveInfinity(ray.getSubspaceEnd());
+        // removed other assertion
 
         final double side = 1.0 / Math.sqrt(3);
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-side, -side, -side), ray.getStartPoint(), TEST_EPS);
+        // removed other assertion
         Assertions.assertNull(ray.getEndPoint());
-    }
-
-    @Test
-    void testFromInterval_doubleArgs_negativeHalfSpace_1_oe() {
-        // arrange
-        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
-
-        // act
-        final ReverseRay3D halfLine = (ReverseRay3D) Lines3D.subsetFromInterval(line, 2, Double.NEGATIVE_INFINITY);
-
-        // assert
-        GeometryTestUtils.assertNegativeInfinity(halfLine.getSubspaceStart());
-        Assertions.assertEquals(2, halfLine.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
@@ -410,7 +397,20 @@ class LineConvexSubset3DTest_OE25Dev {
         final ReverseRay3D halfLine = (ReverseRay3D) Lines3D.subsetFromInterval(line, 2, Double.NEGATIVE_INFINITY);
 
         // assert
-        GeometryTestUtils.assertNegativeInfinity(halfLine.getSubspaceStart());
+        // removed other assertion
+        Assertions.assertEquals(2, halfLine.getSubspaceEnd(), TEST_EPS);
+    }
+
+    @Test
+    void testFromInterval_doubleArgs_negativeHalfSpace_3_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
+
+        // act
+        final ReverseRay3D halfLine = (ReverseRay3D) Lines3D.subsetFromInterval(line, 2, Double.NEGATIVE_INFINITY);
+
+        // assert
+        // removed other assertion
         // removed other assertion
 
         final double side = 1.0 / Math.sqrt(3);
@@ -444,7 +444,7 @@ class LineConvexSubset3DTest_OE25Dev {
     }
 
     @Test
-    void testTransform_infinite_1_oe() {
+    void testTransform_infinite_2_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 0), Vector3D.of(0, 1, -1), TEST_PRECISION);
         final LineConvexSubset3D subset = Lines3D.subsetFromInterval(line,
@@ -458,7 +458,7 @@ class LineConvexSubset3DTest_OE25Dev {
         final LineConvexSubset3D transformed = subset.transform(transform);
 
         // assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, -2), transformed.getStartPoint(), TEST_EPS);
+        // removed other assertion
         Assertions.assertNull(transformed.getEndPoint());
     }
 

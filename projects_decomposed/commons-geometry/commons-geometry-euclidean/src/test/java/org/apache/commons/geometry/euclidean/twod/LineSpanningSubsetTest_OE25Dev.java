@@ -251,27 +251,6 @@ class LineSpanningSubsetTest_OE25Dev {
     }
 
     @Test
-    void testProperties_7_oe() {
-        // arrange
-        final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
-
-        // act
-        final LineSpanningSubset result = new LineSpanningSubset(line);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(result.getSize());
-        Assertions.assertNull(result.getCentroid());
-    }
-
-    @Test
     void testProperties_8_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -288,9 +267,8 @@ class LineSpanningSubsetTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(result.getSize());
         // removed other assertion
-        Assertions.assertNull(result.getBounds());
+        Assertions.assertNull(result.getCentroid());
     }
 
     @Test
@@ -310,11 +288,9 @@ class LineSpanningSubsetTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(result.getSize());
         // removed other assertion
         // removed other assertion
-
-        Assertions.assertNull(result.getStartPoint());
+        Assertions.assertNull(result.getBounds());
     }
 
     @Test
@@ -334,12 +310,36 @@ class LineSpanningSubsetTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(result.getSize());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertNull(result.getStartPoint());
+    }
+
+    @Test
+    void testProperties_12_oe() {
+        // arrange
+        final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act
+        final LineSpanningSubset result = new LineSpanningSubset(line);
+
+        // assert
         // removed other assertion
         // removed other assertion
 
         // removed other assertion
-        GeometryTestUtils.assertNegativeInfinity(result.getSubspaceStart());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(result.getEndPoint());
     }
 

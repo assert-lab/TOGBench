@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core
-[INFO] Storing buildNumber: 4c09e22d8c02f6e925aecd1701912efc953cf025 at timestamp: 1769466564845
+[INFO] Storing buildNumber: 1bce5ff5302ae8df6fc5734364b77ec74ad0d827 at timestamp: 1770061184262
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-core ---
@@ -50,29 +50,34 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 14 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/EpsilonDoubleEquivalenceTest_OE25Dev.java:[84,63] variable msg might not have been initialized
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/EpsilonDoubleEquivalenceTest_OE25Dev.java:[111,68] variable msg might not have been initialized
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/EpsilonDoubleEquivalenceTest_OE25Dev.java:[144,69] variable msg might not have been initialized
-[INFO] 3 errors 
-[INFO] -------------------------------------------------------------
+[INFO] Compiling 13 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/target/test-classes
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-core ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.numbers.core.PrecisionTest_OE25Dev
+[INFO] Tests run: 145, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.313 s - in org.apache.commons.numbers.core.PrecisionTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.SumTest_OE25Dev
+[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.numbers.core.SumTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.NormTest_OE25Dev
+[INFO] Tests run: 109, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s - in org.apache.commons.numbers.core.NormTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
+[INFO] Running org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
+[INFO] Tests run: 123, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.117 s - in org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 427, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  7.918 s
-[INFO] Finished at: 2026-01-26T16:29:30-06:00
+[INFO] Total time:  12.093 s
+[INFO] Finished at: 2026-02-02T13:39:53-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-core: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/EpsilonDoubleEquivalenceTest_OE25Dev.java:[84,63] variable msg might not have been initialized
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/EpsilonDoubleEquivalenceTest_OE25Dev.java:[111,68] variable msg might not have been initialized
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-core/src/test/java/org/apache/commons/numbers/core/EpsilonDoubleEquivalenceTest_OE25Dev.java:[144,69] variable msg might not have been initialized
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

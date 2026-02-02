@@ -512,21 +512,6 @@ class Point1STest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // act
-        final Point1S a = Point1S.of(1.0);
-        final Point1S b = Point1S.of(2.0);
-        final Point1S c = Point1S.of(1.0 + Math.PI);
-        final Point1S d = Point1S.of(1.0);
-        final Point1S e = Point1S.of(Double.NaN);
-
-        // assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, b);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
@@ -536,10 +521,9 @@ class Point1STest_OE25Dev {
         final Point1S e = Point1S.of(Double.NaN);
 
         // assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
         // removed other assertion
-        Assertions.assertNotEquals(b, a);
+
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -552,12 +536,10 @@ class Point1STest_OE25Dev {
         final Point1S e = Point1S.of(Double.NaN);
 
         // assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
         // removed other assertion
 
-        Assertions.assertNotEquals(a, c);
+        // removed other assertion
+        Assertions.assertNotEquals(b, a);
     }
 
     @Test
@@ -570,13 +552,12 @@ class Point1STest_OE25Dev {
         final Point1S e = Point1S.of(Double.NaN);
 
         // assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertNotEquals(c, a);
+        // removed other assertion
+
+        Assertions.assertNotEquals(a, c);
     }
 
     @Test
@@ -589,15 +570,13 @@ class Point1STest_OE25Dev {
         final Point1S e = Point1S.of(Double.NaN);
 
         // assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
         // removed other assertion
 
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(a, d);
+        // removed other assertion
+        Assertions.assertNotEquals(c, a);
     }
 
     @Test
@@ -610,16 +589,15 @@ class Point1STest_OE25Dev {
         final Point1S e = Point1S.of(Double.NaN);
 
         // assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
         // removed other assertion
 
         // removed other assertion
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(d, a);
+        // removed other assertion
+
+        Assertions.assertEquals(a, d);
     }
 
     @Test
@@ -632,7 +610,29 @@ class Point1STest_OE25Dev {
         final Point1S e = Point1S.of(Double.NaN);
 
         // assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(d, a);
+    }
+
+    @Test
+    void testEquals_8_oe() {
+        // act
+        final Point1S a = Point1S.of(1.0);
+        final Point1S b = Point1S.of(2.0);
+        final Point1S c = Point1S.of(1.0 + Math.PI);
+        final Point1S d = Point1S.of(1.0);
+        final Point1S e = Point1S.of(Double.NaN);
+
+        // assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -647,7 +647,7 @@ class Point1STest_OE25Dev {
     }
 
     @Test
-    void testEquals_8_oe() {
+    void testEquals_9_oe() {
         // act
         final Point1S a = Point1S.of(1.0);
         final Point1S b = Point1S.of(2.0);
@@ -656,7 +656,7 @@ class Point1STest_OE25Dev {
         final Point1S e = Point1S.of(Double.NaN);
 
         // assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

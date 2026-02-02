@@ -261,20 +261,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testConstructor_1_oe() {
+    void testConstructor_6_oe() {
         for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.numDenConstructorTestCases()) {
-            assertFraction(
-                    testCase.expectedNumerator,
-                    testCase.expectedDenominator,
-                    Fraction.of(testCase.operandNumerator, testCase.operandDenominator)
-            );
+            // removed other assertion
         }
 
         // Special cases.
-        assertFraction(Integer.MIN_VALUE, -1, Fraction.of(Integer.MIN_VALUE, -1));
-        assertFraction(1, Integer.MIN_VALUE, Fraction.of(1, Integer.MIN_VALUE));
-        assertFraction(-1, Integer.MIN_VALUE, Fraction.of(-1, Integer.MIN_VALUE));
-        assertFraction(1, 1, Fraction.of(Integer.MIN_VALUE, Integer.MIN_VALUE));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // Divide by zero
         Assertions.assertThrows(ArithmeticException.class, () -> Fraction.of(1, 0));
@@ -326,20 +322,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testDoubleConstructorWithMaxDenominator_1_oe() throws Exception  {
+    void testDoubleConstructorWithMaxDenominator_6_oe() throws Exception  {
         for (final CommonTestCases.DoubleToFractionTestCase testCase : CommonTestCases.doubleMaxDenomConstructorTestCases()) {
-            assertFraction(
-                    testCase.expectedNumerator,
-                    testCase.expectedDenominator,
-                    Fraction.from(testCase.operand, testCase.maxDenominator)
-            );
+            // removed other assertion
         }
 
         // Cases with different exact results from BigFraction
-        assertFraction(Integer.MIN_VALUE, -1, Fraction.from(Integer.MIN_VALUE * -1.0, 2));
-        assertFraction(Integer.MIN_VALUE, -3, Fraction.from(Integer.MIN_VALUE / -3.0, 10));
-        assertFraction(1, Integer.MIN_VALUE, Fraction.from(1.0 / Integer.MIN_VALUE, Integer.MIN_VALUE));
-        assertFraction(-1, Integer.MIN_VALUE, Fraction.from(-1.0 / Integer.MIN_VALUE, Integer.MIN_VALUE));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> Fraction.from(1.0, 0));
     }
@@ -984,35 +976,35 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testDoubleValue_1_oe() {
-        assertDoubleValue(0.5, 1, 2);
-        assertDoubleValue(-0.5, -1, 2);
-        assertDoubleValue(-0.5, 1, -2);
-        assertDoubleValue(0.5, -1, -2);
-        assertDoubleValue(1.0 / 3.0, 1, 3);
+    void testDoubleValue_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0.0, Fraction.ZERO.doubleValue());
     }
 
     @Test
-    void testDoubleValue_2_oe() {
-        assertDoubleValue(0.5, 1, 2);
-        assertDoubleValue(-0.5, -1, 2);
-        assertDoubleValue(-0.5, 1, -2);
-        assertDoubleValue(0.5, -1, -2);
-        assertDoubleValue(1.0 / 3.0, 1, 3);
+    void testDoubleValue_7_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertEquals(0.0, ZERO_P.doubleValue());
     }
 
     @Test
-    void testDoubleValue_3_oe() {
-        assertDoubleValue(0.5, 1, 2);
-        assertDoubleValue(-0.5, -1, 2);
-        assertDoubleValue(-0.5, 1, -2);
-        assertDoubleValue(0.5, -1, -2);
-        assertDoubleValue(1.0 / 3.0, 1, 3);
+    void testDoubleValue_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -1487,10 +1479,10 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testReciprocal_1_oe() {
+    void testReciprocal_2_oe() {
         for (final CommonTestCases.UnaryOperatorTestCase testCase : CommonTestCases.reciprocalTestCases()) {
             final Fraction f = Fraction.of(testCase.operandNumerator, testCase.operandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f.reciprocal());
+            // removed other assertion
         }
 
         final Fraction f = Fraction.of(0, 3);
@@ -1498,16 +1490,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testAdd_1_oe() {
+    void testAdd_3_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.add(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.add(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : addFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1517,16 +1509,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testAdd_2_oe() {
+    void testAdd_4_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.add(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.add(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : addFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1541,16 +1533,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testAdd_3_oe() {
+    void testAdd_5_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.addFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.add(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.addIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.add(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : addFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1567,16 +1559,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testDivide_1_oe() {
+    void testDivide_3_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.divide(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.divide(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : divideByFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1586,16 +1578,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testDivide_2_oe() {
+    void testDivide_4_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.divide(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.divide(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : divideByFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1610,16 +1602,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testDivide_3_oe() {
+    void testDivide_5_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.divide(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.divide(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : divideByFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1636,16 +1628,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testDivide_4_oe() {
+    void testDivide_6_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.divide(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.divide(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : divideByFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1664,16 +1656,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testDivide_5_oe() {
+    void testDivide_7_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.divideByFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.divide(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.divideByIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.divide(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : divideByFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1693,16 +1685,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testMultiply_1_oe() {
+    void testMultiply_3_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.multiply(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.multiplyByIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.multiply(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : multiplyByFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1712,16 +1704,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testMultiply_2_oe() {
+    void testMultiply_4_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.multiply(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.multiplyByIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.multiply(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : multiplyByFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1736,16 +1728,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testMultiply_3_oe() {
+    void testMultiply_5_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.multiplyByFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.multiply(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.multiplyByIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.multiply(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : multiplyByFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1762,26 +1754,14 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testPow_1_oe() {
-        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.powTestCases()) {
-            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
-            final int exponent = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.pow(exponent));
-        }
-
-        Assertions.assertThrows(ArithmeticException.class, () -> Fraction.of(Integer.MAX_VALUE).pow(2));
-    }
-
-    @Test
     void testPow_2_oe() {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.powTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int exponent = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.pow(exponent));
+            // removed other assertion
         }
 
-        // removed other assertion
-        Assertions.assertThrows(ArithmeticException.class, () -> Fraction.of(1, Integer.MAX_VALUE).pow(2));
+        Assertions.assertThrows(ArithmeticException.class, () -> Fraction.of(Integer.MAX_VALUE).pow(2));
     }
 
     @Test
@@ -1789,7 +1769,19 @@ class FractionTest_OE25Dev {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.powTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int exponent = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.pow(exponent));
+            // removed other assertion
+        }
+
+        // removed other assertion
+        Assertions.assertThrows(ArithmeticException.class, () -> Fraction.of(1, Integer.MAX_VALUE).pow(2));
+    }
+
+    @Test
+    void testPow_4_oe() {
+        for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.powTestCases()) {
+            final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
+            final int exponent = testCase.secondOperand;
+            // removed other assertion
         }
 
         // removed other assertion
@@ -1798,11 +1790,11 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testPow_4_oe() {
+    void testPow_5_oe() {
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.powTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int exponent = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.pow(exponent));
+            // removed other assertion
         }
 
         // removed other assertion
@@ -1812,16 +1804,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testSubtract_1_oe() {
+    void testSubtract_3_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.subtract(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.subtract(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : subtractFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1831,16 +1823,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testSubtract_2_oe() {
+    void testSubtract_4_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.subtract(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.subtract(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : subtractFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1855,16 +1847,16 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testSubtract_3_oe() {
+    void testSubtract_5_oe() {
         for (final CommonTestCases.BinaryOperatorTestCase testCase : CommonTestCases.subtractFractionTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final Fraction f2 = Fraction.of(testCase.secondOperandNumerator, testCase.secondOperandDenominator);
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.subtract(f2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryIntOperatorTestCase testCase : CommonTestCases.subtractIntTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
             final int i2 = testCase.secondOperand;
-            assertFraction(testCase.expectedNumerator, testCase.expectedDenominator, f1.subtract(i2));
+            // removed other assertion
         }
         for (final CommonTestCases.BinaryOperatorTestCase testCase : subtractFractionOverflowTestCases()) {
             final Fraction f1 = Fraction.of(testCase.firstOperandNumerator, testCase.firstOperandDenominator);
@@ -1911,23 +1903,6 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testEqualsAndHashCode_5_oe() {
-        final Fraction zero = Fraction.of(0, 1);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // Equal to same rational number
-        final Fraction zero2 = Fraction.of(0, 2);
-        assertEqualAndHashCodeEqual(zero, zero2);
-
-        // Not equal to different rational number
-        final Fraction one = Fraction.of(1, 1);
-        Assertions.assertNotEquals(zero, one);
-    }
-
-    @Test
     void testEqualsAndHashCode_6_oe() {
         final Fraction zero = Fraction.of(0, 1);
         // removed other assertion
@@ -1937,12 +1912,11 @@ class FractionTest_OE25Dev {
 
         // Equal to same rational number
         final Fraction zero2 = Fraction.of(0, 2);
-        assertEqualAndHashCodeEqual(zero, zero2);
+        // removed other assertion
 
         // Not equal to different rational number
         final Fraction one = Fraction.of(1, 1);
-        // removed other assertion
-        Assertions.assertNotEquals(one, zero);
+        Assertions.assertNotEquals(zero, one);
     }
 
     @Test
@@ -1955,7 +1929,25 @@ class FractionTest_OE25Dev {
 
         // Equal to same rational number
         final Fraction zero2 = Fraction.of(0, 2);
-        assertEqualAndHashCodeEqual(zero, zero2);
+        // removed other assertion
+
+        // Not equal to different rational number
+        final Fraction one = Fraction.of(1, 1);
+        // removed other assertion
+        Assertions.assertNotEquals(one, zero);
+    }
+
+    @Test
+    void testEqualsAndHashCode_12_oe() {
+        final Fraction zero = Fraction.of(0, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // Equal to same rational number
+        final Fraction zero2 = Fraction.of(0, 2);
+        // removed other assertion
 
         // Not equal to different rational number
         final Fraction one = Fraction.of(1, 1);
@@ -1969,12 +1961,12 @@ class FractionTest_OE25Dev {
             final int den = f[1];
             Fraction f1 = Fraction.of(-num, den);
             Fraction f2 = Fraction.of(num, -den);
-            assertEqualAndHashCodeEqual(f1, f2);
-            assertEqualAndHashCodeEqual(f2, f1);
+            // removed other assertion
+            // removed other assertion
             f1 = Fraction.of(num, den);
             f2 = Fraction.of(-num, -den);
-            assertEqualAndHashCodeEqual(f1, f2);
-            assertEqualAndHashCodeEqual(f2, f1);
+            // removed other assertion
+            // removed other assertion
         }
 
         // Same numerator or denominator as 1/1
@@ -1984,7 +1976,7 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testEqualsAndHashCode_8_oe() {
+    void testEqualsAndHashCode_13_oe() {
         final Fraction zero = Fraction.of(0, 1);
         // removed other assertion
         // removed other assertion
@@ -1993,7 +1985,7 @@ class FractionTest_OE25Dev {
 
         // Equal to same rational number
         final Fraction zero2 = Fraction.of(0, 2);
-        assertEqualAndHashCodeEqual(zero, zero2);
+        // removed other assertion
 
         // Not equal to different rational number
         final Fraction one = Fraction.of(1, 1);
@@ -2007,12 +1999,12 @@ class FractionTest_OE25Dev {
             final int den = f[1];
             Fraction f1 = Fraction.of(-num, den);
             Fraction f2 = Fraction.of(num, -den);
-            assertEqualAndHashCodeEqual(f1, f2);
-            assertEqualAndHashCodeEqual(f2, f1);
+            // removed other assertion
+            // removed other assertion
             f1 = Fraction.of(num, den);
             f2 = Fraction.of(-num, -den);
-            assertEqualAndHashCodeEqual(f1, f2);
-            assertEqualAndHashCodeEqual(f2, f1);
+            // removed other assertion
+            // removed other assertion
         }
 
         // Same numerator or denominator as 1/1
@@ -2023,7 +2015,7 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testEqualsAndHashCode_9_oe() {
+    void testEqualsAndHashCode_14_oe() {
         final Fraction zero = Fraction.of(0, 1);
         // removed other assertion
         // removed other assertion
@@ -2032,7 +2024,7 @@ class FractionTest_OE25Dev {
 
         // Equal to same rational number
         final Fraction zero2 = Fraction.of(0, 2);
-        assertEqualAndHashCodeEqual(zero, zero2);
+        // removed other assertion
 
         // Not equal to different rational number
         final Fraction one = Fraction.of(1, 1);
@@ -2046,12 +2038,12 @@ class FractionTest_OE25Dev {
             final int den = f[1];
             Fraction f1 = Fraction.of(-num, den);
             Fraction f2 = Fraction.of(num, -den);
-            assertEqualAndHashCodeEqual(f1, f2);
-            assertEqualAndHashCodeEqual(f2, f1);
+            // removed other assertion
+            // removed other assertion
             f1 = Fraction.of(num, den);
             f2 = Fraction.of(-num, -den);
-            assertEqualAndHashCodeEqual(f1, f2);
-            assertEqualAndHashCodeEqual(f2, f1);
+            // removed other assertion
+            // removed other assertion
         }
 
         // Same numerator or denominator as 1/1
@@ -2068,7 +2060,7 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testEqualsAndHashCode_10_oe() {
+    void testEqualsAndHashCode_15_oe() {
         final Fraction zero = Fraction.of(0, 1);
         // removed other assertion
         // removed other assertion
@@ -2077,7 +2069,7 @@ class FractionTest_OE25Dev {
 
         // Equal to same rational number
         final Fraction zero2 = Fraction.of(0, 2);
-        assertEqualAndHashCodeEqual(zero, zero2);
+        // removed other assertion
 
         // Not equal to different rational number
         final Fraction one = Fraction.of(1, 1);
@@ -2091,12 +2083,12 @@ class FractionTest_OE25Dev {
             final int den = f[1];
             Fraction f1 = Fraction.of(-num, den);
             Fraction f2 = Fraction.of(num, -den);
-            assertEqualAndHashCodeEqual(f1, f2);
-            assertEqualAndHashCodeEqual(f2, f1);
+            // removed other assertion
+            // removed other assertion
             f1 = Fraction.of(num, den);
             f2 = Fraction.of(-num, -den);
-            assertEqualAndHashCodeEqual(f1, f2);
-            assertEqualAndHashCodeEqual(f2, f1);
+            // removed other assertion
+            // removed other assertion
         }
 
         // Same numerator or denominator as 1/1
@@ -2114,7 +2106,7 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testEqualsAndHashCode_11_oe() {
+    void testEqualsAndHashCode_16_oe() {
         final Fraction zero = Fraction.of(0, 1);
         // removed other assertion
         // removed other assertion
@@ -2123,7 +2115,7 @@ class FractionTest_OE25Dev {
 
         // Equal to same rational number
         final Fraction zero2 = Fraction.of(0, 2);
-        assertEqualAndHashCodeEqual(zero, zero2);
+        // removed other assertion
 
         // Not equal to different rational number
         final Fraction one = Fraction.of(1, 1);
@@ -2137,12 +2129,12 @@ class FractionTest_OE25Dev {
             final int den = f[1];
             Fraction f1 = Fraction.of(-num, den);
             Fraction f2 = Fraction.of(num, -den);
-            assertEqualAndHashCodeEqual(f1, f2);
-            assertEqualAndHashCodeEqual(f2, f1);
+            // removed other assertion
+            // removed other assertion
             f1 = Fraction.of(num, den);
             f2 = Fraction.of(-num, -den);
-            assertEqualAndHashCodeEqual(f1, f2);
-            assertEqualAndHashCodeEqual(f2, f1);
+            // removed other assertion
+            // removed other assertion
         }
 
         // Same numerator or denominator as 1/1
@@ -2163,7 +2155,7 @@ class FractionTest_OE25Dev {
     }
 
     @Test
-    void testEqualsAndHashCode_12_oe() {
+    void testEqualsAndHashCode_17_oe() {
         final Fraction zero = Fraction.of(0, 1);
         // removed other assertion
         // removed other assertion
@@ -2172,7 +2164,7 @@ class FractionTest_OE25Dev {
 
         // Equal to same rational number
         final Fraction zero2 = Fraction.of(0, 2);
-        assertEqualAndHashCodeEqual(zero, zero2);
+        // removed other assertion
 
         // Not equal to different rational number
         final Fraction one = Fraction.of(1, 1);
@@ -2186,12 +2178,12 @@ class FractionTest_OE25Dev {
             final int den = f[1];
             Fraction f1 = Fraction.of(-num, den);
             Fraction f2 = Fraction.of(num, -den);
-            assertEqualAndHashCodeEqual(f1, f2);
-            assertEqualAndHashCodeEqual(f2, f1);
+            // removed other assertion
+            // removed other assertion
             f1 = Fraction.of(num, den);
             f2 = Fraction.of(-num, -den);
-            assertEqualAndHashCodeEqual(f1, f2);
-            assertEqualAndHashCodeEqual(f2, f1);
+            // removed other assertion
+            // removed other assertion
         }
 
         // Same numerator or denominator as 1/1

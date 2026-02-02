@@ -278,20 +278,6 @@ class Transform2STest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
-        final Transform2S b = Transform2S.createRotation(Point2S.PLUS_J, Angle.PI_OVER_TWO);
-        final Transform2S c = Transform2S.createRotation(Point2S.PLUS_I, Math.PI);
-        final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, b);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
@@ -300,10 +286,9 @@ class Transform2STest_OE25Dev {
         final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
         // removed other assertion
-        Assertions.assertNotEquals(a, c);
+
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -315,12 +300,10 @@ class Transform2STest_OE25Dev {
         final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(a, d);
+        // removed other assertion
+        Assertions.assertNotEquals(a, c);
     }
 
     @Test
@@ -332,7 +315,24 @@ class Transform2STest_OE25Dev {
         final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(a, d);
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
+        final Transform2S b = Transform2S.createRotation(Point2S.PLUS_J, Angle.PI_OVER_TWO);
+        final Transform2S c = Transform2S.createRotation(Point2S.PLUS_I, Math.PI);
+        final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

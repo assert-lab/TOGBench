@@ -1,0 +1,95 @@
+test_name,converted_to_std_junit,decomposed
+MethodUtilsTestCase::testGetAccessibleMethod_1_oe,"public void testGetAccessibleMethod_1_oe() {
+        // easy bit first - find a public method
+        final Method method = MethodUtils.getAccessibleMethod(
+                TestBean.class, ""setStringProperty"", String.class);
+
+        final Method methodParam = method;
+        final String methodName = ""setStringProperty"";
+
+        assertNotNull(methodParam);
+        assertEquals(""Method is not named correctly"", methodName, methodParam.getName());
+        assertTrue(""Method is not public"", Modifier.isPublic(methodParam.getModifiers()));
+    }","public void testGetAccessibleMethod_1_1_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(
+                TestBean.class, ""setStringProperty"", String.class);
+        final Method methodParam = method;
+        assertNotNull(methodParam);
+    }
+
+public void testGetAccessibleMethod_1_2_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(
+                TestBean.class, ""setStringProperty"", String.class);
+        final Method methodParam = method;
+        final String methodName = ""setStringProperty"";
+        assertEquals(""Method is not named correctly"", methodName, methodParam.getName());
+    }
+
+public void testGetAccessibleMethod_1_3_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(
+                TestBean.class, ""setStringProperty"", String.class);
+        final Method methodParam = method;
+        assertTrue(""Method is not public"", Modifier.isPublic(methodParam.getModifiers()));
+    }"
+MethodUtilsTestCase::testGetAccessibleMethodFromInterface_1_oe,"public void testGetAccessibleMethodFromInterface_1_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(
+                TestBean.class, ""setStringProperty"", String.class);
+
+        final Method methodParam = method;
+        final String methodName = ""setStringProperty"";
+
+        assertNotNull(methodParam);
+        assertEquals(""Method is not named correctly"", methodName, methodParam.getName());
+        assertTrue(""Method is not public"", Modifier.isPublic(methodParam.getModifiers()));
+    }","public void testGetAccessibleMethodFromInterface_1_1_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(
+                TestBean.class, ""setStringProperty"", String.class);
+        final Method methodParam = method;
+        assertNotNull(methodParam);
+    }
+
+public void testGetAccessibleMethodFromInterface_1_2_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(
+                TestBean.class, ""setStringProperty"", String.class);
+        final Method methodParam = method;
+        final String methodName = ""setStringProperty"";
+        assertEquals(""Method is not named correctly"", methodName, methodParam.getName());
+    }
+
+public void testGetAccessibleMethodFromInterface_1_3_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(
+                TestBean.class, ""setStringProperty"", String.class);
+        final Method methodParam = method;
+        assertTrue(""Method is not public"", Modifier.isPublic(methodParam.getModifiers()));
+    }"
+MethodUtilsTestCase::testGetAccessibleMethodIndirectInterface_1_oe,"public void testGetAccessibleMethodIndirectInterface_1_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(
+                TestBean.class, ""setStringProperty"", String.class);
+
+        final Method methodParam = method;
+        final String methodName = ""setStringProperty"";
+
+        assertNotNull(methodParam);
+        assertEquals(""Method is not named correctly"", methodName, methodParam.getName());
+        assertTrue(""Method is not public"", Modifier.isPublic(methodParam.getModifiers()));
+    }","public void testGetAccessibleMethodIndirectInterface_1_1_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(
+                TestBean.class, ""setStringProperty"", String.class);
+        final Method methodParam = method;
+        assertNotNull(methodParam);
+    }
+
+public void testGetAccessibleMethodIndirectInterface_1_2_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(
+                TestBean.class, ""setStringProperty"", String.class);
+        final Method methodParam = method;
+        final String methodName = ""setStringProperty"";
+        assertEquals(""Method is not named correctly"", methodName, methodParam.getName());
+    }
+
+public void testGetAccessibleMethodIndirectInterface_1_3_oe() {
+        final Method method = MethodUtils.getAccessibleMethod(
+                TestBean.class, ""setStringProperty"", String.class);
+        final Method methodParam = method;
+        assertTrue(""Method is not public"", Modifier.isPublic(methodParam.getModifiers()));
+    }"

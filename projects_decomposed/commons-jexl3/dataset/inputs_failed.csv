@@ -1,5 +1,5 @@
 id,test_prefix,test_name
-jexl_4_7,"    @Test
+jexl_5_7,"    @Test
     public void testErroneousIdentifier_7_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
@@ -49,7 +49,7 @@ jexl_4_7,"    @Test
     }
 
     }",PropertyAccessTest::testErroneousIdentifier_7_oe
-jexl_4_8,"    @Test
+jexl_5_8,"    @Test
     public void testErroneousIdentifier_8_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
@@ -106,7 +106,7 @@ jexl_4_8,"    @Test
 
     }
     }",PropertyAccessTest::testErroneousIdentifier_8_oe
-jexl_5_2,"    @Test
+jexl_6_2,"    @Test
     public void test250_2_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -126,7 +126,7 @@ jexl_5_2,"    @Test
     }
     }
 ",PropertyAccessTest::test250_2_oe
-jexl_5_4,"    @Test
+jexl_6_4,"    @Test
     public void test250_4_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -154,7 +154,7 @@ jexl_5_4,"    @Test
     }
     }
 ",PropertyAccessTest::test250_4_oe
-jexl_5_5,"    @Test
+jexl_6_5,"    @Test
     public void test250_5_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -183,7 +183,7 @@ jexl_5_5,"    @Test
     }
     }
 ",PropertyAccessTest::test250_5_oe
-jexl_5_7,"    @Test
+jexl_6_7,"    @Test
     public void test250_7_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -220,7 +220,7 @@ jexl_5_7,"    @Test
     }
     }
 ",PropertyAccessTest::test250_7_oe
-jexl_5_9,"    @Test
+jexl_6_9,"    @Test
     public void test250_9_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -265,7 +265,7 @@ jexl_5_9,"    @Test
     }
     }
 ",PropertyAccessTest::test250_9_oe
-jexl_5_11,"    @Test
+jexl_6_11,"    @Test
     public void test250_11_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -318,7 +318,7 @@ jexl_5_11,"    @Test
     }
     }
 ",PropertyAccessTest::test250_11_oe
-jexl_5_13,"    @Test
+jexl_6_13,"    @Test
     public void test250_13_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final HashMap<Object, Object> x = new HashMap<Object, Object>();
@@ -379,7 +379,7 @@ jexl_5_13,"    @Test
     }
     }
 ",PropertyAccessTest::test250_13_oe
-jexl_6_1,"    @Test
+jexl_7_1,"    @Test
     public void test275a_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final JexlContext ctxt = new MapContext();
@@ -397,7 +397,7 @@ jexl_6_1,"    @Test
     }
     }
 ",PropertyAccessTest::test275a_1_oe
-jexl_6_7,"    @Test
+jexl_7_7,"    @Test
     public void test275a_7_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final JexlContext ctxt = new MapContext();
@@ -434,7 +434,7 @@ jexl_6_7,"    @Test
     }
     }
 ",PropertyAccessTest::test275a_7_oe
-jexl_12_1,"    @Test
+jexl_13_1,"    @Test
     public void test210_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
         jc.set(""v210"", new T210());
@@ -446,7 +446,7 @@ jexl_12_1,"    @Test
     }
     }
 ",Issues200Test::test210_1_oe
-jexl_13_3,"    @Test
+jexl_14_3,"    @Test
     public void test217_3_oe() throws Exception {
         final JexlEvalContext jc = new JexlEvalContext();
         final JexlOptions options = jc.getEngineOptions();
@@ -469,7 +469,7 @@ jexl_13_3,"    @Test
     }
     }
 ",Issues200Test::test217_3_oe
-jexl_18_1,"    @Test
+jexl_19_1,"    @Test
     public void test243a_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().cache(32).create();
         final JexlScript script = jexl.createScript(""while(true);"");
@@ -479,7 +479,7 @@ jexl_18_1,"    @Test
     }
     }
 ",Issues200Test::test243a_1_oe
-jexl_19_2,"    @Test
+jexl_20_2,"    @Test
     public void test245_2_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final Foo245 foo245 = new Foo245();
@@ -503,7 +503,7 @@ jexl_19_2,"    @Test
     }
     }
 ",Issues200Test::test245_2_oe
-jexl_19_4,"    @Test
+jexl_20_4,"    @Test
     public void test245_4_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final Foo245 foo245 = new Foo245();
@@ -534,7 +534,7 @@ jexl_19_4,"    @Test
     }
     }
 ",Issues200Test::test245_4_oe
-jexl_20_1,"    @Test
+jexl_21_1,"    @Test
     public void test256_1_oe() throws Exception {
         final MapContext ctx = new MapContext() {
             @Override public void set(final String name, final Object value) {
@@ -566,7 +566,7 @@ jexl_20_1,"    @Test
     }
     }
 ",Issues200Test::test256_1_oe
-jexl_25_2,"    @Test
+jexl_26_2,"    @Test
     public void test274_2_oe() throws Exception {
         JexlEngine jexl = new JexlBuilder().strict(true).safe(true).stackOverflow(5).create();
         final JexlContext ctxt = new MapContext();
@@ -579,7 +579,7 @@ jexl_25_2,"    @Test
     }
     }
 ",Issues200Test::test274_2_oe
-jexl_25_4,"    @Test
+jexl_26_4,"    @Test
     public void test274_4_oe() throws Exception {
         JexlEngine jexl = new JexlBuilder().strict(true).safe(true).stackOverflow(5).create();
         final JexlContext ctxt = new MapContext();
@@ -602,7 +602,7 @@ jexl_25_4,"    @Test
     }
     }
 ",Issues200Test::test274_4_oe
-jexl_26_1,"    @Test
+jexl_27_1,"    @Test
     public void test275a_1_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set(""out"", System.out);
@@ -615,7 +615,7 @@ jexl_26_1,"    @Test
     }
     }
 ",Issues200Test::test275a_1_oe
-jexl_27_1,"    @Test
+jexl_28_1,"    @Test
     public void test275b_1_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         //ctxt.set(""out"", System.out);
@@ -627,7 +627,7 @@ jexl_27_1,"    @Test
     }
     }
 ",Issues200Test::test275b_1_oe
-jexl_28_1,"    @Test
+jexl_29_1,"    @Test
     public void test275c_1_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         //ctxt.set(""out"", System.out);
@@ -642,7 +642,7 @@ jexl_28_1,"    @Test
     }
     }
 ",Issues200Test::test275c_1_oe
-jexl_29_1,"    @Test
+jexl_30_1,"    @Test
     public void test275d_1_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
         ctxt.set(""out"", System.out);
@@ -655,7 +655,7 @@ jexl_29_1,"    @Test
     }
     }
 ",Issues200Test::test275d_1_oe
-jexl_30_1,"    @Test
+jexl_31_1,"    @Test
     public void test278_1_oe() throws Exception {
         final String[] srcs = new String[]{
             ""return union x143('arg',5,6) "",
@@ -682,7 +682,7 @@ jexl_30_1,"    @Test
     }
     }
 ",Issues200Test::test278_1_oe
-jexl_31_1,"    @Test
+jexl_32_1,"    @Test
     public void test279_1_oe() throws Exception {
         final Log logger = null;//LogFactory.getLog(Issues200Test.class);
         Object result;
@@ -728,7 +728,7 @@ jexl_31_1,"    @Test
     }
     }
 ",Issues200Test::test279_1_oe
-jexl_31_2,"    @Test
+jexl_32_2,"    @Test
     public void test279_2_oe() throws Exception {
         final Log logger = null;//LogFactory.getLog(Issues200Test.class);
         Object result;
@@ -776,7 +776,7 @@ jexl_31_2,"    @Test
     }
     }
 ",Issues200Test::test279_2_oe
-jexl_37_6,"    @Test
+jexl_38_6,"    @Test
     public void test287_6_oe() {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -814,7 +814,7 @@ jexl_37_6,"    @Test
     }
     }
 ",Issues200Test::test287_6_oe
-jexl_39_1,"    @Test
+jexl_40_1,"    @Test
     public void test290a_1_oe() throws Exception {
         Object result;
         JexlScript script;
@@ -837,7 +837,7 @@ jexl_39_1,"    @Test
     }
     }
 ",Issues200Test::test290a_1_oe
-jexl_39_2,"    @Test
+jexl_40_2,"    @Test
     public void test290a_2_oe() throws Exception {
         Object result;
         JexlScript script;
@@ -862,7 +862,7 @@ jexl_39_2,"    @Test
     }
     }
 ",Issues200Test::test290a_2_oe
-jexl_47_1,"    @Test
+jexl_48_1,"    @Test
     public void test106_1_oe() throws Exception {
         final JexlEvalContext context = new JexlEvalContext();
         final JexlOptions options = context.getEngineOptions();
@@ -877,7 +877,7 @@ jexl_47_1,"    @Test
     }
     }
 ",Issues100Test::test106_1_oe
-jexl_47_3,"    @Test
+jexl_48_3,"    @Test
     public void test106_3_oe() throws Exception {
         final JexlEvalContext context = new JexlEvalContext();
         final JexlOptions options = context.getEngineOptions();
@@ -900,7 +900,7 @@ jexl_47_3,"    @Test
     }
     }
 ",Issues100Test::test106_3_oe
-jexl_63_1,"    @Test
+jexl_64_1,"    @Test
     public void test144_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -913,7 +913,7 @@ jexl_63_1,"    @Test
     }
     }
 ",Issues100Test::test144_1_oe
-jexl_64_9,"    @Test
+jexl_65_9,"    @Test
     public void test144a_9_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlContext jc = new MapContext();
@@ -956,7 +956,7 @@ jexl_64_9,"    @Test
     }
     }
 ",Issues100Test::test144a_9_oe
-jexl_88_1,"    @Test
+jexl_89_1,"    @Test
     public void testMalformed_1_oe() throws Exception {
         try {
             final JxltEngine.Expression expr = JXLT.createExpression(""${'world'"");
@@ -967,7 +967,7 @@ jexl_88_1,"    @Test
     }
 
     }",JXLTTest::testMalformed_1_oe
-jexl_89_1,"    @Test
+jexl_90_1,"    @Test
     public void testMalformedNested_1_oe() throws Exception {
         try {
             final JxltEngine.Expression expr = JXLT.createExpression(""#{${hi} world}"");
@@ -977,7 +977,7 @@ jexl_89_1,"    @Test
     }
     }
 ",JXLTTest::testMalformedNested_1_oe
-jexl_90_1,"    @Test
+jexl_91_1,"    @Test
     public void testMalformedNested2_1_oe() throws Exception {
         try {
             final JxltEngine.Expression expr = JXLT.createExpression(""#{${hi} world}"");
@@ -988,7 +988,7 @@ jexl_90_1,"    @Test
     }
     }
 ",JXLTTest::testMalformedNested2_1_oe
-jexl_91_1,"    @Test
+jexl_92_1,"    @Test
     public void testBadContextNested_1_oe() throws Exception {
         try {
             final JxltEngine.Expression expr = JXLT.createExpression(""#{${hi}+'.world'}"");
@@ -998,7 +998,7 @@ jexl_91_1,"    @Test
     }
     }
 ",JXLTTest::testBadContextNested_1_oe
-jexl_92_2,"    @Test
+jexl_93_2,"    @Test
     public void testCharAtBug_2_oe() throws Exception {
         context.set(""foo"", ""abcdef"");
         final JexlOptions options = context.getEngineOptions();
@@ -1016,7 +1016,7 @@ jexl_92_2,"    @Test
     }
     }
 ",JXLTTest::testCharAtBug_2_oe
-jexl_124_1,"    @Test
+jexl_125_1,"    @Test
     public void testTemplatePragmaPro50_1_oe() throws Exception {
         final JexlOptions opts = new JexlOptions();
         opts.setCancellable(false);
@@ -1037,7 +1037,7 @@ jexl_124_1,"    @Test
     }
     }
 ",JXLTTest::testTemplatePragmaPro50_1_oe
-jexl_125_1,"    @Test
+jexl_126_1,"    @Test
     public void testTemplateOutOfScope_1_oe() throws Exception {
         final JexlOptions opts = new JexlOptions();
         opts.setCancellable(false);
@@ -1066,7 +1066,7 @@ jexl_125_1,"    @Test
     }
     }
 ",JXLTTest::testTemplateOutOfScope_1_oe
-jexl_125_3,"    @Test
+jexl_126_3,"    @Test
     public void testTemplateOutOfScope_3_oe() throws Exception {
         final JexlOptions opts = new JexlOptions();
         opts.setCancellable(false);
@@ -1103,7 +1103,7 @@ jexl_125_3,"    @Test
     }
     }
 ",JXLTTest::testTemplateOutOfScope_3_oe
-jexl_134_1,"    @Test
+jexl_135_1,"    @Test
     public void testForEachBreakInsideFunction_1_oe() throws Exception {
         try {
             final JexlScript e = JEXL.createScript(""for (i : 1..2) {  y = function() { break; } }"");
@@ -1111,7 +1111,7 @@ jexl_134_1,"    @Test
     }
     }
 ",DoWhileTest::testForEachBreakInsideFunction_1_oe
-jexl_135_1,"    @Test
+jexl_136_1,"    @Test
     public void testForEachContinueInsideFunction_1_oe() throws Exception {
         try {
             final JexlScript e = JEXL.createScript(""for (i : 1..2) {  y = function() { continue; } }"");
@@ -1119,7 +1119,7 @@ jexl_135_1,"    @Test
     }
     }
 ",DoWhileTest::testForEachContinueInsideFunction_1_oe
-jexl_141_1,"    @Test
+jexl_142_1,"    @Test
     public void testAntishArithmetic_1_oe() throws Exception {
         final CallSupportArithmetic ja = new CallSupportArithmetic(true);
         final JexlEngine jexl = new JexlBuilder().cache(512).arithmetic(ja).create();
@@ -1136,7 +1136,7 @@ jexl_141_1,"    @Test
     }
     }
 ",AntishCallTest::testAntishArithmetic_1_oe
-jexl_142_3,"    @Test
+jexl_143_3,"    @Test
     public void testSafeAnt_3_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1156,7 +1156,7 @@ jexl_142_3,"    @Test
     }
     }
 ",AntishCallTest::testSafeAnt_3_oe
-jexl_142_7,"    @Test
+jexl_143_7,"    @Test
     public void testSafeAnt_7_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1194,7 +1194,7 @@ jexl_142_7,"    @Test
     }
     }
 ",AntishCallTest::testSafeAnt_7_oe
-jexl_142_9,"    @Test
+jexl_143_9,"    @Test
     public void testSafeAnt_9_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1241,7 +1241,7 @@ jexl_142_9,"    @Test
     }
     }
 ",AntishCallTest::testSafeAnt_9_oe
-jexl_142_11,"    @Test
+jexl_143_11,"    @Test
     public void testSafeAnt_11_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1297,7 +1297,7 @@ jexl_142_11,"    @Test
     }
     }
 ",AntishCallTest::testSafeAnt_11_oe
-jexl_142_13,"    @Test
+jexl_143_13,"    @Test
     public void testSafeAnt_13_oe() throws Exception {
         final JexlEvalContext ctxt = new JexlEvalContext();
         final JexlOptions options = ctxt.getEngineOptions();
@@ -1362,7 +1362,7 @@ jexl_142_13,"    @Test
     }
     }
 ",AntishCallTest::testSafeAnt_13_oe
-jexl_144_1,"    @Test
+jexl_145_1,"    @Test
     public void test48_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlEvalContext jc = new JexlEvalContext();
@@ -1379,7 +1379,7 @@ jexl_144_1,"    @Test
     }
     }
 ",IssuesTest::test48_1_oe
-jexl_149_1,"    @Test
+jexl_150_1,"    @Test
     public void test11_1_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -1407,7 +1407,7 @@ jexl_149_1,"    @Test
     }
     }
 ",IssuesTest::test11_1_oe
-jexl_152_1,"    @Test
+jexl_153_1,"    @Test
     public void test90_1_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -1428,7 +1428,7 @@ jexl_152_1,"    @Test
     }
     }
 ",IssuesTest::test90_1_oe
-jexl_164_1,"    @Test
+jexl_165_1,"    @Test
     public void testRejectLocal_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
         JexlScript assign = JEXL.createScript(""var quux = null; quux.froboz.value = 10"");
@@ -1438,7 +1438,7 @@ jexl_164_1,"    @Test
     }
     }
 ",AssignTest::testRejectLocal_1_oe
-jexl_174_1,"    @Test
+jexl_179_1,"    @Test
     public void testRecurse_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlContext jc = new MapContext();
@@ -1449,7 +1449,7 @@ jexl_174_1,"    @Test
     }
     }
 ",LambdaTest::testRecurse_1_oe
-jexl_175_1,"    @Test
+jexl_180_1,"    @Test
     public void testRecurse2_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlContext jc = new MapContext();
@@ -1463,7 +1463,7 @@ jexl_175_1,"    @Test
     }
     }
 ",LambdaTest::testRecurse2_1_oe
-jexl_176_1,"    @Test
+jexl_181_1,"    @Test
     public void testRecurse3_1_oe() throws Exception {
         final JexlEngine jexl = createEngine();
         final JexlContext jc = new MapContext();
@@ -1477,15 +1477,15 @@ jexl_176_1,"    @Test
     }
     }
 ",LambdaTest::testRecurse3_1_oe
-jexl_192_1,"    @Test
-    public void testBadParse_1_oe() throws Exception {
+jexl_221_2,"    @Test
+    public void testBadParse_2_oe() throws Exception {
         try {
-            assertExpression(new MapContext(), ""empty()"", null);
+            // removed other assertion
             Assert.fail(""Bad expression didn't throw ParseException"");
     }
     }
-",JexlTest::testBadParse_1_oe
-jexl_215_3,"    @Test
+",JexlTest::testBadParse_2_oe
+jexl_258_3,"    @Test
     public void testObjectContext_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).silent(false).create();
         final Vat vat = new Vat(18.6);
@@ -1500,7 +1500,7 @@ jexl_215_3,"    @Test
     }
     }
 ",ContextNamespaceTest::testObjectContext_3_oe
-jexl_215_4,"    @Test
+jexl_258_4,"    @Test
     public void testObjectContext_4_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).silent(false).create();
         final Vat vat = new Vat(18.6);
@@ -1522,7 +1522,7 @@ jexl_215_4,"    @Test
     }
     }
 ",ContextNamespaceTest::testObjectContext_4_oe
-jexl_221_3,"    @Test
+jexl_264_3,"    @Test
     @SuppressWarnings(""AssertEqualsBetweenInconvertibleTypes"")
     public void testSafePragma_3_oe() throws Exception {
         SafeContext jc = new SafeContext();
@@ -1540,7 +1540,7 @@ jexl_221_3,"    @Test
     }
     }
 ",PragmaTest::testSafePragma_3_oe
-jexl_227_1,"    @Test
+jexl_270_1,"    @Test
     public void testVarStmt_1_oe() throws Exception {
         final OptAnnotationContext jc = new OptAnnotationContext();
         final JexlOptions options = jc.getEngineOptions();
@@ -1557,7 +1557,7 @@ jexl_227_1,"    @Test
     }
     }
 ",AnnotationTest::testVarStmt_1_oe
-jexl_227_3,"    @Test
+jexl_270_3,"    @Test
     public void testVarStmt_3_oe() throws Exception {
         final OptAnnotationContext jc = new OptAnnotationContext();
         final JexlOptions options = jc.getEngineOptions();
@@ -1584,7 +1584,7 @@ jexl_227_3,"    @Test
     }
     }
 ",AnnotationTest::testVarStmt_3_oe
-jexl_227_5,"    @Test
+jexl_270_5,"    @Test
     public void testVarStmt_5_oe() throws Exception {
         final OptAnnotationContext jc = new OptAnnotationContext();
         final JexlOptions options = jc.getEngineOptions();
@@ -1620,7 +1620,7 @@ jexl_227_5,"    @Test
     }
     }
 ",AnnotationTest::testVarStmt_5_oe
-jexl_227_7,"    @Test
+jexl_270_7,"    @Test
     public void testVarStmt_7_oe() throws Exception {
         final OptAnnotationContext jc = new OptAnnotationContext();
         final JexlOptions options = jc.getEngineOptions();
@@ -1666,7 +1666,7 @@ jexl_227_7,"    @Test
     }
     }
 ",AnnotationTest::testVarStmt_7_oe
-jexl_234_1,"    @Test
+jexl_277_1,"    @Test
     public void testWrappedEx_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final JexlExpression e = jexl.createExpression(""npe()"");
@@ -1677,7 +1677,7 @@ jexl_234_1,"    @Test
     }
     }
 ",ExceptionTest::testWrappedEx_1_oe
-jexl_235_1,"    @Test
+jexl_278_1,"    @Test
     public void testWrappedExmore_1_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -1687,7 +1687,7 @@ jexl_235_1,"    @Test
     }
     }
 ",ExceptionTest::testWrappedExmore_1_oe
-jexl_235_3,"    @Test
+jexl_278_3,"    @Test
     public void testWrappedExmore_3_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -1704,7 +1704,7 @@ jexl_235_3,"    @Test
     }
     }
 ",ExceptionTest::testWrappedExmore_3_oe
-jexl_235_6,"    @Test
+jexl_278_6,"    @Test
     public void testWrappedExmore_6_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -1732,7 +1732,7 @@ jexl_235_6,"    @Test
     }
     }
 ",ExceptionTest::testWrappedExmore_6_oe
-jexl_235_8,"    @Test
+jexl_278_8,"    @Test
     public void testWrappedExmore_8_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -1767,7 +1767,7 @@ jexl_235_8,"    @Test
     }
     }
 ",ExceptionTest::testWrappedExmore_8_oe
-jexl_235_10,"    @Test
+jexl_278_10,"    @Test
     public void testWrappedExmore_10_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -1810,7 +1810,7 @@ jexl_235_10,"    @Test
     }
     }
 ",ExceptionTest::testWrappedExmore_10_oe
-jexl_235_12,"    @Test
+jexl_278_12,"    @Test
     public void testWrappedExmore_12_oe() throws Exception {
         final JexlEngine jexl = new Engine();
         final ThrowNPE npe = new ThrowNPE();
@@ -1860,7 +1860,7 @@ jexl_235_12,"    @Test
     }
     }
 ",ExceptionTest::testWrappedExmore_12_oe
-jexl_236_1,"    @Test
+jexl_279_1,"    @Test
     public void testEx_1_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlExpression e = jexl.createExpression(""c.e * 6"");
@@ -1877,7 +1877,7 @@ jexl_236_1,"    @Test
     }
     }
 ",ExceptionTest::testEx_1_oe
-jexl_236_3,"    @Test
+jexl_279_3,"    @Test
     public void testEx_3_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlExpression e = jexl.createExpression(""c.e * 6"");
@@ -1905,7 +1905,7 @@ jexl_236_3,"    @Test
     }
     }
 ",ExceptionTest::testEx_3_oe
-jexl_236_6,"    @Test
+jexl_279_6,"    @Test
     public void testEx_6_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlExpression e = jexl.createExpression(""c.e * 6"");
@@ -1953,7 +1953,7 @@ jexl_236_6,"    @Test
     }
     }
 ",ExceptionTest::testEx_6_oe
-jexl_237_1,"    @Test
+jexl_280_1,"    @Test
     public void testExVar_1_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlScript e = jexl.createScript(""(x)->{ x * 6 }"");
@@ -1971,7 +1971,7 @@ jexl_237_1,"    @Test
     }
     }
 ",ExceptionTest::testExVar_1_oe
-jexl_238_1,"    @Test
+jexl_281_1,"    @Test
     public void testExMethod_1_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlExpression e = jexl.createExpression(""c.e.foo()"");
@@ -1988,7 +1988,7 @@ jexl_238_1,"    @Test
     }
     }
 ",ExceptionTest::testExMethod_1_oe
-jexl_238_3,"    @Test
+jexl_281_3,"    @Test
     public void testExMethod_3_oe() throws Exception {
         final JexlEngine jexl = createEngine(false);
         final JexlExpression e = jexl.createExpression(""c.e.foo()"");
@@ -2016,7 +2016,7 @@ jexl_238_3,"    @Test
     }
     }
 ",ExceptionTest::testExMethod_3_oe
-jexl_239_1,"    @Test
+jexl_282_1,"    @Test
     public void testFuture_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript(""while(true);"");
         final FutureTask<Object> future = new FutureTask<Object>(e.callable(null));
@@ -2030,7 +2030,7 @@ jexl_239_1,"    @Test
     }
     }
 ",ScriptCallableTest::testFuture_1_oe
-jexl_240_1,"    @Test
+jexl_283_1,"    @Test
     public void testCallableCancel_1_oe() throws Exception {
         final Semaphore latch = new Semaphore(0);
         final JexlContext ctxt = new MapContext();
@@ -2052,7 +2052,7 @@ jexl_240_1,"    @Test
     }
     }
 ",ScriptCallableTest::testCallableCancel_1_oe
-jexl_240_2,"    @Test
+jexl_283_2,"    @Test
     public void testCallableCancel_2_oe() throws Exception {
         final Semaphore latch = new Semaphore(0);
         final JexlContext ctxt = new MapContext();
@@ -2076,7 +2076,7 @@ jexl_240_2,"    @Test
     }
     }
 ",ScriptCallableTest::testCallableCancel_2_oe
-jexl_241_1,"    @Test
+jexl_284_1,"    @Test
     public void testCallableCancellation_1_oe() throws Exception {
         final Semaphore latch = new Semaphore(0);
         final AtomicBoolean cancel = new AtomicBoolean(false);
@@ -2099,7 +2099,7 @@ jexl_241_1,"    @Test
     }
     }
 ",ScriptCallableTest::testCallableCancellation_1_oe
-jexl_241_2,"    @Test
+jexl_284_2,"    @Test
     public void testCallableCancellation_2_oe() throws Exception {
         final Semaphore latch = new Semaphore(0);
         final AtomicBoolean cancel = new AtomicBoolean(false);
@@ -2124,7 +2124,7 @@ jexl_241_2,"    @Test
     }
     }
 ",ScriptCallableTest::testCallableCancellation_2_oe
-jexl_242_1,"    @Test
+jexl_285_1,"    @Test
     public void testCallableTimeout_1_oe() throws Exception {
         List<Runnable> lr = null;
         final Semaphore latch = new Semaphore(0);
@@ -2144,7 +2144,7 @@ jexl_242_1,"    @Test
     }
     }
 ",ScriptCallableTest::testCallableTimeout_1_oe
-jexl_243_1,"    @Test
+jexl_286_1,"    @Test
     public void testCallableClosure_1_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript(""function(t) {while(t);}"");
@@ -2159,7 +2159,7 @@ jexl_243_1,"    @Test
     }
     }
 ",ScriptCallableTest::testCallableClosure_1_oe
-jexl_244_1,"    @Test
+jexl_287_1,"    @Test
     public void testNoWait_1_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript(""wait(0)"");
@@ -2173,7 +2173,7 @@ jexl_244_1,"    @Test
     }
     }
 ",ScriptCallableTest::testNoWait_1_oe
-jexl_244_2,"    @Test
+jexl_287_2,"    @Test
     public void testNoWait_2_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript(""wait(0)"");
@@ -2188,7 +2188,7 @@ jexl_244_2,"    @Test
     }
     }
 ",ScriptCallableTest::testNoWait_2_oe
-jexl_245_1,"    @Test
+jexl_288_1,"    @Test
     public void testWait_1_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript(""wait(1)"");
@@ -2202,7 +2202,7 @@ jexl_245_1,"    @Test
     }
     }
 ",ScriptCallableTest::testWait_1_oe
-jexl_246_1,"    @Test
+jexl_289_1,"    @Test
     public void testCancelWait_1_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript(""wait(10)"");
@@ -2219,7 +2219,7 @@ jexl_246_1,"    @Test
     }
     }
 ",ScriptCallableTest::testCancelWait_1_oe
-jexl_246_2,"    @Test
+jexl_289_2,"    @Test
     public void testCancelWait_2_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript(""wait(10)"");
@@ -2240,7 +2240,7 @@ jexl_246_2,"    @Test
     }
     }
 ",ScriptCallableTest::testCancelWait_2_oe
-jexl_246_3,"    @Test
+jexl_289_3,"    @Test
     public void testCancelWait_3_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript(""wait(10)"");
@@ -2262,7 +2262,7 @@ jexl_246_3,"    @Test
     }
     }
 ",ScriptCallableTest::testCancelWait_3_oe
-jexl_247_1,"    @Test
+jexl_290_1,"    @Test
     public void testCancelWaitInterrupt_1_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript(""waitInterrupt(42)"");
@@ -2278,7 +2278,7 @@ jexl_247_1,"    @Test
     }
     }
 ",ScriptCallableTest::testCancelWaitInterrupt_1_oe
-jexl_248_1,"    @Test
+jexl_291_1,"    @Test
     public void testCancelForever_1_oe() throws Exception {
         List<Runnable> lr = null;
         final Semaphore latch = new Semaphore(0);
@@ -2299,7 +2299,7 @@ jexl_248_1,"    @Test
     }
     }
 ",ScriptCallableTest::testCancelForever_1_oe
-jexl_249_1,"    @Test
+jexl_292_1,"    @Test
     public void testCancelLoopWait_1_oe() throws Exception {
         List<Runnable> lr = null;
         final JexlScript e = JEXL.createScript(""while (true) { wait(10) }"");
@@ -2315,7 +2315,7 @@ jexl_249_1,"    @Test
     }
     }
 ",ScriptCallableTest::testCancelLoopWait_1_oe
-jexl_250_1,"    @Test
+jexl_293_1,"    @Test
     public void testHangs_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript(""hangs()"");
         final Callable<Object> c = e.callable(new TestContext());
@@ -2328,31 +2328,31 @@ jexl_250_1,"    @Test
     }
     }
 ",ScriptCallableTest::testHangs_1_oe
-jexl_263_2,"    @Test
-    public void testCallMixedVarArgMethod_2_oe() throws Exception {
+jexl_307_3,"    @Test
+    public void testCallMixedVarArgMethod_3_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable(""test"", test);
         // removed other assertion
-        asserter.assertExpression(""test.callMixed(1)"", test.callMixed(1));
+        // removed other assertion
         // Java and JEXL equivalent behavior: 'Mixed:-999' expected
         //{
         Assert.assertEquals(""Mixed:-999"", test.callMixed(Integer.valueOf(1), (Integer[]) null));
     }
 
-    }",MethodTest::testCallMixedVarArgMethod_2_oe
-jexl_264_2,"    @Test
-    public void testCallJexlVarArgMethod_2_oe() throws Exception {
+    }",MethodTest::testCallMixedVarArgMethod_3_oe
+jexl_308_3,"    @Test
+    public void testCallJexlVarArgMethod_3_oe() throws Exception {
         final VarArgs test = new VarArgs();
         asserter.setVariable(""test"", test);
         // removed other assertion
-        asserter.assertExpression(""test.callMixed('jexl')"", ""jexl:0"");
+        // removed other assertion
         // Java and JEXL equivalent behavior: 'jexl:-1000' expected
         //{
         Assert.assertEquals(""jexl:-1000"", test.callMixed(""jexl"", (Integer[]) null));
     }
 
-    }",MethodTest::testCallJexlVarArgMethod_2_oe
-jexl_265_3,"    @Test
+    }",MethodTest::testCallJexlVarArgMethod_3_oe
+jexl_309_3,"    @Test
     public void testInvoke_3_oe() throws Exception {
         Functor func = new Functor();
         // removed other assertion
@@ -2363,7 +2363,7 @@ jexl_265_3,"    @Test
     }
     }
 ",MethodTest::testInvoke_3_oe
-jexl_265_4,"    @Test
+jexl_309_4,"    @Test
     public void testInvoke_4_oe() throws Exception {
         Functor func = new Functor();
         // removed other assertion
@@ -2380,7 +2380,7 @@ jexl_265_4,"    @Test
     }
     }
 ",MethodTest::testInvoke_4_oe
-jexl_265_5,"    @Test
+jexl_309_5,"    @Test
     public void testInvoke_5_oe() throws Exception {
         Functor func = new Functor();
         // removed other assertion
@@ -2405,7 +2405,7 @@ jexl_265_5,"    @Test
     }
     }
 ",MethodTest::testInvoke_5_oe
-jexl_265_6,"    @Test
+jexl_309_6,"    @Test
     public void testInvoke_6_oe() throws Exception {
         Functor func = new Functor();
         // removed other assertion
@@ -2438,7 +2438,7 @@ jexl_265_6,"    @Test
     }
     }
 ",MethodTest::testInvoke_6_oe
-jexl_265_7,"    @Test
+jexl_309_7,"    @Test
     public void testInvoke_7_oe() throws Exception {
         Functor func = new Functor();
         // removed other assertion
@@ -2480,7 +2480,7 @@ jexl_265_7,"    @Test
     }
     }
 ",MethodTest::testInvoke_7_oe
-jexl_266_2,"    @Test
+jexl_310_2,"    @Test
     public void testAmbiguousInvoke_2_oe() throws Exception {
         // JEXL-299
         final Functor func = new Functor();
@@ -2497,7 +2497,7 @@ jexl_266_2,"    @Test
     }
     }
 ",MethodTest::testAmbiguousInvoke_2_oe
-jexl_266_4,"    @Test
+jexl_310_4,"    @Test
     public void testAmbiguousInvoke_4_oe() throws Exception {
         // JEXL-299
         final Functor func = new Functor();
@@ -2523,7 +2523,7 @@ jexl_266_4,"    @Test
     }
     }
 ",MethodTest::testAmbiguousInvoke_4_oe
-jexl_267_3,"    @Test
+jexl_311_3,"    @Test
     public void testTryFailed_3_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -2545,7 +2545,7 @@ jexl_267_3,"    @Test
     }
     }
 ",MethodTest::testTryFailed_3_oe
-jexl_267_9,"    @Test
+jexl_311_9,"    @Test
     public void testTryFailed_9_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -2586,7 +2586,7 @@ jexl_267_9,"    @Test
     }
     }
 ",MethodTest::testTryFailed_9_oe
-jexl_267_12,"    @Test
+jexl_311_12,"    @Test
     public void testTryFailed_12_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -2638,7 +2638,7 @@ jexl_267_12,"    @Test
     }
     }
 ",MethodTest::testTryFailed_12_oe
-jexl_268_3,"    @Test
+jexl_312_3,"    @Test
     public void testTryFailedScript_3_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -2661,7 +2661,7 @@ jexl_268_3,"    @Test
     }
     }
 ",MethodTest::testTryFailedScript_3_oe
-jexl_268_7,"    @Test
+jexl_312_7,"    @Test
     public void testTryFailedScript_7_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -2701,7 +2701,7 @@ jexl_268_7,"    @Test
     }
     }
 ",MethodTest::testTryFailedScript_7_oe
-jexl_268_10,"    @Test
+jexl_312_10,"    @Test
     public void testTryFailedScript_10_oe() throws Exception {
         // JEXL-257
         final Functor func = new Functor();
@@ -2752,7 +2752,7 @@ jexl_268_10,"    @Test
     }
     }
 ",MethodTest::testTryFailedScript_10_oe
-jexl_271_1,"    @Test
+jexl_320_1,"    @Test
     public void testNamespaceCallEdge_1_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -2771,7 +2771,7 @@ jexl_271_1,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_1_oe
-jexl_271_2,"    @Test
+jexl_320_2,"    @Test
     public void testNamespaceCallEdge_2_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -2794,7 +2794,7 @@ jexl_271_2,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_2_oe
-jexl_271_3,"    @Test
+jexl_320_3,"    @Test
     public void testNamespaceCallEdge_3_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -2821,7 +2821,7 @@ jexl_271_3,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_3_oe
-jexl_271_4,"    @Test
+jexl_320_4,"    @Test
     public void testNamespaceCallEdge_4_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -2852,7 +2852,7 @@ jexl_271_4,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_4_oe
-jexl_271_5,"    @Test
+jexl_320_5,"    @Test
     public void testNamespaceCallEdge_5_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -2886,7 +2886,7 @@ jexl_271_5,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_5_oe
-jexl_271_6,"    @Test
+jexl_320_6,"    @Test
     public void testNamespaceCallEdge_6_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -2923,7 +2923,7 @@ jexl_271_6,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_6_oe
-jexl_271_7,"    @Test
+jexl_320_7,"    @Test
     public void testNamespaceCallEdge_7_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -2963,7 +2963,7 @@ jexl_271_7,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_7_oe
-jexl_271_8,"    @Test
+jexl_320_8,"    @Test
     public void testNamespaceCallEdge_8_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -3007,7 +3007,7 @@ jexl_271_8,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_8_oe
-jexl_271_9,"    @Test
+jexl_320_9,"    @Test
     public void testNamespaceCallEdge_9_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -3055,7 +3055,7 @@ jexl_271_9,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_9_oe
-jexl_271_10,"    @Test
+jexl_320_10,"    @Test
     public void testNamespaceCallEdge_10_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -3107,7 +3107,7 @@ jexl_271_10,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_10_oe
-jexl_271_11,"    @Test
+jexl_320_11,"    @Test
     public void testNamespaceCallEdge_11_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -3163,7 +3163,7 @@ jexl_271_11,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_11_oe
-jexl_271_12,"    @Test
+jexl_320_12,"    @Test
     public void testNamespaceCallEdge_12_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -3224,7 +3224,7 @@ jexl_271_12,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_12_oe
-jexl_271_13,"    @Test
+jexl_320_13,"    @Test
     public void testNamespaceCallEdge_13_oe() throws Exception {
         final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
         final Edge func = new Edge();
@@ -3290,7 +3290,7 @@ jexl_271_13,"    @Test
     }
     }
 ",MethodTest::testNamespaceCallEdge_13_oe
-jexl_294_1,"    @Test
+jexl_343_1,"    @Test
     public void testIssue301a_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).arithmetic(new JexlArithmetic(false)).create();
         final String[] srcs = new String[]{
@@ -3308,7 +3308,7 @@ jexl_294_1,"    @Test
     }
     }
 ",Issues300Test::testIssue301a_1_oe
-jexl_295_1,"    @Test
+jexl_344_1,"    @Test
     public void testIssues301b_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).arithmetic(new JexlArithmetic(false)).create();
         final Object[] xs = new Object[]{null, null, new Object[]{null, 1}};
@@ -3327,7 +3327,7 @@ jexl_295_1,"    @Test
     }
     }
 ",Issues300Test::testIssues301b_1_oe
-jexl_304_1,"    @Test
+jexl_353_1,"    @Test
     public void testIssue309a_1_oe() throws Exception {
         final String src = ""<html lang=\""en\"">\n""
                 + ""  <body>\n""
@@ -3344,7 +3344,7 @@ jexl_304_1,"    @Test
     }
     }
 ",Issues300Test::testIssue309a_1_oe
-jexl_305_1,"    @Test
+jexl_354_1,"    @Test
     public void testIssue309b_1_oe() throws Exception {
         final String src = ""<html lang=\""en\"">\n""
                 + ""  <body>\n""
@@ -3361,7 +3361,7 @@ jexl_305_1,"    @Test
     }
     }
 ",Issues300Test::testIssue309b_1_oe
-jexl_306_1,"    @Test
+jexl_355_1,"    @Test
     public void testIssue309c_1_oe() throws Exception {
         final String src = ""<html lang=\""en\"">\n""
                 + ""  <body>\n""
@@ -3380,7 +3380,7 @@ jexl_306_1,"    @Test
     }
     }
 ",Issues300Test::testIssue309c_1_oe
-jexl_310_1,"    @Test
+jexl_359_1,"    @Test
     public void test322a_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final JxltEngine jxlt = jexl.createJxltEngine();
@@ -3410,7 +3410,7 @@ jexl_310_1,"    @Test
     }
     }
     }",Issues300Test::test322a_1_oe
-jexl_310_2,"    @Test
+jexl_359_2,"    @Test
     public void test322a_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final JxltEngine jxlt = jexl.createJxltEngine();
@@ -3445,7 +3445,7 @@ jexl_310_2,"    @Test
     }
     }
     }",Issues300Test::test322a_2_oe
-jexl_312_1,"    @Test
+jexl_361_1,"    @Test
     public void test323_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -3461,7 +3461,7 @@ jexl_312_1,"    @Test
     }
     }
 ",Issues300Test::test323_1_oe
-jexl_312_4,"    @Test
+jexl_361_4,"    @Test
     public void test323_4_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -3493,7 +3493,7 @@ jexl_312_4,"    @Test
     }
     }
 ",Issues300Test::test323_4_oe
-jexl_312_6,"    @Test
+jexl_361_6,"    @Test
     public void test323_6_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -3535,7 +3535,7 @@ jexl_312_6,"    @Test
     }
     }
 ",Issues300Test::test323_6_oe
-jexl_312_8,"    @Test
+jexl_361_8,"    @Test
     public void test323_8_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -3587,7 +3587,7 @@ jexl_312_8,"    @Test
     }
     }
 ",Issues300Test::test323_8_oe
-jexl_312_10,"    @Test
+jexl_361_10,"    @Test
     public void test323_10_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().safe(false).create();
         final Map<String, Object> vars = new HashMap<String, Object>();
@@ -3648,7 +3648,7 @@ jexl_312_10,"    @Test
     }
     }
 ",Issues300Test::test323_10_oe
-jexl_313_3,"    @Test
+jexl_362_3,"    @Test
     public void test324_3_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         final String src42 = ""new('java.lang.Integer', 42)"";
@@ -3662,7 +3662,7 @@ jexl_313_3,"    @Test
     }
     }
 ",Issues300Test::test324_3_oe
-jexl_315_1,"    @Test
+jexl_364_1,"    @Test
     public void test330_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().create();
         // Extended form of: 'literal' + VARIABLE   'literal'
@@ -3680,7 +3680,7 @@ jexl_315_1,"    @Test
     }
     }
 ",Issues300Test::test330_1_oe
-jexl_317_2,"    @Test
+jexl_366_2,"    @Test
     public void test347_2_oe() throws Exception {
         final String src = ""A.B == 5"";
         JexlEngine jexl = new JexlBuilder().safe(true).create();
@@ -3699,7 +3699,7 @@ jexl_317_2,"    @Test
     }
     }
 ",Issues300Test::test347_2_oe
-jexl_317_4,"    @Test
+jexl_366_4,"    @Test
     public void test347_4_oe() throws Exception {
         final String src = ""A.B == 5"";
         JexlEngine jexl = new JexlBuilder().safe(true).create();
@@ -3726,7 +3726,7 @@ jexl_317_4,"    @Test
     }
     }
 ",Issues300Test::test347_4_oe
-jexl_331_1,"    @Test
+jexl_403_1,"    @Test
     public void testForEachContinueBroken_1_oe() throws Exception {
         try {
             final JexlScript e = JEXL.createScript(""var rr = 0; continue;"");
@@ -3734,7 +3734,7 @@ jexl_331_1,"    @Test
     }
     }
 ",ForEachTest::testForEachContinueBroken_1_oe
-jexl_332_1,"    @Test
+jexl_404_1,"    @Test
     public void testForEachBreakBroken_1_oe() throws Exception {
         try {
             final JexlScript e = JEXL.createScript(""if (true) { break; }"");
@@ -3742,7 +3742,7 @@ jexl_332_1,"    @Test
     }
     }
 ",ForEachTest::testForEachBreakBroken_1_oe
-jexl_341_1,"    @Test
+jexl_413_1,"    @Test
     public void test248_1_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final List<Object> foo = new ArrayList<Object>(Arrays.asList(10, 20, 30, 40));
@@ -3756,7 +3756,7 @@ jexl_341_1,"    @Test
     }
     }
 ",SideEffectTest::test248_1_oe
-jexl_341_3,"    @Test
+jexl_413_3,"    @Test
     public void test248_3_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final List<Object> foo = new ArrayList<Object>(Arrays.asList(10, 20, 30, 40));
@@ -3778,7 +3778,7 @@ jexl_341_3,"    @Test
     }
     }
 ",SideEffectTest::test248_3_oe
-jexl_341_4,"    @Test
+jexl_413_4,"    @Test
     public void test248_4_oe() throws Exception {
         final MapContext ctx = new MapContext();
         final List<Object> foo = new ArrayList<Object>(Arrays.asList(10, 20, 30, 40));
@@ -3801,7 +3801,7 @@ jexl_341_4,"    @Test
     }
     }
 ",SideEffectTest::test248_4_oe
-jexl_368_1,"    @Test
+jexl_440_1,"    @Test
     public void testTernaryFail_1_oe() throws Exception {
         final JexlEvalContext jc = new JexlEvalContext();
         final JexlOptions options = jc.getEngineOptions();
@@ -3815,7 +3815,7 @@ jexl_368_1,"    @Test
     }
     }
 ",IfTest::testTernaryFail_1_oe
-jexl_369_1,"    @Test
+jexl_450_1,"    @Test
     public void testStrict_1_oe() throws Exception {
         final JexlEvalContext env = new JexlEvalContext();
         final JexlOptions options = env.getEngineOptions();
@@ -3832,7 +3832,7 @@ jexl_369_1,"    @Test
     }
     }
 ",VarTest::testStrict_1_oe
-jexl_369_2,"    @Test
+jexl_450_2,"    @Test
     public void testStrict_2_oe() throws Exception {
         final JexlEvalContext env = new JexlEvalContext();
         final JexlOptions options = env.getEngineOptions();
@@ -3856,7 +3856,7 @@ jexl_369_2,"    @Test
     }
     }
 ",VarTest::testStrict_2_oe
-jexl_369_3,"    @Test
+jexl_450_3,"    @Test
     public void testStrict_3_oe() throws Exception {
         final JexlEvalContext env = new JexlEvalContext();
         final JexlOptions options = env.getEngineOptions();
@@ -3889,7 +3889,7 @@ jexl_369_3,"    @Test
     }
     }
 ",VarTest::testStrict_3_oe
-jexl_381_1,"    @Test
+jexl_462_1,"    @Test
     public void testObjectContext_1_oe() throws Exception {
         final TheVarContext vars = new TheVarContext();
         final JexlContext jc = new ObjectContext<TheVarContext>(JEXL, vars);
@@ -3902,7 +3902,7 @@ jexl_381_1,"    @Test
     }
     }
 ",VarTest::testObjectContext_1_oe
-jexl_381_2,"    @Test
+jexl_462_2,"    @Test
     public void testObjectContext_2_oe() throws Exception {
         final TheVarContext vars = new TheVarContext();
         final JexlContext jc = new ObjectContext<TheVarContext>(JEXL, vars);
@@ -3916,7 +3916,7 @@ jexl_381_2,"    @Test
     }
     }
 ",VarTest::testObjectContext_2_oe
-jexl_381_3,"    @Test
+jexl_462_3,"    @Test
     public void testObjectContext_3_oe() throws Exception {
         final TheVarContext vars = new TheVarContext();
         final JexlContext jc = new ObjectContext<TheVarContext>(JEXL, vars);
@@ -3933,7 +3933,7 @@ jexl_381_3,"    @Test
     }
     }
 ",VarTest::testObjectContext_3_oe
-jexl_381_4,"    @Test
+jexl_462_4,"    @Test
     public void testObjectContext_4_oe() throws Exception {
         final TheVarContext vars = new TheVarContext();
         final JexlContext jc = new ObjectContext<TheVarContext>(JEXL, vars);
@@ -3951,7 +3951,7 @@ jexl_381_4,"    @Test
     }
     }
 ",VarTest::testObjectContext_4_oe
-jexl_381_5,"    @Test
+jexl_462_5,"    @Test
     public void testObjectContext_5_oe() throws Exception {
         final TheVarContext vars = new TheVarContext();
         final JexlContext jc = new ObjectContext<TheVarContext>(JEXL, vars);
@@ -3973,7 +3973,7 @@ jexl_381_5,"    @Test
     }
     }
 ",VarTest::testObjectContext_5_oe
-jexl_381_6,"    @Test
+jexl_462_6,"    @Test
     public void testObjectContext_6_oe() throws Exception {
         final TheVarContext vars = new TheVarContext();
         final JexlContext jc = new ObjectContext<TheVarContext>(JEXL, vars);
@@ -3996,7 +3996,7 @@ jexl_381_6,"    @Test
     }
     }
 ",VarTest::testObjectContext_6_oe
-jexl_381_7,"    @Test
+jexl_462_7,"    @Test
     public void testObjectContext_7_oe() throws Exception {
         final TheVarContext vars = new TheVarContext();
         final JexlContext jc = new ObjectContext<TheVarContext>(JEXL, vars);
@@ -4022,7 +4022,7 @@ jexl_381_7,"    @Test
     }
     }
 ",VarTest::testObjectContext_7_oe
-jexl_381_8,"    @Test
+jexl_462_8,"    @Test
     public void testObjectContext_8_oe() throws Exception {
         final TheVarContext vars = new TheVarContext();
         final JexlContext jc = new ObjectContext<TheVarContext>(JEXL, vars);
@@ -4049,7 +4049,7 @@ jexl_381_8,"    @Test
     }
     }
 ",VarTest::testObjectContext_8_oe
-jexl_383_5,"    @Test
+jexl_464_5,"    @Test
     public void testSetInt_5_oe() throws Exception {
         final JexlExpression set = JEXL.createExpression(""pub.anInt = value"");
         ctxt.set(""value"", -42);
@@ -4064,7 +4064,7 @@ jexl_383_5,"    @Test
     }
     }
 ",PublicFieldsTest::testSetInt_5_oe
-jexl_383_6,"    @Test
+jexl_464_6,"    @Test
     public void testSetInt_6_oe() throws Exception {
         final JexlExpression set = JEXL.createExpression(""pub.anInt = value"");
         ctxt.set(""value"", -42);
@@ -4080,7 +4080,7 @@ jexl_383_6,"    @Test
     }
     }
 ",PublicFieldsTest::testSetInt_6_oe
-jexl_387_5,"    @Test
+jexl_468_5,"    @Test
     public void testSetInnerDouble_5_oe() throws Exception {
         final JexlExpression set = JEXL.createExpression(""pub.inner.aDouble = value"");
         ctxt.set(""value"", -42.0);
@@ -4095,7 +4095,7 @@ jexl_387_5,"    @Test
     }
     }
 ",PublicFieldsTest::testSetInnerDouble_5_oe
-jexl_387_6,"    @Test
+jexl_468_6,"    @Test
     public void testSetInnerDouble_6_oe() throws Exception {
         final JexlExpression set = JEXL.createExpression(""pub.inner.aDouble = value"");
         ctxt.set(""value"", -42.0);
@@ -4111,7 +4111,7 @@ jexl_387_6,"    @Test
     }
     }
 ",PublicFieldsTest::testSetInnerDouble_6_oe
-jexl_409_3,"    @Test
+jexl_497_3,"    @Test
     public void testXmlArithmetic_3_oe() throws Exception {
         Document xml;
         Node x;
@@ -4135,7 +4135,7 @@ jexl_409_3,"    @Test
     }
     }
 ",ArithmeticTest::testXmlArithmetic_3_oe
-jexl_409_5,"    @Test
+jexl_497_5,"    @Test
     public void testXmlArithmetic_5_oe() throws Exception {
         Document xml;
         Node x;
@@ -4165,7 +4165,7 @@ jexl_409_5,"    @Test
     }
     }
 ",ArithmeticTest::testXmlArithmetic_5_oe
-jexl_409_22,"    @Test
+jexl_497_22,"    @Test
     public void testXmlArithmetic_22_oe() throws Exception {
         Document xml;
         Node x;
@@ -4252,7 +4252,7 @@ jexl_409_22,"    @Test
     }
     }
 ",ArithmeticTest::testXmlArithmetic_22_oe
-jexl_409_23,"    @Test
+jexl_497_23,"    @Test
     public void testXmlArithmetic_23_oe() throws Exception {
         Document xml;
         Node x;
@@ -4340,7 +4340,7 @@ jexl_409_23,"    @Test
     }
     }
 ",ArithmeticTest::testXmlArithmetic_23_oe
-jexl_427_1,"    @Test
+jexl_515_1,"    @Test
     public void testMalformedExpression1_1_oe() throws Exception {
         // this will throw a JexlException
         final String badExpression = ""eq"";
@@ -4350,7 +4350,7 @@ jexl_427_1,"    @Test
     }
     }
 ",ParseFailuresTest::testMalformedExpression1_1_oe
-jexl_428_1,"    @Test
+jexl_516_1,"    @Test
     public void testMalformedExpression2_1_oe() throws Exception {
         // this will throw a TokenMgrErr, which we rethrow as a JexlException
         final String badExpression = ""?"";
@@ -4360,7 +4360,7 @@ jexl_428_1,"    @Test
     }
     }
 ",ParseFailuresTest::testMalformedExpression2_1_oe
-jexl_429_1,"    @Test
+jexl_517_1,"    @Test
     public void testMalformedScript1_1_oe() throws Exception {
         // this will throw a TokenMgrErr, which we rethrow as a JexlException
         final String badScript = ""eq"";
@@ -4370,7 +4370,7 @@ jexl_429_1,"    @Test
     }
     }
 ",ParseFailuresTest::testMalformedScript1_1_oe
-jexl_430_1,"    @Test
+jexl_518_1,"    @Test
     public void testMalformedScript2_1_oe() throws Exception {
         // this will throw a TokenMgrErr, which we rethrow as a JexlException
         final String badScript = ""?"";
@@ -4380,7 +4380,7 @@ jexl_430_1,"    @Test
     }
     }
 ",ParseFailuresTest::testMalformedScript2_1_oe
-jexl_431_1,"    @Test
+jexl_519_1,"    @Test
     public void testMalformedScript3_1_oe() throws Exception {
         // this will throw a TokenMgrErr, which we rethrow as a JexlException
         final String badScript = ""foo=1;bar=2;a?b:c:d;"";
@@ -4390,7 +4390,7 @@ jexl_431_1,"    @Test
     }
     }
 ",ParseFailuresTest::testMalformedScript3_1_oe
-jexl_438_1,"    @Test
+jexl_526_1,"    @Test
     public void testLexical1_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4408,7 +4408,7 @@ jexl_438_1,"    @Test
     }
     }
 ",LexicalTest::testLexical1_1_oe
-jexl_438_2,"    @Test
+jexl_526_2,"    @Test
     public void testLexical1_2_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).create();
         final JexlEvalContext ctxt = new JexlEvalContext();
@@ -4434,7 +4434,7 @@ jexl_438_2,"    @Test
     }
     }
 ",LexicalTest::testLexical1_2_oe
-jexl_441_1,"    @Test
+jexl_529_1,"    @Test
     public void testLexical5_1_oe() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).create();
         final JexlContext ctxt = new DebugContext();
@@ -4447,7 +4447,7 @@ jexl_441_1,"    @Test
     }
     }
 ",LexicalTest::testLexical5_1_oe
-jexl_443_1,"    @Test
+jexl_531_1,"    @Test
     public void testLexical6b_1_oe() throws Exception {
         final String str = ""i = 0; { var i = 32; }; i"";
         final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).lexicalShade(true).create();
@@ -4459,7 +4459,7 @@ jexl_443_1,"    @Test
     }
     }
 ",LexicalTest::testLexical6b_1_oe
-jexl_445_1,"    @Test
+jexl_533_1,"    @Test
     public void testLexical6d_1_oe() throws Exception {
         final String str = ""i = 0; for (var i : [42]) i; i"";
         final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).lexicalShade(true).create();
@@ -4471,7 +4471,7 @@ jexl_445_1,"    @Test
     }
     }
 ",LexicalTest::testLexical6d_1_oe
-jexl_446_1,"    @Test
+jexl_534_1,"    @Test
     public void testPragmaOptions_1_oe() throws Exception {
         // same as 6d but using a pragma
         final String str = ""#pragma jexl.options '+strict +lexical +lexicalShade -safe'\n""
@@ -4485,7 +4485,7 @@ jexl_446_1,"    @Test
     }
     }
 ",LexicalTest::testPragmaOptions_1_oe
-jexl_449_1,"    @Test
+jexl_537_1,"    @Test
     public void testContextualOptions0_1_oe() throws Exception {
         final JexlFeatures f= new JexlFeatures();
         final JexlEngine jexl = new JexlBuilder().features(f).strict(true).create();
@@ -4502,7 +4502,7 @@ jexl_449_1,"    @Test
     }
     }
 ",LexicalTest::testContextualOptions0_1_oe
-jexl_454_1,"    @Test
+jexl_542_1,"    @Test
     public void testForVariable0_1_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures();
         f.lexical(true);
@@ -4514,7 +4514,7 @@ jexl_454_1,"    @Test
     }
     }
 ",LexicalTest::testForVariable0_1_oe
-jexl_455_1,"    @Test
+jexl_543_1,"    @Test
     public void testForVariable1_1_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures();
         f.lexical(true);
@@ -4526,7 +4526,7 @@ jexl_455_1,"    @Test
     }
     }
 ",LexicalTest::testForVariable1_1_oe
-jexl_456_1,"    @Test
+jexl_544_1,"    @Test
     public void testUndeclaredVariable_1_oe() throws Exception {
         final JexlFeatures f = new JexlFeatures();
         f.lexical(true);
@@ -4538,7 +4538,7 @@ jexl_456_1,"    @Test
     }
     }
 ",LexicalTest::testUndeclaredVariable_1_oe
-jexl_459_1,"    @Test
+jexl_547_1,"    @Test
     public void testOptionsPragma_1_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4552,7 +4552,7 @@ jexl_459_1,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_1_oe
-jexl_459_2,"    @Test
+jexl_547_2,"    @Test
     public void testOptionsPragma_2_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4568,7 +4568,7 @@ jexl_459_2,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_2_oe
-jexl_459_3,"    @Test
+jexl_547_3,"    @Test
     public void testOptionsPragma_3_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4585,7 +4585,7 @@ jexl_459_3,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_3_oe
-jexl_459_4,"    @Test
+jexl_547_4,"    @Test
     public void testOptionsPragma_4_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4603,7 +4603,7 @@ jexl_459_4,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_4_oe
-jexl_459_5,"    @Test
+jexl_547_5,"    @Test
     public void testOptionsPragma_5_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4622,7 +4622,7 @@ jexl_459_5,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_5_oe
-jexl_459_6,"    @Test
+jexl_547_6,"    @Test
     public void testOptionsPragma_6_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4642,7 +4642,7 @@ jexl_459_6,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_6_oe
-jexl_459_7,"    @Test
+jexl_547_7,"    @Test
     public void testOptionsPragma_7_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4663,7 +4663,7 @@ jexl_459_7,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_7_oe
-jexl_459_8,"    @Test
+jexl_547_8,"    @Test
     public void testOptionsPragma_8_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4687,7 +4687,7 @@ jexl_459_8,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_8_oe
-jexl_459_9,"    @Test
+jexl_547_9,"    @Test
     public void testOptionsPragma_9_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4713,7 +4713,7 @@ jexl_459_9,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_9_oe
-jexl_459_10,"    @Test
+jexl_547_10,"    @Test
     public void testOptionsPragma_10_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4740,7 +4740,7 @@ jexl_459_10,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_10_oe
-jexl_459_11,"    @Test
+jexl_547_11,"    @Test
     public void testOptionsPragma_11_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4768,7 +4768,7 @@ jexl_459_11,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_11_oe
-jexl_459_12,"    @Test
+jexl_547_12,"    @Test
     public void testOptionsPragma_12_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4797,7 +4797,7 @@ jexl_459_12,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_12_oe
-jexl_459_13,"    @Test
+jexl_547_13,"    @Test
     public void testOptionsPragma_13_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4827,7 +4827,7 @@ jexl_459_13,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_13_oe
-jexl_459_14,"    @Test
+jexl_547_14,"    @Test
     public void testOptionsPragma_14_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4858,7 +4858,7 @@ jexl_459_14,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_14_oe
-jexl_459_15,"    @Test
+jexl_547_15,"    @Test
     public void testOptionsPragma_15_oe() throws Exception {
         try {
             JexlOptions.setDefaultFlags(""+safe"", ""-lexical"", ""-lexicalShade"");
@@ -4890,7 +4890,7 @@ jexl_459_15,"    @Test
     }
     }
 ",LexicalTest::testOptionsPragma_15_oe
-jexl_465_2,"    @Test
+jexl_553_2,"    @Test
     public void testCtorBlock_2_oe() throws Exception {
         final String expr = ""new('"" + Foo.class.getName() + ""', '42')"";
         JexlScript script = JEXL.createScript(expr);
@@ -4909,7 +4909,7 @@ jexl_465_2,"    @Test
     }
     }
 ",SandboxTest::testCtorBlock_2_oe
-jexl_466_2,"    @Test
+jexl_554_2,"    @Test
     public void testMethodBlock_2_oe() throws Exception {
         final String expr = ""foo.Quux()"";
         JexlScript script = JEXL.createScript(expr, ""foo"");
@@ -4929,7 +4929,7 @@ jexl_466_2,"    @Test
     }
     }
 ",SandboxTest::testMethodBlock_2_oe
-jexl_467_2,"    @Test
+jexl_555_2,"    @Test
     public void testGetBlock_2_oe() throws Exception {
         final String expr = ""foo.alias"";
         JexlScript script = JEXL.createScript(expr, ""foo"");
@@ -4949,7 +4949,7 @@ jexl_467_2,"    @Test
     }
     }
 ",SandboxTest::testGetBlock_2_oe
-jexl_468_2,"    @Test
+jexl_556_2,"    @Test
     public void testSetBlock_2_oe() throws Exception {
         final String expr = ""foo.alias = $0"";
         JexlScript script = JEXL.createScript(expr, ""foo"", ""$0"");
@@ -4969,7 +4969,7 @@ jexl_468_2,"    @Test
     }
     }
 ",SandboxTest::testSetBlock_2_oe
-jexl_469_1,"    @Test
+jexl_557_1,"    @Test
     public void testCantSeeMe_1_oe() throws Exception {
         final JexlContext jc = new MapContext();
         final String expr = ""foo.doIt()"";
@@ -4988,7 +4988,7 @@ jexl_469_1,"    @Test
     }
     }
 ",SandboxTest::testCantSeeMe_1_oe
-jexl_472_1,"    @Test
+jexl_560_1,"    @Test
     public void testMethodNoJexl_1_oe() throws Exception {
         final Foo foo = new Foo(""42"");
         final String[] exprs = {
@@ -5012,7 +5012,7 @@ jexl_472_1,"    @Test
     }
     }
 ",SandboxTest::testMethodNoJexl_1_oe
-jexl_475_1,"    @Test
+jexl_563_1,"    @Test
     public void testRestrict_1_oe() throws Exception {
         final JexlContext context = new MapContext();
         context.set(""System"", System.class);
@@ -5035,7 +5035,7 @@ jexl_475_1,"    @Test
     }
     }
 ",SandboxTest::testRestrict_1_oe
-jexl_475_2,"    @Test
+jexl_563_2,"    @Test
     public void testRestrict_2_oe() throws Exception {
         final JexlContext context = new MapContext();
         context.set(""System"", System.class);
@@ -5066,7 +5066,7 @@ jexl_475_2,"    @Test
     }
     }
 ",SandboxTest::testRestrict_2_oe
-jexl_475_3,"    @Test
+jexl_563_3,"    @Test
     public void testRestrict_3_oe() throws Exception {
         final JexlContext context = new MapContext();
         context.set(""System"", System.class);
@@ -5105,7 +5105,7 @@ jexl_475_3,"    @Test
     }
     }
 ",SandboxTest::testRestrict_3_oe
-jexl_477_2,"    @Test
+jexl_565_2,"    @Test
     public void testSandboxInherit1_2_oe() throws Exception {
         Object result;
         final JexlContext ctxt = null;
@@ -5125,7 +5125,7 @@ jexl_477_2,"    @Test
     }
     }
 ",SandboxTest::testSandboxInherit1_2_oe
-jexl_478_1,"    @Test
+jexl_566_1,"    @Test
     public void testNoJexl312_1_oe() throws Exception {
         final JexlContext ctxt = new MapContext();
 
@@ -5137,7 +5137,7 @@ jexl_478_1,"    @Test
     }
     }
 ",SandboxTest::testNoJexl312_1_oe
-jexl_480_1,"    @Test
+jexl_568_1,"    @Test
     public void testGetNullKeyAllowed1_1_oe() throws Exception {
         JexlSandbox sandbox = new JexlSandbox(true, true);
         JexlSandbox.Permissions p = sandbox.permissions(""java.util.Map"", false, true, true);
@@ -5152,7 +5152,7 @@ jexl_480_1,"    @Test
     }
     }
 ",SandboxTest::testGetNullKeyAllowed1_1_oe
-jexl_481_2,"    @Test
+jexl_569_2,"    @Test
     public void testGetNullKeyBlocked_2_oe() throws Exception {
         JexlSandbox sandbox = new JexlSandbox(true, true);
         JexlSandbox.Permissions p = sandbox.permissions(""java.util.Map"", false, true, true);
@@ -5173,7 +5173,7 @@ jexl_481_2,"    @Test
     }
     }
 ",SandboxTest::testGetNullKeyBlocked_2_oe
-jexl_483_1,"    @Test
+jexl_571_1,"    @Test
     public void testSetNullKeyAllowed1_1_oe() throws Exception {
         Arithmetic350 a350 = new Arithmetic350(true);
         JexlSandbox sandbox = new JexlSandbox(true, true);
@@ -5189,7 +5189,7 @@ jexl_483_1,"    @Test
     }
     }
 ",SandboxTest::testSetNullKeyAllowed1_1_oe
-jexl_484_2,"    @Test
+jexl_572_2,"    @Test
     public void testSetNullKeyBlocked_2_oe() throws Exception {
         Arithmetic350 a350 = new Arithmetic350(true);
         JexlSandbox sandbox = new JexlSandbox(true, true);
@@ -5212,7 +5212,7 @@ jexl_484_2,"    @Test
     }
     }
 ",SandboxTest::testSetNullKeyBlocked_2_oe
-jexl_485_3,"    @Test
+jexl_573_3,"    @Test
     public void test342_3_oe() {
         JexlBuilder builder = new JexlBuilder();
         JexlUberspect uber = builder.create().getUberspect();
@@ -5236,7 +5236,7 @@ jexl_485_3,"    @Test
     }
     }
 ",OptionalTest::test342_3_oe
-jexl_487_1,"    @Test
+jexl_575_1,"    @Test
     public void testErrorAssign_1_oe() throws Exception {
         final String[] ops = { ""="", ""+="", ""-="", ""/="", ""*="", ""^="", ""&="", ""|="" };
         for(final String op : ops) {
@@ -5248,7 +5248,7 @@ jexl_487_1,"    @Test
     }
     }
 ",ParserTest::testErrorAssign_1_oe
-jexl_488_1,"    @Test
+jexl_576_1,"    @Test
     public void testErrorAmbiguous_1_oe() throws Exception {
         final Parser parser = new Parser("";"");
         try {
@@ -5257,37 +5257,37 @@ jexl_488_1,"    @Test
     }
     }
 ",ParserTest::testErrorAmbiguous_1_oe
-jexl_491_1,"    @Test
-    public void testThis_1_oe() throws Exception {
+jexl_579_3,"    @Test
+    public void testThis_3_oe() throws Exception {
         final Asserter asserter = new Asserter(JEXL);
         asserter.setVariable(""this"", new Foo());
-        asserter.assertExpression(""this.repeat('abc')"", ""Repeat : abc"");
+        // removed other assertion
         try {
-            asserter.assertExpression(""this.count"", ""Wrong Value"");
+            // removed other assertion
             Assert.fail(""This method should have thrown an assertion exception"");
     }
     }
-",AsserterTest::testThis_1_oe
-jexl_492_1,"    @Test
-    public void testVariable_1_oe() throws Exception {
+",AsserterTest::testThis_3_oe
+jexl_580_6,"    @Test
+    public void testVariable_6_oe() throws Exception {
         final Asserter asserter = new Asserter(JEXL);
         asserter.setSilent(true);
         asserter.setVariable(""foo"", new Foo());
         asserter.setVariable(""person"", ""James"");
 
-        asserter.assertExpression(""person"", ""James"");
-        asserter.assertExpression(""size(person)"", new Integer(5));
+        // removed other assertion
+        // removed other assertion
 
-        asserter.assertExpression(""foo.getCount()"", new Integer(5));
-        asserter.assertExpression(""foo.count"", new Integer(5));
+        // removed other assertion
+        // removed other assertion
 
         try {
-            asserter.assertExpression(""bar.count"", new Integer(5));
+            // removed other assertion
             Assert.fail(""This method should have thrown an assertion exception"");
     }
     }
-",AsserterTest::testVariable_1_oe
-jexl_499_3,"    @Test
+",AsserterTest::testVariable_6_oe
+jexl_587_3,"    @Test
     public void testNulls_3_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -5299,7 +5299,7 @@ jexl_499_3,"    @Test
     }
     }
 ",JexlScriptEngineTest::testNulls_3_oe
-jexl_499_4,"    @Test
+jexl_587_4,"    @Test
     public void testNulls_4_oe() throws Exception {
         final ScriptEngineManager manager = new ScriptEngineManager();
         // removed other assertion
@@ -5317,59 +5317,7 @@ jexl_499_4,"    @Test
     }
     }
 ",JexlScriptEngineTest::testNulls_4_oe
-jexl_503_28,"    @Test
-    public void testRanges_28_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    case 10:  il0.remove(); Assert.fail(); break;
-    }
-    }
-    }
-    }
-",RangeTest::testRanges_28_oe
-jexl_503_29,"    @Test
+jexl_591_29,"    @Test
     public void testRanges_29_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -5415,123 +5363,26 @@ jexl_503_29,"    @Test
             // removed other assertion
             try {
                 switch((int)v0) {
-                    // removed other assertion
+                    case 10:  il0.remove(); Assert.fail(); break;
                     case 11: lr1.add(v0); Assert.fail(); break;
-    }
-    }
+                    case 12: lr1.remove(v0); Assert.fail(); break;
+                    case 13: lr1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 14: lr1.removeAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 15: lr1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
+                }
+            } catch(final UnsupportedOperationException xuo) {
+                // ok
+            }
+            lc0 -= 1;
+        }
+        // removed other assertion
+        try {
+            il0.next();
+            Assert.fail();
     }
     }
 ",RangeTest::testRanges_29_oe
-jexl_503_30,"    @Test
-    public void testRanges_30_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    case 12: lr1.remove(v0); Assert.fail(); break;
-    }
-    }
-    }
-    }
-",RangeTest::testRanges_30_oe
-jexl_503_31,"    @Test
-    public void testRanges_31_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    case 13: lr1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
-    }
-    }
-    }
-    }
-",RangeTest::testRanges_31_oe
-jexl_503_32,"    @Test
+jexl_591_32,"    @Test
     public void testRanges_32_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         // removed other assertion
@@ -5577,190 +5428,12 @@ jexl_503_32,"    @Test
             // removed other assertion
             try {
                 switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
+                    case 10:  il0.remove(); Assert.fail(); break;
+                    case 11: lr1.add(v0); Assert.fail(); break;
+                    case 12: lr1.remove(v0); Assert.fail(); break;
+                    case 13: lr1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
                     case 14: lr1.removeAll(Collections.singletonList(v0)); Assert.fail(); break;
-    }
-    }
-    }
-    }
-",RangeTest::testRanges_32_oe
-jexl_503_33,"    @Test
-    public void testRanges_33_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
                     case 15: lr1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
-    }
-    }
-    }
-    }
-",RangeTest::testRanges_33_oe
-jexl_503_35,"    @Test
-    public void testRanges_35_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                }
-            } catch(final UnsupportedOperationException xuo) {
-                // ok
-            }
-            lc0 -= 1;
-        }
-        // removed other assertion
-        try {
-            il0.next();
-            Assert.fail();
-    }
-    }
-",RangeTest::testRanges_35_oe
-jexl_503_37,"    @Test
-    public void testRanges_37_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
                 }
             } catch(final UnsupportedOperationException xuo) {
                 // ok
@@ -5783,500 +5456,11 @@ jexl_503_37,"    @Test
             try {
                 switch(v0) {
                     case 10: ii0.remove(); Assert.fail(); break;
-    }
-    }
-    }
-    }
-",RangeTest::testRanges_37_oe
-jexl_503_38,"    @Test
-    public void testRanges_38_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                }
-            } catch(final UnsupportedOperationException xuo) {
-                // ok
-            }
-            lc0 -= 1;
-        }
-        // removed other assertion
-        try {
-            il0.next();
-            // removed other assertion
-        } catch(final NoSuchElementException xns) {
-            // ok
-        }
-
-        int ic0 = 20;
-        final Iterator<Integer> ii0 = ir0.iterator();
-        while(ii0.hasNext()) {
-            final int v0 = ii0.next();
-            // removed other assertion
-            try {
-                switch(v0) {
-                    // removed other assertion
                     case 11: ir1.add(v0); Assert.fail(); break;
-    }
-    }
-    }
-    }
-",RangeTest::testRanges_38_oe
-jexl_503_39,"    @Test
-    public void testRanges_39_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                }
-            } catch(final UnsupportedOperationException xuo) {
-                // ok
-            }
-            lc0 -= 1;
-        }
-        // removed other assertion
-        try {
-            il0.next();
-            // removed other assertion
-        } catch(final NoSuchElementException xns) {
-            // ok
-        }
-
-        int ic0 = 20;
-        final Iterator<Integer> ii0 = ir0.iterator();
-        while(ii0.hasNext()) {
-            final int v0 = ii0.next();
-            // removed other assertion
-            try {
-                switch(v0) {
-                    // removed other assertion
-                    // removed other assertion
                     case 12: ir1.remove(v0); Assert.fail(); break;
-    }
-    }
-    }
-    }
-",RangeTest::testRanges_39_oe
-jexl_503_40,"    @Test
-    public void testRanges_40_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                }
-            } catch(final UnsupportedOperationException xuo) {
-                // ok
-            }
-            lc0 -= 1;
-        }
-        // removed other assertion
-        try {
-            il0.next();
-            // removed other assertion
-        } catch(final NoSuchElementException xns) {
-            // ok
-        }
-
-        int ic0 = 20;
-        final Iterator<Integer> ii0 = ir0.iterator();
-        while(ii0.hasNext()) {
-            final int v0 = ii0.next();
-            // removed other assertion
-            try {
-                switch(v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
                     case 13: ir1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
-    }
-    }
-    }
-    }
-",RangeTest::testRanges_40_oe
-jexl_503_41,"    @Test
-    public void testRanges_41_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                }
-            } catch(final UnsupportedOperationException xuo) {
-                // ok
-            }
-            lc0 -= 1;
-        }
-        // removed other assertion
-        try {
-            il0.next();
-            // removed other assertion
-        } catch(final NoSuchElementException xns) {
-            // ok
-        }
-
-        int ic0 = 20;
-        final Iterator<Integer> ii0 = ir0.iterator();
-        while(ii0.hasNext()) {
-            final int v0 = ii0.next();
-            // removed other assertion
-            try {
-                switch(v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
                     case 14: ir1.removeAll(Collections.singletonList(v0)); Assert.fail(); break;
-    }
-    }
-    }
-    }
-",RangeTest::testRanges_41_oe
-jexl_503_42,"    @Test
-    public void testRanges_42_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                }
-            } catch(final UnsupportedOperationException xuo) {
-                // ok
-            }
-            lc0 -= 1;
-        }
-        // removed other assertion
-        try {
-            il0.next();
-            // removed other assertion
-        } catch(final NoSuchElementException xns) {
-            // ok
-        }
-
-        int ic0 = 20;
-        final Iterator<Integer> ii0 = ir0.iterator();
-        while(ii0.hasNext()) {
-            final int v0 = ii0.next();
-            // removed other assertion
-            try {
-                switch(v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
                     case 15: ir1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
-    }
-    }
-    }
-    }
-",RangeTest::testRanges_42_oe
-jexl_503_44,"    @Test
-    public void testRanges_44_oe() throws Exception {
-        final LongRange lr0 = LongRange.create(20,10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        checkIteration(lr0, 20L, 10L);
-        final LongRange lr1 = LongRange.create(10,20);
-        checkIteration(lr1, 10L, 20L);
-        // removed other assertion
-        final LongRange lr2 = LongRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir0 = IntegerRange.create(20,10);
-        checkIteration(ir0, 20, 10);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir1 = IntegerRange.create(10,20);
-        checkIteration(ir1, 10, 20);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        final IntegerRange ir2 = IntegerRange.create(10,15);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        long lc0 = 20;
-        final Iterator<Long> il0 = lr0.iterator();
-        while(il0.hasNext()) {
-            final long v0 = il0.next();
-            // removed other assertion
-            try {
-                switch((int)v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                }
-            } catch(final UnsupportedOperationException xuo) {
-                // ok
-            }
-            lc0 -= 1;
-        }
-        // removed other assertion
-        try {
-            il0.next();
-            // removed other assertion
-        } catch(final NoSuchElementException xns) {
-            // ok
-        }
-
-        int ic0 = 20;
-        final Iterator<Integer> ii0 = ir0.iterator();
-        while(ii0.hasNext()) {
-            final int v0 = ii0.next();
-            // removed other assertion
-            try {
-                switch(v0) {
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
-                    // removed other assertion
                 }
             } catch(final UnsupportedOperationException xuo) {
                 // ok
@@ -6289,8 +5473,8 @@ jexl_503_44,"    @Test
             Assert.fail();
     }
     }
-",RangeTest::testRanges_44_oe
-jexl_504_1,"    @Test
+",RangeTest::testRanges_32_oe
+jexl_592_1,"    @Test
     public void testEmptyContext_1_oe() {
         try {
             JexlEngine.EMPTY_CONTEXT.set(""nope"", 42);
@@ -6298,7 +5482,7 @@ jexl_504_1,"    @Test
     }
     }
 ",MiscIntrospectionTest::testEmptyContext_1_oe
-jexl_505_3,"    @Test
+jexl_593_3,"    @Test
     public void testArrayIterator_3_oe() {
         // not on lists
         try {
@@ -6315,7 +5499,7 @@ jexl_505_3,"    @Test
     }
     }
 ",MiscIntrospectionTest::testArrayIterator_3_oe
-jexl_505_8,"    @Test
+jexl_593_8,"    @Test
     public void testArrayIterator_8_oe() {
         // not on lists
         try {
@@ -6343,7 +5527,7 @@ jexl_505_8,"    @Test
     }
     }
 ",MiscIntrospectionTest::testArrayIterator_8_oe
-jexl_505_10,"    @Test
+jexl_593_10,"    @Test
     public void testArrayIterator_10_oe() {
         // not on lists
         try {
@@ -6378,7 +5562,7 @@ jexl_505_10,"    @Test
     }
     }
 ",MiscIntrospectionTest::testArrayIterator_10_oe
-jexl_506_1,"    @Test
+jexl_594_1,"    @Test
     public void testArrayListWrapper_1_oe() {
         ArrayListWrapper alw ;
         try {

@@ -6975,7 +6975,7 @@ springside4_88_7,"	@Test
 		assertThat(IPUtil.toInt(IPUtil.fromIpString(""192.168.0.1""))).isEqualTo(-1062731775);
 	}
 ",IPUtilTest::inetAddress_7_oe
-springside4_89_1,"	@Test
+springside4_90_1,"	@Test
 	public void xmlToObject_1_oe() {
 		String xml = generateXmlByDom4j();
 		User user = XmlMapper.fromXml(xml, User.class);
@@ -6985,7 +6985,7 @@ springside4_89_1,"	@Test
 		assertThat(user.getId()).isEqualTo(1L);
 	}
 ",XmlMapperTest::xmlToObject_1_oe
-springside4_89_2,"	@Test
+springside4_90_2,"	@Test
 	public void xmlToObject_2_oe() {
 		String xml = generateXmlByDom4j();
 		User user = XmlMapper.fromXml(xml, User.class);
@@ -6996,7 +6996,7 @@ springside4_89_2,"	@Test
 		assertThat(user.getInterests()).containsOnly(""movie"", ""sports"");
 	}
 ",XmlMapperTest::xmlToObject_2_oe
-springside4_90_1,"	@Test
+springside4_91_1,"	@Test
 	public void toJson_1_oe() throws Exception {
 		// Bean
 		TestBean bean = new TestBean(""A"");
@@ -7005,7 +7005,7 @@ springside4_90_1,"	@Test
 		assertThat(beanString) .isEqualTo(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]}"");
 	}
 ",JsonMapperTest::toJson_1_oe
-springside4_90_2,"	@Test
+springside4_91_2,"	@Test
 	public void toJson_2_oe() throws Exception {
 		// Bean
 		TestBean bean = new TestBean(""A"");
@@ -7022,7 +7022,7 @@ springside4_90_2,"	@Test
 		assertThat(mapString).isEqualTo(""{\""name\"":\""A\"",\""age\"":2}"");
 	}
 ",JsonMapperTest::toJson_2_oe
-springside4_90_3,"	@Test
+springside4_91_3,"	@Test
 	public void toJson_3_oe() throws Exception {
 		// Bean
 		TestBean bean = new TestBean(""A"");
@@ -7045,7 +7045,7 @@ springside4_90_3,"	@Test
 		assertThat(listString).isEqualTo(""[\""A\"",\""B\"",\""C\""]"");
 	}
 ",JsonMapperTest::toJson_3_oe
-springside4_90_4,"	@Test
+springside4_91_4,"	@Test
 	public void toJson_4_oe() throws Exception {
 		// Bean
 		TestBean bean = new TestBean(""A"");
@@ -7074,7 +7074,7 @@ springside4_90_4,"	@Test
 		assertThat(beanListString).isEqualTo( ""[{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]},{\""name\"":\""B\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]}]"");
 	}
 ",JsonMapperTest::toJson_4_oe
-springside4_90_5,"	@Test
+springside4_91_5,"	@Test
 	public void toJson_5_oe() throws Exception {
 		// Bean
 		TestBean bean = new TestBean(""A"");
@@ -7109,7 +7109,7 @@ springside4_90_5,"	@Test
 		assertThat(beanArrayString).isEqualTo( ""[{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]},{\""name\"":\""B\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]}]"");
 	}
 ",JsonMapperTest::toJson_5_oe
-springside4_91_1,"	@Test
+springside4_92_1,"	@Test
 	public void nullAndEmpty_1_oe() {
 		// toJson测试 //
 
@@ -7119,7 +7119,7 @@ springside4_91_1,"	@Test
 		assertThat(nullBeanString).isEqualTo(""null"");
 	}
 ",JsonMapperTest::nullAndEmpty_1_oe
-springside4_91_2,"	@Test
+springside4_92_2,"	@Test
 	public void nullAndEmpty_2_oe() {
 		// toJson测试 //
 
@@ -7134,7 +7134,7 @@ springside4_91_2,"	@Test
 		assertThat(emptyListString).isEqualTo(""[]"");
 	}
 ",JsonMapperTest::nullAndEmpty_2_oe
-springside4_91_3,"	@Test
+springside4_92_3,"	@Test
 	public void nullAndEmpty_3_oe() {
 		// toJson测试 //
 
@@ -7155,7 +7155,7 @@ springside4_91_3,"	@Test
 		assertThat(nullBeanResult).isNull();
 	}
 ",JsonMapperTest::nullAndEmpty_3_oe
-springside4_91_4,"	@Test
+springside4_92_4,"	@Test
 	public void nullAndEmpty_4_oe() {
 		// toJson测试 //
 
@@ -7179,7 +7179,7 @@ springside4_91_4,"	@Test
 		assertThat(nullBeanResult).isNull();
 	}
 ",JsonMapperTest::nullAndEmpty_4_oe
-springside4_91_5,"	@Test
+springside4_92_5,"	@Test
 	public void nullAndEmpty_5_oe() {
 		// toJson测试 //
 
@@ -7207,7 +7207,7 @@ springside4_91_5,"	@Test
 		assertThat(nullListResult).isNull();
 	}
 ",JsonMapperTest::nullAndEmpty_5_oe
-springside4_91_6,"	@Test
+springside4_92_6,"	@Test
 	public void nullAndEmpty_6_oe() {
 		// toJson测试 //
 
@@ -7238,7 +7238,7 @@ springside4_91_6,"	@Test
 		assertThat(nullListResult).isNull();
 	}
 ",JsonMapperTest::nullAndEmpty_6_oe
-springside4_91_7,"	@Test
+springside4_92_7,"	@Test
 	public void nullAndEmpty_7_oe() {
 		// toJson测试 //
 
@@ -7272,7 +7272,7 @@ springside4_91_7,"	@Test
 		assertThat(nullListResult).isEmpty();
 	}
 ",JsonMapperTest::nullAndEmpty_7_oe
-springside4_92_1,"	@Test
+springside4_93_1,"	@Test
 	public void threeTypeMappers_1_oe() {
 		// 打印全部属性
 		JsonMapper normalBinder = JsonMapper.defaultMapper();
@@ -7280,7 +7280,7 @@ springside4_92_1,"	@Test
 		assertThat(normalBinder.toJson(bean)) .isEqualTo(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]}"");
 	}
 ",JsonMapperTest::threeTypeMappers_1_oe
-springside4_92_2,"	@Test
+springside4_93_2,"	@Test
 	public void threeTypeMappers_2_oe() {
 		// 打印全部属性
 		JsonMapper normalBinder = JsonMapper.defaultMapper();
@@ -7292,7 +7292,7 @@ springside4_92_2,"	@Test
 		assertThat(nonNullMapper.toJson(bean)) .isEqualTo(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""emptyValue\"":[]}"");
 	}
 ",JsonMapperTest::threeTypeMappers_2_oe
-springside4_92_3,"	@Test
+springside4_93_3,"	@Test
 	public void threeTypeMappers_3_oe() {
 		// 打印全部属性
 		JsonMapper normalBinder = JsonMapper.defaultMapper();
@@ -7308,7 +7308,7 @@ springside4_92_3,"	@Test
 		assertThat(nonEmptyMapper.toJson(bean)).isEqualTo(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\""}"");
 	}
 ",JsonMapperTest::threeTypeMappers_3_oe
-springside4_92_4,"	@Test
+springside4_93_4,"	@Test
 	public void threeTypeMappers_4_oe() {
 		// 打印全部属性
 		JsonMapper normalBinder = JsonMapper.defaultMapper();
@@ -7327,14 +7327,14 @@ springside4_92_4,"	@Test
 		assertThat(nonEmptyBean.getEmptyValue()).isEmpty();
 	}
 ",JsonMapperTest::threeTypeMappers_4_oe
-springside4_93_1,"	@Test
+springside4_94_1,"	@Test
 	public void jsonp_1_oe() {
 		TestBean bean = new TestBean(""A"");
 		String jsonp = JsonMapper.nonEmptyMapper().toJsonP(""haha"", bean);
 		assertThat(jsonp).isEqualTo(""haha({\""name\"":\""A\"",\""defaultValue\"":\""hello\""})"");
 	}
 ",JsonMapperTest::jsonp_1_oe
-springside4_94_1,"	@Test
+springside4_95_1,"	@Test
 	public void update_1_oe() {
 		TestBean bean = new TestBean(""A"");
 		bean.setDefaultValue(""lalala"");
@@ -7342,7 +7342,7 @@ springside4_94_1,"	@Test
 		assertThat(bean.getName()).isEqualTo(""B"");
 	}
 ",JsonMapperTest::update_1_oe
-springside4_94_2,"	@Test
+springside4_95_2,"	@Test
 	public void update_2_oe() {
 		TestBean bean = new TestBean(""A"");
 		bean.setDefaultValue(""lalala"");
@@ -7351,7 +7351,7 @@ springside4_94_2,"	@Test
 		assertThat(bean.getDefaultValue()).isEqualTo(""lalala"");
 	}
 ",JsonMapperTest::update_2_oe
-springside4_95_1,"	@Test
+springside4_96_1,"	@Test
 	public void copySingleObject_1_oe() {
 		Student student = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 
@@ -7360,7 +7360,7 @@ springside4_95_1,"	@Test
 		assertThat(studentVo.name).isEqualTo(""zhang3"");
 	}
 ",BeanMapperTest::copySingleObject_1_oe
-springside4_95_2,"	@Test
+springside4_96_2,"	@Test
 	public void copySingleObject_2_oe() {
 		Student student = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 
@@ -7370,7 +7370,7 @@ springside4_95_2,"	@Test
 		assertThat(studentVo.getAge()).isEqualTo(20);
 	}
 ",BeanMapperTest::copySingleObject_2_oe
-springside4_95_3,"	@Test
+springside4_96_3,"	@Test
 	public void copySingleObject_3_oe() {
 		Student student = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 
@@ -7381,7 +7381,7 @@ springside4_95_3,"	@Test
 		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
 	}
 ",BeanMapperTest::copySingleObject_3_oe
-springside4_95_4,"	@Test
+springside4_96_4,"	@Test
 	public void copySingleObject_4_oe() {
 		Student student = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 
@@ -7393,7 +7393,7 @@ springside4_95_4,"	@Test
 		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
 	}
 ",BeanMapperTest::copySingleObject_4_oe
-springside4_95_5,"	@Test
+springside4_96_5,"	@Test
 	public void copySingleObject_5_oe() {
 		Student student = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 
@@ -7412,7 +7412,7 @@ springside4_95_5,"	@Test
 		assertThat(studentVo.name).isEqualTo(""zhang3"");
 	}
 ",BeanMapperTest::copySingleObject_5_oe
-springside4_95_6,"	@Test
+springside4_96_6,"	@Test
 	public void copySingleObject_6_oe() {
 		Student student = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 
@@ -7432,7 +7432,7 @@ springside4_95_6,"	@Test
 		assertThat(studentVo.getAge()).isEqualTo(20);
 	}
 ",BeanMapperTest::copySingleObject_6_oe
-springside4_95_7,"	@Test
+springside4_96_7,"	@Test
 	public void copySingleObject_7_oe() {
 		Student student = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 
@@ -7453,7 +7453,7 @@ springside4_95_7,"	@Test
 		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
 	}
 ",BeanMapperTest::copySingleObject_7_oe
-springside4_95_8,"	@Test
+springside4_96_8,"	@Test
 	public void copySingleObject_8_oe() {
 		Student student = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 
@@ -7475,7 +7475,7 @@ springside4_95_8,"	@Test
 		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
 	}
 ",BeanMapperTest::copySingleObject_8_oe
-springside4_96_1,"	@Test
+springside4_97_1,"	@Test
 	public void copyListObject_1_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7486,7 +7486,7 @@ springside4_96_1,"	@Test
 		assertThat(studentVoList).hasSize(3);
 	}
 ",BeanMapperTest::copyListObject_1_oe
-springside4_96_2,"	@Test
+springside4_97_2,"	@Test
 	public void copyListObject_2_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7500,7 +7500,7 @@ springside4_96_2,"	@Test
 		assertThat(studentVo.name).isEqualTo(""zhang3"");
 	}
 ",BeanMapperTest::copyListObject_2_oe
-springside4_96_3,"	@Test
+springside4_97_3,"	@Test
 	public void copyListObject_3_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7515,7 +7515,7 @@ springside4_96_3,"	@Test
 		assertThat(studentVo.getAge()).isEqualTo(20);
 	}
 ",BeanMapperTest::copyListObject_3_oe
-springside4_96_4,"	@Test
+springside4_97_4,"	@Test
 	public void copyListObject_4_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7531,7 +7531,7 @@ springside4_96_4,"	@Test
 		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
 	}
 ",BeanMapperTest::copyListObject_4_oe
-springside4_96_5,"	@Test
+springside4_97_5,"	@Test
 	public void copyListObject_5_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7548,7 +7548,7 @@ springside4_96_5,"	@Test
 		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
 	}
 ",BeanMapperTest::copyListObject_5_oe
-springside4_96_6,"	@Test
+springside4_97_6,"	@Test
 	public void copyListObject_6_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7573,7 +7573,7 @@ springside4_96_6,"	@Test
 		assertThat(studentVoList).hasSize(3);
 	}
 ",BeanMapperTest::copyListObject_6_oe
-springside4_96_7,"	@Test
+springside4_97_7,"	@Test
 	public void copyListObject_7_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7601,7 +7601,7 @@ springside4_96_7,"	@Test
 		assertThat(studentVo.name).isEqualTo(""zhang3"");
 	}
 ",BeanMapperTest::copyListObject_7_oe
-springside4_96_8,"	@Test
+springside4_97_8,"	@Test
 	public void copyListObject_8_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7630,7 +7630,7 @@ springside4_96_8,"	@Test
 		assertThat(studentVo.getAge()).isEqualTo(20);
 	}
 ",BeanMapperTest::copyListObject_8_oe
-springside4_96_9,"	@Test
+springside4_97_9,"	@Test
 	public void copyListObject_9_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7660,7 +7660,7 @@ springside4_96_9,"	@Test
 		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
 	}
 ",BeanMapperTest::copyListObject_9_oe
-springside4_96_10,"	@Test
+springside4_97_10,"	@Test
 	public void copyListObject_10_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7691,7 +7691,7 @@ springside4_96_10,"	@Test
 		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
 	}
 ",BeanMapperTest::copyListObject_10_oe
-springside4_97_1,"	@Test
+springside4_98_1,"	@Test
 	public void copyArrayObject_1_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7702,7 +7702,7 @@ springside4_97_1,"	@Test
 		assertThat(studentVoList).hasSize(3);
 	}
 ",BeanMapperTest::copyArrayObject_1_oe
-springside4_97_2,"	@Test
+springside4_98_2,"	@Test
 	public void copyArrayObject_2_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7716,7 +7716,7 @@ springside4_97_2,"	@Test
 		assertThat(studentVo.name).isEqualTo(""zhang3"");
 	}
 ",BeanMapperTest::copyArrayObject_2_oe
-springside4_97_3,"	@Test
+springside4_98_3,"	@Test
 	public void copyArrayObject_3_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7731,7 +7731,7 @@ springside4_97_3,"	@Test
 		assertThat(studentVo.getAge()).isEqualTo(20);
 	}
 ",BeanMapperTest::copyArrayObject_3_oe
-springside4_97_4,"	@Test
+springside4_98_4,"	@Test
 	public void copyArrayObject_4_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7747,7 +7747,7 @@ springside4_97_4,"	@Test
 		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
 	}
 ",BeanMapperTest::copyArrayObject_4_oe
-springside4_97_5,"	@Test
+springside4_98_5,"	@Test
 	public void copyArrayObject_5_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7764,7 +7764,7 @@ springside4_97_5,"	@Test
 		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
 	}
 ",BeanMapperTest::copyArrayObject_5_oe
-springside4_97_6,"	@Test
+springside4_98_6,"	@Test
 	public void copyArrayObject_6_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7789,7 +7789,7 @@ springside4_97_6,"	@Test
 		assertThat(studentVoList).hasSize(3);
 	}
 ",BeanMapperTest::copyArrayObject_6_oe
-springside4_97_7,"	@Test
+springside4_98_7,"	@Test
 	public void copyArrayObject_7_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7817,7 +7817,7 @@ springside4_97_7,"	@Test
 		assertThat(studentVo.name).isEqualTo(""zhang3"");
 	}
 ",BeanMapperTest::copyArrayObject_7_oe
-springside4_97_8,"	@Test
+springside4_98_8,"	@Test
 	public void copyArrayObject_8_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7846,7 +7846,7 @@ springside4_97_8,"	@Test
 		assertThat(studentVo.getAge()).isEqualTo(20);
 	}
 ",BeanMapperTest::copyArrayObject_8_oe
-springside4_97_9,"	@Test
+springside4_98_9,"	@Test
 	public void copyArrayObject_9_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7876,7 +7876,7 @@ springside4_97_9,"	@Test
 		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
 	}
 ",BeanMapperTest::copyArrayObject_9_oe
-springside4_97_10,"	@Test
+springside4_98_10,"	@Test
 	public void copyArrayObject_10_oe() {
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
 		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
@@ -7907,18 +7907,18 @@ springside4_97_10,"	@Test
 		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
 	}
 ",BeanMapperTest::copyArrayObject_10_oe
-springside4_98_1,"	@Test
+springside4_99_1,"	@Test
 	public void test_1_oe() {
 		assertThat(EnumUtil.generateBits(Options.class, Options.A)).isEqualTo(1);
 	}
 ",EnumUtilTest::test_1_oe
-springside4_98_2,"	@Test
+springside4_99_2,"	@Test
 	public void test_2_oe() {
 		// removed other assertion
 		assertThat(EnumUtil.generateBits(Options.class, Options.A, Options.B)).isEqualTo(3);
 	}
 ",EnumUtilTest::test_2_oe
-springside4_98_3,"	@Test
+springside4_99_3,"	@Test
 	public void test_3_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -7926,7 +7926,7 @@ springside4_98_3,"	@Test
 		assertThat(EnumUtil.generateBits(Options.class, ListUtil.newArrayList(Options.A))).isEqualTo(1);
 	}
 ",EnumUtilTest::test_3_oe
-springside4_98_4,"	@Test
+springside4_99_4,"	@Test
 	public void test_4_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -7935,7 +7935,7 @@ springside4_98_4,"	@Test
 		assertThat(EnumUtil.generateBits(Options.class, ListUtil.newArrayList(Options.A, Options.B))).isEqualTo(3);
 	}
 ",EnumUtilTest::test_4_oe
-springside4_98_5,"	@Test
+springside4_99_5,"	@Test
 	public void test_5_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -7946,7 +7946,7 @@ springside4_98_5,"	@Test
 		assertThat(EnumUtil.processBits(Options.class, 3)).hasSize(2).containsExactly(Options.A, Options.B);
 	}
 ",EnumUtilTest::test_5_oe
-springside4_98_6,"	@Test
+springside4_99_6,"	@Test
 	public void test_6_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -7958,7 +7958,7 @@ springside4_98_6,"	@Test
 		assertThat(EnumUtil.processBits(Options.class, EnumUtil.generateBits(Options.class, Options.A, Options.C, Options.D))).hasSize(3) .containsExactly(Options.A, Options.C, Options.D);
 	}
 ",EnumUtilTest::test_6_oe
-springside4_99_2,"	@Test
+springside4_100_2,"	@Test
 	public void unchecked_2_oe() {
 		// convert Exception to RuntimeException with cause
 		Exception exception = new Exception(""my exception"");
@@ -7970,7 +7970,7 @@ springside4_99_2,"	@Test
 	}
 	}
 ",ExceptionUtilTest::unchecked_2_oe
-springside4_99_4,"	@Test
+springside4_100_4,"	@Test
 	public void unchecked_4_oe() {
 		// convert Exception to RuntimeException with cause
 		Exception exception = new Exception(""my exception"");
@@ -7991,7 +7991,7 @@ springside4_99_4,"	@Test
 	}
 	}
 ",ExceptionUtilTest::unchecked_4_oe
-springside4_99_6,"	@Test
+springside4_100_6,"	@Test
 	public void unchecked_6_oe() {
 		// convert Exception to RuntimeException with cause
 		Exception exception = new Exception(""my exception"");
@@ -8021,13 +8021,13 @@ springside4_99_6,"	@Test
 	}
 	}
 ",ExceptionUtilTest::unchecked_6_oe
-springside4_100_1,"	@Test
+springside4_101_1,"	@Test
 	public void unwrap_1_oe() {
 		RuntimeException re = new RuntimeException(""my runtime"");
 		assertThat(ExceptionUtil.unwrap(re)).isSameAs(re);
 	}
 ",ExceptionUtilTest::unwrap_1_oe
-springside4_100_2,"	@Test
+springside4_101_2,"	@Test
 	public void unwrap_2_oe() {
 		RuntimeException re = new RuntimeException(""my runtime"");
 		// removed other assertion
@@ -8036,7 +8036,7 @@ springside4_100_2,"	@Test
 		assertThat(ExceptionUtil.unwrap(ee)).isSameAs(re);
 	}
 ",ExceptionUtilTest::unwrap_2_oe
-springside4_100_3,"	@Test
+springside4_101_3,"	@Test
 	public void unwrap_3_oe() {
 		RuntimeException re = new RuntimeException(""my runtime"");
 		// removed other assertion
@@ -8048,7 +8048,7 @@ springside4_100_3,"	@Test
 		assertThat(ExceptionUtil.unwrap(ie)).isSameAs(re);
 	}
 ",ExceptionUtilTest::unwrap_3_oe
-springside4_100_4,"	@Test
+springside4_101_4,"	@Test
 	public void unwrap_4_oe() {
 		RuntimeException re = new RuntimeException(""my runtime"");
 		// removed other assertion
@@ -8068,7 +8068,7 @@ springside4_100_4,"	@Test
 	}
 	}
 ",ExceptionUtilTest::unwrap_4_oe
-springside4_101_1,"	@Test
+springside4_102_1,"	@Test
 	public void isCausedBy_1_oe() {
 		IOException ioexception = new IOException(""my exception"");
 		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
@@ -8077,7 +8077,7 @@ springside4_101_1,"	@Test
 		assertThat(ExceptionUtil.isCausedBy(runtimeException, IOException.class)).isTrue();
 	}
 ",ExceptionUtilTest::isCausedBy_1_oe
-springside4_101_2,"	@Test
+springside4_102_2,"	@Test
 	public void isCausedBy_2_oe() {
 		IOException ioexception = new IOException(""my exception"");
 		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
@@ -8087,7 +8087,7 @@ springside4_101_2,"	@Test
 		assertThat(ExceptionUtil.isCausedBy(runtimeException, IllegalStateException.class, IOException.class)).isTrue();
 	}
 ",ExceptionUtilTest::isCausedBy_2_oe
-springside4_101_3,"	@Test
+springside4_102_3,"	@Test
 	public void isCausedBy_3_oe() {
 		IOException ioexception = new IOException(""my exception"");
 		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
@@ -8098,7 +8098,7 @@ springside4_101_3,"	@Test
 		assertThat(ExceptionUtil.isCausedBy(runtimeException, Exception.class)).isTrue();
 	}
 ",ExceptionUtilTest::isCausedBy_3_oe
-springside4_101_4,"	@Test
+springside4_102_4,"	@Test
 	public void isCausedBy_4_oe() {
 		IOException ioexception = new IOException(""my exception"");
 		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
@@ -8110,7 +8110,7 @@ springside4_101_4,"	@Test
 		assertThat(ExceptionUtil.isCausedBy(runtimeException, IllegalAccessException.class)).isFalse();
 	}
 ",ExceptionUtilTest::isCausedBy_4_oe
-springside4_102_1,"	@Test
+springside4_103_1,"	@Test
 	public void getRootCause_1_oe() {
 		IOException ioexception = new IOException(""my exception"");
 		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
@@ -8119,7 +8119,7 @@ springside4_102_1,"	@Test
 		assertThat(ExceptionUtil.getRootCause(runtimeException)).isSameAs(ioexception);
 	}
 ",ExceptionUtilTest::getRootCause_1_oe
-springside4_102_2,"	@Test
+springside4_103_2,"	@Test
 	public void getRootCause_2_oe() {
 		IOException ioexception = new IOException(""my exception"");
 		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
@@ -8130,20 +8130,20 @@ springside4_102_2,"	@Test
 		assertThat(ExceptionUtil.getRootCause(ioexception)).isSameAs(ioexception);
 	}
 ",ExceptionUtilTest::getRootCause_2_oe
-springside4_103_1,"	@Test
+springside4_104_1,"	@Test
 	public void buildMessage_1_oe() {
 		IOException ioexception = new IOException(""my exception"");
 		assertThat(ExceptionUtil.toStringWithShortName(ioexception)).isEqualTo(""IOException: my exception"");
 	}
 ",ExceptionUtilTest::buildMessage_1_oe
-springside4_103_2,"	@Test
+springside4_104_2,"	@Test
 	public void buildMessage_2_oe() {
 		IOException ioexception = new IOException(""my exception"");
 		// removed other assertion
 		assertThat(ExceptionUtil.toStringWithShortName(null)).isEqualTo("""");
 	}
 ",ExceptionUtilTest::buildMessage_2_oe
-springside4_103_3,"	@Test
+springside4_104_3,"	@Test
 	public void buildMessage_3_oe() {
 		IOException ioexception = new IOException(""my exception"");
 		// removed other assertion
@@ -8153,7 +8153,7 @@ springside4_103_3,"	@Test
 		assertThat(ExceptionUtil.toStringWithRootCause(runtimeExcetpion)) .isEqualTo(""RuntimeException: my runtimeException; <---IOException: my exception"");
 	}
 ",ExceptionUtilTest::buildMessage_3_oe
-springside4_103_4,"	@Test
+springside4_104_4,"	@Test
 	public void buildMessage_4_oe() {
 		IOException ioexception = new IOException(""my exception"");
 		// removed other assertion
@@ -8165,7 +8165,7 @@ springside4_103_4,"	@Test
 		assertThat(ExceptionUtil.toStringWithRootCause(null)).isEqualTo("""");
 	}
 ",ExceptionUtilTest::buildMessage_4_oe
-springside4_103_5,"	@Test
+springside4_104_5,"	@Test
 	public void buildMessage_5_oe() {
 		IOException ioexception = new IOException(""my exception"");
 		// removed other assertion
@@ -8179,19 +8179,19 @@ springside4_103_5,"	@Test
 		assertThat(ExceptionUtil.toStringWithRootCause(ioexception)).isEqualTo(""IOException: my exception"");
 	}
 ",ExceptionUtilTest::buildMessage_5_oe
-springside4_104_1,"	@Test
+springside4_105_1,"	@Test
 	public void staticException_1_oe() {
 		assertThat(ExceptionUtil.stackTraceText(TIMEOUT_EXCEPTION)).hasLineCount(2) .contains(""java.lang.RuntimeException: Timeout"") .contains(""at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)"");
 	}
 ",ExceptionUtilTest::staticException_1_oe
-springside4_104_2,"	@Test
+springside4_105_2,"	@Test
 	public void staticException_2_oe() {
 		// removed other assertion
 
 		assertThat(ExceptionUtil.stackTraceText(TIMEOUT_EXCEPTION2)).hasLineCount(2) .contains(""org.springside.modules.utils.base.ExceptionUtil$CloneableException: Timeout"") .contains(""at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)"");
 	}
 ",ExceptionUtilTest::staticException_2_oe
-springside4_104_3,"	@Test
+springside4_105_3,"	@Test
 	public void staticException_3_oe() {
 		// removed other assertion
 
@@ -8201,7 +8201,7 @@ springside4_104_3,"	@Test
 		assertThat(ExceptionUtil.stackTraceText(timeoutException)).hasLineCount(2) .contains(""org.springside.modules.utils.base.ExceptionUtil$CloneableException: Timeout for 30ms"") .contains(""at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)"");
 	}
 ",ExceptionUtilTest::staticException_3_oe
-springside4_104_4,"	@Test
+springside4_105_4,"	@Test
 	public void staticException_4_oe() {
 		// removed other assertion
 
@@ -8213,7 +8213,7 @@ springside4_104_4,"	@Test
 		assertThat(ExceptionUtil.stackTraceText(TIMEOUT_EXCEPTION3)).hasLineCount(2) .contains(""org.springside.modules.utils.base.ExceptionUtil$CloneableRuntimeException: Timeout"") .contains(""at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)"");
 	}
 ",ExceptionUtilTest::staticException_4_oe
-springside4_104_5,"	@Test
+springside4_105_5,"	@Test
 	public void staticException_5_oe() {
 		// removed other assertion
 
@@ -8228,25 +8228,25 @@ springside4_104_5,"	@Test
 		assertThat(ExceptionUtil.stackTraceText(timeoutRuntimeException)).hasLineCount(2) .contains(""org.springside.modules.utils.base.ExceptionUtil$CloneableRuntimeException: Timeout for 40ms"") .contains(""at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)"");
 	}
 ",ExceptionUtilTest::staticException_5_oe
-springside4_105_1,"	@Test
+springside4_106_1,"	@Test
 	public void test_1_oe() {
 		assertThat(BooleanUtil.toBoolean(""True"")).isTrue();
 	}
 ",BeanUtilTest::test_1_oe
-springside4_105_2,"	@Test
+springside4_106_2,"	@Test
 	public void test_2_oe() {
 		// removed other assertion
 		assertThat(BooleanUtil.toBoolean(""tre"")).isFalse();
 	}
 ",BeanUtilTest::test_2_oe
-springside4_105_3,"	@Test
+springside4_106_3,"	@Test
 	public void test_3_oe() {
 		// removed other assertion
 		// removed other assertion
 		assertThat(BooleanUtil.toBoolean(null)).isFalse();
 	}
 ",BeanUtilTest::test_3_oe
-springside4_105_4,"	@Test
+springside4_106_4,"	@Test
 	public void test_4_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8255,7 +8255,7 @@ springside4_105_4,"	@Test
 		assertThat(BooleanUtil.toBooleanObject(""True"")).isTrue();
 	}
 ",BeanUtilTest::test_4_oe
-springside4_105_5,"	@Test
+springside4_106_5,"	@Test
 	public void test_5_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8265,7 +8265,7 @@ springside4_105_5,"	@Test
 		assertThat(BooleanUtil.toBooleanObject(""tre"")).isFalse();
 	}
 ",BeanUtilTest::test_5_oe
-springside4_105_6,"	@Test
+springside4_106_6,"	@Test
 	public void test_6_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8276,7 +8276,7 @@ springside4_105_6,"	@Test
 		assertThat(BooleanUtil.toBooleanObject(null)).isNull();
 	}
 ",BeanUtilTest::test_6_oe
-springside4_105_7,"	@Test
+springside4_106_7,"	@Test
 	public void test_7_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8289,7 +8289,7 @@ springside4_105_7,"	@Test
 		assertThat(BooleanUtil.parseGeneralString(""1"", false)).isFalse();
 	}
 ",BeanUtilTest::test_7_oe
-springside4_105_8,"	@Test
+springside4_106_8,"	@Test
 	public void test_8_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8303,7 +8303,7 @@ springside4_105_8,"	@Test
 		assertThat(BooleanUtil.parseGeneralString(""y"", false)).isTrue();
 	}
 ",BeanUtilTest::test_8_oe
-springside4_105_9,"	@Test
+springside4_106_9,"	@Test
 	public void test_9_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8318,7 +8318,7 @@ springside4_105_9,"	@Test
 		assertThat(BooleanUtil.parseGeneralString(""y"")).isTrue();
 	}
 ",BeanUtilTest::test_9_oe
-springside4_105_10,"	@Test
+springside4_106_10,"	@Test
 	public void test_10_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8334,18 +8334,18 @@ springside4_105_10,"	@Test
 		assertThat(BooleanUtil.parseGeneralString(""x"")).isNull();
 	}
 ",BeanUtilTest::test_10_oe
-springside4_106_1,"	@Test
+springside4_107_1,"	@Test
 	public void logic_1_oe() {
 		assertThat(BooleanUtil.negate(Boolean.TRUE)).isFalse();
 	}
 ",BeanUtilTest::logic_1_oe
-springside4_106_2,"	@Test
+springside4_107_2,"	@Test
 	public void logic_2_oe() {
 		// removed other assertion
 		assertThat(BooleanUtil.negate(Boolean.FALSE)).isTrue();
 	}
 ",BeanUtilTest::logic_2_oe
-springside4_106_3,"	@Test
+springside4_107_3,"	@Test
 	public void logic_3_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8353,7 +8353,7 @@ springside4_106_3,"	@Test
 		assertThat(BooleanUtil.negate(true)).isFalse();
 	}
 ",BeanUtilTest::logic_3_oe
-springside4_106_4,"	@Test
+springside4_107_4,"	@Test
 	public void logic_4_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8362,7 +8362,7 @@ springside4_106_4,"	@Test
 		assertThat(BooleanUtil.negate(false)).isTrue();
 	}
 ",BeanUtilTest::logic_4_oe
-springside4_106_5,"	@Test
+springside4_107_5,"	@Test
 	public void logic_5_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8373,7 +8373,7 @@ springside4_106_5,"	@Test
 		assertThat(BooleanUtil.or(true, true, false)).isTrue();
 	}
 ",BeanUtilTest::logic_5_oe
-springside4_106_6,"	@Test
+springside4_107_6,"	@Test
 	public void logic_6_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8385,7 +8385,7 @@ springside4_106_6,"	@Test
 		assertThat(BooleanUtil.or(false, false, false)).isFalse();
 	}
 ",BeanUtilTest::logic_6_oe
-springside4_106_7,"	@Test
+springside4_107_7,"	@Test
 	public void logic_7_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8399,7 +8399,7 @@ springside4_106_7,"	@Test
 		assertThat(BooleanUtil.and(true, true, false)).isFalse();
 	}
 ",BeanUtilTest::logic_7_oe
-springside4_106_8,"	@Test
+springside4_107_8,"	@Test
 	public void logic_8_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -8414,14 +8414,14 @@ springside4_106_8,"	@Test
 		assertThat(BooleanUtil.and(true, true, true)).isTrue();
 	}
 ",BeanUtilTest::logic_8_oe
-springside4_107_1,"	@Test
+springside4_108_1,"	@Test
 	public void test_1_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
 		assertThat(a).isEqualTo(0);
 	}
 ",MoreValidateTest::test_1_oe
-springside4_107_2,"	@Test
+springside4_108_2,"	@Test
 	public void test_2_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8430,7 +8430,7 @@ springside4_107_2,"	@Test
 		assertThat(a).isEqualTo(1);
 	}
 ",MoreValidateTest::test_2_oe
-springside4_107_3,"	@Test
+springside4_108_3,"	@Test
 	public void test_3_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8442,7 +8442,7 @@ springside4_107_3,"	@Test
 		assertThat(a).isEqualTo(1);
 	}
 ",MoreValidateTest::test_3_oe
-springside4_107_4,"	@Test
+springside4_108_4,"	@Test
 	public void test_4_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8458,7 +8458,7 @@ springside4_107_4,"	@Test
 		assertThat(c).isEqualTo(0);
 	}
 ",MoreValidateTest::test_4_oe
-springside4_107_5,"	@Test
+springside4_108_5,"	@Test
 	public void test_5_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8476,7 +8476,7 @@ springside4_107_5,"	@Test
 		assertThat(c).isEqualTo(21);
 	}
 ",MoreValidateTest::test_5_oe
-springside4_107_6,"	@Test
+springside4_108_6,"	@Test
 	public void test_6_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8497,7 +8497,7 @@ springside4_107_6,"	@Test
 		assertThat(c).isEqualTo(1);
 	}
 ",MoreValidateTest::test_6_oe
-springside4_107_7,"	@Test
+springside4_108_7,"	@Test
 	public void test_7_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8522,7 +8522,7 @@ springside4_107_7,"	@Test
 		assertThat(b).isEqualTo(0);
 	}
 ",MoreValidateTest::test_7_oe
-springside4_107_8,"	@Test
+springside4_108_8,"	@Test
 	public void test_8_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8550,7 +8550,7 @@ springside4_107_8,"	@Test
 		assertThat(b).isEqualTo(11);
 	}
 ",MoreValidateTest::test_8_oe
-springside4_107_9,"	@Test
+springside4_108_9,"	@Test
 	public void test_9_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8581,7 +8581,7 @@ springside4_107_9,"	@Test
 		assertThat(b).isEqualTo(1);
 	}
 ",MoreValidateTest::test_9_oe
-springside4_107_10,"	@Test
+springside4_108_10,"	@Test
 	public void test_10_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8615,7 +8615,7 @@ springside4_107_10,"	@Test
 		assertThat(e).isEqualTo(0);
 	}
 ",MoreValidateTest::test_10_oe
-springside4_107_11,"	@Test
+springside4_108_11,"	@Test
 	public void test_11_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8652,7 +8652,7 @@ springside4_107_11,"	@Test
 		assertThat(e).isEqualTo(11);
 	}
 ",MoreValidateTest::test_11_oe
-springside4_107_12,"	@Test
+springside4_108_12,"	@Test
 	public void test_12_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8692,7 +8692,7 @@ springside4_107_12,"	@Test
 		assertThat(e).isEqualTo(1.1);
 	}
 ",MoreValidateTest::test_12_oe
-springside4_107_13,"	@Test
+springside4_108_13,"	@Test
 	public void test_13_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8736,7 +8736,7 @@ springside4_107_13,"	@Test
 		assertThat(d).isEqualTo(0);
 	}
 ",MoreValidateTest::test_13_oe
-springside4_107_14,"	@Test
+springside4_108_14,"	@Test
 	public void test_14_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8783,7 +8783,7 @@ springside4_107_14,"	@Test
 		assertThat(d).isEqualTo(1);
 	}
 ",MoreValidateTest::test_14_oe
-springside4_107_15,"	@Test
+springside4_108_15,"	@Test
 	public void test_15_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8833,7 +8833,7 @@ springside4_107_15,"	@Test
 		assertThat(d).isEqualTo(11);
 	}
 ",MoreValidateTest::test_15_oe
-springside4_107_17,"	@Test
+springside4_108_17,"	@Test
 	public void test_17_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8891,7 +8891,7 @@ springside4_107_17,"	@Test
 	}
 	}
 ",MoreValidateTest::test_17_oe
-springside4_107_19,"	@Test
+springside4_108_19,"	@Test
 	public void test_19_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -8955,7 +8955,7 @@ springside4_107_19,"	@Test
 	}
 	}
 ",MoreValidateTest::test_19_oe
-springside4_107_21,"	@Test
+springside4_108_21,"	@Test
 	public void test_21_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -9026,7 +9026,7 @@ springside4_107_21,"	@Test
 	}
 	}
 ",MoreValidateTest::test_21_oe
-springside4_107_23,"	@Test
+springside4_108_23,"	@Test
 	public void test_23_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -9105,7 +9105,7 @@ springside4_107_23,"	@Test
 	}
 	}
 ",MoreValidateTest::test_23_oe
-springside4_107_25,"	@Test
+springside4_108_25,"	@Test
 	public void test_25_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -9191,7 +9191,7 @@ springside4_107_25,"	@Test
 	}
 	}
 ",MoreValidateTest::test_25_oe
-springside4_107_27,"	@Test
+springside4_108_27,"	@Test
 	public void test_27_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -9283,7 +9283,7 @@ springside4_107_27,"	@Test
 	}
 	}
 ",MoreValidateTest::test_27_oe
-springside4_107_29,"	@Test
+springside4_108_29,"	@Test
 	public void test_29_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -9383,7 +9383,7 @@ springside4_107_29,"	@Test
 	}
 	}
 ",MoreValidateTest::test_29_oe
-springside4_107_31,"	@Test
+springside4_108_31,"	@Test
 	public void test_31_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -9489,7 +9489,7 @@ springside4_107_31,"	@Test
 	}
 	}
 ",MoreValidateTest::test_31_oe
-springside4_107_33,"	@Test
+springside4_108_33,"	@Test
 	public void test_33_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -9602,7 +9602,7 @@ springside4_107_33,"	@Test
 	}
 	}
 ",MoreValidateTest::test_33_oe
-springside4_107_35,"	@Test
+springside4_108_35,"	@Test
 	public void test_35_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -9723,7 +9723,7 @@ springside4_107_35,"	@Test
 	}
 	}
 ",MoreValidateTest::test_35_oe
-springside4_107_37,"	@Test
+springside4_108_37,"	@Test
 	public void test_37_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -9851,7 +9851,7 @@ springside4_107_37,"	@Test
 	}
 	}
 ",MoreValidateTest::test_37_oe
-springside4_107_39,"	@Test
+springside4_108_39,"	@Test
 	public void test_39_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -9986,7 +9986,7 @@ springside4_107_39,"	@Test
 	}
 	}
 ",MoreValidateTest::test_39_oe
-springside4_107_41,"	@Test
+springside4_108_41,"	@Test
 	public void test_41_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -10129,7 +10129,7 @@ springside4_107_41,"	@Test
 	}
 	}
 ",MoreValidateTest::test_41_oe
-springside4_107_43,"	@Test
+springside4_108_43,"	@Test
 	public void test_43_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -10279,7 +10279,7 @@ springside4_107_43,"	@Test
 	}
 	}
 ",MoreValidateTest::test_43_oe
-springside4_107_45,"	@Test
+springside4_108_45,"	@Test
 	public void test_45_oe() {
 		// int
 		int a = MoreValidate.nonNegative(""x"", 0);
@@ -10435,20 +10435,20 @@ springside4_107_45,"	@Test
 	}
 	}
 ",MoreValidateTest::test_45_oe
-springside4_108_1,"	@Test
+springside4_109_1,"	@Test
 	public void loadProperties_1_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		assertThat(p1.get(""springside.min"")).isEqualTo(""1"");
 	}
 ",PropertiesUtilTest::loadProperties_1_oe
-springside4_108_2,"	@Test
+springside4_109_2,"	@Test
 	public void loadProperties_2_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
 		assertThat(p1.get(""springside.max"")).isEqualTo(""10"");
 	}
 ",PropertiesUtilTest::loadProperties_2_oe
-springside4_108_3,"	@Test
+springside4_109_3,"	@Test
 	public void loadProperties_3_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10458,7 +10458,7 @@ springside4_108_3,"	@Test
 		assertThat(PropertiesUtil.getInt(p2, ""springside.min"", 0)).isEqualTo(1);
 	}
 ",PropertiesUtilTest::loadProperties_3_oe
-springside4_108_4,"	@Test
+springside4_109_4,"	@Test
 	public void loadProperties_4_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10469,7 +10469,7 @@ springside4_108_4,"	@Test
 		assertThat(PropertiesUtil.getInt(p2, ""springside.max"", 0)).isEqualTo(10);
 	}
 ",PropertiesUtilTest::loadProperties_4_oe
-springside4_108_5,"	@Test
+springside4_109_5,"	@Test
 	public void loadProperties_5_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10481,7 +10481,7 @@ springside4_108_5,"	@Test
 		assertThat(PropertiesUtil.getInt(p2, ""springside.maxA"", 0)).isEqualTo(0);
 	}
 ",PropertiesUtilTest::loadProperties_5_oe
-springside4_108_6,"	@Test
+springside4_109_6,"	@Test
 	public void loadProperties_6_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10495,7 +10495,7 @@ springside4_108_6,"	@Test
 		assertThat(PropertiesUtil.getLong(p2, ""springside.min"", 0L)).isEqualTo(1);
 	}
 ",PropertiesUtilTest::loadProperties_6_oe
-springside4_108_7,"	@Test
+springside4_109_7,"	@Test
 	public void loadProperties_7_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10510,7 +10510,7 @@ springside4_108_7,"	@Test
 		assertThat(PropertiesUtil.getLong(p2, ""springside.max"", 0L)).isEqualTo(10);
 	}
 ",PropertiesUtilTest::loadProperties_7_oe
-springside4_108_8,"	@Test
+springside4_109_8,"	@Test
 	public void loadProperties_8_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10526,7 +10526,7 @@ springside4_108_8,"	@Test
 		assertThat(PropertiesUtil.getLong(p2, ""springside.maxA"", 0L)).isEqualTo(0);
 	}
 ",PropertiesUtilTest::loadProperties_8_oe
-springside4_108_9,"	@Test
+springside4_109_9,"	@Test
 	public void loadProperties_9_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10544,7 +10544,7 @@ springside4_108_9,"	@Test
 		assertThat(PropertiesUtil.getDouble(p2, ""springside.min"", 0d)).isEqualTo(1);
 	}
 ",PropertiesUtilTest::loadProperties_9_oe
-springside4_108_10,"	@Test
+springside4_109_10,"	@Test
 	public void loadProperties_10_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10563,7 +10563,7 @@ springside4_108_10,"	@Test
 		assertThat(PropertiesUtil.getDouble(p2, ""springside.max"", 0d)).isEqualTo(10);
 	}
 ",PropertiesUtilTest::loadProperties_10_oe
-springside4_108_11,"	@Test
+springside4_109_11,"	@Test
 	public void loadProperties_11_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10583,7 +10583,7 @@ springside4_108_11,"	@Test
 		assertThat(PropertiesUtil.getDouble(p2, ""springside.maxA"", 0d)).isEqualTo(0);
 	}
 ",PropertiesUtilTest::loadProperties_11_oe
-springside4_108_12,"	@Test
+springside4_109_12,"	@Test
 	public void loadProperties_12_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10605,7 +10605,7 @@ springside4_108_12,"	@Test
 		assertThat(PropertiesUtil.getString(p2, ""springside.min"", """")).isEqualTo(""1"");
 	}
 ",PropertiesUtilTest::loadProperties_12_oe
-springside4_108_13,"	@Test
+springside4_109_13,"	@Test
 	public void loadProperties_13_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10628,7 +10628,7 @@ springside4_108_13,"	@Test
 		assertThat(PropertiesUtil.getString(p2, ""springside.max"", """")).isEqualTo(""10"");
 	}
 ",PropertiesUtilTest::loadProperties_13_oe
-springside4_108_14,"	@Test
+springside4_109_14,"	@Test
 	public void loadProperties_14_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10652,7 +10652,7 @@ springside4_108_14,"	@Test
 		assertThat(PropertiesUtil.getString(p2, ""springside.maxA"", """")).isEqualTo("""");
 	}
 ",PropertiesUtilTest::loadProperties_14_oe
-springside4_108_15,"	@Test
+springside4_109_15,"	@Test
 	public void loadProperties_15_oe() {
 		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
 		// removed other assertion
@@ -10678,7 +10678,7 @@ springside4_108_15,"	@Test
 		assertThat(PropertiesUtil.getBoolean(p2, ""isOpen"", false)).isTrue();
 	}
 ",PropertiesUtilTest::loadProperties_15_oe
-springside4_109_1,"	@Test
+springside4_110_1,"	@Test
 	public void systemProperty_1_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -10686,7 +10686,7 @@ springside4_109_1,"	@Test
 		assertThat(result0).isNull();
 	}
 ",SystemPropertiesUtilTest::systemProperty_1_oe
-springside4_109_2,"	@Test
+springside4_110_2,"	@Test
 	public void systemProperty_2_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -10697,7 +10697,7 @@ springside4_109_2,"	@Test
 		assertThat(result1).isNull();
 	}
 ",SystemPropertiesUtilTest::systemProperty_2_oe
-springside4_109_3,"	@Test
+springside4_110_3,"	@Test
 	public void systemProperty_3_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -10711,7 +10711,7 @@ springside4_109_3,"	@Test
 		assertThat(result3).isTrue();
 	}
 ",SystemPropertiesUtilTest::systemProperty_3_oe
-springside4_109_4,"	@Test
+springside4_110_4,"	@Test
 	public void systemProperty_4_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -10730,7 +10730,7 @@ springside4_109_4,"	@Test
 		assertThat(result5).isTrue();
 	}
 ",SystemPropertiesUtilTest::systemProperty_4_oe
-springside4_109_5,"	@Test
+springside4_110_5,"	@Test
 	public void systemProperty_5_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -10755,7 +10755,7 @@ springside4_109_5,"	@Test
 		assertThat(result6).isNull();
 	}
 ",SystemPropertiesUtilTest::systemProperty_5_oe
-springside4_109_6,"	@Test
+springside4_110_6,"	@Test
 	public void systemProperty_6_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -10783,7 +10783,7 @@ springside4_109_6,"	@Test
 		assertThat(result6).isEqualTo(1);
 	}
 ",SystemPropertiesUtilTest::systemProperty_6_oe
-springside4_109_7,"	@Test
+springside4_110_7,"	@Test
 	public void systemProperty_7_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -10815,7 +10815,7 @@ springside4_109_7,"	@Test
 		assertThat(result6).isEqualTo(2);
 	}
 ",SystemPropertiesUtilTest::systemProperty_7_oe
-springside4_109_8,"	@Test
+springside4_110_8,"	@Test
 	public void systemProperty_8_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -10853,7 +10853,7 @@ springside4_109_8,"	@Test
 		assertThat(result7).isNull();
 	}
 ",SystemPropertiesUtilTest::systemProperty_8_oe
-springside4_109_9,"	@Test
+springside4_110_9,"	@Test
 	public void systemProperty_9_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -10894,7 +10894,7 @@ springside4_109_9,"	@Test
 		assertThat(result7).isEqualTo(1L);
 	}
 ",SystemPropertiesUtilTest::systemProperty_9_oe
-springside4_109_10,"	@Test
+springside4_110_10,"	@Test
 	public void systemProperty_10_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -10939,7 +10939,7 @@ springside4_109_10,"	@Test
 		assertThat(result7).isEqualTo(2L);
 	}
 ",SystemPropertiesUtilTest::systemProperty_10_oe
-springside4_109_11,"	@Test
+springside4_110_11,"	@Test
 	public void systemProperty_11_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -10990,7 +10990,7 @@ springside4_109_11,"	@Test
 		assertThat(result8).isNull();
 	}
 ",SystemPropertiesUtilTest::systemProperty_11_oe
-springside4_109_12,"	@Test
+springside4_110_12,"	@Test
 	public void systemProperty_12_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -11044,7 +11044,7 @@ springside4_109_12,"	@Test
 		assertThat(result8).isEqualTo(1.1);
 	}
 ",SystemPropertiesUtilTest::systemProperty_12_oe
-springside4_109_13,"	@Test
+springside4_110_13,"	@Test
 	public void systemProperty_13_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -11102,7 +11102,7 @@ springside4_109_13,"	@Test
 		assertThat(result8).isEqualTo(2.1);
 	}
 ",SystemPropertiesUtilTest::systemProperty_13_oe
-springside4_109_14,"	@Test
+springside4_110_14,"	@Test
 	public void systemProperty_14_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -11166,7 +11166,7 @@ springside4_109_14,"	@Test
 		assertThat(result9).isNull();
 	}
 ",SystemPropertiesUtilTest::systemProperty_14_oe
-springside4_109_15,"	@Test
+springside4_110_15,"	@Test
 	public void systemProperty_15_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -11233,7 +11233,7 @@ springside4_109_15,"	@Test
 		assertThat(result9).isEqualTo(""1.1"");
 	}
 ",SystemPropertiesUtilTest::systemProperty_15_oe
-springside4_109_16,"	@Test
+springside4_110_16,"	@Test
 	public void systemProperty_16_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -11304,7 +11304,7 @@ springside4_109_16,"	@Test
 		assertThat(result9).isEqualTo(""2.1"");
 	}
 ",SystemPropertiesUtilTest::systemProperty_16_oe
-springside4_110_1,"	@Test
+springside4_111_1,"	@Test
 	public void stringSystemProperty_1_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -11314,7 +11314,7 @@ springside4_110_1,"	@Test
 		assertThat(result).isEqualTo(""123"");
 	}
 ",SystemPropertiesUtilTest::stringSystemProperty_1_oe
-springside4_110_2,"	@Test
+springside4_111_2,"	@Test
 	public void stringSystemProperty_2_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -11328,7 +11328,7 @@ springside4_110_2,"	@Test
 		assertThat(result2).isNotEqualTo(""123"");
 	}
 ",SystemPropertiesUtilTest::stringSystemProperty_2_oe
-springside4_110_3,"	@Test
+springside4_111_3,"	@Test
 	public void stringSystemProperty_3_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -11347,7 +11347,7 @@ springside4_110_3,"	@Test
 		assertThat(result3).isEqualTo(""456"");
 	}
 ",SystemPropertiesUtilTest::stringSystemProperty_3_oe
-springside4_110_5,"	@Test
+springside4_111_5,"	@Test
 	public void stringSystemProperty_5_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -11374,7 +11374,7 @@ springside4_110_5,"	@Test
 	}
 	}
 ",SystemPropertiesUtilTest::stringSystemProperty_5_oe
-springside4_111_1,"	@Test
+springside4_112_1,"	@Test
 	public void intSystemProperty_1_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -11384,7 +11384,7 @@ springside4_111_1,"	@Test
 		assertThat(result).isEqualTo(123);
 	}
 ",SystemPropertiesUtilTest::intSystemProperty_1_oe
-springside4_111_2,"	@Test
+springside4_112_2,"	@Test
 	public void intSystemProperty_2_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -11401,7 +11401,7 @@ springside4_111_2,"	@Test
 		assertThat(result3).isEqualTo(456);
 	}
 ",SystemPropertiesUtilTest::intSystemProperty_2_oe
-springside4_112_1,"	@Test
+springside4_113_1,"	@Test
 	public void longSystemProperty_1_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -11411,7 +11411,7 @@ springside4_112_1,"	@Test
 		assertThat(result).isEqualTo(123L);
 	}
 ",SystemPropertiesUtilTest::longSystemProperty_1_oe
-springside4_112_2,"	@Test
+springside4_113_2,"	@Test
 	public void longSystemProperty_2_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -11428,7 +11428,7 @@ springside4_112_2,"	@Test
 		assertThat(result3).isEqualTo(456L);
 	}
 ",SystemPropertiesUtilTest::longSystemProperty_2_oe
-springside4_113_1,"	@Test
+springside4_114_1,"	@Test
 	public void doubleSystemProperty_1_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -11438,7 +11438,7 @@ springside4_113_1,"	@Test
 		assertThat(result).isEqualTo(123d);
 	}
 ",SystemPropertiesUtilTest::doubleSystemProperty_1_oe
-springside4_113_2,"	@Test
+springside4_114_2,"	@Test
 	public void doubleSystemProperty_2_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -11455,7 +11455,7 @@ springside4_113_2,"	@Test
 		assertThat(result3).isEqualTo(456d);
 	}
 ",SystemPropertiesUtilTest::doubleSystemProperty_2_oe
-springside4_114_1,"	@Test
+springside4_115_1,"	@Test
 	public void booleanSystemProperty_1_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -11465,7 +11465,7 @@ springside4_114_1,"	@Test
 		assertThat(result).isTrue();
 	}
 ",SystemPropertiesUtilTest::booleanSystemProperty_1_oe
-springside4_114_2,"	@Test
+springside4_115_2,"	@Test
 	public void booleanSystemProperty_2_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 		String envName = ""ss_test"" + RandomUtil.nextInt();
@@ -11482,7 +11482,7 @@ springside4_114_2,"	@Test
 		assertThat(result3).isTrue();
 	}
 ",SystemPropertiesUtilTest::booleanSystemProperty_2_oe
-springside4_115_1,"	@Test
+springside4_116_1,"	@Test
 	public void listenableProperties_1_oe() {
 		String name = ""ss.test"" + RandomUtil.nextInt();
 
@@ -11494,23 +11494,23 @@ springside4_115_1,"	@Test
 		assertThat(listener.newValue).isEqualTo(""haha"");
 	}
 ",SystemPropertiesUtilTest::listenableProperties_1_oe
-springside4_116_1,"	@Test
+springside4_117_1,"	@Test
 	public void hashCodeTest_1_oe() {
 		assertThat(ObjectUtil.hashCode(""a"", ""b"") - ObjectUtil.hashCode(""a"", ""a"")).isEqualTo(1);
 	}
 ",ObjectUtilTest::hashCodeTest_1_oe
-springside4_117_1,"	@Test
+springside4_118_1,"	@Test
 	public void toPrettyString_1_oe() {
 		assertThat(ObjectUtil.toPrettyString(null)).isEqualTo(""null"");
 	}
 ",ObjectUtilTest::toPrettyString_1_oe
-springside4_117_2,"	@Test
+springside4_118_2,"	@Test
 	public void toPrettyString_2_oe() {
 		// removed other assertion
 		assertThat(ObjectUtil.toPrettyString(1)).isEqualTo(""1"");
 	}
 ",ObjectUtilTest::toPrettyString_2_oe
-springside4_117_3,"	@Test
+springside4_118_3,"	@Test
 	public void toPrettyString_3_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -11518,7 +11518,7 @@ springside4_117_3,"	@Test
 		assertThat(ObjectUtil.toPrettyString(new int[] { 1, 2 })).isEqualTo(""[1, 2]"");
 	}
 ",ObjectUtilTest::toPrettyString_3_oe
-springside4_117_4,"	@Test
+springside4_118_4,"	@Test
 	public void toPrettyString_4_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -11527,7 +11527,7 @@ springside4_117_4,"	@Test
 		assertThat(ObjectUtil.toPrettyString(new long[] { 1, 2 })).isEqualTo(""[1, 2]"");
 	}
 ",ObjectUtilTest::toPrettyString_4_oe
-springside4_117_5,"	@Test
+springside4_118_5,"	@Test
 	public void toPrettyString_5_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -11537,7 +11537,7 @@ springside4_117_5,"	@Test
 		assertThat(ObjectUtil.toPrettyString(new double[] { 1.1d, 2.2d })).isEqualTo(""[1.1, 2.2]"");
 	}
 ",ObjectUtilTest::toPrettyString_5_oe
-springside4_117_6,"	@Test
+springside4_118_6,"	@Test
 	public void toPrettyString_6_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -11548,7 +11548,7 @@ springside4_117_6,"	@Test
 		assertThat(ObjectUtil.toPrettyString(new float[] { 1.1f, 2.2f })).isEqualTo(""[1.1, 2.2]"");
 	}
 ",ObjectUtilTest::toPrettyString_6_oe
-springside4_117_7,"	@Test
+springside4_118_7,"	@Test
 	public void toPrettyString_7_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -11560,7 +11560,7 @@ springside4_117_7,"	@Test
 		assertThat(ObjectUtil.toPrettyString(new boolean[] { true, false })).isEqualTo(""[true, false]"");
 	}
 ",ObjectUtilTest::toPrettyString_7_oe
-springside4_117_8,"	@Test
+springside4_118_8,"	@Test
 	public void toPrettyString_8_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -11573,7 +11573,7 @@ springside4_117_8,"	@Test
 		assertThat(ObjectUtil.toPrettyString(new short[] { 1, 2 })).isEqualTo(""[1, 2]"");
 	}
 ",ObjectUtilTest::toPrettyString_8_oe
-springside4_117_9,"	@Test
+springside4_118_9,"	@Test
 	public void toPrettyString_9_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -11587,7 +11587,7 @@ springside4_117_9,"	@Test
 		assertThat(ObjectUtil.toPrettyString(new byte[] { 1, 2 })).isEqualTo(""[1, 2]"");
 	}
 ",ObjectUtilTest::toPrettyString_9_oe
-springside4_117_10,"	@Test
+springside4_118_10,"	@Test
 	public void toPrettyString_10_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -11603,7 +11603,7 @@ springside4_117_10,"	@Test
 		assertThat(ObjectUtil.toPrettyString(new Integer[] { 1, 2 })).isEqualTo(""[1, 2]"");
 	}
 ",ObjectUtilTest::toPrettyString_10_oe
-springside4_117_11,"	@Test
+springside4_118_11,"	@Test
 	public void toPrettyString_11_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -11620,7 +11620,7 @@ springside4_117_11,"	@Test
 		assertThat(ObjectUtil.toPrettyString(ListUtil.newArrayList(""1"", ""2""))).isEqualTo(""{1,2}"");
 	}
 ",ObjectUtilTest::toPrettyString_11_oe
-springside4_118_1,"	@Test
+springside4_119_1,"	@Test
 	public void PlatformTest_1_oe() {
 
 		if (Platforms.IS_WINDOWS) {
@@ -11628,7 +11628,7 @@ springside4_118_1,"	@Test
 	}
 	}
 ",PlatformsTest::PlatformTest_1_oe
-springside4_118_2,"	@Test
+springside4_119_2,"	@Test
 	public void PlatformTest_2_oe() {
 
 		if (Platforms.IS_WINDOWS) {
@@ -11637,7 +11637,7 @@ springside4_118_2,"	@Test
 	}
 	}
 ",PlatformsTest::PlatformTest_2_oe
-springside4_118_3,"	@Test
+springside4_119_3,"	@Test
 	public void PlatformTest_3_oe() {
 
 		if (Platforms.IS_WINDOWS) {
@@ -11648,7 +11648,7 @@ springside4_118_3,"	@Test
 	}
 	}
 ",PlatformsTest::PlatformTest_3_oe
-springside4_118_4,"	@Test
+springside4_119_4,"	@Test
 	public void PlatformTest_4_oe() {
 
 		if (Platforms.IS_WINDOWS) {
@@ -11660,7 +11660,7 @@ springside4_118_4,"	@Test
 	}
 	}
 ",PlatformsTest::PlatformTest_4_oe
-springside4_118_5,"	@Test
+springside4_119_5,"	@Test
 	public void PlatformTest_5_oe() {
 
 		if (Platforms.IS_WINDOWS) {
@@ -11686,7 +11686,7 @@ springside4_118_5,"	@Test
 	}
 	}
 ",PlatformsTest::PlatformTest_5_oe
-springside4_118_6,"	@Test
+springside4_119_6,"	@Test
 	public void PlatformTest_6_oe() {
 
 		if (Platforms.IS_WINDOWS) {
@@ -11713,7 +11713,7 @@ springside4_118_6,"	@Test
 	}
 	}
 ",PlatformsTest::PlatformTest_6_oe
-springside4_118_7,"	@Test
+springside4_119_7,"	@Test
 	public void PlatformTest_7_oe() {
 
 		if (Platforms.IS_WINDOWS) {
@@ -11741,7 +11741,7 @@ springside4_118_7,"	@Test
 	}
 	}
 ",PlatformsTest::PlatformTest_7_oe
-springside4_118_8,"	@Test
+springside4_119_8,"	@Test
 	public void PlatformTest_8_oe() {
 
 		if (Platforms.IS_WINDOWS) {
@@ -11773,7 +11773,7 @@ springside4_118_8,"	@Test
 	}
 	}
 ",PlatformsTest::PlatformTest_8_oe
-springside4_118_9,"	@Test
+springside4_119_9,"	@Test
 	public void PlatformTest_9_oe() {
 
 		if (Platforms.IS_WINDOWS) {
@@ -11806,7 +11806,7 @@ springside4_118_9,"	@Test
 	}
 	}
 ",PlatformsTest::PlatformTest_9_oe
-springside4_118_10,"	@Test
+springside4_119_10,"	@Test
 	public void PlatformTest_10_oe() {
 
 		if (Platforms.IS_WINDOWS) {
@@ -11840,7 +11840,7 @@ springside4_118_10,"	@Test
 	}
 	}
 ",PlatformsTest::PlatformTest_10_oe
-springside4_118_11,"	@Test
+springside4_119_11,"	@Test
 	public void PlatformTest_11_oe() {
 
 		if (Platforms.IS_WINDOWS) {
@@ -11877,7 +11877,7 @@ springside4_118_11,"	@Test
 		assertThat(Platforms.getPid()).isNotEqualTo(-1);
 	}
 ",PlatformsTest::PlatformTest_11_oe
-springside4_119_1,"	@Test
+springside4_120_1,"	@Test
 	public void mac_1_oe() {
 		String input = ""foo message"";
 
@@ -11887,7 +11887,7 @@ springside4_119_1,"	@Test
 		assertThat(key).hasSize(20);
 	}
 ",CryptoUtilTest::mac_1_oe
-springside4_119_2,"	@Test
+springside4_120_2,"	@Test
 	public void mac_2_oe() {
 		String input = ""foo message"";
 
@@ -11903,13 +11903,13 @@ springside4_119_2,"	@Test
 		assertThat(CryptoUtil.isMacValid(macResult, input.getBytes(), key)).isTrue();
 	}
 ",CryptoUtilTest::mac_2_oe
-springside4_120_1,"	@Test
+springside4_121_1,"	@Test
 	public void aes_1_oe() {
 		byte[] key = CryptoUtil.generateAesKey();
 		assertThat(key).hasSize(16);
 	}
 ",CryptoUtilTest::aes_1_oe
-springside4_120_2,"	@Test
+springside4_121_2,"	@Test
 	public void aes_2_oe() {
 		byte[] key = CryptoUtil.generateAesKey();
 		// removed other assertion
@@ -11923,14 +11923,14 @@ springside4_120_2,"	@Test
 		assertThat(descryptResult).isEqualTo(input);
 	}
 ",CryptoUtilTest::aes_2_oe
-springside4_121_1,"	@Test
+springside4_122_1,"	@Test
 	public void aesWithIV_1_oe() {
 		byte[] key = CryptoUtil.generateAesKey();
 		byte[] iv = CryptoUtil.generateIV();
 		assertThat(key).hasSize(16);
 	}
 ",CryptoUtilTest::aesWithIV_1_oe
-springside4_121_2,"	@Test
+springside4_122_2,"	@Test
 	public void aesWithIV_2_oe() {
 		byte[] key = CryptoUtil.generateAesKey();
 		byte[] iv = CryptoUtil.generateIV();
@@ -11938,7 +11938,7 @@ springside4_121_2,"	@Test
 		assertThat(iv).hasSize(16);
 	}
 ",CryptoUtilTest::aesWithIV_2_oe
-springside4_121_3,"	@Test
+springside4_122_3,"	@Test
 	public void aesWithIV_3_oe() {
 		byte[] key = CryptoUtil.generateAesKey();
 		byte[] iv = CryptoUtil.generateIV();
@@ -11955,14 +11955,14 @@ springside4_121_3,"	@Test
 		assertThat(descryptResult).isEqualTo(input);
 	}
 ",CryptoUtilTest::aesWithIV_3_oe
-springside4_122_1,"	@Test
+springside4_123_1,"	@Test
 	public void isSameDay_1_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
 		assertThat(DateUtil.isSameDay(date1, date2)).isTrue();
 	}
 ",DateUtilTest::isSameDay_1_oe
-springside4_122_2,"	@Test
+springside4_123_2,"	@Test
 	public void isSameDay_2_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
@@ -11972,7 +11972,7 @@ springside4_122_2,"	@Test
 		assertThat(DateUtil.isSameTime(date1, date3)).isTrue();
 	}
 ",DateUtilTest::isSameDay_2_oe
-springside4_122_3,"	@Test
+springside4_123_3,"	@Test
 	public void isSameDay_3_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
@@ -11985,7 +11985,7 @@ springside4_122_3,"	@Test
 		assertThat(DateUtil.isSameTime(date1, date5)).isFalse();
 	}
 ",DateUtilTest::isSameDay_3_oe
-springside4_122_4,"	@Test
+springside4_123_4,"	@Test
 	public void isSameDay_4_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
@@ -12001,7 +12001,7 @@ springside4_122_4,"	@Test
 		assertThat(DateUtil.isBetween(date3, date1, date2)).isTrue();
 	}
 ",DateUtilTest::isSameDay_4_oe
-springside4_122_5,"	@Test
+springside4_123_5,"	@Test
 	public void isSameDay_5_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
@@ -12018,7 +12018,7 @@ springside4_122_5,"	@Test
 		assertThat(DateUtil.isBetween(date4, date1, date2)).isTrue();
 	}
 ",DateUtilTest::isSameDay_5_oe
-springside4_122_8,"	@Test
+springside4_123_8,"	@Test
 	public void isSameDay_8_oe() {
 		Date date1 = new Date(106, 10, 1);
 		Date date2 = new Date(106, 10, 1, 12, 23, 44);
@@ -12051,7 +12051,7 @@ springside4_122_8,"	@Test
 		assertThat(DateUtil.isBetween(date5, date1, date2)).isFalse();
 	}
 ",DateUtilTest::isSameDay_8_oe
-springside4_123_1,"	@Test
+springside4_124_1,"	@Test
 	public void truncateAndCelling_1_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12083,7 +12083,7 @@ springside4_123_1,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.beginOfYear(date), beginYear)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_1_oe
-springside4_123_2,"	@Test
+springside4_124_2,"	@Test
 	public void truncateAndCelling_2_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12116,7 +12116,7 @@ springside4_123_2,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.endOfYear(date), endYear)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_2_oe
-springside4_123_3,"	@Test
+springside4_124_3,"	@Test
 	public void truncateAndCelling_3_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12150,7 +12150,7 @@ springside4_123_3,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.nextYear(date), nextYear)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_3_oe
-springside4_123_4,"	@Test
+springside4_124_4,"	@Test
 	public void truncateAndCelling_4_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12186,7 +12186,7 @@ springside4_123_4,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.beginOfMonth(date), beginMonth)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_4_oe
-springside4_123_5,"	@Test
+springside4_124_5,"	@Test
 	public void truncateAndCelling_5_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12223,7 +12223,7 @@ springside4_123_5,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.endOfMonth(date), endMonth)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_5_oe
-springside4_123_6,"	@Test
+springside4_124_6,"	@Test
 	public void truncateAndCelling_6_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12261,7 +12261,7 @@ springside4_123_6,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.nextMonth(date), nextMonth)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_6_oe
-springside4_123_7,"	@Test
+springside4_124_7,"	@Test
 	public void truncateAndCelling_7_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12301,7 +12301,7 @@ springside4_123_7,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.beginOfWeek(date), beginWeek)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_7_oe
-springside4_123_8,"	@Test
+springside4_124_8,"	@Test
 	public void truncateAndCelling_8_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12342,7 +12342,7 @@ springside4_123_8,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.endOfWeek(date), endWeek)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_8_oe
-springside4_123_9,"	@Test
+springside4_124_9,"	@Test
 	public void truncateAndCelling_9_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12384,7 +12384,7 @@ springside4_123_9,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.nextWeek(date), nextWeek)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_9_oe
-springside4_123_10,"	@Test
+springside4_124_10,"	@Test
 	public void truncateAndCelling_10_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12428,7 +12428,7 @@ springside4_123_10,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.beginOfDate(date), beginDate)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_10_oe
-springside4_123_11,"	@Test
+springside4_124_11,"	@Test
 	public void truncateAndCelling_11_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12473,7 +12473,7 @@ springside4_123_11,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.endOfDate(date), endDate)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_11_oe
-springside4_123_12,"	@Test
+springside4_124_12,"	@Test
 	public void truncateAndCelling_12_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12519,7 +12519,7 @@ springside4_123_12,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.nextDate(date), nextDate)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_12_oe
-springside4_123_13,"	@Test
+springside4_124_13,"	@Test
 	public void truncateAndCelling_13_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12567,7 +12567,7 @@ springside4_123_13,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.beginOfHour(date), beginHour)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_13_oe
-springside4_123_14,"	@Test
+springside4_124_14,"	@Test
 	public void truncateAndCelling_14_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12616,7 +12616,7 @@ springside4_123_14,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.endOfHour(date), endHour)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_14_oe
-springside4_123_15,"	@Test
+springside4_124_15,"	@Test
 	public void truncateAndCelling_15_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12666,7 +12666,7 @@ springside4_123_15,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.nextHour(date), nextHour)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_15_oe
-springside4_123_16,"	@Test
+springside4_124_16,"	@Test
 	public void truncateAndCelling_16_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12718,7 +12718,7 @@ springside4_123_16,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.beginOfMinute(date), beginMinute)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_16_oe
-springside4_123_17,"	@Test
+springside4_124_17,"	@Test
 	public void truncateAndCelling_17_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12771,7 +12771,7 @@ springside4_123_17,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.endOfMinute(date), endMinute)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_17_oe
-springside4_123_18,"	@Test
+springside4_124_18,"	@Test
 	public void truncateAndCelling_18_oe() {
 		// Sat Jan 21 12:12:12 CST 2017
 		Date date = new Date(117, 0, 21, 12, 12, 12);
@@ -12825,7 +12825,7 @@ springside4_123_18,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.nextMinute(date), nextMinute)).isTrue();
 	}
 ",DateUtilTest::truncateAndCelling_18_oe
-springside4_124_1,"	@Test
+springside4_125_1,"	@Test
 	public void changeDay_1_oe() {
 		Date date = new Date(106, 10, 1, 12, 23, 44);
 		Date expectDate1 = new Date(106, 10, 3);
@@ -12846,7 +12846,7 @@ springside4_124_1,"	@Test
 		assertThat(DateUtil.isSameDay(DateUtil.addDays(date, 2), expectDate1)).isTrue();
 	}
 ",DateUtilTest::changeDay_1_oe
-springside4_124_2,"	@Test
+springside4_125_2,"	@Test
 	public void changeDay_2_oe() {
 		Date date = new Date(106, 10, 1, 12, 23, 44);
 		Date expectDate1 = new Date(106, 10, 3);
@@ -12868,7 +12868,7 @@ springside4_124_2,"	@Test
 		assertThat(DateUtil.isSameDay(DateUtil.subDays(date, 1), expectDate2)).isTrue();
 	}
 ",DateUtilTest::changeDay_2_oe
-springside4_124_3,"	@Test
+springside4_125_3,"	@Test
 	public void changeDay_3_oe() {
 		Date date = new Date(106, 10, 1, 12, 23, 44);
 		Date expectDate1 = new Date(106, 10, 3);
@@ -12892,7 +12892,7 @@ springside4_124_3,"	@Test
 		assertThat(DateUtil.isSameDay(DateUtil.addWeeks(date, 1), expectDate11)).isTrue();
 	}
 ",DateUtilTest::changeDay_3_oe
-springside4_124_4,"	@Test
+springside4_125_4,"	@Test
 	public void changeDay_4_oe() {
 		Date date = new Date(106, 10, 1, 12, 23, 44);
 		Date expectDate1 = new Date(106, 10, 3);
@@ -12917,7 +12917,7 @@ springside4_124_4,"	@Test
 		assertThat(DateUtil.isSameDay(DateUtil.subWeeks(date, 1), expectDate12)).isTrue();
 	}
 ",DateUtilTest::changeDay_4_oe
-springside4_124_5,"	@Test
+springside4_125_5,"	@Test
 	public void changeDay_5_oe() {
 		Date date = new Date(106, 10, 1, 12, 23, 44);
 		Date expectDate1 = new Date(106, 10, 3);
@@ -12944,7 +12944,7 @@ springside4_124_5,"	@Test
 		assertThat(DateUtil.isSameDay(DateUtil.addMonths(date, 1), expectDate3)).isTrue();
 	}
 ",DateUtilTest::changeDay_5_oe
-springside4_124_6,"	@Test
+springside4_125_6,"	@Test
 	public void changeDay_6_oe() {
 		Date date = new Date(106, 10, 1, 12, 23, 44);
 		Date expectDate1 = new Date(106, 10, 3);
@@ -12972,7 +12972,7 @@ springside4_124_6,"	@Test
 		assertThat(DateUtil.isSameDay(DateUtil.subMonths(date, 3), expectDate4)).isTrue();
 	}
 ",DateUtilTest::changeDay_6_oe
-springside4_124_7,"	@Test
+springside4_125_7,"	@Test
 	public void changeDay_7_oe() {
 		Date date = new Date(106, 10, 1, 12, 23, 44);
 		Date expectDate1 = new Date(106, 10, 3);
@@ -13002,7 +13002,7 @@ springside4_124_7,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.addHours(date, 1), expectDate5)).isTrue();
 	}
 ",DateUtilTest::changeDay_7_oe
-springside4_124_8,"	@Test
+springside4_125_8,"	@Test
 	public void changeDay_8_oe() {
 		Date date = new Date(106, 10, 1, 12, 23, 44);
 		Date expectDate1 = new Date(106, 10, 3);
@@ -13033,7 +13033,7 @@ springside4_124_8,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.subHours(date, 2), expectDate6)).isTrue();
 	}
 ",DateUtilTest::changeDay_8_oe
-springside4_124_9,"	@Test
+springside4_125_9,"	@Test
 	public void changeDay_9_oe() {
 		Date date = new Date(106, 10, 1, 12, 23, 44);
 		Date expectDate1 = new Date(106, 10, 3);
@@ -13066,7 +13066,7 @@ springside4_124_9,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.addMinutes(date, 1), expectDate7)).isTrue();
 	}
 ",DateUtilTest::changeDay_9_oe
-springside4_124_10,"	@Test
+springside4_125_10,"	@Test
 	public void changeDay_10_oe() {
 		Date date = new Date(106, 10, 1, 12, 23, 44);
 		Date expectDate1 = new Date(106, 10, 3);
@@ -13100,7 +13100,7 @@ springside4_124_10,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.subMinutes(date, 2), expectDate8)).isTrue();
 	}
 ",DateUtilTest::changeDay_10_oe
-springside4_124_11,"	@Test
+springside4_125_11,"	@Test
 	public void changeDay_11_oe() {
 		Date date = new Date(106, 10, 1, 12, 23, 44);
 		Date expectDate1 = new Date(106, 10, 3);
@@ -13136,7 +13136,7 @@ springside4_124_11,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.addSeconds(date, 1), expectDate9)).isTrue();
 	}
 ",DateUtilTest::changeDay_11_oe
-springside4_124_12,"	@Test
+springside4_125_12,"	@Test
 	public void changeDay_12_oe() {
 		Date date = new Date(106, 10, 1, 12, 23, 44);
 		Date expectDate1 = new Date(106, 10, 3);
@@ -13173,7 +13173,7 @@ springside4_124_12,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.subSeconds(date, 2), expectDate10)).isTrue();
 	}
 ",DateUtilTest::changeDay_12_oe
-springside4_125_1,"	@Test
+springside4_126_1,"	@Test
 	public void setDay_1_oe() {
 		Date date = new Date(116, 10, 1, 10, 10, 1);
 		Date expectedDate = new Date(116, 10, 3);
@@ -13186,7 +13186,7 @@ springside4_125_1,"	@Test
 		assertThat(DateUtil.isSameDay(DateUtil.setDays(date, 3), expectedDate)).isTrue();
 	}
 ",DateUtilTest::setDay_1_oe
-springside4_125_2,"	@Test
+springside4_126_2,"	@Test
 	public void setDay_2_oe() {
 		Date date = new Date(116, 10, 1, 10, 10, 1);
 		Date expectedDate = new Date(116, 10, 3);
@@ -13200,7 +13200,7 @@ springside4_125_2,"	@Test
 		assertThat(DateUtil.isSameDay(DateUtil.setMonths(date, 11), expectedDate2)).isTrue();
 	}
 ",DateUtilTest::setDay_2_oe
-springside4_125_3,"	@Test
+springside4_126_3,"	@Test
 	public void setDay_3_oe() {
 		Date date = new Date(116, 10, 1, 10, 10, 1);
 		Date expectedDate = new Date(116, 10, 3);
@@ -13215,7 +13215,7 @@ springside4_125_3,"	@Test
 		assertThat(DateUtil.isSameDay(DateUtil.setYears(date, 2017), expectedDate3)).isTrue();
 	}
 ",DateUtilTest::setDay_3_oe
-springside4_125_4,"	@Test
+springside4_126_4,"	@Test
 	public void setDay_4_oe() {
 		Date date = new Date(116, 10, 1, 10, 10, 1);
 		Date expectedDate = new Date(116, 10, 3);
@@ -13232,7 +13232,7 @@ springside4_125_4,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.setHours(date, 9), expectedDate4)).isTrue();
 	}
 ",DateUtilTest::setDay_4_oe
-springside4_125_5,"	@Test
+springside4_126_5,"	@Test
 	public void setDay_5_oe() {
 		Date date = new Date(116, 10, 1, 10, 10, 1);
 		Date expectedDate = new Date(116, 10, 3);
@@ -13250,7 +13250,7 @@ springside4_125_5,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.setMinutes(date, 9), expectedDate5)).isTrue();
 	}
 ",DateUtilTest::setDay_5_oe
-springside4_125_6,"	@Test
+springside4_126_6,"	@Test
 	public void setDay_6_oe() {
 		Date date = new Date(116, 10, 1, 10, 10, 1);
 		Date expectedDate = new Date(116, 10, 3);
@@ -13269,14 +13269,14 @@ springside4_125_6,"	@Test
 		assertThat(DateUtil.isSameTime(DateUtil.setSeconds(date, 10), expectedDate6)).isTrue();
 	}
 ",DateUtilTest::setDay_6_oe
-springside4_126_1,"	@Test
+springside4_127_1,"	@Test
 	public void getDayOfWeek_1_oe() {
 		// 2017-01-09
 		Date date = new Date(117, 0, 9);
 		assertThat(DateUtil.getDayOfWeek(date)).isEqualTo(1);
 	}
 ",DateUtilTest::getDayOfWeek_1_oe
-springside4_126_2,"	@Test
+springside4_127_2,"	@Test
 	public void getDayOfWeek_2_oe() {
 		// 2017-01-09
 		Date date = new Date(117, 0, 9);
@@ -13286,14 +13286,14 @@ springside4_126_2,"	@Test
 		assertThat(DateUtil.getDayOfWeek(date2)).isEqualTo(7);
 	}
 ",DateUtilTest::getDayOfWeek_2_oe
-springside4_127_1,"	@Test
+springside4_128_1,"	@Test
 	public void isLeapYear_1_oe() {
 		// 2008-01-09,整除4年, true
 		Date date = new Date(108, 0, 9);
 		assertThat(DateUtil.isLeapYear(date)).isTrue();
 	}
 ",DateUtilTest::isLeapYear_1_oe
-springside4_127_2,"	@Test
+springside4_128_2,"	@Test
 	public void isLeapYear_2_oe() {
 		// 2008-01-09,整除4年, true
 		Date date = new Date(108, 0, 9);
@@ -13304,7 +13304,7 @@ springside4_127_2,"	@Test
 		assertThat(DateUtil.isLeapYear(date)).isTrue();
 	}
 ",DateUtilTest::isLeapYear_2_oe
-springside4_127_3,"	@Test
+springside4_128_3,"	@Test
 	public void isLeapYear_3_oe() {
 		// 2008-01-09,整除4年, true
 		Date date = new Date(108, 0, 9);
@@ -13319,14 +13319,14 @@ springside4_127_3,"	@Test
 		assertThat(DateUtil.isLeapYear(date)).isFalse();
 	}
 ",DateUtilTest::isLeapYear_3_oe
-springside4_128_1,"	@Test
+springside4_129_1,"	@Test
 	public void getXXofXX_1_oe() {
 		// 2008-02-09, 整除4年, 闰年
 		Date date = new Date(108, 2, 9);
 		assertThat(DateUtil.getMonthLength(date)).isEqualTo(29);
 	}
 ",DateUtilTest::getXXofXX_1_oe
-springside4_128_2,"	@Test
+springside4_129_2,"	@Test
 	public void getXXofXX_2_oe() {
 		// 2008-02-09, 整除4年, 闰年
 		Date date = new Date(108, 2, 9);
@@ -13337,7 +13337,7 @@ springside4_128_2,"	@Test
 		assertThat(DateUtil.getMonthLength(date2)).isEqualTo(28);
 	}
 ",DateUtilTest::getXXofXX_2_oe
-springside4_128_3,"	@Test
+springside4_129_3,"	@Test
 	public void getXXofXX_3_oe() {
 		// 2008-02-09, 整除4年, 闰年
 		Date date = new Date(108, 2, 9);
@@ -13351,7 +13351,7 @@ springside4_128_3,"	@Test
 		assertThat(DateUtil.getMonthLength(date3)).isEqualTo(31);
 	}
 ",DateUtilTest::getXXofXX_3_oe
-springside4_128_4,"	@Test
+springside4_129_4,"	@Test
 	public void getXXofXX_4_oe() {
 		// 2008-02-09, 整除4年, 闰年
 		Date date = new Date(108, 2, 9);
@@ -13368,7 +13368,7 @@ springside4_128_4,"	@Test
 		assertThat(DateUtil.getDayOfYear(date4)).isEqualTo(364);
 	}
 ",DateUtilTest::getXXofXX_4_oe
-springside4_128_5,"	@Test
+springside4_129_5,"	@Test
 	public void getXXofXX_5_oe() {
 		// 2008-02-09, 整除4年, 闰年
 		Date date = new Date(108, 2, 9);
@@ -13388,7 +13388,7 @@ springside4_128_5,"	@Test
 		assertThat(DateUtil.getWeekOfMonth(date5)).isEqualTo(3);
 	}
 ",DateUtilTest::getXXofXX_5_oe
-springside4_128_6,"	@Test
+springside4_129_6,"	@Test
 	public void getXXofXX_6_oe() {
 		// 2008-02-09, 整除4年, 闰年
 		Date date = new Date(108, 2, 9);
@@ -13409,14 +13409,14 @@ springside4_128_6,"	@Test
 		assertThat(DateUtil.getWeekOfYear(date5)).isEqualTo(3);
 	}
 ",DateUtilTest::getXXofXX_6_oe
-springside4_129_1,"	@Test
+springside4_130_1,"	@Test
 	public void testDummyClock_1_oe() {
 		DummyClock clock = new DummyClock();
 		clock.updateNow(111);
 		assertThat(clock.currentTimeMillis()).isEqualTo(111);
 	}
 ",ClockUtilTest::testDummyClock_1_oe
-springside4_129_2,"	@Test
+springside4_130_2,"	@Test
 	public void testDummyClock_2_oe() {
 		DummyClock clock = new DummyClock();
 		clock.updateNow(111);
@@ -13424,7 +13424,7 @@ springside4_129_2,"	@Test
 		assertThat(clock.currentDate().getTime()).isEqualTo(111);
 	}
 ",ClockUtilTest::testDummyClock_2_oe
-springside4_129_3,"	@Test
+springside4_130_3,"	@Test
 	public void testDummyClock_3_oe() {
 		DummyClock clock = new DummyClock();
 		clock.updateNow(111);
@@ -13435,7 +13435,7 @@ springside4_129_3,"	@Test
 		assertThat(clock.currentTimeMillis()).isEqualTo(112);
 	}
 ",ClockUtilTest::testDummyClock_3_oe
-springside4_129_4,"	@Test
+springside4_130_4,"	@Test
 	public void testDummyClock_4_oe() {
 		DummyClock clock = new DummyClock();
 		clock.updateNow(111);
@@ -13448,7 +13448,7 @@ springside4_129_4,"	@Test
 		assertThat(clock.currentTimeMillis()).isEqualTo(312);
 	}
 ",ClockUtilTest::testDummyClock_4_oe
-springside4_129_5,"	@Test
+springside4_130_5,"	@Test
 	public void testDummyClock_5_oe() {
 		DummyClock clock = new DummyClock();
 		clock.updateNow(111);
@@ -13463,7 +13463,7 @@ springside4_129_5,"	@Test
 		assertThat(clock.currentTimeMillis()).isEqualTo(212);
 	}
 ",ClockUtilTest::testDummyClock_5_oe
-springside4_129_6,"	@Test
+springside4_130_6,"	@Test
 	public void testDummyClock_6_oe() {
 		DummyClock clock = new DummyClock();
 		clock.updateNow(111);
@@ -13481,7 +13481,7 @@ springside4_129_6,"	@Test
 		assertThat(clock.nanoTime()).isEqualTo(150);
 	}
 ",ClockUtilTest::testDummyClock_6_oe
-springside4_131_1,"	@Test
+springside4_132_1,"	@Test
 	public void test_1_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
@@ -13489,7 +13489,7 @@ springside4_131_1,"	@Test
 		assertThat(formatter.format(date.getTime())).isEqualTo(""2016-11-01 12:23:44.000"");
 	}
 ",CachingDatFormatterTest::test_1_oe
-springside4_131_2,"	@Test
+springside4_132_2,"	@Test
 	public void test_2_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
@@ -13498,7 +13498,7 @@ springside4_131_2,"	@Test
 		assertThat(formatter.format(date.getTime())).isEqualTo(""2016-11-01 12:23:44.000"");
 	}
 ",CachingDatFormatterTest::test_2_oe
-springside4_131_3,"	@Test
+springside4_132_3,"	@Test
 	public void test_3_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
@@ -13508,7 +13508,7 @@ springside4_131_3,"	@Test
 		assertThat(formatter.format(date.getTime() + 2)).isEqualTo(""2016-11-01 12:23:44.002"");
 	}
 ",CachingDatFormatterTest::test_3_oe
-springside4_131_4,"	@Test
+springside4_132_4,"	@Test
 	public void test_4_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
@@ -13521,7 +13521,7 @@ springside4_131_4,"	@Test
 		assertThat(formatterOnSecond.format(date.getTime())).isEqualTo(""2016-11-01 12:23:44"");
 	}
 ",CachingDatFormatterTest::test_4_oe
-springside4_131_5,"	@Test
+springside4_132_5,"	@Test
 	public void test_5_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
@@ -13535,7 +13535,7 @@ springside4_131_5,"	@Test
 		assertThat(formatterOnSecond.format(date.getTime())).isEqualTo(""2016-11-01 12:23:44"");
 	}
 ",CachingDatFormatterTest::test_5_oe
-springside4_131_6,"	@Test
+springside4_132_6,"	@Test
 	public void test_6_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
@@ -13550,7 +13550,7 @@ springside4_131_6,"	@Test
 		assertThat(formatterOnSecond.format(date.getTime() + 2)).isEqualTo(""2016-11-01 12:23:44"");
 	}
 ",CachingDatFormatterTest::test_6_oe
-springside4_131_7,"	@Test
+springside4_132_7,"	@Test
 	public void test_7_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 
@@ -13566,20 +13566,20 @@ springside4_131_7,"	@Test
 		assertThat(formatterOnSecond.format(date.getTime() + 1000)).isEqualTo(""2016-11-01 12:23:45"");
 	}
 ",CachingDatFormatterTest::test_7_oe
-springside4_132_1,"	@Test
+springside4_133_1,"	@Test
 	public void isoDateFormat_1_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 		assertThat(DateFormatUtil.ISO_FORMAT.format(date)).contains(""2016-11-01T12:23:44.000"");
 	}
 ",DateFormatUtilTest::isoDateFormat_1_oe
-springside4_132_2,"	@Test
+springside4_133_2,"	@Test
 	public void isoDateFormat_2_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 		// removed other assertion
 		assertThat(DateFormatUtil.ISO_ON_SECOND_FORMAT.format(date)).contains(""2016-11-01T12:23:44"");
 	}
 ",DateFormatUtilTest::isoDateFormat_2_oe
-springside4_132_3,"	@Test
+springside4_133_3,"	@Test
 	public void isoDateFormat_3_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 		// removed other assertion
@@ -13587,52 +13587,52 @@ springside4_132_3,"	@Test
 		assertThat(DateFormatUtil.ISO_ON_DATE_FORMAT.format(date)).isEqualTo(""2016-11-01"");
 	}
 ",DateFormatUtilTest::isoDateFormat_3_oe
-springside4_133_1,"	@Test
+springside4_134_1,"	@Test
 	public void defaultDateFormat_1_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 		assertThat(DateFormatUtil.DEFAULT_FORMAT.format(date)).isEqualTo(""2016-11-01 12:23:44.000"");
 	}
 ",DateFormatUtilTest::defaultDateFormat_1_oe
-springside4_133_2,"	@Test
+springside4_134_2,"	@Test
 	public void defaultDateFormat_2_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 		// removed other assertion
 		assertThat(DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.format(date)).isEqualTo(""2016-11-01 12:23:44"");
 	}
 ",DateFormatUtilTest::defaultDateFormat_2_oe
-springside4_134_1,"	@Test
+springside4_135_1,"	@Test
 	public void formatWithPattern_1_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 		assertThat(DateFormatUtil.formatDate(DateFormatUtil.PATTERN_DEFAULT, date)) .isEqualTo(""2016-11-01 12:23:44.000"");
 	}
 ",DateFormatUtilTest::formatWithPattern_1_oe
-springside4_134_2,"	@Test
+springside4_135_2,"	@Test
 	public void formatWithPattern_2_oe() {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 		// removed other assertion
 		assertThat(DateFormatUtil.formatDate(DateFormatUtil.PATTERN_DEFAULT, date.getTime())) .isEqualTo(""2016-11-01 12:23:44.000"");
 	}
 ",DateFormatUtilTest::formatWithPattern_2_oe
-springside4_135_1,"	@Test
+springside4_136_1,"	@Test
 	public void parseWithPattern_1_oe() throws ParseException {
 		Date date = new Date(116, 10, 1, 12, 23, 44);
 		Date resultDate = DateFormatUtil.pareDate(DateFormatUtil.PATTERN_DEFAULT, ""2016-11-01 12:23:44.000"");
 		assertThat(resultDate.getTime() == date.getTime()).isTrue();
 	}
 ",DateFormatUtilTest::parseWithPattern_1_oe
-springside4_136_1,"	@Test
+springside4_137_1,"	@Test
 	public void formatDuration_1_oe() {
 		assertThat(DateFormatUtil.formatDuration(100)).isEqualTo(""00:00:00.100"");
 	}
 ",DateFormatUtilTest::formatDuration_1_oe
-springside4_136_2,"	@Test
+springside4_137_2,"	@Test
 	public void formatDuration_2_oe() {
 		// removed other assertion
 
 		assertThat(DateFormatUtil.formatDuration(new Date(100), new Date(3000))).isEqualTo(""00:00:02.900"");
 	}
 ",DateFormatUtilTest::formatDuration_2_oe
-springside4_136_3,"	@Test
+springside4_137_3,"	@Test
 	public void formatDuration_3_oe() {
 		// removed other assertion
 
@@ -13641,7 +13641,7 @@ springside4_136_3,"	@Test
 		assertThat(DateFormatUtil.formatDuration(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)) .isEqualTo(""52:00:00.000"");
 	}
 ",DateFormatUtilTest::formatDuration_3_oe
-springside4_136_4,"	@Test
+springside4_137_4,"	@Test
 	public void formatDuration_4_oe() {
 		// removed other assertion
 
@@ -13652,7 +13652,7 @@ springside4_136_4,"	@Test
 		assertThat(DateFormatUtil.formatDurationOnSecond(new Date(100), new Date(3000))).isEqualTo(""00:00:02"");
 	}
 ",DateFormatUtilTest::formatDuration_4_oe
-springside4_136_5,"	@Test
+springside4_137_5,"	@Test
 	public void formatDuration_5_oe() {
 		// removed other assertion
 
@@ -13665,7 +13665,7 @@ springside4_136_5,"	@Test
 		assertThat(DateFormatUtil.formatDurationOnSecond(2000)).isEqualTo(""00:00:02"");
 	}
 ",DateFormatUtilTest::formatDuration_5_oe
-springside4_136_6,"	@Test
+springside4_137_6,"	@Test
 	public void formatDuration_6_oe() {
 		// removed other assertion
 
@@ -13680,13 +13680,13 @@ springside4_136_6,"	@Test
 		assertThat(DateFormatUtil.formatDurationOnSecond(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)) .isEqualTo(""52:00:00"");
 	}
 ",DateFormatUtilTest::formatDuration_6_oe
-springside4_138_1,"	@Test
+springside4_139_1,"	@Test
 	public void toBytes_1_oe() {
 		byte[] bytes = NumberUtil.toBytes(1);
 		assertThat(bytes).hasSize(4).containsSequence((byte) 0, (byte) 0, (byte) 0, (byte) 1);
 	}
 ",NumberUtilTest::toBytes_1_oe
-springside4_138_2,"	@Test
+springside4_139_2,"	@Test
 	public void toBytes_2_oe() {
 		byte[] bytes = NumberUtil.toBytes(1);
 		// removed other assertion
@@ -13695,7 +13695,7 @@ springside4_138_2,"	@Test
 		assertThat(bytes).containsSequence((byte) 0, (byte) 0, (byte) 1, (byte) 1);
 	}
 ",NumberUtilTest::toBytes_2_oe
-springside4_138_3,"	@Test
+springside4_139_3,"	@Test
 	public void toBytes_3_oe() {
 		byte[] bytes = NumberUtil.toBytes(1);
 		// removed other assertion
@@ -13705,7 +13705,7 @@ springside4_138_3,"	@Test
 		assertThat(NumberUtil.toInt(bytes)).isEqualTo(257);
 	}
 ",NumberUtilTest::toBytes_3_oe
-springside4_138_4,"	@Test
+springside4_139_4,"	@Test
 	public void toBytes_4_oe() {
 		byte[] bytes = NumberUtil.toBytes(1);
 		// removed other assertion
@@ -13719,7 +13719,7 @@ springside4_138_4,"	@Test
 		assertThat(bytes2).hasSize(8);
 	}
 ",NumberUtilTest::toBytes_4_oe
-springside4_138_5,"	@Test
+springside4_139_5,"	@Test
 	public void toBytes_5_oe() {
 		byte[] bytes = NumberUtil.toBytes(1);
 		// removed other assertion
@@ -13737,7 +13737,7 @@ springside4_138_5,"	@Test
 		assertThat(bytes2).containsSequence((byte) 0, (byte) 0, (byte) 1, (byte) 1);
 	}
 ",NumberUtilTest::toBytes_5_oe
-springside4_138_6,"	@Test
+springside4_139_6,"	@Test
 	public void toBytes_6_oe() {
 		byte[] bytes = NumberUtil.toBytes(1);
 		// removed other assertion
@@ -13756,7 +13756,7 @@ springside4_138_6,"	@Test
 		assertThat(NumberUtil.toLong(bytes2)).isEqualTo(257L);
 	}
 ",NumberUtilTest::toBytes_6_oe
-springside4_138_7,"	@Test
+springside4_139_7,"	@Test
 	public void toBytes_7_oe() {
 		byte[] bytes = NumberUtil.toBytes(1);
 		// removed other assertion
@@ -13779,7 +13779,7 @@ springside4_138_7,"	@Test
 		assertThat(NumberUtil.toDouble(bytes3)).isEqualTo(1.123d);
 	}
 ",NumberUtilTest::toBytes_7_oe
-springside4_138_8,"	@Test
+springside4_139_8,"	@Test
 	public void toBytes_8_oe() {
 		byte[] bytes = NumberUtil.toBytes(1);
 		// removed other assertion
@@ -13805,7 +13805,7 @@ springside4_138_8,"	@Test
 		assertThat(NumberUtil.toInt32(123l)).isEqualTo(123);
 	}
 ",NumberUtilTest::toBytes_8_oe
-springside4_138_10,"	@Test
+springside4_139_10,"	@Test
 	public void toBytes_10_oe() {
 		byte[] bytes = NumberUtil.toBytes(1);
 		// removed other assertion
@@ -13838,25 +13838,25 @@ springside4_138_10,"	@Test
 	}
 	}
 ",NumberUtilTest::toBytes_10_oe
-springside4_139_1,"	@Test
+springside4_140_1,"	@Test
 	public void isNumber_1_oe() {
 		assertThat(NumberUtil.isNumber(""123"")).isTrue();
 	}
 ",NumberUtilTest::isNumber_1_oe
-springside4_139_2,"	@Test
+springside4_140_2,"	@Test
 	public void isNumber_2_oe() {
 		// removed other assertion
 		assertThat(NumberUtil.isNumber(""-123.1"")).isTrue();
 	}
 ",NumberUtilTest::isNumber_2_oe
-springside4_139_3,"	@Test
+springside4_140_3,"	@Test
 	public void isNumber_3_oe() {
 		// removed other assertion
 		// removed other assertion
 		assertThat(NumberUtil.isNumber(""-1a3.1"")).isFalse();
 	}
 ",NumberUtilTest::isNumber_3_oe
-springside4_139_4,"	@Test
+springside4_140_4,"	@Test
 	public void isNumber_4_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -13865,7 +13865,7 @@ springside4_139_4,"	@Test
 		assertThat(NumberUtil.isHexNumber(""0x12F"")).isTrue();
 	}
 ",NumberUtilTest::isNumber_4_oe
-springside4_139_5,"	@Test
+springside4_140_5,"	@Test
 	public void isNumber_5_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -13875,7 +13875,7 @@ springside4_139_5,"	@Test
 		assertThat(NumberUtil.isHexNumber(""-0x12A3"")).isTrue();
 	}
 ",NumberUtilTest::isNumber_5_oe
-springside4_139_6,"	@Test
+springside4_140_6,"	@Test
 	public void isNumber_6_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -13886,25 +13886,25 @@ springside4_139_6,"	@Test
 		assertThat(NumberUtil.isHexNumber(""12A3"")).isFalse();
 	}
 ",NumberUtilTest::isNumber_6_oe
-springside4_140_1,"	@Test
+springside4_141_1,"	@Test
 	public void toNumber_1_oe() {
 		assertThat(NumberUtil.toInt(""122"")).isEqualTo(122);
 	}
 ",NumberUtilTest::toNumber_1_oe
-springside4_140_2,"	@Test
+springside4_141_2,"	@Test
 	public void toNumber_2_oe() {
 		// removed other assertion
 		assertThat(NumberUtil.toInt(""12A"")).isEqualTo(0);
 	}
 ",NumberUtilTest::toNumber_2_oe
-springside4_140_3,"	@Test
+springside4_141_3,"	@Test
 	public void toNumber_3_oe() {
 		// removed other assertion
 		// removed other assertion
 		assertThat(NumberUtil.toInt((String) null)).isEqualTo(0);
 	}
 ",NumberUtilTest::toNumber_3_oe
-springside4_140_4,"	@Test
+springside4_141_4,"	@Test
 	public void toNumber_4_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -13912,7 +13912,7 @@ springside4_140_4,"	@Test
 		assertThat(NumberUtil.toInt(""12A"", 123)).isEqualTo(123);
 	}
 ",NumberUtilTest::toNumber_4_oe
-springside4_140_5,"	@Test
+springside4_141_5,"	@Test
 	public void toNumber_5_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -13922,7 +13922,7 @@ springside4_140_5,"	@Test
 		assertThat(NumberUtil.toLong(""122"")).isEqualTo(122L);
 	}
 ",NumberUtilTest::toNumber_5_oe
-springside4_140_6,"	@Test
+springside4_141_6,"	@Test
 	public void toNumber_6_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -13933,7 +13933,7 @@ springside4_140_6,"	@Test
 		assertThat(NumberUtil.toLong(""12A"")).isEqualTo(0L);
 	}
 ",NumberUtilTest::toNumber_6_oe
-springside4_140_7,"	@Test
+springside4_141_7,"	@Test
 	public void toNumber_7_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -13945,7 +13945,7 @@ springside4_140_7,"	@Test
 		assertThat(NumberUtil.toLong((String) null)).isEqualTo(0);
 	}
 ",NumberUtilTest::toNumber_7_oe
-springside4_140_8,"	@Test
+springside4_141_8,"	@Test
 	public void toNumber_8_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -13958,7 +13958,7 @@ springside4_140_8,"	@Test
 		assertThat(NumberUtil.toLong(""12A"", 123)).isEqualTo(123L);
 	}
 ",NumberUtilTest::toNumber_8_oe
-springside4_140_9,"	@Test
+springside4_141_9,"	@Test
 	public void toNumber_9_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -13973,7 +13973,7 @@ springside4_140_9,"	@Test
 		assertThat(NumberUtil.toDouble(""122.1"")).isEqualTo(122.1);
 	}
 ",NumberUtilTest::toNumber_9_oe
-springside4_140_10,"	@Test
+springside4_141_10,"	@Test
 	public void toNumber_10_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -13989,7 +13989,7 @@ springside4_140_10,"	@Test
 		assertThat(NumberUtil.toDouble(""12A"")).isEqualTo(0L);
 	}
 ",NumberUtilTest::toNumber_10_oe
-springside4_140_11,"	@Test
+springside4_141_11,"	@Test
 	public void toNumber_11_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14006,7 +14006,7 @@ springside4_140_11,"	@Test
 		assertThat(NumberUtil.toDouble(""12A"", 123.1)).isEqualTo(123.1);
 	}
 ",NumberUtilTest::toNumber_11_oe
-springside4_140_12,"	@Test
+springside4_141_12,"	@Test
 	public void toNumber_12_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14025,7 +14025,7 @@ springside4_140_12,"	@Test
 		assertThat(NumberUtil.toIntObject(""122"")).isEqualTo(122);
 	}
 ",NumberUtilTest::toNumber_12_oe
-springside4_140_13,"	@Test
+springside4_141_13,"	@Test
 	public void toNumber_13_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14045,7 +14045,7 @@ springside4_140_13,"	@Test
 		assertThat(NumberUtil.toIntObject(""12A"")).isEqualTo(null);
 	}
 ",NumberUtilTest::toNumber_13_oe
-springside4_140_14,"	@Test
+springside4_141_14,"	@Test
 	public void toNumber_14_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14066,7 +14066,7 @@ springside4_140_14,"	@Test
 		assertThat(NumberUtil.toIntObject(""12A"", 123)).isEqualTo(123);
 	}
 ",NumberUtilTest::toNumber_14_oe
-springside4_140_15,"	@Test
+springside4_141_15,"	@Test
 	public void toNumber_15_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14088,7 +14088,7 @@ springside4_140_15,"	@Test
 		assertThat(NumberUtil.toIntObject(null, 123)).isEqualTo(123);
 	}
 ",NumberUtilTest::toNumber_15_oe
-springside4_140_16,"	@Test
+springside4_141_16,"	@Test
 	public void toNumber_16_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14111,7 +14111,7 @@ springside4_140_16,"	@Test
 		assertThat(NumberUtil.toIntObject("""", 123)).isEqualTo(123);
 	}
 ",NumberUtilTest::toNumber_16_oe
-springside4_140_17,"	@Test
+springside4_141_17,"	@Test
 	public void toNumber_17_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14136,7 +14136,7 @@ springside4_140_17,"	@Test
 		assertThat(NumberUtil.toLongObject(""122"")).isEqualTo(122L);
 	}
 ",NumberUtilTest::toNumber_17_oe
-springside4_140_18,"	@Test
+springside4_141_18,"	@Test
 	public void toNumber_18_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14162,7 +14162,7 @@ springside4_140_18,"	@Test
 		assertThat(NumberUtil.toLongObject(""12A"")).isEqualTo(null);
 	}
 ",NumberUtilTest::toNumber_18_oe
-springside4_140_19,"	@Test
+springside4_141_19,"	@Test
 	public void toNumber_19_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14189,7 +14189,7 @@ springside4_140_19,"	@Test
 		assertThat(NumberUtil.toLongObject(""12A"", 123L)).isEqualTo(123L);
 	}
 ",NumberUtilTest::toNumber_19_oe
-springside4_140_20,"	@Test
+springside4_141_20,"	@Test
 	public void toNumber_20_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14217,7 +14217,7 @@ springside4_140_20,"	@Test
 		assertThat(NumberUtil.toLongObject(null, 123L)).isEqualTo(123L);
 	}
 ",NumberUtilTest::toNumber_20_oe
-springside4_140_21,"	@Test
+springside4_141_21,"	@Test
 	public void toNumber_21_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14247,7 +14247,7 @@ springside4_140_21,"	@Test
 		assertThat(NumberUtil.toDoubleObject(""122.1"")).isEqualTo(122.1);
 	}
 ",NumberUtilTest::toNumber_21_oe
-springside4_140_22,"	@Test
+springside4_141_22,"	@Test
 	public void toNumber_22_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14278,7 +14278,7 @@ springside4_140_22,"	@Test
 		assertThat(NumberUtil.toDoubleObject(""12A"")).isEqualTo(null);
 	}
 ",NumberUtilTest::toNumber_22_oe
-springside4_140_23,"	@Test
+springside4_141_23,"	@Test
 	public void toNumber_23_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14310,7 +14310,7 @@ springside4_140_23,"	@Test
 		assertThat(NumberUtil.toDoubleObject(""12A"", 123.1)).isEqualTo(123.1);
 	}
 ",NumberUtilTest::toNumber_23_oe
-springside4_140_24,"	@Test
+springside4_141_24,"	@Test
 	public void toNumber_24_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14344,7 +14344,7 @@ springside4_140_24,"	@Test
 		assertThat(NumberUtil.hexToIntObject(""0x10"")).isEqualTo(16);
 	}
 ",NumberUtilTest::toNumber_24_oe
-springside4_140_25,"	@Test
+springside4_141_25,"	@Test
 	public void toNumber_25_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14379,7 +14379,7 @@ springside4_140_25,"	@Test
 		assertThat(NumberUtil.hexToIntObject(""0X100"")).isEqualTo(256);
 	}
 ",NumberUtilTest::toNumber_25_oe
-springside4_140_26,"	@Test
+springside4_141_26,"	@Test
 	public void toNumber_26_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14415,7 +14415,7 @@ springside4_140_26,"	@Test
 		assertThat(NumberUtil.hexToIntObject(""-0x100"")).isEqualTo(-256);
 	}
 ",NumberUtilTest::toNumber_26_oe
-springside4_140_27,"	@Test
+springside4_141_27,"	@Test
 	public void toNumber_27_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14452,7 +14452,7 @@ springside4_140_27,"	@Test
 		assertThat(NumberUtil.hexToIntObject(""0xHI"")).isEqualTo(null);
 	}
 ",NumberUtilTest::toNumber_27_oe
-springside4_140_28,"	@Test
+springside4_141_28,"	@Test
 	public void toNumber_28_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14490,7 +14490,7 @@ springside4_140_28,"	@Test
 		assertThat(NumberUtil.hexToIntObject(null)).isEqualTo(null);
 	}
 ",NumberUtilTest::toNumber_28_oe
-springside4_140_29,"	@Test
+springside4_141_29,"	@Test
 	public void toNumber_29_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14529,7 +14529,7 @@ springside4_140_29,"	@Test
 		assertThat(NumberUtil.hexToIntObject(""0xHI"", 123)).isEqualTo(123);
 	}
 ",NumberUtilTest::toNumber_29_oe
-springside4_140_30,"	@Test
+springside4_141_30,"	@Test
 	public void toNumber_30_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14570,7 +14570,7 @@ springside4_140_30,"	@Test
 		assertThat(NumberUtil.hexToLongObject(""0x10"")).isEqualTo(16L);
 	}
 ",NumberUtilTest::toNumber_30_oe
-springside4_140_31,"	@Test
+springside4_141_31,"	@Test
 	public void toNumber_31_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14612,7 +14612,7 @@ springside4_140_31,"	@Test
 		assertThat(NumberUtil.hexToLongObject(""0X100"")).isEqualTo(256L);
 	}
 ",NumberUtilTest::toNumber_31_oe
-springside4_140_32,"	@Test
+springside4_141_32,"	@Test
 	public void toNumber_32_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14655,7 +14655,7 @@ springside4_140_32,"	@Test
 		assertThat(NumberUtil.hexToLongObject(""-0x100"")).isEqualTo(-256L);
 	}
 ",NumberUtilTest::toNumber_32_oe
-springside4_140_33,"	@Test
+springside4_141_33,"	@Test
 	public void toNumber_33_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14699,7 +14699,7 @@ springside4_140_33,"	@Test
 		assertThat(NumberUtil.hexToLongObject(""0xHI"")).isEqualTo(null);
 	}
 ",NumberUtilTest::toNumber_33_oe
-springside4_140_34,"	@Test
+springside4_141_34,"	@Test
 	public void toNumber_34_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14744,7 +14744,7 @@ springside4_140_34,"	@Test
 		assertThat(NumberUtil.hexToLongObject(null)).isEqualTo(null);
 	}
 ",NumberUtilTest::toNumber_34_oe
-springside4_140_35,"	@Test
+springside4_141_35,"	@Test
 	public void toNumber_35_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14790,25 +14790,25 @@ springside4_140_35,"	@Test
 		assertThat(NumberUtil.hexToLongObject(""0xHI"", 123L)).isEqualTo(123L);
 	}
 ",NumberUtilTest::toNumber_35_oe
-springside4_141_1,"	@Test
+springside4_142_1,"	@Test
 	public void toStringTest_1_oe() {
 		assertThat(NumberUtil.toString(23)).isEqualTo(""23"");
 	}
 ",NumberUtilTest::toStringTest_1_oe
-springside4_141_2,"	@Test
+springside4_142_2,"	@Test
 	public void toStringTest_2_oe() {
 		// removed other assertion
 		assertThat(NumberUtil.toString(new Integer(23))).isEqualTo(""23"");
 	}
 ",NumberUtilTest::toStringTest_2_oe
-springside4_141_3,"	@Test
+springside4_142_3,"	@Test
 	public void toStringTest_3_oe() {
 		// removed other assertion
 		// removed other assertion
 		assertThat(NumberUtil.toString(23l)).isEqualTo(""23"");
 	}
 ",NumberUtilTest::toStringTest_3_oe
-springside4_141_4,"	@Test
+springside4_142_4,"	@Test
 	public void toStringTest_4_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14816,7 +14816,7 @@ springside4_141_4,"	@Test
 		assertThat(NumberUtil.toString(new Long(23))).isEqualTo(""23"");
 	}
 ",NumberUtilTest::toStringTest_4_oe
-springside4_141_5,"	@Test
+springside4_142_5,"	@Test
 	public void toStringTest_5_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14825,7 +14825,7 @@ springside4_141_5,"	@Test
 		assertThat(NumberUtil.toString(23l)).isEqualTo(""23"");
 	}
 ",NumberUtilTest::toStringTest_5_oe
-springside4_141_6,"	@Test
+springside4_142_6,"	@Test
 	public void toStringTest_6_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14836,7 +14836,7 @@ springside4_141_6,"	@Test
 		assertThat(NumberUtil.toString(new Double(23.112d))).isEqualTo(""23.112"");
 	}
 ",NumberUtilTest::toStringTest_6_oe
-springside4_141_7,"	@Test
+springside4_142_7,"	@Test
 	public void toStringTest_7_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14848,7 +14848,7 @@ springside4_141_7,"	@Test
 		assertThat(NumberUtil.toString(23.112d)).isEqualTo(""23.112"");
 	}
 ",NumberUtilTest::toStringTest_7_oe
-springside4_141_8,"	@Test
+springside4_142_8,"	@Test
 	public void toStringTest_8_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14861,7 +14861,7 @@ springside4_141_8,"	@Test
 		assertThat(NumberUtil.to2DigitString(23.112d)).isEqualTo(""23.11"");
 	}
 ",NumberUtilTest::toStringTest_8_oe
-springside4_141_9,"	@Test
+springside4_142_9,"	@Test
 	public void toStringTest_9_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14875,25 +14875,25 @@ springside4_141_9,"	@Test
 		assertThat(NumberUtil.to2DigitString(23.116d)).isEqualTo(""23.12"");
 	}
 ",NumberUtilTest::toStringTest_9_oe
-springside4_142_1,"	@Test
+springside4_143_1,"	@Test
 	public void convertDurationMillis_1_oe() {
 		assertThat(UnitConverter.convertDurationMillis(""12345"")).isEqualTo(12345);
 	}
 ",UnitConverterTest::convertDurationMillis_1_oe
-springside4_142_2,"	@Test
+springside4_143_2,"	@Test
 	public void convertDurationMillis_2_oe() {
 		// removed other assertion
 		assertThat(UnitConverter.convertDurationMillis(""12S"")).isEqualTo(12000);
 	}
 ",UnitConverterTest::convertDurationMillis_2_oe
-springside4_142_3,"	@Test
+springside4_143_3,"	@Test
 	public void convertDurationMillis_3_oe() {
 		// removed other assertion
 		// removed other assertion
 		assertThat(UnitConverter.convertDurationMillis(""12s"")).isEqualTo(12000);
 	}
 ",UnitConverterTest::convertDurationMillis_3_oe
-springside4_142_4,"	@Test
+springside4_143_4,"	@Test
 	public void convertDurationMillis_4_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14901,7 +14901,7 @@ springside4_142_4,"	@Test
 		assertThat(UnitConverter.convertDurationMillis(""12ms"")).isEqualTo(12);
 	}
 ",UnitConverterTest::convertDurationMillis_4_oe
-springside4_142_5,"	@Test
+springside4_143_5,"	@Test
 	public void convertDurationMillis_5_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14910,7 +14910,7 @@ springside4_142_5,"	@Test
 		assertThat(UnitConverter.convertDurationMillis(""12m"")).isEqualTo(12 * 60 * 1000);
 	}
 ",UnitConverterTest::convertDurationMillis_5_oe
-springside4_142_6,"	@Test
+springside4_143_6,"	@Test
 	public void convertDurationMillis_6_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14920,7 +14920,7 @@ springside4_142_6,"	@Test
 		assertThat(UnitConverter.convertDurationMillis(""12h"")).isEqualTo(12l * 60 * 60 * 1000);
 	}
 ",UnitConverterTest::convertDurationMillis_6_oe
-springside4_142_7,"	@Test
+springside4_143_7,"	@Test
 	public void convertDurationMillis_7_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14931,7 +14931,7 @@ springside4_142_7,"	@Test
 		assertThat(UnitConverter.convertDurationMillis(""12d"")).isEqualTo(12l * 24 * 60 * 60 * 1000);
 	}
 ",UnitConverterTest::convertDurationMillis_7_oe
-springside4_142_10,"	@Test
+springside4_143_10,"	@Test
 	public void convertDurationMillis_10_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14949,7 +14949,7 @@ springside4_142_10,"	@Test
 	}
 	}
 ",UnitConverterTest::convertDurationMillis_10_oe
-springside4_142_13,"	@Test
+springside4_143_13,"	@Test
 	public void convertDurationMillis_13_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -14974,25 +14974,25 @@ springside4_142_13,"	@Test
 	}
 	}
 ",UnitConverterTest::convertDurationMillis_13_oe
-springside4_143_1,"	@Test
+springside4_144_1,"	@Test
 	public void convertSizeBytes_1_oe() {
 		assertThat(UnitConverter.convertSizeBytes(""12345"")).isEqualTo(12345);
 	}
 ",UnitConverterTest::convertSizeBytes_1_oe
-springside4_143_2,"	@Test
+springside4_144_2,"	@Test
 	public void convertSizeBytes_2_oe() {
 		// removed other assertion
 		assertThat(UnitConverter.convertSizeBytes(""12b"")).isEqualTo(12);
 	}
 ",UnitConverterTest::convertSizeBytes_2_oe
-springside4_143_3,"	@Test
+springside4_144_3,"	@Test
 	public void convertSizeBytes_3_oe() {
 		// removed other assertion
 		// removed other assertion
 		assertThat(UnitConverter.convertSizeBytes(""12k"")).isEqualTo(12 * 1024);
 	}
 ",UnitConverterTest::convertSizeBytes_3_oe
-springside4_143_4,"	@Test
+springside4_144_4,"	@Test
 	public void convertSizeBytes_4_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -15000,7 +15000,7 @@ springside4_143_4,"	@Test
 		assertThat(UnitConverter.convertSizeBytes(""12M"")).isEqualTo(12 * 1024 * 1024);
 	}
 ",UnitConverterTest::convertSizeBytes_4_oe
-springside4_143_5,"	@Test
+springside4_144_5,"	@Test
 	public void convertSizeBytes_5_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -15010,7 +15010,7 @@ springside4_143_5,"	@Test
 		assertThat(UnitConverter.convertSizeBytes(""12G"")).isEqualTo(12l * 1024 * 1024 * 1024);
 	}
 ",UnitConverterTest::convertSizeBytes_5_oe
-springside4_143_6,"	@Test
+springside4_144_6,"	@Test
 	public void convertSizeBytes_6_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -15021,7 +15021,7 @@ springside4_143_6,"	@Test
 		assertThat(UnitConverter.convertSizeBytes(""12T"")).isEqualTo(12l * 1024 * 1024 * 1024 * 1024);
 	}
 ",UnitConverterTest::convertSizeBytes_6_oe
-springside4_143_8,"	@Test
+springside4_144_8,"	@Test
 	public void convertSizeBytes_8_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -15039,7 +15039,7 @@ springside4_143_8,"	@Test
 	}
 	}
 ",UnitConverterTest::convertSizeBytes_8_oe
-springside4_143_10,"	@Test
+springside4_144_10,"	@Test
 	public void convertSizeBytes_10_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -15064,14 +15064,14 @@ springside4_143_10,"	@Test
 	}
 	}
 ",UnitConverterTest::convertSizeBytes_10_oe
-springside4_144_1,"	@Test
+springside4_145_1,"	@Test
 	public void randomNumber_1_oe() {
 
 		int i = RandomUtil.nextInt();
 		assertThat(i).isBetween(0, Integer.MAX_VALUE);
 	}
 ",RandomUtilTest::randomNumber_1_oe
-springside4_144_2,"	@Test
+springside4_145_2,"	@Test
 	public void randomNumber_2_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15080,7 +15080,7 @@ springside4_144_2,"	@Test
 		assertThat(i).isBetween(0, Integer.MAX_VALUE);
 	}
 ",RandomUtilTest::randomNumber_2_oe
-springside4_144_3,"	@Test
+springside4_145_3,"	@Test
 	public void randomNumber_3_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15092,7 +15092,7 @@ springside4_144_3,"	@Test
 		assertThat(i).isBetween(0, 10);
 	}
 ",RandomUtilTest::randomNumber_3_oe
-springside4_144_4,"	@Test
+springside4_145_4,"	@Test
 	public void randomNumber_4_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15106,7 +15106,7 @@ springside4_144_4,"	@Test
 		assertThat(i).isBetween(0, 10);
 	}
 ",RandomUtilTest::randomNumber_4_oe
-springside4_144_5,"	@Test
+springside4_145_5,"	@Test
 	public void randomNumber_5_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15123,7 +15123,7 @@ springside4_144_5,"	@Test
 		assertThat(i).isBetween(10, 20);
 	}
 ",RandomUtilTest::randomNumber_5_oe
-springside4_144_6,"	@Test
+springside4_145_6,"	@Test
 	public void randomNumber_6_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15142,7 +15142,7 @@ springside4_144_6,"	@Test
 		assertThat(i).isBetween(10, 20);
 	}
 ",RandomUtilTest::randomNumber_6_oe
-springside4_144_7,"	@Test
+springside4_145_7,"	@Test
 	public void randomNumber_7_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15164,7 +15164,7 @@ springside4_144_7,"	@Test
 		assertThat(l).isBetween(0L, Long.MAX_VALUE);
 	}
 ",RandomUtilTest::randomNumber_7_oe
-springside4_144_8,"	@Test
+springside4_145_8,"	@Test
 	public void randomNumber_8_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15188,7 +15188,7 @@ springside4_144_8,"	@Test
 		assertThat(l).isBetween(0L, Long.MAX_VALUE);
 	}
 ",RandomUtilTest::randomNumber_8_oe
-springside4_144_9,"	@Test
+springside4_145_9,"	@Test
 	public void randomNumber_9_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15215,7 +15215,7 @@ springside4_144_9,"	@Test
 		assertThat(l).isBetween(0L, 10L);
 	}
 ",RandomUtilTest::randomNumber_9_oe
-springside4_144_10,"	@Test
+springside4_145_10,"	@Test
 	public void randomNumber_10_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15244,7 +15244,7 @@ springside4_144_10,"	@Test
 		assertThat(l).isBetween(0L, 10L);
 	}
 ",RandomUtilTest::randomNumber_10_oe
-springside4_144_11,"	@Test
+springside4_145_11,"	@Test
 	public void randomNumber_11_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15276,7 +15276,7 @@ springside4_144_11,"	@Test
 		assertThat(l).isBetween(10L, 20L);
 	}
 ",RandomUtilTest::randomNumber_11_oe
-springside4_144_12,"	@Test
+springside4_145_12,"	@Test
 	public void randomNumber_12_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15310,7 +15310,7 @@ springside4_144_12,"	@Test
 		assertThat(l).isBetween(10L, 20L);
 	}
 ",RandomUtilTest::randomNumber_12_oe
-springside4_144_13,"	@Test
+springside4_145_13,"	@Test
 	public void randomNumber_13_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15347,7 +15347,7 @@ springside4_144_13,"	@Test
 		assertThat(d).isBetween(0d, Double.MAX_VALUE);
 	}
 ",RandomUtilTest::randomNumber_13_oe
-springside4_144_14,"	@Test
+springside4_145_14,"	@Test
 	public void randomNumber_14_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15386,7 +15386,7 @@ springside4_144_14,"	@Test
 		assertThat(d).isBetween(0d, Double.MAX_VALUE);
 	}
 ",RandomUtilTest::randomNumber_14_oe
-springside4_144_15,"	@Test
+springside4_145_15,"	@Test
 	public void randomNumber_15_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15428,7 +15428,7 @@ springside4_144_15,"	@Test
 		assertThat(d).isBetween(0d, 10d);
 	}
 ",RandomUtilTest::randomNumber_15_oe
-springside4_144_16,"	@Test
+springside4_145_16,"	@Test
 	public void randomNumber_16_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15472,7 +15472,7 @@ springside4_144_16,"	@Test
 		assertThat(d).isBetween(0d, 10d);
 	}
 ",RandomUtilTest::randomNumber_16_oe
-springside4_144_17,"	@Test
+springside4_145_17,"	@Test
 	public void randomNumber_17_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15519,7 +15519,7 @@ springside4_144_17,"	@Test
 		assertThat(d).isBetween(10d, 20d);
 	}
 ",RandomUtilTest::randomNumber_17_oe
-springside4_144_18,"	@Test
+springside4_145_18,"	@Test
 	public void randomNumber_18_oe() {
 
 		int i = RandomUtil.nextInt();
@@ -15568,7 +15568,7 @@ springside4_144_18,"	@Test
 		assertThat(d).isBetween(10d, 20d);
 	}
 ",RandomUtilTest::randomNumber_18_oe
-springside4_145_1,"	@Test
+springside4_146_1,"	@Test
 	public void generateString_1_oe() {
 		System.out.println(RandomUtil.randomStringFixLength(5));
 		System.out.println(RandomUtil.randomStringRandomLength(5, 10));
@@ -15579,7 +15579,7 @@ springside4_145_1,"	@Test
 		assertThat(RandomUtil.randomStringFixLength(5)).hasSize(5);
 	}
 ",RandomUtilTest::generateString_1_oe
-springside4_145_2,"	@Test
+springside4_146_2,"	@Test
 	public void generateString_2_oe() {
 		System.out.println(RandomUtil.randomStringFixLength(5));
 		System.out.println(RandomUtil.randomStringRandomLength(5, 10));
@@ -15591,7 +15591,7 @@ springside4_145_2,"	@Test
 		assertThat(RandomUtil.randomStringFixLength(RandomUtil.threadLocalRandom(), 5)).hasSize(5);
 	}
 ",RandomUtilTest::generateString_2_oe
-springside4_145_3,"	@Test
+springside4_146_3,"	@Test
 	public void generateString_3_oe() {
 		System.out.println(RandomUtil.randomStringFixLength(5));
 		System.out.println(RandomUtil.randomStringRandomLength(5, 10));
@@ -15611,7 +15611,7 @@ springside4_145_3,"	@Test
 		assertThat(RandomUtil.randomLetterFixLength(5)).hasSize(5);
 	}
 ",RandomUtilTest::generateString_3_oe
-springside4_145_4,"	@Test
+springside4_146_4,"	@Test
 	public void generateString_4_oe() {
 		System.out.println(RandomUtil.randomStringFixLength(5));
 		System.out.println(RandomUtil.randomStringRandomLength(5, 10));
@@ -15632,7 +15632,7 @@ springside4_145_4,"	@Test
 		assertThat(RandomUtil.randomLetterFixLength(RandomUtil.threadLocalRandom(), 5)).hasSize(5);
 	}
 ",RandomUtilTest::generateString_4_oe
-springside4_145_5,"	@Test
+springside4_146_5,"	@Test
 	public void generateString_5_oe() {
 		System.out.println(RandomUtil.randomStringFixLength(5));
 		System.out.println(RandomUtil.randomStringRandomLength(5, 10));
@@ -15661,7 +15661,7 @@ springside4_145_5,"	@Test
 		assertThat(RandomUtil.randomAsciiFixLength(5)).hasSize(5);
 	}
 ",RandomUtilTest::generateString_5_oe
-springside4_145_6,"	@Test
+springside4_146_6,"	@Test
 	public void generateString_6_oe() {
 		System.out.println(RandomUtil.randomStringFixLength(5));
 		System.out.println(RandomUtil.randomStringRandomLength(5, 10));
@@ -15691,7 +15691,7 @@ springside4_145_6,"	@Test
 		assertThat(RandomUtil.randomAsciiFixLength(RandomUtil.threadLocalRandom(), 5)).hasSize(5);
 	}
 ",RandomUtilTest::generateString_6_oe
-springside4_146_3,"	@Test
+springside4_147_3,"	@Test
 	public void power2_3_oe() {
 		try {
 			// removed other assertion
@@ -15701,7 +15701,7 @@ springside4_146_3,"	@Test
 	}
 	}
 ",MathUtilTest::power2_3_oe
-springside4_146_4,"	@Test
+springside4_147_4,"	@Test
 	public void power2_4_oe() {
 		try {
 			// removed other assertion
@@ -15712,7 +15712,7 @@ springside4_146_4,"	@Test
 		assertThat(MathUtil.nextPowerOfTwo(5)).isEqualTo(8);
 	}
 ",MathUtilTest::power2_4_oe
-springside4_146_5,"	@Test
+springside4_147_5,"	@Test
 	public void power2_5_oe() {
 		try {
 			// removed other assertion
@@ -15724,7 +15724,7 @@ springside4_146_5,"	@Test
 		assertThat(MathUtil.nextPowerOfTwo(99)).isEqualTo(128);
 	}
 ",MathUtilTest::power2_5_oe
-springside4_146_6,"	@Test
+springside4_147_6,"	@Test
 	public void power2_6_oe() {
 		try {
 			// removed other assertion
@@ -15738,7 +15738,7 @@ springside4_146_6,"	@Test
 		assertThat(MathUtil.previousPowerOfTwo(5)).isEqualTo(4);
 	}
 ",MathUtilTest::power2_6_oe
-springside4_146_7,"	@Test
+springside4_147_7,"	@Test
 	public void power2_7_oe() {
 		try {
 			// removed other assertion
@@ -15753,7 +15753,7 @@ springside4_146_7,"	@Test
 		assertThat(MathUtil.previousPowerOfTwo(99)).isEqualTo(64);
 	}
 ",MathUtilTest::power2_7_oe
-springside4_146_8,"	@Test
+springside4_147_8,"	@Test
 	public void power2_8_oe() {
 		try {
 			// removed other assertion
@@ -15770,7 +15770,7 @@ springside4_146_8,"	@Test
 		assertThat(MathUtil.isPowerOfTwo(32)).isTrue();
 	}
 ",MathUtilTest::power2_8_oe
-springside4_146_9,"	@Test
+springside4_147_9,"	@Test
 	public void power2_9_oe() {
 		try {
 			// removed other assertion
@@ -15788,7 +15788,7 @@ springside4_146_9,"	@Test
 		assertThat(MathUtil.isPowerOfTwo(31)).isFalse();
 	}
 ",MathUtilTest::power2_9_oe
-springside4_146_10,"	@Test
+springside4_147_10,"	@Test
 	public void power2_10_oe() {
 		try {
 			// removed other assertion
@@ -15808,7 +15808,7 @@ springside4_146_10,"	@Test
 		assertThat(MathUtil.nextPowerOfTwo(5L)).isEqualTo(8L);
 	}
 ",MathUtilTest::power2_10_oe
-springside4_146_11,"	@Test
+springside4_147_11,"	@Test
 	public void power2_11_oe() {
 		try {
 			// removed other assertion
@@ -15829,7 +15829,7 @@ springside4_146_11,"	@Test
 		assertThat(MathUtil.nextPowerOfTwo(99L)).isEqualTo(128L);
 	}
 ",MathUtilTest::power2_11_oe
-springside4_146_12,"	@Test
+springside4_147_12,"	@Test
 	public void power2_12_oe() {
 		try {
 			// removed other assertion
@@ -15852,7 +15852,7 @@ springside4_146_12,"	@Test
 		assertThat(MathUtil.previousPowerOfTwo(5L)).isEqualTo(4L);
 	}
 ",MathUtilTest::power2_12_oe
-springside4_146_13,"	@Test
+springside4_147_13,"	@Test
 	public void power2_13_oe() {
 		try {
 			// removed other assertion
@@ -15876,7 +15876,7 @@ springside4_146_13,"	@Test
 		assertThat(MathUtil.previousPowerOfTwo(99L)).isEqualTo(64L);
 	}
 ",MathUtilTest::power2_13_oe
-springside4_146_14,"	@Test
+springside4_147_14,"	@Test
 	public void power2_14_oe() {
 		try {
 			// removed other assertion
@@ -15902,7 +15902,7 @@ springside4_146_14,"	@Test
 		assertThat(MathUtil.isPowerOfTwo(32L)).isTrue();
 	}
 ",MathUtilTest::power2_14_oe
-springside4_146_15,"	@Test
+springside4_147_15,"	@Test
 	public void power2_15_oe() {
 		try {
 			// removed other assertion
@@ -15929,7 +15929,7 @@ springside4_146_15,"	@Test
 		assertThat(MathUtil.isPowerOfTwo(31L)).isFalse();
 	}
 ",MathUtilTest::power2_15_oe
-springside4_146_16,"	@Test
+springside4_147_16,"	@Test
 	public void power2_16_oe() {
 		try {
 			// removed other assertion
@@ -15957,7 +15957,7 @@ springside4_146_16,"	@Test
 		assertThat(MathUtil.isPowerOfTwo(-2)).isFalse();
 	}
 ",MathUtilTest::power2_16_oe
-springside4_146_17,"	@Test
+springside4_147_17,"	@Test
 	public void power2_17_oe() {
 		try {
 			// removed other assertion
@@ -15987,7 +15987,7 @@ springside4_146_17,"	@Test
 		assertThat(MathUtil.modByPowerOfTwo(0, 16)).isEqualTo(0);
 	}
 ",MathUtilTest::power2_17_oe
-springside4_146_18,"	@Test
+springside4_147_18,"	@Test
 	public void power2_18_oe() {
 		try {
 			// removed other assertion
@@ -16018,7 +16018,7 @@ springside4_146_18,"	@Test
 		assertThat(MathUtil.modByPowerOfTwo(1, 16)).isEqualTo(1);
 	}
 ",MathUtilTest::power2_18_oe
-springside4_146_19,"	@Test
+springside4_147_19,"	@Test
 	public void power2_19_oe() {
 		try {
 			// removed other assertion
@@ -16050,7 +16050,7 @@ springside4_146_19,"	@Test
 		assertThat(MathUtil.modByPowerOfTwo(31, 16)).isEqualTo(15);
 	}
 ",MathUtilTest::power2_19_oe
-springside4_146_20,"	@Test
+springside4_147_20,"	@Test
 	public void power2_20_oe() {
 		try {
 			// removed other assertion
@@ -16083,7 +16083,7 @@ springside4_146_20,"	@Test
 		assertThat(MathUtil.modByPowerOfTwo(32, 16)).isEqualTo(0);
 	}
 ",MathUtilTest::power2_20_oe
-springside4_146_21,"	@Test
+springside4_147_21,"	@Test
 	public void power2_21_oe() {
 		try {
 			// removed other assertion
@@ -16117,7 +16117,7 @@ springside4_146_21,"	@Test
 		assertThat(MathUtil.modByPowerOfTwo(65, 16)).isEqualTo(1);
 	}
 ",MathUtilTest::power2_21_oe
-springside4_146_22,"	@Test
+springside4_147_22,"	@Test
 	public void power2_22_oe() {
 		try {
 			// removed other assertion
@@ -16152,25 +16152,25 @@ springside4_146_22,"	@Test
 		assertThat(MathUtil.modByPowerOfTwo(-1, 16)).isEqualTo(15);
 	}
 ",MathUtilTest::power2_22_oe
-springside4_147_1,"	@Test
+springside4_148_1,"	@Test
 	public void gcd_1_oe() {
 		assertThat(MathUtil.gcd(5, 6)).isEqualTo(1);
 	}
 ",MathUtilTest::gcd_1_oe
-springside4_147_2,"	@Test
+springside4_148_2,"	@Test
 	public void gcd_2_oe() {
 		// removed other assertion
 		assertThat(MathUtil.gcd(12, 18)).isEqualTo(6);
 	}
 ",MathUtilTest::gcd_2_oe
-springside4_147_3,"	@Test
+springside4_148_3,"	@Test
 	public void gcd_3_oe() {
 		// removed other assertion
 		// removed other assertion
 		assertThat(MathUtil.gcd(100, 1000)).isEqualTo(100);
 	}
 ",MathUtilTest::gcd_3_oe
-springside4_147_4,"	@Test
+springside4_148_4,"	@Test
 	public void gcd_4_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16179,7 +16179,7 @@ springside4_147_4,"	@Test
 		assertThat(MathUtil.gcd(5L, 6L)).isEqualTo(1L);
 	}
 ",MathUtilTest::gcd_4_oe
-springside4_147_5,"	@Test
+springside4_148_5,"	@Test
 	public void gcd_5_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16189,7 +16189,7 @@ springside4_147_5,"	@Test
 		assertThat(MathUtil.gcd(12L, 18L)).isEqualTo(6L);
 	}
 ",MathUtilTest::gcd_5_oe
-springside4_147_6,"	@Test
+springside4_148_6,"	@Test
 	public void gcd_6_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16200,25 +16200,25 @@ springside4_147_6,"	@Test
 		assertThat(MathUtil.gcd(100L, 1000L)).isEqualTo(100L);
 	}
 ",MathUtilTest::gcd_6_oe
-springside4_148_1,"	@Test
+springside4_149_1,"	@Test
 	public void caculate_1_oe() {
 		assertThat(MathUtil.mod(15, 10)).isEqualTo(5);
 	}
 ",MathUtilTest::caculate_1_oe
-springside4_148_2,"	@Test
+springside4_149_2,"	@Test
 	public void caculate_2_oe() {
 		// removed other assertion
 		assertThat(MathUtil.mod(-15, 10)).isEqualTo(5);
 	}
 ",MathUtilTest::caculate_2_oe
-springside4_148_3,"	@Test
+springside4_149_3,"	@Test
 	public void caculate_3_oe() {
 		// removed other assertion
 		// removed other assertion
 		assertThat(MathUtil.mod(-5, 3)).isEqualTo(1);
 	}
 ",MathUtilTest::caculate_3_oe
-springside4_148_4,"	@Test
+springside4_149_4,"	@Test
 	public void caculate_4_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16227,7 +16227,7 @@ springside4_148_4,"	@Test
 		assertThat(MathUtil.mod(15l, 10l)).isEqualTo(5);
 	}
 ",MathUtilTest::caculate_4_oe
-springside4_148_5,"	@Test
+springside4_149_5,"	@Test
 	public void caculate_5_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16237,7 +16237,7 @@ springside4_148_5,"	@Test
 		assertThat(MathUtil.mod(-15l, 10l)).isEqualTo(5);
 	}
 ",MathUtilTest::caculate_5_oe
-springside4_148_6,"	@Test
+springside4_149_6,"	@Test
 	public void caculate_6_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16248,7 +16248,7 @@ springside4_148_6,"	@Test
 		assertThat(MathUtil.mod(-5l, 3l)).isEqualTo(1);
 	}
 ",MathUtilTest::caculate_6_oe
-springside4_148_7,"	@Test
+springside4_149_7,"	@Test
 	public void caculate_7_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16261,7 +16261,7 @@ springside4_148_7,"	@Test
 		assertThat(MathUtil.mod(15l, 10)).isEqualTo(5);
 	}
 ",MathUtilTest::caculate_7_oe
-springside4_148_8,"	@Test
+springside4_149_8,"	@Test
 	public void caculate_8_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16275,7 +16275,7 @@ springside4_148_8,"	@Test
 		assertThat(MathUtil.mod(-15l, 10)).isEqualTo(5);
 	}
 ",MathUtilTest::caculate_8_oe
-springside4_148_9,"	@Test
+springside4_149_9,"	@Test
 	public void caculate_9_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16290,7 +16290,7 @@ springside4_148_9,"	@Test
 		assertThat(MathUtil.mod(-5l, 3)).isEqualTo(1);
 	}
 ",MathUtilTest::caculate_9_oe
-springside4_148_10,"	@Test
+springside4_149_10,"	@Test
 	public void caculate_10_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16307,7 +16307,7 @@ springside4_148_10,"	@Test
 		assertThat(MathUtil.pow(2, 3)).isEqualTo(8);
 	}
 ",MathUtilTest::caculate_10_oe
-springside4_148_11,"	@Test
+springside4_149_11,"	@Test
 	public void caculate_11_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16325,7 +16325,7 @@ springside4_148_11,"	@Test
 		assertThat(MathUtil.pow(2, 0)).isEqualTo(1);
 	}
 ",MathUtilTest::caculate_11_oe
-springside4_148_12,"	@Test
+springside4_149_12,"	@Test
 	public void caculate_12_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16345,7 +16345,7 @@ springside4_148_12,"	@Test
 		assertThat(MathUtil.pow(2l, 3)).isEqualTo(8);
 	}
 ",MathUtilTest::caculate_12_oe
-springside4_148_13,"	@Test
+springside4_149_13,"	@Test
 	public void caculate_13_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16366,7 +16366,7 @@ springside4_148_13,"	@Test
 		assertThat(MathUtil.pow(2l, 0)).isEqualTo(1);
 	}
 ",MathUtilTest::caculate_13_oe
-springside4_148_14,"	@Test
+springside4_149_14,"	@Test
 	public void caculate_14_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16389,7 +16389,7 @@ springside4_148_14,"	@Test
 		assertThat(MathUtil.sqrt(15, RoundingMode.HALF_UP)).isEqualTo(4);
 	}
 ",MathUtilTest::caculate_14_oe
-springside4_148_15,"	@Test
+springside4_149_15,"	@Test
 	public void caculate_15_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16413,7 +16413,7 @@ springside4_148_15,"	@Test
 		assertThat(MathUtil.sqrt(16, RoundingMode.HALF_UP)).isEqualTo(4);
 	}
 ",MathUtilTest::caculate_15_oe
-springside4_148_16,"	@Test
+springside4_149_16,"	@Test
 	public void caculate_16_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16438,25 +16438,25 @@ springside4_148_16,"	@Test
 		assertThat(MathUtil.sqrt(10l, RoundingMode.HALF_UP)).isEqualTo(3);
 	}
 ",MathUtilTest::caculate_16_oe
-springside4_149_1,"	@Test
+springside4_150_1,"	@Test
 	public void divide_1_oe() {
 		assertThat(10 / 4).isEqualTo(2);
 	}
 ",MathUtilTest::divide_1_oe
-springside4_149_2,"	@Test
+springside4_150_2,"	@Test
 	public void divide_2_oe() {
 		// removed other assertion
 		assertThat(MathUtil.divide(10, 4, RoundingMode.HALF_UP)).isEqualTo(3);
 	}
 ",MathUtilTest::divide_2_oe
-springside4_149_3,"	@Test
+springside4_150_3,"	@Test
 	public void divide_3_oe() {
 		// removed other assertion
 		// removed other assertion
 		assertThat(MathUtil.divide(10L, 4L, RoundingMode.HALF_DOWN)).isEqualTo(2);
 	}
 ",MathUtilTest::divide_3_oe
-springside4_150_1,"	@Test
+springside4_151_1,"	@Test
 	public void test_1_oe() throws InvocationTargetException {
 		FastMethodInvoker fastGetAge = FastMethodInvoker.create(Student.class, ""getAge"");
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
@@ -16466,7 +16466,7 @@ springside4_150_1,"	@Test
 		assertThat(age).isEqualTo(20);
 	}
 ",FastMethodInvokerTest::test_1_oe
-springside4_150_2,"	@Test
+springside4_151_2,"	@Test
 	public void test_2_oe() throws InvocationTargetException {
 		FastMethodInvoker fastGetAge = FastMethodInvoker.create(Student.class, ""getAge"");
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
@@ -16479,7 +16479,7 @@ springside4_150_2,"	@Test
 		assertThat(age).isEqualTo(30);
 	}
 ",FastMethodInvokerTest::test_2_oe
-springside4_150_3,"	@Test
+springside4_151_3,"	@Test
 	public void test_3_oe() throws InvocationTargetException {
 		FastMethodInvoker fastGetAge = FastMethodInvoker.create(Student.class, ""getAge"");
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
@@ -16496,7 +16496,7 @@ springside4_150_3,"	@Test
 		assertThat(age).isEqualTo(20);
 	}
 ",FastMethodInvokerTest::test_3_oe
-springside4_150_4,"	@Test
+springside4_151_4,"	@Test
 	public void test_4_oe() throws InvocationTargetException {
 		FastMethodInvoker fastGetAge = FastMethodInvoker.create(Student.class, ""getAge"");
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
@@ -16516,7 +16516,7 @@ springside4_150_4,"	@Test
 		assertThat(age).isEqualTo(30);
 	}
 ",FastMethodInvokerTest::test_4_oe
-springside4_150_5,"	@Test
+springside4_151_5,"	@Test
 	public void test_5_oe() throws InvocationTargetException {
 		FastMethodInvoker fastGetAge = FastMethodInvoker.create(Student.class, ""getAge"");
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
@@ -16541,7 +16541,7 @@ springside4_150_5,"	@Test
 		assertThat(student1.getAge()).isEqualTo(1);
 	}
 ",FastMethodInvokerTest::test_5_oe
-springside4_150_6,"	@Test
+springside4_151_6,"	@Test
 	public void test_6_oe() throws InvocationTargetException {
 		FastMethodInvoker fastGetAge = FastMethodInvoker.create(Student.class, ""getAge"");
 		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
@@ -16571,14 +16571,14 @@ springside4_150_6,"	@Test
 		assertThat(student1.getAge()).isEqualTo(3);
 	}
 ",FastMethodInvokerTest::test_6_oe
-springside4_151_1,"	@Test
+springside4_152_1,"	@Test
 	public void getAndSetFieldValue_1_oe() {
 		TestBean bean = new TestBean();
 		// 无需getter函数, 直接读取privateField
 		assertThat(ReflectionUtil.getFieldValue(bean, ""privateField"")).isEqualTo(1);
 	}
 ",ReflectionUtilTest::getAndSetFieldValue_1_oe
-springside4_151_2,"	@Test
+springside4_152_2,"	@Test
 	public void getAndSetFieldValue_2_oe() {
 		TestBean bean = new TestBean();
 		// 无需getter函数, 直接读取privateField
@@ -16588,7 +16588,7 @@ springside4_151_2,"	@Test
 		assertThat(ReflectionUtil.getProperty(bean, ""privateField"")).isEqualTo(1);
 	}
 ",ReflectionUtilTest::getAndSetFieldValue_2_oe
-springside4_151_3,"	@Test
+springside4_152_3,"	@Test
 	public void getAndSetFieldValue_3_oe() {
 		TestBean bean = new TestBean();
 		// 无需getter函数, 直接读取privateField
@@ -16601,7 +16601,7 @@ springside4_151_3,"	@Test
 		assertThat(ReflectionUtil.getFieldValue(bean, ""publicField"")).isEqualTo(1);
 	}
 ",ReflectionUtilTest::getAndSetFieldValue_3_oe
-springside4_151_4,"	@Test
+springside4_152_4,"	@Test
 	public void getAndSetFieldValue_4_oe() {
 		TestBean bean = new TestBean();
 		// 无需getter函数, 直接读取privateField
@@ -16616,7 +16616,7 @@ springside4_151_4,"	@Test
 		assertThat(ReflectionUtil.getProperty(bean, ""publicField"")).isEqualTo(2);
 	}
 ",ReflectionUtilTest::getAndSetFieldValue_4_oe
-springside4_151_5,"	@Test
+springside4_152_5,"	@Test
 	public void getAndSetFieldValue_5_oe() {
 		TestBean bean = new TestBean();
 		// 无需getter函数, 直接读取privateField
@@ -16636,7 +16636,7 @@ springside4_151_5,"	@Test
 		assertThat(bean.inspectPrivateField()).isEqualTo(2);
 	}
 ",ReflectionUtilTest::getAndSetFieldValue_5_oe
-springside4_151_6,"	@Test
+springside4_152_6,"	@Test
 	public void getAndSetFieldValue_6_oe() {
 		TestBean bean = new TestBean();
 		// 无需getter函数, 直接读取privateField
@@ -16658,7 +16658,7 @@ springside4_151_6,"	@Test
 		assertThat(bean.inspectPrivateField()).isEqualTo(3);
 	}
 ",ReflectionUtilTest::getAndSetFieldValue_6_oe
-springside4_151_7,"	@Test
+springside4_152_7,"	@Test
 	public void getAndSetFieldValue_7_oe() {
 		TestBean bean = new TestBean();
 		// 无需getter函数, 直接读取privateField
@@ -16684,7 +16684,7 @@ springside4_151_7,"	@Test
 		assertThat(bean.inspectPublicField()).isEqualTo(2);
 	}
 ",ReflectionUtilTest::getAndSetFieldValue_7_oe
-springside4_151_8,"	@Test
+springside4_152_8,"	@Test
 	public void getAndSetFieldValue_8_oe() {
 		TestBean bean = new TestBean();
 		// 无需getter函数, 直接读取privateField
@@ -16714,13 +16714,13 @@ springside4_151_8,"	@Test
 		assertThat(bean.inspectPublicField()).isEqualTo(4);
 	}
 ",ReflectionUtilTest::getAndSetFieldValue_8_oe
-springside4_152_1,"	@Test
+springside4_153_1,"	@Test
 	public void invokeGetterAndSetter_1_oe() {
 		TestBean bean = new TestBean();
 		assertThat(ReflectionUtil.invokeGetter(bean, ""publicField"")).isEqualTo(bean.inspectPublicField() + 1);
 	}
 ",ReflectionUtilTest::invokeGetterAndSetter_1_oe
-springside4_152_2,"	@Test
+springside4_153_2,"	@Test
 	public void invokeGetterAndSetter_2_oe() {
 		TestBean bean = new TestBean();
 		// removed other assertion
@@ -16729,7 +16729,7 @@ springside4_152_2,"	@Test
 		assertThat(invoker.invoke(bean)).isEqualTo(bean.inspectPublicField() + 1);
 	}
 ",ReflectionUtilTest::invokeGetterAndSetter_2_oe
-springside4_152_3,"	@Test
+springside4_153_3,"	@Test
 	public void invokeGetterAndSetter_3_oe() {
 		TestBean bean = new TestBean();
 		// removed other assertion
@@ -16743,7 +16743,7 @@ springside4_152_3,"	@Test
 		assertThat(bean.inspectPublicField()).isEqualTo(10 + 1);
 	}
 ",ReflectionUtilTest::invokeGetterAndSetter_3_oe
-springside4_152_4,"	@Test
+springside4_153_4,"	@Test
 	public void invokeGetterAndSetter_4_oe() {
 		TestBean bean = new TestBean();
 		// removed other assertion
@@ -16761,14 +16761,14 @@ springside4_152_4,"	@Test
 		assertThat(bean.inspectPublicField()).isEqualTo(12 + 1);
 	}
 ",ReflectionUtilTest::invokeGetterAndSetter_4_oe
-springside4_153_1,"	@Test
+springside4_154_1,"	@Test
 	public void invokeMethod_1_oe() {
 		TestBean bean = new TestBean();
 		// 使用函数名+参数类型的匹配, 支持传参数
 		assertThat(ReflectionUtil.invokeMethod(bean, ""privateMethod"", new Object[] { ""calvin"" })) .isEqualTo(""hello calvin"");
 	}
 ",ReflectionUtilTest::invokeMethod_1_oe
-springside4_153_2,"	@Test
+springside4_154_2,"	@Test
 	public void invokeMethod_2_oe() {
 		TestBean bean = new TestBean();
 		// 使用函数名+参数类型的匹配, 支持传参数
@@ -16778,7 +16778,7 @@ springside4_153_2,"	@Test
 		assertThat(ReflectionUtil.invokeMethod(bean, ""privateMethod"", new Object[] { ""calvin"" }, new Class[] { String.class })).isEqualTo(""hello calvin"");
 	}
 ",ReflectionUtilTest::invokeMethod_2_oe
-springside4_153_3,"	@Test
+springside4_154_3,"	@Test
 	public void invokeMethod_3_oe() {
 		TestBean bean = new TestBean();
 		// 使用函数名+参数类型的匹配, 支持传参数
@@ -16792,7 +16792,7 @@ springside4_153_3,"	@Test
 		assertThat(invoker.invoke(bean, new Object[] { ""calvin"" })).isEqualTo(""hello calvin"");
 	}
 ",ReflectionUtilTest::invokeMethod_3_oe
-springside4_153_4,"	@Test
+springside4_154_4,"	@Test
 	public void invokeMethod_4_oe() {
 		TestBean bean = new TestBean();
 		// 使用函数名+参数类型的匹配, 支持传参数
@@ -16809,13 +16809,13 @@ springside4_153_4,"	@Test
 		assertThat(ReflectionUtil.invokeMethodByName(bean, ""privateMethod"", new Object[] { ""calvin"" })) .isEqualTo(""hello calvin"");
 	}
 ",ReflectionUtilTest::invokeMethod_4_oe
-springside4_154_1,"	@Test
+springside4_155_1,"	@Test
 	public void invokeConstructor_1_oe() {
 		TestBean bean = ReflectionUtil.invokeConstructor(TestBean.class);
 		assertThat(bean.getPublicField()).isEqualTo(2);
 	}
 ",ReflectionUtilTest::invokeConstructor_1_oe
-springside4_154_2,"	@Test
+springside4_155_2,"	@Test
 	public void invokeConstructor_2_oe() {
 		TestBean bean = ReflectionUtil.invokeConstructor(TestBean.class);
 		// removed other assertion
@@ -16824,7 +16824,7 @@ springside4_154_2,"	@Test
 		assertThat(bean3.getId()).isEqualTo(4);
 	}
 ",ReflectionUtilTest::invokeConstructor_2_oe
-springside4_155_1,"	@Test
+springside4_156_1,"	@Test
 	public void convertReflectionExceptionToUnchecked_1_oe() {
 		IllegalArgumentException iae = new IllegalArgumentException();
 		// ReflectionException,normal
@@ -16832,7 +16832,7 @@ springside4_155_1,"	@Test
 		assertThat(e).isEqualTo(iae);
 	}
 ",ReflectionUtilTest::convertReflectionExceptionToUnchecked_1_oe
-springside4_155_2,"	@Test
+springside4_156_2,"	@Test
 	public void convertReflectionExceptionToUnchecked_2_oe() {
 		IllegalArgumentException iae = new IllegalArgumentException();
 		// ReflectionException,normal
@@ -16845,7 +16845,7 @@ springside4_155_2,"	@Test
 		assertThat(e.getCause()).isEqualTo(ex);
 	}
 ",ReflectionUtilTest::convertReflectionExceptionToUnchecked_2_oe
-springside4_155_3,"	@Test
+springside4_156_3,"	@Test
 	public void convertReflectionExceptionToUnchecked_3_oe() {
 		IllegalArgumentException iae = new IllegalArgumentException();
 		// ReflectionException,normal
@@ -16863,7 +16863,7 @@ springside4_155_3,"	@Test
 		assertThat(e).hasMessage(""abc"");
 	}
 ",ReflectionUtilTest::convertReflectionExceptionToUnchecked_3_oe
-springside4_155_4,"	@Test
+springside4_156_4,"	@Test
 	public void convertReflectionExceptionToUnchecked_4_oe() {
 		IllegalArgumentException iae = new IllegalArgumentException();
 		// ReflectionException,normal
@@ -16885,18 +16885,18 @@ springside4_155_4,"	@Test
 		assertThat(e).isInstanceOf(UncheckedException.class);
 	}
 ",ReflectionUtilTest::convertReflectionExceptionToUnchecked_4_oe
-springside4_156_1,"	@Test
+springside4_157_1,"	@Test
 	public void getMessage_1_oe() {
 		assertThat(ClassUtil.getShortClassName(ClassUtilTest.class)).isEqualTo(""ClassUtilTest"");
 	}
 ",ClassUtilTest::getMessage_1_oe
-springside4_156_2,"	@Test
+springside4_157_2,"	@Test
 	public void getMessage_2_oe() {
 		// removed other assertion
 		assertThat(ClassUtil.getShortClassName(BClass.class)).isEqualTo(""ClassUtilTest.BClass"");
 	}
 ",ClassUtilTest::getMessage_2_oe
-springside4_156_3,"	@Test
+springside4_157_3,"	@Test
 	public void getMessage_3_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16904,7 +16904,7 @@ springside4_156_3,"	@Test
 		assertThat(ClassUtil.getShortClassName(ClassUtilTest.class.getName())).isEqualTo(""ClassUtilTest"");
 	}
 ",ClassUtilTest::getMessage_3_oe
-springside4_156_4,"	@Test
+springside4_157_4,"	@Test
 	public void getMessage_4_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16913,7 +16913,7 @@ springside4_156_4,"	@Test
 		assertThat(ClassUtil.getShortClassName(BClass.class.getName())).isEqualTo(""ClassUtilTest.BClass"");
 	}
 ",ClassUtilTest::getMessage_4_oe
-springside4_156_5,"	@Test
+springside4_157_5,"	@Test
 	public void getMessage_5_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16924,7 +16924,7 @@ springside4_156_5,"	@Test
 		assertThat(ClassUtil.getPackageName(ClassUtilTest.class)).isEqualTo(""org.springside.modules.utils.reflect"");
 	}
 ",ClassUtilTest::getMessage_5_oe
-springside4_156_6,"	@Test
+springside4_157_6,"	@Test
 	public void getMessage_6_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16936,7 +16936,7 @@ springside4_156_6,"	@Test
 		assertThat(ClassUtil.getPackageName(BClass.class)).isEqualTo(""org.springside.modules.utils.reflect"");
 	}
 ",ClassUtilTest::getMessage_6_oe
-springside4_156_7,"	@Test
+springside4_157_7,"	@Test
 	public void getMessage_7_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16949,7 +16949,7 @@ springside4_156_7,"	@Test
 		assertThat(ClassUtil.getPackageName(ClassUtilTest.class.getName())) .isEqualTo(""org.springside.modules.utils.reflect"");
 	}
 ",ClassUtilTest::getMessage_7_oe
-springside4_156_8,"	@Test
+springside4_157_8,"	@Test
 	public void getMessage_8_oe() {
 		// removed other assertion
 		// removed other assertion
@@ -16963,13 +16963,13 @@ springside4_156_8,"	@Test
 		assertThat(ClassUtil.getPackageName(BClass.class.getName())).isEqualTo(""org.springside.modules.utils.reflect"");
 	}
 ",ClassUtilTest::getMessage_8_oe
-springside4_157_1,"	@Test
+springside4_158_1,"	@Test
 	public void getAllClass_1_oe() {
 
 		assertThat(ClassUtil.getAllInterfaces(BClass.class)).hasSize(4).contains(AInterface.class, BInterface.class, CInterface.class, DInterface.class);
 	}
 ",ClassUtilTest::getAllClass_1_oe
-springside4_157_2,"	@Test
+springside4_158_2,"	@Test
 	public void getAllClass_2_oe() {
 
 		// removed other assertion
@@ -16977,7 +16977,7 @@ springside4_157_2,"	@Test
 		assertThat(ClassUtil.getAllSuperclasses(BClass.class)).hasSize(2).contains(AClass.class, Object.class);
 	}
 ",ClassUtilTest::getAllClass_2_oe
-springside4_157_3,"	@Test
+springside4_158_3,"	@Test
 	public void getAllClass_3_oe() {
 
 		// removed other assertion
@@ -16987,7 +16987,7 @@ springside4_157_3,"	@Test
 		assertThat(ClassUtil.getAllAnnotations(BClass.class)).hasSize(4);
 	}
 ",ClassUtilTest::getAllClass_3_oe
-springside4_157_4,"	@Test
+springside4_158_4,"	@Test
 	public void getAllClass_4_oe() {
 
 		// removed other assertion
@@ -16999,7 +16999,7 @@ springside4_157_4,"	@Test
 		assertThat(ClassUtil.getAnnotatedPublicFields(BClass.class, AAnnotation.class)).hasSize(2).contains( ClassUtil.getAccessibleField(BClass.class, ""sfield""), ClassUtil.getAccessibleField(BClass.class, ""tfield""));
 	}
 ",ClassUtilTest::getAllClass_4_oe
-springside4_157_5,"	@Test
+springside4_158_5,"	@Test
 	public void getAllClass_5_oe() {
 
 		// removed other assertion
@@ -17013,7 +17013,7 @@ springside4_157_5,"	@Test
 		assertThat(ClassUtil.getAnnotatedFields(BClass.class, EAnnotation.class)).hasSize(3).contains( ClassUtil.getAccessibleField(BClass.class, ""bfield""), ClassUtil.getAccessibleField(BClass.class, ""efield""), ClassUtil.getAccessibleField(AClass.class, ""afield""));
 	}
 ",ClassUtilTest::getAllClass_5_oe
-springside4_157_6,"	@Test
+springside4_158_6,"	@Test
 	public void getAllClass_6_oe() {
 
 		// removed other assertion
@@ -17029,7 +17029,7 @@ springside4_157_6,"	@Test
 		assertThat(ClassUtil.getAnnotatedFields(BClass.class, FAnnotation.class)).hasSize(1) .contains(ClassUtil.getAccessibleField(AClass.class, ""dfield""));
 	}
 ",ClassUtilTest::getAllClass_6_oe
-springside4_157_7,"	@Test
+springside4_158_7,"	@Test
 	public void getAllClass_7_oe() {
 
 		// removed other assertion
@@ -17047,20 +17047,20 @@ springside4_157_7,"	@Test
 		assertThat(ClassUtil.getAnnotatedPublicMethods(BClass.class, FAnnotation.class)).hasSize(3).contains( ClassUtil.getAccessibleMethodByName(BClass.class, ""hello""), ClassUtil.getAccessibleMethodByName(BClass.class, ""hello3""), ClassUtil.getAccessibleMethodByName(AClass.class, ""hello4"") );
 	}
 ",ClassUtilTest::getAllClass_7_oe
-springside4_158_1,"	@Test
+springside4_159_1,"	@Test
 	public void getSuperClassGenricType_1_oe() {
 		// 获取第1，2个泛型类型
 		assertThat(ClassUtil.getClassGenricType(TestBean.class)).isEqualTo(String.class);
 	}
 ",ClassUtilTest::getSuperClassGenricType_1_oe
-springside4_158_2,"	@Test
+springside4_159_2,"	@Test
 	public void getSuperClassGenricType_2_oe() {
 		// 获取第1，2个泛型类型
 		// removed other assertion
 		assertThat(ClassUtil.getClassGenricType(TestBean.class, 1)).isEqualTo(Long.class);
 	}
 ",ClassUtilTest::getSuperClassGenricType_2_oe
-springside4_158_3,"	@Test
+springside4_159_3,"	@Test
 	public void getSuperClassGenricType_3_oe() {
 		// 获取第1，2个泛型类型
 		// removed other assertion
@@ -17070,7 +17070,7 @@ springside4_158_3,"	@Test
 		assertThat(ClassUtil.getClassGenricType(TestBean2.class)).isEqualTo(Object.class);
 	}
 ",ClassUtilTest::getSuperClassGenricType_3_oe
-springside4_158_4,"	@Test
+springside4_159_4,"	@Test
 	public void getSuperClassGenricType_4_oe() {
 		// 获取第1，2个泛型类型
 		// removed other assertion
@@ -17083,7 +17083,7 @@ springside4_158_4,"	@Test
 		assertThat(ClassUtil.getClassGenricType(TestBean3.class)).isEqualTo(Object.class);
 	}
 ",ClassUtilTest::getSuperClassGenricType_4_oe
-springside4_159_1,"	@Test
+springside4_160_1,"	@Test
 	public void normal_1_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17094,7 +17094,7 @@ springside4_159_1,"	@Test
 		assertThat(appender.getFirstLog()).isNull();
 	}
 ",LogbackListAppenderTest::normal_1_oe
-springside4_159_2,"	@Test
+springside4_160_2,"	@Test
 	public void normal_2_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17106,7 +17106,7 @@ springside4_159_2,"	@Test
 		assertThat(appender.getLastLog()).isNull();
 	}
 ",LogbackListAppenderTest::normal_2_oe
-springside4_159_3,"	@Test
+springside4_160_3,"	@Test
 	public void normal_3_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17119,7 +17119,7 @@ springside4_159_3,"	@Test
 		assertThat(appender.getFirstMessage()).isNull();
 	}
 ",LogbackListAppenderTest::normal_3_oe
-springside4_159_4,"	@Test
+springside4_160_4,"	@Test
 	public void normal_4_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17133,7 +17133,7 @@ springside4_159_4,"	@Test
 		assertThat(appender.getFirstMessage()).isNull();
 	}
 ",LogbackListAppenderTest::normal_4_oe
-springside4_159_5,"	@Test
+springside4_160_5,"	@Test
 	public void normal_5_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17154,7 +17154,7 @@ springside4_159_5,"	@Test
 		assertThat(appender.getFirstLog().getMessage()).isEqualTo(testString1);
 	}
 ",LogbackListAppenderTest::normal_5_oe
-springside4_159_6,"	@Test
+springside4_160_6,"	@Test
 	public void normal_6_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17176,7 +17176,7 @@ springside4_159_6,"	@Test
 		assertThat(appender.getLastLog().getMessage()).isEqualTo(testString2);
 	}
 ",LogbackListAppenderTest::normal_6_oe
-springside4_159_7,"	@Test
+springside4_160_7,"	@Test
 	public void normal_7_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17200,7 +17200,7 @@ springside4_159_7,"	@Test
 		assertThat(appender.getFirstMessage()).isEqualTo(testString1);
 	}
 ",LogbackListAppenderTest::normal_7_oe
-springside4_159_8,"	@Test
+springside4_160_8,"	@Test
 	public void normal_8_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17225,7 +17225,7 @@ springside4_159_8,"	@Test
 		assertThat(appender.getLastMessage()).isEqualTo(testString2);
 	}
 ",LogbackListAppenderTest::normal_8_oe
-springside4_159_9,"	@Test
+springside4_160_9,"	@Test
 	public void normal_9_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17253,7 +17253,7 @@ springside4_159_9,"	@Test
 		assertThat(appender.getLogsCount()).isEqualTo(2);
 	}
 ",LogbackListAppenderTest::normal_9_oe
-springside4_159_10,"	@Test
+springside4_160_10,"	@Test
 	public void normal_10_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17282,7 +17282,7 @@ springside4_159_10,"	@Test
 		assertThat(appender.getAllLogs()).hasSize(2);
 	}
 ",LogbackListAppenderTest::normal_10_oe
-springside4_159_11,"	@Test
+springside4_160_11,"	@Test
 	public void normal_11_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17312,7 +17312,7 @@ springside4_159_11,"	@Test
 		assertThat(appender.getAllLogs().get(1).getMessage()).isEqualTo(testString2);
 	}
 ",LogbackListAppenderTest::normal_11_oe
-springside4_159_12,"	@Test
+springside4_160_12,"	@Test
 	public void normal_12_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17346,7 +17346,7 @@ springside4_159_12,"	@Test
 		assertThat(appender.getFirstLog()).isNull();
 	}
 ",LogbackListAppenderTest::normal_12_oe
-springside4_159_13,"	@Test
+springside4_160_13,"	@Test
 	public void normal_13_oe() {
 		String testString1 = ""Hello"";
 		String testString2 = ""World"";
@@ -17381,7 +17381,7 @@ springside4_159_13,"	@Test
 		assertThat(appender.getLastLog()).isNull();
 	}
 ",LogbackListAppenderTest::normal_13_oe
-springside4_160_1,"	@Test
+springside4_161_1,"	@Test
 	public void addAndRemoveAppender_1_oe() {
 		String testString = ""Hello"";
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
@@ -17392,7 +17392,7 @@ springside4_160_1,"	@Test
 		assertThat(appender.getFirstLog()).isNotNull();
 	}
 ",LogbackListAppenderTest::addAndRemoveAppender_1_oe
-springside4_160_2,"	@Test
+springside4_161_2,"	@Test
 	public void addAndRemoveAppender_2_oe() {
 		String testString = ""Hello"";
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
@@ -17408,7 +17408,7 @@ springside4_160_2,"	@Test
 		assertThat(appender.getFirstLog()).isNull();
 	}
 ",LogbackListAppenderTest::addAndRemoveAppender_2_oe
-springside4_160_3,"	@Test
+springside4_161_3,"	@Test
 	public void addAndRemoveAppender_3_oe() {
 		String testString = ""Hello"";
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
@@ -17430,7 +17430,7 @@ springside4_160_3,"	@Test
 		assertThat(appender.getFirstLog()).isNotNull();
 	}
 ",LogbackListAppenderTest::addAndRemoveAppender_3_oe
-springside4_160_4,"	@Test
+springside4_161_4,"	@Test
 	public void addAndRemoveAppender_4_oe() {
 		String testString = ""Hello"";
 		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
@@ -17457,7 +17457,7 @@ springside4_160_4,"	@Test
 		assertThat(appender.getFirstLog()).isNull();
 	}
 ",LogbackListAppenderTest::addAndRemoveAppender_4_oe
-springside4_161_1,"	@Test
+springside4_162_1,"	@Test
 	public void normal_1_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -17477,7 +17477,7 @@ springside4_161_1,"	@Test
 		assertThat(metric.counterMetric.totalCount).isEqualTo(2);
 	}
 ",TimerTest::normal_1_oe
-springside4_161_2,"	@Test
+springside4_162_2,"	@Test
 	public void normal_2_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -17498,7 +17498,7 @@ springside4_161_2,"	@Test
 		assertThat(metric.counterMetric.avgRate).isEqualTo(4);
 	}
 ",TimerTest::normal_2_oe
-springside4_161_3,"	@Test
+springside4_162_3,"	@Test
 	public void normal_3_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -17520,7 +17520,7 @@ springside4_161_3,"	@Test
 		assertThat(metric.counterMetric.latestCount).isEqualTo(2);
 	}
 ",TimerTest::normal_3_oe
-springside4_161_4,"	@Test
+springside4_162_4,"	@Test
 	public void normal_4_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -17543,7 +17543,7 @@ springside4_161_4,"	@Test
 		assertThat(metric.counterMetric.latestRate).isEqualTo(4);
 	}
 ",TimerTest::normal_4_oe
-springside4_161_5,"	@Test
+springside4_162_5,"	@Test
 	public void normal_5_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -17568,7 +17568,7 @@ springside4_161_5,"	@Test
 		assertThat(metric.histogramMetric.min).isEqualTo(200);
 	}
 ",TimerTest::normal_5_oe
-springside4_161_6,"	@Test
+springside4_162_6,"	@Test
 	public void normal_6_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -17594,7 +17594,7 @@ springside4_161_6,"	@Test
 		assertThat(metric.histogramMetric.avg).isEqualTo(250);
 	}
 ",TimerTest::normal_6_oe
-springside4_161_7,"	@Test
+springside4_162_7,"	@Test
 	public void normal_7_oe() {
 		MockClock clock = new MockClock();
 		Timer.clock = clock;
@@ -17621,14 +17621,14 @@ springside4_161_7,"	@Test
 		assertThat(metric.histogramMetric.pcts.get(90d)).isEqualTo(300);
 	}
 ",TimerTest::normal_7_oe
-springside4_162_1,"	@Test
+springside4_163_1,"	@Test
 	public void counter_1_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Counter counter = metricRegistry.counter(MetricRegistry.name(""UserService"", ""getUser.counter""));
 		assertThat(counter).isNotNull();
 	}
 ",MetricRegistryTest::counter_1_oe
-springside4_162_2,"	@Test
+springside4_163_2,"	@Test
 	public void counter_2_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Counter counter = metricRegistry.counter(MetricRegistry.name(""UserService"", ""getUser.counter""));
@@ -17640,7 +17640,7 @@ springside4_162_2,"	@Test
 		assertThat(counter2).isNotNull().isSameAs(counter);
 	}
 ",MetricRegistryTest::counter_2_oe
-springside4_162_3,"	@Test
+springside4_163_3,"	@Test
 	public void counter_3_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Counter counter = metricRegistry.counter(MetricRegistry.name(""UserService"", ""getUser.counter""));
@@ -17655,14 +17655,14 @@ springside4_162_3,"	@Test
 		assertThat(counter3).isNotNull().isSameAs(counter);
 	}
 ",MetricRegistryTest::counter_3_oe
-springside4_163_1,"	@Test
+springside4_164_1,"	@Test
 	public void histogram_1_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Histogram histogram = metricRegistry.histogram(MetricRegistry.name(""UserService"", ""getUser.latency""));
 		assertThat(histogram).isNotNull();
 	}
 ",MetricRegistryTest::histogram_1_oe
-springside4_163_2,"	@Test
+springside4_164_2,"	@Test
 	public void histogram_2_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Histogram histogram = metricRegistry.histogram(MetricRegistry.name(""UserService"", ""getUser.latency""));
@@ -17674,7 +17674,7 @@ springside4_163_2,"	@Test
 		assertThat(histogram2).isNotNull().isSameAs(histogram);
 	}
 ",MetricRegistryTest::histogram_2_oe
-springside4_163_3,"	@Test
+springside4_164_3,"	@Test
 	public void histogram_3_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 		Histogram histogram = metricRegistry.histogram(MetricRegistry.name(""UserService"", ""getUser.latency""));
@@ -17689,7 +17689,7 @@ springside4_163_3,"	@Test
 		assertThat(histogram3).isNotNull().isSameAs(histogram);
 	}
 ",MetricRegistryTest::histogram_3_oe
-springside4_164_1,"	@Test
+springside4_165_1,"	@Test
 	public void execution_1_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -17697,7 +17697,7 @@ springside4_164_1,"	@Test
 		assertThat(execution).isNotNull();
 	}
 ",MetricRegistryTest::execution_1_oe
-springside4_164_2,"	@Test
+springside4_165_2,"	@Test
 	public void execution_2_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -17710,7 +17710,7 @@ springside4_164_2,"	@Test
 		assertThat(execution2).isNotNull().isSameAs(execution);
 	}
 ",MetricRegistryTest::execution_2_oe
-springside4_164_3,"	@Test
+springside4_165_3,"	@Test
 	public void execution_3_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -17726,7 +17726,7 @@ springside4_164_3,"	@Test
 		assertThat(execution3).isNotNull().isSameAs(execution);
 	}
 ",MetricRegistryTest::execution_3_oe
-springside4_165_1,"	@Test
+springside4_166_1,"	@Test
 	public void defaultPcts_1_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -17743,7 +17743,7 @@ springside4_165_1,"	@Test
 		assertThat(metric.pcts.get(60d)).isEqualTo(60);
 	}
 ",MetricRegistryTest::defaultPcts_1_oe
-springside4_165_2,"	@Test
+springside4_166_2,"	@Test
 	public void defaultPcts_2_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -17761,7 +17761,7 @@ springside4_165_2,"	@Test
 		assertThat(metric.pcts.get(70d)).isEqualTo(70);
 	}
 ",MetricRegistryTest::defaultPcts_2_oe
-springside4_165_3,"	@Test
+springside4_166_3,"	@Test
 	public void defaultPcts_3_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -17792,7 +17792,7 @@ springside4_165_3,"	@Test
 		assertThat(metric.pcts.get(50d)).isEqualTo(50);
 	}
 ",MetricRegistryTest::defaultPcts_3_oe
-springside4_165_4,"	@Test
+springside4_166_4,"	@Test
 	public void defaultPcts_4_oe() {
 		MetricRegistry metricRegistry = new MetricRegistry();
 
@@ -17824,7 +17824,7 @@ springside4_165_4,"	@Test
 		assertThat(metric.pcts.get(90d)).isNull();
 	}
 ",MetricRegistryTest::defaultPcts_4_oe
-springside4_166_1,"	@Test
+springside4_167_1,"	@Test
 	public void normal_1_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -17837,7 +17837,7 @@ springside4_166_1,"	@Test
 		assertThat(metric.min).isEqualTo(1);
 	}
 ",HistogramTest::normal_1_oe
-springside4_166_2,"	@Test
+springside4_167_2,"	@Test
 	public void normal_2_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -17851,7 +17851,7 @@ springside4_166_2,"	@Test
 		assertThat(metric.max).isEqualTo(100);
 	}
 ",HistogramTest::normal_2_oe
-springside4_166_3,"	@Test
+springside4_167_3,"	@Test
 	public void normal_3_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -17866,7 +17866,7 @@ springside4_166_3,"	@Test
 		assertThat(metric.avg).isEqualTo(50.5);
 	}
 ",HistogramTest::normal_3_oe
-springside4_166_4,"	@Test
+springside4_167_4,"	@Test
 	public void normal_4_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -17882,7 +17882,7 @@ springside4_166_4,"	@Test
 		assertThat(metric.pcts.get(90d)).isEqualTo(90);
 	}
 ",HistogramTest::normal_4_oe
-springside4_166_5,"	@Test
+springside4_167_5,"	@Test
 	public void normal_5_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -17899,7 +17899,7 @@ springside4_166_5,"	@Test
 		assertThat(metric.pcts.get(95d)).isEqualTo(95);
 	}
 ",HistogramTest::normal_5_oe
-springside4_166_6,"	@Test
+springside4_167_6,"	@Test
 	public void normal_6_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -17924,7 +17924,7 @@ springside4_166_6,"	@Test
 		assertThat(metric.min).isEqualTo(2);
 	}
 ",HistogramTest::normal_6_oe
-springside4_166_7,"	@Test
+springside4_167_7,"	@Test
 	public void normal_7_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -17950,7 +17950,7 @@ springside4_166_7,"	@Test
 		assertThat(metric.max).isEqualTo(200);
 	}
 ",HistogramTest::normal_7_oe
-springside4_166_8,"	@Test
+springside4_167_8,"	@Test
 	public void normal_8_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -17977,7 +17977,7 @@ springside4_166_8,"	@Test
 		assertThat(metric.avg).isEqualTo(101);
 	}
 ",HistogramTest::normal_8_oe
-springside4_166_9,"	@Test
+springside4_167_9,"	@Test
 	public void normal_9_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18005,7 +18005,7 @@ springside4_166_9,"	@Test
 		assertThat(metric.pcts.get(90d)).isEqualTo(180);
 	}
 ",HistogramTest::normal_9_oe
-springside4_166_10,"	@Test
+springside4_167_10,"	@Test
 	public void normal_10_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18034,7 +18034,7 @@ springside4_166_10,"	@Test
 		assertThat(metric.pcts.get(95d)).isEqualTo(190);
 	}
 ",HistogramTest::normal_10_oe
-springside4_167_1,"	@Test
+springside4_168_1,"	@Test
 	public void fewData_1_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18043,7 +18043,7 @@ springside4_167_1,"	@Test
 		assertThat(metric.pcts.get(90d)).isEqualTo(1);
 	}
 ",HistogramTest::fewData_1_oe
-springside4_167_2,"	@Test
+springside4_168_2,"	@Test
 	public void fewData_2_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18053,7 +18053,7 @@ springside4_167_2,"	@Test
 		assertThat(metric.pcts.get(95d)).isEqualTo(1);
 	}
 ",HistogramTest::fewData_2_oe
-springside4_167_3,"	@Test
+springside4_168_3,"	@Test
 	public void fewData_3_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18070,7 +18070,7 @@ springside4_167_3,"	@Test
 		assertThat(metric.min).isEqualTo(1);
 	}
 ",HistogramTest::fewData_3_oe
-springside4_167_4,"	@Test
+springside4_168_4,"	@Test
 	public void fewData_4_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18088,7 +18088,7 @@ springside4_167_4,"	@Test
 		assertThat(metric.max).isEqualTo(3);
 	}
 ",HistogramTest::fewData_4_oe
-springside4_167_5,"	@Test
+springside4_168_5,"	@Test
 	public void fewData_5_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18107,7 +18107,7 @@ springside4_167_5,"	@Test
 		assertThat(metric.avg).isEqualTo(2);
 	}
 ",HistogramTest::fewData_5_oe
-springside4_167_6,"	@Test
+springside4_168_6,"	@Test
 	public void fewData_6_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18127,7 +18127,7 @@ springside4_167_6,"	@Test
 		assertThat(metric.pcts.get(90d)).isEqualTo(3);
 	}
 ",HistogramTest::fewData_6_oe
-springside4_167_7,"	@Test
+springside4_168_7,"	@Test
 	public void fewData_7_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18148,7 +18148,7 @@ springside4_167_7,"	@Test
 		assertThat(metric.pcts.get(95d)).isEqualTo(3);
 	}
 ",HistogramTest::fewData_7_oe
-springside4_168_1,"	@Test
+springside4_169_1,"	@Test
 	public void emptyMesures_1_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18157,7 +18157,7 @@ springside4_168_1,"	@Test
 		assertThat(metric.min).isZero();
 	}
 ",HistogramTest::emptyMesures_1_oe
-springside4_168_2,"	@Test
+springside4_169_2,"	@Test
 	public void emptyMesures_2_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18167,7 +18167,7 @@ springside4_168_2,"	@Test
 		assertThat(metric.max).isZero();
 	}
 ",HistogramTest::emptyMesures_2_oe
-springside4_168_3,"	@Test
+springside4_169_3,"	@Test
 	public void emptyMesures_3_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18178,7 +18178,7 @@ springside4_168_3,"	@Test
 		assertThat(metric.avg).isZero();
 	}
 ",HistogramTest::emptyMesures_3_oe
-springside4_168_4,"	@Test
+springside4_169_4,"	@Test
 	public void emptyMesures_4_oe() {
 		Histogram histogram = new Histogram(90d, 95d);
 
@@ -18190,7 +18190,7 @@ springside4_168_4,"	@Test
 		assertThat(metric.pcts.get(90d)).isZero();
 	}
 ",HistogramTest::emptyMesures_4_oe
-springside4_169_1,"	@Test()
+springside4_170_1,"	@Test()
 	public void emptyPcts_1_oe() {
 		Histogram histogram = new Histogram();
 		for (int i = 1; i <= 3; i++) {
@@ -18201,7 +18201,7 @@ springside4_169_1,"	@Test()
 		assertThat(metric.max).isEqualTo(3);
 	}
 ",HistogramTest::emptyPcts_1_oe
-springside4_169_2,"	@Test()
+springside4_170_2,"	@Test()
 	public void emptyPcts_2_oe() {
 		Histogram histogram = new Histogram();
 		for (int i = 1; i <= 3; i++) {
@@ -18213,7 +18213,7 @@ springside4_169_2,"	@Test()
 		assertThat(metric.pcts).isEmpty();
 	}
 ",HistogramTest::emptyPcts_2_oe
-springside4_169_3,"	@Test()
+springside4_170_3,"	@Test()
 	public void emptyPcts_3_oe() {
 		Histogram histogram = new Histogram();
 		for (int i = 1; i <= 3; i++) {
@@ -18226,7 +18226,7 @@ springside4_169_3,"	@Test()
 		assertThat(metric.pcts.get(90d)).isNull();
 	}
 ",HistogramTest::emptyPcts_3_oe
-springside4_170_1,"	@Test
+springside4_171_1,"	@Test
 	public void normal_1_oe() {
 
 		Counter counter = new Counter();
@@ -18239,7 +18239,7 @@ springside4_170_1,"	@Test
 		assertThat(metric.totalCount).isEqualTo(60);
 	}
 ",CounterTest::normal_1_oe
-springside4_170_2,"	@Test
+springside4_171_2,"	@Test
 	public void normal_2_oe() {
 
 		Counter counter = new Counter();
@@ -18253,7 +18253,7 @@ springside4_170_2,"	@Test
 		assertThat(metric.avgRate).isEqualTo(60);
 	}
 ",CounterTest::normal_2_oe
-springside4_170_3,"	@Test
+springside4_171_3,"	@Test
 	public void normal_3_oe() {
 
 		Counter counter = new Counter();
@@ -18268,7 +18268,7 @@ springside4_170_3,"	@Test
 		assertThat(metric.latestCount).isEqualTo(60);
 	}
 ",CounterTest::normal_3_oe
-springside4_170_4,"	@Test
+springside4_171_4,"	@Test
 	public void normal_4_oe() {
 
 		Counter counter = new Counter();
@@ -18284,7 +18284,7 @@ springside4_170_4,"	@Test
 		assertThat(metric.latestRate).isEqualTo(60);
 	}
 ",CounterTest::normal_4_oe
-springside4_170_5,"	@Test
+springside4_171_5,"	@Test
 	public void normal_5_oe() {
 
 		Counter counter = new Counter();
@@ -18306,7 +18306,7 @@ springside4_170_5,"	@Test
 		assertThat(metric.totalCount).isEqualTo(80);
 	}
 ",CounterTest::normal_5_oe
-springside4_170_6,"	@Test
+springside4_171_6,"	@Test
 	public void normal_6_oe() {
 
 		Counter counter = new Counter();
@@ -18329,7 +18329,7 @@ springside4_170_6,"	@Test
 		assertThat(metric.avgRate).isEqualTo(40);
 	}
 ",CounterTest::normal_6_oe
-springside4_170_7,"	@Test
+springside4_171_7,"	@Test
 	public void normal_7_oe() {
 
 		Counter counter = new Counter();
@@ -18353,7 +18353,7 @@ springside4_170_7,"	@Test
 		assertThat(metric.latestCount).isEqualTo(20);
 	}
 ",CounterTest::normal_7_oe
-springside4_170_8,"	@Test
+springside4_171_8,"	@Test
 	public void normal_8_oe() {
 
 		Counter counter = new Counter();
@@ -18378,7 +18378,7 @@ springside4_170_8,"	@Test
 		assertThat(metric.latestRate).isEqualTo(20);
 	}
 ",CounterTest::normal_8_oe
-springside4_171_1,"	@Test
+springside4_172_1,"	@Test
 	public void incAndDec_1_oe() {
 		Counter counter = new Counter();
 
@@ -18393,7 +18393,7 @@ springside4_171_1,"	@Test
 		assertThat(metric.totalCount).isEqualTo(11);
 	}
 ",CounterTest::incAndDec_1_oe
-springside4_172_1,"	@Test
+springside4_173_1,"	@Test
 	public void empty_1_oe() {
 		Counter counter = new Counter();
 		clock.increaseTime(1000);
@@ -18402,7 +18402,7 @@ springside4_172_1,"	@Test
 		assertThat(metric.totalCount).isEqualTo(0);
 	}
 ",CounterTest::empty_1_oe
-springside4_172_2,"	@Test
+springside4_173_2,"	@Test
 	public void empty_2_oe() {
 		Counter counter = new Counter();
 		clock.increaseTime(1000);
@@ -18412,7 +18412,7 @@ springside4_172_2,"	@Test
 		assertThat(metric.latestRate).isEqualTo(0);
 	}
 ",CounterTest::empty_2_oe
-springside4_173_1,"	@Test
+springside4_174_1,"	@Test
 	public void convertElementPropertyToString_1_oe() {
 		TestBean3 bean1 = new TestBean3();
 		bean1.setId(1);
@@ -18424,7 +18424,7 @@ springside4_173_1,"	@Test
 		assertThat(CollectionExtractor.extractToString(list, ""id"", "","")).isEqualTo(""1,2"");
 	}
 ",CollectionExtractorTest::convertElementPropertyToString_1_oe
-springside4_174_1,"	@Test
+springside4_175_1,"	@Test
 	public void convertElementPropertyToList_1_oe() {
 		TestBean3 bean1 = new TestBean3();
 		bean1.setId(1);
@@ -18436,14 +18436,14 @@ springside4_174_1,"	@Test
 		assertThat(result).containsOnly(1, 2);
 	}
 ",CollectionExtractorTest::convertElementPropertyToList_1_oe
-springside4_175_1,"	@Test
+springside4_176_1,"	@Test
 	public void convertCollectionToString_1_oe() {
 		List<String> list = Lists.newArrayList(""aa"", ""bb"");
 		String result = CollectionExtractor.convertToString(list, "","");
 		assertThat(result).isEqualTo(""aa,bb"");
 	}
 ",CollectionExtractorTest::convertCollectionToString_1_oe
-springside4_175_2,"	@Test
+springside4_176_2,"	@Test
 	public void convertCollectionToString_2_oe() {
 		List<String> list = Lists.newArrayList(""aa"", ""bb"");
 		String result = CollectionExtractor.convertToString(list, "","");

@@ -349,7 +349,42 @@ public void test_standard_10_oe() throws ClassNotFoundException {
     assertEquals(msgBase + " parameter 2", 1, annos1.length);
 }
 
+public void test_standard_new_oe()
+        throws ClassNotFoundException
+{
+    final JavaClass jc = getTestClass(PACKAGE_BASE_NAME + ".data.AnnotatedWithCombinedAnnotation");
+    final ClassGen cgen = new ClassGen(jc);
 
+    // Check annotations are correctly preserved
+    final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+    // removed other assertion
+    final AnnotationEntryGen a = annotations[0];
+    // removed other assertion
+    final ElementValuePairGen nvp = a.getValues().get(0);
+    final ElementValueGen value = nvp.getValue();
+    // removed other assertion
+    final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+    // removed other assertion
+    final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+    // removed other assertion
+    final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+    // removed other assertion
+
+    // check the three methods
+    final Method[] methods = cgen.getMethods();
+    // removed other assertion
+    for (final Method method : methods)
+    {
+        final String methodName = method.getName();
+        if (methodName.equals("<init>"))
+        {
+
+                    final String methodName1= (method).getName();
+                    final AnnotationEntry[] annos= (method).getAnnotationEntries();
+                    assertEquals("For "+methodName1, (0), annos.length);
+}
+}
+}
     /**
      * Just check that we can dump a class that has a method annotation on it
      * and it is still there when we read it back in
@@ -917,4 +952,57 @@ public void test_standard_10_oe() throws ClassNotFoundException {
         final AnnotationEntryGen a = new AnnotationEntryGen(t, elements, false, cp);
         return a;
     }
+
+    public void test_new_1_oe()
+        throws ClassNotFoundException
+{
+    final JavaClass jc = getTestClass(PACKAGE_BASE_NAME + ".data.AnnotatedWithCombinedAnnotation");
+    final ClassGen cgen = new ClassGen(jc);
+
+    // Check annotations are correctly preserved
+    final AnnotationEntryGen[] annotations = cgen.getAnnotationEntries();
+    // removed other assertion
+    final AnnotationEntryGen a = annotations[0];
+    // removed other assertion
+    final ElementValuePairGen nvp = a.getValues().get(0);
+    final ElementValueGen value = nvp.getValue();
+    // removed other assertion
+    final ArrayElementValueGen arrayValue = (ArrayElementValueGen) value;
+    // removed other assertion
+    final ElementValueGen innerValue = arrayValue.getElementValues().get(0);
+    // removed other assertion
+    final AnnotationElementValueGen innerAnnotationValue = (AnnotationElementValueGen) innerValue;
+    // removed other assertion
+
+    // check the three methods
+    final Method[] methods = cgen.getMethods();
+    // removed other assertion
+    for (final Method method : methods)
+    {
+        final String methodName = method.getName();
+        if (methodName.equals("<init>"))
+        {
+            // removed other assertion
+
+            // --- inlined assertParameterAnnotations(method, 0, 1) ---
+            final String msgBase = "For " + method.getName();
+            final ParameterAnnotationEntry[] parameterAnnotations = method.getParameterAnnotationEntries();
+
+            // expectedNumberOfParmeterAnnotations.length == 2 (0, 1)
+            // removed other assertion
+
+            // first parameter expected 0 annotations
+            final AnnotationEntry[] annos0 = parameterAnnotations[0].getAnnotationEntries();
+            // removed other assertion
+
+            // second parameter expected 1 annotation
+            final AnnotationEntry[] annos1 = parameterAnnotations[1].getAnnotationEntries();
+            // removed other assertion
+            // original helper called assertSimpleElementValue when expectedLength != 0
+
+                    final ElementValuePair elementValuePair = (annos1[0]).getElementValuePairs()[0];
+                    assertEquals("id", elementValuePair.getNameString());
+}
+}
+}
 }

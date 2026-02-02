@@ -666,24 +666,6 @@ class DocumentationExamplesTest_OE25Dev {
     }
 
     @Test
-    void testLineIntersectionExample_1_oe() {
-        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
-
-        // create some lines
-        final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(2, 2), precision);
-        final Line b = Lines.fromPointAndDirection(Vector2D.of(1, -1), Vector2D.Unit.PLUS_Y, precision);
-
-        // compute the intersection and angles
-        final Vector2D intersection = a.intersection(b); // (1, 1)
-        final double angleAtoB = a.angle(b); // pi/4
-        final double angleBtoA = b.angle(a); // -pi/4
-
-        // ----------------------------
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 1), intersection, TEST_EPS);
-        Assertions.assertEquals(0.25 * Math.PI, angleAtoB, TEST_EPS);
-    }
-
-    @Test
     void testLineIntersectionExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
@@ -697,13 +679,31 @@ class DocumentationExamplesTest_OE25Dev {
         final double angleBtoA = b.angle(a); // -pi/4
 
         // ----------------------------
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 1), intersection, TEST_EPS);
+        // removed other assertion
+        Assertions.assertEquals(0.25 * Math.PI, angleAtoB, TEST_EPS);
+    }
+
+    @Test
+    void testLineIntersectionExample_3_oe() {
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
+
+        // create some lines
+        final Line a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(2, 2), precision);
+        final Line b = Lines.fromPointAndDirection(Vector2D.of(1, -1), Vector2D.Unit.PLUS_Y, precision);
+
+        // compute the intersection and angles
+        final Vector2D intersection = a.intersection(b); // (1, 1)
+        final double angleAtoB = a.angle(b); // pi/4
+        final double angleBtoA = b.angle(a); // -pi/4
+
+        // ----------------------------
+        // removed other assertion
         // removed other assertion
         Assertions.assertEquals(-0.25 * Math.PI, angleBtoA, TEST_EPS);
     }
 
     @Test
-    void testLineSegmentIntersectionExample_1_oe() {
+    void testLineSegmentIntersectionExample_2_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
         // create some line segments
@@ -718,7 +718,7 @@ class DocumentationExamplesTest_OE25Dev {
         final Vector2D bIntersection = segmentB.intersection(ray); // null - no intersection
 
         // ----------------------------
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(3, 0), aIntersection, TEST_EPS);
+        // removed other assertion
         Assertions.assertNull(bIntersection);
     }
 
@@ -760,7 +760,7 @@ class DocumentationExamplesTest_OE25Dev {
     }
 
     @Test
-    void testRegionBSPTree2DExample_2_oe() {
+    void testRegionBSPTree2DExample_3_oe() {
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-6);
 
         // create a connected sequence of line segments forming the unit square
@@ -794,7 +794,7 @@ class DocumentationExamplesTest_OE25Dev {
 
         // ----------------
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0.75, 0.75), centroid, TEST_EPS);
+        // removed other assertion
         Assertions.assertEquals(1, boundaries.size());
     }
 

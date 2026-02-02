@@ -118,7 +118,7 @@ class ReverseRay3DTest_OE25Dev {
     }
 
     @Test
-    void testFromPointAndDirection_4_oe() {
+    void testFromPointAndDirection_7_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
 
@@ -130,16 +130,16 @@ class ReverseRay3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(pt, revRay.getEndPoint(), TEST_EPS);
+        // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, revRay.getLine().getDirection(), TEST_EPS);
+        // removed other assertion
 
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
+        // removed other assertion
         Assertions.assertEquals(2, revRay.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
-    void testFromPointAndDirection_5_oe() {
+    void testFromPointAndDirection_9_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
 
@@ -151,20 +151,20 @@ class ReverseRay3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(pt, revRay.getEndPoint(), TEST_EPS);
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, revRay.getLine().getDirection(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(revRay.getSize());
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
 
         Assertions.assertNull(revRay.getCentroid());
     }
 
     @Test
-    void testFromPointAndDirection_6_oe() {
+    void testFromPointAndDirection_10_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 1, 2);
 
@@ -176,14 +176,14 @@ class ReverseRay3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(pt, revRay.getEndPoint(), TEST_EPS);
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, revRay.getLine().getDirection(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(revRay.getSize());
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertNull(revRay.getBounds());
@@ -236,52 +236,6 @@ class ReverseRay3DTest_OE25Dev {
     }
 
     @Test
-    void testFromPoint_4_oe() {
-        // arrange
-        final Vector3D pt = Vector3D.of(-2, -1, 2);
-
-        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 2), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
-
-        // act
-        final ReverseRay3D revRay = Lines3D.reverseRayFromPoint(line, pt);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, -1, 2), revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
-        Assertions.assertEquals(-1, revRay.getSubspaceEnd(), TEST_EPS);
-    }
-
-    @Test
-    void testFromPoint_5_oe() {
-        // arrange
-        final Vector3D pt = Vector3D.of(-2, -1, 2);
-
-        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 2), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
-
-        // act
-        final ReverseRay3D revRay = Lines3D.reverseRayFromPoint(line, pt);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, -1, 2), revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(revRay.getSize());
-
-        Assertions.assertNull(revRay.getCentroid());
-    }
-
-    @Test
     void testFromPoint_6_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(-2, -1, 2);
@@ -296,12 +250,58 @@ class ReverseRay3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, -1, 2), revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(revRay.getSize());
+        // removed other assertion
+        Assertions.assertEquals(-1, revRay.getSubspaceEnd(), TEST_EPS);
+    }
+
+    @Test
+    void testFromPoint_8_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(-2, -1, 2);
+
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 2), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        // act
+        final ReverseRay3D revRay = Lines3D.reverseRayFromPoint(line, pt);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertNull(revRay.getCentroid());
+    }
+
+    @Test
+    void testFromPoint_9_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(-2, -1, 2);
+
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(1, 0, 2), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        // act
+        final ReverseRay3D revRay = Lines3D.reverseRayFromPoint(line, pt);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertNull(revRay.getBounds());
@@ -348,48 +348,6 @@ class ReverseRay3DTest_OE25Dev {
     }
 
     @Test
-    void testFromLocation_4_oe() {
-        // arrange
-        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
-
-        // act
-        final ReverseRay3D revRay = Lines3D.reverseRayFromLocation(line, -1);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, 0, -1), revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
-        Assertions.assertEquals(-1, revRay.getSubspaceEnd(), TEST_EPS);
-    }
-
-    @Test
-    void testFromLocation_5_oe() {
-        // arrange
-        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
-
-        // act
-        final ReverseRay3D revRay = Lines3D.reverseRayFromLocation(line, -1);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, 0, -1), revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(revRay.getSize());
-
-        Assertions.assertNull(revRay.getCentroid());
-    }
-
-    @Test
     void testFromLocation_6_oe() {
         // arrange
         final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -402,12 +360,54 @@ class ReverseRay3DTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, 0, -1), revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(revRay.getSize());
+        // removed other assertion
+        Assertions.assertEquals(-1, revRay.getSubspaceEnd(), TEST_EPS);
+    }
+
+    @Test
+    void testFromLocation_8_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final ReverseRay3D revRay = Lines3D.reverseRayFromLocation(line, -1);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertNull(revRay.getCentroid());
+    }
+
+    @Test
+    void testFromLocation_9_oe() {
+        // arrange
+        final Line3D line = Lines3D.fromPointAndDirection(Vector3D.of(-1, 0, 0), Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final ReverseRay3D revRay = Lines3D.reverseRayFromLocation(line, -1);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertNull(revRay.getBounds());
@@ -544,19 +544,6 @@ class ReverseRay3DTest_OE25Dev {
     }
 
     @Test
-    void testGetInterval_1_oe() {
-        // arrange
-        final ReverseRay3D revRay = Lines3D.reverseRayFromPointAndDirection(Vector3D.of(2, -1, 3), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
-
-        // act
-        final Interval interval = revRay.getInterval();
-
-        // assert
-        GeometryTestUtils.assertNegativeInfinity(interval.getMin());
-        Assertions.assertEquals(-1, interval.getMax(), TEST_EPS);
-    }
-
-    @Test
     void testGetInterval_2_oe() {
         // arrange
         final ReverseRay3D revRay = Lines3D.reverseRayFromPointAndDirection(Vector3D.of(2, -1, 3), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
@@ -565,7 +552,20 @@ class ReverseRay3DTest_OE25Dev {
         final Interval interval = revRay.getInterval();
 
         // assert
-        GeometryTestUtils.assertNegativeInfinity(interval.getMin());
+        // removed other assertion
+        Assertions.assertEquals(-1, interval.getMax(), TEST_EPS);
+    }
+
+    @Test
+    void testGetInterval_3_oe() {
+        // arrange
+        final ReverseRay3D revRay = Lines3D.reverseRayFromPointAndDirection(Vector3D.of(2, -1, 3), Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+
+        // act
+        final Interval interval = revRay.getInterval();
+
+        // assert
+        // removed other assertion
         // removed other assertion
 
         Assertions.assertSame(revRay.getLine().getPrecision(), interval.getMaxBoundary().getPrecision());

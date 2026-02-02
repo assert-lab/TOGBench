@@ -183,21 +183,6 @@ class AbstractBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testInitialization_3_oe() {
-        // act
-        final TestBSPTree tree = new TestBSPTree();
-
-        // assert
-        final TestNode root = tree.getRoot();
-
-        // removed other assertion
-        // removed other assertion
-
-        PartitionTestUtils.assertIsLeafNode(root);
-        Assertions.assertFalse(root.isPlus());
-    }
-
-    @Test
     void testInitialization_4_oe() {
         // act
         final TestBSPTree tree = new TestBSPTree();
@@ -208,9 +193,8 @@ class AbstractBSPTreeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertIsLeafNode(root);
         // removed other assertion
-        Assertions.assertFalse(root.isMinus());
+        Assertions.assertFalse(root.isPlus());
     }
 
     @Test
@@ -224,7 +208,23 @@ class AbstractBSPTreeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertIsLeafNode(root);
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertFalse(root.isMinus());
+    }
+
+    @Test
+    void testInitialization_6_oe() {
+        // act
+        final TestBSPTree tree = new TestBSPTree();
+
+        // assert
+        final TestNode root = tree.getRoot();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         // removed other assertion
 
@@ -503,7 +503,7 @@ class AbstractBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testInsertCut_2_oe() {
+    void testInsertCut_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
         final TestLine line = TestLine.X_AXIS;
@@ -515,7 +515,7 @@ class AbstractBSPTreeTest_OE25Dev {
         // removed other assertion
 
         final TestNode root = tree.getRoot();
-        PartitionTestUtils.assertIsInternalNode(root);
+        // removed other assertion
 
         Assertions.assertSame(line, root.getCut().getHyperplane());
     }
@@ -2689,7 +2689,7 @@ class AbstractBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testInsert_convex_noSplit_2_oe() {
+    void testInsert_convex_noSplit_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
         tree.getRoot()
@@ -2707,14 +2707,14 @@ class AbstractBSPTreeTest_OE25Dev {
         final TestNode node = tree.findNode(new TestPoint2D(0.5, 0.5));
         final TestLineSegment seg = (TestLineSegment) node.getParent().getCut();
 
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 2), seg.getStartPoint());
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 0), seg.getEndPoint());
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(tree.getRoot().getPlus().isLeaf());
     }
 
     @Test
-    void testInsert_convex_noSplit_3_oe() {
+    void testInsert_convex_noSplit_5_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
         tree.getRoot()
@@ -2732,8 +2732,8 @@ class AbstractBSPTreeTest_OE25Dev {
         final TestNode node = tree.findNode(new TestPoint2D(0.5, 0.5));
         final TestLineSegment seg = (TestLineSegment) node.getParent().getCut();
 
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 2), seg.getStartPoint());
-        PartitionTestUtils.assertPointsEqual(new TestPoint2D(2, 0), seg.getEndPoint());
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertTrue(tree.getRoot().getMinus().getMinus().isLeaf());
@@ -4627,33 +4627,6 @@ class AbstractBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testNodeTrim_3_oe() {
-        // arrange
-        final TestBSPTree tree = new TestBSPTree();
-        tree.getRoot().cut(TestLine.Y_AXIS)
-            .getPlus()
-                .cut(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 1)))
-                .getPlus()
-                    .cut(new TestLine(new TestPoint2D(1.5, 1.5), new TestPoint2D(2, 1)));
-
-        final TestNode root = tree.getRoot();
-        final TestNode plus = root.getPlus();
-        final TestNode plusMinus = plus.getMinus();
-        final TestNode plusPlusPlus = plus.getPlus().getPlus();
-
-        final TestLineSegment xAxisSeg = TestLine.X_AXIS.span();
-        final TestLineSegment shortSeg = new TestLineSegment(new TestPoint2D(2, 0), new TestPoint2D(2, 2));
-
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-
-        PartitionTestUtils.assertSegmentsEqual(new TestLineSegment(0, Double.POSITIVE_INFINITY, TestLine.X_AXIS),
-                (TestLineSegment) plus.trim(xAxisSeg));
-        Assertions.assertSame(shortSeg, plus.trim(shortSeg));
-    }
-
-    @Test
     void testNodeTrim_4_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -4675,11 +4648,8 @@ class AbstractBSPTreeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertSegmentsEqual(new TestLineSegment(0, Double.POSITIVE_INFINITY, TestLine.X_AXIS),
-                (TestLineSegment) plus.trim(xAxisSeg));
         // removed other assertion
-
-        Assertions.assertNull(plusMinus.trim(xAxisSeg));
+        Assertions.assertSame(shortSeg, plus.trim(shortSeg));
     }
 
     @Test
@@ -4704,8 +4674,35 @@ class AbstractBSPTreeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        PartitionTestUtils.assertSegmentsEqual(new TestLineSegment(0, Double.POSITIVE_INFINITY, TestLine.X_AXIS),
-                (TestLineSegment) plus.trim(xAxisSeg));
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertNull(plusMinus.trim(xAxisSeg));
+    }
+
+    @Test
+    void testNodeTrim_6_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot().cut(TestLine.Y_AXIS)
+            .getPlus()
+                .cut(new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 1)))
+                .getPlus()
+                    .cut(new TestLine(new TestPoint2D(1.5, 1.5), new TestPoint2D(2, 1)));
+
+        final TestNode root = tree.getRoot();
+        final TestNode plus = root.getPlus();
+        final TestNode plusMinus = plus.getMinus();
+        final TestNode plusPlusPlus = plus.getPlus().getPlus();
+
+        final TestLineSegment xAxisSeg = TestLine.X_AXIS.span();
+        final TestLineSegment shortSeg = new TestLineSegment(new TestPoint2D(2, 0), new TestPoint2D(2, 2));
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -4773,7 +4770,7 @@ class AbstractBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testCopy_withCuts_2_oe() {
+    void testCopy_withCuts_3_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
         tree.getRoot()
@@ -4787,7 +4784,7 @@ class AbstractBSPTreeTest_OE25Dev {
 
         // assert
         // removed other assertion
-        assertNodesCopiedRecursive(tree.getRoot(), copy.getRoot());
+        // removed other assertion
         Assertions.assertEquals(tree.count(), copy.count());
     }
 
@@ -4989,7 +4986,7 @@ class AbstractBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testExtract_internalNode_3_oe() {
+    void testExtract_internalNode_6_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
         tree.insert(Arrays.asList(
@@ -5011,21 +5008,15 @@ class AbstractBSPTreeTest_OE25Dev {
         final List<TestLineSegment> resultSegments = getLineSegments(result);
         // removed other assertion
 
-        PartitionTestUtils.assertSegmentsEqual(
-                new TestLineSegment(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TestLine.X_AXIS),
-                resultSegments.get(0));
-        PartitionTestUtils.assertSegmentsEqual(
-                new TestLineSegment(Double.NEGATIVE_INFINITY, 0, TestLine.Y_AXIS),
-                resultSegments.get(1));
-        PartitionTestUtils.assertSegmentsEqual(
-                new TestLineSegment(0, Double.POSITIVE_INFINITY, new TestLine(new TestPoint2D(0, -2), new TestPoint2D(1, -2))),
-                resultSegments.get(2));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(13, tree.count());
     }
 
     @Test
-    void testExtract_internalNode_4_oe() {
+    void testExtract_internalNode_7_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
         tree.insert(Arrays.asList(
@@ -5047,15 +5038,9 @@ class AbstractBSPTreeTest_OE25Dev {
         final List<TestLineSegment> resultSegments = getLineSegments(result);
         // removed other assertion
 
-        PartitionTestUtils.assertSegmentsEqual(
-                new TestLineSegment(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TestLine.X_AXIS),
-                resultSegments.get(0));
-        PartitionTestUtils.assertSegmentsEqual(
-                new TestLineSegment(Double.NEGATIVE_INFINITY, 0, TestLine.Y_AXIS),
-                resultSegments.get(1));
-        PartitionTestUtils.assertSegmentsEqual(
-                new TestLineSegment(0, Double.POSITIVE_INFINITY, new TestLine(new TestPoint2D(0, -2), new TestPoint2D(1, -2))),
-                resultSegments.get(2));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
 
@@ -5174,7 +5159,7 @@ class AbstractBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testExtract_leafNode_5_oe() {
+    void testExtract_leafNode_8_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
         tree.insert(Arrays.asList(
@@ -5203,21 +5188,15 @@ class AbstractBSPTreeTest_OE25Dev {
         final List<TestLineSegment> resultSegments = getLineSegments(result);
         // removed other assertion
 
-        PartitionTestUtils.assertSegmentsEqual(
-                new TestLineSegment(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TestLine.X_AXIS),
-                resultSegments.get(0));
-        PartitionTestUtils.assertSegmentsEqual(
-                new TestLineSegment(0, Double.POSITIVE_INFINITY, TestLine.Y_AXIS),
-                resultSegments.get(1));
-        PartitionTestUtils.assertSegmentsEqual(
-                new TestLineSegment(new TestPoint2D(0, 3), new TestPoint2D(3, 0)),
-                resultSegments.get(2));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(13, tree.count());
     }
 
     @Test
-    void testExtract_leafNode_6_oe() {
+    void testExtract_leafNode_9_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
         tree.insert(Arrays.asList(
@@ -5246,15 +5225,9 @@ class AbstractBSPTreeTest_OE25Dev {
         final List<TestLineSegment> resultSegments = getLineSegments(result);
         // removed other assertion
 
-        PartitionTestUtils.assertSegmentsEqual(
-                new TestLineSegment(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TestLine.X_AXIS),
-                resultSegments.get(0));
-        PartitionTestUtils.assertSegmentsEqual(
-                new TestLineSegment(0, Double.POSITIVE_INFINITY, TestLine.Y_AXIS),
-                resultSegments.get(1));
-        PartitionTestUtils.assertSegmentsEqual(
-                new TestLineSegment(new TestPoint2D(0, 3), new TestPoint2D(3, 0)),
-                resultSegments.get(2));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
 
@@ -6027,79 +6000,6 @@ class AbstractBSPTreeTest_OE25Dev {
     }
 
     @Test
-    void testSplitIntoTree_6_oe() {
-        // arrange
-        final TestBSPTree tree = new TestBSPTree();
-        tree.getRoot()
-            .cut(TestLine.X_AXIS)
-            .getMinus()
-                .cut(TestLine.Y_AXIS);
-
-        final TestBSPTree minus = new TestBSPTree();
-        final TestBSPTree plus = new TestBSPTree();
-
-        final TestLine splitter = new TestLine(new TestPoint2D(0,  0), new TestPoint2D(-1, 1));
-
-        // act
-        tree.splitIntoTrees(splitter, minus, plus);
-
-        // assert
-        final TestLineSegment splitSegment = new TestLineSegment(Double.NEGATIVE_INFINITY,
-                Double.POSITIVE_INFINITY, splitter);
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        final List<TestLineSegment> minusSegments = getLineSegments(minus);
-        // removed other assertion
-        PartitionTestUtils.assertSegmentsEqual(splitSegment, minusSegments.get(0));
-        PartitionTestUtils.assertSegmentsEqual(new TestLineSegment(Double.NEGATIVE_INFINITY, 0, TestLine.X_AXIS),
-                minusSegments.get(1));
-
-        Assertions.assertEquals(7, plus.count());
-    }
-
-    @Test
-    void testSplitIntoTree_7_oe() {
-        // arrange
-        final TestBSPTree tree = new TestBSPTree();
-        tree.getRoot()
-            .cut(TestLine.X_AXIS)
-            .getMinus()
-                .cut(TestLine.Y_AXIS);
-
-        final TestBSPTree minus = new TestBSPTree();
-        final TestBSPTree plus = new TestBSPTree();
-
-        final TestLine splitter = new TestLine(new TestPoint2D(0,  0), new TestPoint2D(-1, 1));
-
-        // act
-        tree.splitIntoTrees(splitter, minus, plus);
-
-        // assert
-        final TestLineSegment splitSegment = new TestLineSegment(Double.NEGATIVE_INFINITY,
-                Double.POSITIVE_INFINITY, splitter);
-
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-
-        final List<TestLineSegment> minusSegments = getLineSegments(minus);
-        // removed other assertion
-        PartitionTestUtils.assertSegmentsEqual(splitSegment, minusSegments.get(0));
-        PartitionTestUtils.assertSegmentsEqual(new TestLineSegment(Double.NEGATIVE_INFINITY, 0, TestLine.X_AXIS),
-                minusSegments.get(1));
-
-        // removed other assertion
-        Assertions.assertEquals(3, plus.height());
-    }
-
-    @Test
     void testSplitIntoTree_8_oe() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();
@@ -6128,9 +6028,79 @@ class AbstractBSPTreeTest_OE25Dev {
 
         final List<TestLineSegment> minusSegments = getLineSegments(minus);
         // removed other assertion
-        PartitionTestUtils.assertSegmentsEqual(splitSegment, minusSegments.get(0));
-        PartitionTestUtils.assertSegmentsEqual(new TestLineSegment(Double.NEGATIVE_INFINITY, 0, TestLine.X_AXIS),
-                minusSegments.get(1));
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(7, plus.count());
+    }
+
+    @Test
+    void testSplitIntoTree_9_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot()
+            .cut(TestLine.X_AXIS)
+            .getMinus()
+                .cut(TestLine.Y_AXIS);
+
+        final TestBSPTree minus = new TestBSPTree();
+        final TestBSPTree plus = new TestBSPTree();
+
+        final TestLine splitter = new TestLine(new TestPoint2D(0,  0), new TestPoint2D(-1, 1));
+
+        // act
+        tree.splitIntoTrees(splitter, minus, plus);
+
+        // assert
+        final TestLineSegment splitSegment = new TestLineSegment(Double.NEGATIVE_INFINITY,
+                Double.POSITIVE_INFINITY, splitter);
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final List<TestLineSegment> minusSegments = getLineSegments(minus);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(3, plus.height());
+    }
+
+    @Test
+    void testSplitIntoTree_10_oe() {
+        // arrange
+        final TestBSPTree tree = new TestBSPTree();
+        tree.getRoot()
+            .cut(TestLine.X_AXIS)
+            .getMinus()
+                .cut(TestLine.Y_AXIS);
+
+        final TestBSPTree minus = new TestBSPTree();
+        final TestBSPTree plus = new TestBSPTree();
+
+        final TestLine splitter = new TestLine(new TestPoint2D(0,  0), new TestPoint2D(-1, 1));
+
+        // act
+        tree.splitIntoTrees(splitter, minus, plus);
+
+        // assert
+        final TestLineSegment splitSegment = new TestLineSegment(Double.NEGATIVE_INFINITY,
+                Double.POSITIVE_INFINITY, splitter);
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final List<TestLineSegment> minusSegments = getLineSegments(minus);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

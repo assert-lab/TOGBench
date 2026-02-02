@@ -329,33 +329,6 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
     }
 
     @Test
-    void testReadFacet_2_oe() throws IOException {
-        // arrange
-        out.write(createHeader(2));
-
-        out.write(getBytes(Vector3D.of(1, 2, 3)));
-        out.write(getBytes(Vector3D.of(4, 5, 6)));
-        out.write(getBytes(Vector3D.of(7, 8, 9)));
-        out.write(getBytes(Vector3D.of(10, 11, 12)));
-        out.write(getBytes((short) 1));
-
-        out.write(getBytes(Vector3D.of(-1, -2, -3)));
-        out.write(getBytes(Vector3D.of(-4, -5, -6)));
-        out.write(getBytes(Vector3D.of(-7, -8, -9)));
-        out.write(getBytes(Vector3D.of(-10, -11, -12)));
-        out.write(getBytes((short) 65535));
-
-        try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
-            // removed other assertion
-
-            final BinaryStlFacetDefinition facet1 = reader.readFacet();
-
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 2, 3), facet1.getNormal(), TEST_EPS);
-            Assertions.assertEquals(3, facet1.getVertices().size());
-    }
-    }
-
-    @Test
     void testReadFacet_3_oe() throws IOException {
         // arrange
         out.write(createHeader(2));
@@ -377,18 +350,45 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
             final BinaryStlFacetDefinition facet1 = reader.readFacet();
 
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 2, 3), facet1.getNormal(), TEST_EPS);
             // removed other assertion
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 5, 6), facet1.getVertices().get(0), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(7, 8, 9), facet1.getVertices().get(1), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(10, 11, 12), facet1.getVertices().get(2), TEST_EPS);
+            Assertions.assertEquals(3, facet1.getVertices().size());
+    }
+    }
+
+    @Test
+    void testReadFacet_7_oe() throws IOException {
+        // arrange
+        out.write(createHeader(2));
+
+        out.write(getBytes(Vector3D.of(1, 2, 3)));
+        out.write(getBytes(Vector3D.of(4, 5, 6)));
+        out.write(getBytes(Vector3D.of(7, 8, 9)));
+        out.write(getBytes(Vector3D.of(10, 11, 12)));
+        out.write(getBytes((short) 1));
+
+        out.write(getBytes(Vector3D.of(-1, -2, -3)));
+        out.write(getBytes(Vector3D.of(-4, -5, -6)));
+        out.write(getBytes(Vector3D.of(-7, -8, -9)));
+        out.write(getBytes(Vector3D.of(-10, -11, -12)));
+        out.write(getBytes((short) 65535));
+
+        try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // removed other assertion
+
+            final BinaryStlFacetDefinition facet1 = reader.readFacet();
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             Assertions.assertEquals(1, facet1.getAttributeValue());
     }
     }
 
     @Test
-    void testReadFacet_4_oe() throws IOException {
+    void testReadFacet_9_oe() throws IOException {
         // arrange
         out.write(createHeader(2));
 
@@ -409,23 +409,23 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
             final BinaryStlFacetDefinition facet1 = reader.readFacet();
 
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 2, 3), facet1.getNormal(), TEST_EPS);
             // removed other assertion
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 5, 6), facet1.getVertices().get(0), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(7, 8, 9), facet1.getVertices().get(1), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(10, 11, 12), facet1.getVertices().get(2), TEST_EPS);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             // removed other assertion
 
             final BinaryStlFacetDefinition facet2 = reader.readFacet();
 
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, -2, -3), facet2.getNormal(), TEST_EPS);
+            // removed other assertion
             Assertions.assertEquals(3, facet2.getVertices().size());
     }
     }
 
     @Test
-    void testReadFacet_5_oe() throws IOException {
+    void testReadFacet_13_oe() throws IOException {
         // arrange
         out.write(createHeader(2));
 
@@ -446,28 +446,28 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
             final BinaryStlFacetDefinition facet1 = reader.readFacet();
 
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 2, 3), facet1.getNormal(), TEST_EPS);
             // removed other assertion
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 5, 6), facet1.getVertices().get(0), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(7, 8, 9), facet1.getVertices().get(1), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(10, 11, 12), facet1.getVertices().get(2), TEST_EPS);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             // removed other assertion
 
             final BinaryStlFacetDefinition facet2 = reader.readFacet();
 
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, -2, -3), facet2.getNormal(), TEST_EPS);
             // removed other assertion
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-4, -5, -6), facet2.getVertices().get(0), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-7, -8, -9), facet2.getVertices().get(1), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-10, -11, -12), facet2.getVertices().get(2), TEST_EPS);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             Assertions.assertEquals(65535, facet2.getAttributeValue());
     }
     }
 
     @Test
-    void testReadFacet_6_oe() throws IOException {
+    void testReadFacet_14_oe() throws IOException {
         // arrange
         out.write(createHeader(2));
 
@@ -488,21 +488,21 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
             final BinaryStlFacetDefinition facet1 = reader.readFacet();
 
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 2, 3), facet1.getNormal(), TEST_EPS);
             // removed other assertion
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 5, 6), facet1.getVertices().get(0), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(7, 8, 9), facet1.getVertices().get(1), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(10, 11, 12), facet1.getVertices().get(2), TEST_EPS);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             // removed other assertion
 
             final BinaryStlFacetDefinition facet2 = reader.readFacet();
 
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, -2, -3), facet2.getNormal(), TEST_EPS);
             // removed other assertion
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-4, -5, -6), facet2.getVertices().get(0), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-7, -8, -9), facet2.getVertices().get(1), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-10, -11, -12), facet2.getVertices().get(2), TEST_EPS);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             // removed other assertion
 
@@ -533,33 +533,6 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
     }
 
     @Test
-    void testReadFacet_stopsWhenTriangleCountReached_2_oe() throws IOException {
-        // arrange
-        out.write(createHeader(1));
-
-        out.write(getBytes(Vector3D.of(1, 2, 3)));
-        out.write(getBytes(Vector3D.of(4, 5, 6)));
-        out.write(getBytes(Vector3D.of(7, 8, 9)));
-        out.write(getBytes(Vector3D.of(10, 11, 12)));
-        out.write(getBytes((short) 1));
-
-        out.write(getBytes(Vector3D.of(-1, -2, -3)));
-        out.write(getBytes(Vector3D.of(-4, -5, -6)));
-        out.write(getBytes(Vector3D.of(-7, -8, -9)));
-        out.write(getBytes(Vector3D.of(-10, -11, -12)));
-        out.write(getBytes((short) 65535));
-
-        try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
-            // removed other assertion
-
-            final BinaryStlFacetDefinition facet = reader.readFacet();
-
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 2, 3), facet.getNormal(), TEST_EPS);
-            Assertions.assertEquals(3, facet.getVertices().size());
-    }
-    }
-
-    @Test
     void testReadFacet_stopsWhenTriangleCountReached_3_oe() throws IOException {
         // arrange
         out.write(createHeader(1));
@@ -581,18 +554,13 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
             final BinaryStlFacetDefinition facet = reader.readFacet();
 
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 2, 3), facet.getNormal(), TEST_EPS);
             // removed other assertion
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 5, 6), facet.getVertices().get(0), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(7, 8, 9), facet.getVertices().get(1), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(10, 11, 12), facet.getVertices().get(2), TEST_EPS);
-
-            Assertions.assertEquals(1, facet.getAttributeValue());
+            Assertions.assertEquals(3, facet.getVertices().size());
     }
     }
 
     @Test
-    void testReadFacet_stopsWhenTriangleCountReached_4_oe() throws IOException {
+    void testReadFacet_stopsWhenTriangleCountReached_7_oe() throws IOException {
         // arrange
         out.write(createHeader(1));
 
@@ -613,11 +581,43 @@ class BinaryStlFacetDefinitionReaderTest_OE25Dev {
 
             final BinaryStlFacetDefinition facet = reader.readFacet();
 
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 2, 3), facet.getNormal(), TEST_EPS);
             // removed other assertion
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 5, 6), facet.getVertices().get(0), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(7, 8, 9), facet.getVertices().get(1), TEST_EPS);
-            EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(10, 11, 12), facet.getVertices().get(2), TEST_EPS);
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            Assertions.assertEquals(1, facet.getAttributeValue());
+    }
+    }
+
+    @Test
+    void testReadFacet_stopsWhenTriangleCountReached_8_oe() throws IOException {
+        // arrange
+        out.write(createHeader(1));
+
+        out.write(getBytes(Vector3D.of(1, 2, 3)));
+        out.write(getBytes(Vector3D.of(4, 5, 6)));
+        out.write(getBytes(Vector3D.of(7, 8, 9)));
+        out.write(getBytes(Vector3D.of(10, 11, 12)));
+        out.write(getBytes((short) 1));
+
+        out.write(getBytes(Vector3D.of(-1, -2, -3)));
+        out.write(getBytes(Vector3D.of(-4, -5, -6)));
+        out.write(getBytes(Vector3D.of(-7, -8, -9)));
+        out.write(getBytes(Vector3D.of(-10, -11, -12)));
+        out.write(getBytes((short) 65535));
+
+        try (BinaryStlFacetDefinitionReader reader = new BinaryStlFacetDefinitionReader(getInput())) {
+            // removed other assertion
+
+            final BinaryStlFacetDefinition facet = reader.readFacet();
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
 
             // removed other assertion
 

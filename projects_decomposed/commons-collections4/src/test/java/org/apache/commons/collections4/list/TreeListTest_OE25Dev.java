@@ -214,6 +214,81 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(null, l.get(i++));
     }
 
+    public void testRemove_2_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        assertEquals("hugo", l.get(i++));
+    }
+
+    public void testRemove_3_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        assertEquals("erna", l.get(i++));
+    }
+
+    public void testRemove_4_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("daniel", l.get(i++));
+    }
+
+    public void testRemove_5_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("andres", l.get(i++));
+    }
+
+    public void testRemove_6_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("harald", l.get(i++));
+    }
+
     public void testRemove_7_oe() {
         final List<E> l = makeObject();
         l.add((E) "hugo");
@@ -233,6 +308,100 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         l.remove(0);
         i = 0;
         assertEquals("hugo", l.get(i++));
+    }
+
+    public void testRemove_8_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        l.remove(0);
+        i = 0;
+        // removed other assertion
+        assertEquals("erna", l.get(i++));
+    }
+
+    public void testRemove_9_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        l.remove(0);
+        i = 0;
+        // removed other assertion
+        // removed other assertion
+        assertEquals("daniel", l.get(i++));
+    }
+
+    public void testRemove_10_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        l.remove(0);
+        i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("andres", l.get(i++));
+    }
+
+    public void testRemove_11_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        l.remove(0);
+        i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("harald", l.get(i++));
     }
 
     public void testRemove_12_oe() {
@@ -262,6 +431,99 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         i = 0;
         l.remove(1);
         assertEquals("hugo", l.get(i++));
+    }
+
+    public void testRemove_13_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        l.remove(0);
+        i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        i = 0;
+        l.remove(1);
+        // removed other assertion
+        assertEquals("daniel", l.get(i++));
+    }
+
+    public void testRemove_14_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        l.remove(0);
+        i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        i = 0;
+        l.remove(1);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("andres", l.get(i++));
+    }
+
+    public void testRemove_15_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        l.remove(0);
+        i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        i = 0;
+        l.remove(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("harald", l.get(i++));
     }
 
     public void testRemove_16_oe() {
@@ -298,6 +560,81 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         i = 0;
         l.remove(2);
         assertEquals("hugo", l.get(i++));
+    }
+
+    public void testRemove_17_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        l.remove(0);
+        i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        i = 0;
+        l.remove(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        i = 0;
+        l.remove(2);
+        // removed other assertion
+        assertEquals("daniel", l.get(i++));
+    }
+
+    public void testRemove_18_oe() {
+        final List<E> l = makeObject();
+        l.add((E) "hugo");
+        l.add((E) "erna");
+        l.add((E) "daniel");
+        l.add((E) "andres");
+        l.add((E) "harald");
+        l.add(0, null);
+        int i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        l.remove(0);
+        i = 0;
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        i = 0;
+        l.remove(1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        i = 0;
+        l.remove(2);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("harald", l.get(i++));
     }
 
     public void testInsertBefore_1_oe() {
@@ -566,6 +903,24 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(0), li.next());
     }
 
+    public void testBug35258_2_oe() {
+        final Object objectToRemove = Integer.valueOf(3);
+
+        final List<Integer> treelist = new TreeList<>();
+        treelist.add(Integer.valueOf(0));
+        treelist.add(Integer.valueOf(1));
+        treelist.add(Integer.valueOf(2));
+        treelist.add(Integer.valueOf(3));
+        treelist.add(Integer.valueOf(4));
+
+        // this cause inconsistence of ListIterator()
+        treelist.remove(objectToRemove);
+
+        final ListIterator<Integer> li = treelist.listIterator();
+        // removed other assertion
+        assertEquals(Integer.valueOf(0), li.previous());
+    }
+
     public void testBug35258_3_oe() {
         final Object objectToRemove = Integer.valueOf(3);
 
@@ -585,6 +940,260 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
         assertEquals(Integer.valueOf(0), li.next());
     }
 
+    public void testBug35258_4_oe() {
+        final Object objectToRemove = Integer.valueOf(3);
+
+        final List<Integer> treelist = new TreeList<>();
+        treelist.add(Integer.valueOf(0));
+        treelist.add(Integer.valueOf(1));
+        treelist.add(Integer.valueOf(2));
+        treelist.add(Integer.valueOf(3));
+        treelist.add(Integer.valueOf(4));
+
+        // this cause inconsistence of ListIterator()
+        treelist.remove(objectToRemove);
+
+        final ListIterator<Integer> li = treelist.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.valueOf(1), li.next());
+    }
+
+    public void testBug35258_5_oe() {
+        final Object objectToRemove = Integer.valueOf(3);
+
+        final List<Integer> treelist = new TreeList<>();
+        treelist.add(Integer.valueOf(0));
+        treelist.add(Integer.valueOf(1));
+        treelist.add(Integer.valueOf(2));
+        treelist.add(Integer.valueOf(3));
+        treelist.add(Integer.valueOf(4));
+
+        // this cause inconsistence of ListIterator()
+        treelist.remove(objectToRemove);
+
+        final ListIterator<Integer> li = treelist.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // this caused error in bug 35258
+        assertEquals(Integer.valueOf(1), li.previous());
+    }
+
+    public void testBug35258_6_oe() {
+        final Object objectToRemove = Integer.valueOf(3);
+
+        final List<Integer> treelist = new TreeList<>();
+        treelist.add(Integer.valueOf(0));
+        treelist.add(Integer.valueOf(1));
+        treelist.add(Integer.valueOf(2));
+        treelist.add(Integer.valueOf(3));
+        treelist.add(Integer.valueOf(4));
+
+        // this cause inconsistence of ListIterator()
+        treelist.remove(objectToRemove);
+
+        final ListIterator<Integer> li = treelist.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // this caused error in bug 35258
+        // removed other assertion
+        assertEquals(Integer.valueOf(1), li.next());
+    }
+
+    public void testBug35258_7_oe() {
+        final Object objectToRemove = Integer.valueOf(3);
+
+        final List<Integer> treelist = new TreeList<>();
+        treelist.add(Integer.valueOf(0));
+        treelist.add(Integer.valueOf(1));
+        treelist.add(Integer.valueOf(2));
+        treelist.add(Integer.valueOf(3));
+        treelist.add(Integer.valueOf(4));
+
+        // this cause inconsistence of ListIterator()
+        treelist.remove(objectToRemove);
+
+        final ListIterator<Integer> li = treelist.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // this caused error in bug 35258
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.valueOf(2), li.next());
+    }
+
+    public void testBug35258_8_oe() {
+        final Object objectToRemove = Integer.valueOf(3);
+
+        final List<Integer> treelist = new TreeList<>();
+        treelist.add(Integer.valueOf(0));
+        treelist.add(Integer.valueOf(1));
+        treelist.add(Integer.valueOf(2));
+        treelist.add(Integer.valueOf(3));
+        treelist.add(Integer.valueOf(4));
+
+        // this cause inconsistence of ListIterator()
+        treelist.remove(objectToRemove);
+
+        final ListIterator<Integer> li = treelist.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // this caused error in bug 35258
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.valueOf(2), li.previous());
+    }
+
+    public void testBug35258_9_oe() {
+        final Object objectToRemove = Integer.valueOf(3);
+
+        final List<Integer> treelist = new TreeList<>();
+        treelist.add(Integer.valueOf(0));
+        treelist.add(Integer.valueOf(1));
+        treelist.add(Integer.valueOf(2));
+        treelist.add(Integer.valueOf(3));
+        treelist.add(Integer.valueOf(4));
+
+        // this cause inconsistence of ListIterator()
+        treelist.remove(objectToRemove);
+
+        final ListIterator<Integer> li = treelist.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // this caused error in bug 35258
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.valueOf(2), li.next());
+    }
+
+    public void testBug35258_10_oe() {
+        final Object objectToRemove = Integer.valueOf(3);
+
+        final List<Integer> treelist = new TreeList<>();
+        treelist.add(Integer.valueOf(0));
+        treelist.add(Integer.valueOf(1));
+        treelist.add(Integer.valueOf(2));
+        treelist.add(Integer.valueOf(3));
+        treelist.add(Integer.valueOf(4));
+
+        // this cause inconsistence of ListIterator()
+        treelist.remove(objectToRemove);
+
+        final ListIterator<Integer> li = treelist.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // this caused error in bug 35258
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.valueOf(4), li.next());
+    }
+
+    public void testBug35258_11_oe() {
+        final Object objectToRemove = Integer.valueOf(3);
+
+        final List<Integer> treelist = new TreeList<>();
+        treelist.add(Integer.valueOf(0));
+        treelist.add(Integer.valueOf(1));
+        treelist.add(Integer.valueOf(2));
+        treelist.add(Integer.valueOf(3));
+        treelist.add(Integer.valueOf(4));
+
+        // this cause inconsistence of ListIterator()
+        treelist.remove(objectToRemove);
+
+        final ListIterator<Integer> li = treelist.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // this caused error in bug 35258
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.valueOf(4), li.previous());
+    }
+
+    public void testBug35258_12_oe() {
+        final Object objectToRemove = Integer.valueOf(3);
+
+        final List<Integer> treelist = new TreeList<>();
+        treelist.add(Integer.valueOf(0));
+        treelist.add(Integer.valueOf(1));
+        treelist.add(Integer.valueOf(2));
+        treelist.add(Integer.valueOf(3));
+        treelist.add(Integer.valueOf(4));
+
+        // this cause inconsistence of ListIterator()
+        treelist.remove(objectToRemove);
+
+        final ListIterator<Integer> li = treelist.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // this caused error in bug 35258
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(Integer.valueOf(4), li.next());
+    }
+
+    public void testBug35258_13_oe() {
+        final Object objectToRemove = Integer.valueOf(3);
+
+        final List<Integer> treelist = new TreeList<>();
+        treelist.add(Integer.valueOf(0));
+        treelist.add(Integer.valueOf(1));
+        treelist.add(Integer.valueOf(2));
+        treelist.add(Integer.valueOf(3));
+        treelist.add(Integer.valueOf(4));
+
+        // this cause inconsistence of ListIterator()
+        treelist.remove(objectToRemove);
+
+        final ListIterator<Integer> li = treelist.listIterator();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // this caused error in bug 35258
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals(false, li.hasNext());
+    }
+
     public void testBugCollections447_1_oe() {
         final List<String> treeList = new TreeList<>();
         treeList.add("A");
@@ -594,6 +1203,52 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
 
         final ListIterator<String> li = treeList.listIterator();
         assertEquals("A", li.next());
+    }
+
+    public void testBugCollections447_2_oe() {
+        final List<String> treeList = new TreeList<>();
+        treeList.add("A");
+        treeList.add("B");
+        treeList.add("C");
+        treeList.add("D");
+
+        final ListIterator<String> li = treeList.listIterator();
+        // removed other assertion
+        assertEquals("B", li.next());
+    }
+
+    public void testBugCollections447_3_oe() {
+        final List<String> treeList = new TreeList<>();
+        treeList.add("A");
+        treeList.add("B");
+        treeList.add("C");
+        treeList.add("D");
+
+        final ListIterator<String> li = treeList.listIterator();
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("B", li.previous());
+    }
+
+    public void testBugCollections447_4_oe() {
+        final List<String> treeList = new TreeList<>();
+        treeList.add("A");
+        treeList.add("B");
+        treeList.add("C");
+        treeList.add("D");
+
+        final ListIterator<String> li = treeList.listIterator();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        li.remove(); // Deletes "B"
+
+        // previous() after remove() should move to
+        // the element before the one just removed
+        assertEquals("A", li.previous());
     }
 
     public void testIterationOrder_1_oe() {
@@ -612,6 +1267,31 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
             while (it.hasNext()) {
                 final Integer val = it.next();
                 assertEquals(i++, val.intValue());
+    }
+    }
+    }
+
+    public void testIterationOrder_2_oe() {
+        // COLLECTIONS-433:
+        // ensure that the iteration order of elements is correct
+        // when initializing the TreeList with another collection
+
+        for (int size = 1; size < 1000; size++) {
+            final List<Integer> other = new ArrayList<>(size);
+            for (int i = 0; i < size; i++) {
+                other.add(i);
+            }
+            final TreeList<Integer> l = new TreeList<>(other);
+            final ListIterator<Integer> it = l.listIterator();
+            int i = 0;
+            while (it.hasNext()) {
+                final Integer val = it.next();
+                // removed other assertion
+            }
+
+            while (it.hasPrevious()) {
+                final Integer val = it.previous();
+                assertEquals(--i, val.intValue());
     }
     }
     }
@@ -642,6 +1322,41 @@ public class TreeListTest_OE25Dev<E> extends AbstractListTest<E> {
             while (it.hasNext()) {
                 final Integer val = it.next();
                 assertEquals(cnt++, val.intValue());
+    }
+    }
+    }
+
+    public void testIterationOrderAfterAddAll_2_oe() {
+        // COLLECTIONS-433:
+        // ensure that the iteration order of elements is correct
+        // when calling addAll on the TreeList
+
+        // to simulate different cases in addAll, do different runs where
+        // the number of elements already in the list and being added by addAll differ
+
+        final int size = 1000;
+        for (int i = 0; i < 100; i++) {
+            final List<Integer> other = new ArrayList<>(size);
+            for (int j = i; j < size; j++) {
+                other.add(j);
+            }
+            final TreeList<Integer> l = new TreeList<>();
+            for (int j = 0; j < i; j++) {
+                l.add(j);
+            }
+
+            l.addAll(other);
+
+            final ListIterator<Integer> it = l.listIterator();
+            int cnt = 0;
+            while (it.hasNext()) {
+                final Integer val = it.next();
+                // removed other assertion
+            }
+
+            while (it.hasPrevious()) {
+                final Integer val = it.previous();
+                assertEquals(--cnt, val.intValue());
     }
     }
     }

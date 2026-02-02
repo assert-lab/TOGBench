@@ -700,21 +700,6 @@ class SphericalCoordinatesTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final SphericalCoordinates a = SphericalCoordinates.of(1, 2, 3);
-        final SphericalCoordinates b = SphericalCoordinates.of(10, 2, 3);
-        final SphericalCoordinates c = SphericalCoordinates.of(1, 20, 3);
-        final SphericalCoordinates d = SphericalCoordinates.of(1, 2, 30);
-
-        final SphericalCoordinates e = SphericalCoordinates.of(1, 2, 3);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-        Assertions.assertEquals(a, e);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final SphericalCoordinates a = SphericalCoordinates.of(1, 2, 3);
@@ -725,10 +710,8 @@ class SphericalCoordinatesTest_OE25Dev {
         final SphericalCoordinates e = SphericalCoordinates.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
         // removed other assertion
-
-        Assertions.assertNotEquals(a, b);
+        Assertions.assertEquals(a, e);
     }
 
     @Test
@@ -742,11 +725,10 @@ class SphericalCoordinatesTest_OE25Dev {
         final SphericalCoordinates e = SphericalCoordinates.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        Assertions.assertNotEquals(a, c);
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -760,7 +742,25 @@ class SphericalCoordinatesTest_OE25Dev {
         final SphericalCoordinates e = SphericalCoordinates.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(a, c);
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final SphericalCoordinates a = SphericalCoordinates.of(1, 2, 3);
+        final SphericalCoordinates b = SphericalCoordinates.of(10, 2, 3);
+        final SphericalCoordinates c = SphericalCoordinates.of(1, 20, 3);
+        final SphericalCoordinates d = SphericalCoordinates.of(1, 2, 30);
+
+        final SphericalCoordinates e = SphericalCoordinates.of(1, 2, 3);
+
+        // act/assert
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion

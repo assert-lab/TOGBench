@@ -309,7 +309,7 @@ class SimpleTriangle3DTest_OE25Dev {
     }
 
     @Test
-    void testProperties_11_oe() {
+    void testProperties_14_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(2, 2, 1);
@@ -333,9 +333,9 @@ class SimpleTriangle3DTest_OE25Dev {
 
         final List<Vector2D> subspaceVertices = tri.getEmbedded().getSubspaceRegion().getVertices();
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), subspaceVertices.get(0), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2, 2), subspaceVertices.get(1), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2, 3), subspaceVertices.get(2), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(0.5, tri.getSize(), TEST_EPS);
     }
@@ -426,24 +426,6 @@ class SimpleTriangle3DTest_OE25Dev {
     }
 
     @Test
-    void testReverse_1_oe() {
-        // arrange
-        final Vector3D p1 = Vector3D.of(1, 2, 1);
-        final Vector3D p2 = Vector3D.of(3, 2, 1);
-        final Vector3D p3 = Vector3D.of(2, 3, 1);
-
-        final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
-
-        // act
-        final SimpleTriangle3D result = tri.reverse();
-
-        // assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_Z, result.getPlane().getNormal(), TEST_EPS);
-
-        Assertions.assertSame(p1, result.getPoint1());
-    }
-
-    @Test
     void testReverse_2_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
@@ -456,10 +438,9 @@ class SimpleTriangle3DTest_OE25Dev {
         final SimpleTriangle3D result = tri.reverse();
 
         // assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_Z, result.getPlane().getNormal(), TEST_EPS);
-
         // removed other assertion
-        Assertions.assertSame(p3, result.getPoint2());
+
+        Assertions.assertSame(p1, result.getPoint1());
     }
 
     @Test
@@ -475,11 +456,10 @@ class SimpleTriangle3DTest_OE25Dev {
         final SimpleTriangle3D result = tri.reverse();
 
         // assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_Z, result.getPlane().getNormal(), TEST_EPS);
+        // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertSame(p2, result.getPoint3());
+        Assertions.assertSame(p3, result.getPoint2());
     }
 
     @Test
@@ -495,7 +475,27 @@ class SimpleTriangle3DTest_OE25Dev {
         final SimpleTriangle3D result = tri.reverse();
 
         // assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_Z, result.getPlane().getNormal(), TEST_EPS);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertSame(p2, result.getPoint3());
+    }
+
+    @Test
+    void testReverse_6_oe() {
+        // arrange
+        final Vector3D p1 = Vector3D.of(1, 2, 1);
+        final Vector3D p2 = Vector3D.of(3, 2, 1);
+        final Vector3D p3 = Vector3D.of(2, 3, 1);
+
+        final SimpleTriangle3D tri = new SimpleTriangle3D(XY_PLANE_Z1, p1, p2, p3);
+
+        // act
+        final SimpleTriangle3D result = tri.reverse();
+
+        // assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -503,13 +503,13 @@ class SimpleTriangle3DTest_OE25Dev {
 
         final Vector3D v1 = result.getPoint1().vectorTo(result.getPoint2());
         final Vector3D v2 = result.getPoint1().vectorTo(result.getPoint3());
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_Z, v1.cross(v2).normalize(), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertEquals(1, result.getSize(), TEST_EPS);
     }
 
     @Test
-    void testTransform_1_oe() {
+    void testTransform_6_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 2, 1);
         final Vector3D p2 = Vector3D.of(3, 2, 1);
@@ -526,15 +526,15 @@ class SimpleTriangle3DTest_OE25Dev {
         final SimpleTriangle3D result = tri.transform(t);
 
         // assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_X, result.getPlane().getNormal(), TEST_EPS);
+        // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 2, 2), result.getPoint1(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 2, 6), result.getPoint2(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 3, 4), result.getPoint3(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final Vector3D v1 = result.getPoint1().vectorTo(result.getPoint2());
         final Vector3D v2 = result.getPoint1().vectorTo(result.getPoint3());
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_X, v1.cross(v2).normalize(), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertEquals(2, result.getSize(), TEST_EPS);
     }

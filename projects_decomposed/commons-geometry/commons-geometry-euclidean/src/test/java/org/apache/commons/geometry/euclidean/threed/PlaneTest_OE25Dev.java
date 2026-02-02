@@ -1904,7 +1904,7 @@ class PlaneTest_OE25Dev {
     }
 
     @Test
-    void testIntersection_withPlane_3_oe() {
+    void testIntersection_withPlane_4_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1.2, 3.4, -5.8);
         final Vector3D p2 = Vector3D.of(3.4, -5.8, 1.2);
@@ -1917,8 +1917,7 @@ class PlaneTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(planeA.getNormal().cross(planeB.getNormal()).normalize(),
-                line.getDirection(), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertNull(planeA.intersection(planeA));
     }
@@ -2036,40 +2035,6 @@ class PlaneTest_OE25Dev {
     }
 
     @Test
-    void testSpan_2_oe() {
-        // arrange
-        final Plane plane = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
-
-        // act
-        final PlaneConvexSubset sub = plane.span();
-
-        // assert
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(plane.getOrigin(), sub.getPlane().getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(plane.getNormal(), sub.getPlane().getNormal(), TEST_EPS);
-
-        Assertions.assertTrue(sub.isFull());
-    }
-
-    @Test
-    void testSpan_3_oe() {
-        // arrange
-        final Plane plane = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
-
-        // act
-        final PlaneConvexSubset sub = plane.span();
-
-        // assert
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(plane.getOrigin(), sub.getPlane().getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(plane.getNormal(), sub.getPlane().getNormal(), TEST_EPS);
-
-        // removed other assertion
-
-        Assertions.assertTrue(sub.contains(Vector3D.ZERO));
-    }
-
-    @Test
     void testSpan_4_oe() {
         // arrange
         final Plane plane = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
@@ -2079,13 +2044,10 @@ class PlaneTest_OE25Dev {
 
         // assert
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(plane.getOrigin(), sub.getPlane().getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(plane.getNormal(), sub.getPlane().getNormal(), TEST_EPS);
-
+        // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        Assertions.assertTrue(sub.contains(Vector3D.of(1, 1, 0)));
+        Assertions.assertTrue(sub.isFull());
     }
 
     @Test
@@ -2098,8 +2060,45 @@ class PlaneTest_OE25Dev {
 
         // assert
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(plane.getOrigin(), sub.getPlane().getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(plane.getNormal(), sub.getPlane().getNormal(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertTrue(sub.contains(Vector3D.ZERO));
+    }
+
+    @Test
+    void testSpan_6_oe() {
+        // arrange
+        final Plane plane = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final PlaneConvexSubset sub = plane.span();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertTrue(sub.contains(Vector3D.of(1, 1, 0)));
+    }
+
+    @Test
+    void testSpan_7_oe() {
+        // arrange
+        final Plane plane = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act
+        final PlaneConvexSubset sub = plane.span();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
 
@@ -2470,24 +2469,6 @@ class PlaneTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Vector3D pt = Vector3D.of(1, 2, 3);
-        final Vector3D normal = Vector3D.Unit.PLUS_X;
-
-        final Plane a = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
-        final Plane b = Planes.fromPointAndNormal(Vector3D.of(2, 2, 3), normal, TEST_PRECISION);
-        final Plane c = Planes.fromPointAndNormal(pt, Vector3D.Unit.MINUS_X, TEST_PRECISION);
-        final Plane d = Planes.fromPointAndNormal(pt, normal, Precision.doubleEquivalenceOfEpsilon(1e-8));
-        final Plane e = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, b);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -2500,10 +2481,9 @@ class PlaneTest_OE25Dev {
         final Plane e = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
         // removed other assertion
-        Assertions.assertNotEquals(a, c);
+
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -2519,11 +2499,10 @@ class PlaneTest_OE25Dev {
         final Plane e = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(a, d);
+        Assertions.assertNotEquals(a, c);
     }
 
     @Test
@@ -2539,13 +2518,11 @@ class PlaneTest_OE25Dev {
         final Plane e = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(a, e);
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(a, d);
     }
 
     @Test
@@ -2561,7 +2538,29 @@ class PlaneTest_OE25Dev {
         final Plane e = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(a, e);
+    }
+
+    @Test
+    void testEquals_6_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        final Vector3D normal = Vector3D.Unit.PLUS_X;
+
+        final Plane a = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
+        final Plane b = Planes.fromPointAndNormal(Vector3D.of(2, 2, 3), normal, TEST_PRECISION);
+        final Plane c = Planes.fromPointAndNormal(pt, Vector3D.Unit.MINUS_X, TEST_PRECISION);
+        final Plane d = Planes.fromPointAndNormal(pt, normal, Precision.doubleEquivalenceOfEpsilon(1e-8));
+        final Plane e = Planes.fromPointAndNormal(pt, normal, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

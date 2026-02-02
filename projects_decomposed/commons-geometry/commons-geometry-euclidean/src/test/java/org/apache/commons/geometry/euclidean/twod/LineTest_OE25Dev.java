@@ -1073,23 +1073,6 @@ class LineTest_OE25Dev {
     }
 
     @Test
-    void testLineTo_pointOnLine_4_oe() {
-        // arrange
-        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
-
-        // act
-        final ReverseRay halfLine = line.reverseRayTo(Vector2D.of(-3, 1));
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-3, 1), halfLine.getEndPoint(), TEST_EPS);
-
-        Assertions.assertTrue(halfLine.contains(Vector2D.of(1, 1)));
-    }
-
-    @Test
     void testLineTo_pointOnLine_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1101,7 +1084,24 @@ class LineTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-3, 1), halfLine.getEndPoint(), TEST_EPS);
+        // removed other assertion
+
+        Assertions.assertTrue(halfLine.contains(Vector2D.of(1, 1)));
+    }
+
+    @Test
+    void testLineTo_pointOnLine_6_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
+
+        // act
+        final ReverseRay halfLine = line.reverseRayTo(Vector2D.of(-3, 1));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertFalse(halfLine.contains(Vector2D.of(-4, 1)));
@@ -1147,23 +1147,6 @@ class LineTest_OE25Dev {
     }
 
     @Test
-    void testLineTo_pointProjectedOnLine_4_oe() {
-        // arrange
-        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
-
-        // act
-        final ReverseRay halfLine = line.reverseRayTo(Vector2D.of(-3, 5));
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-3, 1), halfLine.getEndPoint(), TEST_EPS);
-
-        Assertions.assertTrue(halfLine.contains(Vector2D.of(1, 1)));
-    }
-
-    @Test
     void testLineTo_pointProjectedOnLine_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1175,7 +1158,24 @@ class LineTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-3, 1), halfLine.getEndPoint(), TEST_EPS);
+        // removed other assertion
+
+        Assertions.assertTrue(halfLine.contains(Vector2D.of(1, 1)));
+    }
+
+    @Test
+    void testLineTo_pointProjectedOnLine_6_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
+
+        // act
+        final ReverseRay halfLine = line.reverseRayTo(Vector2D.of(-3, 5));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertFalse(halfLine.contains(Vector2D.of(-4, 1)));
@@ -1221,23 +1221,6 @@ class LineTest_OE25Dev {
     }
 
     @Test
-    void testLineTo_double_4_oe() {
-        // arrange
-        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
-
-        // act
-        final ReverseRay halfLine = line.reverseRayTo(-1);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 1), halfLine.getEndPoint(), TEST_EPS);
-
-        Assertions.assertTrue(halfLine.contains(Vector2D.of(2, 1)));
-    }
-
-    @Test
     void testLineTo_double_5_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1249,7 +1232,24 @@ class LineTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 1), halfLine.getEndPoint(), TEST_EPS);
+        // removed other assertion
+
+        Assertions.assertTrue(halfLine.contains(Vector2D.of(2, 1)));
+    }
+
+    @Test
+    void testLineTo_double_6_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
+
+        // act
+        final ReverseRay halfLine = line.reverseRayTo(-1);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertFalse(halfLine.contains(Vector2D.of(-4, 1)));
@@ -1281,21 +1281,6 @@ class LineTest_OE25Dev {
     }
 
     @Test
-    void testRayFrom_pointOnLine_3_oe() {
-        // arrange
-        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
-
-        // act
-        final Ray ray = line.rayFrom(Vector2D.of(-3, 1));
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-3, 1), ray.getStartPoint(), TEST_EPS);
-        Assertions.assertNull(ray.getEndPoint());
-    }
-
-    @Test
     void testRayFrom_pointOnLine_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1306,10 +1291,8 @@ class LineTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-3, 1), ray.getStartPoint(), TEST_EPS);
         // removed other assertion
-
-        Assertions.assertFalse(ray.contains(Vector2D.of(1, 1)));
+        Assertions.assertNull(ray.getEndPoint());
     }
 
     @Test
@@ -1323,7 +1306,24 @@ class LineTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-3, 1), ray.getStartPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(ray.contains(Vector2D.of(1, 1)));
+    }
+
+    @Test
+    void testRayFrom_pointOnLine_6_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
+
+        // act
+        final Ray ray = line.rayFrom(Vector2D.of(-3, 1));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -1356,21 +1356,6 @@ class LineTest_OE25Dev {
     }
 
     @Test
-    void testRayFrom_pointProjectedOnLine_3_oe() {
-        // arrange
-        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
-
-        // act
-        final Ray ray = line.rayFrom(Vector2D.of(-3, 5));
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-3, 1), ray.getStartPoint(), TEST_EPS);
-        Assertions.assertNull(ray.getEndPoint());
-    }
-
-    @Test
     void testRayFrom_pointProjectedOnLine_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1381,10 +1366,8 @@ class LineTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-3, 1), ray.getStartPoint(), TEST_EPS);
         // removed other assertion
-
-        Assertions.assertFalse(ray.contains(Vector2D.of(1, 1)));
+        Assertions.assertNull(ray.getEndPoint());
     }
 
     @Test
@@ -1398,7 +1381,24 @@ class LineTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-3, 1), ray.getStartPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(ray.contains(Vector2D.of(1, 1)));
+    }
+
+    @Test
+    void testRayFrom_pointProjectedOnLine_6_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
+
+        // act
+        final Ray ray = line.rayFrom(Vector2D.of(-3, 5));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -1431,21 +1431,6 @@ class LineTest_OE25Dev {
     }
 
     @Test
-    void testRayFrom_double_3_oe() {
-        // arrange
-        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
-
-        // act
-        final Ray ray = line.rayFrom(-1);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 1), ray.getStartPoint(), TEST_EPS);
-        Assertions.assertNull(ray.getEndPoint());
-    }
-
-    @Test
     void testRayFrom_double_4_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
@@ -1456,10 +1441,8 @@ class LineTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 1), ray.getStartPoint(), TEST_EPS);
         // removed other assertion
-
-        Assertions.assertFalse(ray.contains(Vector2D.of(2, 1)));
+        Assertions.assertNull(ray.getEndPoint());
     }
 
     @Test
@@ -1473,7 +1456,24 @@ class LineTest_OE25Dev {
         // assert
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 1), ray.getStartPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertFalse(ray.contains(Vector2D.of(2, 1)));
+    }
+
+    @Test
+    void testRayFrom_double_6_oe() {
+        // arrange
+        final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION);
+
+        // act
+        final Ray ray = line.rayFrom(-1);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -3741,26 +3741,6 @@ class LineTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-     // arrange
-        final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
-        final Precision.DoubleEquivalence precision2 = Precision.doubleEquivalenceOfEpsilon(1e-5);
-
-        final Vector2D p = Vector2D.of(1, 2);
-        final Vector2D v = Vector2D.of(1, 1);
-
-        final Line a = Lines.fromPointAndDirection(p, v, precision1);
-        final Line b = Lines.fromPointAndDirection(Vector2D.ZERO, v, precision1);
-        final Line c = Lines.fromPointAndDirection(p, v.negate(), precision1);
-        final Line d = Lines.fromPointAndDirection(p, v, precision2);
-        final Line e = Lines.fromPointAndDirection(p, v, precision1);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-        Assertions.assertEquals(a, e);
-    }
-
-    @Test
     void testEquals_2_oe() {
      // arrange
         final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
@@ -3776,9 +3756,8 @@ class LineTest_OE25Dev {
         final Line e = Lines.fromPointAndDirection(p, v, precision1);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
         // removed other assertion
-        Assertions.assertEquals(e, a);
+        Assertions.assertEquals(a, e);
     }
 
     @Test
@@ -3797,11 +3776,9 @@ class LineTest_OE25Dev {
         final Line e = Lines.fromPointAndDirection(p, v, precision1);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
         // removed other assertion
         // removed other assertion
-
-        Assertions.assertNotEquals(a, b);
+        Assertions.assertEquals(e, a);
     }
 
     @Test
@@ -3820,12 +3797,11 @@ class LineTest_OE25Dev {
         final Line e = Lines.fromPointAndDirection(p, v, precision1);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
         // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        Assertions.assertNotEquals(a, c);
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -3844,7 +3820,31 @@ class LineTest_OE25Dev {
         final Line e = Lines.fromPointAndDirection(p, v, precision1);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(a, c);
+    }
+
+    @Test
+    void testEquals_6_oe() {
+     // arrange
+        final Precision.DoubleEquivalence precision1 = Precision.doubleEquivalenceOfEpsilon(1e-4);
+        final Precision.DoubleEquivalence precision2 = Precision.doubleEquivalenceOfEpsilon(1e-5);
+
+        final Vector2D p = Vector2D.of(1, 2);
+        final Vector2D v = Vector2D.of(1, 1);
+
+        final Line a = Lines.fromPointAndDirection(p, v, precision1);
+        final Line b = Lines.fromPointAndDirection(Vector2D.ZERO, v, precision1);
+        final Line c = Lines.fromPointAndDirection(p, v.negate(), precision1);
+        final Line d = Lines.fromPointAndDirection(p, v, precision2);
+        final Line e = Lines.fromPointAndDirection(p, v, precision1);
+
+        // act/assert
+        // removed other assertion
         // removed other assertion
         // removed other assertion
 

@@ -6992,99 +6992,6 @@ class CommonsLangPortedFractionTest_OE25Dev {
     }
 
     @Test
-    void testAdd_27_oe() {
-        Fraction f = null;
-        Fraction f1 = null;
-        Fraction f2 = null;
-
-        f1 = Fraction.of(3, 5);
-        f2 = Fraction.of(1, 5);
-        f = f1.add(f2);
-        // removed other assertion
-        // removed other assertion
-
-        f1 = Fraction.of(3, 5);
-        f2 = Fraction.of(2, 5);
-        f = f1.add(f2);
-        // removed other assertion
-        // removed other assertion
-
-        f1 = Fraction.of(3, 5);
-        f2 = Fraction.of(3, 5);
-        f = f1.add(f2);
-        // removed other assertion
-        // removed other assertion
-
-        f1 = Fraction.of(3, 5);
-        f2 = Fraction.of(-4, 5);
-        f = f1.add(f2);
-        // removed other assertion
-        // removed other assertion
-
-        f1 = Fraction.of(Integer.MAX_VALUE - 1, 1);
-        f2 = Fraction.ONE;
-        f = f1.add(f2);
-        // removed other assertion
-        // removed other assertion
-
-        f1 = Fraction.of(3, 5);
-        f2 = Fraction.of(1, 2);
-        f = f1.add(f2);
-        // removed other assertion
-        // removed other assertion
-
-        f1 = Fraction.of(3, 8);
-        f2 = Fraction.of(1, 6);
-        f = f1.add(f2);
-        // removed other assertion
-        // removed other assertion
-
-        f1 = Fraction.of(0, 5);
-        f2 = Fraction.of(1, 5);
-        f = f1.add(f2);
-        // removed other assertion
-        f = f2.add(f1);
-        // removed other assertion
-
-        f1 = Fraction.of(-1, 13 * 13 * 2 * 2);
-        f2 = Fraction.of(-2, 13 * 17 * 2);
-        final Fraction fr = f1.add(f2);
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-
-        // if this fraction is added naively, it will overflow.
-        // check that it doesn't.
-        f1 = Fraction.of(1, 32768 * 3);
-        f2 = Fraction.of(1, 59049);
-        f = f1.add(f2);
-        // removed other assertion
-        // removed other assertion
-
-        f1 = Fraction.of(Integer.MIN_VALUE, 3);
-        f2 = Fraction.of(1, 3);
-        f = f1.add(f2);
-        // removed other assertion
-        // removed other assertion
-
-        f1 = Fraction.of(Integer.MAX_VALUE - 1, 1);
-        f2 = Fraction.ONE;
-        f = f1.add(f2);
-        // removed other assertion
-        // removed other assertion
-
-        final Fraction overflower = f;
-        // removed other assertion
-
-        // denominator should not be a multiple of 2 or 3 to trigger overflow
-        assertOperationThrows(ArithmeticException.class, Fraction.of(Integer.MIN_VALUE, 5), Fraction.of(-1, 5), Fraction::add);
-
-        final Fraction maxValue = Fraction.of(-Integer.MAX_VALUE, 1);
-        assertThrows(ArithmeticException.class, () -> maxValue.add(maxValue));
-    }
-
-    @Test
     void testAdd_28_oe() {
         Fraction f = null;
         Fraction f1 = null;
@@ -7171,13 +7078,10 @@ class CommonsLangPortedFractionTest_OE25Dev {
         // removed other assertion
 
         // denominator should not be a multiple of 2 or 3 to trigger overflow
-        assertOperationThrows(ArithmeticException.class, Fraction.of(Integer.MIN_VALUE, 5), Fraction.of(-1, 5), Fraction::add);
-
-        final Fraction maxValue = Fraction.of(-Integer.MAX_VALUE, 1);
         // removed other assertion
 
-        final Fraction negativeMaxValue = Fraction.of(-Integer.MAX_VALUE, 1);
-        assertThrows(ArithmeticException.class, () -> negativeMaxValue.add(negativeMaxValue));
+        final Fraction maxValue = Fraction.of(-Integer.MAX_VALUE, 1);
+        assertThrows(ArithmeticException.class, () -> maxValue.add(maxValue));
     }
 
     @Test
@@ -7267,7 +7171,103 @@ class CommonsLangPortedFractionTest_OE25Dev {
         // removed other assertion
 
         // denominator should not be a multiple of 2 or 3 to trigger overflow
-        assertOperationThrows(ArithmeticException.class, Fraction.of(Integer.MIN_VALUE, 5), Fraction.of(-1, 5), Fraction::add);
+        // removed other assertion
+
+        final Fraction maxValue = Fraction.of(-Integer.MAX_VALUE, 1);
+        // removed other assertion
+
+        final Fraction negativeMaxValue = Fraction.of(-Integer.MAX_VALUE, 1);
+        assertThrows(ArithmeticException.class, () -> negativeMaxValue.add(negativeMaxValue));
+    }
+
+    @Test
+    void testAdd_30_oe() {
+        Fraction f = null;
+        Fraction f1 = null;
+        Fraction f2 = null;
+
+        f1 = Fraction.of(3, 5);
+        f2 = Fraction.of(1, 5);
+        f = f1.add(f2);
+        // removed other assertion
+        // removed other assertion
+
+        f1 = Fraction.of(3, 5);
+        f2 = Fraction.of(2, 5);
+        f = f1.add(f2);
+        // removed other assertion
+        // removed other assertion
+
+        f1 = Fraction.of(3, 5);
+        f2 = Fraction.of(3, 5);
+        f = f1.add(f2);
+        // removed other assertion
+        // removed other assertion
+
+        f1 = Fraction.of(3, 5);
+        f2 = Fraction.of(-4, 5);
+        f = f1.add(f2);
+        // removed other assertion
+        // removed other assertion
+
+        f1 = Fraction.of(Integer.MAX_VALUE - 1, 1);
+        f2 = Fraction.ONE;
+        f = f1.add(f2);
+        // removed other assertion
+        // removed other assertion
+
+        f1 = Fraction.of(3, 5);
+        f2 = Fraction.of(1, 2);
+        f = f1.add(f2);
+        // removed other assertion
+        // removed other assertion
+
+        f1 = Fraction.of(3, 8);
+        f2 = Fraction.of(1, 6);
+        f = f1.add(f2);
+        // removed other assertion
+        // removed other assertion
+
+        f1 = Fraction.of(0, 5);
+        f2 = Fraction.of(1, 5);
+        f = f1.add(f2);
+        // removed other assertion
+        f = f2.add(f1);
+        // removed other assertion
+
+        f1 = Fraction.of(-1, 13 * 13 * 2 * 2);
+        f2 = Fraction.of(-2, 13 * 17 * 2);
+        final Fraction fr = f1.add(f2);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // if this fraction is added naively, it will overflow.
+        // check that it doesn't.
+        f1 = Fraction.of(1, 32768 * 3);
+        f2 = Fraction.of(1, 59049);
+        f = f1.add(f2);
+        // removed other assertion
+        // removed other assertion
+
+        f1 = Fraction.of(Integer.MIN_VALUE, 3);
+        f2 = Fraction.of(1, 3);
+        f = f1.add(f2);
+        // removed other assertion
+        // removed other assertion
+
+        f1 = Fraction.of(Integer.MAX_VALUE - 1, 1);
+        f2 = Fraction.ONE;
+        f = f1.add(f2);
+        // removed other assertion
+        // removed other assertion
+
+        final Fraction overflower = f;
+        // removed other assertion
+
+        // denominator should not be a multiple of 2 or 3 to trigger overflow
+        // removed other assertion
 
         final Fraction maxValue = Fraction.of(-Integer.MAX_VALUE, 1);
         // removed other assertion
@@ -8902,26 +8902,6 @@ class CommonsLangPortedFractionTest_OE25Dev {
     }
 
     @Test
-    void testDivide_3_oe() {
-        Fraction f = null;
-        Fraction f1 = null;
-        Fraction f2 = null;
-
-        f1 = Fraction.of(3, 5);
-        f2 = Fraction.of(2, 5);
-        f = f1.divide(f2);
-        // removed other assertion
-        // removed other assertion
-
-        assertOperationThrows(ArithmeticException.class, Fraction.of(3, 5), Fraction.ZERO, Fraction::divide);
-
-        f1 = Fraction.of(0, 5);
-        f2 = Fraction.of(2, 7);
-        f = f1.divide(f2);
-        assertSame(Fraction.ZERO, f);
-    }
-
-    @Test
     void testDivide_4_oe() {
         Fraction f = null;
         Fraction f1 = null;
@@ -8933,17 +8913,12 @@ class CommonsLangPortedFractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertOperationThrows(ArithmeticException.class, Fraction.of(3, 5), Fraction.ZERO, Fraction::divide);
+        // removed other assertion
 
         f1 = Fraction.of(0, 5);
         f2 = Fraction.of(2, 7);
         f = f1.divide(f2);
-        // removed other assertion
-
-        f1 = Fraction.of(2, 7);
-        f2 = Fraction.ONE;
-        f = f1.divide(f2);
-        assertEquals(2, f.getNumerator());
+        assertSame(Fraction.ZERO, f);
     }
 
     @Test
@@ -8958,7 +8933,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertOperationThrows(ArithmeticException.class, Fraction.of(3, 5), Fraction.ZERO, Fraction::divide);
+        // removed other assertion
 
         f1 = Fraction.of(0, 5);
         f2 = Fraction.of(2, 7);
@@ -8968,8 +8943,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
         f1 = Fraction.of(2, 7);
         f2 = Fraction.ONE;
         f = f1.divide(f2);
-        // removed other assertion
-        assertEquals(7, f.getDenominator());
+        assertEquals(2, f.getNumerator());
     }
 
     @Test
@@ -8984,7 +8958,33 @@ class CommonsLangPortedFractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertOperationThrows(ArithmeticException.class, Fraction.of(3, 5), Fraction.ZERO, Fraction::divide);
+        // removed other assertion
+
+        f1 = Fraction.of(0, 5);
+        f2 = Fraction.of(2, 7);
+        f = f1.divide(f2);
+        // removed other assertion
+
+        f1 = Fraction.of(2, 7);
+        f2 = Fraction.ONE;
+        f = f1.divide(f2);
+        // removed other assertion
+        assertEquals(7, f.getDenominator());
+    }
+
+    @Test
+    void testDivide_7_oe() {
+        Fraction f = null;
+        Fraction f1 = null;
+        Fraction f2 = null;
+
+        f1 = Fraction.of(3, 5);
+        f2 = Fraction.of(2, 5);
+        f = f1.divide(f2);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
 
         f1 = Fraction.of(0, 5);
         f2 = Fraction.of(2, 7);
@@ -9003,7 +9003,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
     }
 
     @Test
-    void testDivide_7_oe() {
+    void testDivide_8_oe() {
         Fraction f = null;
         Fraction f1 = null;
         Fraction f2 = null;
@@ -9014,7 +9014,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertOperationThrows(ArithmeticException.class, Fraction.of(3, 5), Fraction.ZERO, Fraction::divide);
+        // removed other assertion
 
         f1 = Fraction.of(0, 5);
         f2 = Fraction.of(2, 7);
@@ -9034,7 +9034,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
     }
 
     @Test
-    void testDivide_8_oe() {
+    void testDivide_9_oe() {
         Fraction f = null;
         Fraction f1 = null;
         Fraction f2 = null;
@@ -9045,7 +9045,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertOperationThrows(ArithmeticException.class, Fraction.of(3, 5), Fraction.ZERO, Fraction::divide);
+        // removed other assertion
 
         f1 = Fraction.of(0, 5);
         f2 = Fraction.of(2, 7);
@@ -9070,7 +9070,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
     }
 
     @Test
-    void testDivide_9_oe() {
+    void testDivide_10_oe() {
         Fraction f = null;
         Fraction f1 = null;
         Fraction f2 = null;
@@ -9081,7 +9081,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertOperationThrows(ArithmeticException.class, Fraction.of(3, 5), Fraction.ZERO, Fraction::divide);
+        // removed other assertion
 
         f1 = Fraction.of(0, 5);
         f2 = Fraction.of(2, 7);
@@ -9107,7 +9107,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
     }
 
     @Test
-    void testDivide_10_oe() {
+    void testDivide_11_oe() {
         Fraction f = null;
         Fraction f1 = null;
         Fraction f2 = null;
@@ -9118,7 +9118,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertOperationThrows(ArithmeticException.class, Fraction.of(3, 5), Fraction.ZERO, Fraction::divide);
+        // removed other assertion
 
         f1 = Fraction.of(0, 5);
         f2 = Fraction.of(2, 7);
@@ -9146,7 +9146,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
     }
 
     @Test
-    void testDivide_11_oe() {
+    void testDivide_12_oe() {
         Fraction f = null;
         Fraction f1 = null;
         Fraction f2 = null;
@@ -9157,7 +9157,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertOperationThrows(ArithmeticException.class, Fraction.of(3, 5), Fraction.ZERO, Fraction::divide);
+        // removed other assertion
 
         f1 = Fraction.of(0, 5);
         f2 = Fraction.of(2, 7);
@@ -9189,7 +9189,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
     }
 
     @Test
-    void testDivide_12_oe() {
+    void testDivide_13_oe() {
         Fraction f = null;
         Fraction f1 = null;
         Fraction f2 = null;
@@ -9200,7 +9200,7 @@ class CommonsLangPortedFractionTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertOperationThrows(ArithmeticException.class, Fraction.of(3, 5), Fraction.ZERO, Fraction::divide);
+        // removed other assertion
 
         f1 = Fraction.of(0, 5);
         f2 = Fraction.of(2, 7);

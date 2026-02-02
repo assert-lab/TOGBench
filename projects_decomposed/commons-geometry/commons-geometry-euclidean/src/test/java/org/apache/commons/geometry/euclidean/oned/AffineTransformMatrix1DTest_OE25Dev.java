@@ -948,23 +948,23 @@ class AffineTransformMatrix1DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(1, 2);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, AffineTransformMatrix1D.of(0, 2));
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(1, 2);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        Assertions.assertNotEquals(a, AffineTransformMatrix1D.of(0, 2));
+    }
+
+    @Test
+    void testEquals_3_oe() {
+        // arrange
+        final AffineTransformMatrix1D a = AffineTransformMatrix1D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertNotEquals(a, AffineTransformMatrix1D.of(1, 0));

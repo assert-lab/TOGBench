@@ -50,7 +50,7 @@ vfs_16_1,"    @Test
     }
     }
 ",ProviderReadTests::testFolderContent_1_oe
-vfs_31_3,"    @Test
+vfs_34_3,"    @Test
     public void testChildren_3_oe() throws FileSystemException {
         // Check for file
         FileObject file = getReadFolder().resolveFile(""file1.txt"");
@@ -62,8 +62,8 @@ vfs_31_3,"    @Test
     }
     }
 ",ContentTests::testChildren_3_oe
-vfs_31_6,"    @Test
-    public void testChildren_6_oe() throws FileSystemException {
+vfs_34_7,"    @Test
+    public void testChildren_7_oe() throws FileSystemException {
         // Check for file
         FileObject file = getReadFolder().resolveFile(""file1.txt"");
         // removed other assertion
@@ -72,7 +72,7 @@ vfs_31_6,"    @Test
             file.getChildren();
             // removed other assertion
         } catch (final FileSystemException e) {
-            assertSameMessage(""vfs.provider/list-children-not-folder.error"", file, e);
+            // removed other assertion
         }
 
         // Should be able to get child by name
@@ -87,8 +87,8 @@ vfs_31_6,"    @Test
             fail();
     }
     }
-",ContentTests::testChildren_6_oe
-vfs_43_1,"    @Test
+",ContentTests::testChildren_7_oe
+vfs_47_1,"    @Test
     public void testUnknownContent_1_oe() throws Exception {
 
         // Try getting the content of an unknown file
@@ -100,8 +100,8 @@ vfs_43_1,"    @Test
     }
     }
 ",ContentTests::testUnknownContent_1_oe
-vfs_43_2,"    @Test
-    public void testUnknownContent_2_oe() throws Exception {
+vfs_47_3,"    @Test
+    public void testUnknownContent_3_oe() throws Exception {
 
         // Try getting the content of an unknown file
         final FileObject unknownFile = getReadFolder().resolveFile(""unknown-file"");
@@ -110,15 +110,15 @@ vfs_43_2,"    @Test
             content.getInputStream();
             // removed other assertion
         } catch (final FileSystemException e) {
-            assertSameMessage(""vfs.provider/read-not-file.error"", unknownFile, e);
+            // removed other assertion
         }
         try {
             content.getSize();
             fail();
     }
     }
-",ContentTests::testUnknownContent_2_oe
-vfs_51_6,"    @Test
+",ContentTests::testUnknownContent_3_oe
+vfs_57_6,"    @Test
     public void testRelativeUriEncoding_6_oe() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
@@ -157,7 +157,7 @@ vfs_51_6,"    @Test
     }
     }
 ",NamingTests::testRelativeUriEncoding_6_oe
-vfs_51_7,"    @Test
+vfs_57_7,"    @Test
     public void testRelativeUriEncoding_7_oe() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
@@ -203,7 +203,7 @@ vfs_51_7,"    @Test
     }
     }
 ",NamingTests::testRelativeUriEncoding_7_oe
-vfs_51_8,"    @Test
+vfs_57_8,"    @Test
     public void testRelativeUriEncoding_8_oe() throws Exception {
         // Build base dir
         getManager().setBaseFile(getReadFolder());
@@ -256,7 +256,7 @@ vfs_51_8,"    @Test
     }
     }
 ",NamingTests::testRelativeUriEncoding_8_oe
-vfs_63_5,"    @Test
+vfs_69_5,"    @Test
     public void testFileCreateMismatched_5_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -278,7 +278,7 @@ vfs_63_5,"    @Test
     }
     }
 ",ProviderWriteTests::testFileCreateMismatched_5_oe
-vfs_63_6,"    @Test
+vfs_69_6,"    @Test
     public void testFileCreateMismatched_6_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -307,7 +307,7 @@ vfs_63_6,"    @Test
     }
     }
 ",ProviderWriteTests::testFileCreateMismatched_6_oe
-vfs_63_7,"    @Test
+vfs_69_7,"    @Test
     public void testFileCreateMismatched_7_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
 
@@ -344,7 +344,7 @@ vfs_63_7,"    @Test
     }
     }
 ",ProviderWriteTests::testFileCreateMismatched_7_oe
-vfs_73_2,"    @Test
+vfs_79_2,"    @Test
     public void testUnknownURL_2_oe() throws Exception {
         // Try getting the content of an unknown file
         final FileObject unknownFile = getReadFolder().resolveFile(""unknown-file"");
@@ -357,7 +357,7 @@ vfs_73_2,"    @Test
     }
     }
 ",UrlTests::testUnknownURL_2_oe
-vfs_109_2,"    @Test
+vfs_120_2,"    @Test
     public void testNotFoundOperation_2_oe() throws FileSystemException {
         final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
         manager.addOperationProvider(""file"", myop);
@@ -372,7 +372,7 @@ vfs_109_2,"    @Test
     }
     }
 ",BasicOperationsTestCase::testNotFoundOperation_2_oe
-vfs_132_2,"    @Test
+vfs_143_2,"    @Test
     public void testRootFolderExists_2_oe() throws FileSystemException {
         final FileObject root = manager.resolveFile(""ram:///"", defaultRamFso);
         // removed other assertion
@@ -383,7 +383,7 @@ vfs_132_2,"    @Test
     }
     }
 ",CustomRamProviderTest::testRootFolderExists_2_oe
-vfs_134_2,"    @Test
+vfs_145_2,"    @Test
     public void testSmallFS_2_oe() throws Exception {
         // Small FS
         final FileObject fo3 = manager.resolveFile(""ram:/fo3"", smallSizedFso);
@@ -404,7 +404,7 @@ vfs_134_2,"    @Test
     }
     }
 ",CustomRamProviderTest::testSmallFS_2_oe
-vfs_158_3,"    @Test
+vfs_169_3,"    @Test
     @Ignore
     public void testFileNameWithCharacters_3_oe() throws URISyntaxException, IOException {
         final File file = new File(""target"", ""+# %&.txt"");
@@ -417,7 +417,7 @@ vfs_158_3,"    @Test
     }
     }
 ",ConversionTestCase::testFileNameWithCharacters_3_oe
-vfs_158_4,"    @Test
+vfs_169_4,"    @Test
     @Ignore
     public void testFileNameWithCharacters_4_oe() throws URISyntaxException, IOException {
         final File file = new File(""target"", ""+# %&.txt"");
@@ -434,7 +434,7 @@ vfs_158_4,"    @Test
     }
     }
 ",ConversionTestCase::testFileNameWithCharacters_4_oe
-vfs_158_5,"    @Test
+vfs_169_5,"    @Test
     @Ignore
     public void testFileNameWithCharacters_5_oe() throws URISyntaxException, IOException {
         final File file = new File(""target"", ""+# %&.txt"");
@@ -452,7 +452,7 @@ vfs_158_5,"    @Test
     }
     }
 ",ConversionTestCase::testFileNameWithCharacters_5_oe
-vfs_163_1,"    @Test
+vfs_174_1,"    @Test
     public void testWindowsFilenameParserError_1_oe() throws Exception {
         // check VFS-338 with 2+4 slashes we want a dedicated error
         try {
@@ -462,7 +462,7 @@ vfs_163_1,"    @Test
     }
     }
 ",WindowsFileNameTests::testWindowsFilenameParserError_1_oe
-vfs_163_2,"    @Test
+vfs_174_2,"    @Test
     public void testWindowsFilenameParserError_2_oe() throws Exception {
         // check VFS-338 with 2+4 slashes we want a dedicated error
         try {
@@ -474,7 +474,7 @@ vfs_163_2,"    @Test
     }
     }
 ",WindowsFileNameTests::testWindowsFilenameParserError_2_oe
-vfs_164_1,"    @Test
+vfs_175_1,"    @Test
     public void testWindowsFilenameUNCStartError_1_oe() throws Exception {
         try {
             final String FILE = ""file://///"";
@@ -483,7 +483,7 @@ vfs_164_1,"    @Test
     }
     }
 ",WindowsFileNameTests::testWindowsFilenameUNCStartError_1_oe
-vfs_164_2,"    @Test
+vfs_175_2,"    @Test
     public void testWindowsFilenameUNCStartError_2_oe() throws Exception {
         try {
             final String FILE = ""file://///"";
@@ -494,7 +494,7 @@ vfs_164_2,"    @Test
     }
     }
 ",WindowsFileNameTests::testWindowsFilenameUNCStartError_2_oe
-vfs_166_1,"    @Test
+vfs_177_1,"    @Test
     public void testWindowsWrongRoots_1_oe() throws Exception {
         final String[] tests = new String[] { ""file:///C:"", ""file://C:"", ""file:/C:"", ""file:C:"" };
 
@@ -506,7 +506,7 @@ vfs_166_1,"    @Test
     }
     }
 ",WindowsFileNameTests::testWindowsWrongRoots_1_oe
-vfs_166_2,"    @Test
+vfs_177_2,"    @Test
     public void testWindowsWrongRoots_2_oe() throws Exception {
         final String[] tests = new String[] { ""file:///C:"", ""file://C:"", ""file:/C:"", ""file:C:"" };
 
@@ -520,7 +520,7 @@ vfs_166_2,"    @Test
     }
     }
 ",WindowsFileNameTests::testWindowsWrongRoots_2_oe
-vfs_172_1,"    @Test
+vfs_190_1,"    @Test
     public void testZipFileUseWeakRefFilesCache_1_oe() throws FileSystemException {
 
         final File file = new File(""src/test/resources/test-data/test.zip"");
@@ -547,7 +547,7 @@ vfs_172_1,"    @Test
     }
     }
 ",ZipFileSystemTestCase::testZipFileUseWeakRefFilesCache_1_oe
-vfs_206_1,"    @Test
+vfs_232_1,"    @Test
     public void testParallelCopyFromLocalFileSystem_1_oe() throws Exception {
         final File localFile = new File(""src/test/resources/test-data/test.zip"");
 
@@ -568,7 +568,7 @@ vfs_206_1,"    @Test
     }
     }
 ",SftpMultiThreadWriteTests::testParallelCopyFromLocalFileSystem_1_oe
-vfs_206_2,"    @Test
+vfs_232_2,"    @Test
     public void testParallelCopyFromLocalFileSystem_2_oe() throws Exception {
         final File localFile = new File(""src/test/resources/test-data/test.zip"");
 
@@ -599,7 +599,7 @@ vfs_206_2,"    @Test
     }
     }
 ",SftpMultiThreadWriteTests::testParallelCopyFromLocalFileSystem_2_oe
-vfs_211_1,"    @Test
+vfs_237_1,"    @Test
     public void testNestedJunction_1_oe() throws Exception {
         final FileSystem fs = getManager().createVirtualFileSystem(""vfs:"").getFileSystem();
         final FileObject baseDir = getBaseDir();
@@ -612,8 +612,8 @@ vfs_211_1,"    @Test
     }
     }
 ",JunctionTests::testNestedJunction_1_oe
-vfs_211_2,"    @Test
-    public void testNestedJunction_2_oe() throws Exception {
+vfs_237_3,"    @Test
+    public void testNestedJunction_3_oe() throws Exception {
         final FileSystem fs = getManager().createVirtualFileSystem(""vfs:"").getFileSystem();
         final FileObject baseDir = getBaseDir();
         fs.addJunction(""/a"", baseDir);
@@ -623,7 +623,7 @@ vfs_211_2,"    @Test
             fs.addJunction(""/a/b"", baseDir);
             // removed other assertion
         } catch (final Exception e) {
-            assertSameMessage(""vfs.impl/nested-junction.error"", ""vfs:/a/b"", e);
+            // removed other assertion
         }
 
         // At same point
@@ -632,8 +632,8 @@ vfs_211_2,"    @Test
             fail();
     }
     }
-",JunctionTests::testNestedJunction_2_oe
-vfs_226_1,"    @Test
+",JunctionTests::testNestedJunction_3_oe
+vfs_252_1,"    @Test
     public void testPatternNullArgConstruction_1_oe() {
         try {
             new RegexFileFilter((Pattern) null);
@@ -641,7 +641,7 @@ vfs_226_1,"    @Test
     }
     }
 ",RegexFileFilterTestCase::testPatternNullArgConstruction_1_oe
-vfs_228_1,"    @Test
+vfs_254_1,"    @Test
     public void testStringIOCaseNullArgConstruction_1_oe() {
         try {
             new RegexFileFilter((String) null, IOCase.INSENSITIVE);
@@ -649,7 +649,7 @@ vfs_228_1,"    @Test
     }
     }
 ",RegexFileFilterTestCase::testStringIOCaseNullArgConstruction_1_oe
-vfs_229_1,"    @Test
+vfs_255_1,"    @Test
     public void testStringNullArgConstruction_1_oe() {
         try {
             new RegexFileFilter((String) null);
@@ -657,7 +657,7 @@ vfs_229_1,"    @Test
     }
     }
 ",RegexFileFilterTestCase::testStringNullArgConstruction_1_oe
-vfs_230_1,"    @Test
+vfs_256_1,"    @Test
     public void testStringPatternNullArgConstruction_1_oe() {
         try {
             new RegexFileFilter((String) null, Pattern.CASE_INSENSITIVE);
@@ -665,7 +665,7 @@ vfs_230_1,"    @Test
     }
     }
 ",RegexFileFilterTestCase::testStringPatternNullArgConstruction_1_oe
-vfs_299_1,"    @Test
+vfs_335_1,"    @Test
     public void ignore_testAddRemove_1_oe() throws Exception {
         try (final FileObject fileObject = fileSystemManager.resolveFile(testFile.toURI().toString())) {
             final CountingListener listener = new CountingListener();
@@ -683,7 +683,7 @@ vfs_299_1,"    @Test
     }
     }
 ",DefaultFileMonitorTest::ignore_testAddRemove_1_oe
-vfs_300_1,"    @Test
+vfs_336_1,"    @Test
     public void ignore_testStartStop_1_oe() throws Exception {
         try (final FileObject fileObject = fileSystemManager.resolveFile(testFile.toURI().toString())) {
             final CountingListener stoppedListener = new CountingListener();
@@ -723,7 +723,7 @@ vfs_300_1,"    @Test
     }
     }
 ",DefaultFileMonitorTest::ignore_testStartStop_1_oe
-vfs_300_2,"    @Test
+vfs_336_2,"    @Test
     public void ignore_testStartStop_2_oe() throws Exception {
         try (final FileObject fileObject = fileSystemManager.resolveFile(testFile.toURI().toString())) {
             final CountingListener stoppedListener = new CountingListener();
@@ -764,7 +764,7 @@ vfs_300_2,"    @Test
     }
     }
 ",DefaultFileMonitorTest::ignore_testStartStop_2_oe
-vfs_301_1,"    @Test
+vfs_337_1,"    @Test
     public void testChildFileDeletedWithoutRecursiveChecking_1_oe() throws Exception {
         writeToFile(testFile);
         try (final FileObject fileObject = fileSystemManager.resolveFile(testDir.toURI().toURL().toString())) {
@@ -783,7 +783,7 @@ vfs_301_1,"    @Test
     }
     }
 ",DefaultFileMonitorTest::testChildFileDeletedWithoutRecursiveChecking_1_oe
-vfs_302_1,"    @Test
+vfs_338_1,"    @Test
     public void testFileModified_1_oe() throws Exception {
         writeToFile(testFile);
         try (final FileObject fileObject = fileSystemManager.resolveFile(testFile.toURI().toURL().toString())) {
@@ -803,7 +803,7 @@ vfs_302_1,"    @Test
     }
     }
 ",DefaultFileMonitorTest::testFileModified_1_oe
-vfs_314_1,"    @Test
+vfs_351_1,"    @Test
     public void testDelegatingBad_1_oe() throws Throwable {
         final FileSystemOptions opts = new FileSystemOptions();
         final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
@@ -814,7 +814,7 @@ vfs_314_1,"    @Test
     }
     }
 ",DelegatingFileSystemOptionsBuilderTest::testDelegatingBad_1_oe
-vfs_314_4,"    @Test
+vfs_351_4,"    @Test
     public void testDelegatingBad_4_oe() throws Throwable {
         final FileSystemOptions opts = new FileSystemOptions();
         final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);

@@ -158,7 +158,7 @@ class PlaneConvexSubsetTest_OE25Dev {
     }
 
     @Test
-    void testReverse_2_oe() {
+    void testReverse_3_oe() {
         // arrange
         final Vector3D p1 = Vector3D.of(1, 0, 1);
         final Vector3D p2 = Vector3D.of(2, 0, 1);
@@ -171,7 +171,7 @@ class PlaneConvexSubsetTest_OE25Dev {
 
         // assert
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_Z, reversed.getPlane().getNormal(), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertEquals(0.5, reversed.getSize(), TEST_EPS);
     }
@@ -945,41 +945,6 @@ class PlaneConvexSubsetTest_OE25Dev {
     }
 
     @Test
-    void testIntersection_line_1_oe() {
-        // arrange
-        final PlaneConvexSubset ps = Planes.convexPolygonFromVertices(Arrays.asList(
-                Vector3D.of(0, 0, 2), Vector3D.of(1, 0, 2), Vector3D.of(1, 1, 2), Vector3D.of(0, 1, 2)),
-                TEST_PRECISION);
-
-        // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0.5, 0.5, 2),
-                ps.intersection(Lines3D.fromPoints(Vector3D.of(0.5, 0.5, 2), Vector3D.ZERO, TEST_PRECISION)), TEST_EPS);
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 2),
-                ps.intersection(Lines3D.fromPoints(Vector3D.of(1, 1, 2), Vector3D.of(1, 1, 0), TEST_PRECISION)), TEST_EPS);
-
-        Assertions.assertNull(ps.intersection(Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION)));
-    }
-
-    @Test
-    void testIntersection_line_2_oe() {
-        // arrange
-        final PlaneConvexSubset ps = Planes.convexPolygonFromVertices(Arrays.asList(
-                Vector3D.of(0, 0, 2), Vector3D.of(1, 0, 2), Vector3D.of(1, 1, 2), Vector3D.of(0, 1, 2)),
-                TEST_PRECISION);
-
-        // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0.5, 0.5, 2),
-                ps.intersection(Lines3D.fromPoints(Vector3D.of(0.5, 0.5, 2), Vector3D.ZERO, TEST_PRECISION)), TEST_EPS);
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 2),
-                ps.intersection(Lines3D.fromPoints(Vector3D.of(1, 1, 2), Vector3D.of(1, 1, 0), TEST_PRECISION)), TEST_EPS);
-
-        // removed other assertion
-        Assertions.assertNull(ps.intersection(Lines3D.fromPoints(Vector3D.of(0, 0, 2), Vector3D.of(1, 1, 2), TEST_PRECISION)));
-    }
-
-    @Test
     void testIntersection_line_3_oe() {
         // arrange
         final PlaneConvexSubset ps = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -987,52 +952,45 @@ class PlaneConvexSubsetTest_OE25Dev {
                 TEST_PRECISION);
 
         // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0.5, 0.5, 2),
-                ps.intersection(Lines3D.fromPoints(Vector3D.of(0.5, 0.5, 2), Vector3D.ZERO, TEST_PRECISION)), TEST_EPS);
+        // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 2),
-                ps.intersection(Lines3D.fromPoints(Vector3D.of(1, 1, 2), Vector3D.of(1, 1, 0), TEST_PRECISION)), TEST_EPS);
+        // removed other assertion
+
+        Assertions.assertNull(ps.intersection(Lines3D.fromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION)));
+    }
+
+    @Test
+    void testIntersection_line_4_oe() {
+        // arrange
+        final PlaneConvexSubset ps = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.of(0, 0, 2), Vector3D.of(1, 0, 2), Vector3D.of(1, 1, 2), Vector3D.of(0, 1, 2)),
+                TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(ps.intersection(Lines3D.fromPoints(Vector3D.of(0, 0, 2), Vector3D.of(1, 1, 2), TEST_PRECISION)));
+    }
+
+    @Test
+    void testIntersection_line_5_oe() {
+        // arrange
+        final PlaneConvexSubset ps = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.of(0, 0, 2), Vector3D.of(1, 0, 2), Vector3D.of(1, 1, 2), Vector3D.of(0, 1, 2)),
+                TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
 
         Assertions.assertNull(ps.intersection(Lines3D.fromPoints(Vector3D.of(4, 4, 2), Vector3D.of(4, 4, 0), TEST_PRECISION)));
-    }
-
-    @Test
-    void testIntersection_segment_1_oe() {
-        // arrange
-        final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
-                Vector3D.of(0, 0, 2), Vector3D.of(1, 0, 2), Vector3D.of(1, 1, 2), Vector3D.of(0, 1, 2)),
-                TEST_PRECISION);
-
-        // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0.5, 0.5, 2),
-                sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(0.5, 0.5, 2), Vector3D.ZERO, TEST_PRECISION)), TEST_EPS);
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 2),
-                sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(1, 1, 2), Vector3D.of(1, 1, 0), TEST_PRECISION)), TEST_EPS);
-
-        Assertions.assertNull(sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(0.5, 0.5, 4), Vector3D.of(0.5, 0.5, 3), TEST_PRECISION)));
-    }
-
-    @Test
-    void testIntersection_segment_2_oe() {
-        // arrange
-        final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
-                Vector3D.of(0, 0, 2), Vector3D.of(1, 0, 2), Vector3D.of(1, 1, 2), Vector3D.of(0, 1, 2)),
-                TEST_PRECISION);
-
-        // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0.5, 0.5, 2),
-                sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(0.5, 0.5, 2), Vector3D.ZERO, TEST_PRECISION)), TEST_EPS);
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 2),
-                sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(1, 1, 2), Vector3D.of(1, 1, 0), TEST_PRECISION)), TEST_EPS);
-
-        // removed other assertion
-
-        Assertions.assertNull(sp.intersection(Lines3D.segmentFromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION)));
     }
 
     @Test
@@ -1043,16 +1001,11 @@ class PlaneConvexSubsetTest_OE25Dev {
                 TEST_PRECISION);
 
         // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0.5, 0.5, 2),
-                sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(0.5, 0.5, 2), Vector3D.ZERO, TEST_PRECISION)), TEST_EPS);
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 2),
-                sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(1, 1, 2), Vector3D.of(1, 1, 0), TEST_PRECISION)), TEST_EPS);
-
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertNull(sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(0, 0, 2), Vector3D.of(1, 1, 2), TEST_PRECISION)));
+
+        Assertions.assertNull(sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(0.5, 0.5, 4), Vector3D.of(0.5, 0.5, 3), TEST_PRECISION)));
     }
 
     @Test
@@ -1063,11 +1016,44 @@ class PlaneConvexSubsetTest_OE25Dev {
                 TEST_PRECISION);
 
         // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0.5, 0.5, 2),
-                sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(0.5, 0.5, 2), Vector3D.ZERO, TEST_PRECISION)), TEST_EPS);
+        // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 2),
-                sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(1, 1, 2), Vector3D.of(1, 1, 0), TEST_PRECISION)), TEST_EPS);
+        // removed other assertion
+
+        // removed other assertion
+
+        Assertions.assertNull(sp.intersection(Lines3D.segmentFromPoints(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION)));
+    }
+
+    @Test
+    void testIntersection_segment_5_oe() {
+        // arrange
+        final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.of(0, 0, 2), Vector3D.of(1, 0, 2), Vector3D.of(1, 1, 2), Vector3D.of(0, 1, 2)),
+                TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(sp.intersection(Lines3D.segmentFromPoints(Vector3D.of(0, 0, 2), Vector3D.of(1, 1, 2), TEST_PRECISION)));
+    }
+
+    @Test
+    void testIntersection_segment_6_oe() {
+        // arrange
+        final PlaneConvexSubset sp = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.of(0, 0, 2), Vector3D.of(1, 0, 2), Vector3D.of(1, 1, 2), Vector3D.of(0, 1, 2)),
+                TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
+
+        // removed other assertion
 
         // removed other assertion
 

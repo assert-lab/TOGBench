@@ -359,47 +359,6 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
     }
 
     @Test
-    public void testVersioning_16_oe() throws Exception {
-        final FileObject scratchFolder = createScratchFolder();
-        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
-        final Webdav4FileSystemConfigBuilder builder = (Webdav4FileSystemConfigBuilder) getManager()
-                .getFileSystemConfigBuilder("webdav");
-        builder.setVersioning(opts, true);
-        final FileObject file = getManager().resolveFile(scratchFolder, "file1.txt", opts);
-        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        file.createFile();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Map<?, ?> map = file.getContent().getAttributes();
-        final String name = ((GenericURLFileName) file.getName()).getUserName();
-        // removed other assertion
-        if (name != null) {
-            // removed other assertion
-        }
-        // removed other assertion
-
-        // Create the source file
-        final String content = "Here is some sample content for the file.  Blah Blah Blah.";
-
-        try (OutputStream os = file.getContent().getOutputStream()) {
-            os.write(content.getBytes(StandardCharsets.UTF_8));
-        }
-        assertSameContent(content, file);
-        map = file.getContent().getAttributes();
-        assertTrue(map.containsKey(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
-    }
-
-    @Test
     public void testVersioning_17_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -435,12 +394,9 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         try (OutputStream os = file.getContent().getOutputStream()) {
             os.write(content.getBytes(StandardCharsets.UTF_8));
         }
-        assertSameContent(content, file);
-        map = file.getContent().getAttributes();
         // removed other assertion
-        if (name != null) {
-            assertEquals(name, map.get(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
-    }
+        map = file.getContent().getAttributes();
+        assertTrue(map.containsKey(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
     }
 
     @Test
@@ -479,7 +435,51 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         try (OutputStream os = file.getContent().getOutputStream()) {
             os.write(content.getBytes(StandardCharsets.UTF_8));
         }
-        assertSameContent(content, file);
+        // removed other assertion
+        map = file.getContent().getAttributes();
+        // removed other assertion
+        if (name != null) {
+            assertEquals(name, map.get(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+    }
+    }
+
+    @Test
+    public void testVersioning_19_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final Webdav4FileSystemConfigBuilder builder = (Webdav4FileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder("webdav");
+        builder.setVersioning(opts, true);
+        final FileObject file = getManager().resolveFile(scratchFolder, "file1.txt", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((GenericURLFileName) file.getName()).getUserName();
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+        }
+        // removed other assertion
+
+        // Create the source file
+        final String content = "Here is some sample content for the file.  Blah Blah Blah.";
+
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+        // removed other assertion
         map = file.getContent().getAttributes();
         // removed other assertion
         if (name != null) {
@@ -876,50 +876,6 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
     }
 
     @Test
-    public void testVersioningWithCreator_18_oe() throws Exception {
-        final FileObject scratchFolder = createScratchFolder();
-        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
-        final Webdav4FileSystemConfigBuilder builder = (Webdav4FileSystemConfigBuilder) getManager()
-                .getFileSystemConfigBuilder("webdav");
-        builder.setVersioning(opts, true);
-        builder.setCreatorName(opts, "testUser");
-        final FileObject file = getManager().resolveFile(scratchFolder, "file1.txt", opts);
-        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        file.createFile();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        Map<?, ?> map = file.getContent().getAttributes();
-        final String name = ((GenericURLFileName) file.getName()).getUserName();
-        // removed other assertion
-        // removed other assertion
-        if (name != null) {
-            // removed other assertion
-            // removed other assertion
-        }
-        // removed other assertion
-
-        // Create the source file
-        final String content = "Here is some sample content for the file.  Blah Blah Blah.";
-
-        try (OutputStream os = file.getContent().getOutputStream()) {
-            os.write(content.getBytes(StandardCharsets.UTF_8));
-        }
-        assertSameContent(content, file);
-        map = file.getContent().getAttributes();
-        assertTrue(map.containsKey(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
-    }
-
-    @Test
     public void testVersioningWithCreator_19_oe() throws Exception {
         final FileObject scratchFolder = createScratchFolder();
         final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
@@ -958,10 +914,9 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         try (OutputStream os = file.getContent().getOutputStream()) {
             os.write(content.getBytes(StandardCharsets.UTF_8));
         }
-        assertSameContent(content, file);
-        map = file.getContent().getAttributes();
         // removed other assertion
-        assertEquals("testUser", map.get(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
+        map = file.getContent().getAttributes();
+        assertTrue(map.containsKey(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
     }
 
     @Test
@@ -1003,13 +958,10 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         try (OutputStream os = file.getContent().getOutputStream()) {
             os.write(content.getBytes(StandardCharsets.UTF_8));
         }
-        assertSameContent(content, file);
+        // removed other assertion
         map = file.getContent().getAttributes();
         // removed other assertion
-        // removed other assertion
-        if (name != null) {
-            assertTrue(map.containsKey(DeltaVConstants.COMMENT.toString()));
-    }
+        assertEquals("testUser", map.get(DeltaVConstants.CREATOR_DISPLAYNAME.toString()));
     }
 
     @Test
@@ -1051,13 +1003,12 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         try (OutputStream os = file.getContent().getOutputStream()) {
             os.write(content.getBytes(StandardCharsets.UTF_8));
         }
-        assertSameContent(content, file);
+        // removed other assertion
         map = file.getContent().getAttributes();
         // removed other assertion
         // removed other assertion
         if (name != null) {
-            // removed other assertion
-            assertEquals("Modified by user " + name, map.get(DeltaVConstants.COMMENT.toString()));
+            assertTrue(map.containsKey(DeltaVConstants.COMMENT.toString()));
     }
     }
 
@@ -1100,7 +1051,56 @@ public class Webdav4VersioningTests_OE25Dev extends AbstractProviderTestCase {
         try (OutputStream os = file.getContent().getOutputStream()) {
             os.write(content.getBytes(StandardCharsets.UTF_8));
         }
-        assertSameContent(content, file);
+        // removed other assertion
+        map = file.getContent().getAttributes();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            assertEquals("Modified by user " + name, map.get(DeltaVConstants.COMMENT.toString()));
+    }
+    }
+
+    @Test
+    public void testVersioningWithCreator_23_oe() throws Exception {
+        final FileObject scratchFolder = createScratchFolder();
+        final FileSystemOptions opts = scratchFolder.getFileSystem().getFileSystemOptions();
+        final Webdav4FileSystemConfigBuilder builder = (Webdav4FileSystemConfigBuilder) getManager()
+                .getFileSystemConfigBuilder("webdav");
+        builder.setVersioning(opts, true);
+        builder.setCreatorName(opts, "testUser");
+        final FileObject file = getManager().resolveFile(scratchFolder, "file1.txt", opts);
+        final FileSystemOptions newOpts = file.getFileSystem().getFileSystemOptions();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        file.createFile();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Map<?, ?> map = file.getContent().getAttributes();
+        final String name = ((GenericURLFileName) file.getName()).getUserName();
+        // removed other assertion
+        // removed other assertion
+        if (name != null) {
+            // removed other assertion
+            // removed other assertion
+        }
+        // removed other assertion
+
+        // Create the source file
+        final String content = "Here is some sample content for the file.  Blah Blah Blah.";
+
+        try (OutputStream os = file.getContent().getOutputStream()) {
+            os.write(content.getBytes(StandardCharsets.UTF_8));
+        }
+        // removed other assertion
         map = file.getContent().getAttributes();
         // removed other assertion
         // removed other assertion

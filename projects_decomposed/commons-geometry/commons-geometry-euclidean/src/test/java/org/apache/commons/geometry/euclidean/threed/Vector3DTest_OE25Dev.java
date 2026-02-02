@@ -3458,18 +3458,6 @@ class Vector3DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final double delta = 10 * Precision.EPSILON;
-        final Vector3D u1 = Vector3D.of(1, 2, 3);
-        final Vector3D u2 = Vector3D.of(1, 2, 3);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
-        Assertions.assertEquals(u1, u2);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
@@ -3477,10 +3465,8 @@ class Vector3DTest_OE25Dev {
         final Vector3D u2 = Vector3D.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
         // removed other assertion
-
-        Assertions.assertNotEquals(u1, Vector3D.of(-1, -2, -3));
+        Assertions.assertEquals(u1, u2);
     }
 
     @Test
@@ -3491,11 +3477,10 @@ class Vector3DTest_OE25Dev {
         final Vector3D u2 = Vector3D.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        Assertions.assertNotEquals(u1, Vector3D.of(1 + delta, 2, 3));
+        Assertions.assertNotEquals(u1, Vector3D.of(-1, -2, -3));
     }
 
     @Test
@@ -3506,12 +3491,11 @@ class Vector3DTest_OE25Dev {
         final Vector3D u2 = Vector3D.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(u1, Vector3D.of(1, 2 + delta, 3));
+        Assertions.assertNotEquals(u1, Vector3D.of(1 + delta, 2, 3));
     }
 
     @Test
@@ -3522,13 +3506,12 @@ class Vector3DTest_OE25Dev {
         final Vector3D u2 = Vector3D.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(u1, Vector3D.of(1, 2, 3 + delta));
+        Assertions.assertNotEquals(u1, Vector3D.of(1, 2 + delta, 3));
     }
 
     @Test
@@ -3539,7 +3522,24 @@ class Vector3DTest_OE25Dev {
         final Vector3D u2 = Vector3D.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(u1, Vector3D.of(1, 2, 3 + delta));
+    }
+
+    @Test
+    void testEquals_7_oe() {
+        // arrange
+        final double delta = 10 * Precision.EPSILON;
+        final Vector3D u1 = Vector3D.of(1, 2, 3);
+        final Vector3D u2 = Vector3D.of(1, 2, 3);
+
+        // act/assert
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -3551,14 +3551,14 @@ class Vector3DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_7_oe() {
+    void testEquals_8_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
         final Vector3D u1 = Vector3D.of(1, 2, 3);
         final Vector3D u2 = Vector3D.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -3572,14 +3572,14 @@ class Vector3DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_8_oe() {
+    void testEquals_9_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
         final Vector3D u1 = Vector3D.of(1, 2, 3);
         final Vector3D u2 = Vector3D.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -3594,14 +3594,14 @@ class Vector3DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_9_oe() {
+    void testEquals_10_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
         final Vector3D u1 = Vector3D.of(1, 2, 3);
         final Vector3D u2 = Vector3D.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -3617,14 +3617,14 @@ class Vector3DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_10_oe() {
+    void testEquals_11_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
         final Vector3D u1 = Vector3D.of(1, 2, 3);
         final Vector3D u2 = Vector3D.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -3642,14 +3642,14 @@ class Vector3DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_11_oe() {
+    void testEquals_12_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
         final Vector3D u1 = Vector3D.of(1, 2, 3);
         final Vector3D u2 = Vector3D.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -3668,14 +3668,14 @@ class Vector3DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_12_oe() {
+    void testEquals_13_oe() {
         // arrange
         final double delta = 10 * Precision.EPSILON;
         final Vector3D u1 = Vector3D.of(1, 2, 3);
         final Vector3D u2 = Vector3D.of(1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion

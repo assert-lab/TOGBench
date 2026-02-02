@@ -135,7 +135,7 @@ public class HiddenFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
-    public void testZipFile_1_oe() throws FileSystemException {
+    public void testZipFile_2_oe() throws FileSystemException {
 
         // Same test with ZIP file
         final FileObject[] files;
@@ -147,7 +147,7 @@ public class HiddenFileFilterTest_OE25Dev extends BaseFilterTest {
         // assertThat(files).hasSize(1);
 
         files = zipFileObj.findFiles(new FileFilterSelector(HiddenFileFilter.VISIBLE));
-        assertContains(files, visibleFile.getName());
+        // removed other assertion
         Assert.assertEquals(1, files.length);
     }
 

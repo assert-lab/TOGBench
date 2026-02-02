@@ -157,7 +157,7 @@ public class CanWriteFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
-    public void testAcceptZipFile_2_oe() throws FileSystemException {
+    public void testAcceptZipFile_3_oe() throws FileSystemException {
 
         FileObject[] files;
 
@@ -167,7 +167,7 @@ public class CanWriteFileFilterTest_OE25Dev extends BaseFilterTest {
 
         // CANNOT_WRITE Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanWriteFileFilter.CANNOT_WRITE));
-        assertContains(files, READONLY, WRITABLE);
+        // removed other assertion
         Assert.assertEquals(2, files.length);
     }
 

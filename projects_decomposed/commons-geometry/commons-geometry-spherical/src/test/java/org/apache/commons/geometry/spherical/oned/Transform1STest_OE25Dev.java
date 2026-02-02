@@ -394,20 +394,6 @@ class Transform1STest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
-        final Transform1S b = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
-        final Transform1S c = Transform1S.identity().negate().rotate(-Angle.PI_OVER_TWO);
-        final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, b);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
@@ -416,10 +402,9 @@ class Transform1STest_OE25Dev {
         final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
         // removed other assertion
-        Assertions.assertNotEquals(a, c);
+
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -431,12 +416,10 @@ class Transform1STest_OE25Dev {
         final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(a, d);
+        // removed other assertion
+        Assertions.assertNotEquals(a, c);
     }
 
     @Test
@@ -448,7 +431,24 @@ class Transform1STest_OE25Dev {
         final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(a, d);
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final Transform1S a = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+        final Transform1S b = Transform1S.identity().rotate(Angle.PI_OVER_TWO);
+        final Transform1S c = Transform1S.identity().negate().rotate(-Angle.PI_OVER_TWO);
+        final Transform1S d = Transform1S.identity().negate().rotate(Angle.PI_OVER_TWO);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

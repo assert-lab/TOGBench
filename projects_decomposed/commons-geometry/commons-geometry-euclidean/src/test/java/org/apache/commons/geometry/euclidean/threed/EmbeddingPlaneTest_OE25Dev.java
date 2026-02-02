@@ -1084,28 +1084,6 @@ class EmbeddingPlaneTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Vector3D pt = Vector3D.of(1, 2, 3);
-        final Vector3D u = Vector3D.Unit.PLUS_X;
-        final Vector3D v = Vector3D.Unit.PLUS_Y;
-
-        final EmbeddingPlane a = Planes.fromPointAndPlaneVectors(pt, u, v, TEST_PRECISION);
-        final EmbeddingPlane b = Planes.fromPointAndPlaneVectors(Vector3D.of(1, 2, 4), u, v, TEST_PRECISION);
-        final EmbeddingPlane c = Planes.fromPointAndPlaneVectors(pt, Vector3D.Unit.MINUS_X, v, TEST_PRECISION);
-        final EmbeddingPlane d = Planes.fromPointAndPlaneVectors(pt, u, Vector3D.Unit.MINUS_Y, TEST_PRECISION);
-        final EmbeddingPlane e = Planes.fromPointAndPlaneVectors(pt, u, v, Precision.doubleEquivalenceOfEpsilon(1e-8));
-        final EmbeddingPlane f = Planes.fromPointAndPlaneVectors(pt, u, v, TEST_PRECISION);
-
-        final Plane stdPlane = Planes.fromPointAndNormal(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, b);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Vector3D pt = Vector3D.of(1, 2, 3);
@@ -1122,10 +1100,9 @@ class EmbeddingPlaneTest_OE25Dev {
         final Plane stdPlane = Planes.fromPointAndNormal(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
         // removed other assertion
-        Assertions.assertNotEquals(a, c);
+
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -1145,11 +1122,10 @@ class EmbeddingPlaneTest_OE25Dev {
         final Plane stdPlane = Planes.fromPointAndNormal(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(a, d);
+        Assertions.assertNotEquals(a, c);
     }
 
     @Test
@@ -1169,12 +1145,11 @@ class EmbeddingPlaneTest_OE25Dev {
         final Plane stdPlane = Planes.fromPointAndNormal(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(a, e);
+        Assertions.assertNotEquals(a, d);
     }
 
     @Test
@@ -1194,14 +1169,12 @@ class EmbeddingPlaneTest_OE25Dev {
         final Plane stdPlane = Planes.fromPointAndNormal(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(a, f);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(a, e);
     }
 
     @Test
@@ -1221,15 +1194,14 @@ class EmbeddingPlaneTest_OE25Dev {
         final Plane stdPlane = Planes.fromPointAndNormal(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         // removed other assertion
 
         // removed other assertion
-        Assertions.assertEquals(f, a);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(a, f);
     }
 
     @Test
@@ -1249,7 +1221,35 @@ class EmbeddingPlaneTest_OE25Dev {
         final Plane stdPlane = Planes.fromPointAndNormal(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(f, a);
+    }
+
+    @Test
+    void testEquals_8_oe() {
+        // arrange
+        final Vector3D pt = Vector3D.of(1, 2, 3);
+        final Vector3D u = Vector3D.Unit.PLUS_X;
+        final Vector3D v = Vector3D.Unit.PLUS_Y;
+
+        final EmbeddingPlane a = Planes.fromPointAndPlaneVectors(pt, u, v, TEST_PRECISION);
+        final EmbeddingPlane b = Planes.fromPointAndPlaneVectors(Vector3D.of(1, 2, 4), u, v, TEST_PRECISION);
+        final EmbeddingPlane c = Planes.fromPointAndPlaneVectors(pt, Vector3D.Unit.MINUS_X, v, TEST_PRECISION);
+        final EmbeddingPlane d = Planes.fromPointAndPlaneVectors(pt, u, Vector3D.Unit.MINUS_Y, TEST_PRECISION);
+        final EmbeddingPlane e = Planes.fromPointAndPlaneVectors(pt, u, v, Precision.doubleEquivalenceOfEpsilon(1e-8));
+        final EmbeddingPlane f = Planes.fromPointAndPlaneVectors(pt, u, v, TEST_PRECISION);
+
+        final Plane stdPlane = Planes.fromPointAndNormal(pt, Vector3D.Unit.PLUS_Z, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

@@ -381,7 +381,7 @@ class GreatArcPathTest_OE25Dev {
     }
 
     @Test
-    void testFromVertices_boolean_notClosed_3_oe() {
+    void testFromVertices_boolean_notClosed_5_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
                 Point2S.PLUS_I,
@@ -395,8 +395,8 @@ class GreatArcPathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        SphericalTestUtils.assertPointsEq(Point2S.PLUS_I, path.getStartVertex(), TEST_EPS);
-        SphericalTestUtils.assertPointsEq(Point2S.PLUS_J, path.getEndVertex(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final List<GreatArc> arcs = path.getArcs();
         Assertions.assertEquals(2, arcs.size());
@@ -434,7 +434,7 @@ class GreatArcPathTest_OE25Dev {
     }
 
     @Test
-    void testFromVertices_boolean_closed_3_oe() {
+    void testFromVertices_boolean_closed_5_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
                 Point2S.PLUS_I,
@@ -448,8 +448,8 @@ class GreatArcPathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        SphericalTestUtils.assertPointsEq(Point2S.PLUS_I, path.getStartVertex(), TEST_EPS);
-        SphericalTestUtils.assertPointsEq(Point2S.PLUS_I, path.getEndVertex(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final List<GreatArc> arcs = path.getArcs();
         Assertions.assertEquals(3, arcs.size());
@@ -497,7 +497,7 @@ class GreatArcPathTest_OE25Dev {
     }
 
     @Test
-    void testFromVertices_boolean_closed_pointsConsideredEqual_3_oe() {
+    void testFromVertices_boolean_closed_pointsConsideredEqual_5_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
 
@@ -516,8 +516,8 @@ class GreatArcPathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        SphericalTestUtils.assertPointsEq(Point2S.PLUS_I, path.getStartVertex(), TEST_EPS);
-        SphericalTestUtils.assertPointsEq(almostPlusI, path.getEndVertex(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final List<GreatArc> arcs = path.getArcs();
         Assertions.assertEquals(3, arcs.size());
@@ -555,7 +555,7 @@ class GreatArcPathTest_OE25Dev {
     }
 
     @Test
-    void testFromVertices_3_oe() {
+    void testFromVertices_5_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
                 Point2S.MINUS_I,
@@ -569,8 +569,8 @@ class GreatArcPathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        SphericalTestUtils.assertPointsEq(Point2S.MINUS_I, path.getStartVertex(), TEST_EPS);
-        SphericalTestUtils.assertPointsEq(Point2S.PLUS_I, path.getEndVertex(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final List<GreatArc> arcs = path.getArcs();
         Assertions.assertEquals(2, arcs.size());
@@ -608,7 +608,7 @@ class GreatArcPathTest_OE25Dev {
     }
 
     @Test
-    void testFromVertexLoop_3_oe() {
+    void testFromVertexLoop_5_oe() {
         // arrange
         final List<Point2S> points = Arrays.asList(
                 Point2S.MINUS_I,
@@ -622,8 +622,8 @@ class GreatArcPathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        SphericalTestUtils.assertPointsEq(Point2S.MINUS_I, path.getStartVertex(), TEST_EPS);
-        SphericalTestUtils.assertPointsEq(Point2S.MINUS_I, path.getEndVertex(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final List<GreatArc> arcs = path.getArcs();
         Assertions.assertEquals(3, arcs.size());
@@ -669,7 +669,7 @@ class GreatArcPathTest_OE25Dev {
     }
 
     @Test
-    void testFromArcs_3_oe() {
+    void testFromArcs_5_oe() {
         // arrange
         final Point2S ptA = Point2S.PLUS_I;
         final Point2S ptB = Point2S.of(1, Angle.PI_OVER_TWO);
@@ -687,8 +687,8 @@ class GreatArcPathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        SphericalTestUtils.assertPointsEq(ptA, path.getStartVertex(), TEST_EPS);
-        SphericalTestUtils.assertPointsEq(ptD, path.getEndVertex(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final List<GreatArc> arcs = path.getArcs();
         Assertions.assertEquals(3, arcs.size());
@@ -1038,7 +1038,7 @@ class GreatArcPathTest_OE25Dev {
     }
 
     @Test
-    void testBuilder_append_3_oe() {
+    void testBuilder_append_5_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
         final Point2S b = Point2S.PLUS_J;
@@ -1059,8 +1059,8 @@ class GreatArcPathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        SphericalTestUtils.assertPointsEq(a, path.getStartVertex(), TEST_EPS);
-        SphericalTestUtils.assertPointsEq(a, path.getEndVertex(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final List<GreatArc> arcs = path.getArcs();
         Assertions.assertEquals(5, arcs.size());
@@ -1112,7 +1112,7 @@ class GreatArcPathTest_OE25Dev {
     }
 
     @Test
-    void testBuilder_prepend_3_oe() {
+    void testBuilder_prepend_5_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
         final Point2S b = Point2S.PLUS_J;
@@ -1133,8 +1133,8 @@ class GreatArcPathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        SphericalTestUtils.assertPointsEq(a, path.getStartVertex(), TEST_EPS);
-        SphericalTestUtils.assertPointsEq(a, path.getEndVertex(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final List<GreatArc> arcs = path.getArcs();
         Assertions.assertEquals(5, arcs.size());
@@ -1188,7 +1188,7 @@ class GreatArcPathTest_OE25Dev {
     }
 
     @Test
-    void testBuilder_appendAndPrepend_points_3_oe() {
+    void testBuilder_appendAndPrepend_points_5_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
         final Point2S b = Point2S.PLUS_J;
@@ -1210,8 +1210,8 @@ class GreatArcPathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        SphericalTestUtils.assertPointsEq(d, path.getStartVertex(), TEST_EPS);
-        SphericalTestUtils.assertPointsEq(c, path.getEndVertex(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final List<GreatArc> arcs = path.getArcs();
         Assertions.assertEquals(4, arcs.size());
@@ -1265,7 +1265,7 @@ class GreatArcPathTest_OE25Dev {
     }
 
     @Test
-    void testBuilder_appendAndPrepend_mixedArguments_3_oe() {
+    void testBuilder_appendAndPrepend_mixedArguments_5_oe() {
         // arrange
         final Point2S a = Point2S.PLUS_I;
         final Point2S b = Point2S.PLUS_J;
@@ -1287,8 +1287,8 @@ class GreatArcPathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        SphericalTestUtils.assertPointsEq(d, path.getStartVertex(), TEST_EPS);
-        SphericalTestUtils.assertPointsEq(d, path.getEndVertex(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final List<GreatArc> arcs = path.getArcs();
         Assertions.assertEquals(5, arcs.size());

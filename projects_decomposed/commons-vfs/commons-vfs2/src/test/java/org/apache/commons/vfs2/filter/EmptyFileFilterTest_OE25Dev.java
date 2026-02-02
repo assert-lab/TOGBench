@@ -217,28 +217,28 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
-    public void testZipFile_1_oe() throws FileSystemException {
-
-        // Same test with ZIP file
-        FileObject[] files;
-
-        files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.EMPTY));
-        assertContains(files, emptyFile.getName());
-        Assert.assertEquals(1, files.length);
-    }
-
-    @Test
     public void testZipFile_2_oe() throws FileSystemException {
 
         // Same test with ZIP file
         FileObject[] files;
 
         files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.EMPTY));
-        assertContains(files, emptyFile.getName());
+        // removed other assertion
+        Assert.assertEquals(1, files.length);
+    }
+
+    @Test
+    public void testZipFile_4_oe() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.EMPTY));
+        // removed other assertion
         // removed other assertion
 
         files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.NOT_EMPTY));
-        assertContains(files, notEmptyFile.getName(), notEmptyDir.getName());
+        // removed other assertion
         Assert.assertEquals(2, files.length);
     }
 

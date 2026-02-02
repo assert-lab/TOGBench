@@ -514,14 +514,14 @@ class Point2STest_OE25Dev {
     }
 
     @Test
-    void testSlerp_antipodal_1_oe() {
+    void testSlerp_antipodal_3_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
         final Point2S p2 = Point2S.MINUS_I;
 
         // act/assert
-        SphericalTestUtils.assertPointsEq(p1, p1.slerp(p1, 0), TEST_EPS);
-        SphericalTestUtils.assertPointsEq(p1, p1.slerp(p1, 1), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         final Point2S pt = p1.slerp(p2, 0.5);
         Assertions.assertEquals(p1.distance(pt), p2.distance(pt), TEST_EPS);
@@ -903,20 +903,6 @@ class Point2STest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Point2S a = Point2S.of(1.0, 2.0);
-        final Point2S b = Point2S.of(1.0, 3.0);
-        final Point2S c = Point2S.of(4.0, 2.0);
-        final Point2S d = Point2S.of(1.0, 2.0);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, b);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Point2S a = Point2S.of(1.0, 2.0);
@@ -925,10 +911,9 @@ class Point2STest_OE25Dev {
         final Point2S d = Point2S.of(1.0, 2.0);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
         // removed other assertion
-        Assertions.assertNotEquals(a, c);
+
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -940,12 +925,10 @@ class Point2STest_OE25Dev {
         final Point2S d = Point2S.of(1.0, 2.0);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(a, d);
+        // removed other assertion
+        Assertions.assertNotEquals(a, c);
     }
 
     @Test
@@ -957,7 +940,24 @@ class Point2STest_OE25Dev {
         final Point2S d = Point2S.of(1.0, 2.0);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(a, d);
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final Point2S a = Point2S.of(1.0, 2.0);
+        final Point2S b = Point2S.of(1.0, 3.0);
+        final Point2S c = Point2S.of(4.0, 2.0);
+        final Point2S d = Point2S.of(1.0, 2.0);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

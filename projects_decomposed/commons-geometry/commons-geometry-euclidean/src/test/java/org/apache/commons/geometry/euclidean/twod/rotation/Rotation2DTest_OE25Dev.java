@@ -469,20 +469,6 @@ class Rotation2DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Rotation2D a = Rotation2D.of(1.0);
-        final Rotation2D b = Rotation2D.of(0.0);
-        final Rotation2D c = Rotation2D.of(-1.0);
-        final Rotation2D d = Rotation2D.of(1.0);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, b);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Rotation2D a = Rotation2D.of(1.0);
@@ -491,10 +477,9 @@ class Rotation2DTest_OE25Dev {
         final Rotation2D d = Rotation2D.of(1.0);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
         // removed other assertion
-        Assertions.assertNotEquals(a, c);
+
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -506,12 +491,10 @@ class Rotation2DTest_OE25Dev {
         final Rotation2D d = Rotation2D.of(1.0);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(a, d);
+        // removed other assertion
+        Assertions.assertNotEquals(a, c);
     }
 
     @Test
@@ -523,7 +506,24 @@ class Rotation2DTest_OE25Dev {
         final Rotation2D d = Rotation2D.of(1.0);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(a, d);
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final Rotation2D a = Rotation2D.of(1.0);
+        final Rotation2D b = Rotation2D.of(0.0);
+        final Rotation2D c = Rotation2D.of(-1.0);
+        final Rotation2D d = Rotation2D.of(1.0);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

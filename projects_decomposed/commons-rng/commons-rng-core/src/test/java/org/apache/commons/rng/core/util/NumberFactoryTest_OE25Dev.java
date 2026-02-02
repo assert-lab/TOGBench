@@ -353,26 +353,26 @@ class NumberFactoryTest_OE25Dev {
     }
 
     @Test
-    void testFloatGenerationMethods_1_oe() {
+    void testFloatGenerationMethods_4_oe() {
         final int allBits = 0xffffffff;
 
         // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        assertCloseToNotAbove1((allBits >>> 9) * 0x1.0p-23f, 2);
-        assertCloseToNotAbove1((allBits >>> 8) * 0x1.0p-24f, 1);
-        assertCloseToNotAbove1(Float.intBitsToFloat(0x7f << 23 | allBits >>> 9) - 1.0f, 2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final int noBits = 0;
         Assertions.assertEquals(0.0f, (noBits >>> 9) * 0x1.0p-23f);
     }
 
     @Test
-    void testFloatGenerationMethods_2_oe() {
+    void testFloatGenerationMethods_5_oe() {
         final int allBits = 0xffffffff;
 
         // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        assertCloseToNotAbove1((allBits >>> 9) * 0x1.0p-23f, 2);
-        assertCloseToNotAbove1((allBits >>> 8) * 0x1.0p-24f, 1);
-        assertCloseToNotAbove1(Float.intBitsToFloat(0x7f << 23 | allBits >>> 9) - 1.0f, 2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final int noBits = 0;
         // removed other assertion
@@ -380,13 +380,13 @@ class NumberFactoryTest_OE25Dev {
     }
 
     @Test
-    void testFloatGenerationMethods_3_oe() {
+    void testFloatGenerationMethods_6_oe() {
         final int allBits = 0xffffffff;
 
         // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        assertCloseToNotAbove1((allBits >>> 9) * 0x1.0p-23f, 2);
-        assertCloseToNotAbove1((allBits >>> 8) * 0x1.0p-24f, 1);
-        assertCloseToNotAbove1(Float.intBitsToFloat(0x7f << 23 | allBits >>> 9) - 1.0f, 2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final int noBits = 0;
         // removed other assertion
@@ -395,26 +395,26 @@ class NumberFactoryTest_OE25Dev {
     }
 
     @Test
-    void testDoubleGenerationMethods_1_oe() {
+    void testDoubleGenerationMethods_4_oe() {
         final long allBits = 0xffffffffffffffffL;
 
         // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        assertCloseToNotAbove1((allBits >>> 12) * 0x1.0p-52d, 2);
-        assertCloseToNotAbove1((allBits >>> 11) * 0x1.0p-53d, 1);
-        assertCloseToNotAbove1(Double.longBitsToDouble(0x3ffL << 52 | allBits >>> 12) - 1.0, 2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final long noBits = 0;
         Assertions.assertEquals(0.0, (noBits >>> 12) * 0x1.0p-52d);
     }
 
     @Test
-    void testDoubleGenerationMethods_2_oe() {
+    void testDoubleGenerationMethods_5_oe() {
         final long allBits = 0xffffffffffffffffL;
 
         // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        assertCloseToNotAbove1((allBits >>> 12) * 0x1.0p-52d, 2);
-        assertCloseToNotAbove1((allBits >>> 11) * 0x1.0p-53d, 1);
-        assertCloseToNotAbove1(Double.longBitsToDouble(0x3ffL << 52 | allBits >>> 12) - 1.0, 2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final long noBits = 0;
         // removed other assertion
@@ -422,13 +422,13 @@ class NumberFactoryTest_OE25Dev {
     }
 
     @Test
-    void testDoubleGenerationMethods_3_oe() {
+    void testDoubleGenerationMethods_6_oe() {
         final long allBits = 0xffffffffffffffffL;
 
         // Not capable of generating 1. Set the delta with 1 or 2 ULP of 1.
-        assertCloseToNotAbove1((allBits >>> 12) * 0x1.0p-52d, 2);
-        assertCloseToNotAbove1((allBits >>> 11) * 0x1.0p-53d, 1);
-        assertCloseToNotAbove1(Double.longBitsToDouble(0x3ffL << 52 | allBits >>> 12) - 1.0, 2);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final long noBits = 0;
         // removed other assertion
@@ -437,29 +437,29 @@ class NumberFactoryTest_OE25Dev {
     }
 
     @Test
-    void testMakeDoubleFromLong_1_oe() {
+    void testMakeDoubleFromLong_2_oe() {
         final long allBits = 0xffffffffffffffffL;
         final long noBits = 0;
         // Within 1 ULP of 1.0
-        assertCloseToNotAbove1(NumberFactory.makeDouble(allBits), 1);
+        // removed other assertion
         Assertions.assertEquals(0.0, NumberFactory.makeDouble(noBits));
     }
 
     @Test
-    void testMakeDoubleFromIntInt_1_oe() {
+    void testMakeDoubleFromIntInt_2_oe() {
         final int allBits = 0xffffffff;
         final int noBits = 0;
         // Within 1 ULP of 1.0
-        assertCloseToNotAbove1(NumberFactory.makeDouble(allBits, allBits), 1);
+        // removed other assertion
         Assertions.assertEquals(0.0, NumberFactory.makeDouble(noBits, noBits));
     }
 
     @Test
-    void testMakeFloatFromInt_1_oe() {
+    void testMakeFloatFromInt_2_oe() {
         final int allBits = 0xffffffff;
         final int noBits = 0;
         // Within 1 ULP of 1.0f
-        assertCloseToNotAbove1(NumberFactory.makeFloat(allBits), 1);
+        // removed other assertion
         Assertions.assertEquals(0.0f, NumberFactory.makeFloat(noBits), 0);
     }
 

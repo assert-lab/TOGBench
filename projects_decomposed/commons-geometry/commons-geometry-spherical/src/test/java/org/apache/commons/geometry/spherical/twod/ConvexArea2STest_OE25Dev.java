@@ -309,25 +309,6 @@ class ConvexArea2STest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_singleBound_5_oe() {
-        // arrange
-        final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
-
-        // act
-        final ConvexArea2S area = ConvexArea2S.fromBounds(circle);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        SphericalTestUtils.assertPointsEq(Point2S.PLUS_J, area.getCentroid(), TEST_EPS);
-        checkCentroidConsistency(area);
-
-        Assertions.assertEquals(1, area.getBoundaries().size());
-    }
-
-    @Test
     void testFromBounds_singleBound_6_oe() {
         // arrange
         final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
@@ -340,7 +321,26 @@ class ConvexArea2STest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        SphericalTestUtils.assertPointsEq(Point2S.PLUS_J, area.getCentroid(), TEST_EPS);
+        // removed other assertion
+        checkCentroidConsistency(area);
+
+        Assertions.assertEquals(1, area.getBoundaries().size());
+    }
+
+    @Test
+    void testFromBounds_singleBound_7_oe() {
+        // arrange
+        final GreatCircle circle = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
+
+        // act
+        final ConvexArea2S area = ConvexArea2S.fromBounds(circle);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
         checkCentroidConsistency(area);
 
         // removed other assertion
@@ -411,7 +411,7 @@ class ConvexArea2STest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_lune_intersectionAtPoles_5_oe() {
+    void testFromBounds_lune_intersectionAtPoles_6_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(
@@ -425,8 +425,7 @@ class ConvexArea2STest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        SphericalTestUtils.assertPointsEq(Point2S.of(0.125 * Math.PI, Angle.PI_OVER_TWO),
-                area.getCentroid(), TEST_EPS);
+        // removed other assertion
         checkCentroidConsistency(area);
 
         final List<GreatArc> arcs = sortArcs(area.getBoundaries());
@@ -492,7 +491,7 @@ class ConvexArea2STest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_lune_intersectionAtEquator_5_oe() {
+    void testFromBounds_lune_intersectionAtEquator_6_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
@@ -505,7 +504,7 @@ class ConvexArea2STest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        SphericalTestUtils.assertPointsEq(Point2S.of(0, 0.25 * Math.PI), area.getCentroid(), TEST_EPS);
+        // removed other assertion
         checkCentroidConsistency(area);
 
         final List<GreatArc> arcs = sortArcs(area.getBoundaries());
@@ -575,7 +574,7 @@ class ConvexArea2STest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_triangle_large_5_oe() {
+    void testFromBounds_triangle_large_6_oe() {
         // arrange
         final GreatCircle a = GreatCircles.fromPole(Vector3D.Unit.PLUS_X, TEST_PRECISION);
         final GreatCircle b = GreatCircles.fromPole(Vector3D.Unit.PLUS_Y, TEST_PRECISION);
@@ -591,7 +590,7 @@ class ConvexArea2STest_OE25Dev {
         // removed other assertion
 
         final Point2S expectedCentroid = triangleCentroid(Point2S.PLUS_I, Point2S.PLUS_J, Point2S.PLUS_K);
-        SphericalTestUtils.assertPointsEq(expectedCentroid, area.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         checkCentroidConsistency(area);
 
@@ -703,7 +702,7 @@ class ConvexArea2STest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_triangle_small_5_oe() {
+    void testFromBounds_triangle_small_6_oe() {
         // arrange
         final double azMin = 1.12 * Math.PI;
         final double azMax = 1.375 * Math.PI;
@@ -730,7 +729,7 @@ class ConvexArea2STest_OE25Dev {
         // removed other assertion
 
         final Point2S expectedCentroid = triangleCentroid(p1, p2, p3);
-        SphericalTestUtils.assertPointsEq(expectedCentroid, area.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         checkCentroidConsistency(area);
 
@@ -936,7 +935,7 @@ class ConvexArea2STest_OE25Dev {
     }
 
     @Test
-    void testFromPath_5_oe() {
+    void testFromPath_6_oe() {
         // arrange
         final GreatArcPath path = GreatArcPath.builder(TEST_PRECISION)
                 .append(Point2S.MINUS_I)
@@ -954,7 +953,7 @@ class ConvexArea2STest_OE25Dev {
         // removed other assertion
 
         final Point2S expectedCentroid = triangleCentroid(Point2S.MINUS_I, Point2S.MINUS_K, Point2S.MINUS_J);
-        SphericalTestUtils.assertPointsEq(expectedCentroid, area.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         checkCentroidConsistency(area);
 
@@ -1034,7 +1033,7 @@ class ConvexArea2STest_OE25Dev {
     }
 
     @Test
-    void testFromVertices_5_oe() {
+    void testFromVertices_6_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
         final Point2S p2 = Point2S.PLUS_J;
@@ -1048,7 +1047,7 @@ class ConvexArea2STest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        SphericalTestUtils.assertPointsEq(Point2S.of(0, 0.25 * Math.PI), area.getCentroid(), TEST_EPS);
+        // removed other assertion
         checkCentroidConsistency(area);
 
         final List<GreatArc> arcs = sortArcs(area.getBoundaries());
@@ -1118,7 +1117,7 @@ class ConvexArea2STest_OE25Dev {
     }
 
     @Test
-    void testFromVertices_lastVertexRepeated_5_oe() {
+    void testFromVertices_lastVertexRepeated_6_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
         final Point2S p2 = Point2S.PLUS_J;
@@ -1134,7 +1133,7 @@ class ConvexArea2STest_OE25Dev {
         // removed other assertion
 
         final Point2S expectedCentroid = triangleCentroid(Point2S.PLUS_I, Point2S.PLUS_J, Point2S.PLUS_K);
-        SphericalTestUtils.assertPointsEq(expectedCentroid, area.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         checkCentroidConsistency(area);
 
@@ -1158,7 +1157,7 @@ class ConvexArea2STest_OE25Dev {
     }
 
     @Test
-    void testFromVertices_verticesRepeated_2_oe() {
+    void testFromVertices_verticesRepeated_3_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
         final Point2S p2 = Point2S.PLUS_J;
@@ -1172,7 +1171,7 @@ class ConvexArea2STest_OE25Dev {
         // removed other assertion
 
         final Point2S expectedCentroid = triangleCentroid(Point2S.PLUS_I, Point2S.PLUS_J, Point2S.PLUS_K);
-        SphericalTestUtils.assertPointsEq(expectedCentroid, area.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<Point2S> vertices = area.getBoundaryPath().getVertices();
         Assertions.assertEquals(4, vertices.size());
@@ -1254,7 +1253,7 @@ class ConvexArea2STest_OE25Dev {
     }
 
     @Test
-    void testFromVertexLoop_5_oe() {
+    void testFromVertexLoop_6_oe() {
         // arrange
         final Point2S p1 = Point2S.PLUS_I;
         final Point2S p2 = Point2S.PLUS_J;
@@ -1270,7 +1269,7 @@ class ConvexArea2STest_OE25Dev {
         // removed other assertion
 
         final Point2S expectedCentroid = triangleCentroid(Point2S.PLUS_I, Point2S.PLUS_J, Point2S.PLUS_K);
-        SphericalTestUtils.assertPointsEq(expectedCentroid, area.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         checkCentroidConsistency(area);
 
@@ -1585,7 +1584,7 @@ class ConvexArea2STest_OE25Dev {
     }
 
     @Test
-    void testTransform_5_oe() {
+    void testTransform_6_oe() {
         // arrange
         final Transform2S t = Transform2S.createReflection(Point2S.PLUS_J);
         final ConvexArea2S input = ConvexArea2S.fromVertexLoop(
@@ -1601,7 +1600,7 @@ class ConvexArea2STest_OE25Dev {
         // removed other assertion
 
         final Point2S expectedCentroid = triangleCentroid(Point2S.MINUS_J, Point2S.PLUS_I, Point2S.PLUS_K);
-        SphericalTestUtils.assertPointsEq(expectedCentroid, area.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         checkCentroidConsistency(area);
 
@@ -1650,7 +1649,7 @@ class ConvexArea2STest_OE25Dev {
     }
 
     @Test
-    void testSplit_both_2_oe() {
+    void testSplit_both_4_oe() {
         // arrange
         final GreatCircle c1 = GreatCircles.fromPole(Vector3D.Unit.MINUS_X, TEST_PRECISION);
         final GreatCircle c2 = GreatCircles.fromPole(Vector3D.of(1, 1, 0), TEST_PRECISION);
@@ -1669,10 +1668,10 @@ class ConvexArea2STest_OE25Dev {
         final Point2S p2 = splitter.intersection(c2);
 
         final ConvexArea2S minus = split.getMinus();
-        assertPath(minus.getBoundaryPath(), Point2S.PLUS_K, p1, p2, Point2S.PLUS_K);
+        // removed other assertion
 
         final ConvexArea2S plus = split.getPlus();
-        assertPath(plus.getBoundaryPath(), p1, Point2S.MINUS_K, p2, p1);
+        // removed other assertion
 
         Assertions.assertEquals(area.getSize(), minus.getSize() + plus.getSize(), TEST_EPS);
     }

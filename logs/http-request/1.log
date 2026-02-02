@@ -37,10 +37,10 @@
  T E S T S
 -------------------------------------------------------
 Running com.github.kevinsawicki.http.EncodeTest_OE25Dev
-Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.348 sec
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.396 sec
 Running com.github.kevinsawicki.http.HttpRequestTest_OE25Dev
-Tests run: 407, Failures: 94, Errors: 0, Skipped: 0, Time elapsed: 144.68 sec <<< FAILURE!
-getUrlEncodedWithSpace_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+Tests run: 407, Failures: 94, Errors: 0, Skipped: 0, Time elapsed: 165.565 sec <<< FAILURE!
+getUrlEncodedWithSpace_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:</a resource> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -204,7 +204,7 @@ java.lang.AssertionError: expected:<DELETE> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-optionsEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+optionsEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<OPTIONS> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -245,7 +245,7 @@ java.lang.AssertionError: expected:<OPTIONS> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-optionsUrlEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+optionsUrlEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<OPTIONS> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -327,7 +327,7 @@ java.lang.AssertionError: expected:<HEAD> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-headUrlEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+headUrlEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<HEAD> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -368,7 +368,7 @@ java.lang.AssertionError: expected:<HEAD> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-putEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+putEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<PUT> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -409,7 +409,7 @@ java.lang.AssertionError: expected:<PUT> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-putUrlEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+putUrlEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<PUT> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -450,7 +450,7 @@ java.lang.AssertionError: expected:<PUT> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-traceEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+traceEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<TRACE> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -491,7 +491,7 @@ java.lang.AssertionError: expected:<TRACE> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-traceUrlEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.004 sec  <<< FAILURE!
+traceUrlEmpty_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<TRACE> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -532,7 +532,7 @@ java.lang.AssertionError: expected:<TRACE> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-basicAuthentication_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+basicAuthentication_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<user> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -573,7 +573,7 @@ java.lang.AssertionError: expected:<user> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-basicAuthentication_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.008 sec  <<< FAILURE!
+basicAuthentication_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<p4ssw0rd> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -778,7 +778,7 @@ java.lang.AssertionError: expected:<text/html; charset=UTF-8> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-requestContentTypeNullCharset_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+requestContentTypeNullCharset_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<text/html> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -819,7 +819,7 @@ java.lang.AssertionError: expected:<text/html> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-requestContentTypeEmptyCharset_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+requestContentTypeEmptyCharset_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<text/html> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -901,7 +901,7 @@ java.lang.AssertionError: expected:<v1> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-headers_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+headers_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<v2> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -983,7 +983,7 @@ java.lang.AssertionError: expected:<5> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-numberHeader_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+numberHeader_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -1188,7 +1188,7 @@ java.lang.AssertionError: expected:<eid> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-acceptCharsetHeader_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+acceptCharsetHeader_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<UTF-8> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -1311,7 +1311,7 @@ java.lang.AssertionError: expected:<5000> but was:<0>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-refererHeader_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+refererHeader_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<http://heroku.com> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -1352,7 +1352,7 @@ java.lang.AssertionError: expected:<http://heroku.com> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-postMultipart_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+postMultipart_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -1432,7 +1432,7 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-postMultipart_5_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+postMultipart_5_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -1472,7 +1472,7 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-postMultipart_6_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+postMultipart_6_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -1512,7 +1512,7 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-postMultipart_7_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+postMultipart_7_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -1552,7 +1552,7 @@ java.lang.AssertionError
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-postMultipartWithContentType_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+postMultipartWithContentType_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError
 	at org.junit.Assert.fail(Assert.java:86)
 	at org.junit.Assert.assertTrue(Assert.java:41)
@@ -1671,7 +1671,7 @@ org.junit.ComparisonFailure: expected:<[content]> but was:<[]>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-receiveWriter_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+receiveWriter_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.004 sec  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[content]> but was:<[]>
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
@@ -1710,7 +1710,7 @@ org.junit.ComparisonFailure: expected:<[content]> but was:<[]>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-receivePrintStream_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+receivePrintStream_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[content]> but was:<[]>
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
@@ -1749,7 +1749,7 @@ org.junit.ComparisonFailure: expected:<[content]> but was:<[]>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-receiveFile_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+receiveFile_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 org.junit.ComparisonFailure: expected:<[content]> but was:<[]>
 	at org.junit.Assert.assertEquals(Assert.java:115)
 	at org.junit.Assert.assertEquals(Assert.java:144)
@@ -1788,7 +1788,7 @@ org.junit.ComparisonFailure: expected:<[content]> but was:<[]>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-postWithMappedQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+postWithMappedQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<POST> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -1829,7 +1829,7 @@ java.lang.AssertionError: expected:<POST> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-postWithMappedQueryParams_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
+postWithMappedQueryParams_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<user> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -1870,7 +1870,7 @@ java.lang.AssertionError: expected:<user> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-postWithMappedQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+postWithMappedQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<100> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -1993,7 +1993,7 @@ java.lang.AssertionError: expected:<user> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-postWithVaragsQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+postWithVaragsQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<100> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2075,7 +2075,7 @@ java.lang.AssertionError: expected:<POST> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-postWithEscapedMappedQueryParams_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+postWithEscapedMappedQueryParams_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<us er> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2239,7 +2239,7 @@ java.lang.AssertionError: expected:<user> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-getWithMappedQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+getWithMappedQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<100> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2362,7 +2362,7 @@ java.lang.AssertionError: expected:<user> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-getWithVarargsQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+getWithVarargsQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<100> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2403,7 +2403,7 @@ java.lang.AssertionError: expected:<100> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-getWithEscapedMappedQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+getWithEscapedMappedQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<GET> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2444,7 +2444,7 @@ java.lang.AssertionError: expected:<GET> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-getWithEscapedMappedQueryParams_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+getWithEscapedMappedQueryParams_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<us er> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2485,7 +2485,7 @@ java.lang.AssertionError: expected:<us er> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-getWithEscapedMappedQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+getWithEscapedMappedQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<100> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2526,7 +2526,7 @@ java.lang.AssertionError: expected:<100> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-getWithEscapedVarargsQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+getWithEscapedVarargsQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<GET> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2608,7 +2608,7 @@ java.lang.AssertionError: expected:<us er> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-getWithEscapedVarargsQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+getWithEscapedVarargsQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<100> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2649,7 +2649,7 @@ java.lang.AssertionError: expected:<100> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-deleteWithMappedQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+deleteWithMappedQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<DELETE> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2813,7 +2813,7 @@ java.lang.AssertionError: expected:<DELETE> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-deleteWithVarargsQueryParams_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+deleteWithVarargsQueryParams_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<user> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2854,7 +2854,7 @@ java.lang.AssertionError: expected:<user> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-deleteWithVarargsQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+deleteWithVarargsQueryParams_4_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<100> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2895,7 +2895,7 @@ java.lang.AssertionError: expected:<100> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-deleteWithEscapedMappedQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+deleteWithEscapedMappedQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<DELETE> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -2977,7 +2977,7 @@ java.lang.AssertionError: expected:<DELETE> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-putWithMappedQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+putWithMappedQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<PUT> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -3018,7 +3018,7 @@ java.lang.AssertionError: expected:<PUT> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-putWithMappedQueryParams_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+putWithMappedQueryParams_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<user> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -3100,7 +3100,7 @@ java.lang.AssertionError: expected:<100> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-putWithEscapedMappedQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
+putWithEscapedMappedQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<PUT> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -3182,7 +3182,7 @@ java.lang.AssertionError: expected:<100> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-putWithEscapedVarargsQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+putWithEscapedVarargsQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<PUT> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -3305,7 +3305,7 @@ java.lang.AssertionError: expected:<100> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-headWithVaragsQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+headWithVaragsQueryParams_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<HEAD> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -3346,7 +3346,7 @@ java.lang.AssertionError: expected:<HEAD> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-headWithVaragsQueryParams_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+headWithVaragsQueryParams_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<user> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -3633,7 +3633,7 @@ java.lang.AssertionError: expected:<hello> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-sendDateHeaderWithoutCode_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.001 sec  <<< FAILURE!
+sendDateHeaderWithoutCode_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<hello> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -3674,7 +3674,7 @@ java.lang.AssertionError: expected:<hello> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-sendIntHeaderWithoutCode_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.002 sec  <<< FAILURE!
+sendIntHeaderWithoutCode_2_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<hello> but was:<null>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -3715,7 +3715,7 @@ java.lang.AssertionError: expected:<hello> but was:<null>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-uploadProgressSend_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.802 sec  <<< FAILURE!
+uploadProgressSend_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.403 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<5> but was:<0>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -3756,7 +3756,7 @@ java.lang.AssertionError: expected:<5> but was:<0>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-uploadProgressSendInputStream_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.801 sec  <<< FAILURE!
+uploadProgressSendInputStream_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.003 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<5> but was:<0>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -3797,7 +3797,7 @@ java.lang.AssertionError: expected:<5> but was:<0>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-uploadProgressSendByteArray_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.402 sec  <<< FAILURE!
+uploadProgressSendByteArray_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.401 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<5> but was:<0>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -3838,7 +3838,7 @@ java.lang.AssertionError: expected:<5> but was:<0>
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 
-uploadProgressSendReader_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.402 sec  <<< FAILURE!
+uploadProgressSendReader_3_oe(com.github.kevinsawicki.http.HttpRequestTest_OE25Dev)  Time elapsed: 0.404 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<5> but was:<0>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:834)
@@ -3982,8 +3982,8 @@ Tests run: 427, Failures: 94, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  02:36 min
-[INFO] Finished at: 2026-01-26T16:30:07-06:00
+[INFO] Total time:  02:57 min
+[INFO] Finished at: 2026-02-02T13:41:15-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.12.4:test (default-test) on project http-request: There are test failures.
 [ERROR] 

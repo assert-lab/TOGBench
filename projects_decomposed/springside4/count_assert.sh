@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 ROOT="$(pwd)"
-PY="show_unique_assert.py"
+PY="count_assert_slc.py"
 
 find . -type f -name "pit.sh" | while read f; do
   d="$(dirname "$f")"

@@ -5746,27 +5746,6 @@ class StableSamplerTest_OE25Dev {
     }
 
     @Test
-    void testSamplesWithZBelow0_1_oe() {
-        // Call the CMS algorithm with u->1; phi/2 -> pi/4.
-        // The value with all bits set generates phi/2 -> pi/4.
-        // Add a long to create a big value for w of 5.
-        // The parameters create cancellation in the numerator of z to create a negative z.
-        final long[] longs = {Long.MAX_VALUE, -6261465550279131136L};
-
-        final double phiby2 = PI_4 - PI_4 * DU;
-        final double w = 5.0;
-        assertUWSequence(new double[] {
-            phiby2, w,
-        }, longs);
-
-        // The alpha parameter has been identified via a search with beta=-1.
-        // See testZIsNotAlwaysAboveZero()
-        final double alpha = 1.291015625;
-        final double beta = -1;
-        Assertions.assertTrue(0.0 > computeNumerator(alpha, beta, Long.MAX_VALUE));
-    }
-
-    @Test
     void testSamplesWithZBelow0_2_oe() {
         // Call the CMS algorithm with u->1; phi/2 -> pi/4.
         // The value with all bits set generates phi/2 -> pi/4.
@@ -5776,9 +5755,26 @@ class StableSamplerTest_OE25Dev {
 
         final double phiby2 = PI_4 - PI_4 * DU;
         final double w = 5.0;
-        assertUWSequence(new double[] {
-            phiby2, w,
-        }, longs);
+        // removed other assertion
+
+        // The alpha parameter has been identified via a search with beta=-1.
+        // See testZIsNotAlwaysAboveZero()
+        final double alpha = 1.291015625;
+        final double beta = -1;
+        Assertions.assertTrue(0.0 > computeNumerator(alpha, beta, Long.MAX_VALUE));
+    }
+
+    @Test
+    void testSamplesWithZBelow0_3_oe() {
+        // Call the CMS algorithm with u->1; phi/2 -> pi/4.
+        // The value with all bits set generates phi/2 -> pi/4.
+        // Add a long to create a big value for w of 5.
+        // The parameters create cancellation in the numerator of z to create a negative z.
+        final long[] longs = {Long.MAX_VALUE, -6261465550279131136L};
+
+        final double phiby2 = PI_4 - PI_4 * DU;
+        final double w = 5.0;
+        // removed other assertion
 
         // The alpha parameter has been identified via a search with beta=-1.
         // See testZIsNotAlwaysAboveZero()
@@ -5804,7 +5800,7 @@ class StableSamplerTest_OE25Dev {
     }
 
     @Test
-    void testSamplesWithZBelow0_3_oe() {
+    void testSamplesWithZBelow0_4_oe() {
         // Call the CMS algorithm with u->1; phi/2 -> pi/4.
         // The value with all bits set generates phi/2 -> pi/4.
         // Add a long to create a big value for w of 5.
@@ -5813,9 +5809,7 @@ class StableSamplerTest_OE25Dev {
 
         final double phiby2 = PI_4 - PI_4 * DU;
         final double w = 5.0;
-        assertUWSequence(new double[] {
-            phiby2, w,
-        }, longs);
+        // removed other assertion
 
         // The alpha parameter has been identified via a search with beta=-1.
         // See testZIsNotAlwaysAboveZero()
@@ -5845,13 +5839,11 @@ class StableSamplerTest_OE25Dev {
     }
 
     @Test
-    void testSamplesWithZInfinite_1_oe() {
+    void testSamplesWithZInfinite_2_oe() {
         // Call the CMS algorithm with w=0 (and phi/2 is not extreme).
         final long[] longs = {Long.MIN_VALUE >>> 1, 0};
 
-        assertUWSequence(new double[] {
-            PI_4 / 2, 0,
-        }, longs);
+        // removed other assertion
 
         for (final double alpha : new double[] {0.789, 1, 1.23}) {
             // Test all directions
@@ -5869,13 +5861,11 @@ class StableSamplerTest_OE25Dev {
     }
 
     @Test
-    void testSamplesWithZInfinite_2_oe() {
+    void testSamplesWithZInfinite_3_oe() {
         // Call the CMS algorithm with w=0 (and phi/2 is not extreme).
         final long[] longs = {Long.MIN_VALUE >>> 1, 0};
 
-        assertUWSequence(new double[] {
-            PI_4 / 2, 0,
-        }, longs);
+        // removed other assertion
 
         for (final double alpha : new double[] {0.789, 1, 1.23}) {
             // Test all directions
@@ -5900,13 +5890,11 @@ class StableSamplerTest_OE25Dev {
     }
 
     @Test
-    void testSamplesWithZInfinite_3_oe() {
+    void testSamplesWithZInfinite_4_oe() {
         // Call the CMS algorithm with w=0 (and phi/2 is not extreme).
         final long[] longs = {Long.MIN_VALUE >>> 1, 0};
 
-        assertUWSequence(new double[] {
-            PI_4 / 2, 0,
-        }, longs);
+        // removed other assertion
 
         for (final double alpha : new double[] {0.789, 1, 1.23}) {
             // Test all directions
@@ -5936,26 +5924,6 @@ class StableSamplerTest_OE25Dev {
     }
 
     @Test
-    void testAlpha1SamplesWithExtremePhi_1_oe() {
-        // The numerator is:
-        // 1 + 2 * phiby2 * tau
-        // tau = beta / pi/2 when alpha=1
-        //     = +/-2 / pi when alpha=1, beta = +/-1
-        // This should not create zero if phi/2 is not pi/4.
-        // Test the limits of phi/2 to check samples are finite.
-
-        // Add a long to create an ordinary value for w of 1.0.
-        // u -> -pi/4
-        final long[] longs1 = {Long.MIN_VALUE + (1 << 10), 2703662416942444033L};
-        assertUWSequence(new double[] {
-            -PI_4 + PI_4 * DU, 1.0,
-        }, longs1);
-        final StableSampler sampler1 = StableSampler.of(createRngWithSequence(longs1), 1.0, 1.0);
-        final double x1 = sampler1.sample();
-        Assertions.assertTrue(Double.isFinite(x1), "Sampler did not recover");
-    }
-
-    @Test
     void testAlpha1SamplesWithExtremePhi_2_oe() {
         // The numerator is:
         // 1 + 2 * phiby2 * tau
@@ -5967,25 +5935,14 @@ class StableSamplerTest_OE25Dev {
         // Add a long to create an ordinary value for w of 1.0.
         // u -> -pi/4
         final long[] longs1 = {Long.MIN_VALUE + (1 << 10), 2703662416942444033L};
-        assertUWSequence(new double[] {
-            -PI_4 + PI_4 * DU, 1.0,
-        }, longs1);
+        // removed other assertion
         final StableSampler sampler1 = StableSampler.of(createRngWithSequence(longs1), 1.0, 1.0);
         final double x1 = sampler1.sample();
-        // removed other assertion
-
-        // u -> pi/4
-        final long[] longs2 = {Long.MAX_VALUE, 2703662416942444033L};
-        assertUWSequence(new double[] {
-            PI_4 - PI_4 * DU, 1.0,
-        }, longs2);
-        final StableSampler sampler2 = StableSampler.of(createRngWithSequence(longs2), 1.0, -1.0);
-        final double x2 = sampler2.sample();
-        Assertions.assertTrue(Double.isFinite(x2), "Sampler did not recover");
+        Assertions.assertTrue(Double.isFinite(x1), "Sampler did not recover");
     }
 
     @Test
-    void testAlpha1SamplesWithExtremePhi_3_oe() {
+    void testAlpha1SamplesWithExtremePhi_4_oe() {
         // The numerator is:
         // 1 + 2 * phiby2 * tau
         // tau = beta / pi/2 when alpha=1
@@ -5996,18 +5953,39 @@ class StableSamplerTest_OE25Dev {
         // Add a long to create an ordinary value for w of 1.0.
         // u -> -pi/4
         final long[] longs1 = {Long.MIN_VALUE + (1 << 10), 2703662416942444033L};
-        assertUWSequence(new double[] {
-            -PI_4 + PI_4 * DU, 1.0,
-        }, longs1);
+        // removed other assertion
         final StableSampler sampler1 = StableSampler.of(createRngWithSequence(longs1), 1.0, 1.0);
         final double x1 = sampler1.sample();
         // removed other assertion
 
         // u -> pi/4
         final long[] longs2 = {Long.MAX_VALUE, 2703662416942444033L};
-        assertUWSequence(new double[] {
-            PI_4 - PI_4 * DU, 1.0,
-        }, longs2);
+        // removed other assertion
+        final StableSampler sampler2 = StableSampler.of(createRngWithSequence(longs2), 1.0, -1.0);
+        final double x2 = sampler2.sample();
+        Assertions.assertTrue(Double.isFinite(x2), "Sampler did not recover");
+    }
+
+    @Test
+    void testAlpha1SamplesWithExtremePhi_5_oe() {
+        // The numerator is:
+        // 1 + 2 * phiby2 * tau
+        // tau = beta / pi/2 when alpha=1
+        //     = +/-2 / pi when alpha=1, beta = +/-1
+        // This should not create zero if phi/2 is not pi/4.
+        // Test the limits of phi/2 to check samples are finite.
+
+        // Add a long to create an ordinary value for w of 1.0.
+        // u -> -pi/4
+        final long[] longs1 = {Long.MIN_VALUE + (1 << 10), 2703662416942444033L};
+        // removed other assertion
+        final StableSampler sampler1 = StableSampler.of(createRngWithSequence(longs1), 1.0, 1.0);
+        final double x1 = sampler1.sample();
+        // removed other assertion
+
+        // u -> pi/4
+        final long[] longs2 = {Long.MAX_VALUE, 2703662416942444033L};
+        // removed other assertion
         final StableSampler sampler2 = StableSampler.of(createRngWithSequence(longs2), 1.0, -1.0);
         final double x2 = sampler2.sample();
         // removed other assertion
@@ -6559,34 +6537,6 @@ class StableSamplerTest_OE25Dev {
     }
 
     @Test
-    void testWeronImplementationEdgeCase_1_oe() {
-        double alpha = 0.25;
-        // Solved in testSinAlphaPhiMinusAtanZeta()
-        double beta = -0.48021693505171;
-        // Require phi = PI_4.
-        // This is the equivalent of phi/2 = pi/5
-        final long x = Long.MIN_VALUE >>> 1;
-        final long[] longs = new long[] {
-            // phi/2=pi/5, w=0
-            x, 0,
-            // phi/2=pi/5, w=large
-            x, -1, -1, -1, -1, -1, -1, -1, -1, 0,
-            // phi/2=pi/5, w=1
-            x, 2703662416942444033L,
-        };
-
-        // Validate series
-        assertUWSequence(new double[] {
-            PI_4 / 2, 0,
-            PI_4 / 2, LARGE_W,
-            PI_4 / 2, 1.0,
-        }, longs);
-
-        final double zeta = -beta * Math.tan(alpha * PI_2);
-        Assertions.assertEquals(0.0, alpha * PI_4 + Math.atan(-zeta));
-    }
-
-    @Test
     void testWeronImplementationEdgeCase_2_oe() {
         double alpha = 0.25;
         // Solved in testSinAlphaPhiMinusAtanZeta()
@@ -6604,20 +6554,10 @@ class StableSamplerTest_OE25Dev {
         };
 
         // Validate series
-        assertUWSequence(new double[] {
-            PI_4 / 2, 0,
-            PI_4 / 2, LARGE_W,
-            PI_4 / 2, 1.0,
-        }, longs);
-
-        final double zeta = -beta * Math.tan(alpha * PI_2);
         // removed other assertion
 
-        final UniformRandomProvider rng = createRngWithSequence(longs);
-        final StableSampler sampler = new WeronStableSampler(rng, alpha, beta);
-        // zeta is the offset used to shift the 1-parameterization to the
-        // 0-parameterization. This is returned when other terms multiply to zero.
-        Assertions.assertEquals(zeta, sampler.sample());
+        final double zeta = -beta * Math.tan(alpha * PI_2);
+        Assertions.assertEquals(0.0, alpha * PI_4 + Math.atan(-zeta));
     }
 
     @Test
@@ -6638,11 +6578,7 @@ class StableSamplerTest_OE25Dev {
         };
 
         // Validate series
-        assertUWSequence(new double[] {
-            PI_4 / 2, 0,
-            PI_4 / 2, LARGE_W,
-            PI_4 / 2, 1.0,
-        }, longs);
+        // removed other assertion
 
         final double zeta = -beta * Math.tan(alpha * PI_2);
         // removed other assertion
@@ -6651,7 +6587,6 @@ class StableSamplerTest_OE25Dev {
         final StableSampler sampler = new WeronStableSampler(rng, alpha, beta);
         // zeta is the offset used to shift the 1-parameterization to the
         // 0-parameterization. This is returned when other terms multiply to zero.
-        // removed other assertion
         Assertions.assertEquals(zeta, sampler.sample());
     }
 
@@ -6673,11 +6608,38 @@ class StableSamplerTest_OE25Dev {
         };
 
         // Validate series
-        assertUWSequence(new double[] {
-            PI_4 / 2, 0,
-            PI_4 / 2, LARGE_W,
-            PI_4 / 2, 1.0,
-        }, longs);
+        // removed other assertion
+
+        final double zeta = -beta * Math.tan(alpha * PI_2);
+        // removed other assertion
+
+        final UniformRandomProvider rng = createRngWithSequence(longs);
+        final StableSampler sampler = new WeronStableSampler(rng, alpha, beta);
+        // zeta is the offset used to shift the 1-parameterization to the
+        // 0-parameterization. This is returned when other terms multiply to zero.
+        // removed other assertion
+        Assertions.assertEquals(zeta, sampler.sample());
+    }
+
+    @Test
+    void testWeronImplementationEdgeCase_5_oe() {
+        double alpha = 0.25;
+        // Solved in testSinAlphaPhiMinusAtanZeta()
+        double beta = -0.48021693505171;
+        // Require phi = PI_4.
+        // This is the equivalent of phi/2 = pi/5
+        final long x = Long.MIN_VALUE >>> 1;
+        final long[] longs = new long[] {
+            // phi/2=pi/5, w=0
+            x, 0,
+            // phi/2=pi/5, w=large
+            x, -1, -1, -1, -1, -1, -1, -1, -1, 0,
+            // phi/2=pi/5, w=1
+            x, 2703662416942444033L,
+        };
+
+        // Validate series
+        // removed other assertion
 
         final double zeta = -beta * Math.tan(alpha * PI_2);
         // removed other assertion

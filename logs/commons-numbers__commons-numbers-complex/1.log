@@ -34,7 +34,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-complex ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-complex
-[INFO] Storing buildNumber: 4c09e22d8c02f6e925aecd1701912efc953cf025 at timestamp: 1769466539705
+[INFO] Storing buildNumber: 1bce5ff5302ae8df6fc5734364b77ec74ad0d827 at timestamp: 1770061166796
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-complex ---
@@ -69,11 +69,11 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.complex.ComplexTest_OE25Dev
-[INFO] Tests run: 418, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.802 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
+[INFO] Tests run: 418, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.353 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.CStandardTest_OE25Dev
 [INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.complex.CStandardTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -82,6 +82,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.836 s
-[INFO] Finished at: 2026-01-26T16:29:09-06:00
+[INFO] Total time:  8.745 s
+[INFO] Finished at: 2026-02-02T13:39:33-06:00
 [INFO] ------------------------------------------------------------------------

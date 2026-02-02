@@ -4,7 +4,7 @@ find projects_decomposed -type d -name "dataset" -exec rm -rf {} +
 
 # ./scripts_trial/build_treesitter.sh
 
-# ./scripts_trial/expand_arch_type_asserts_lang3.py
+./scripts_trial/expand_arch_type_asserts_lang3.py
 
 python3 scripts_trial/1_build_dataset.py
 
@@ -33,12 +33,11 @@ python3 scripts_trial/3_rebuild_tests.py
 
 # module load java/17
 
-# ./scripts_trial/clean_loop.sh > compile_error_test_files.log
+./scripts_trial/clean_loop.sh > compile_error_test_files.log
 
 
-# ./scripts_trial/clean_loop.sh projects_decomposed/commons-configuration2
-
-# python3 scripts_trial/test_count.py
+./scripts_trial/clean_loop.sh
+python3 scripts_trial/test_count.py
 
 # python3 scripts_trial/filter_by_logs.py
 

@@ -50,7 +50,6 @@ def _line_has_test_annotation(sanitized_line: str) -> bool:
     return any(ann in s for ann in JUNIT_TEST_ANNOTATIONS)
 
 
-
 def extract_test_methods(file_content: str) -> List[List[str]]:
     lines = file_content.splitlines(keepends=True)
     methods = []
@@ -121,9 +120,12 @@ def extract_test_methods(file_content: str) -> List[List[str]]:
     return methods
 
 
-
 def extract_project(project: str, projects_root: str = "projects_decomposed"):
     project_path = os.path.join(projects_root, project)
+    if not os.path.isdir(project_path):
+        print(f"[SKIP] {project} is not a directory")
+        return
+
     dataset_path = os.path.join(project_path, "dataset")
     os.makedirs(dataset_path, exist_ok=True)
 
@@ -132,6 +134,8 @@ def extract_project(project: str, projects_root: str = "projects_decomposed"):
 
     rows_inputs = []
     rows_meta = []
+    rows_inputs_custom = []
+    rows_meta_custom = []
 
     for test_file in find_test_files(project_path):
         rel_path = os.path.relpath(test_file, project_path)
@@ -144,49 +148,52 @@ def extract_project(project: str, projects_root: str = "projects_decomposed"):
 
         for method_lines in methods:
             try:
-                collapsed_lines, oracle_idxs = collapse_oracle_blocks(method_lines)
+                collapsed_lines, oracle_idxs, oracle_kinds = collapse_oracle_blocks(method_lines)
             except IndexError:
-                # Don't let one weird test kill the whole build
-                print(f"[WARN] collapse_oracle_blocks IndexError in project={project}, "
-                    f"file={rel_path}")
+                print(f"[WARN] collapse_oracle_blocks IndexError in project={project}, file={rel_path}")
                 continue
 
             if not oracle_idxs:
                 continue
 
-
             header = get_method_header(collapsed_lines)
             base_name = get_method_name_from_header(header)
 
             oracle_counter = 1
-            for idx in oracle_idxs:
+            for j, idx in enumerate(oracle_idxs):
+                kind, name = oracle_kinds[j]
                 new_method_name = f"{base_name}_{oracle_counter}_oe"
                 test_id = f"{prefix}_{global_test_counter}_{oracle_counter}"
 
                 full_test = build_single_oracle_test(collapsed_lines, idx, new_method_name)
 
-                rows_inputs.append(
-                    {
-                        "id": test_id,
-                        "test_prefix": full_test,
-                        "test_name": f"{test_class}::{new_method_name}",
-                    }
-                )
+                inputs_row = {
+                    "id": test_id,
+                    "test_prefix": full_test,
+                    "test_name": f"{test_class}::{new_method_name}",
+                }
 
-                rows_meta.append(
-                    {
-                        "id": test_id,
-                        "project": project,
-                        "test_class": test_class,
-                        "test_name": new_method_name,
-                        "test_file_path": rel_path,
-                        "focal_file_path": "",
-                        "focal_class": "",
-                        "focal_package": "",
-                        "oracle_type": "assert",
-                        "junit_version": "unknown",
-                    }
-                )
+                meta_row = {
+                    "id": test_id,
+                    "project": project,
+                    "test_class": test_class,
+                    "test_name": new_method_name,
+                    "test_file_path": rel_path,
+                    "focal_file_path": "",
+                    "focal_class": "",
+                    "focal_package": "",
+                    "oracle_type": "assert",
+                    "junit_version": "unknown",
+                    "assert_kind": kind,
+                    "assert_name": name,
+                }
+
+                if kind == "custom":
+                    rows_inputs_custom.append(inputs_row)
+                    rows_meta_custom.append(meta_row)
+                else:
+                    rows_inputs.append(inputs_row)
+                    rows_meta.append(meta_row)
 
                 oracle_counter += 1
 
@@ -194,36 +201,49 @@ def extract_project(project: str, projects_root: str = "projects_decomposed"):
 
     inputs_path = os.path.join(dataset_path, "inputs.csv")
     meta_path = os.path.join(dataset_path, "meta.csv")
+    inputs_custom_path = os.path.join(dataset_path, "inputs_custom.csv")
+    meta_custom_path = os.path.join(dataset_path, "meta_custom.csv")
 
     with open(inputs_path, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=["id", "test_prefix", "test_name"])
         w.writeheader()
         w.writerows(rows_inputs)
 
+    with open(inputs_custom_path, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=["id", "test_prefix", "test_name"])
+        w.writeheader()
+        w.writerows(rows_inputs_custom)
+
+    meta_fields = [
+        "id",
+        "project",
+        "test_class",
+        "test_name",
+        "test_file_path",
+        "focal_file_path",
+        "focal_class",
+        "focal_package",
+        "oracle_type",
+        "junit_version",
+        "assert_kind",
+        "assert_name",
+    ]
+
     with open(meta_path, "w", newline="", encoding="utf-8") as f:
-        w = csv.DictWriter(
-            f,
-            fieldnames=[
-                "id",
-                "project",
-                "test_class",
-                "test_name",
-                "test_file_path",
-                "focal_file_path",
-                "focal_class",
-                "focal_package",
-                "oracle_type",
-                "junit_version",
-            ],
-        )
+        w = csv.DictWriter(f, fieldnames=meta_fields)
         w.writeheader()
         w.writerows(rows_meta)
+
+    with open(meta_custom_path, "w", newline="", encoding="utf-8") as f:
+        w = csv.DictWriter(f, fieldnames=meta_fields)
+        w.writeheader()
+        w.writerows(rows_meta_custom)
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("project")
-    ap.add_argument("--projects_root", default="projects_decomposed")
+    ap.add_argument("--projects_root", default="projects_decomposed/commons-pool2")
     args = ap.parse_args()
     extract_project(args.project, projects_root=args.projects_root)
 

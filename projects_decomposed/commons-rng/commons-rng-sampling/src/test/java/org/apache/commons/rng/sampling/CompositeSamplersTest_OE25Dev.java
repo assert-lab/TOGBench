@@ -936,7 +936,7 @@ class CompositeSamplersTest_OE25Dev {
     }
 
     @Test
-    void testSharedStateObjectSamplerSamplesWithCustomSharedStateDiscreteSamplerFactory_1_oe() {
+    void testSharedStateObjectSamplerSamplesWithCustomSharedStateDiscreteSamplerFactory_2_oe() {
         final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
         final AtomicInteger factoryCount = new AtomicInteger();
@@ -956,13 +956,13 @@ class CompositeSamplersTest_OE25Dev {
 
         // Exercise the shared state interface
         final UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x1f2e3d);
-        assertObjectSamplerSamples(builder.build(rng).withUniformRandomProvider(rng1), min, max);
+        // removed other assertion
 
         Assertions.assertEquals(1, factoryCount.get(), "Factory should not be used to create the shared state sampler");
     }
 
     @Test
-    void testSharedStateObjectSamplerSamplesWithCustomDiscreteSamplerFactory_1_oe() {
+    void testSharedStateObjectSamplerSamplesWithCustomDiscreteSamplerFactory_2_oe() {
         final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
                 .newSharedStateObjectSamplerBuilder();
         final AtomicInteger factoryCount = new AtomicInteger();
@@ -991,7 +991,7 @@ class CompositeSamplersTest_OE25Dev {
         // Exercise the shared state interface.
         // This tests the custom factory is used twice.
         final UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x8c7b6a);
-        assertObjectSamplerSamples(builder.build(rng).withUniformRandomProvider(rng1), min, max);
+        // removed other assertion
 
         Assertions.assertEquals(2, factoryCount.get(), "Factory should be used to create the shared state sampler");
     }

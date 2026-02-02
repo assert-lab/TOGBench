@@ -202,7 +202,7 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
     }
 
     @Test
-    void testWriteFacets_includesStlFacetAttribute_1_oe() {
+    void testWriteFacets_includesStlFacetAttribute_3_oe() {
         // arrange
         final List<Vector3D> vertices = Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0));
         final Vector3D normal = Vector3D.Unit.PLUS_Z;
@@ -218,8 +218,8 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
                 new BinaryStlFacetDefinitionReader(new ByteArrayInputStream(out.toByteArray()));
         BinaryStlFacetDefinition result = reader.readFacet();
 
-        EuclideanIOTestUtils.assertFacetVertices(result, vertices, MODEL_TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(normal, result.getNormal(), MODEL_TEST_EPS);
+        // removed other assertion
+        // removed other assertion
         Assertions.assertEquals(attr, result.getAttributeValue());
     }
 

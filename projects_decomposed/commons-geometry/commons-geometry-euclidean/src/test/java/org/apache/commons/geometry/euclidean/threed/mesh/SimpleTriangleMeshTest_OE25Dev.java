@@ -908,7 +908,7 @@ class SimpleTriangleMeshTest_OE25Dev {
     }
 
     @Test
-    void testFrom_verticesAndFaces_21_oe() {
+    void testFrom_verticesAndFaces_23_oe() {
         // arrange
         final Vector3D[] vertices = {
             Vector3D.ZERO,
@@ -956,8 +956,8 @@ class SimpleTriangleMeshTest_OE25Dev {
         // removed other assertion
 
         final Bounds3D bounds = mesh.getBounds();
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, bounds.getMin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 1), bounds.getMax(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertSame(TEST_PRECISION, mesh.getPrecision());
     }
@@ -1426,7 +1426,7 @@ class SimpleTriangleMeshTest_OE25Dev {
     }
 
     @Test
-    void testFrom_boundarySource_13_oe() {
+    void testFrom_boundarySource_14_oe() {
         // arrange
         final BoundarySource3D src = Parallelepiped.axisAligned(Vector3D.ZERO, Vector3D.of(1, 1, 1), TEST_PRECISION);
 
@@ -1463,7 +1463,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         final RegionBSPTree3D tree = mesh.toTree();
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0.5, 0.5, 0.5), tree.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertSame(TEST_PRECISION, mesh.getPrecision());
     }
@@ -2510,7 +2510,7 @@ class SimpleTriangleMeshTest_OE25Dev {
     }
 
     @Test
-    void testFace_doesNotDefineTriangle_2_oe() {
+    void testFace_doesNotDefineTriangle_3_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
         final Vector3D[] vertices = {
@@ -2527,9 +2527,7 @@ class SimpleTriangleMeshTest_OE25Dev {
         final Pattern msgPattern = Pattern.compile("^Points do not define a plane: .*");
 
         // removed other assertion
-        GeometryTestUtils.assertThrowsWithMessage(() -> {
-            mesh.getFace(0).getPolygon();
-        }, IllegalArgumentException.class, msgPattern);
+        // removed other assertion
 
         Assertions.assertFalse(mesh.getFace(1).definesPolygon());
     }

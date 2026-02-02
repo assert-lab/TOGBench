@@ -130,7 +130,7 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
     }
 
     @Test
-    void testReadFacet_withoutNormal_2_oe() {
+    void testReadFacet_withoutNormal_3_oe() {
         // arrange
         final ObjFacetDefinitionReader reader = reader(
                 "o test\n\n" +
@@ -144,9 +144,7 @@ class ObjFacetDefinitionReaderTest_OE25Dev {
 
         // assert
         // removed other assertion
-        EuclideanIOTestUtils.assertFacetVertices(facets.get(0), Arrays.asList(
-                    Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 0)
-                ), TEST_EPS);
+        // removed other assertion
         Assertions.assertNull(facets.get(0).getNormal());
     }
 

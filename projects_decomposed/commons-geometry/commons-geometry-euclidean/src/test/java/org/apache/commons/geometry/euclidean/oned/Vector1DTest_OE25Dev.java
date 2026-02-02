@@ -1800,27 +1800,14 @@ class Vector1DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Vector1D u1 = Vector1D.of(1);
-        final Vector1D u2 = Vector1D.of(1);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
-        Assertions.assertEquals(u1, u2);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Vector1D u1 = Vector1D.of(1);
         final Vector1D u2 = Vector1D.of(1);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
         // removed other assertion
-
-        Assertions.assertNotEquals(u1, Vector1D.of(-1));
+        Assertions.assertEquals(u1, u2);
     }
 
     @Test
@@ -1830,11 +1817,10 @@ class Vector1DTest_OE25Dev {
         final Vector1D u2 = Vector1D.of(1);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        Assertions.assertNotEquals(u1, Vector1D.of(1 + 10 * Precision.EPSILON));
+        Assertions.assertNotEquals(u1, Vector1D.of(-1));
     }
 
     @Test
@@ -1844,13 +1830,11 @@ class Vector1DTest_OE25Dev {
         final Vector1D u2 = Vector1D.of(1);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
-        // removed other assertion
-
         // removed other assertion
         // removed other assertion
 
-        Assertions.assertEquals(Vector1D.of(Double.NaN), Vector1D.of(Double.NaN));
+        // removed other assertion
+        Assertions.assertNotEquals(u1, Vector1D.of(1 + 10 * Precision.EPSILON));
     }
 
     @Test
@@ -1860,7 +1844,23 @@ class Vector1DTest_OE25Dev {
         final Vector1D u2 = Vector1D.of(1);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(Vector1D.of(Double.NaN), Vector1D.of(Double.NaN));
+    }
+
+    @Test
+    void testEquals_6_oe() {
+        // arrange
+        final Vector1D u1 = Vector1D.of(1);
+        final Vector1D u2 = Vector1D.of(1);
+
+        // act/assert
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -1871,13 +1871,13 @@ class Vector1DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_6_oe() {
+    void testEquals_7_oe() {
         // arrange
         final Vector1D u1 = Vector1D.of(1);
         final Vector1D u2 = Vector1D.of(1);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion

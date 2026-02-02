@@ -300,7 +300,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
     }
 
     @Test
-    void testCtor_lineAndBoolean_7_oe() {
+    void testCtor_lineAndBoolean_8_oe() {
         // act
         final EmbeddedTreeLineSubset sub = new EmbeddedTreeLineSubset(DEFAULT_TEST_LINE, true);
 
@@ -313,7 +313,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(sub.getSize());
+        // removed other assertion
         Assertions.assertNull(sub.getCentroid());
     }
 
@@ -427,7 +427,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
     }
 
     @Test
-    void testCtor_lineAndRegion_8_oe() {
+    void testCtor_lineAndRegion_9_oe() {
         // arrange
         final RegionBSPTree1D tree = RegionBSPTree1D.full();
 
@@ -444,7 +444,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(sub.getSize());
+        // removed other assertion
         Assertions.assertNull(sub.getCentroid());
     }
 
@@ -555,7 +555,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
     }
 
     @Test
-    void testAdd_lineSegment_3_oe() {
+    void testAdd_lineSegment_7_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
         final Line otherLine = Lines.fromPointAndAngle(Vector2D.of(0, 1), 1e-11, TEST_PRECISION);
@@ -573,11 +573,11 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
 
         final List<LineConvexSubset> segments = subset.toConvex();
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-3, 1), segments.get(0).getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 1), segments.get(0).getEndPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 1), segments.get(1).getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(4, 1), segments.get(1).getEndPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(5, subset.getSize(), TEST_EPS);
     }
@@ -708,7 +708,7 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
     }
 
     @Test
-    void testAdd_subset_5_oe() {
+    void testAdd_subset_8_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
@@ -740,16 +740,16 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-2, 1), segments.get(0).getEndPoint(), TEST_EPS);
+        // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 1), segments.get(1).getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(4, 1), segments.get(1).getEndPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(aTreeCount, aTree.count());
     }
 
     @Test
-    void testAdd_subset_6_oe() {
+    void testAdd_subset_9_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
@@ -781,17 +781,17 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-2, 1), segments.get(0).getEndPoint(), TEST_EPS);
+        // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 1), segments.get(1).getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(4, 1), segments.get(1).getEndPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertEquals(bTreeCount, bTree.count());
     }
 
     @Test
-    void testAdd_subset_7_oe() {
+    void testAdd_subset_11_oe() {
         // arrange
         final Line line = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
 
@@ -823,15 +823,15 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-2, 1), segments.get(0).getEndPoint(), TEST_EPS);
-
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 1), segments.get(1).getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(4, 1), segments.get(1).getEndPoint(), TEST_EPS);
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(subset.getSize());
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         Assertions.assertNull(subset.getCentroid());
     }
 
@@ -1449,30 +1449,6 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
     }
 
     @Test
-    void testTransform_3_oe() {
-        // arrange
-        final AffineTransformMatrix2D mat = AffineTransformMatrix2D
-                .createRotation(Vector2D.of(0, 1), Angle.PI_OVER_TWO)
-                .scale(Vector2D.of(3, 2));
-
-        final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION));
-        subset.getSubspaceRegion().add(Interval.of(0, 1, TEST_PRECISION));
-        subset.getSubspaceRegion().add(Interval.min(3, TEST_PRECISION));
-
-        // act
-        final EmbeddedTreeLineSubset transformed = subset.transform(mat);
-
-        // assert
-        // removed other assertion
-
-        final List<LineConvexSubset> originalSegments = subset.toConvex();
-        // removed other assertion
-        checkFiniteSegment(originalSegments.get(0), Vector2D.ZERO, Vector2D.Unit.PLUS_X);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(3, 0), originalSegments.get(1).getStartPoint(), TEST_EPS);
-        Assertions.assertNull(originalSegments.get(1).getEndPoint());
-    }
-
-    @Test
     void testTransform_4_oe() {
         // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
@@ -1492,11 +1468,8 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         final List<LineConvexSubset> originalSegments = subset.toConvex();
         // removed other assertion
         checkFiniteSegment(originalSegments.get(0), Vector2D.ZERO, Vector2D.Unit.PLUS_X);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(3, 0), originalSegments.get(1).getStartPoint(), TEST_EPS);
         // removed other assertion
-
-        final List<LineConvexSubset> transformedSegments = transformed.toConvex();
-        Assertions.assertEquals(2, transformedSegments.size());
+        Assertions.assertNull(originalSegments.get(1).getEndPoint());
     }
 
     @Test
@@ -1519,13 +1492,40 @@ class EmbeddedTreeLineSubsetTest_OE25Dev {
         final List<LineConvexSubset> originalSegments = subset.toConvex();
         // removed other assertion
         checkFiniteSegment(originalSegments.get(0), Vector2D.ZERO, Vector2D.Unit.PLUS_X);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(3, 0), originalSegments.get(1).getStartPoint(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> transformedSegments = transformed.toConvex();
+        Assertions.assertEquals(2, transformedSegments.size());
+    }
+
+    @Test
+    void testTransform_7_oe() {
+        // arrange
+        final AffineTransformMatrix2D mat = AffineTransformMatrix2D
+                .createRotation(Vector2D.of(0, 1), Angle.PI_OVER_TWO)
+                .scale(Vector2D.of(3, 2));
+
+        final EmbeddedTreeLineSubset subset = new EmbeddedTreeLineSubset(Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION));
+        subset.getSubspaceRegion().add(Interval.of(0, 1, TEST_PRECISION));
+        subset.getSubspaceRegion().add(Interval.min(3, TEST_PRECISION));
+
+        // act
+        final EmbeddedTreeLineSubset transformed = subset.transform(mat);
+
+        // assert
+        // removed other assertion
+
+        final List<LineConvexSubset> originalSegments = subset.toConvex();
+        // removed other assertion
+        checkFiniteSegment(originalSegments.get(0), Vector2D.ZERO, Vector2D.Unit.PLUS_X);
+        // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> transformedSegments = transformed.toConvex();
         // removed other assertion
         checkFiniteSegment(transformedSegments.get(0), Vector2D.of(3, 2), Vector2D.of(3, 4));
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(3, 8), transformedSegments.get(1).getStartPoint(), TEST_EPS);
+        // removed other assertion
         Assertions.assertNull(transformedSegments.get(1).getEndPoint());
     }
 

@@ -127,6 +127,39 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
     }
 
     @Test
+    public void testMultiplePeek_5_oe() {
+        final PeekingIterator<E> it = makeObject();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("b", it.peek());
+    }
+
+    @Test
+    public void testMultiplePeek_6_oe() {
+        final PeekingIterator<E> it = makeObject();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("b", it.peek());
+    }
+
+    @Test
+    public void testMultiplePeek_7_oe() {
+        final PeekingIterator<E> it = makeObject();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("b", it.next());
+    }
+
+    @Test
     public void testMultiplePeek_8_oe() {
         final PeekingIterator<E> it = makeObject();
         // removed other assertion
@@ -137,6 +170,68 @@ public class PeekingIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E> {
         // removed other assertion
         // removed other assertion
         assertTrue(it.hasNext());
+    }
+
+    @Test
+    public void testMultiplePeek_9_oe() {
+        final PeekingIterator<E> it = makeObject();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("c", it.peek());
+    }
+
+    @Test
+    public void testMultiplePeek_10_oe() {
+        final PeekingIterator<E> it = makeObject();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("c", it.peek());
+    }
+
+    @Test
+    public void testMultiplePeek_11_oe() {
+        final PeekingIterator<E> it = makeObject();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("c", it.next());
+    }
+
+    @Test
+    public void testMultiplePeek_12_oe() {
+        final PeekingIterator<E> it = makeObject();
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertFalse(it.hasNext());
     }
 
     @Test

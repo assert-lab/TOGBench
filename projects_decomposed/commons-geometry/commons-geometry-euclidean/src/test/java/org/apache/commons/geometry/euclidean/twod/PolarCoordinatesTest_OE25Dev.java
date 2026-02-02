@@ -611,21 +611,6 @@ class PolarCoordinatesTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final PolarCoordinates a = PolarCoordinates.of(1, 2);
-        final PolarCoordinates b = PolarCoordinates.of(10, 2);
-        final PolarCoordinates c = PolarCoordinates.of(10, 20);
-        final PolarCoordinates d = PolarCoordinates.of(1, 20);
-
-        final PolarCoordinates e = PolarCoordinates.of(1, 2);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-        Assertions.assertEquals(a, e);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final PolarCoordinates a = PolarCoordinates.of(1, 2);
@@ -636,10 +621,8 @@ class PolarCoordinatesTest_OE25Dev {
         final PolarCoordinates e = PolarCoordinates.of(1, 2);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
         // removed other assertion
-
-        Assertions.assertNotEquals(a, b);
+        Assertions.assertEquals(a, e);
     }
 
     @Test
@@ -653,11 +636,10 @@ class PolarCoordinatesTest_OE25Dev {
         final PolarCoordinates e = PolarCoordinates.of(1, 2);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        Assertions.assertNotEquals(a, c);
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -671,7 +653,25 @@ class PolarCoordinatesTest_OE25Dev {
         final PolarCoordinates e = PolarCoordinates.of(1, 2);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNotEquals(a, c);
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final PolarCoordinates a = PolarCoordinates.of(1, 2);
+        final PolarCoordinates b = PolarCoordinates.of(10, 2);
+        final PolarCoordinates c = PolarCoordinates.of(10, 20);
+        final PolarCoordinates d = PolarCoordinates.of(1, 20);
+
+        final PolarCoordinates e = PolarCoordinates.of(1, 2);
+
+        // act/assert
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion

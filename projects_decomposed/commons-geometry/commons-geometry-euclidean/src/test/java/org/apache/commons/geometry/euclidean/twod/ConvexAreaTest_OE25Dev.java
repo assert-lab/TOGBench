@@ -311,20 +311,6 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testFull_4_oe() {
-        // act
-        final ConvexArea area = ConvexArea.full();
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        GeometryTestUtils.assertPositiveInfinity(area.getSize());
-        Assertions.assertNull(area.getCentroid());
-    }
-
-    @Test
     void testFull_5_oe() {
         // act
         final ConvexArea area = ConvexArea.full();
@@ -334,7 +320,21 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        GeometryTestUtils.assertPositiveInfinity(area.getSize());
+        // removed other assertion
+        Assertions.assertNull(area.getCentroid());
+    }
+
+    @Test
+    void testFull_6_oe() {
+        // act
+        final ConvexArea area = ConvexArea.full();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
         Assertions.assertNull(area.getBounds());
     }
@@ -637,35 +637,6 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testTransform_infinite_5_oe() {
-        // arrange
-        final AffineTransformMatrix2D mat = AffineTransformMatrix2D
-                .createRotation(Vector2D.of(0, 1), Angle.PI_OVER_TWO)
-                .scale(Vector2D.of(3, 2));
-
-        final ConvexArea area = ConvexArea.fromBounds(
-                Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION),
-                Lines.fromPointAndAngle(Vector2D.ZERO, -0.25 * Math.PI, TEST_PRECISION));
-
-        // act
-        final ConvexArea transformed = area.transform(mat);
-
-        // assert
-        // removed other assertion
-
-        final List<LinePath> paths = transformed.getBoundaryPaths();
-        // removed other assertion
-
-        final List<LineConvexSubset> segments = paths.get(0).getElements();
-        // removed other assertion
-
-        final LineConvexSubset firstSegment = segments.get(0);
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(3, 2), firstSegment.getEndPoint(), TEST_EPS);
-        Assertions.assertEquals(Math.atan2(2, 3), firstSegment.getLine().getAngle(), TEST_EPS);
-    }
-
-    @Test
     void testTransform_infinite_6_oe() {
         // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
@@ -690,16 +661,12 @@ class ConvexAreaTest_OE25Dev {
 
         final LineConvexSubset firstSegment = segments.get(0);
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(3, 2), firstSegment.getEndPoint(), TEST_EPS);
         // removed other assertion
-
-        final LineConvexSubset secondSegment = segments.get(1);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(3, 2), secondSegment.getStartPoint(), TEST_EPS);
-        Assertions.assertNull(secondSegment.getEndPoint());
+        Assertions.assertEquals(Math.atan2(2, 3), firstSegment.getLine().getAngle(), TEST_EPS);
     }
 
     @Test
-    void testTransform_infinite_7_oe() {
+    void testTransform_infinite_8_oe() {
         // arrange
         final AffineTransformMatrix2D mat = AffineTransformMatrix2D
                 .createRotation(Vector2D.of(0, 1), Angle.PI_OVER_TWO)
@@ -723,11 +690,44 @@ class ConvexAreaTest_OE25Dev {
 
         final LineConvexSubset firstSegment = segments.get(0);
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(3, 2), firstSegment.getEndPoint(), TEST_EPS);
+        // removed other assertion
         // removed other assertion
 
         final LineConvexSubset secondSegment = segments.get(1);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(3, 2), secondSegment.getStartPoint(), TEST_EPS);
+        // removed other assertion
+        Assertions.assertNull(secondSegment.getEndPoint());
+    }
+
+    @Test
+    void testTransform_infinite_9_oe() {
+        // arrange
+        final AffineTransformMatrix2D mat = AffineTransformMatrix2D
+                .createRotation(Vector2D.of(0, 1), Angle.PI_OVER_TWO)
+                .scale(Vector2D.of(3, 2));
+
+        final ConvexArea area = ConvexArea.fromBounds(
+                Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION),
+                Lines.fromPointAndAngle(Vector2D.ZERO, -0.25 * Math.PI, TEST_PRECISION));
+
+        // act
+        final ConvexArea transformed = area.transform(mat);
+
+        // assert
+        // removed other assertion
+
+        final List<LinePath> paths = transformed.getBoundaryPaths();
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = paths.get(0).getElements();
+        // removed other assertion
+
+        final LineConvexSubset firstSegment = segments.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final LineConvexSubset secondSegment = segments.get(1);
+        // removed other assertion
         // removed other assertion
         Assertions.assertEquals(Math.atan2(2, -3), secondSegment.getLine().getAngle(), TEST_EPS);
     }
@@ -1181,53 +1181,6 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testSplit_full_4_oe() {
-        // arrange
-        final ConvexArea input = ConvexArea.full();
-
-        final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
-
-        // act
-        final Split<ConvexArea> split = input.split(splitter);
-
-        // act
-        // removed other assertion
-
-        final ConvexArea minus = split.getMinus();
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
-        Assertions.assertNull(minus.getCentroid());
-    }
-
-    @Test
-    void testSplit_full_5_oe() {
-        // arrange
-        final ConvexArea input = ConvexArea.full();
-
-        final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
-
-        // act
-        final Split<ConvexArea> split = input.split(splitter);
-
-        // act
-        // removed other assertion
-
-        final ConvexArea minus = split.getMinus();
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
-        // removed other assertion
-
-        final List<LineConvexSubset> minusSegments = minus.getBoundaries();
-        Assertions.assertEquals(1, minusSegments.size());
-    }
-
-    @Test
     void testSplit_full_6_oe() {
         // arrange
         final ConvexArea input = ConvexArea.full();
@@ -1244,13 +1197,9 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
         // removed other assertion
-
-        final List<LineConvexSubset> minusSegments = minus.getBoundaries();
         // removed other assertion
-        Assertions.assertEquals(splitter, minusSegments.get(0).getLine());
+        Assertions.assertNull(minus.getCentroid());
     }
 
     @Test
@@ -1270,16 +1219,12 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> minusSegments = minus.getBoundaries();
-        // removed other assertion
-        // removed other assertion
-
-        final ConvexArea plus = split.getPlus();
-        Assertions.assertFalse(plus.isFull());
+        Assertions.assertEquals(1, minusSegments.size());
     }
 
     @Test
@@ -1299,17 +1244,13 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> minusSegments = minus.getBoundaries();
         // removed other assertion
-        // removed other assertion
-
-        final ConvexArea plus = split.getPlus();
-        // removed other assertion
-        Assertions.assertFalse(plus.isEmpty());
+        Assertions.assertEquals(splitter, minusSegments.get(0).getLine());
     }
 
     @Test
@@ -1329,8 +1270,8 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> minusSegments = minus.getBoundaries();
@@ -1338,12 +1279,7 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
 
         final ConvexArea plus = split.getPlus();
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(plus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(plus.getSize());
-        Assertions.assertNull(plus.getCentroid());
+        Assertions.assertFalse(plus.isFull());
     }
 
     @Test
@@ -1363,8 +1299,8 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> minusSegments = minus.getBoundaries();
@@ -1373,18 +1309,11 @@ class ConvexAreaTest_OE25Dev {
 
         final ConvexArea plus = split.getPlus();
         // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(plus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(plus.getSize());
-        // removed other assertion
-
-        final List<LineConvexSubset> plusSegments = plus.getBoundaries();
-        Assertions.assertEquals(1, plusSegments.size());
+        Assertions.assertFalse(plus.isEmpty());
     }
 
     @Test
-    void testSplit_full_11_oe() {
+    void testSplit_full_13_oe() {
         // arrange
         final ConvexArea input = ConvexArea.full();
 
@@ -1400,8 +1329,8 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> minusSegments = minus.getBoundaries();
@@ -1412,8 +1341,79 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(plus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(plus.getSize());
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(plus.getCentroid());
+    }
+
+    @Test
+    void testSplit_full_14_oe() {
+        // arrange
+        final ConvexArea input = ConvexArea.full();
+
+        final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
+
+        // act
+        final Split<ConvexArea> split = input.split(splitter);
+
+        // act
+        // removed other assertion
+
+        final ConvexArea minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> minusSegments = minus.getBoundaries();
+        // removed other assertion
+        // removed other assertion
+
+        final ConvexArea plus = split.getPlus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> plusSegments = plus.getBoundaries();
+        Assertions.assertEquals(1, plusSegments.size());
+    }
+
+    @Test
+    void testSplit_full_15_oe() {
+        // arrange
+        final ConvexArea input = ConvexArea.full();
+
+        final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.0, TEST_PRECISION);
+
+        // act
+        final Split<ConvexArea> split = input.split(splitter);
+
+        // act
+        // removed other assertion
+
+        final ConvexArea minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> minusSegments = minus.getBoundaries();
+        // removed other assertion
+        // removed other assertion
+
+        final ConvexArea plus = split.getPlus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> plusSegments = plus.getBoundaries();
@@ -1468,50 +1468,6 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testSplit_halfSpace_split_4_oe() {
-        // arrange
-        final ConvexArea area = ConvexArea.fromBounds(Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION));
-        final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION);
-
-        // act
-        final Split<ConvexArea> split = area.split(splitter);
-
-        // assert
-        // removed other assertion
-
-        final ConvexArea minus = split.getMinus();
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
-        Assertions.assertNull(minus.getCentroid());
-    }
-
-    @Test
-    void testSplit_halfSpace_split_5_oe() {
-        // arrange
-        final ConvexArea area = ConvexArea.fromBounds(Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION));
-        final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION);
-
-        // act
-        final Split<ConvexArea> split = area.split(splitter);
-
-        // assert
-        // removed other assertion
-
-        final ConvexArea minus = split.getMinus();
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
-        // removed other assertion
-
-        Assertions.assertEquals(2, minus.getBoundaries().size());
-    }
-
-    @Test
     void testSplit_halfSpace_split_6_oe() {
         // arrange
         final ConvexArea area = ConvexArea.fromBounds(Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION));
@@ -1527,14 +1483,9 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
         // removed other assertion
-
         // removed other assertion
-
-        final ConvexArea plus = split.getPlus();
-        Assertions.assertFalse(plus.isFull());
+        Assertions.assertNull(minus.getCentroid());
     }
 
     @Test
@@ -1553,15 +1504,11 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-
-        final ConvexArea plus = split.getPlus();
-        // removed other assertion
-        Assertions.assertFalse(plus.isEmpty());
+        Assertions.assertEquals(2, minus.getBoundaries().size());
     }
 
     @Test
@@ -1580,19 +1527,14 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
 
         final ConvexArea plus = split.getPlus();
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(plus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(plus.getSize());
-        Assertions.assertNull(plus.getCentroid());
+        Assertions.assertFalse(plus.isFull());
     }
 
     @Test
@@ -1611,8 +1553,35 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(minus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(minus.getSize());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        final ConvexArea plus = split.getPlus();
+        // removed other assertion
+        Assertions.assertFalse(plus.isEmpty());
+    }
+
+    @Test
+    void testSplit_halfSpace_split_12_oe() {
+        // arrange
+        final ConvexArea area = ConvexArea.fromBounds(Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION));
+        final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION);
+
+        // act
+        final Split<ConvexArea> split = area.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final ConvexArea minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -1621,8 +1590,39 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(plus.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(plus.getSize());
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(plus.getCentroid());
+    }
+
+    @Test
+    void testSplit_halfSpace_split_13_oe() {
+        // arrange
+        final ConvexArea area = ConvexArea.fromBounds(Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION));
+        final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0.25 * Math.PI, TEST_PRECISION);
+
+        // act
+        final Split<ConvexArea> split = area.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final ConvexArea minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        final ConvexArea plus = split.getPlus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         Assertions.assertEquals(2, plus.getBoundaries().size());
@@ -1802,29 +1802,6 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testSplit_square_split_6_oe() {
-        // arrange
-        final ConvexArea area = ConvexArea.fromBounds(createSquareBoundingLines(Vector2D.of(1, 1), 2, 1));
-        final Line splitter = Lines.fromPointAndAngle(Vector2D.of(2, 1), Angle.PI_OVER_TWO, TEST_PRECISION);
-
-        // act
-        final Split<ConvexArea> split = area.split(splitter);
-
-        // assert
-        // removed other assertion
-
-        final ConvexArea minus = split.getMinus();
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1.5, 1.5), minus.getCentroid(), TEST_EPS);
-
-        Assertions.assertEquals(4, minus.getBoundaries().size());
-    }
-
-    @Test
     void testSplit_square_split_7_oe() {
         // arrange
         final ConvexArea area = ConvexArea.fromBounds(createSquareBoundingLines(Vector2D.of(1, 1), 2, 1));
@@ -1842,12 +1819,9 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1.5, 1.5), minus.getCentroid(), TEST_EPS);
-
         // removed other assertion
 
-        final ConvexArea plus = split.getPlus();
-        Assertions.assertFalse(plus.isFull());
+        Assertions.assertEquals(4, minus.getBoundaries().size());
     }
 
     @Test
@@ -1868,13 +1842,12 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1.5, 1.5), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         // removed other assertion
 
         final ConvexArea plus = split.getPlus();
-        // removed other assertion
-        Assertions.assertFalse(plus.isEmpty());
+        Assertions.assertFalse(plus.isFull());
     }
 
     @Test
@@ -1895,15 +1868,13 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1.5, 1.5), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         // removed other assertion
 
         final ConvexArea plus = split.getPlus();
         // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(4, plus.getBoundarySize(), TEST_EPS);
+        Assertions.assertFalse(plus.isEmpty());
     }
 
     @Test
@@ -1924,7 +1895,7 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1.5, 1.5), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         // removed other assertion
 
@@ -1932,8 +1903,7 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        Assertions.assertEquals(1, plus.getSize(), TEST_EPS);
+        Assertions.assertEquals(4, plus.getBoundarySize(), TEST_EPS);
     }
 
     @Test
@@ -1954,7 +1924,37 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1.5, 1.5), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
+
+        // removed other assertion
+
+        final ConvexArea plus = split.getPlus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(1, plus.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testSplit_square_split_13_oe() {
+        // arrange
+        final ConvexArea area = ConvexArea.fromBounds(createSquareBoundingLines(Vector2D.of(1, 1), 2, 1));
+        final Line splitter = Lines.fromPointAndAngle(Vector2D.of(2, 1), Angle.PI_OVER_TWO, TEST_PRECISION);
+
+        // act
+        final Split<ConvexArea> split = area.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final ConvexArea minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
 
@@ -1964,7 +1964,7 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2.5, 1.5), plus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertEquals(4, plus.getBoundaries().size());
     }
@@ -2055,29 +2055,6 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testSplit_square_splitOnVertices_6_oe() {
-        // arrange
-        final ConvexArea area = ConvexArea.fromBounds(createSquareBoundingLines(Vector2D.of(1, 1), 1, 1));
-        final Line splitter = Lines.fromPoints(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION);
-
-        // act
-        final Split<ConvexArea> split = area.split(splitter);
-
-        // assert
-        // removed other assertion
-
-        final ConvexArea minus = split.getMinus();
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(4.0 / 3.0, 5.0 / 3.0), minus.getCentroid(), TEST_EPS);
-
-        Assertions.assertEquals(3, minus.getBoundaries().size());
-    }
-
-    @Test
     void testSplit_square_splitOnVertices_7_oe() {
         // arrange
         final ConvexArea area = ConvexArea.fromBounds(createSquareBoundingLines(Vector2D.of(1, 1), 1, 1));
@@ -2095,12 +2072,9 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(4.0 / 3.0, 5.0 / 3.0), minus.getCentroid(), TEST_EPS);
-
         // removed other assertion
 
-        final ConvexArea plus = split.getPlus();
-        Assertions.assertFalse(plus.isFull());
+        Assertions.assertEquals(3, minus.getBoundaries().size());
     }
 
     @Test
@@ -2121,13 +2095,12 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(4.0 / 3.0, 5.0 / 3.0), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         // removed other assertion
 
         final ConvexArea plus = split.getPlus();
-        // removed other assertion
-        Assertions.assertFalse(plus.isEmpty());
+        Assertions.assertFalse(plus.isFull());
     }
 
     @Test
@@ -2148,15 +2121,13 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(4.0 / 3.0, 5.0 / 3.0), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         // removed other assertion
 
         final ConvexArea plus = split.getPlus();
         // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(2 + Math.sqrt(2), plus.getBoundarySize(), TEST_EPS);
+        Assertions.assertFalse(plus.isEmpty());
     }
 
     @Test
@@ -2177,7 +2148,7 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(4.0 / 3.0, 5.0 / 3.0), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         // removed other assertion
 
@@ -2185,8 +2156,7 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        Assertions.assertEquals(0.5, plus.getSize(), TEST_EPS);
+        Assertions.assertEquals(2 + Math.sqrt(2), plus.getBoundarySize(), TEST_EPS);
     }
 
     @Test
@@ -2207,7 +2177,37 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(4.0 / 3.0, 5.0 / 3.0), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
+
+        // removed other assertion
+
+        final ConvexArea plus = split.getPlus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(0.5, plus.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testSplit_square_splitOnVertices_13_oe() {
+        // arrange
+        final ConvexArea area = ConvexArea.fromBounds(createSquareBoundingLines(Vector2D.of(1, 1), 1, 1));
+        final Line splitter = Lines.fromPoints(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION);
+
+        // act
+        final Split<ConvexArea> split = area.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final ConvexArea minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
 
@@ -2217,7 +2217,7 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(5.0 / 3.0, 4.0 / 3.0), plus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertEquals(3, plus.getBoundaries().size());
     }
@@ -2308,29 +2308,6 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testSplit_square_splitOnVerticesWithReversedSplitter_6_oe() {
-        // arrange
-        final ConvexArea area = ConvexArea.fromBounds(createSquareBoundingLines(Vector2D.of(1, 1), 1, 1));
-        final Line splitter = Lines.fromPoints(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION).reverse();
-
-        // act
-        final Split<ConvexArea> split = area.split(splitter);
-
-        // assert
-        // removed other assertion
-
-        final ConvexArea minus = split.getMinus();
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(5.0 / 3.0, 4.0 / 3.0), minus.getCentroid(), TEST_EPS);
-
-        Assertions.assertEquals(3, minus.getBoundaries().size());
-    }
-
-    @Test
     void testSplit_square_splitOnVerticesWithReversedSplitter_7_oe() {
         // arrange
         final ConvexArea area = ConvexArea.fromBounds(createSquareBoundingLines(Vector2D.of(1, 1), 1, 1));
@@ -2348,12 +2325,9 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(5.0 / 3.0, 4.0 / 3.0), minus.getCentroid(), TEST_EPS);
-
         // removed other assertion
 
-        final ConvexArea plus = split.getPlus();
-        Assertions.assertFalse(plus.isFull());
+        Assertions.assertEquals(3, minus.getBoundaries().size());
     }
 
     @Test
@@ -2374,13 +2348,12 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(5.0 / 3.0, 4.0 / 3.0), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         // removed other assertion
 
         final ConvexArea plus = split.getPlus();
-        // removed other assertion
-        Assertions.assertFalse(plus.isEmpty());
+        Assertions.assertFalse(plus.isFull());
     }
 
     @Test
@@ -2401,15 +2374,13 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(5.0 / 3.0, 4.0 / 3.0), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         // removed other assertion
 
         final ConvexArea plus = split.getPlus();
         // removed other assertion
-        // removed other assertion
-
-        Assertions.assertEquals(2 + Math.sqrt(2), plus.getBoundarySize(), TEST_EPS);
+        Assertions.assertFalse(plus.isEmpty());
     }
 
     @Test
@@ -2430,7 +2401,7 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(5.0 / 3.0, 4.0 / 3.0), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         // removed other assertion
 
@@ -2438,8 +2409,7 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        Assertions.assertEquals(0.5, plus.getSize(), TEST_EPS);
+        Assertions.assertEquals(2 + Math.sqrt(2), plus.getBoundarySize(), TEST_EPS);
     }
 
     @Test
@@ -2460,7 +2430,37 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(5.0 / 3.0, 4.0 / 3.0), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
+
+        // removed other assertion
+
+        final ConvexArea plus = split.getPlus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertEquals(0.5, plus.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testSplit_square_splitOnVerticesWithReversedSplitter_13_oe() {
+        // arrange
+        final ConvexArea area = ConvexArea.fromBounds(createSquareBoundingLines(Vector2D.of(1, 1), 1, 1));
+        final Line splitter = Lines.fromPoints(Vector2D.of(1, 1), Vector2D.of(2, 2), TEST_PRECISION).reverse();
+
+        // act
+        final Split<ConvexArea> split = area.split(splitter);
+
+        // assert
+        // removed other assertion
+
+        final ConvexArea minus = split.getMinus();
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
 
@@ -2470,7 +2470,7 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(4.0 / 3.0, 5.0 / 3.0), plus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertEquals(3, plus.getBoundaries().size());
     }
@@ -3352,43 +3352,6 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_singleLine_3_oe() {
-        // arrange
-        final Line line = Lines.fromPoints(Vector2D.of(0, 1), Vector2D.of(1, 3), TEST_PRECISION);
-
-        // act
-        final ConvexArea area = ConvexArea.fromBounds(line);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(area.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(area.getSize());
-        Assertions.assertNull(area.getCentroid());
-    }
-
-    @Test
-    void testFromBounds_singleLine_4_oe() {
-        // arrange
-        final Line line = Lines.fromPoints(Vector2D.of(0, 1), Vector2D.of(1, 3), TEST_PRECISION);
-
-        // act
-        final ConvexArea area = ConvexArea.fromBounds(line);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(area.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(area.getSize());
-        // removed other assertion
-
-        final List<LineConvexSubset> segments = area.getBoundaries();
-        Assertions.assertEquals(1, segments.size());
-    }
-
-    @Test
     void testFromBounds_singleLine_5_oe() {
         // arrange
         final Line line = Lines.fromPoints(Vector2D.of(0, 1), Vector2D.of(1, 3), TEST_PRECISION);
@@ -3400,8 +3363,45 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(area.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(area.getSize());
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNull(area.getCentroid());
+    }
+
+    @Test
+    void testFromBounds_singleLine_6_oe() {
+        // arrange
+        final Line line = Lines.fromPoints(Vector2D.of(0, 1), Vector2D.of(1, 3), TEST_PRECISION);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(line);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = area.getBoundaries();
+        Assertions.assertEquals(1, segments.size());
+    }
+
+    @Test
+    void testFromBounds_singleLine_7_oe() {
+        // arrange
+        final Line line = Lines.fromPoints(Vector2D.of(0, 1), Vector2D.of(1, 3), TEST_PRECISION);
+
+        // act
+        final ConvexArea area = ConvexArea.fromBounds(line);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> segments = area.getBoundaries();
@@ -3437,7 +3437,7 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_twoLines_3_oe() {
+    void testFromBounds_twoLines_5_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION);
         final Line b = Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION);
@@ -3449,13 +3449,13 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(area.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(area.getSize());
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(area.getCentroid());
     }
 
     @Test
-    void testFromBounds_twoLines_4_oe() {
+    void testFromBounds_twoLines_6_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION);
         final Line b = Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION);
@@ -3467,8 +3467,8 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(area.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(area.getSize());
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> segments = area.getBoundaries();
@@ -3540,7 +3540,7 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_triangle_5_oe() {
+    void testFromBounds_triangle_6_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.ZERO, Angle.PI_OVER_TWO, TEST_PRECISION);
         final Line b = Lines.fromPointAndAngle(Vector2D.ZERO, Math.PI, TEST_PRECISION);
@@ -3555,7 +3555,7 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-2.0 / 3.0, -2.0 / 3.0), area.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<LineConvexSubset> segments = area.getBoundaries();
         Assertions.assertEquals(3, segments.size());
@@ -3618,7 +3618,7 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_square_5_oe() {
+    void testFromBounds_square_6_oe() {
         // arrange
         final List<Line> square = createSquareBoundingLines(Vector2D.ZERO, 1, 1);
 
@@ -3631,7 +3631,7 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0.5, 0.5), area.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<LineConvexSubset> segments = area.getBoundaries();
         Assertions.assertEquals(4, segments.size());
@@ -3710,7 +3710,7 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_square_extraLines_5_oe() {
+    void testFromBounds_square_extraLines_6_oe() {
         // arrange
         final List<Line> extraLines = new ArrayList<>();
         extraLines.add(Lines.fromPoints(Vector2D.of(10, 10), Vector2D.of(10, 11), TEST_PRECISION));
@@ -3727,7 +3727,7 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0.5, 0.5), area.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<LineConvexSubset> segments = area.getBoundaries();
         Assertions.assertEquals(4, segments.size());
@@ -3798,7 +3798,7 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_square_duplicateLines_5_oe() {
+    void testFromBounds_square_duplicateLines_6_oe() {
         // arrange
         final List<Line> duplicateLines = new ArrayList<>();
         duplicateLines.addAll(createSquareBoundingLines(Vector2D.ZERO, 1, 1));
@@ -3813,7 +3813,7 @@ class ConvexAreaTest_OE25Dev {
 
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0.5, 0.5), area.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final List<LineConvexSubset> segments = area.getBoundaries();
         Assertions.assertEquals(4, segments.size());
@@ -3849,7 +3849,7 @@ class ConvexAreaTest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_duplicateLines_similarOrientation_3_oe() {
+    void testFromBounds_duplicateLines_similarOrientation_5_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
         final Line b = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -3862,13 +3862,13 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(area.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(area.getSize());
+        // removed other assertion
+        // removed other assertion
         Assertions.assertNull(area.getCentroid());
     }
 
     @Test
-    void testFromBounds_duplicateLines_similarOrientation_4_oe() {
+    void testFromBounds_duplicateLines_similarOrientation_6_oe() {
         // arrange
         final Line a = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
         final Line b = Lines.fromPointAndAngle(Vector2D.of(0, 1), 0.0, TEST_PRECISION);
@@ -3881,8 +3881,8 @@ class ConvexAreaTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(area.getBoundarySize());
-        GeometryTestUtils.assertPositiveInfinity(area.getSize());
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> segments = area.getBoundaries();

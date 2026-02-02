@@ -351,53 +351,6 @@ class ReverseRayTest_OE25Dev {
     }
 
     @Test
-    void testFromPointAndDirection_6_oe() {
-        // arrange
-        final Vector2D p0 = Vector2D.of(1, 2);
-        final Vector2D p1 = Vector2D.of(2, 2);
-
-        // act
-        final ReverseRay revRay = Lines.reverseRayFromPointAndDirection(p0, p0.vectorTo(p1), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(p0, revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
-        Assertions.assertEquals(1, revRay.getSubspaceEnd(), TEST_EPS);
-    }
-
-    @Test
-    void testFromPointAndDirection_7_oe() {
-        // arrange
-        final Vector2D p0 = Vector2D.of(1, 2);
-        final Vector2D p1 = Vector2D.of(2, 2);
-
-        // act
-        final ReverseRay revRay = Lines.reverseRayFromPointAndDirection(p0, p0.vectorTo(p1), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(p0, revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(revRay.getSize());
-        Assertions.assertNull(revRay.getCentroid());
-    }
-
-    @Test
     void testFromPointAndDirection_8_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 2);
@@ -413,12 +366,59 @@ class ReverseRayTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(p0, revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(revRay.getSize());
+        // removed other assertion
+        Assertions.assertEquals(1, revRay.getSubspaceEnd(), TEST_EPS);
+    }
+
+    @Test
+    void testFromPointAndDirection_10_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 2);
+        final Vector2D p1 = Vector2D.of(2, 2);
+
+        // act
+        final ReverseRay revRay = Lines.reverseRayFromPointAndDirection(p0, p0.vectorTo(p1), TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(revRay.getCentroid());
+    }
+
+    @Test
+    void testFromPointAndDirection_11_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 2);
+        final Vector2D p1 = Vector2D.of(2, 2);
+
+        // act
+        final ReverseRay revRay = Lines.reverseRayFromPointAndDirection(p0, p0.vectorTo(p1), TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         Assertions.assertNull(revRay.getBounds());
     }
@@ -515,59 +515,6 @@ class ReverseRayTest_OE25Dev {
     }
 
     @Test
-    void testFromPoint_6_oe() {
-        // arrange
-        final Vector2D p0 = Vector2D.of(1, 1);
-        final Vector2D p1 = Vector2D.of(1, 2);
-        final Vector2D p3 = Vector2D.of(3, 3);
-
-        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
-
-        // act
-        final ReverseRay revRay = Lines.reverseRayFromPoint(line, p3);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 3), revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
-        Assertions.assertEquals(3, revRay.getSubspaceEnd(), TEST_EPS);
-    }
-
-    @Test
-    void testFromPoint_7_oe() {
-        // arrange
-        final Vector2D p0 = Vector2D.of(1, 1);
-        final Vector2D p1 = Vector2D.of(1, 2);
-        final Vector2D p3 = Vector2D.of(3, 3);
-
-        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
-
-        // act
-        final ReverseRay revRay = Lines.reverseRayFromPoint(line, p3);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 3), revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(revRay.getSize());
-        Assertions.assertNull(revRay.getCentroid());
-    }
-
-    @Test
     void testFromPoint_8_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -586,12 +533,65 @@ class ReverseRayTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 3), revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(revRay.getSize());
+        // removed other assertion
+        Assertions.assertEquals(3, revRay.getSubspaceEnd(), TEST_EPS);
+    }
+
+    @Test
+    void testFromPoint_10_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 1);
+        final Vector2D p1 = Vector2D.of(1, 2);
+        final Vector2D p3 = Vector2D.of(3, 3);
+
+        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
+
+        // act
+        final ReverseRay revRay = Lines.reverseRayFromPoint(line, p3);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(revRay.getCentroid());
+    }
+
+    @Test
+    void testFromPoint_11_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 1);
+        final Vector2D p1 = Vector2D.of(1, 2);
+        final Vector2D p3 = Vector2D.of(3, 3);
+
+        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
+
+        // act
+        final ReverseRay revRay = Lines.reverseRayFromPoint(line, p3);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         Assertions.assertNull(revRay.getBounds());
     }
@@ -683,57 +683,6 @@ class ReverseRayTest_OE25Dev {
     }
 
     @Test
-    void testFromLocation_6_oe() {
-        // arrange
-        final Vector2D p0 = Vector2D.of(1, 1);
-        final Vector2D p1 = Vector2D.of(1, 2);
-
-        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
-
-        // act
-        final ReverseRay revRay = Lines.reverseRayFromLocation(line, -2);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, -2), revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
-        Assertions.assertEquals(-2, revRay.getSubspaceEnd(), TEST_EPS);
-    }
-
-    @Test
-    void testFromLocation_7_oe() {
-        // arrange
-        final Vector2D p0 = Vector2D.of(1, 1);
-        final Vector2D p1 = Vector2D.of(1, 2);
-
-        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
-
-        // act
-        final ReverseRay revRay = Lines.reverseRayFromLocation(line, -2);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, -2), revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(revRay.getSize());
-        Assertions.assertNull(revRay.getCentroid());
-    }
-
-    @Test
     void testFromLocation_8_oe() {
         // arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -751,12 +700,63 @@ class ReverseRayTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, -2), revRay.getEndPoint(), TEST_EPS);
-
-        GeometryTestUtils.assertNegativeInfinity(revRay.getSubspaceStart());
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(revRay.getSize());
+        // removed other assertion
+        Assertions.assertEquals(-2, revRay.getSubspaceEnd(), TEST_EPS);
+    }
+
+    @Test
+    void testFromLocation_10_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 1);
+        final Vector2D p1 = Vector2D.of(1, 2);
+
+        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
+
+        // act
+        final ReverseRay revRay = Lines.reverseRayFromLocation(line, -2);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        Assertions.assertNull(revRay.getCentroid());
+    }
+
+    @Test
+    void testFromLocation_11_oe() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 1);
+        final Vector2D p1 = Vector2D.of(1, 2);
+
+        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
+
+        // act
+        final ReverseRay revRay = Lines.reverseRayFromLocation(line, -2);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
         Assertions.assertNull(revRay.getBounds());
     }
@@ -818,19 +818,6 @@ class ReverseRayTest_OE25Dev {
     }
 
     @Test
-    void testGetInterval_1_oe() {
-        // arrange
-        final ReverseRay revRay = Lines.reverseRayFromPointAndDirection(Vector2D.of(2, -1), Vector2D.Unit.PLUS_X, TEST_PRECISION);
-
-        // act
-        final Interval interval = revRay.getInterval();
-
-        // assert
-        GeometryTestUtils.assertNegativeInfinity(interval.getMin());
-        Assertions.assertEquals(2, interval.getMax(), TEST_EPS);
-    }
-
-    @Test
     void testGetInterval_2_oe() {
         // arrange
         final ReverseRay revRay = Lines.reverseRayFromPointAndDirection(Vector2D.of(2, -1), Vector2D.Unit.PLUS_X, TEST_PRECISION);
@@ -839,7 +826,20 @@ class ReverseRayTest_OE25Dev {
         final Interval interval = revRay.getInterval();
 
         // assert
-        GeometryTestUtils.assertNegativeInfinity(interval.getMin());
+        // removed other assertion
+        Assertions.assertEquals(2, interval.getMax(), TEST_EPS);
+    }
+
+    @Test
+    void testGetInterval_3_oe() {
+        // arrange
+        final ReverseRay revRay = Lines.reverseRayFromPointAndDirection(Vector2D.of(2, -1), Vector2D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act
+        final Interval interval = revRay.getInterval();
+
+        // assert
+        // removed other assertion
         // removed other assertion
 
         Assertions.assertSame(revRay.getLine().getPrecision(), interval.getMaxBoundary().getPrecision());

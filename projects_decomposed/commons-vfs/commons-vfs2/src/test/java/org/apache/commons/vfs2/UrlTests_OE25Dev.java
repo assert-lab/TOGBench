@@ -103,7 +103,7 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
     }
 
     @Test
-    public void testUnknownURL_3_oe() throws Exception {
+    public void testUnknownURL_4_oe() throws Exception {
         // Try getting the content of an unknown file
         final FileObject unknownFile = getReadFolder().resolveFile("unknown-file");
         // removed other assertion
@@ -113,7 +113,7 @@ public class UrlTests_OE25Dev extends AbstractProviderTestCase {
             connection.getInputStream();
             // removed other assertion
         } catch (final IOException e) {
-            assertSameMessage("vfs.provider/read-not-file.error", unknownFile, e);
+            // removed other assertion
         }
         assertEquals(-1, connection.getContentLength());
     }

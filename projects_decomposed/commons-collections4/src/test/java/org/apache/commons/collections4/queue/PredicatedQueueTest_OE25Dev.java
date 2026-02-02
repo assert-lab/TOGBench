@@ -119,4 +119,11 @@ public class PredicatedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         assertEquals("Queue get", "one", queue.poll());
     }
 
+    public void testRemove_2_oe() {
+        final Queue<E> queue = makeTestQueue();
+        queue.add((E) "one");
+        // removed other assertion
+        assertNull(queue.peek());
+    }
+
 }

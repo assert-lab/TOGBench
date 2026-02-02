@@ -46,50 +46,6 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         asserter = new Asserter(JEXL);
     }
 
-    @Test
-    public void testPropertyProperty() throws Exception {
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final Object[] foo = new Object[3];
-        foo[0] = foo;
-        foo[1] = i42;
-        foo[2] = s42;
-        asserter.setVariable("foo", foo);
-        asserter.setVariable("zero", Integer.valueOf(0));
-        asserter.setVariable("one", Integer.valueOf(1));
-        asserter.setVariable("two", Integer.valueOf(2));
-        for (int l = 0; l < 2; ++l) {
-            asserter.assertExpression("foo.0", foo);
-            asserter.assertExpression("foo.0.'0'", foo);
-            asserter.assertExpression("foo.'1'", foo[1]);
-            asserter.assertExpression("foo.0.'1'", foo[1]);
-            asserter.assertExpression("foo.0.'1' = 43", i43);
-            asserter.assertExpression("foo.0.'1'", i43);
-            asserter.assertExpression("foo.0.'1' = 42", i42);
-            //
-            asserter.assertExpression("foo?.0.'1'", i42);
-            asserter.assertExpression("foo?.0", foo);
-            asserter.assertExpression("foo?.0.'0'", foo);
-            asserter.assertExpression("foo?.'1'", foo[1]);
-            asserter.assertExpression("foo.0?.'1'", foo[1]);
-            asserter.assertExpression("foo?.0.'1' = 43", i43);
-            asserter.assertExpression("foo?.0?.'1'", i43);
-            asserter.assertExpression("foo?.0.'1' = 42", i42);
-            asserter.assertExpression("foo?.0.'1'", i42);
-            //
-            asserter.assertExpression("foo?.0.`1`", i42);
-            asserter.assertExpression("foo?.0", foo);
-            asserter.assertExpression("foo?.0.'0'", foo);
-            asserter.assertExpression("foo?.`1`", foo[1]);
-            asserter.assertExpression("foo?.0.`1`", foo[1]);
-            asserter.assertExpression("foo?.0.`${one}` = 43", i43);
-            asserter.assertExpression("foo.0?.`${one}`", i43);
-            asserter.assertExpression("foo.0.`${one}` = 42", i42);
-            asserter.assertExpression("foo?.0?.`${one}`", i42);
-        }
-    }
-
     /**
      * A base property container; can only set from string.
      */
@@ -152,6 +108,47 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         }
     }
 
+    @Test
+    public void testInnerViaArithmetic() throws Exception {
+        final PropertyArithmetic pa = new PropertyArithmetic(true);
+        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
+        final PropertyContainer quux = new PropertyContainer("bar", 169);
+        Object result;
+
+        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
+        result = getName.execute(null, quux);
+        Assert.assertEquals("bar", result);
+        final int calls = pa.getCalls();
+        final JexlScript setName = jexl.createScript("foo.property.name = $0", "foo", "$0");
+        setName.execute(null, quux, 123);
+        result = getName.execute(null, quux);
+        Assert.assertEquals("123", result);
+        setName.execute(null, quux, 456);
+        result = getName.execute(null, quux);
+        Assert.assertEquals("456", result);
+        Assert.assertEquals(calls + 2, pa.getCalls());
+        setName.execute(null, quux, "quux");
+        result = getName.execute(null, quux);
+        Assert.assertEquals("QUUX", result);
+        Assert.assertEquals(calls + 2, pa.getCalls());
+
+        final JexlScript getNumber = jexl.createScript("foo.property.number", "foo");
+        result = getNumber.execute(null, quux);
+        Assert.assertEquals(169, result);
+        final JexlScript setNumber = jexl.createScript("foo.property.number = $0", "foo", "$0");
+        setNumber.execute(null, quux, 42);
+        result = getNumber.execute(null, quux);
+        Assert.assertEquals(1042, result);
+        setNumber.execute(null, quux, 24);
+        result = getNumber.execute(null, quux);
+        Assert.assertEquals(1024, result);
+        Assert.assertEquals(calls + 4, pa.getCalls());
+        setNumber.execute(null, quux, "42");
+        result = getNumber.execute(null, quux);
+        Assert.assertEquals(1042, result);
+        Assert.assertEquals(calls + 4, pa.getCalls());
+    }
+
     public static class Container extends PropertyContainer {
         public Container(final String name, final int number) {
             super(name, number);
@@ -194,6 +191,207 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         }
     }
 
+    @Test
+    public void testInnerProperty() throws Exception {
+        final PropertyArithmetic pa = new PropertyArithmetic(true);
+        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
+        final Container quux = new Container("quux", 42);
+        final JexlScript get;
+        Object result;
+
+        final int calls = pa.getCalls();
+        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
+        result = getName.execute(null, quux);
+        Assert.assertEquals("quux", result);
+
+        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
+        result = get0.execute(null, quux);
+        Assert.assertEquals("quux", result);
+
+        final JexlScript getNumber = JEXL.createScript("foo.property.number", "foo");
+        result = getNumber.execute(null, quux);
+        Assert.assertEquals(42, result);
+
+        final JexlScript get1 = JEXL.createScript("foo.property.1", "foo");
+        result = get1.execute(null, quux);
+        Assert.assertEquals(42, result);
+
+        final JexlScript setName = JEXL.createScript("foo.property.name = $0", "foo", "$0");
+        setName.execute(null, quux, "QUUX");
+        result = getName.execute(null, quux);
+        Assert.assertEquals("QUUX", result);
+        result = get0.execute(null, quux);
+        Assert.assertEquals("QUUX", result);
+
+        final JexlScript set0 = JEXL.createScript("foo.property.0 = $0", "foo", "$0");
+        set0.execute(null, quux, "BAR");
+        result = getName.execute(null, quux);
+        Assert.assertEquals("BAR", result);
+        result = get0.execute(null, quux);
+        Assert.assertEquals("BAR", result);
+
+        final JexlScript setNumber = JEXL.createScript("foo.property.number = $0", "foo", "$0");
+        setNumber.execute(null, quux, -42);
+        result = getNumber.execute(null, quux);
+        Assert.assertEquals(-42, result);
+        result = get1.execute(null, quux);
+        Assert.assertEquals(-42, result);
+
+        final JexlScript set1 = JEXL.createScript("foo.property.1 = $0", "foo", "$0");
+        set1.execute(null, quux, 24);
+        result = getNumber.execute(null, quux);
+        Assert.assertEquals(24, result);
+        result = get1.execute(null, quux);
+        Assert.assertEquals(24, result);
+
+        Assert.assertEquals(calls, pa.getCalls());
+    }
+
+
+    @Test
+    public void testStringIdentifier() throws Exception {
+        final Map<String, String> foo = new HashMap<String, String>();
+
+        final JexlContext jc = new MapContext();
+        jc.set("foo", foo);
+        foo.put("q u u x", "456");
+        JexlExpression e = JEXL.createExpression("foo.\"q u u x\"");
+        Object result = e.evaluate(jc);
+        Assert.assertEquals("456", result);
+        e = JEXL.createExpression("foo.'q u u x'");
+        result = e.evaluate(jc);
+        Assert.assertEquals("456", result);
+        JexlScript s = JEXL.createScript("foo.\"q u u x\"");
+        result = s.execute(jc);
+        Assert.assertEquals("456", result);
+        s = JEXL.createScript("foo.'q u u x'");
+        result = s.execute(jc);
+        Assert.assertEquals("456", result);
+
+        final Debugger dbg = new Debugger();
+        dbg.debug(e);
+        final String dbgdata = dbg.toString();
+        Assert.assertEquals("foo.'q u u x'", dbgdata);
+    }
+
+    @Test
+    public void testErroneousIdentifier() throws Exception {
+        final MapContext ctx = new MapContext();
+        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
+
+        // base succeeds
+        String stmt = "(x)->{ x?.class ?? 'oops' }";
+        JexlScript script = engine.createScript(stmt);
+        Object result = script.execute(ctx, "querty");
+        Assert.assertEquals("querty".getClass(), result);
+
+        // fail with unknown property
+        stmt = "(x)->{ x.class1 ?? 'oops' }";
+        script = engine.createScript(stmt);
+        result = script.execute(ctx, "querty");
+        Assert.assertEquals("oops", result);
+
+        // succeeds with jxlt & strict navigation
+        ctx.set("al", "la");
+        stmt = "(x)->{ x.`c${al}ss` ?? 'oops' }";
+        script = engine.createScript(stmt);
+        result = script.execute(ctx, "querty");
+        Assert.assertEquals("querty".getClass(), result);
+
+        // succeeds with jxlt & lenient navigation
+        stmt = "(x)->{ x?.`c${al}ss` ?? 'oops' }";
+        script = engine.createScript(stmt);
+        result = script.execute(ctx, "querty");
+        Assert.assertEquals("querty".getClass(), result);
+
+        // fails with jxlt & lenient navigation
+        stmt = "(x)->{ x?.`c${la}ss` ?? 'oops' }";
+        script = engine.createScript(stmt);
+        result = script.execute(ctx, "querty");
+        Assert.assertEquals("oops", result);
+
+        // fails with jxlt & strict navigation
+        stmt = "(x)->{ x.`c${la}ss` ?? 'oops' }";
+        script = engine.createScript(stmt);
+        result = script.execute(ctx, "querty");
+        Assert.assertEquals("oops", result);
+
+        // fails with jxlt & lenient navigation
+        stmt = "(x)->{ x?.`c${la--ss` ?? 'oops' }";
+        script = engine.createScript(stmt);
+        result = script.execute(ctx, "querty");
+        Assert.assertEquals("oops", result);
+
+        // fails with jxlt & strict navigation
+        stmt = "(x)->{ x.`c${la--ss` ?? 'oops' }";
+        script = engine.createScript(stmt);
+        result = script.execute(ctx, "querty");
+        Assert.assertEquals("oops", result);
+    }
+
+    @Test
+    public void test250() throws Exception {
+        final MapContext ctx = new MapContext();
+        final HashMap<Object, Object> x = new HashMap<Object, Object>();
+        x.put(2, "123456789");
+        ctx.set("x", x);
+        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
+        String stmt = "x.2.class.name";
+        JexlScript script = engine.createScript(stmt);
+        Object result = script.execute(ctx);
+        Assert.assertEquals("java.lang.String", result);
+
+        try {
+            stmt = "x.3?.class.name";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail("Should have evaluated to null");
+        }
+        try {
+            stmt = "x?.3.class.name";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.fail("Should have thrown, fail on 3");
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.assertTrue(xany.detailedMessage().contains("3"));
+        }
+        try {
+            stmt = "x?.3?.class.name";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail("Should have evaluated to null");
+        }
+        try {
+            stmt = "y?.3.class.name";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail("Should have evaluated to null");
+        }
+        try {
+            stmt = "x?.y?.z";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail("Should have evaluated to null");
+        }
+        try {
+            stmt = "x? (x.y? (x.y.z ?: null) :null) : null";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail("Should have evaluated to null");
+        }
+    }
+
     public static class Prompt {
         private final Map<String, PromptValue> values = new HashMap<String, PromptValue>();
 
@@ -229,1346 +427,7 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
-    public void testInnerViaArithmetic_1_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final PropertyContainer quux = new PropertyContainer("bar", 169);
-        Object result;
-
-        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        Assert.assertEquals("bar", result);
-    }
-
-    @Test
-    public void testInnerViaArithmetic_2_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final PropertyContainer quux = new PropertyContainer("bar", 169);
-        Object result;
-
-        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        final int calls = pa.getCalls();
-        final JexlScript setName = jexl.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, 123);
-        result = getName.execute(null, quux);
-        Assert.assertEquals("123", result);
-    }
-
-    @Test
-    public void testInnerViaArithmetic_3_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final PropertyContainer quux = new PropertyContainer("bar", 169);
-        Object result;
-
-        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        final int calls = pa.getCalls();
-        final JexlScript setName = jexl.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, 123);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        setName.execute(null, quux, 456);
-        result = getName.execute(null, quux);
-        Assert.assertEquals("456", result);
-    }
-
-    @Test
-    public void testInnerViaArithmetic_4_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final PropertyContainer quux = new PropertyContainer("bar", 169);
-        Object result;
-
-        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        final int calls = pa.getCalls();
-        final JexlScript setName = jexl.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, 123);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        setName.execute(null, quux, 456);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        Assert.assertEquals(calls + 2, pa.getCalls());
-    }
-
-    @Test
-    public void testInnerViaArithmetic_5_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final PropertyContainer quux = new PropertyContainer("bar", 169);
-        Object result;
-
-        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        final int calls = pa.getCalls();
-        final JexlScript setName = jexl.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, 123);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        setName.execute(null, quux, 456);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-        setName.execute(null, quux, "quux");
-        result = getName.execute(null, quux);
-        Assert.assertEquals("QUUX", result);
-    }
-
-    @Test
-    public void testInnerViaArithmetic_6_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final PropertyContainer quux = new PropertyContainer("bar", 169);
-        Object result;
-
-        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        final int calls = pa.getCalls();
-        final JexlScript setName = jexl.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, 123);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        setName.execute(null, quux, 456);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-        setName.execute(null, quux, "quux");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        Assert.assertEquals(calls + 2, pa.getCalls());
-    }
-
-    @Test
-    public void testInnerViaArithmetic_7_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final PropertyContainer quux = new PropertyContainer("bar", 169);
-        Object result;
-
-        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        final int calls = pa.getCalls();
-        final JexlScript setName = jexl.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, 123);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        setName.execute(null, quux, 456);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-        setName.execute(null, quux, "quux");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-
-        final JexlScript getNumber = jexl.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        Assert.assertEquals(169, result);
-    }
-
-    @Test
-    public void testInnerViaArithmetic_8_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final PropertyContainer quux = new PropertyContainer("bar", 169);
-        Object result;
-
-        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        final int calls = pa.getCalls();
-        final JexlScript setName = jexl.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, 123);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        setName.execute(null, quux, 456);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-        setName.execute(null, quux, "quux");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-
-        final JexlScript getNumber = jexl.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        final JexlScript setNumber = jexl.createScript("foo.property.number = $0", "foo", "$0");
-        setNumber.execute(null, quux, 42);
-        result = getNumber.execute(null, quux);
-        Assert.assertEquals(1042, result);
-    }
-
-    @Test
-    public void testInnerViaArithmetic_9_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final PropertyContainer quux = new PropertyContainer("bar", 169);
-        Object result;
-
-        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        final int calls = pa.getCalls();
-        final JexlScript setName = jexl.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, 123);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        setName.execute(null, quux, 456);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-        setName.execute(null, quux, "quux");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-
-        final JexlScript getNumber = jexl.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        final JexlScript setNumber = jexl.createScript("foo.property.number = $0", "foo", "$0");
-        setNumber.execute(null, quux, 42);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        setNumber.execute(null, quux, 24);
-        result = getNumber.execute(null, quux);
-        Assert.assertEquals(1024, result);
-    }
-
-    @Test
-    public void testInnerViaArithmetic_10_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final PropertyContainer quux = new PropertyContainer("bar", 169);
-        Object result;
-
-        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        final int calls = pa.getCalls();
-        final JexlScript setName = jexl.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, 123);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        setName.execute(null, quux, 456);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-        setName.execute(null, quux, "quux");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-
-        final JexlScript getNumber = jexl.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        final JexlScript setNumber = jexl.createScript("foo.property.number = $0", "foo", "$0");
-        setNumber.execute(null, quux, 42);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        setNumber.execute(null, quux, 24);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        Assert.assertEquals(calls + 4, pa.getCalls());
-    }
-
-    @Test
-    public void testInnerViaArithmetic_11_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final PropertyContainer quux = new PropertyContainer("bar", 169);
-        Object result;
-
-        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        final int calls = pa.getCalls();
-        final JexlScript setName = jexl.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, 123);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        setName.execute(null, quux, 456);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-        setName.execute(null, quux, "quux");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-
-        final JexlScript getNumber = jexl.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        final JexlScript setNumber = jexl.createScript("foo.property.number = $0", "foo", "$0");
-        setNumber.execute(null, quux, 42);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        setNumber.execute(null, quux, 24);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-        setNumber.execute(null, quux, "42");
-        result = getNumber.execute(null, quux);
-        Assert.assertEquals(1042, result);
-    }
-
-    @Test
-    public void testInnerViaArithmetic_12_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final PropertyContainer quux = new PropertyContainer("bar", 169);
-        Object result;
-
-        final JexlScript getName = jexl.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        final int calls = pa.getCalls();
-        final JexlScript setName = jexl.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, 123);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        setName.execute(null, quux, 456);
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-        setName.execute(null, quux, "quux");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-
-        final JexlScript getNumber = jexl.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        final JexlScript setNumber = jexl.createScript("foo.property.number = $0", "foo", "$0");
-        setNumber.execute(null, quux, 42);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        setNumber.execute(null, quux, 24);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        // removed other assertion
-        setNumber.execute(null, quux, "42");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        Assert.assertEquals(calls + 4, pa.getCalls());
-    }
-
-    @Test
-    public void testInnerProperty_1_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        Assert.assertEquals("quux", result);
-    }
-
-    @Test
-    public void testInnerProperty_2_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
-        result = get0.execute(null, quux);
-        Assert.assertEquals("quux", result);
-    }
-
-    @Test
-    public void testInnerProperty_3_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript getNumber = JEXL.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        Assert.assertEquals(42, result);
-    }
-
-    @Test
-    public void testInnerProperty_4_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript getNumber = JEXL.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get1 = JEXL.createScript("foo.property.1", "foo");
-        result = get1.execute(null, quux);
-        Assert.assertEquals(42, result);
-    }
-
-    @Test
-    public void testInnerProperty_5_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript getNumber = JEXL.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get1 = JEXL.createScript("foo.property.1", "foo");
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setName = JEXL.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, "QUUX");
-        result = getName.execute(null, quux);
-        Assert.assertEquals("QUUX", result);
-    }
-
-    @Test
-    public void testInnerProperty_6_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript getNumber = JEXL.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get1 = JEXL.createScript("foo.property.1", "foo");
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setName = JEXL.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, "QUUX");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        Assert.assertEquals("QUUX", result);
-    }
-
-    @Test
-    public void testInnerProperty_7_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript getNumber = JEXL.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get1 = JEXL.createScript("foo.property.1", "foo");
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setName = JEXL.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, "QUUX");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript set0 = JEXL.createScript("foo.property.0 = $0", "foo", "$0");
-        set0.execute(null, quux, "BAR");
-        result = getName.execute(null, quux);
-        Assert.assertEquals("BAR", result);
-    }
-
-    @Test
-    public void testInnerProperty_8_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript getNumber = JEXL.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get1 = JEXL.createScript("foo.property.1", "foo");
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setName = JEXL.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, "QUUX");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript set0 = JEXL.createScript("foo.property.0 = $0", "foo", "$0");
-        set0.execute(null, quux, "BAR");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        Assert.assertEquals("BAR", result);
-    }
-
-    @Test
-    public void testInnerProperty_9_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript getNumber = JEXL.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get1 = JEXL.createScript("foo.property.1", "foo");
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setName = JEXL.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, "QUUX");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript set0 = JEXL.createScript("foo.property.0 = $0", "foo", "$0");
-        set0.execute(null, quux, "BAR");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setNumber = JEXL.createScript("foo.property.number = $0", "foo", "$0");
-        setNumber.execute(null, quux, -42);
-        result = getNumber.execute(null, quux);
-        Assert.assertEquals(-42, result);
-    }
-
-    @Test
-    public void testInnerProperty_10_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript getNumber = JEXL.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get1 = JEXL.createScript("foo.property.1", "foo");
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setName = JEXL.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, "QUUX");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript set0 = JEXL.createScript("foo.property.0 = $0", "foo", "$0");
-        set0.execute(null, quux, "BAR");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setNumber = JEXL.createScript("foo.property.number = $0", "foo", "$0");
-        setNumber.execute(null, quux, -42);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        result = get1.execute(null, quux);
-        Assert.assertEquals(-42, result);
-    }
-
-    @Test
-    public void testInnerProperty_11_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript getNumber = JEXL.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get1 = JEXL.createScript("foo.property.1", "foo");
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setName = JEXL.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, "QUUX");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript set0 = JEXL.createScript("foo.property.0 = $0", "foo", "$0");
-        set0.execute(null, quux, "BAR");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setNumber = JEXL.createScript("foo.property.number = $0", "foo", "$0");
-        setNumber.execute(null, quux, -42);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript set1 = JEXL.createScript("foo.property.1 = $0", "foo", "$0");
-        set1.execute(null, quux, 24);
-        result = getNumber.execute(null, quux);
-        Assert.assertEquals(24, result);
-    }
-
-    @Test
-    public void testInnerProperty_12_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript getNumber = JEXL.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get1 = JEXL.createScript("foo.property.1", "foo");
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setName = JEXL.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, "QUUX");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript set0 = JEXL.createScript("foo.property.0 = $0", "foo", "$0");
-        set0.execute(null, quux, "BAR");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setNumber = JEXL.createScript("foo.property.number = $0", "foo", "$0");
-        setNumber.execute(null, quux, -42);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript set1 = JEXL.createScript("foo.property.1 = $0", "foo", "$0");
-        set1.execute(null, quux, 24);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        result = get1.execute(null, quux);
-        Assert.assertEquals(24, result);
-    }
-
-    @Test
-    public void testInnerProperty_13_oe() throws Exception {
-        final PropertyArithmetic pa = new PropertyArithmetic(true);
-        final JexlEngine jexl = new JexlBuilder().arithmetic(pa).debug(true).strict(true).cache(32).create();
-        final Container quux = new Container("quux", 42);
-        final JexlScript get;
-        Object result;
-
-        final int calls = pa.getCalls();
-        final JexlScript getName = JEXL.createScript("foo.property.name", "foo");
-        result = getName.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get0 = JEXL.createScript("foo.property.0", "foo");
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript getNumber = JEXL.createScript("foo.property.number", "foo");
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript get1 = JEXL.createScript("foo.property.1", "foo");
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setName = JEXL.createScript("foo.property.name = $0", "foo", "$0");
-        setName.execute(null, quux, "QUUX");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript set0 = JEXL.createScript("foo.property.0 = $0", "foo", "$0");
-        set0.execute(null, quux, "BAR");
-        result = getName.execute(null, quux);
-        // removed other assertion
-        result = get0.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript setNumber = JEXL.createScript("foo.property.number = $0", "foo", "$0");
-        setNumber.execute(null, quux, -42);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        final JexlScript set1 = JEXL.createScript("foo.property.1 = $0", "foo", "$0");
-        set1.execute(null, quux, 24);
-        result = getNumber.execute(null, quux);
-        // removed other assertion
-        result = get1.execute(null, quux);
-        // removed other assertion
-
-        Assert.assertEquals(calls, pa.getCalls());
-    }
-
-    @Test
-    public void testStringIdentifier_1_oe() throws Exception {
-        final Map<String, String> foo = new HashMap<String, String>();
-
-        final JexlContext jc = new MapContext();
-        jc.set("foo", foo);
-        foo.put("q u u x", "456");
-        JexlExpression e = JEXL.createExpression("foo.\"q u u x\"");
-        Object result = e.evaluate(jc);
-        Assert.assertEquals("456", result);
-    }
-
-    @Test
-    public void testStringIdentifier_2_oe() throws Exception {
-        final Map<String, String> foo = new HashMap<String, String>();
-
-        final JexlContext jc = new MapContext();
-        jc.set("foo", foo);
-        foo.put("q u u x", "456");
-        JexlExpression e = JEXL.createExpression("foo.\"q u u x\"");
-        Object result = e.evaluate(jc);
-        // removed other assertion
-        e = JEXL.createExpression("foo.'q u u x'");
-        result = e.evaluate(jc);
-        Assert.assertEquals("456", result);
-    }
-
-    @Test
-    public void testStringIdentifier_3_oe() throws Exception {
-        final Map<String, String> foo = new HashMap<String, String>();
-
-        final JexlContext jc = new MapContext();
-        jc.set("foo", foo);
-        foo.put("q u u x", "456");
-        JexlExpression e = JEXL.createExpression("foo.\"q u u x\"");
-        Object result = e.evaluate(jc);
-        // removed other assertion
-        e = JEXL.createExpression("foo.'q u u x'");
-        result = e.evaluate(jc);
-        // removed other assertion
-        JexlScript s = JEXL.createScript("foo.\"q u u x\"");
-        result = s.execute(jc);
-        Assert.assertEquals("456", result);
-    }
-
-    @Test
-    public void testStringIdentifier_4_oe() throws Exception {
-        final Map<String, String> foo = new HashMap<String, String>();
-
-        final JexlContext jc = new MapContext();
-        jc.set("foo", foo);
-        foo.put("q u u x", "456");
-        JexlExpression e = JEXL.createExpression("foo.\"q u u x\"");
-        Object result = e.evaluate(jc);
-        // removed other assertion
-        e = JEXL.createExpression("foo.'q u u x'");
-        result = e.evaluate(jc);
-        // removed other assertion
-        JexlScript s = JEXL.createScript("foo.\"q u u x\"");
-        result = s.execute(jc);
-        // removed other assertion
-        s = JEXL.createScript("foo.'q u u x'");
-        result = s.execute(jc);
-        Assert.assertEquals("456", result);
-    }
-
-    @Test
-    public void testStringIdentifier_5_oe() throws Exception {
-        final Map<String, String> foo = new HashMap<String, String>();
-
-        final JexlContext jc = new MapContext();
-        jc.set("foo", foo);
-        foo.put("q u u x", "456");
-        JexlExpression e = JEXL.createExpression("foo.\"q u u x\"");
-        Object result = e.evaluate(jc);
-        // removed other assertion
-        e = JEXL.createExpression("foo.'q u u x'");
-        result = e.evaluate(jc);
-        // removed other assertion
-        JexlScript s = JEXL.createScript("foo.\"q u u x\"");
-        result = s.execute(jc);
-        // removed other assertion
-        s = JEXL.createScript("foo.'q u u x'");
-        result = s.execute(jc);
-        // removed other assertion
-
-        final Debugger dbg = new Debugger();
-        dbg.debug(e);
-        final String dbgdata = dbg.toString();
-        Assert.assertEquals("foo.'q u u x'", dbgdata);
-    }
-
-    @Test
-    public void testErroneousIdentifier_1_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-
-        // base succeeds
-        String stmt = "(x)->{ x?.class ?? 'oops' }";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx, "querty");
-        Assert.assertEquals("querty".getClass(), result);
-    }
-
-    @Test
-    public void testErroneousIdentifier_2_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-
-        // base succeeds
-        String stmt = "(x)->{ x?.class ?? 'oops' }";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // fail with unknown property
-        stmt = "(x)->{ x.class1 ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        Assert.assertEquals("oops", result);
-    }
-
-    @Test
-    public void testErroneousIdentifier_3_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-
-        // base succeeds
-        String stmt = "(x)->{ x?.class ?? 'oops' }";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // fail with unknown property
-        stmt = "(x)->{ x.class1 ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // succeeds with jxlt & strict navigation
-        ctx.set("al", "la");
-        stmt = "(x)->{ x.`c${al}ss` ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        Assert.assertEquals("querty".getClass(), result);
-    }
-
-    @Test
-    public void testErroneousIdentifier_4_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-
-        // base succeeds
-        String stmt = "(x)->{ x?.class ?? 'oops' }";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // fail with unknown property
-        stmt = "(x)->{ x.class1 ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // succeeds with jxlt & strict navigation
-        ctx.set("al", "la");
-        stmt = "(x)->{ x.`c${al}ss` ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // succeeds with jxlt & lenient navigation
-        stmt = "(x)->{ x?.`c${al}ss` ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        Assert.assertEquals("querty".getClass(), result);
-    }
-
-    @Test
-    public void testErroneousIdentifier_5_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-
-        // base succeeds
-        String stmt = "(x)->{ x?.class ?? 'oops' }";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // fail with unknown property
-        stmt = "(x)->{ x.class1 ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // succeeds with jxlt & strict navigation
-        ctx.set("al", "la");
-        stmt = "(x)->{ x.`c${al}ss` ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // succeeds with jxlt & lenient navigation
-        stmt = "(x)->{ x?.`c${al}ss` ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // fails with jxlt & lenient navigation
-        stmt = "(x)->{ x?.`c${la}ss` ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        Assert.assertEquals("oops", result);
-    }
-
-    @Test
-    public void testErroneousIdentifier_6_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-
-        // base succeeds
-        String stmt = "(x)->{ x?.class ?? 'oops' }";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // fail with unknown property
-        stmt = "(x)->{ x.class1 ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // succeeds with jxlt & strict navigation
-        ctx.set("al", "la");
-        stmt = "(x)->{ x.`c${al}ss` ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // succeeds with jxlt & lenient navigation
-        stmt = "(x)->{ x?.`c${al}ss` ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // fails with jxlt & lenient navigation
-        stmt = "(x)->{ x?.`c${la}ss` ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        // removed other assertion
-
-        // fails with jxlt & strict navigation
-        stmt = "(x)->{ x.`c${la}ss` ?? 'oops' }";
-        script = engine.createScript(stmt);
-        result = script.execute(ctx, "querty");
-        Assert.assertEquals("oops", result);
-    }
-
-    @Test
-    public void test250_1_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        Assert.assertEquals("java.lang.String", result);
-    }
-
-    @Test
-    public void test250_3_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        // removed other assertion
-
-        try {
-            stmt = "x.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.fail("Should have evaluated to null");
-    }
-    }
-
-    @Test
-    public void test250_6_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        // removed other assertion
-
-        try {
-            stmt = "x.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.assertTrue(xany.detailedMessage().contains("3"));
-    }
-    }
-
-    @Test
-    public void test250_8_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        // removed other assertion
-
-        try {
-            stmt = "x.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.fail("Should have evaluated to null");
-    }
-    }
-
-    @Test
-    public void test250_10_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        // removed other assertion
-
-        try {
-            stmt = "x.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "y?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.fail("Should have evaluated to null");
-    }
-    }
-
-    @Test
-    public void test250_12_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        // removed other assertion
-
-        try {
-            stmt = "x.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "y?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.y?.z";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.fail("Should have evaluated to null");
-    }
-    }
-
-    @Test
-    public void test250_14_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final HashMap<Object, Object> x = new HashMap<Object, Object>();
-        x.put(2, "123456789");
-        ctx.set("x", x);
-        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
-        String stmt = "x.2.class.name";
-        JexlScript script = engine.createScript(stmt);
-        Object result = script.execute(ctx);
-        // removed other assertion
-
-        try {
-            stmt = "x.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.3?.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "y?.3.class.name";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x?.y?.z";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        try {
-            stmt = "x? (x.y? (x.y.z ?: null) :null) : null";
-            script = engine.createScript(stmt);
-            result = script.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xany) {
-            Assert.fail("Should have evaluated to null");
-    }
-    }
-
-    @Test
-    public void test275a_2_oe() throws Exception {
+    public void test275a() throws Exception {
         final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
         final JexlContext ctxt = new MapContext();
         JexlScript script;
@@ -1581,433 +440,873 @@ public class PropertyAccessTest_OE25Dev extends JexlTestCase {
         script = jexl.createScript("$in[p].intValue()", "p");
         try {
             result = script.execute(ctxt, "fail");
-            // removed other assertion
+            Assert.fail("should have thrown a " + JexlException.Property.class);
         } catch (final JexlException xany) {
             Assert.assertEquals(JexlException.Property.class, xany.getClass());
-    }
-    }
-
-    @Test
-    public void test275a_3_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
         }
         Assert.assertNull(result);
-    }
-
-    @Test
-    public void test275a_4_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
         result = script.execute(ctxt, "stuff");
         Assert.assertEquals(42, result);
-    }
-
-    @Test
-    public void test275a_5_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
 
         // protected navigation
         script = jexl.createScript("$in[p]?.intValue()", "p");
         result = script.execute(ctxt, "fail");
         Assert.assertNull(result);
-    }
-
-    @Test
-    public void test275a_6_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in[p]?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
         result = script.execute(ctxt, "stuff");
         Assert.assertEquals(42, result);
-    }
-
-    @Test
-    public void test275a_8_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in[p]?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
 
         // unprotected navigation
         script = jexl.createScript("$in.`${p}`.intValue()", "p");
         try {
             result = script.execute(ctxt, "fail");
-            // removed other assertion
+            Assert.fail("should have thrown a " + JexlException.Property.class);
         } catch (final JexlException xany) {
             Assert.assertEquals(JexlException.Property.class, xany.getClass());
+        }
+        result = script.execute(ctxt, "stuff");
+        Assert.assertEquals(42, result);
+
+        // protected navigation
+        script = jexl.createScript("$in.`${p}`?.intValue()", "p");
+        result = script.execute(ctxt, "fail");
+        Assert.assertNull(result);
+        result = script.execute(ctxt, "stuff");
+        Assert.assertEquals(42, result);
+
     }
+     @Test
+    public void test275b() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
+        final JexlContext ctxt = new MapContext();
+        JexlScript script;
+        final Prompt p0 = new Prompt();
+        p0.set("stuff", 42);
+        ctxt.set("$in", p0);
+
+        // unprotected navigation
+        script = jexl.createScript("$in[p].intValue()", "p");
+        Object result = script.execute(ctxt, "fail");
+        Assert.assertNull(result);
+
+        result = script.execute(ctxt, "stuff");
+        Assert.assertEquals(42, result);
+
+
+        // unprotected navigation
+        script = jexl.createScript("$in.`${p}`.intValue()", "p");
+        result = script.execute(ctxt, "fail");
+        Assert.assertNull(result);
+        result = script.execute(ctxt, "stuff");
+        Assert.assertEquals(42, result);
+
+        // protected navigation
+        script = jexl.createScript("$in.`${p}`?.intValue()", "p");
+        result = script.execute(ctxt, "fail");
+        Assert.assertNull(result);
+        result = script.execute(ctxt, "stuff");
+        Assert.assertEquals(42, result);
     }
 
+// TODO: verify inlining
     @Test
-    public void test275a_9_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in[p]?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        result = script.execute(ctxt, "stuff");
-        Assert.assertEquals(42, result);
+    public void testPropertyProperty_1_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            asserter.assertExpression("foo.0", foo);
+    }
     }
 
+// TODO: verify inlining
     @Test
-    public void test275a_10_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
+    public void testPropertyProperty_2_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
             // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in[p]?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
-            // removed other assertion
-        } catch (final JexlException xany) {
-            // removed other assertion
-        }
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in.`${p}`?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        Assert.assertNull(result);
+            asserter.assertExpression("foo.0.'0'", foo);
+    }
     }
 
+// TODO: verify inlining
     @Test
-    public void test275a_11_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        Object result = null;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
+    public void testPropertyProperty_3_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
             // removed other assertion
-        } catch (final JexlException xany) {
             // removed other assertion
-        }
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
+            asserter.assertExpression("foo.'1'", foo[1]);
+    }
+    }
 
-        // protected navigation
-        script = jexl.createScript("$in[p]?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        try {
-            result = script.execute(ctxt, "fail");
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_4_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
             // removed other assertion
-        } catch (final JexlException xany) {
             // removed other assertion
-        }
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in.`${p}`?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        Assert.assertEquals(42, result);
+            // removed other assertion
+            asserter.assertExpression("foo.0.'1'", foo[1]);
+    }
     }
 
-     @Test
-    public void test275b_1_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        Object result = script.execute(ctxt, "fail");
-        Assert.assertNull(result);
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_5_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo.0.'1' = 43", i43);
+    }
     }
 
-     @Test
-    public void test275b_2_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        Object result = script.execute(ctxt, "fail");
-        // removed other assertion
-
-        result = script.execute(ctxt, "stuff");
-        Assert.assertEquals(42, result);
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_6_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo.0.'1'", i43);
+    }
     }
 
-     @Test
-    public void test275b_3_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        Object result = script.execute(ctxt, "fail");
-        // removed other assertion
-
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        Assert.assertNull(result);
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_7_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo.0.'1' = 42", i42);
+    }
     }
 
-     @Test
-    public void test275b_4_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        Object result = script.execute(ctxt, "fail");
-        // removed other assertion
-
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        Assert.assertEquals(42, result);
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_8_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            asserter.assertExpression("foo?.0.'1'", i42);
+    }
     }
 
-     @Test
-    public void test275b_5_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
-
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        Object result = script.execute(ctxt, "fail");
-        // removed other assertion
-
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
-
-        // protected navigation
-        script = jexl.createScript("$in.`${p}`?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        Assert.assertNull(result);
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_9_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            asserter.assertExpression("foo?.0", foo);
+    }
     }
 
-     @Test
-    public void test275b_6_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
-        final JexlContext ctxt = new MapContext();
-        JexlScript script;
-        final Prompt p0 = new Prompt();
-        p0.set("stuff", 42);
-        ctxt.set("$in", p0);
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_10_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo?.0.'0'", foo);
+    }
+    }
 
-        // unprotected navigation
-        script = jexl.createScript("$in[p].intValue()", "p");
-        Object result = script.execute(ctxt, "fail");
-        // removed other assertion
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_11_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo?.'1'", foo[1]);
+    }
+    }
 
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_12_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo.0?.'1'", foo[1]);
+    }
+    }
 
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_13_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo?.0.'1' = 43", i43);
+    }
+    }
 
-        // unprotected navigation
-        script = jexl.createScript("$in.`${p}`.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        // removed other assertion
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_14_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo?.0?.'1'", i43);
+    }
+    }
 
-        // protected navigation
-        script = jexl.createScript("$in.`${p}`?.intValue()", "p");
-        result = script.execute(ctxt, "fail");
-        // removed other assertion
-        result = script.execute(ctxt, "stuff");
-        Assert.assertEquals(42, result);
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_15_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo?.0.'1' = 42", i42);
+    }
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_16_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo?.0.'1'", i42);
+    }
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_17_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            asserter.assertExpression("foo?.0.`1`", i42);
+    }
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_18_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            asserter.assertExpression("foo?.0", foo);
+    }
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_19_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo?.0.'0'", foo);
+    }
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_20_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo?.`1`", foo[1]);
+    }
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_21_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo?.0.`1`", foo[1]);
+    }
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_22_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo?.0.`${one}` = 43", i43);
+    }
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_23_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo.0?.`${one}`", i43);
+    }
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_24_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo.0.`${one}` = 42", i42);
+    }
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testPropertyProperty_25_oe() throws Exception {
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final Object[] foo = new Object[3];
+        foo[0] = foo;
+        foo[1] = i42;
+        foo[2] = s42;
+        asserter.setVariable("foo", foo);
+        asserter.setVariable("zero", Integer.valueOf(0));
+        asserter.setVariable("one", Integer.valueOf(1));
+        asserter.setVariable("two", Integer.valueOf(2));
+        for (int l = 0; l < 2; ++l) {
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            //
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+            asserter.assertExpression("foo?.0?.`${one}`", i42);
+    }
     }
 
 }

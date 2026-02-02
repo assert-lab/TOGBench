@@ -323,9 +323,9 @@ class PrimesTest_OE25Dev {
     }
 
     @Test
-    void testPrimeFactors_1_oe() throws Exception {
+    void testPrimeFactors_2_oe() throws Exception {
         for (int i : BELOW_2) {
-            assertPrimeFactorsException(i, MessageFormat.format(Primes.NUMBER_TOO_SMALL, i, 2));
+            // removed other assertion
         }
         for (int i : NOT_PRIMES) {
             List<Integer> factors = Primes.primeFactors(i);
@@ -336,9 +336,9 @@ class PrimesTest_OE25Dev {
     }
 
     @Test
-    void testPrimeFactors_2_oe() throws Exception {
+    void testPrimeFactors_3_oe() throws Exception {
         for (int i : BELOW_2) {
-            assertPrimeFactorsException(i, MessageFormat.format(Primes.NUMBER_TOO_SMALL, i, 2));
+            // removed other assertion
         }
         for (int i : NOT_PRIMES) {
             List<Integer> factors = Primes.primeFactors(i);
@@ -353,9 +353,9 @@ class PrimesTest_OE25Dev {
     }
 
     @Test
-    void testPrimeFactors_3_oe() throws Exception {
+    void testPrimeFactors_4_oe() throws Exception {
         for (int i : BELOW_2) {
-            assertPrimeFactorsException(i, MessageFormat.format(Primes.NUMBER_TOO_SMALL, i, 2));
+            // removed other assertion
         }
         for (int i : NOT_PRIMES) {
             List<Integer> factors = Primes.primeFactors(i);

@@ -572,25 +572,6 @@ class LinePathTest_OE25Dev {
     }
 
     @Test
-    void testFrom_singleInfiniteSegment_5_oe() {
-        // arrange
-        final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
-
-        // act
-        final LinePath path = LinePath.from(a);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(path.getSize());
-
-        Assertions.assertSame(a, path.getStart());
-    }
-
-    @Test
     void testFrom_singleInfiniteSegment_6_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
@@ -604,10 +585,9 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(path.getSize());
-
         // removed other assertion
-        Assertions.assertSame(a, path.getEnd());
+
+        Assertions.assertSame(a, path.getStart());
     }
 
     @Test
@@ -624,13 +604,10 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(path.getSize());
-
-        // removed other assertion
         // removed other assertion
 
-        final List<LineConvexSubset> segments = path.getElements();
-        Assertions.assertEquals(1, segments.size());
+        // removed other assertion
+        Assertions.assertSame(a, path.getEnd());
     }
 
     @Test
@@ -647,14 +624,13 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(path.getSize());
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-        Assertions.assertSame(a, segments.get(0));
+        Assertions.assertEquals(1, segments.size());
     }
 
     @Test
@@ -671,7 +647,31 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(path.getSize());
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        Assertions.assertSame(a, segments.get(0));
+    }
+
+    @Test
+    void testFrom_singleInfiniteSegment_10_oe() {
+        // arrange
+        final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION).span();
+
+        // act
+        final LinePath path = LinePath.from(a);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -1321,28 +1321,6 @@ class LinePathTest_OE25Dev {
     }
 
     @Test
-    void testFrom_infiniteSegments_5_oe() {
-        // arrange
-        final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
-                .reverseRayTo(1.0);
-        final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
-                .rayFrom(0.0);
-
-        // act
-        final LinePath path = LinePath.from(Arrays.asList(a, b));
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(path.getSize());
-
-        Assertions.assertSame(a, path.getStart());
-    }
-
-    @Test
     void testFrom_infiniteSegments_6_oe() {
         // arrange
         final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
@@ -1359,10 +1337,9 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(path.getSize());
-
         // removed other assertion
-        Assertions.assertSame(b, path.getEnd());
+
+        Assertions.assertSame(a, path.getStart());
     }
 
     @Test
@@ -1382,13 +1359,10 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(path.getSize());
-
-        // removed other assertion
         // removed other assertion
 
-        final List<LineConvexSubset> segments = path.getElements();
-        Assertions.assertEquals(2, segments.size());
+        // removed other assertion
+        Assertions.assertSame(b, path.getEnd());
     }
 
     @Test
@@ -1408,14 +1382,13 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(path.getSize());
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
-        // removed other assertion
-        Assertions.assertSame(a, segments.get(0));
+        Assertions.assertEquals(2, segments.size());
     }
 
     @Test
@@ -1435,15 +1408,14 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(path.getSize());
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         // removed other assertion
-        // removed other assertion
-        Assertions.assertSame(b, segments.get(1));
+        Assertions.assertSame(a, segments.get(0));
     }
 
     @Test
@@ -1463,7 +1435,35 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(path.getSize());
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = path.getElements();
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertSame(b, segments.get(1));
+    }
+
+    @Test
+    void testFrom_infiniteSegments_11_oe() {
+        // arrange
+        final ReverseRay a = Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)
+                .reverseRayTo(1.0);
+        final Ray b = Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
+                .rayFrom(0.0);
+
+        // act
+        final LinePath path = LinePath.from(Arrays.asList(a, b));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -2080,25 +2080,6 @@ class LinePathTest_OE25Dev {
     }
 
     @Test
-    void testFromVertices_twoVertices_5_oe() {
-        // arrange
-        final Vector2D p1 = Vector2D.ZERO;
-        final Vector2D p2 = Vector2D.of(1, 0);
-
-        // act
-        final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        assertFiniteSegment(path.getStart(), p1, p2);
-        Assertions.assertSame(path.getStart(), path.getEnd());
-    }
-
-    @Test
     void testFromVertices_twoVertices_6_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
@@ -2113,11 +2094,8 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertFiniteSegment(path.getStart(), p1, p2);
         // removed other assertion
-
-        final List<LineConvexSubset> segments = path.getElements();
-        Assertions.assertEquals(1, segments.size());
+        Assertions.assertSame(path.getStart(), path.getEnd());
     }
 
     @Test
@@ -2135,12 +2113,34 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertFiniteSegment(path.getStart(), p1, p2);
+        // removed other assertion
+        // removed other assertion
+
+        final List<LineConvexSubset> segments = path.getElements();
+        Assertions.assertEquals(1, segments.size());
+    }
+
+    @Test
+    void testFromVertices_twoVertices_9_oe() {
+        // arrange
+        final Vector2D p1 = Vector2D.ZERO;
+        final Vector2D p2 = Vector2D.of(1, 0);
+
+        // act
+        final LinePath path = LinePath.fromVertices(Arrays.asList(p1, p2), TEST_PRECISION);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         // removed other assertion
-        assertFiniteSegment(segments.get(0), p1, p2);
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2), path.getVertexSequence());
     }
@@ -2212,7 +2212,7 @@ class LinePathTest_OE25Dev {
     }
 
     @Test
-    void testFromVertices_multipleVertices_notClosed_5_oe() {
+    void testFromVertices_multipleVertices_notClosed_7_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
@@ -2228,15 +2228,15 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertFiniteSegment(path.getStart(), p1, p2);
-        assertFiniteSegment(path.getEnd(), p3, p4);
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(3, segments.size());
     }
 
     @Test
-    void testFromVertices_multipleVertices_notClosed_6_oe() {
+    void testFromVertices_multipleVertices_notClosed_11_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
@@ -2252,14 +2252,14 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertFiniteSegment(path.getStart(), p1, p2);
-        assertFiniteSegment(path.getEnd(), p3, p4);
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         // removed other assertion
-        assertFiniteSegment(segments.get(0), p1, p2);
-        assertFiniteSegment(segments.get(1), p2, p3);
-        assertFiniteSegment(segments.get(2), p3, p4);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p4), path.getVertexSequence());
     }
@@ -2331,7 +2331,7 @@ class LinePathTest_OE25Dev {
     }
 
     @Test
-    void testFromVertices_multipleVertices_closed_5_oe() {
+    void testFromVertices_multipleVertices_closed_7_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
@@ -2347,15 +2347,15 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertFiniteSegment(path.getStart(), p1, p2);
-        assertFiniteSegment(path.getEnd(), p4, p1);
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         Assertions.assertEquals(4, segments.size());
     }
 
     @Test
-    void testFromVertices_multipleVertices_closed_6_oe() {
+    void testFromVertices_multipleVertices_closed_12_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
@@ -2371,15 +2371,15 @@ class LinePathTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        assertFiniteSegment(path.getStart(), p1, p2);
-        assertFiniteSegment(path.getEnd(), p4, p1);
+        // removed other assertion
+        // removed other assertion
 
         final List<LineConvexSubset> segments = path.getElements();
         // removed other assertion
-        assertFiniteSegment(segments.get(0), p1, p2);
-        assertFiniteSegment(segments.get(1), p2, p3);
-        assertFiniteSegment(segments.get(2), p3, p4);
-        assertFiniteSegment(segments.get(3), p4, p1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p4, p1), path.getVertexSequence());
     }
@@ -2580,7 +2580,7 @@ class LinePathTest_OE25Dev {
     }
 
     @Test
-    void testFromVertexLoop_closeRequired_6_oe() {
+    void testFromVertexLoop_closeRequired_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
@@ -2597,9 +2597,9 @@ class LinePathTest_OE25Dev {
 
         final List<LineConvexSubset> segments = path.getElements();
         // removed other assertion
-        assertFiniteSegment(segments.get(0), p1, p2);
-        assertFiniteSegment(segments.get(1), p2, p3);
-        assertFiniteSegment(segments.get(2), p3, p1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p1), path.getVertexSequence());
     }
@@ -2687,7 +2687,7 @@ class LinePathTest_OE25Dev {
     }
 
     @Test
-    void testFromVertexLoop_closeNotRequired_6_oe() {
+    void testFromVertexLoop_closeNotRequired_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
@@ -2704,9 +2704,9 @@ class LinePathTest_OE25Dev {
 
         final List<LineConvexSubset> segments = path.getElements();
         // removed other assertion
-        assertFiniteSegment(segments.get(0), p1, p2);
-        assertFiniteSegment(segments.get(1), p2, p3);
-        assertFiniteSegment(segments.get(2), p3, p1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(Arrays.asList(p1, p2, p3, p1), path.getVertexSequence());
     }
@@ -2745,7 +2745,7 @@ class LinePathTest_OE25Dev {
     }
 
     @Test
-    void testFromVertices_booleanArg_3_oe() {
+    void testFromVertices_booleanArg_5_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
@@ -2760,14 +2760,14 @@ class LinePathTest_OE25Dev {
 
         final List<LineConvexSubset> openSegments = open.getElements();
         // removed other assertion
-        assertFiniteSegment(openSegments.get(0), p1, p2);
-        assertFiniteSegment(openSegments.get(1), p2, p3);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertTrue(closed.isClosed());
     }
 
     @Test
-    void testFromVertices_booleanArg_4_oe() {
+    void testFromVertices_booleanArg_6_oe() {
         // arrange
         final Vector2D p1 = Vector2D.ZERO;
         final Vector2D p2 = Vector2D.of(1, 0);
@@ -2782,8 +2782,8 @@ class LinePathTest_OE25Dev {
 
         final List<LineConvexSubset> openSegments = open.getElements();
         // removed other assertion
-        assertFiniteSegment(openSegments.get(0), p1, p2);
-        assertFiniteSegment(openSegments.get(1), p2, p3);
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
 
@@ -3440,7 +3440,7 @@ class LinePathTest_OE25Dev {
     }
 
     @Test
-    void testReverse_doubleInfinite_7_oe() {
+    void testReverse_doubleInfinite_10_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
         final LineConvexSubset b = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).rayFrom(Vector2D.ZERO);
@@ -3461,16 +3461,16 @@ class LinePathTest_OE25Dev {
         final LineConvexSubset bResult = segments.get(0);
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.ZERO, bResult.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.ZERO, bResult.getLine().getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.Unit.MINUS_X, bResult.getLine().getDirection(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset aResult = segments.get(1);
         Assertions.assertTrue(aResult.isInfinite());
     }
 
     @Test
-    void testReverse_doubleInfinite_8_oe() {
+    void testReverse_doubleInfinite_12_oe() {
         // arrange
         final LineConvexSubset a = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_Y, TEST_PRECISION).reverseRayTo(Vector2D.ZERO);
         final LineConvexSubset b = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION).rayFrom(Vector2D.ZERO);
@@ -3491,13 +3491,13 @@ class LinePathTest_OE25Dev {
         final LineConvexSubset bResult = segments.get(0);
         // removed other assertion
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.ZERO, bResult.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.ZERO, bResult.getLine().getOrigin(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.Unit.MINUS_X, bResult.getLine().getDirection(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final LineConvexSubset aResult = segments.get(1);
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.ZERO, aResult.getStartPoint(), TEST_EPS);
+        // removed other assertion
         Assertions.assertNull(aResult.getEndPoint());
     }
 

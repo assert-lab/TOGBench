@@ -54,6 +54,7 @@ public class ContentTests_OE25Dev extends AbstractProviderTestCase {
         assertSameContent(expectedFileInfo, actualFolder);
     }
 
+
     /**
      * Tests attributes
      */
@@ -172,6 +173,19 @@ public class ContentTests_OE25Dev extends AbstractProviderTestCase {
         }
     }
 
+@Test
+public void test_standard_1_oe() throws Exception {
+    final FileInfo expectedFileInfo = buildExpectedStructure();
+    final FileObject actualFolder = getReadFolder();
+
+    for (final FileInfo fileInfo : expectedFileInfo.children.values()) {
+        final FileObject child = actualFolder.resolveFile(fileInfo.baseName, NameScope.CHILD);
+
+        // Standard JUnit assertion replacing custom oracle's assertTrue
+        assertTrue(child.getName().toString(), child.exists());
+}
+}
+
     @Test
     public void testByteArrayReadAll_1_oe() throws Exception {
         // Get the test file
@@ -216,24 +230,6 @@ public class ContentTests_OE25Dev extends AbstractProviderTestCase {
     }
 
     @Test
-    public void testChildren_4_oe() throws FileSystemException {
-        // Check for file
-        FileObject file = getReadFolder().resolveFile("file1.txt");
-        // removed other assertion
-        // removed other assertion
-        try {
-            file.getChildren();
-            // removed other assertion
-        } catch (final FileSystemException e) {
-            assertSameMessage("vfs.provider/list-children-not-folder.error", file, e);
-        }
-
-        // Should be able to get child by name
-        file = file.resolveFile("some-child");
-        assertNotNull(file);
-    }
-
-    @Test
     public void testChildren_5_oe() throws FileSystemException {
         // Check for file
         FileObject file = getReadFolder().resolveFile("file1.txt");
@@ -243,7 +239,25 @@ public class ContentTests_OE25Dev extends AbstractProviderTestCase {
             file.getChildren();
             // removed other assertion
         } catch (final FileSystemException e) {
-            assertSameMessage("vfs.provider/list-children-not-folder.error", file, e);
+            // removed other assertion
+        }
+
+        // Should be able to get child by name
+        file = file.resolveFile("some-child");
+        assertNotNull(file);
+    }
+
+    @Test
+    public void testChildren_6_oe() throws FileSystemException {
+        // Check for file
+        FileObject file = getReadFolder().resolveFile("file1.txt");
+        // removed other assertion
+        // removed other assertion
+        try {
+            file.getChildren();
+            // removed other assertion
+        } catch (final FileSystemException e) {
+            // removed other assertion
         }
 
         // Should be able to get child by name
@@ -256,7 +270,7 @@ public class ContentTests_OE25Dev extends AbstractProviderTestCase {
     }
 
     @Test
-    public void testChildren_7_oe() throws FileSystemException {
+    public void testChildren_9_oe() throws FileSystemException {
         // Check for file
         FileObject file = getReadFolder().resolveFile("file1.txt");
         // removed other assertion
@@ -265,7 +279,7 @@ public class ContentTests_OE25Dev extends AbstractProviderTestCase {
             file.getChildren();
             // removed other assertion
         } catch (final FileSystemException e) {
-            assertSameMessage("vfs.provider/list-children-not-folder.error", file, e);
+            // removed other assertion
         }
 
         // Should be able to get child by name
@@ -279,7 +293,7 @@ public class ContentTests_OE25Dev extends AbstractProviderTestCase {
             file.getChildren();
             // removed other assertion
         } catch (final FileSystemException e) {
-            assertSameMessage("vfs.provider/list-children-not-folder.error", file, e);
+            // removed other assertion
         }
 
         // Should be able to get child by name

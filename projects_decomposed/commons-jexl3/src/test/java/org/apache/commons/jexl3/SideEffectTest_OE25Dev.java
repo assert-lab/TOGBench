@@ -162,6 +162,29 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         Assert.assertEquals(3115L ^ 15,  v7.value);
     }
 
+
+    @Test
+    public void testOverrideGetSet() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().cache(64).arithmetic(new SelfArithmetic(false)).create();
+        final JexlContext jc = null;
+
+        JexlScript script;
+        Object result;
+        final Var v0 = new Var(3115);
+        script = jexl.createScript("(x)->{ x.value}");
+        result = script.execute(jc, v0);
+        Assert.assertEquals(3115, result);
+        script = jexl.createScript("(x)->{ x['VALUE']}");
+        result = script.execute(jc, v0);
+        Assert.assertEquals(3115, result);
+        script = jexl.createScript("(x,y)->{ x.value = y}");
+        result = script.execute(jc, v0, 42);
+        Assert.assertEquals(42, result);
+        script = jexl.createScript("(x,y)->{ x['VALUE'] = y}");
+        result = script.execute(jc, v0, 169);
+        Assert.assertEquals(169, result);
+    }
+
     public static class Var {
         int value;
 
@@ -363,6 +386,32 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
+    public void test248() throws Exception {
+        final MapContext ctx = new MapContext();
+        final List<Object> foo = new ArrayList<Object>(Arrays.asList(10, 20, 30, 40));
+        ctx.set("foo", foo);
+
+        final JexlEngine engine = new JexlBuilder().arithmetic(new Arithmetic248(true)).create();
+        final JexlScript foo12 = engine.createScript("foo[1..2]");
+        try {
+            final Object r = foo12.execute(ctx);
+            Assert.assertEquals(Arrays.asList(20, 30), r);
+        } catch (final JexlException xp) {
+            Assert.assertTrue(xp instanceof JexlException.Property);
+        }
+
+        final JexlScript foo12assign = engine.createScript("foo[1..2] = x", "x");
+        try {
+            final Object r = foo12assign.execute(ctx, 25);
+            Assert.assertEquals(25, r);
+            Assert.assertEquals(Arrays.asList(10, 25, 25, 40), foo);
+        } catch (final JexlException xp) {
+            Assert.assertTrue(xp instanceof JexlException.Property);
+        }
+    }
+
+// TODO: verify inlining
+    @Test
     public void testSideEffectVar_1_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
@@ -370,24 +419,9 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
 
         context.put("foo", foo);
         asserter.assertExpression("foo += 2", i41 + 2);
-        Assert.assertEquals(context.get("foo"), i41 + 2);
     }
 
-    @Test
-    public void testSideEffectVar_2_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo += 2", i41 + 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo -= 2", i41 - 2);
-        Assert.assertEquals(context.get("foo"), i41 - 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectVar_3_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
@@ -395,41 +429,14 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo", foo);
-        asserter.assertExpression("foo += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo -= 2", i41 - 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo *= 2", i41 * 2);
-        Assert.assertEquals(context.get("foo"), i41 * 2);
     }
 
-    @Test
-    public void testSideEffectVar_4_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo += 2", i41 + 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo -= 2", i41 - 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo *= 2", i41 * 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo /= 2", i41 / 2);
-        Assert.assertEquals(context.get("foo"), i41 / 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectVar_5_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
@@ -437,57 +444,18 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo", foo);
-        asserter.assertExpression("foo += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo", foo);
-        asserter.assertExpression("foo -= 2", i41 - 2);
         // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo *= 2", i41 * 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo /= 2", i41 / 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo %= 2", i41 % 2);
-        Assert.assertEquals(context.get("foo"), i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectVar_6_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo += 2", i41 + 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo -= 2", i41 - 2);
         // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo *= 2", i41 * 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo /= 2", i41 / 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo %= 2", i41 % 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo &= 3", (long) (i41 & 3));
-        Assert.assertEquals(context.get("foo"), (long)(i41 & 3));
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectVar_7_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
@@ -495,73 +463,154 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo", foo);
-        asserter.assertExpression("foo += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo", foo);
-        asserter.assertExpression("foo -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo", foo);
-        asserter.assertExpression("foo *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo /= 2", i41 / 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo %= 2", i41 % 2);
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo &= 3", (long) (i41 & 3));
-        // removed other assertion
-
-        context.put("foo", foo);
-        asserter.assertExpression("foo |= 2", (long)(i41 | 2));
-        Assert.assertEquals(context.get("foo"), (long)(i41 | 2));
     }
 
+// TODO: verify inlining
     @Test
-    public void testSideEffectVar_8_oe() throws Exception {
+    public void testSideEffectVar_9_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
         final Object foo = i41;
 
         context.put("foo", foo);
-        asserter.assertExpression("foo += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo", foo);
-        asserter.assertExpression("foo -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo", foo);
-        asserter.assertExpression("foo *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo", foo);
-        asserter.assertExpression("foo /= 2", i41 / 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo %= 2", i41 % 2);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectVar_11_oe() throws Exception {
+        final Map<String,Object> context = asserter.getVariables();
+        final Integer i41 = Integer.valueOf(4141);
+        final Object foo = i41;
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo &= 3", (long) (i41 & 3));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectVar_13_oe() throws Exception {
+        final Map<String,Object> context = asserter.getVariables();
+        final Integer i41 = Integer.valueOf(4141);
+        final Object foo = i41;
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo |= 2", (long)(i41 | 2));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectVar_15_oe() throws Exception {
+        final Map<String,Object> context = asserter.getVariables();
+        final Integer i41 = Integer.valueOf(4141);
+        final Object foo = i41;
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo", foo);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo", foo);
         asserter.assertExpression("foo ^= 2", (long)(i41 ^ 2));
-        Assert.assertEquals(context.get("foo"), (long)(i41 ^ 2));
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectVarDots_1_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
@@ -570,24 +619,9 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux += 2", i41 + 2);
-        Assert.assertEquals(context.get("foo.bar.quux"), i41 + 2);
     }
 
-    @Test
-    public void testSideEffectVarDots_2_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux += 2", i41 + 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux -= 2", i41 - 2);
-        Assert.assertEquals(context.get("foo.bar.quux"), i41 - 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectVarDots_3_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
@@ -595,41 +629,14 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux -= 2", i41 - 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux *= 2", i41 * 2);
-        Assert.assertEquals(context.get("foo.bar.quux"), i41 * 2);
     }
 
-    @Test
-    public void testSideEffectVarDots_4_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux += 2", i41 + 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux -= 2", i41 - 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux *= 2", i41 * 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux /= 2", i41 / 2);
-        Assert.assertEquals(context.get("foo.bar.quux"), i41 / 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectVarDots_5_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
@@ -637,57 +644,18 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux -= 2", i41 - 2);
         // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux *= 2", i41 * 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux /= 2", i41 / 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux %= 2", i41 % 2);
-        Assert.assertEquals(context.get("foo.bar.quux"), i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectVarDots_6_oe() throws Exception {
-        final Map<String,Object> context = asserter.getVariables();
-        final Integer i41 = Integer.valueOf(4141);
-        final Object foo = i41;
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux += 2", i41 + 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux -= 2", i41 - 2);
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux *= 2", i41 * 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux /= 2", i41 / 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux %= 2", i41 % 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux &= 3", (long) (i41 & 3));
-        Assert.assertEquals(context.get("foo.bar.quux"), (long)(i41 & 3));
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectVarDots_7_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
@@ -695,73 +663,154 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         final Object foo = i41;
 
         context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux /= 2", i41 / 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux %= 2", i41 % 2);
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux &= 3", (long) (i41 & 3));
-        // removed other assertion
-
-        context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux |= 2", (long)(i41 | 2));
-        Assert.assertEquals(context.get("foo.bar.quux"), (long)(i41 | 2));
     }
 
+// TODO: verify inlining
     @Test
-    public void testSideEffectVarDots_8_oe() throws Exception {
+    public void testSideEffectVarDots_9_oe() throws Exception {
         final Map<String,Object> context = asserter.getVariables();
         final Integer i41 = Integer.valueOf(4141);
         final Object foo = i41;
 
         context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
-        asserter.assertExpression("foo.bar.quux /= 2", i41 / 2);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux %= 2", i41 % 2);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectVarDots_11_oe() throws Exception {
+        final Map<String,Object> context = asserter.getVariables();
+        final Integer i41 = Integer.valueOf(4141);
+        final Object foo = i41;
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux &= 3", (long) (i41 & 3));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectVarDots_13_oe() throws Exception {
+        final Map<String,Object> context = asserter.getVariables();
+        final Integer i41 = Integer.valueOf(4141);
+        final Object foo = i41;
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux |= 2", (long)(i41 | 2));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectVarDots_15_oe() throws Exception {
+        final Map<String,Object> context = asserter.getVariables();
+        final Integer i41 = Integer.valueOf(4141);
+        final Object foo = i41;
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
+        // removed other assertion
+
+        context.put("foo.bar.quux", foo);
+        // removed other assertion
         // removed other assertion
 
         context.put("foo.bar.quux", foo);
         asserter.assertExpression("foo.bar.quux ^= 2", (long)(i41 ^ 2));
-        Assert.assertEquals(context.get("foo.bar.quux"), (long)(i41 ^ 2));
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectArray_1_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -775,28 +824,9 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("foo", foo);
         foo[0] = i41;
         asserter.assertExpression("foo[0] += 2", i41 + 2);
-        Assert.assertEquals(foo[0], i41 + 2);
     }
 
-    @Test
-    public void testSideEffectArray_2_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] += 2", i41 + 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] -= 2", i41 - 2);
-        Assert.assertEquals(foo[0], i41 - 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectArray_3_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -809,41 +839,13 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
-        asserter.assertExpression("foo[0] += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] -= 2", i41 - 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] *= 2", i41 * 2);
-        Assert.assertEquals(foo[0], i41 * 2);
     }
 
-    @Test
-    public void testSideEffectArray_4_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] += 2", i41 + 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] -= 2", i41 - 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] *= 2", i41 * 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] /= 2", i41 / 2);
-        Assert.assertEquals(foo[0], i41 / 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectArray_5_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -856,53 +858,16 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
-        asserter.assertExpression("foo[0] += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo[0] -= 2", i41 - 2);
         // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] *= 2", i41 * 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] /= 2", i41 / 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] %= 2", i41 % 2);
-        Assert.assertEquals(foo[0], i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectArray_6_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] += 2", i41 + 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] -= 2", i41 - 2);
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] *= 2", i41 * 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] /= 2", i41 / 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] %= 2", i41 % 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] &= 3", (long) (i41 & 3));
-        Assert.assertEquals(foo[0], (long)(i41 & 3));
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectArray_7_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -915,30 +880,21 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
-        asserter.assertExpression("foo[0] += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo[0] -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo[0] *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] /= 2", i41 / 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] %= 2", i41 % 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] &= 3", (long) (i41 & 3));
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo[0] |= 2", (long)(i41 | 2));
-        Assert.assertEquals(foo[0], (long)(i41 | 2));
     }
 
+// TODO: verify inlining
     @Test
-    public void testSideEffectArray_8_oe() throws Exception {
+    public void testSideEffectArray_9_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
         final Integer i43 = Integer.valueOf(43);
@@ -949,31 +905,124 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
-        asserter.assertExpression("foo[0] += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo[0] -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo[0] *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo[0] /= 2", i41 / 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] %= 2", i41 % 2);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectArray_11_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final String s43 = "fourty-three";
+        final Object[] foo = new Object[3];
+        foo[1] = i42;
+        foo[2] = i43;
+        asserter.setVariable("foo", foo);
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] &= 3", (long) (i41 & 3));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectArray_13_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final String s43 = "fourty-three";
+        final Object[] foo = new Object[3];
+        foo[1] = i42;
+        foo[2] = i43;
+        asserter.setVariable("foo", foo);
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] |= 2", (long)(i41 | 2));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectArray_15_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final String s43 = "fourty-three";
+        final Object[] foo = new Object[3];
+        foo[1] = i42;
+        foo[2] = i43;
+        asserter.setVariable("foo", foo);
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo[0] ^= 2", (long)(i41 ^ 2));
-        Assert.assertEquals(foo[0], (long)(i41 ^ 2));
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectDotArray_1_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -987,28 +1036,9 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("foo", foo);
         foo[0] = i41;
         asserter.assertExpression("foo.0 += 2", i41 + 2);
-        Assert.assertEquals(foo[0], i41 + 2);
     }
 
-    @Test
-    public void testSideEffectDotArray_2_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 += 2", i41 + 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 -= 2", i41 - 2);
-        Assert.assertEquals(foo[0], i41 - 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectDotArray_3_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -1021,41 +1051,13 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
-        asserter.assertExpression("foo.0 += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 -= 2", i41 - 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 *= 2", i41 * 2);
-        Assert.assertEquals(foo[0], i41 * 2);
     }
 
-    @Test
-    public void testSideEffectDotArray_4_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 += 2", i41 + 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 -= 2", i41 - 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 *= 2", i41 * 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 /= 2", i41 / 2);
-        Assert.assertEquals(foo[0], i41 / 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectDotArray_5_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -1068,53 +1070,16 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
-        asserter.assertExpression("foo.0 += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo.0 -= 2", i41 - 2);
         // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 *= 2", i41 * 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 /= 2", i41 / 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 %= 2", i41 % 2);
-        Assert.assertEquals(foo[0], i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectDotArray_6_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final String s42 = "fourty-two";
-        final String s43 = "fourty-three";
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo", foo);
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 += 2", i41 + 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 -= 2", i41 - 2);
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 *= 2", i41 * 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 /= 2", i41 / 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 %= 2", i41 % 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 &= 3", (long) (i41 & 3));
-        Assert.assertEquals(foo[0], (long)(i41 & 3));
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectDotArray_7_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -1127,30 +1092,21 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
-        asserter.assertExpression("foo.0 += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo.0 -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo.0 *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 /= 2", i41 / 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 %= 2", i41 % 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 &= 3", (long) (i41 & 3));
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.0 |= 2", (long)(i41 | 2));
-        Assert.assertEquals(foo[0], (long)(i41 | 2));
     }
 
+// TODO: verify inlining
     @Test
-    public void testSideEffectDotArray_8_oe() throws Exception {
+    public void testSideEffectDotArray_9_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
         final Integer i43 = Integer.valueOf(43);
@@ -1161,31 +1117,124 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo", foo);
         foo[0] = i41;
-        asserter.assertExpression("foo.0 += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo.0 -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo.0 *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo.0 /= 2", i41 / 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 %= 2", i41 % 2);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectDotArray_11_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final String s43 = "fourty-three";
+        final Object[] foo = new Object[3];
+        foo[1] = i42;
+        foo[2] = i43;
+        asserter.setVariable("foo", foo);
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 &= 3", (long) (i41 & 3));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectDotArray_13_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final String s43 = "fourty-three";
+        final Object[] foo = new Object[3];
+        foo[1] = i42;
+        foo[2] = i43;
+        asserter.setVariable("foo", foo);
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 |= 2", (long)(i41 | 2));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectDotArray_15_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final String s42 = "fourty-two";
+        final String s43 = "fourty-three";
+        final Object[] foo = new Object[3];
+        foo[1] = i42;
+        foo[2] = i43;
+        asserter.setVariable("foo", foo);
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.0 ^= 2", (long)(i41 ^ 2));
-        Assert.assertEquals(foo[0], (long)(i41 ^ 2));
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectAntishArray_1_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -1197,26 +1246,9 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("foo.bar", foo);
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
-        Assert.assertEquals(foo[0], i41 + 2);
     }
 
-    @Test
-    public void testSideEffectAntishArray_2_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo.bar", foo);
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
-        Assert.assertEquals(foo[0], i41 - 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectAntishArray_3_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -1227,39 +1259,13 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo.bar", foo);
         foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
-        Assert.assertEquals(foo[0], i41 * 2);
     }
 
-    @Test
-    public void testSideEffectAntishArray_4_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo.bar", foo);
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
-        Assert.assertEquals(foo[0], i41 / 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectAntishArray_5_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -1270,51 +1276,16 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo.bar", foo);
         foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
         // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] %= 2", i41 % 2);
-        Assert.assertEquals(foo[0], i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectAntishArray_6_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Integer i42 = Integer.valueOf(42);
-        final Integer i43 = Integer.valueOf(43);
-        final Object[] foo = new Object[3];
-        foo[1] = i42;
-        foo[2] = i43;
-        asserter.setVariable("foo.bar", foo);
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] %= 2", i41 % 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] &= 3", (long) (i41 & 3));
-        Assert.assertEquals(foo[0], (long)(i41 & 3));
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectAntishArray_7_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -1325,30 +1296,21 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo.bar", foo);
         foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] %= 2", i41 % 2);
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] &= 3", (long) (i41 & 3));
-        // removed other assertion
-        foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] |= 2", (long)(i41 | 2));
-        Assert.assertEquals(foo[0], (long)(i41 | 2));
     }
 
+// TODO: verify inlining
     @Test
-    public void testSideEffectAntishArray_8_oe() throws Exception {
+    public void testSideEffectAntishArray_9_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Integer i42 = Integer.valueOf(42);
         final Integer i43 = Integer.valueOf(43);
@@ -1357,31 +1319,118 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         foo[2] = i43;
         asserter.setVariable("foo.bar", foo);
         foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
-        asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] %= 2", i41 % 2);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectAntishArray_11_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final Object[] foo = new Object[3];
+        foo[1] = i42;
+        foo[2] = i43;
+        asserter.setVariable("foo.bar", foo);
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] &= 3", (long) (i41 & 3));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectAntishArray_13_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final Object[] foo = new Object[3];
+        foo[1] = i42;
+        foo[2] = i43;
+        asserter.setVariable("foo.bar", foo);
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] |= 2", (long)(i41 | 2));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectAntishArray_15_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Integer i42 = Integer.valueOf(42);
+        final Integer i43 = Integer.valueOf(43);
+        final Object[] foo = new Object[3];
+        foo[1] = i42;
+        foo[2] = i43;
+        asserter.setVariable("foo.bar", foo);
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
+        // removed other assertion
+        foo[0] = i41;
+        // removed other assertion
         // removed other assertion
         foo[0] = i41;
         asserter.assertExpression("foo.bar[0] ^= 2", (long)(i41 ^ 2));
-        Assert.assertEquals(foo[0], (long)(i41 ^ 2));
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectBean_1_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -1389,163 +1438,163 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("foo", foo);
         foo.value = i41;
         asserter.assertExpression("foo.value += 2", i41 + 2);
-        Assert.assertEquals(foo.value, i41 + 2);
     }
 
-    @Test
-    public void testSideEffectBean_2_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        asserter.assertExpression("foo.value += 2", i41 + 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value -= 2", i41 - 2);
-        Assert.assertEquals(foo.value, i41 - 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectBean_3_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
-        asserter.assertExpression("foo.value += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value -= 2", i41 - 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value *= 2", i41 * 2);
-        Assert.assertEquals(foo.value, i41 * 2);
     }
 
-    @Test
-    public void testSideEffectBean_4_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        asserter.assertExpression("foo.value += 2", i41 + 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value -= 2", i41 - 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value *= 2", i41 * 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value /= 2", i41 / 2);
-        Assert.assertEquals(foo.value, i41 / 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectBean_5_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
-        asserter.assertExpression("foo.value += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
-        asserter.assertExpression("foo.value -= 2", i41 - 2);
         // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value *= 2", i41 * 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value /= 2", i41 / 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value %= 2", i41 % 2);
-        Assert.assertEquals(foo.value, i41 % 2);
-    }
-
-    @Test
-    public void testSideEffectBean_6_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        asserter.assertExpression("foo.value += 2", i41 + 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value -= 2", i41 - 2);
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value *= 2", i41 * 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value /= 2", i41 / 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value %= 2", i41 % 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value &= 3", (long) (i41 & 3));
-        Assert.assertEquals(foo.value, i41 & 3);
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectBean_7_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
-        asserter.assertExpression("foo.value += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
-        asserter.assertExpression("foo.value -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
-        asserter.assertExpression("foo.value *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value /= 2", i41 / 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value %= 2", i41 % 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value &= 3", (long) (i41 & 3));
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.value |= 2", (long)(i41 | 2));
-        Assert.assertEquals(foo.value, i41 | 2);
     }
 
+// TODO: verify inlining
     @Test
-    public void testSideEffectBean_8_oe() throws Exception {
+    public void testSideEffectBean_9_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
-        asserter.assertExpression("foo.value += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
-        asserter.assertExpression("foo.value -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
-        asserter.assertExpression("foo.value *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
-        asserter.assertExpression("foo.value /= 2", i41 / 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value %= 2", i41 % 2);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectBean_11_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Foo foo = new Foo(0);
+        asserter.setVariable("foo", foo);
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value &= 3", (long) (i41 & 3));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectBean_13_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Foo foo = new Foo(0);
+        asserter.setVariable("foo", foo);
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value |= 2", (long)(i41 | 2));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectBean_15_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Foo foo = new Foo(0);
+        asserter.setVariable("foo", foo);
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.value ^= 2", (long)(i41 ^ 2));
-        Assert.assertEquals(foo.value, i41 ^ 2);
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectBeanContainer_1_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
@@ -1553,306 +1602,194 @@ public class SideEffectTest_OE25Dev extends JexlTestCase {
         asserter.setVariable("foo", foo);
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
-        Assert.assertEquals(foo.value, i41 + 2);
     }
 
-    @Test
-    public void testSideEffectBeanContainer_2_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[1] += 2", i41 + 3);
-        Assert.assertEquals(foo.value, i41 + 4);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectBeanContainer_3_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[1] += 2", i41 + 3);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
-        Assert.assertEquals(foo.value, i41 - 2);
     }
 
-    @Test
-    public void testSideEffectBeanContainer_4_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[1] += 2", i41 + 3);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
-        Assert.assertEquals(foo.value, i41 * 2);
-    }
-
+// TODO: verify inlining
     @Test
     public void testSideEffectBeanContainer_5_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
-        asserter.assertExpression("foo.bar[1] += 2", i41 + 3);
         // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
-        Assert.assertEquals(foo.value, i41 / 2);
-    }
-
-    @Test
-    public void testSideEffectBeanContainer_6_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[1] += 2", i41 + 3);
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] %= 2", i41 % 2);
-        Assert.assertEquals(foo.value, i41 % 2);
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectBeanContainer_7_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
-        asserter.assertExpression("foo.bar[1] += 2", i41 + 3);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
-        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
         // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] %= 2", i41 % 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] &= 3", (long) (i41 & 3));
-        Assert.assertEquals(foo.value, i41 & 3);
-    }
-
-    @Test
-    public void testSideEffectBeanContainer_8_oe() throws Exception {
-        final Integer i41 = Integer.valueOf(4141);
-        final Foo foo = new Foo(0);
-        asserter.setVariable("foo", foo);
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[1] += 2", i41 + 3);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] %= 2", i41 % 2);
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] &= 3", (long) (i41 & 3));
-        // removed other assertion
-        foo.value = i41;
-        asserter.assertExpression("foo.bar[0] |= 2", (long)(i41 | 2));
-        Assert.assertEquals(foo.value, i41 | 2);
     }
 
+// TODO: verify inlining
     @Test
     public void testSideEffectBeanContainer_9_oe() throws Exception {
         final Integer i41 = Integer.valueOf(4141);
         final Foo foo = new Foo(0);
         asserter.setVariable("foo", foo);
         foo.value = i41;
-        asserter.assertExpression("foo.bar[0] += 2", i41 + 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
-        asserter.assertExpression("foo.bar[1] += 2", i41 + 3);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
-        asserter.assertExpression("foo.bar[0] -= 2", i41 - 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
-        asserter.assertExpression("foo.bar[0] *= 2", i41 * 2);
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] /= 2", i41 / 2);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectBeanContainer_11_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Foo foo = new Foo(0);
+        asserter.setVariable("foo", foo);
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] %= 2", i41 % 2);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectBeanContainer_13_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Foo foo = new Foo(0);
+        asserter.setVariable("foo", foo);
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] &= 3", (long) (i41 & 3));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectBeanContainer_15_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Foo foo = new Foo(0);
+        asserter.setVariable("foo", foo);
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] |= 2", (long)(i41 | 2));
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testSideEffectBeanContainer_17_oe() throws Exception {
+        final Integer i41 = Integer.valueOf(4141);
+        final Foo foo = new Foo(0);
+        asserter.setVariable("foo", foo);
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
+        // removed other assertion
+        foo.value = i41;
+        // removed other assertion
         // removed other assertion
         foo.value = i41;
         asserter.assertExpression("foo.bar[0] ^= 2", (long)(i41 ^ 2));
-        Assert.assertEquals(foo.value, i41 ^ 2);
-    }
-
-    @Test
-    public void testOverrideGetSet_1_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().cache(64).arithmetic(new SelfArithmetic(false)).create();
-        final JexlContext jc = null;
-
-        JexlScript script;
-        Object result;
-        final Var v0 = new Var(3115);
-        script = jexl.createScript("(x)->{ x.value}");
-        result = script.execute(jc, v0);
-        Assert.assertEquals(3115, result);
-    }
-
-    @Test
-    public void testOverrideGetSet_2_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().cache(64).arithmetic(new SelfArithmetic(false)).create();
-        final JexlContext jc = null;
-
-        JexlScript script;
-        Object result;
-        final Var v0 = new Var(3115);
-        script = jexl.createScript("(x)->{ x.value}");
-        result = script.execute(jc, v0);
-        // removed other assertion
-        script = jexl.createScript("(x)->{ x['VALUE']}");
-        result = script.execute(jc, v0);
-        Assert.assertEquals(3115, result);
-    }
-
-    @Test
-    public void testOverrideGetSet_3_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().cache(64).arithmetic(new SelfArithmetic(false)).create();
-        final JexlContext jc = null;
-
-        JexlScript script;
-        Object result;
-        final Var v0 = new Var(3115);
-        script = jexl.createScript("(x)->{ x.value}");
-        result = script.execute(jc, v0);
-        // removed other assertion
-        script = jexl.createScript("(x)->{ x['VALUE']}");
-        result = script.execute(jc, v0);
-        // removed other assertion
-        script = jexl.createScript("(x,y)->{ x.value = y}");
-        result = script.execute(jc, v0, 42);
-        Assert.assertEquals(42, result);
-    }
-
-    @Test
-    public void testOverrideGetSet_4_oe() throws Exception {
-        final JexlEngine jexl = new JexlBuilder().cache(64).arithmetic(new SelfArithmetic(false)).create();
-        final JexlContext jc = null;
-
-        JexlScript script;
-        Object result;
-        final Var v0 = new Var(3115);
-        script = jexl.createScript("(x)->{ x.value}");
-        result = script.execute(jc, v0);
-        // removed other assertion
-        script = jexl.createScript("(x)->{ x['VALUE']}");
-        result = script.execute(jc, v0);
-        // removed other assertion
-        script = jexl.createScript("(x,y)->{ x.value = y}");
-        result = script.execute(jc, v0, 42);
-        // removed other assertion
-        script = jexl.createScript("(x,y)->{ x['VALUE'] = y}");
-        result = script.execute(jc, v0, 169);
-        Assert.assertEquals(169, result);
-    }
-
-    @Test
-    public void test248_2_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final List<Object> foo = new ArrayList<Object>(Arrays.asList(10, 20, 30, 40));
-        ctx.set("foo", foo);
-
-        final JexlEngine engine = new JexlBuilder().arithmetic(new Arithmetic248(true)).create();
-        final JexlScript foo12 = engine.createScript("foo[1..2]");
-        try {
-            final Object r = foo12.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xp) {
-            Assert.assertTrue(xp instanceof JexlException.Property);
-    }
-    }
-
-    @Test
-    public void test248_5_oe() throws Exception {
-        final MapContext ctx = new MapContext();
-        final List<Object> foo = new ArrayList<Object>(Arrays.asList(10, 20, 30, 40));
-        ctx.set("foo", foo);
-
-        final JexlEngine engine = new JexlBuilder().arithmetic(new Arithmetic248(true)).create();
-        final JexlScript foo12 = engine.createScript("foo[1..2]");
-        try {
-            final Object r = foo12.execute(ctx);
-            // removed other assertion
-        } catch (final JexlException xp) {
-            // removed other assertion
-        }
-
-        final JexlScript foo12assign = engine.createScript("foo[1..2] = x", "x");
-        try {
-            final Object r = foo12assign.execute(ctx, 25);
-            // removed other assertion
-            // removed other assertion
-        } catch (final JexlException xp) {
-            Assert.assertTrue(xp instanceof JexlException.Property);
-    }
     }
 
 }

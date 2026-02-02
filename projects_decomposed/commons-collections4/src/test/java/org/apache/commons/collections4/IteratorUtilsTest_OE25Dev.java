@@ -214,22 +214,6 @@ public class IteratorUtilsTest_OE25Dev {
      */
 
     @Test
-    public void testToListIterator() {
-        final List<Integer> list = new ArrayList<>();
-        list.add(Integer.valueOf(0));
-        list.add(Integer.valueOf(1));
-        list.add(Integer.valueOf(2));
-        final Iterator<Integer> iterator = list.iterator();
-
-        final ListIterator<Integer> liItr = IteratorUtils.toListIterator(iterator);
-        int expected = 0;
-        while(liItr.hasNext()){
-        	assertEquals(expected, liItr.next().intValue());
-        	++expected;
-        }
-    }
-
-    @Test
     public void testToListIteratorNull() {
         try {
             IteratorUtils.toListIterator(null);
@@ -339,6 +323,14 @@ public class IteratorUtilsTest_OE25Dev {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
         assertTrue(iterator.next().equals("a"));
+    }
+
+    @Test
+    public void testArrayIterator_2_oe() {
+        final Object[] objArray = {"a", "b", "c"};
+        ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
+        // removed other assertion
+        assertTrue(iterator.next().equals("b"));
     }
 
     @Test
@@ -534,6 +526,80 @@ public class IteratorUtilsTest_OE25Dev {
         final int[] intArray = {0, 1, 2};
         iterator = IteratorUtils.arrayIterator(intArray);
         assertTrue(iterator.next().equals(Integer.valueOf(0)));
+    }
+
+    @Test
+    public void testArrayIterator_15_oe() {
+        final Object[] objArray = {"a", "b", "c"};
+        ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        iterator.reset();
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayIterator(objArray, 1);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayIterator(objArray, 3);
+        // removed other assertion
+        iterator.reset();
+
+        try {
+            iterator = IteratorUtils.arrayIterator(objArray, 4);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayIterator(objArray, 2, 4);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayIterator(intArray);
+        // removed other assertion
+        assertTrue(iterator.next().equals(Integer.valueOf(1)));
     }
 
     @Test
@@ -915,6 +981,17 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testArrayListIterator_5_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.previous().equals("a"));
+    }
+
+    @Test
     public void testArrayListIterator_6_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -924,6 +1001,118 @@ public class IteratorUtilsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertTrue(iterator.next().equals("a"));
+    }
+
+    @Test
+    public void testArrayListIterator_7_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.previousIndex() == 0);
+    }
+
+    @Test
+    public void testArrayListIterator_8_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.nextIndex() == 1);
+    }
+
+    @Test
+    public void testArrayListIterator_9_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.next().equals("b"));
+    }
+
+    @Test
+    public void testArrayListIterator_10_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.next().equals("c"));
+    }
+
+    @Test
+    public void testArrayListIterator_11_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.next().equals("d"));
+    }
+
+    @Test
+    public void testArrayListIterator_12_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.nextIndex() == 4); // size of list;
+    }
+
+    @Test
+    public void testArrayListIterator_13_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.previousIndex() == 3);
     }
 
     @Test
@@ -1074,6 +1263,46 @@ public class IteratorUtilsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertTrue(iterator.next().equals("b"));
+    }
+
+    @Test
+    public void testArrayListIterator_20_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.previousIndex() == 0);
     }
 
     @Test
@@ -1563,6 +1792,692 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testArrayListIterator_33_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.previousIndex() == 0);
+    }
+
+    @Test
+    public void testArrayListIterator_34_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.nextIndex() == 1);
+    }
+
+    @Test
+    public void testArrayListIterator_35_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.next().equals(Integer.valueOf(1)));
+    }
+
+    @Test
+    public void testArrayListIterator_36_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.previousIndex() == 1);
+    }
+
+    @Test
+    public void testArrayListIterator_37_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.nextIndex() == 2);
+    }
+
+    @Test
+    public void testArrayListIterator_38_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.previous().equals(Integer.valueOf(1)));
+    }
+
+    @Test
+    public void testArrayListIterator_39_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.next().equals(Integer.valueOf(1)));
+    }
+
+    @Test
     public void testArrayListIterator_40_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -1985,6 +2900,114 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testArrayListIterator_44_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.previous().equals(Integer.valueOf(1)));
+    }
+
+    @Test
     public void testArrayListIterator_45_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
@@ -2091,6 +3114,914 @@ public class IteratorUtilsTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         assertTrue(iterator.next().equals(Integer.valueOf(1)));
+    }
+
+    @Test
+    public void testArrayListIterator_46_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.previousIndex() == 0);
+    }
+
+    @Test
+    public void testArrayListIterator_47_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.nextIndex() == 1);
+    }
+
+    @Test
+    public void testArrayListIterator_48_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.next().equals(Integer.valueOf(2)));
+    }
+
+    @Test
+    public void testArrayListIterator_49_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.previousIndex() == 1);
+    }
+
+    @Test
+    public void testArrayListIterator_50_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.nextIndex() == 2);
+    }
+
+    @Test
+    public void testArrayListIterator_51_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.previous().equals(Integer.valueOf(2)));
+    }
+
+    @Test
+    public void testArrayListIterator_52_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.previousIndex() == 0);
+    }
+
+    @Test
+    public void testArrayListIterator_53_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.nextIndex() == 1);
     }
 
     @Test
@@ -2635,6 +4566,302 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testArrayListIterator_60_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(intArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(intArray, 4);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 2, 3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(iterator.hasPrevious());
+    }
+
+    @Test
+    public void testArrayListIterator_61_oe() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            // removed other assertion
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        // removed other assertion
+        try {
+            iterator.previous();
+            // removed other assertion
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            // removed other assertion
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 1);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(intArray, -1);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 3);
+        // removed other assertion
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(intArray, 4);
+            // removed other assertion
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 2, 3);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue(!iterator.hasNext());
+    }
+
+    @Test
+    public void testAsIterable_1_oe() {
+        final List<Integer> list = new ArrayList<>();
+        list.add(Integer.valueOf(0));
+        list.add(Integer.valueOf(1));
+        list.add(Integer.valueOf(2));
+        final Iterator<Integer> iterator = list.iterator();
+
+        final Iterable<Integer> iterable = IteratorUtils.asIterable(iterator);
+        int expected = 0;
+        for(final Integer actual : iterable) {
+            assertEquals(expected, actual.intValue());
+    }
+    }
+
+    @Test
     public void testAsIterable_2_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(Integer.valueOf(0));
@@ -2674,6 +4901,21 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testAsMultipleIterable_1_oe() {
+        final List<Integer> list = new ArrayList<>();
+        list.add(Integer.valueOf(0));
+        list.add(Integer.valueOf(1));
+        list.add(Integer.valueOf(2));
+        final Iterator<Integer> iterator = list.iterator();
+
+        final Iterable<Integer> iterable = IteratorUtils.asMultipleUseIterable(iterator);
+        int expected = 0;
+        for(final Integer actual : iterable) {
+            assertEquals(expected, actual.intValue());
+    }
+    }
+
+    @Test
     public void testAsMultipleIterable_2_oe() {
         final List<Integer> list = new ArrayList<>();
         list.add(Integer.valueOf(0));
@@ -2689,6 +4931,30 @@ public class IteratorUtilsTest_OE25Dev {
         }
         // insure iteration occurred
         assertTrue(expected > 0);
+    }
+
+    @Test
+    public void testAsMultipleIterable_3_oe() {
+        final List<Integer> list = new ArrayList<>();
+        list.add(Integer.valueOf(0));
+        list.add(Integer.valueOf(1));
+        list.add(Integer.valueOf(2));
+        final Iterator<Integer> iterator = list.iterator();
+
+        final Iterable<Integer> iterable = IteratorUtils.asMultipleUseIterable(iterator);
+        int expected = 0;
+        for(final Integer actual : iterable) {
+            // removed other assertion
+            ++expected;
+        }
+        // insure iteration occurred
+        // removed other assertion
+
+        // multiple use iterator
+        expected = 0;
+        for(final Integer actual : iterable) {
+            assertEquals(expected, actual.intValue());
+    }
     }
 
     @Test
@@ -3672,6 +5938,21 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testNodeIterator_1_oe() {
+        final Node[] nodes = createNodes();
+        final NodeList nodeList = createNodeList(nodes);
+        final Node parentNode = createMock(Node.class);
+        expect(parentNode.getChildNodes()).andStubReturn(nodeList);
+        replay(parentNode);
+
+        final Iterator<Node> iterator = IteratorUtils.nodeListIterator(parentNode);
+        int expectedNodeIndex = 0;
+        for (final Node actual : IteratorUtils.asIterable(iterator)) {
+            assertEquals(nodes[expectedNodeIndex], actual);
+    }
+    }
+
+    @Test
     public void testNodeIterator_2_oe() {
         final Node[] nodes = createNodes();
         final NodeList nodeList = createNodeList(nodes);
@@ -3710,6 +5991,18 @@ public class IteratorUtilsTest_OE25Dev {
 
         // single use iterator
         assertFalse("should not be able to iterate twice", IteratorUtils.asIterable(iterator).iterator().hasNext());
+    }
+
+    @Test
+    public void testNodeListIterator_1_oe() {
+        final Node[] nodes = createNodes();
+        final NodeList nodeList = createNodeList(nodes);
+
+        final Iterator<Node> iterator = IteratorUtils.nodeListIterator(nodeList);
+        int expectedNodeIndex = 0;
+        for (final Node actual : IteratorUtils.asIterable(iterator)) {
+            assertEquals(nodes[expectedNodeIndex], actual);
+    }
     }
 
     @Test
@@ -3778,6 +6071,21 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testToListIterator_1_oe() {
+        final List<Integer> list = new ArrayList<>();
+        list.add(Integer.valueOf(0));
+        list.add(Integer.valueOf(1));
+        list.add(Integer.valueOf(2));
+        final Iterator<Integer> iterator = list.iterator();
+
+        final ListIterator<Integer> liItr = IteratorUtils.toListIterator(iterator);
+        int expected = 0;
+        while(liItr.hasNext()){
+        	assertEquals(expected, liItr.next().intValue());
+    }
+    }
+
+    @Test
     public void testUnmodifiableIteratorIteration_1_oe() {
         final Iterator<String> iterator = getImmutableIterator();
 
@@ -3805,6 +6113,19 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testUnmodifiableIteratorIteration_4_oe() {
+        final Iterator<String> iterator = getImmutableIterator();
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        assertEquals("b", iterator.next());
+    }
+
+    @Test
     public void testUnmodifiableIteratorIteration_5_oe() {
         final Iterator<String> iterator = getImmutableIterator();
 
@@ -3817,6 +6138,23 @@ public class IteratorUtilsTest_OE25Dev {
         // removed other assertion
 
         assertTrue(iterator.hasNext());
+    }
+
+    @Test
+    public void testUnmodifiableIteratorIteration_6_oe() {
+        final Iterator<String> iterator = getImmutableIterator();
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        assertEquals("c", iterator.next());
     }
 
     @Test
@@ -3836,6 +6174,50 @@ public class IteratorUtilsTest_OE25Dev {
         // removed other assertion
 
         assertTrue(iterator.hasNext());
+    }
+
+    @Test
+    public void testUnmodifiableIteratorIteration_8_oe() {
+        final Iterator<String> iterator = getImmutableIterator();
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        assertEquals("d", iterator.next());
+    }
+
+    @Test
+    public void testUnmodifiableIteratorIteration_9_oe() {
+        final Iterator<String> iterator = getImmutableIterator();
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+
+        assertTrue(!iterator.hasNext());
     }
 
     @Test
@@ -3864,6 +6246,18 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testUnmodifiableListIteratorIteration_4_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        assertTrue(listIterator.hasPrevious());
+    }
+
+    @Test
     public void testUnmodifiableListIteratorIteration_5_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
@@ -3874,6 +6268,38 @@ public class IteratorUtilsTest_OE25Dev {
 
         // removed other assertion
         assertTrue(listIterator.hasNext());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_6_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("b", listIterator.next());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_7_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        assertTrue(listIterator.hasPrevious());
     }
 
     @Test
@@ -3892,6 +6318,48 @@ public class IteratorUtilsTest_OE25Dev {
 
         // removed other assertion
         assertTrue(listIterator.hasNext());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_9_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("c", listIterator.next());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_10_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        assertTrue(listIterator.hasPrevious());
     }
 
     @Test
@@ -3915,6 +6383,148 @@ public class IteratorUtilsTest_OE25Dev {
 
         // removed other assertion
         assertTrue(listIterator.hasNext());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_12_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("d", listIterator.next());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_13_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        assertTrue(listIterator.hasPrevious());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_14_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        assertTrue(!listIterator.hasNext());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_15_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("d", listIterator.previous());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_16_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        assertTrue(listIterator.hasPrevious());
     }
 
     @Test
@@ -3948,6 +6558,78 @@ public class IteratorUtilsTest_OE25Dev {
 
         // removed other assertion
         assertTrue(listIterator.hasNext());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_18_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("c", listIterator.previous());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_19_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        assertTrue(listIterator.hasPrevious());
     }
 
     @Test
@@ -3986,6 +6668,88 @@ public class IteratorUtilsTest_OE25Dev {
 
         // removed other assertion
         assertTrue(listIterator.hasNext());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_21_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("b", listIterator.previous());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_22_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        assertTrue(listIterator.hasPrevious());
     }
 
     @Test
@@ -4029,6 +6793,51 @@ public class IteratorUtilsTest_OE25Dev {
 
         // removed other assertion
         assertTrue(listIterator.hasNext());
+    }
+
+    @Test
+    public void testUnmodifiableListIteratorIteration_24_oe() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        assertEquals("a", listIterator.previous());
     }
 
     @Test

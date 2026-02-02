@@ -26,7 +26,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-fraction ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-fraction
-[INFO] Storing buildNumber: 4c09e22d8c02f6e925aecd1701912efc953cf025 at timestamp: 1769466546004
+[INFO] Storing buildNumber: 1bce5ff5302ae8df6fc5734364b77ec74ad0d827 at timestamp: 1770061173849
 [INFO] Storing buildScmBranch: jan-22-projects
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-fraction ---
@@ -61,35 +61,35 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.fraction.FractionTest_OE25Dev
-[ERROR] Tests run: 129, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.354 s <<< FAILURE! - in org.apache.commons.numbers.fraction.FractionTest_OE25Dev
-[ERROR] testParse_1_oe  Time elapsed: 0.028 s  <<< FAILURE!
+[ERROR] Tests run: 129, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.248 s <<< FAILURE! - in org.apache.commons.numbers.fraction.FractionTest_OE25Dev
+[ERROR] testParse_1_oe  Time elapsed: 0.029 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
-	at org.apache.commons.numbers.fraction.FractionTest_OE25Dev.testParse_1_oe(FractionTest_OE25Dev.java:2318)
+	at org.apache.commons.numbers.fraction.FractionTest_OE25Dev.testParse_1_oe(FractionTest_OE25Dev.java:2310)
 
 [INFO] Running org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
-[ERROR] Tests run: 139, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.574 s <<< FAILURE! - in org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
-[ERROR] testParse_1_oe  Time elapsed: 0.002 s  <<< FAILURE!
+[ERROR] Tests run: 139, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.519 s <<< FAILURE! - in org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
+[ERROR] testParse_1_oe  Time elapsed: 0.003 s  <<< FAILURE!
 org.opentest4j.AssertionFailedError: expected: <-1 / 2> but was: <1 / 2>
-	at org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev.testParse_1_oe(BigFractionTest_OE25Dev.java:2222)
+	at org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev.testParse_1_oe(BigFractionTest_OE25Dev.java:2178)
 
 [INFO] Running org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
 [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
-[INFO] Tests run: 251, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.224 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
+[INFO] Tests run: 251, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.278 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
 [ERROR] Failures: 
-[ERROR]   BigFractionTest_OE25Dev.testParse_1_oe:2222 expected: <-1 / 2> but was: <1 / 2>
-[ERROR]   FractionTest_OE25Dev.testParse_1_oe:2318 expected: <-1 / 2> but was: <1 / 2>
+[ERROR]   BigFractionTest_OE25Dev.testParse_1_oe:2178 expected: <-1 / 2> but was: <1 / 2>
+[ERROR]   FractionTest_OE25Dev.testParse_1_oe:2310 expected: <-1 / 2> but was: <1 / 2>
 [INFO] 
 [ERROR] Tests run: 526, Failures: 2, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  14.783 s
-[INFO] Finished at: 2026-01-26T16:29:17-06:00
+[INFO] Total time:  9.262 s
+[INFO] Finished at: 2026-02-02T13:39:41-06:00
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-fraction: There are test failures.
 [ERROR] 

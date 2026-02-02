@@ -1273,7 +1273,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
+    void testEquals_2_oe() {
         // arrange
         final double[] values = {
             1, 2, 3, 4,
@@ -1284,7 +1284,7 @@ class AffineTransformMatrix3DTest_OE25Dev {
         final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(values);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
 
         double[] temp;
         for (int i = 0; i < values.length; ++i) {

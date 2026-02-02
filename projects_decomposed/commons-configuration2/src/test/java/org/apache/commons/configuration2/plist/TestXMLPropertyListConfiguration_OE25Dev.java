@@ -243,26 +243,14 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
     }
 
     @Test
-    public void testArray_2_oe() {
-        final Object array = config.getProperty("array");
-
-        // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
-        final List<?> list = config.getList("array");
-
-        assertFalse("empty array", list.isEmpty());
-    }
-
-    @Test
     public void testArray_3_oe() {
         final Object array = config.getProperty("array");
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList("array");
 
-        // removed other assertion
-        assertEquals("size", 3, list.size());
+        assertFalse("empty array", list.isEmpty());
     }
 
     @Test
@@ -270,7 +258,19 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
         final Object array = config.getProperty("array");
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
+        final List<?> list = config.getList("array");
+
+        // removed other assertion
+        assertEquals("size", 3, list.size());
+    }
+
+    @Test
+    public void testArray_5_oe() {
+        final Object array = config.getProperty("array");
+
+        // removed other assertion
+        // removed other assertion
         final List<?> list = config.getList("array");
 
         // removed other assertion
@@ -279,11 +279,11 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
     }
 
     @Test
-    public void testArray_5_oe() {
+    public void testArray_6_oe() {
         final Object array = config.getProperty("array");
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList("array");
 
         // removed other assertion
@@ -293,11 +293,11 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
     }
 
     @Test
-    public void testArray_6_oe() {
+    public void testArray_7_oe() {
         final Object array = config.getProperty("array");
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList("array");
 
         // removed other assertion
@@ -372,20 +372,6 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
     }
 
     @Test
-    public void testDictionaryArray_2_oe() {
-        final String key = "dictionary-array";
-
-        final Object array = config.getProperty(key);
-
-        // root array
-        // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
-        final List<?> list = config.getList(key);
-
-        assertFalse("empty array", list.isEmpty());
-    }
-
-    @Test
     public void testDictionaryArray_3_oe() {
         final String key = "dictionary-array";
 
@@ -393,11 +379,10 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
 
         // root array
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        assertEquals("size", 2, list.size());
+        assertFalse("empty array", list.isEmpty());
     }
 
     @Test
@@ -408,37 +393,11 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
 
         // root array
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList(key);
 
         // removed other assertion
-        // removed other assertion
-
-        // 1st dictionary
-        ObjectAssert.assertInstanceOf("the dict element is not parsed as a Configuration", Configuration.class, list.get(0));
-        final Configuration conf1 = (Configuration) list.get(0);
-        assertFalse("configuration 1 is empty", conf1.isEmpty());
-    }
-
-    @Test
-    public void testDictionaryArray_5_oe() {
-        final String key = "dictionary-array";
-
-        final Object array = config.getProperty(key);
-
-        // root array
-        // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
-        final List<?> list = config.getList(key);
-
-        // removed other assertion
-        // removed other assertion
-
-        // 1st dictionary
-        ObjectAssert.assertInstanceOf("the dict element is not parsed as a Configuration", Configuration.class, list.get(0));
-        final Configuration conf1 = (Configuration) list.get(0);
-        // removed other assertion
-        assertEquals("configuration element", "bar", conf1.getProperty("foo"));
+        assertEquals("size", 2, list.size());
     }
 
     @Test
@@ -449,22 +408,16 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
 
         // root array
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList(key);
 
         // removed other assertion
         // removed other assertion
 
         // 1st dictionary
-        ObjectAssert.assertInstanceOf("the dict element is not parsed as a Configuration", Configuration.class, list.get(0));
+        // removed other assertion
         final Configuration conf1 = (Configuration) list.get(0);
-        // removed other assertion
-        // removed other assertion
-
-        // 2nd dictionary
-        ObjectAssert.assertInstanceOf("the dict element is not parsed as a Configuration", Configuration.class, list.get(1));
-        final Configuration conf2 = (Configuration) list.get(1);
-        assertFalse("configuration 2 is empty", conf2.isEmpty());
+        assertFalse("configuration 1 is empty", conf1.isEmpty());
     }
 
     @Test
@@ -475,20 +428,67 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
 
         // root array
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList(key);
 
         // removed other assertion
         // removed other assertion
 
         // 1st dictionary
-        ObjectAssert.assertInstanceOf("the dict element is not parsed as a Configuration", Configuration.class, list.get(0));
+        // removed other assertion
+        final Configuration conf1 = (Configuration) list.get(0);
+        // removed other assertion
+        assertEquals("configuration element", "bar", conf1.getProperty("foo"));
+    }
+
+    @Test
+    public void testDictionaryArray_9_oe() {
+        final String key = "dictionary-array";
+
+        final Object array = config.getProperty(key);
+
+        // root array
+        // removed other assertion
+        // removed other assertion
+        final List<?> list = config.getList(key);
+
+        // removed other assertion
+        // removed other assertion
+
+        // 1st dictionary
+        // removed other assertion
         final Configuration conf1 = (Configuration) list.get(0);
         // removed other assertion
         // removed other assertion
 
         // 2nd dictionary
-        ObjectAssert.assertInstanceOf("the dict element is not parsed as a Configuration", Configuration.class, list.get(1));
+        // removed other assertion
+        final Configuration conf2 = (Configuration) list.get(1);
+        assertFalse("configuration 2 is empty", conf2.isEmpty());
+    }
+
+    @Test
+    public void testDictionaryArray_10_oe() {
+        final String key = "dictionary-array";
+
+        final Object array = config.getProperty(key);
+
+        // root array
+        // removed other assertion
+        // removed other assertion
+        final List<?> list = config.getList(key);
+
+        // removed other assertion
+        // removed other assertion
+
+        // 1st dictionary
+        // removed other assertion
+        final Configuration conf1 = (Configuration) list.get(0);
+        // removed other assertion
+        // removed other assertion
+
+        // 2nd dictionary
+        // removed other assertion
         final Configuration conf2 = (Configuration) list.get(1);
         // removed other assertion
         assertEquals("configuration element", "value", conf2.getProperty("key"));
@@ -536,20 +536,6 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
     }
 
     @Test
-    public void testNestedArray_2_oe() {
-        final String key = "nested-array";
-
-        final Object array = config.getProperty(key);
-
-        // root array
-        // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
-        final List<?> list = config.getList(key);
-
-        assertFalse("empty array", list.isEmpty());
-    }
-
-    @Test
     public void testNestedArray_3_oe() {
         final String key = "nested-array";
 
@@ -557,11 +543,10 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
 
         // root array
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        assertEquals("size", 2, list.size());
+        assertFalse("empty array", list.isEmpty());
     }
 
     @Test
@@ -572,37 +557,11 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
 
         // root array
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList(key);
 
         // removed other assertion
-        // removed other assertion
-
-        // 1st array
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(0));
-        final List<?> list1 = (List<?>) list.get(0);
-        assertFalse("nested array 1 is empty", list1.isEmpty());
-    }
-
-    @Test
-    public void testNestedArray_5_oe() {
-        final String key = "nested-array";
-
-        final Object array = config.getProperty(key);
-
-        // root array
-        // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
-        final List<?> list = config.getList(key);
-
-        // removed other assertion
-        // removed other assertion
-
-        // 1st array
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(0));
-        final List<?> list1 = (List<?>) list.get(0);
-        // removed other assertion
-        assertEquals("size", 2, list1.size());
+        assertEquals("size", 2, list.size());
     }
 
     @Test
@@ -613,18 +572,16 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
 
         // root array
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList(key);
 
         // removed other assertion
         // removed other assertion
 
         // 1st array
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(0));
+        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
-        // removed other assertion
-        // removed other assertion
-        assertEquals("1st element", "a", list1.get(0));
+        assertFalse("nested array 1 is empty", list1.isEmpty());
     }
 
     @Test
@@ -635,19 +592,17 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
 
         // root array
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList(key);
 
         // removed other assertion
         // removed other assertion
 
         // 1st array
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(0));
+        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("2nd element", "b", list1.get(1));
+        assertEquals("size", 2, list1.size());
     }
 
     @Test
@@ -658,24 +613,18 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
 
         // root array
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList(key);
 
         // removed other assertion
         // removed other assertion
 
         // 1st array
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(0));
+        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // 2nd array
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(1));
-        final List<?> list2 = (List<?>) list.get(1);
-        assertFalse("nested array 2 is empty", list2.isEmpty());
+        assertEquals("1st element", "a", list1.get(0));
     }
 
     @Test
@@ -686,55 +635,19 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
 
         // root array
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList(key);
 
         // removed other assertion
         // removed other assertion
 
         // 1st array
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(0));
+        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-
-        // 2nd array
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(1));
-        final List<?> list2 = (List<?>) list.get(1);
-        // removed other assertion
-        assertEquals("size", 2, list2.size());
-    }
-
-    @Test
-    public void testNestedArray_10_oe() {
-        final String key = "nested-array";
-
-        final Object array = config.getProperty(key);
-
-        // root array
-        // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
-        final List<?> list = config.getList(key);
-
-        // removed other assertion
-        // removed other assertion
-
-        // 1st array
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(0));
-        final List<?> list1 = (List<?>) list.get(0);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // 2nd array
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(1));
-        final List<?> list2 = (List<?>) list.get(1);
-        // removed other assertion
-        // removed other assertion
-        assertEquals("1st element", "c", list2.get(0));
+        assertEquals("2nd element", "b", list1.get(1));
     }
 
     @Test
@@ -745,14 +658,14 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
 
         // root array
         // removed other assertion
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        // removed other assertion
         final List<?> list = config.getList(key);
 
         // removed other assertion
         // removed other assertion
 
         // 1st array
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(0));
+        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
         // removed other assertion
         // removed other assertion
@@ -760,7 +673,94 @@ public class TestXMLPropertyListConfiguration_OE25Dev {
         // removed other assertion
 
         // 2nd array
-        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(1));
+        // removed other assertion
+        final List<?> list2 = (List<?>) list.get(1);
+        assertFalse("nested array 2 is empty", list2.isEmpty());
+    }
+
+    @Test
+    public void testNestedArray_12_oe() {
+        final String key = "nested-array";
+
+        final Object array = config.getProperty(key);
+
+        // root array
+        // removed other assertion
+        // removed other assertion
+        final List<?> list = config.getList(key);
+
+        // removed other assertion
+        // removed other assertion
+
+        // 1st array
+        // removed other assertion
+        final List<?> list1 = (List<?>) list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // 2nd array
+        // removed other assertion
+        final List<?> list2 = (List<?>) list.get(1);
+        // removed other assertion
+        assertEquals("size", 2, list2.size());
+    }
+
+    @Test
+    public void testNestedArray_13_oe() {
+        final String key = "nested-array";
+
+        final Object array = config.getProperty(key);
+
+        // root array
+        // removed other assertion
+        // removed other assertion
+        final List<?> list = config.getList(key);
+
+        // removed other assertion
+        // removed other assertion
+
+        // 1st array
+        // removed other assertion
+        final List<?> list1 = (List<?>) list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // 2nd array
+        // removed other assertion
+        final List<?> list2 = (List<?>) list.get(1);
+        // removed other assertion
+        // removed other assertion
+        assertEquals("1st element", "c", list2.get(0));
+    }
+
+    @Test
+    public void testNestedArray_14_oe() {
+        final String key = "nested-array";
+
+        final Object array = config.getProperty(key);
+
+        // root array
+        // removed other assertion
+        // removed other assertion
+        final List<?> list = config.getList(key);
+
+        // removed other assertion
+        // removed other assertion
+
+        // 1st array
+        // removed other assertion
+        final List<?> list1 = (List<?>) list.get(0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // 2nd array
+        // removed other assertion
         final List<?> list2 = (List<?>) list.get(1);
         // removed other assertion
         // removed other assertion

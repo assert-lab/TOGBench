@@ -5521,16 +5521,12 @@ class ComplexTest_OE25Dev {
     }
 
     @Test
-    void testEqualsIsConsistentWithArraysEquals_1_oe() {
+    void testEqualsIsConsistentWithArraysEquals_6_oe() {
         // Explicit check of the cases documented in the Javadoc:
-        assertEqualsIsConsistentWithArraysEquals(Complex.ofCartesian(Double.NaN, 0.0),
-            Complex.ofCartesian(Double.NaN, 1.0), "NaN real and different non-NaN imaginary");
-        assertEqualsIsConsistentWithArraysEquals(Complex.ofCartesian(0.0, Double.NaN),
-            Complex.ofCartesian(1.0, Double.NaN), "Different non-NaN real and NaN imaginary");
-        assertEqualsIsConsistentWithArraysEquals(Complex.ofCartesian(0.0, 0.0), Complex.ofCartesian(-0.0, 0.0),
-            "Different real zeros");
-        assertEqualsIsConsistentWithArraysEquals(Complex.ofCartesian(0.0, 0.0), Complex.ofCartesian(0.0, -0.0),
-            "Different imaginary zeros");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // Test some values of edge cases
         final double[] values = {Double.NaN, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, -1, 0, 1};
@@ -5541,7 +5537,7 @@ class ComplexTest_OE25Dev {
             final double imag = c.getImaginary();
 
             // Check a copy is equal
-            assertEqualsIsConsistentWithArraysEquals(c, Complex.ofCartesian(real, imag), "Copy complex");
+            // removed other assertion
 
             // Perform the smallest change to the two components
             final double realDelta = smallestChange(real);
@@ -5551,16 +5547,12 @@ class ComplexTest_OE25Dev {
     }
 
     @Test
-    void testEqualsIsConsistentWithArraysEquals_2_oe() {
+    void testEqualsIsConsistentWithArraysEquals_7_oe() {
         // Explicit check of the cases documented in the Javadoc:
-        assertEqualsIsConsistentWithArraysEquals(Complex.ofCartesian(Double.NaN, 0.0),
-            Complex.ofCartesian(Double.NaN, 1.0), "NaN real and different non-NaN imaginary");
-        assertEqualsIsConsistentWithArraysEquals(Complex.ofCartesian(0.0, Double.NaN),
-            Complex.ofCartesian(1.0, Double.NaN), "Different non-NaN real and NaN imaginary");
-        assertEqualsIsConsistentWithArraysEquals(Complex.ofCartesian(0.0, 0.0), Complex.ofCartesian(-0.0, 0.0),
-            "Different real zeros");
-        assertEqualsIsConsistentWithArraysEquals(Complex.ofCartesian(0.0, 0.0), Complex.ofCartesian(0.0, -0.0),
-            "Different imaginary zeros");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // Test some values of edge cases
         final double[] values = {Double.NaN, Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, -1, 0, 1};
@@ -5571,7 +5563,7 @@ class ComplexTest_OE25Dev {
             final double imag = c.getImaginary();
 
             // Check a copy is equal
-            assertEqualsIsConsistentWithArraysEquals(c, Complex.ofCartesian(real, imag), "Copy complex");
+            // removed other assertion
 
             // Perform the smallest change to the two components
             final double realDelta = smallestChange(real);

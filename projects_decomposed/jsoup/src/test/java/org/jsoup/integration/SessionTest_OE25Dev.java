@@ -125,76 +125,6 @@ public class SessionTest_OE25Dev {
     }
 
     @Test
-    public void testPathScopedCookies_5_oe() throws IOException {
-        final Connection session = Jsoup.newSession();
-        final String userAgent = "Jsoup Testalot v0.1";
-
-        session.userAgent(userAgent);
-        session.url(CookieServlet.Url);
-
-        // should have no cookies:
-        Connection con1 = session.newRequest();
-        Document doc1 = con1.get();
-        // removed other assertion
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, "1");
-        Document doc2 = con2.get();
-        // removed other assertion
-        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named "One", so should be first sent
-        // removed other assertion
-        // removed other assertion
-
-        // todo - interrogate cookie-store
-
-        // check that they are sent and filtered to the right path
-        Connection con3 = session.newRequest();
-        Document doc3 = con3.get();
-        assertCookieServlet(doc3);
-
-        Document echo = session.newRequest().url(EchoServlet.Url).get();
-        assertEchoServlet(echo);
-        assertEquals(userAgent, keyText("User-Agent", echo)); // check that customer user agent sent on session arrived;
-    }
-
-    @Test
-    public void testPathScopedCookies_6_oe() throws IOException {
-        final Connection session = Jsoup.newSession();
-        final String userAgent = "Jsoup Testalot v0.1";
-
-        session.userAgent(userAgent);
-        session.url(CookieServlet.Url);
-
-        // should have no cookies:
-        Connection con1 = session.newRequest();
-        Document doc1 = con1.get();
-        // removed other assertion
-
-        // set the cookies
-        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, "1");
-        Document doc2 = con2.get();
-        // removed other assertion
-        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named "One", so should be first sent
-        // removed other assertion
-        // removed other assertion
-
-        // todo - interrogate cookie-store
-
-        // check that they are sent and filtered to the right path
-        Connection con3 = session.newRequest();
-        Document doc3 = con3.get();
-        assertCookieServlet(doc3);
-
-        Document echo = session.newRequest().url(EchoServlet.Url).get();
-        assertEchoServlet(echo);
-        // removed other assertion
-
-        // check that cookies aren't set out of the session
-        Document doc4 = Jsoup.newSession().url(CookieServlet.Url).get();
-        assertEquals(0, doc4.select("table tr").size()); // none sent to servlet;
-    }
-
-    @Test
     public void testPathScopedCookies_7_oe() throws IOException {
         final Connection session = Jsoup.newSession();
         final String userAgent = "Jsoup Testalot v0.1";
@@ -220,10 +150,80 @@ public class SessionTest_OE25Dev {
         // check that they are sent and filtered to the right path
         Connection con3 = session.newRequest();
         Document doc3 = con3.get();
-        assertCookieServlet(doc3);
+        // removed other assertion
 
         Document echo = session.newRequest().url(EchoServlet.Url).get();
-        assertEchoServlet(echo);
+        // removed other assertion
+        assertEquals(userAgent, keyText("User-Agent", echo)); // check that customer user agent sent on session arrived;
+    }
+
+    @Test
+    public void testPathScopedCookies_8_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = "Jsoup Testalot v0.1";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+
+        // set the cookies
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, "1");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named "One", so should be first sent
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+        // removed other assertion
+
+        Document echo = session.newRequest().url(EchoServlet.Url).get();
+        // removed other assertion
+        // removed other assertion
+
+        // check that cookies aren't set out of the session
+        Document doc4 = Jsoup.newSession().url(CookieServlet.Url).get();
+        assertEquals(0, doc4.select("table tr").size()); // none sent to servlet;
+    }
+
+    @Test
+    public void testPathScopedCookies_9_oe() throws IOException {
+        final Connection session = Jsoup.newSession();
+        final String userAgent = "Jsoup Testalot v0.1";
+
+        session.userAgent(userAgent);
+        session.url(CookieServlet.Url);
+
+        // should have no cookies:
+        Connection con1 = session.newRequest();
+        Document doc1 = con1.get();
+        // removed other assertion
+
+        // set the cookies
+        Connection con2 = session.newRequest().data(CookieServlet.SetCookiesParam, "1");
+        Document doc2 = con2.get();
+        // removed other assertion
+        Map<String, String> cookies = con2.response().cookies(); // simple cookie response, all named "One", so should be first sent
+        // removed other assertion
+        // removed other assertion
+
+        // todo - interrogate cookie-store
+
+        // check that they are sent and filtered to the right path
+        Connection con3 = session.newRequest();
+        Document doc3 = con3.get();
+        // removed other assertion
+
+        Document echo = session.newRequest().url(EchoServlet.Url).get();
+        // removed other assertion
         // removed other assertion
 
         // check that cookies aren't set out of the session

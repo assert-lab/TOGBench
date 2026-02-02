@@ -2994,27 +2994,14 @@ class Vector2DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Vector2D u1 = Vector2D.of(1, 2);
-        final Vector2D u2 = Vector2D.of(1, 2);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
-        Assertions.assertEquals(u1, u2);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Vector2D u1 = Vector2D.of(1, 2);
         final Vector2D u2 = Vector2D.of(1, 2);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
         // removed other assertion
-
-        Assertions.assertNotEquals(u1, Vector2D.of(-1, -2));
+        Assertions.assertEquals(u1, u2);
     }
 
     @Test
@@ -3024,11 +3011,10 @@ class Vector2DTest_OE25Dev {
         final Vector2D u2 = Vector2D.of(1, 2);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
-        // removed other assertion
-        Assertions.assertNotEquals(u1, Vector2D.of(1 + 10 * Precision.EPSILON, 2));
+        Assertions.assertNotEquals(u1, Vector2D.of(-1, -2));
     }
 
     @Test
@@ -3038,12 +3024,11 @@ class Vector2DTest_OE25Dev {
         final Vector2D u2 = Vector2D.of(1, 2);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(u1, Vector2D.of(1, 2 + 10 * Precision.EPSILON));
+        Assertions.assertNotEquals(u1, Vector2D.of(1 + 10 * Precision.EPSILON, 2));
     }
 
     @Test
@@ -3053,7 +3038,22 @@ class Vector2DTest_OE25Dev {
         final Vector2D u2 = Vector2D.of(1, 2);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(u1, Vector2D.of(1, 2 + 10 * Precision.EPSILON));
+    }
+
+    @Test
+    void testEquals_6_oe() {
+        // arrange
+        final Vector2D u1 = Vector2D.of(1, 2);
+        final Vector2D u2 = Vector2D.of(1, 2);
+
+        // act/assert
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -3064,13 +3064,13 @@ class Vector2DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_6_oe() {
+    void testEquals_7_oe() {
         // arrange
         final Vector2D u1 = Vector2D.of(1, 2);
         final Vector2D u2 = Vector2D.of(1, 2);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -3083,13 +3083,13 @@ class Vector2DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_7_oe() {
+    void testEquals_8_oe() {
         // arrange
         final Vector2D u1 = Vector2D.of(1, 2);
         final Vector2D u2 = Vector2D.of(1, 2);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -3103,13 +3103,13 @@ class Vector2DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_8_oe() {
+    void testEquals_9_oe() {
         // arrange
         final Vector2D u1 = Vector2D.of(1, 2);
         final Vector2D u2 = Vector2D.of(1, 2);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -3125,13 +3125,13 @@ class Vector2DTest_OE25Dev {
     }
 
     @Test
-    void testEquals_9_oe() {
+    void testEquals_10_oe() {
         // arrange
         final Vector2D u1 = Vector2D.of(1, 2);
         final Vector2D u2 = Vector2D.of(1, 2);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(u1);
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion

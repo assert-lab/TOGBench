@@ -766,23 +766,6 @@ class CutAngleTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
-
-        final CutAngle a = CutAngles.fromPointAndDirection(Point1S.ZERO, true, TEST_PRECISION);
-        final CutAngle b = CutAngles.fromPointAndDirection(Point1S.PI, true, TEST_PRECISION);
-        final CutAngle c = CutAngles.fromPointAndDirection(Point1S.ZERO, false, TEST_PRECISION);
-        final CutAngle d = CutAngles.fromPointAndDirection(Point1S.ZERO, true, precision);
-        final CutAngle e = CutAngles.fromPointAndDirection(Point1S.ZERO, true, TEST_PRECISION);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
-        Assertions.assertNotEquals(a, b);
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -794,10 +777,9 @@ class CutAngleTest_OE25Dev {
         final CutAngle e = CutAngles.fromPointAndDirection(Point1S.ZERO, true, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
-
         // removed other assertion
-        Assertions.assertNotEquals(a, c);
+
+        Assertions.assertNotEquals(a, b);
     }
 
     @Test
@@ -812,11 +794,10 @@ class CutAngleTest_OE25Dev {
         final CutAngle e = CutAngles.fromPointAndDirection(Point1S.ZERO, true, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(a, d);
+        Assertions.assertNotEquals(a, c);
     }
 
     @Test
@@ -831,7 +812,26 @@ class CutAngleTest_OE25Dev {
         final CutAngle e = CutAngles.fromPointAndDirection(Point1S.ZERO, true, TEST_PRECISION);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(a);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(a, d);
+    }
+
+    @Test
+    void testEquals_5_oe() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
+
+        final CutAngle a = CutAngles.fromPointAndDirection(Point1S.ZERO, true, TEST_PRECISION);
+        final CutAngle b = CutAngles.fromPointAndDirection(Point1S.PI, true, TEST_PRECISION);
+        final CutAngle c = CutAngles.fromPointAndDirection(Point1S.ZERO, false, TEST_PRECISION);
+        final CutAngle d = CutAngles.fromPointAndDirection(Point1S.ZERO, true, precision);
+        final CutAngle e = CutAngles.fromPointAndDirection(Point1S.ZERO, true, TEST_PRECISION);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -941,25 +941,6 @@ class CutAngleTest_OE25Dev {
     }
 
     @Test
-    void testSubset_simpleMethods_7_oe() {
-        // arrange
-        final CutAngle pt = CutAngles.createPositiveFacing(1, TEST_PRECISION);
-        final HyperplaneConvexSubset<Point1S> sub = pt.span();
-
-        // act/assert
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        SphericalTestUtils.assertPointsEqual(Point1S.of(1), sub.getCentroid(), TEST_EPS);
-
-        final List<? extends HyperplaneConvexSubset<Point1S>> list = sub.toConvex();
-        Assertions.assertEquals(1, list.size());
-    }
-
-    @Test
     void testSubset_simpleMethods_8_oe() {
         // arrange
         final CutAngle pt = CutAngles.createPositiveFacing(1, TEST_PRECISION);
@@ -972,7 +953,26 @@ class CutAngleTest_OE25Dev {
         // removed other assertion
         // removed other assertion
         // removed other assertion
-        SphericalTestUtils.assertPointsEqual(Point1S.of(1), sub.getCentroid(), TEST_EPS);
+        // removed other assertion
+
+        final List<? extends HyperplaneConvexSubset<Point1S>> list = sub.toConvex();
+        Assertions.assertEquals(1, list.size());
+    }
+
+    @Test
+    void testSubset_simpleMethods_9_oe() {
+        // arrange
+        final CutAngle pt = CutAngles.createPositiveFacing(1, TEST_PRECISION);
+        final HyperplaneConvexSubset<Point1S> sub = pt.span();
+
+        // act/assert
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         final List<? extends HyperplaneConvexSubset<Point1S>> list = sub.toConvex();
         // removed other assertion

@@ -9222,19 +9222,19 @@ joda_1521_1,"    public void testConstructorEx6_TypeArray_intArray_1_oe() throws
     }
     }
 ",TestPartial_Constructors::testConstructorEx6_TypeArray_intArray_1_oe
-joda_1521_2,"    public void testConstructorEx6_TypeArray_intArray_2_oe() throws Throwable {
+joda_1521_3,"    public void testConstructorEx6_TypeArray_intArray_3_oe() throws Throwable {
         try {
             new Partial(new DateTimeFieldType[] {null, DateTimeFieldType.dayOfYear()}, new int[2]);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""contain null"");
+            // removed other assertion
         }
         try {
             new Partial(new DateTimeFieldType[] {DateTimeFieldType.dayOfYear(), null}, new int[2]);
             fail();
     }
     }
-",TestPartial_Constructors::testConstructorEx6_TypeArray_intArray_2_oe
+",TestPartial_Constructors::testConstructorEx6_TypeArray_intArray_3_oe
 joda_1522_1,"    public void testConstructorEx7_TypeArray_intArray_inOrder_1_oe() throws Throwable {
         int[] values = new int[] {1, 1, 1};
         DateTimeFieldType[] types = new DateTimeFieldType[] {
@@ -9245,25 +9245,6 @@ joda_1522_1,"    public void testConstructorEx7_TypeArray_intArray_inOrder_1_oe(
     }
     }
 ",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_1_oe
-joda_1522_2,"    public void testConstructorEx7_TypeArray_intArray_inOrder_2_oe() throws Throwable {
-        int[] values = new int[] {1, 1, 1};
-        DateTimeFieldType[] types = new DateTimeFieldType[] {
-            DateTimeFieldType.dayOfMonth(), DateTimeFieldType.year(), DateTimeFieldType.monthOfYear() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.monthOfYear() };
-        try {
-            new Partial(types, values);
-            fail();
-    }
-    }
-",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_2_oe
 joda_1522_3,"    public void testConstructorEx7_TypeArray_intArray_inOrder_3_oe() throws Throwable {
         int[] values = new int[] {1, 1, 1};
         DateTimeFieldType[] types = new DateTimeFieldType[] {
@@ -9272,63 +9253,17 @@ joda_1522_3,"    public void testConstructorEx7_TypeArray_intArray_inOrder_3_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
             DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.monthOfYear() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.year(), DateTimeFieldType.era(), DateTimeFieldType.monthOfYear() };
         try {
             new Partial(types, values);
             fail();
     }
     }
 ",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_3_oe
-joda_1522_4,"    public void testConstructorEx7_TypeArray_intArray_inOrder_4_oe() throws Throwable {
-        int[] values = new int[] {1, 1, 1};
-        DateTimeFieldType[] types = new DateTimeFieldType[] {
-            DateTimeFieldType.dayOfMonth(), DateTimeFieldType.year(), DateTimeFieldType.monthOfYear() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.monthOfYear() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.year(), DateTimeFieldType.era(), DateTimeFieldType.monthOfYear() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.era() };
-        try {
-            new Partial(types, values);
-            fail();
-    }
-    }
-",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_4_oe
 joda_1522_5,"    public void testConstructorEx7_TypeArray_intArray_inOrder_5_oe() throws Throwable {
         int[] values = new int[] {1, 1, 1};
         DateTimeFieldType[] types = new DateTimeFieldType[] {
@@ -9337,7 +9272,7 @@ joda_1522_5,"    public void testConstructorEx7_TypeArray_intArray_inOrder_5_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9346,90 +9281,17 @@ joda_1522_5,"    public void testConstructorEx7_TypeArray_intArray_inOrder_5_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
             DateTimeFieldType.year(), DateTimeFieldType.era(), DateTimeFieldType.monthOfYear() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.era() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.dayOfYear() };
         try {
             new Partial(types, values);
             fail();
     }
     }
 ",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_5_oe
-joda_1522_6,"    public void testConstructorEx7_TypeArray_intArray_inOrder_6_oe() throws Throwable {
-        int[] values = new int[] {1, 1, 1};
-        DateTimeFieldType[] types = new DateTimeFieldType[] {
-            DateTimeFieldType.dayOfMonth(), DateTimeFieldType.year(), DateTimeFieldType.monthOfYear() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.monthOfYear() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.year(), DateTimeFieldType.era(), DateTimeFieldType.monthOfYear() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.era() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.dayOfYear() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.yearOfEra(), DateTimeFieldType.year(), DateTimeFieldType.dayOfYear() };
-        try {
-            new Partial(types, values);
-            fail();
-    }
-    }
-",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_6_oe
 joda_1522_7,"    public void testConstructorEx7_TypeArray_intArray_inOrder_7_oe() throws Throwable {
         int[] values = new int[] {1, 1, 1};
         DateTimeFieldType[] types = new DateTimeFieldType[] {
@@ -9438,7 +9300,7 @@ joda_1522_7,"    public void testConstructorEx7_TypeArray_intArray_inOrder_7_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9447,7 +9309,7 @@ joda_1522_7,"    public void testConstructorEx7_TypeArray_intArray_inOrder_7_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9456,7 +9318,44 @@ joda_1522_7,"    public void testConstructorEx7_TypeArray_intArray_inOrder_7_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.era() };
+        try {
+            new Partial(types, values);
+            fail();
+    }
+    }
+",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_7_oe
+joda_1522_9,"    public void testConstructorEx7_TypeArray_intArray_inOrder_9_oe() throws Throwable {
+        int[] values = new int[] {1, 1, 1};
+        DateTimeFieldType[] types = new DateTimeFieldType[] {
+            DateTimeFieldType.dayOfMonth(), DateTimeFieldType.year(), DateTimeFieldType.monthOfYear() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.monthOfYear() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.year(), DateTimeFieldType.era(), DateTimeFieldType.monthOfYear() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9465,7 +9364,53 @@ joda_1522_7,"    public void testConstructorEx7_TypeArray_intArray_inOrder_7_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.dayOfYear() };
+        try {
+            new Partial(types, values);
+            fail();
+    }
+    }
+",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_9_oe
+joda_1522_11,"    public void testConstructorEx7_TypeArray_intArray_inOrder_11_oe() throws Throwable {
+        int[] values = new int[] {1, 1, 1};
+        DateTimeFieldType[] types = new DateTimeFieldType[] {
+            DateTimeFieldType.dayOfMonth(), DateTimeFieldType.year(), DateTimeFieldType.monthOfYear() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.monthOfYear() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.year(), DateTimeFieldType.era(), DateTimeFieldType.monthOfYear() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.era() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9474,7 +9419,62 @@ joda_1522_7,"    public void testConstructorEx7_TypeArray_intArray_inOrder_7_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.yearOfEra(), DateTimeFieldType.year(), DateTimeFieldType.dayOfYear() };
+        try {
+            new Partial(types, values);
+            fail();
+    }
+    }
+",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_11_oe
+joda_1522_13,"    public void testConstructorEx7_TypeArray_intArray_inOrder_13_oe() throws Throwable {
+        int[] values = new int[] {1, 1, 1};
+        DateTimeFieldType[] types = new DateTimeFieldType[] {
+            DateTimeFieldType.dayOfMonth(), DateTimeFieldType.year(), DateTimeFieldType.monthOfYear() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.monthOfYear() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.year(), DateTimeFieldType.era(), DateTimeFieldType.monthOfYear() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.era() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.year(), DateTimeFieldType.dayOfMonth(), DateTimeFieldType.dayOfYear() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9483,7 +9483,7 @@ joda_1522_7,"    public void testConstructorEx7_TypeArray_intArray_inOrder_7_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9493,8 +9493,8 @@ joda_1522_7,"    public void testConstructorEx7_TypeArray_intArray_inOrder_7_oe(
             fail();
     }
     }
-",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_7_oe
-joda_1522_8,"    public void testConstructorEx7_TypeArray_intArray_inOrder_8_oe() throws Throwable {
+",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_13_oe
+joda_1522_15,"    public void testConstructorEx7_TypeArray_intArray_inOrder_15_oe() throws Throwable {
         int[] values = new int[] {1, 1, 1};
         DateTimeFieldType[] types = new DateTimeFieldType[] {
             DateTimeFieldType.dayOfMonth(), DateTimeFieldType.year(), DateTimeFieldType.monthOfYear() };
@@ -9502,7 +9502,7 @@ joda_1522_8,"    public void testConstructorEx7_TypeArray_intArray_inOrder_8_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9511,7 +9511,7 @@ joda_1522_8,"    public void testConstructorEx7_TypeArray_intArray_inOrder_8_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9520,7 +9520,7 @@ joda_1522_8,"    public void testConstructorEx7_TypeArray_intArray_inOrder_8_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9529,7 +9529,7 @@ joda_1522_8,"    public void testConstructorEx7_TypeArray_intArray_inOrder_8_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9538,7 +9538,7 @@ joda_1522_8,"    public void testConstructorEx7_TypeArray_intArray_inOrder_8_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9547,7 +9547,7 @@ joda_1522_8,"    public void testConstructorEx7_TypeArray_intArray_inOrder_8_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9556,7 +9556,7 @@ joda_1522_8,"    public void testConstructorEx7_TypeArray_intArray_inOrder_8_oe(
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must be in order"", ""largest-smallest"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9566,7 +9566,7 @@ joda_1522_8,"    public void testConstructorEx7_TypeArray_intArray_inOrder_8_oe(
             fail();
     }
     }
-",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_8_oe
+",TestPartial_Constructors::testConstructorEx7_TypeArray_intArray_inOrder_15_oe
 joda_1523_1,"    public void testConstructorEx8_TypeArray_intArray_duplicate_1_oe() throws Throwable {
         int[] values = new int[] {1, 1, 1};
         DateTimeFieldType[] types = new DateTimeFieldType[] {
@@ -9577,25 +9577,6 @@ joda_1523_1,"    public void testConstructorEx8_TypeArray_intArray_duplicate_1_o
     }
     }
 ",TestPartial_Constructors::testConstructorEx8_TypeArray_intArray_duplicate_1_oe
-joda_1523_2,"    public void testConstructorEx8_TypeArray_intArray_duplicate_2_oe() throws Throwable {
-        int[] values = new int[] {1, 1, 1};
-        DateTimeFieldType[] types = new DateTimeFieldType[] {
-            DateTimeFieldType.era(), DateTimeFieldType.year(), DateTimeFieldType.year() };
-        try {
-            new Partial(types, values);
-            // removed other assertion
-        } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must not"", ""duplicate"");
-        }
-        
-        types = new DateTimeFieldType[] {
-            DateTimeFieldType.era(), DateTimeFieldType.era(), DateTimeFieldType.monthOfYear() };
-        try {
-            new Partial(types, values);
-            fail();
-    }
-    }
-",TestPartial_Constructors::testConstructorEx8_TypeArray_intArray_duplicate_2_oe
 joda_1523_3,"    public void testConstructorEx8_TypeArray_intArray_duplicate_3_oe() throws Throwable {
         int[] values = new int[] {1, 1, 1};
         DateTimeFieldType[] types = new DateTimeFieldType[] {
@@ -9604,7 +9585,26 @@ joda_1523_3,"    public void testConstructorEx8_TypeArray_intArray_duplicate_3_o
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must not"", ""duplicate"");
+            // removed other assertion
+        }
+        
+        types = new DateTimeFieldType[] {
+            DateTimeFieldType.era(), DateTimeFieldType.era(), DateTimeFieldType.monthOfYear() };
+        try {
+            new Partial(types, values);
+            fail();
+    }
+    }
+",TestPartial_Constructors::testConstructorEx8_TypeArray_intArray_duplicate_3_oe
+joda_1523_5,"    public void testConstructorEx8_TypeArray_intArray_duplicate_5_oe() throws Throwable {
+        int[] values = new int[] {1, 1, 1};
+        DateTimeFieldType[] types = new DateTimeFieldType[] {
+            DateTimeFieldType.era(), DateTimeFieldType.year(), DateTimeFieldType.year() };
+        try {
+            new Partial(types, values);
+            // removed other assertion
+        } catch (IllegalArgumentException ex) {
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9613,7 +9613,7 @@ joda_1523_3,"    public void testConstructorEx8_TypeArray_intArray_duplicate_3_o
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must not"", ""duplicate"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9623,8 +9623,8 @@ joda_1523_3,"    public void testConstructorEx8_TypeArray_intArray_duplicate_3_o
             fail();
     }
     }
-",TestPartial_Constructors::testConstructorEx8_TypeArray_intArray_duplicate_3_oe
-joda_1523_4,"    public void testConstructorEx8_TypeArray_intArray_duplicate_4_oe() throws Throwable {
+",TestPartial_Constructors::testConstructorEx8_TypeArray_intArray_duplicate_5_oe
+joda_1523_7,"    public void testConstructorEx8_TypeArray_intArray_duplicate_7_oe() throws Throwable {
         int[] values = new int[] {1, 1, 1};
         DateTimeFieldType[] types = new DateTimeFieldType[] {
             DateTimeFieldType.era(), DateTimeFieldType.year(), DateTimeFieldType.year() };
@@ -9632,7 +9632,7 @@ joda_1523_4,"    public void testConstructorEx8_TypeArray_intArray_duplicate_4_o
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must not"", ""duplicate"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9641,7 +9641,7 @@ joda_1523_4,"    public void testConstructorEx8_TypeArray_intArray_duplicate_4_o
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must not"", ""duplicate"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9650,7 +9650,7 @@ joda_1523_4,"    public void testConstructorEx8_TypeArray_intArray_duplicate_4_o
             new Partial(types, values);
             // removed other assertion
         } catch (IllegalArgumentException ex) {
-            assertMessageContains(ex, ""must not"", ""duplicate"");
+            // removed other assertion
         }
         
         types = new DateTimeFieldType[] {
@@ -9660,7 +9660,7 @@ joda_1523_4,"    public void testConstructorEx8_TypeArray_intArray_duplicate_4_o
             fail();
     }
     }
-",TestPartial_Constructors::testConstructorEx8_TypeArray_intArray_duplicate_4_oe
+",TestPartial_Constructors::testConstructorEx8_TypeArray_intArray_duplicate_7_oe
 joda_1524_1,"    public void testConstructorEx9_TypeArray_intArray_1_oe() throws Throwable {
         int[] values = new int[] {3, 0};
         DateTimeFieldType[] types = new DateTimeFieldType[] {
@@ -21180,7 +21180,7 @@ joda_3403_3,"    public void testParseInto_simple_3_oe() {
     }
     }
 ",TestPeriodFormatter::testParseInto_simple_3_oe
-joda_3408_1,"    public void test_toFormatter_1_oe() {
+joda_3443_1,"    public void test_toFormatter_1_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         try {
             bld.toFormatter();
@@ -21188,7 +21188,7 @@ joda_3408_1,"    public void test_toFormatter_1_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_toFormatter_1_oe
-joda_3409_1,"    public void test_toPrinter_1_oe() {
+joda_3444_1,"    public void test_toPrinter_1_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         try {
             bld.toPrinter();
@@ -21196,7 +21196,7 @@ joda_3409_1,"    public void test_toPrinter_1_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_toPrinter_1_oe
-joda_3410_1,"    public void test_toParser_1_oe() {
+joda_3445_1,"    public void test_toParser_1_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         try {
             bld.toParser();
@@ -21204,7 +21204,7 @@ joda_3410_1,"    public void test_toParser_1_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_toParser_1_oe
-joda_3416_1,"    public void test_append_nullPrinter_1_oe() {
+joda_3451_1,"    public void test_append_nullPrinter_1_oe() {
         try {
             DateTimeFormatterBuilder bld2 = new DateTimeFormatterBuilder();
             bld2.append((DateTimePrinter) null);
@@ -21212,7 +21212,7 @@ joda_3416_1,"    public void test_append_nullPrinter_1_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_append_nullPrinter_1_oe
-joda_3418_1,"    public void test_append_nullParser_1_oe() {
+joda_3453_1,"    public void test_append_nullParser_1_oe() {
         try {
             DateTimeFormatterBuilder bld2 = new DateTimeFormatterBuilder();
             bld2.append((DateTimeParser) null);
@@ -21220,7 +21220,7 @@ joda_3418_1,"    public void test_append_nullParser_1_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_append_nullParser_1_oe
-joda_3419_1,"    public void test_append_Printer_nullParser_1_oe() {
+joda_3454_1,"    public void test_append_Printer_nullParser_1_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         bld.appendLiteral('Y');
         DateTimePrinter p = bld.toPrinter();
@@ -21232,7 +21232,7 @@ joda_3419_1,"    public void test_append_Printer_nullParser_1_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_append_Printer_nullParser_1_oe
-joda_3420_1,"    public void test_append_nullPrinter_Parser_1_oe() {
+joda_3455_1,"    public void test_append_nullPrinter_Parser_1_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         bld.appendLiteral('Y');
         DateTimeParser p = bld.toParser();
@@ -21244,7 +21244,7 @@ joda_3420_1,"    public void test_append_nullPrinter_Parser_1_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_append_nullPrinter_Parser_1_oe
-joda_3422_1,"    public void test_appendOptional_nullParser_1_oe() {
+joda_3457_1,"    public void test_appendOptional_nullParser_1_oe() {
         try {
             DateTimeFormatterBuilder bld2 = new DateTimeFormatterBuilder();
             bld2.appendOptional((DateTimeParser) null);
@@ -21252,7 +21252,7 @@ joda_3422_1,"    public void test_appendOptional_nullParser_1_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_appendOptional_nullParser_1_oe
-joda_3423_8,"    public void test_appendFixedDecimal_8_oe() {
+joda_3458_8,"    public void test_appendFixedDecimal_8_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         bld.appendFixedDecimal(DateTimeFieldType.year(), 4);
         DateTimeFormatter f = bld.toFormatter();
@@ -21271,7 +21271,7 @@ joda_3423_8,"    public void test_appendFixedDecimal_8_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_appendFixedDecimal_8_oe
-joda_3423_9,"    public void test_appendFixedDecimal_9_oe() {
+joda_3458_9,"    public void test_appendFixedDecimal_9_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         bld.appendFixedDecimal(DateTimeFieldType.year(), 4);
         DateTimeFormatter f = bld.toFormatter();
@@ -21295,7 +21295,7 @@ joda_3423_9,"    public void test_appendFixedDecimal_9_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_appendFixedDecimal_9_oe
-joda_3423_10,"    public void test_appendFixedDecimal_10_oe() {
+joda_3458_10,"    public void test_appendFixedDecimal_10_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         bld.appendFixedDecimal(DateTimeFieldType.year(), 4);
         DateTimeFormatter f = bld.toFormatter();
@@ -21324,7 +21324,7 @@ joda_3423_10,"    public void test_appendFixedDecimal_10_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_appendFixedDecimal_10_oe
-joda_3423_15,"    public void test_appendFixedDecimal_15_oe() {
+joda_3458_15,"    public void test_appendFixedDecimal_15_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         bld.appendFixedDecimal(DateTimeFieldType.year(), 4);
         DateTimeFormatter f = bld.toFormatter();
@@ -21374,7 +21374,7 @@ joda_3423_15,"    public void test_appendFixedDecimal_15_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_appendFixedDecimal_15_oe
-joda_3423_16,"    public void test_appendFixedDecimal_16_oe() {
+joda_3458_16,"    public void test_appendFixedDecimal_16_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         bld.appendFixedDecimal(DateTimeFieldType.year(), 4);
         DateTimeFormatter f = bld.toFormatter();
@@ -21429,7 +21429,7 @@ joda_3423_16,"    public void test_appendFixedDecimal_16_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_appendFixedDecimal_16_oe
-joda_3424_10,"    public void test_appendFixedSignedDecimal_10_oe() {
+joda_3459_10,"    public void test_appendFixedSignedDecimal_10_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         bld.appendFixedSignedDecimal(DateTimeFieldType.year(), 4);
         DateTimeFormatter f = bld.toFormatter();
@@ -21450,7 +21450,7 @@ joda_3424_10,"    public void test_appendFixedSignedDecimal_10_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_appendFixedSignedDecimal_10_oe
-joda_3426_1,"    public void test_appendTimeZoneOffset_invalidText_1_oe() {
+joda_3467_1,"    public void test_appendTimeZoneOffset_invalidText_1_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         bld.appendTimeZoneOffset(""Z"", true, 1, 1);
         DateTimeFormatter f = bld.toFormatter();
@@ -21460,7 +21460,7 @@ joda_3426_1,"    public void test_appendTimeZoneOffset_invalidText_1_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_invalidText_1_oe
-joda_3427_1,"    public void test_appendTimeZoneOffset_zeroMinInvalid_1_oe() {
+joda_3468_1,"    public void test_appendTimeZoneOffset_zeroMinInvalid_1_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         try {
             bld.appendTimeZoneOffset(""Z"", true, 0, 2);
@@ -21468,7 +21468,7 @@ joda_3427_1,"    public void test_appendTimeZoneOffset_zeroMinInvalid_1_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_appendTimeZoneOffset_zeroMinInvalid_1_oe
-joda_3428_3,"    public void test_appendTimeZoneId_3_oe() {
+joda_3469_3,"    public void test_appendTimeZoneId_3_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder();
         bld.appendTimeZoneId();
         DateTimeFormatter f = bld.toFormatter();
@@ -21481,7 +21481,7 @@ joda_3428_3,"    public void test_appendTimeZoneId_3_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_appendTimeZoneId_3_oe
-joda_3454_5,"    public void test_printParseShortName_5_oe() {
+joda_3495_5,"    public void test_printParseShortName_5_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder()
             .appendPattern(""yyyy-MM-dd HH:mm "").appendTimeZoneShortName();
         DateTimeFormatter f = bld.toFormatter().withLocale(Locale.ENGLISH);
@@ -21498,7 +21498,7 @@ joda_3454_5,"    public void test_printParseShortName_5_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_printParseShortName_5_oe
-joda_3455_7,"    public void test_printParseShortNameWithLookup_7_oe() {
+joda_3496_7,"    public void test_printParseShortNameWithLookup_7_oe() {
         Map<String, DateTimeZone> lookup = new LinkedHashMap<String, DateTimeZone>();
         lookup.put(""GMT"", LONDON);
         lookup.put(""BST"", LONDON);
@@ -21521,7 +21521,7 @@ joda_3455_7,"    public void test_printParseShortNameWithLookup_7_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_printParseShortNameWithLookup_7_oe
-joda_3456_14,"    public void test_printParseShortNameWithAutoLookup_14_oe() {
+joda_3497_14,"    public void test_printParseShortNameWithAutoLookup_14_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder()
             .appendPattern(""yyyy-MM-dd HH:mm "").appendTimeZoneShortName(null);
         DateTimeFormatter f = bld.toFormatter().withLocale(Locale.ENGLISH);
@@ -21551,7 +21551,7 @@ joda_3456_14,"    public void test_printParseShortNameWithAutoLookup_14_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_printParseShortNameWithAutoLookup_14_oe
-joda_3457_5,"    public void test_printParseLongName_5_oe() {
+joda_3498_5,"    public void test_printParseLongName_5_oe() {
         DateTimeFormatterBuilder bld = new DateTimeFormatterBuilder()
             .appendPattern(""yyyy-MM-dd HH:mm "").appendTimeZoneName();
         DateTimeFormatter f = bld.toFormatter().withLocale(Locale.ENGLISH);
@@ -21568,7 +21568,7 @@ joda_3457_5,"    public void test_printParseLongName_5_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_printParseLongName_5_oe
-joda_3458_7,"    public void test_printParseLongNameWithLookup_7_oe() {
+joda_3499_7,"    public void test_printParseLongNameWithLookup_7_oe() {
         Map<String, DateTimeZone> lookup = new LinkedHashMap<String, DateTimeZone>();
         lookup.put(""Greenwich Mean Time"", LONDON);
         lookup.put(""British Summer Time"", LONDON);
@@ -21591,7 +21591,7 @@ joda_3458_7,"    public void test_printParseLongNameWithLookup_7_oe() {
     }
     }
 ",TestDateTimeFormatterBuilder::test_printParseLongNameWithLookup_7_oe
-joda_3463_4,"    public void testPrint_bufferMethods_4_oe() throws Exception {
+joda_3504_4,"    public void testPrint_bufferMethods_4_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         StringBuffer buf = new StringBuffer();
         f.printTo(buf, dt);
@@ -21612,7 +21612,7 @@ joda_3463_4,"    public void testPrint_bufferMethods_4_oe() throws Exception {
     }
     }
 ",TestDateTimeFormatter::testPrint_bufferMethods_4_oe
-joda_3464_4,"    public void testPrint_builderMethods_4_oe() throws Exception {
+joda_3505_4,"    public void testPrint_builderMethods_4_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         StringBuilder buf = new StringBuilder();
         f.printTo(buf, dt);
@@ -21633,7 +21633,7 @@ joda_3464_4,"    public void testPrint_builderMethods_4_oe() throws Exception {
     }
     }
 ",TestDateTimeFormatter::testPrint_builderMethods_4_oe
-joda_3465_4,"    public void testPrint_writerMethods_4_oe() throws Exception {
+joda_3506_4,"    public void testPrint_writerMethods_4_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         CharArrayWriter out = new CharArrayWriter();
         f.printTo(out, dt);
@@ -21654,7 +21654,7 @@ joda_3465_4,"    public void testPrint_writerMethods_4_oe() throws Exception {
     }
     }
 ",TestDateTimeFormatter::testPrint_writerMethods_4_oe
-joda_3466_4,"    public void testPrint_appendableMethods_4_oe() throws Exception {
+joda_3507_4,"    public void testPrint_appendableMethods_4_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         StringBuilder buf = new StringBuilder();
         f.printTo(buf, dt);
@@ -21675,7 +21675,7 @@ joda_3466_4,"    public void testPrint_appendableMethods_4_oe() throws Exception
     }
     }
 ",TestDateTimeFormatter::testPrint_appendableMethods_4_oe
-joda_3473_12,"    public void testPrinterParserMethods_12_oe() {
+joda_3514_12,"    public void testPrinterParserMethods_12_oe() {
         DateTimeFormatter f2 = new DateTimeFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
         // removed other assertion
@@ -21696,7 +21696,7 @@ joda_3473_12,"    public void testPrinterParserMethods_12_oe() {
     }
     }
 ",TestDateTimeFormatter::testPrinterParserMethods_12_oe
-joda_3473_17,"    public void testPrinterParserMethods_17_oe() {
+joda_3514_17,"    public void testPrinterParserMethods_17_oe() {
         DateTimeFormatter f2 = new DateTimeFormatter(f.getPrinter(), f.getParser());
         // removed other assertion
         // removed other assertion
@@ -21727,7 +21727,7 @@ joda_3473_17,"    public void testPrinterParserMethods_17_oe() {
     }
     }
 ",TestDateTimeFormatter::testPrinterParserMethods_17_oe
-joda_3474_5,"    public void testParseLocalDate_simple_5_oe() {
+joda_3515_5,"    public void testParseLocalDate_simple_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -21738,7 +21738,7 @@ joda_3474_5,"    public void testParseLocalDate_simple_5_oe() {
     }
     }
 ",TestDateTimeFormatter::testParseLocalDate_simple_5_oe
-joda_3489_5,"    public void testParseLocalTime_simple_5_oe() {
+joda_3530_5,"    public void testParseLocalTime_simple_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -21749,7 +21749,7 @@ joda_3489_5,"    public void testParseLocalTime_simple_5_oe() {
     }
     }
 ",TestDateTimeFormatter::testParseLocalTime_simple_5_oe
-joda_3490_5,"    public void testParseLocalDateTime_simple_5_oe() {
+joda_3531_5,"    public void testParseLocalDateTime_simple_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -21760,7 +21760,7 @@ joda_3490_5,"    public void testParseLocalDateTime_simple_5_oe() {
     }
     }
 ",TestDateTimeFormatter::testParseLocalDateTime_simple_5_oe
-joda_3493_2,"    public void testParseDateTime_simple_2_oe() {
+joda_3534_2,"    public void testParseDateTime_simple_2_oe() {
         DateTime expect = null;
         expect = new DateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
         // removed other assertion
@@ -21771,7 +21771,7 @@ joda_3493_2,"    public void testParseDateTime_simple_2_oe() {
     }
     }
 ",TestDateTimeFormatter::testParseDateTime_simple_2_oe
-joda_3500_2,"    public void testParseMutableDateTime_simple_2_oe() {
+joda_3541_2,"    public void testParseMutableDateTime_simple_2_oe() {
         MutableDateTime expect = null;
         expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
         // removed other assertion
@@ -21782,7 +21782,7 @@ joda_3500_2,"    public void testParseMutableDateTime_simple_2_oe() {
     }
     }
 ",TestDateTimeFormatter::testParseMutableDateTime_simple_2_oe
-joda_3507_3,"    public void testParseInto_simple_3_oe() {
+joda_3548_3,"    public void testParseInto_simple_3_oe() {
         MutableDateTime expect = null;
         expect = new MutableDateTime(2004, 6, 9, 11, 20, 30, 0, LONDON);
         MutableDateTime result = new MutableDateTime(0L);
@@ -21795,21 +21795,21 @@ joda_3507_3,"    public void testParseInto_simple_3_oe() {
     }
     }
 ",TestDateTimeFormatter::testParseInto_simple_3_oe
-joda_3561_1,"    public void testFormatPrefixSimple3_1_oe() {
+joda_3602_1,"    public void testFormatPrefixSimple3_1_oe() {
         try {
             builder.appendPrefix(null);
             fail();
     }
     }
 ",TestPeriodFormatterBuilder::testFormatPrefixSimple3_1_oe
-joda_3566_1,"    public void testFormatPrefixPlural3_1_oe() {
+joda_3607_1,"    public void testFormatPrefixPlural3_1_oe() {
         try {
             builder.appendPrefix(null, """");
             fail();
     }
     }
 ",TestPeriodFormatterBuilder::testFormatPrefixPlural3_1_oe
-joda_3566_2,"    public void testFormatPrefixPlural3_2_oe() {
+joda_3607_2,"    public void testFormatPrefixPlural3_2_oe() {
         try {
             builder.appendPrefix(null, """");
             // removed other assertion
@@ -21820,7 +21820,7 @@ joda_3566_2,"    public void testFormatPrefixPlural3_2_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatPrefixPlural3_2_oe
-joda_3566_3,"    public void testFormatPrefixPlural3_3_oe() {
+joda_3607_3,"    public void testFormatPrefixPlural3_3_oe() {
         try {
             builder.appendPrefix(null, """");
             // removed other assertion
@@ -21835,14 +21835,14 @@ joda_3566_3,"    public void testFormatPrefixPlural3_3_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatPrefixPlural3_3_oe
-joda_3571_1,"    public void testFormatPrefixRegEx3_1_oe() {
+joda_3612_1,"    public void testFormatPrefixRegEx3_1_oe() {
         try {
             builder.appendPrefix(null, new String[0]);
             fail();
     }
     }
 ",TestPeriodFormatterBuilder::testFormatPrefixRegEx3_1_oe
-joda_3571_2,"    public void testFormatPrefixRegEx3_2_oe() {
+joda_3612_2,"    public void testFormatPrefixRegEx3_2_oe() {
         try {
             builder.appendPrefix(null, new String[0]);
             // removed other assertion
@@ -21854,7 +21854,7 @@ joda_3571_2,"    public void testFormatPrefixRegEx3_2_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatPrefixRegEx3_2_oe
-joda_3571_3,"    public void testFormatPrefixRegEx3_3_oe() {
+joda_3612_3,"    public void testFormatPrefixRegEx3_3_oe() {
         try {
             builder.appendPrefix(null, new String[0]);
             // removed other assertion
@@ -21871,7 +21871,7 @@ joda_3571_3,"    public void testFormatPrefixRegEx3_3_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatPrefixRegEx3_3_oe
-joda_3571_4,"    public void testFormatPrefixRegEx3_4_oe() {
+joda_3612_4,"    public void testFormatPrefixRegEx3_4_oe() {
         try {
             builder.appendPrefix(null, new String[0]);
             // removed other assertion
@@ -21893,7 +21893,7 @@ joda_3571_4,"    public void testFormatPrefixRegEx3_4_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatPrefixRegEx3_4_oe
-joda_3571_5,"    public void testFormatPrefixRegEx3_5_oe() {
+joda_3612_5,"    public void testFormatPrefixRegEx3_5_oe() {
         try {
             builder.appendPrefix(null, new String[0]);
             // removed other assertion
@@ -21920,28 +21920,28 @@ joda_3571_5,"    public void testFormatPrefixRegEx3_5_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatPrefixRegEx3_5_oe
-joda_3576_1,"    public void testFormatSuffixSimple3_1_oe() {
+joda_3617_1,"    public void testFormatSuffixSimple3_1_oe() {
         try {
             builder.appendSuffix(null);
             fail();
     }
     }
 ",TestPeriodFormatterBuilder::testFormatSuffixSimple3_1_oe
-joda_3577_1,"    public void testFormatSuffixSimple4_1_oe() {
+joda_3618_1,"    public void testFormatSuffixSimple4_1_oe() {
         try {
             builder.appendSuffix("" hours"");
             fail();
     }
     }
 ",TestPeriodFormatterBuilder::testFormatSuffixSimple4_1_oe
-joda_3582_1,"    public void testFormatSuffixPlural3_1_oe() {
+joda_3623_1,"    public void testFormatSuffixPlural3_1_oe() {
         try {
             builder.appendSuffix(null, """");
             fail();
     }
     }
 ",TestPeriodFormatterBuilder::testFormatSuffixPlural3_1_oe
-joda_3582_2,"    public void testFormatSuffixPlural3_2_oe() {
+joda_3623_2,"    public void testFormatSuffixPlural3_2_oe() {
         try {
             builder.appendSuffix(null, """");
             // removed other assertion
@@ -21952,7 +21952,7 @@ joda_3582_2,"    public void testFormatSuffixPlural3_2_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatSuffixPlural3_2_oe
-joda_3582_3,"    public void testFormatSuffixPlural3_3_oe() {
+joda_3623_3,"    public void testFormatSuffixPlural3_3_oe() {
         try {
             builder.appendSuffix(null, """");
             // removed other assertion
@@ -21967,21 +21967,21 @@ joda_3582_3,"    public void testFormatSuffixPlural3_3_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatSuffixPlural3_3_oe
-joda_3583_1,"    public void testFormatSuffixPlural4_1_oe() {
+joda_3624_1,"    public void testFormatSuffixPlural4_1_oe() {
         try {
             builder.appendSuffix("" hour"", "" hours"");
             fail();
     }
     }
 ",TestPeriodFormatterBuilder::testFormatSuffixPlural4_1_oe
-joda_3587_1,"    public void testFormatSuffixRegEx3_1_oe() {
+joda_3628_1,"    public void testFormatSuffixRegEx3_1_oe() {
         try {
             builder.appendSuffix(null, new String[0]);
             fail();
     }
     }
 ",TestPeriodFormatterBuilder::testFormatSuffixRegEx3_1_oe
-joda_3587_2,"    public void testFormatSuffixRegEx3_2_oe() {
+joda_3628_2,"    public void testFormatSuffixRegEx3_2_oe() {
         try {
             builder.appendSuffix(null, new String[0]);
             // removed other assertion
@@ -21993,7 +21993,7 @@ joda_3587_2,"    public void testFormatSuffixRegEx3_2_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatSuffixRegEx3_2_oe
-joda_3587_3,"    public void testFormatSuffixRegEx3_3_oe() {
+joda_3628_3,"    public void testFormatSuffixRegEx3_3_oe() {
         try {
             builder.appendSuffix(null, new String[0]);
             // removed other assertion
@@ -22010,7 +22010,7 @@ joda_3587_3,"    public void testFormatSuffixRegEx3_3_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatSuffixRegEx3_3_oe
-joda_3587_4,"    public void testFormatSuffixRegEx3_4_oe() {
+joda_3628_4,"    public void testFormatSuffixRegEx3_4_oe() {
         try {
             builder.appendSuffix(null, new String[0]);
             // removed other assertion
@@ -22032,7 +22032,7 @@ joda_3587_4,"    public void testFormatSuffixRegEx3_4_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatSuffixRegEx3_4_oe
-joda_3587_5,"    public void testFormatSuffixRegEx3_5_oe() {
+joda_3628_5,"    public void testFormatSuffixRegEx3_5_oe() {
         try {
             builder.appendSuffix(null, new String[0]);
             // removed other assertion
@@ -22059,21 +22059,21 @@ joda_3587_5,"    public void testFormatSuffixRegEx3_5_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatSuffixRegEx3_5_oe
-joda_3588_1,"    public void testFormatSuffixRegEx4_1_oe() {
+joda_3629_1,"    public void testFormatSuffixRegEx4_1_oe() {
         try {
             builder.appendSuffix(new String[] { ""^1$"", ""^.*$"" }, new String[] { "" hour"", "" hours"" });
             fail();
     }
     }
 ",TestPeriodFormatterBuilder::testFormatSuffixRegEx4_1_oe
-joda_3613_1,"    public void testFormatAppend_PrinterParser_null_null_1_oe() {
+joda_3654_1,"    public void testFormatAppend_PrinterParser_null_null_1_oe() {
         try {
             new PeriodFormatterBuilder().append(null, null);
             fail();
     }
     }
 ",TestPeriodFormatterBuilder::testFormatAppend_PrinterParser_null_null_1_oe
-joda_3614_4,"    public void testFormatAppend_PrinterParser_Printer_null_4_oe() {
+joda_3655_4,"    public void testFormatAppend_PrinterParser_Printer_null_4_oe() {
         PeriodPrinter printer = new PeriodFormatterBuilder().appendYears().appendLiteral(""-"").toPrinter();
         PeriodFormatterBuilder bld = new PeriodFormatterBuilder().append(printer, null).appendMonths();
         // removed other assertion
@@ -22087,7 +22087,7 @@ joda_3614_4,"    public void testFormatAppend_PrinterParser_Printer_null_4_oe() 
     }
     }
 ",TestPeriodFormatterBuilder::testFormatAppend_PrinterParser_Printer_null_4_oe
-joda_3615_3,"    public void testFormatAppend_PrinterParser_null_Parser_3_oe() {
+joda_3656_3,"    public void testFormatAppend_PrinterParser_null_Parser_3_oe() {
         PeriodParser parser = new PeriodFormatterBuilder().appendWeeks().appendLiteral(""-"").toParser();
         PeriodFormatterBuilder bld = new PeriodFormatterBuilder().append(null, parser).appendMonths();
         // removed other assertion
@@ -22100,7 +22100,7 @@ joda_3615_3,"    public void testFormatAppend_PrinterParser_null_Parser_3_oe() {
     }
     }
 ",TestPeriodFormatterBuilder::testFormatAppend_PrinterParser_null_Parser_3_oe
-joda_3617_3,"    public void testFormatAppend_PrinterParser_Printer_null_null_Parser_3_oe() {
+joda_3658_3,"    public void testFormatAppend_PrinterParser_Printer_null_null_Parser_3_oe() {
         PeriodPrinter printer = new PeriodFormatterBuilder().appendYears().appendLiteral(""-"").toPrinter();
         PeriodParser parser = new PeriodFormatterBuilder().appendWeeks().appendLiteral(""-"").toParser();
         PeriodFormatterBuilder bld = new PeriodFormatterBuilder().append(printer, null).append(null, parser);
@@ -22113,7 +22113,7 @@ joda_3617_3,"    public void testFormatAppend_PrinterParser_Printer_null_null_Pa
     }
     }
 ",TestPeriodFormatterBuilder::testFormatAppend_PrinterParser_Printer_null_null_Parser_3_oe
-joda_3620_1,"    public void testAppendSeparatorIfFieldsBeforeThrowsIllegalStateExceptionAndAppendPrefixTakingString_1_oe() {
+joda_3661_1,"    public void testAppendSeparatorIfFieldsBeforeThrowsIllegalStateExceptionAndAppendPrefixTakingString_1_oe() {
         PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
         periodFormatterBuilder.appendPrefix(""=9Z/])WG"");
 
@@ -22123,7 +22123,7 @@ joda_3620_1,"    public void testAppendSeparatorIfFieldsBeforeThrowsIllegalState
     }
     }
 ",TestPeriodFormatterBuilder::testAppendSeparatorIfFieldsBeforeThrowsIllegalStateExceptionAndAppendPrefixTakingString_1_oe
-joda_3621_1,"    public void testAppendSeparatorIfFieldsBeforeThrowsIllegalStateExceptionAndAppendSeparatorIfFieldsAfter_1_oe() {
+joda_3662_1,"    public void testAppendSeparatorIfFieldsBeforeThrowsIllegalStateExceptionAndAppendSeparatorIfFieldsAfter_1_oe() {
         PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
         periodFormatterBuilder.appendSeparatorIfFieldsAfter(""3xmZ\""*'Q={="");
 
@@ -22135,7 +22135,7 @@ joda_3621_1,"    public void testAppendSeparatorIfFieldsBeforeThrowsIllegalState
 
     }
     }",TestPeriodFormatterBuilder::testAppendSeparatorIfFieldsBeforeThrowsIllegalStateExceptionAndAppendSeparatorIfFieldsAfter_1_oe
-joda_3621_2,"    public void testAppendSeparatorIfFieldsBeforeThrowsIllegalStateExceptionAndAppendSeparatorIfFieldsAfter_2_oe() {
+joda_3662_2,"    public void testAppendSeparatorIfFieldsBeforeThrowsIllegalStateExceptionAndAppendSeparatorIfFieldsAfter_2_oe() {
         PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
         periodFormatterBuilder.appendSeparatorIfFieldsAfter(""3xmZ\""*'Q={="");
 
@@ -22149,7 +22149,7 @@ joda_3621_2,"    public void testAppendSeparatorIfFieldsBeforeThrowsIllegalState
 
     }
     }",TestPeriodFormatterBuilder::testAppendSeparatorIfFieldsBeforeThrowsIllegalStateExceptionAndAppendSeparatorIfFieldsAfter_2_oe
-joda_3622_1,"    public void testAppendSeparatorTaking3ArgumentsWithEmptyStringAndNull_1_oe() {
+joda_3663_1,"    public void testAppendSeparatorTaking3ArgumentsWithEmptyStringAndNull_1_oe() {
         PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
 
         try {
@@ -22158,7 +22158,7 @@ joda_3622_1,"    public void testAppendSeparatorTaking3ArgumentsWithEmptyStringA
     }
     }
 ",TestPeriodFormatterBuilder::testAppendSeparatorTaking3ArgumentsWithEmptyStringAndNull_1_oe
-joda_3623_1,"    public void testAppendSeparatorTaking3ArgumentsWithNullAndNonEmptyArray_1_oe() {
+joda_3664_1,"    public void testAppendSeparatorTaking3ArgumentsWithNullAndNonEmptyArray_1_oe() {
         PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
         String[] stringArray = new String[3];
 
@@ -22168,7 +22168,7 @@ joda_3623_1,"    public void testAppendSeparatorTaking3ArgumentsWithNullAndNonEm
     }
     }
 ",TestPeriodFormatterBuilder::testAppendSeparatorTaking3ArgumentsWithNullAndNonEmptyArray_1_oe
-joda_3624_1,"    public void testAppendSuffixTaking2StringArraysThrowsIllegalStateException_1_oe() {
+joda_3665_1,"    public void testAppendSuffixTaking2StringArraysThrowsIllegalStateException_1_oe() {
         PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
         String[] stringArray = new String[1];
         stringArray[0] = ""8io`#&*f6&"";
@@ -22181,7 +22181,7 @@ joda_3624_1,"    public void testAppendSuffixTaking2StringArraysThrowsIllegalSta
     }
     }
 ",TestPeriodFormatterBuilder::testAppendSuffixTaking2StringArraysThrowsIllegalStateException_1_oe
-joda_3625_1,"    public void testAppendLiteralThrowsIllegalArgumentException_1_oe() {
+joda_3666_1,"    public void testAppendLiteralThrowsIllegalArgumentException_1_oe() {
         PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
 
         try {
@@ -22190,7 +22190,7 @@ joda_3625_1,"    public void testAppendLiteralThrowsIllegalArgumentException_1_o
     }
     }
 ",TestPeriodFormatterBuilder::testAppendLiteralThrowsIllegalArgumentException_1_oe
-joda_3626_1,"    public void testAppendTakingPeriodFormatterThrowsIllegalArgumentException_1_oe() {
+joda_3667_1,"    public void testAppendTakingPeriodFormatterThrowsIllegalArgumentException_1_oe() {
         PeriodFormatterBuilder periodFormatterBuilder = new PeriodFormatterBuilder();
 
         try {
@@ -22199,21 +22199,21 @@ joda_3626_1,"    public void testAppendTakingPeriodFormatterThrowsIllegalArgumen
     }
     }
 ",TestPeriodFormatterBuilder::testAppendTakingPeriodFormatterThrowsIllegalArgumentException_1_oe
-joda_3627_1,"    public void testForFields_null_1_oe() {
+joda_3668_1,"    public void testForFields_null_1_oe() {
         try {
             ISODateTimeFormat.forFields((Collection) null, true, true);
             fail();
     }
     }
 ",TestISODateTimeFormat_Fields::testForFields_null_1_oe
-joda_3628_1,"    public void testForFields_empty_1_oe() {
+joda_3669_1,"    public void testForFields_empty_1_oe() {
         try {
             ISODateTimeFormat.forFields(new ArrayList(), true, true);
             fail();
     }
     }
 ",TestISODateTimeFormat_Fields::testForFields_empty_1_oe
-joda_3637_5,"    public void testForFields_calBased_YD_5_oe() {
+joda_3678_5,"    public void testForFields_calBased_YD_5_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.year(),
                 DateTimeFieldType.dayOfMonth(),
@@ -22236,7 +22236,7 @@ joda_3637_5,"    public void testForFields_calBased_YD_5_oe() {
     }
     }
 ",TestISODateTimeFormat_Fields::testForFields_calBased_YD_5_oe
-joda_3637_6,"    public void testForFields_calBased_YD_6_oe() {
+joda_3678_6,"    public void testForFields_calBased_YD_6_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.year(),
                 DateTimeFieldType.dayOfMonth(),
@@ -22264,7 +22264,7 @@ joda_3637_6,"    public void testForFields_calBased_YD_6_oe() {
     }
 
     }",TestISODateTimeFormat_Fields::testForFields_calBased_YD_6_oe
-joda_3644_5,"    public void testForFields_weekBased_YD_5_oe() {
+joda_3685_5,"    public void testForFields_weekBased_YD_5_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.weekyear(),
                 DateTimeFieldType.dayOfWeek(),
@@ -22287,7 +22287,7 @@ joda_3644_5,"    public void testForFields_weekBased_YD_5_oe() {
     }
     }
 ",TestISODateTimeFormat_Fields::testForFields_weekBased_YD_5_oe
-joda_3644_6,"    public void testForFields_weekBased_YD_6_oe() {
+joda_3685_6,"    public void testForFields_weekBased_YD_6_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.weekyear(),
                 DateTimeFieldType.dayOfWeek(),
@@ -22315,7 +22315,7 @@ joda_3644_6,"    public void testForFields_weekBased_YD_6_oe() {
     }
 
     }",TestISODateTimeFormat_Fields::testForFields_weekBased_YD_6_oe
-joda_3657_5,"    public void testForFields_time_m_5_oe() {
+joda_3698_5,"    public void testForFields_time_m_5_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.millisOfSecond(),
         };
@@ -22337,7 +22337,7 @@ joda_3657_5,"    public void testForFields_time_m_5_oe() {
     }
     }
 ",TestISODateTimeFormat_Fields::testForFields_time_m_5_oe
-joda_3657_6,"    public void testForFields_time_m_6_oe() {
+joda_3698_6,"    public void testForFields_time_m_6_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.millisOfSecond(),
         };
@@ -22364,7 +22364,7 @@ joda_3657_6,"    public void testForFields_time_m_6_oe() {
     }
 
     }",TestISODateTimeFormat_Fields::testForFields_time_m_6_oe
-joda_3658_5,"    public void testForFields_time_Hm_5_oe() {
+joda_3699_5,"    public void testForFields_time_Hm_5_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.hourOfDay(),
                 DateTimeFieldType.millisOfSecond(),
@@ -22387,7 +22387,7 @@ joda_3658_5,"    public void testForFields_time_Hm_5_oe() {
     }
     }
 ",TestISODateTimeFormat_Fields::testForFields_time_Hm_5_oe
-joda_3658_6,"    public void testForFields_time_Hm_6_oe() {
+joda_3699_6,"    public void testForFields_time_Hm_6_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.hourOfDay(),
                 DateTimeFieldType.millisOfSecond(),
@@ -22415,7 +22415,7 @@ joda_3658_6,"    public void testForFields_time_Hm_6_oe() {
     }
 
     }",TestISODateTimeFormat_Fields::testForFields_time_Hm_6_oe
-joda_3659_5,"    public void testForFields_time_HS_5_oe() {
+joda_3700_5,"    public void testForFields_time_HS_5_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.hourOfDay(),
                 DateTimeFieldType.secondOfMinute(),
@@ -22438,7 +22438,7 @@ joda_3659_5,"    public void testForFields_time_HS_5_oe() {
     }
     }
 ",TestISODateTimeFormat_Fields::testForFields_time_HS_5_oe
-joda_3659_6,"    public void testForFields_time_HS_6_oe() {
+joda_3700_6,"    public void testForFields_time_HS_6_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.hourOfDay(),
                 DateTimeFieldType.secondOfMinute(),
@@ -22466,7 +22466,7 @@ joda_3659_6,"    public void testForFields_time_HS_6_oe() {
     }
 
     }",TestISODateTimeFormat_Fields::testForFields_time_HS_6_oe
-joda_3660_5,"    public void testForFields_time_Mm_5_oe() {
+joda_3701_5,"    public void testForFields_time_Mm_5_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.minuteOfHour(),
                 DateTimeFieldType.millisOfSecond(),
@@ -22489,7 +22489,7 @@ joda_3660_5,"    public void testForFields_time_Mm_5_oe() {
     }
     }
 ",TestISODateTimeFormat_Fields::testForFields_time_Mm_5_oe
-joda_3660_6,"    public void testForFields_time_Mm_6_oe() {
+joda_3701_6,"    public void testForFields_time_Mm_6_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.minuteOfHour(),
                 DateTimeFieldType.millisOfSecond(),
@@ -22517,7 +22517,7 @@ joda_3660_6,"    public void testForFields_time_Mm_6_oe() {
     }
 
     }",TestISODateTimeFormat_Fields::testForFields_time_Mm_6_oe
-joda_3661_5,"    public void testForFields_time_HSm_5_oe() {
+joda_3702_5,"    public void testForFields_time_HSm_5_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.hourOfDay(),
                 DateTimeFieldType.secondOfMinute(),
@@ -22541,7 +22541,7 @@ joda_3661_5,"    public void testForFields_time_HSm_5_oe() {
     }
     }
 ",TestISODateTimeFormat_Fields::testForFields_time_HSm_5_oe
-joda_3661_6,"    public void testForFields_time_HSm_6_oe() {
+joda_3702_6,"    public void testForFields_time_HSm_6_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.hourOfDay(),
                 DateTimeFieldType.secondOfMinute(),
@@ -22570,7 +22570,7 @@ joda_3661_6,"    public void testForFields_time_HSm_6_oe() {
     }
 
     }",TestISODateTimeFormat_Fields::testForFields_time_HSm_6_oe
-joda_3662_5,"    public void testForFields_time_HMm_5_oe() {
+joda_3703_5,"    public void testForFields_time_HMm_5_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.hourOfDay(),
                 DateTimeFieldType.minuteOfHour(),
@@ -22594,7 +22594,7 @@ joda_3662_5,"    public void testForFields_time_HMm_5_oe() {
     }
     }
 ",TestISODateTimeFormat_Fields::testForFields_time_HMm_5_oe
-joda_3662_6,"    public void testForFields_time_HMm_6_oe() {
+joda_3703_6,"    public void testForFields_time_HMm_6_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.hourOfDay(),
                 DateTimeFieldType.minuteOfHour(),
@@ -22623,7 +22623,7 @@ joda_3662_6,"    public void testForFields_time_HMm_6_oe() {
     }
 
     }",TestISODateTimeFormat_Fields::testForFields_time_HMm_6_oe
-joda_3665_5,"    public void testForFields_datetime_YH_5_oe() {
+joda_3706_5,"    public void testForFields_datetime_YH_5_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.year(),
                 DateTimeFieldType.hourOfDay(),
@@ -22646,7 +22646,7 @@ joda_3665_5,"    public void testForFields_datetime_YH_5_oe() {
     }
     }
 ",TestISODateTimeFormat_Fields::testForFields_datetime_YH_5_oe
-joda_3665_6,"    public void testForFields_datetime_YH_6_oe() {
+joda_3706_6,"    public void testForFields_datetime_YH_6_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.year(),
                 DateTimeFieldType.hourOfDay(),
@@ -22674,7 +22674,7 @@ joda_3665_6,"    public void testForFields_datetime_YH_6_oe() {
     }
 
     }",TestISODateTimeFormat_Fields::testForFields_datetime_YH_6_oe
-joda_3666_5,"    public void testForFields_datetime_DM_5_oe() {
+joda_3707_5,"    public void testForFields_datetime_DM_5_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.dayOfMonth(),
                 DateTimeFieldType.minuteOfHour(),
@@ -22697,7 +22697,7 @@ joda_3666_5,"    public void testForFields_datetime_DM_5_oe() {
     }
     }
 ",TestISODateTimeFormat_Fields::testForFields_datetime_DM_5_oe
-joda_3666_6,"    public void testForFields_datetime_DM_6_oe() {
+joda_3707_6,"    public void testForFields_datetime_DM_6_oe() {
         DateTimeFieldType[] fields = new DateTimeFieldType[] {
                 DateTimeFieldType.dayOfMonth(),
                 DateTimeFieldType.minuteOfHour(),
@@ -22725,14 +22725,14 @@ joda_3666_6,"    public void testForFields_datetime_DM_6_oe() {
     }
 
     }",TestISODateTimeFormat_Fields::testForFields_datetime_DM_6_oe
-joda_3667_1,"    public void testForStyle_stringLengths_1_oe() {
+joda_3708_1,"    public void testForStyle_stringLengths_1_oe() {
         try {
             DateTimeFormat.forStyle(null);
             fail();
     }
     }
 ",TestDateTimeFormatStyle::testForStyle_stringLengths_1_oe
-joda_3667_2,"    public void testForStyle_stringLengths_2_oe() {
+joda_3708_2,"    public void testForStyle_stringLengths_2_oe() {
         try {
             DateTimeFormat.
         try {
@@ -22742,7 +22742,7 @@ joda_3667_2,"    public void testForStyle_stringLengths_2_oe() {
     }
 
     }",TestDateTimeFormatStyle::testForStyle_stringLengths_2_oe
-joda_3667_3,"    public void testForStyle_stringLengths_3_oe() {
+joda_3708_3,"    public void testForStyle_stringLengths_3_oe() {
         try {
             DateTimeFormat.
         try {
@@ -22755,7 +22755,7 @@ joda_3667_3,"    public void testForStyle_stringLengths_3_oe() {
 
     }
     }",TestDateTimeFormatStyle::testForStyle_stringLengths_3_oe
-joda_3667_4,"    public void testForStyle_stringLengths_4_oe() {
+joda_3708_4,"    public void testForStyle_stringLengths_4_oe() {
         try {
             DateTimeFormat.
         try {
@@ -22771,14 +22771,14 @@ joda_3667_4,"    public void testForStyle_stringLengths_4_oe() {
     }
     }
     }",TestDateTimeFormatStyle::testForStyle_stringLengths_4_oe
-joda_3668_1,"    public void testForStyle_invalidStrings_1_oe() {
+joda_3709_1,"    public void testForStyle_invalidStrings_1_oe() {
         try {
             DateTimeFormat.forStyle(""AA"");
             fail();
     }
     }
 ",TestDateTimeFormatStyle::testForStyle_invalidStrings_1_oe
-joda_3668_2,"    public void testForStyle_invalidStrings_2_oe() {
+joda_3709_2,"    public void testForStyle_invalidStrings_2_oe() {
         try {
             DateTimeFormat.
         try {
@@ -22788,7 +22788,7 @@ joda_3668_2,"    public void testForStyle_invalidStrings_2_oe() {
     }
 
     }",TestDateTimeFormatStyle::testForStyle_invalidStrings_2_oe
-joda_3668_3,"    public void testForStyle_invalidStrings_3_oe() {
+joda_3709_3,"    public void testForStyle_invalidStrings_3_oe() {
         try {
             DateTimeFormat.
         try {
@@ -22801,7 +22801,7 @@ joda_3668_3,"    public void testForStyle_invalidStrings_3_oe() {
 
     }
     }",TestDateTimeFormatStyle::testForStyle_invalidStrings_3_oe
-joda_3699_1,"    public void testParseStandardFail1_1_oe() {
+joda_3740_1,"    public void testParseStandardFail1_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         try {
             parser.parsePeriod(""P1Y2S"");
@@ -22809,7 +22809,7 @@ joda_3699_1,"    public void testParseStandardFail1_1_oe() {
     }
     }
 ",TestISOPeriodFormatParsing::testParseStandardFail1_1_oe
-joda_3700_1,"    public void testParseStandardFail2_1_oe() {
+joda_3741_1,"    public void testParseStandardFail2_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         try {
             parser.parsePeriod(""PS"");
@@ -22817,7 +22817,7 @@ joda_3700_1,"    public void testParseStandardFail2_1_oe() {
     }
     }
 ",TestISOPeriodFormatParsing::testParseStandardFail2_1_oe
-joda_3701_1,"    public void testParseStandardFail3_1_oe() {
+joda_3742_1,"    public void testParseStandardFail3_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         try {
             parser.parsePeriod(""PTS"");
@@ -22825,7 +22825,7 @@ joda_3701_1,"    public void testParseStandardFail3_1_oe() {
     }
     }
 ",TestISOPeriodFormatParsing::testParseStandardFail3_1_oe
-joda_3702_1,"    public void testParseStandardFail4_1_oe() {
+joda_3743_1,"    public void testParseStandardFail4_1_oe() {
         PeriodFormatter parser = ISOPeriodFormat.standard();
         try {
             parser.parsePeriod(""PXS"");
@@ -22833,14 +22833,14 @@ joda_3702_1,"    public void testParseStandardFail4_1_oe() {
     }
     }
 ",TestISOPeriodFormatParsing::testParseStandardFail4_1_oe
-joda_3721_1,"    public void test_constructor_1_oe() {
+joda_3762_1,"    public void test_constructor_1_oe() {
         try {
             new PreciseDurationField(null, 10);
             fail();
     }
     }
 ",TestPreciseDurationField::test_constructor_1_oe
-joda_3728_5,"    public void test_getValue_long_5_oe() {
+joda_3769_5,"    public void test_getValue_long_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22851,7 +22851,7 @@ joda_3728_5,"    public void test_getValue_long_5_oe() {
     }
     }
 ",TestPreciseDurationField::test_getValue_long_5_oe
-joda_3730_5,"    public void test_getValue_long_long_5_oe() {
+joda_3771_5,"    public void test_getValue_long_long_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22862,7 +22862,7 @@ joda_3730_5,"    public void test_getValue_long_long_5_oe() {
     }
     }
 ",TestPreciseDurationField::test_getValue_long_long_5_oe
-joda_3733_4,"    public void test_getMillis_long_4_oe() {
+joda_3774_4,"    public void test_getMillis_long_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22872,7 +22872,7 @@ joda_3733_4,"    public void test_getMillis_long_4_oe() {
     }
     }
 ",TestPreciseDurationField::test_getMillis_long_4_oe
-joda_3735_4,"    public void test_getMillis_long_long_4_oe() {
+joda_3776_4,"    public void test_getMillis_long_long_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22882,7 +22882,7 @@ joda_3735_4,"    public void test_getMillis_long_long_4_oe() {
     }
     }
 ",TestPreciseDurationField::test_getMillis_long_long_4_oe
-joda_3736_4,"    public void test_add_long_int_4_oe() {
+joda_3777_4,"    public void test_add_long_int_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22892,7 +22892,7 @@ joda_3736_4,"    public void test_add_long_int_4_oe() {
     }
     }
 ",TestPreciseDurationField::test_add_long_int_4_oe
-joda_3737_4,"    public void test_add_long_long_4_oe() {
+joda_3778_4,"    public void test_add_long_long_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22902,7 +22902,7 @@ joda_3737_4,"    public void test_add_long_long_4_oe() {
     }
     }
 ",TestPreciseDurationField::test_add_long_long_4_oe
-joda_3737_5,"    public void test_add_long_long_5_oe() {
+joda_3778_5,"    public void test_add_long_long_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22916,7 +22916,7 @@ joda_3737_5,"    public void test_add_long_long_5_oe() {
     }
     }
 ",TestPreciseDurationField::test_add_long_long_5_oe
-joda_3738_5,"    public void test_getDifference_long_int_5_oe() {
+joda_3779_5,"    public void test_getDifference_long_int_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22927,7 +22927,7 @@ joda_3738_5,"    public void test_getDifference_long_int_5_oe() {
     }
     }
 ",TestPreciseDurationField::test_getDifference_long_int_5_oe
-joda_3739_5,"    public void test_getDifferenceAsLong_long_long_5_oe() {
+joda_3780_5,"    public void test_getDifferenceAsLong_long_long_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22938,7 +22938,7 @@ joda_3739_5,"    public void test_getDifferenceAsLong_long_long_5_oe() {
     }
     }
 ",TestPreciseDurationField::test_getDifferenceAsLong_long_long_5_oe
-joda_3742_4,"    public void test_compareTo_4_oe() {
+joda_3783_4,"    public void test_compareTo_4_oe() {
         // removed other assertion
         // removed other assertion
         DurationField dummy = new PreciseDurationField(DurationFieldType.seconds(), 0);
@@ -22953,7 +22953,7 @@ joda_3742_4,"    public void test_compareTo_4_oe() {
     }
     }
 ",TestPreciseDurationField::test_compareTo_4_oe
-joda_3750_4,"    public void test_getValue_long_4_oe() {
+joda_3791_4,"    public void test_getValue_long_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22963,7 +22963,7 @@ joda_3750_4,"    public void test_getValue_long_4_oe() {
     }
     }
 ",TestMillisDurationField::test_getValue_long_4_oe
-joda_3752_4,"    public void test_getValue_long_long_4_oe() {
+joda_3793_4,"    public void test_getValue_long_long_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22973,7 +22973,7 @@ joda_3752_4,"    public void test_getValue_long_long_4_oe() {
     }
     }
 ",TestMillisDurationField::test_getValue_long_long_4_oe
-joda_3758_4,"    public void test_add_long_int_4_oe() {
+joda_3799_4,"    public void test_add_long_int_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22983,7 +22983,7 @@ joda_3758_4,"    public void test_add_long_int_4_oe() {
     }
     }
 ",TestMillisDurationField::test_add_long_int_4_oe
-joda_3759_4,"    public void test_add_long_long_4_oe() {
+joda_3800_4,"    public void test_add_long_long_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -22993,7 +22993,7 @@ joda_3759_4,"    public void test_add_long_long_4_oe() {
     }
     }
 ",TestMillisDurationField::test_add_long_long_4_oe
-joda_3760_4,"    public void test_getDifference_long_int_4_oe() {
+joda_3801_4,"    public void test_getDifference_long_int_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -23003,7 +23003,7 @@ joda_3760_4,"    public void test_getDifference_long_int_4_oe() {
     }
     }
 ",TestMillisDurationField::test_getDifference_long_int_4_oe
-joda_3761_4,"    public void test_getDifferenceAsLong_long_long_4_oe() {
+joda_3802_4,"    public void test_getDifferenceAsLong_long_long_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -23013,7 +23013,7 @@ joda_3761_4,"    public void test_getDifferenceAsLong_long_long_4_oe() {
     }
     }
 ",TestMillisDurationField::test_getDifferenceAsLong_long_long_4_oe
-joda_3762_4,"    public void test_compareTo_4_oe() {
+joda_3803_4,"    public void test_compareTo_4_oe() {
         // removed other assertion
         // removed other assertion
         DurationField dummy = new PreciseDurationField(DurationFieldType.seconds(), 0);
@@ -23028,7 +23028,7 @@ joda_3762_4,"    public void test_compareTo_4_oe() {
     }
     }
 ",TestMillisDurationField::test_compareTo_4_oe
-joda_3764_2,"    public void test_constructor_2_oe() {
+joda_3805_2,"    public void test_constructor_2_oe() {
         BaseDateTimeField field = new MockBaseDateTimeField();
         // removed other assertion
         try {
@@ -23037,7 +23037,7 @@ joda_3764_2,"    public void test_constructor_2_oe() {
     }
     }
 ",TestBaseDateTimeField::test_constructor_2_oe
-joda_3782_4,"    public void test_add_RP_int_intarray_int_4_oe() {
+joda_3823_4,"    public void test_add_RP_int_intarray_int_4_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
         BaseDateTimeField field = new MockStandardBaseDateTimeField();
@@ -23061,7 +23061,7 @@ joda_3782_4,"    public void test_add_RP_int_intarray_int_4_oe() {
     }
     }
 ",TestBaseDateTimeField::test_add_RP_int_intarray_int_4_oe
-joda_3782_7,"    public void test_add_RP_int_intarray_int_7_oe() {
+joda_3823_7,"    public void test_add_RP_int_intarray_int_7_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
         BaseDateTimeField field = new MockStandardBaseDateTimeField();
@@ -23101,7 +23101,7 @@ joda_3782_7,"    public void test_add_RP_int_intarray_int_7_oe() {
     }
     }
 ",TestBaseDateTimeField::test_add_RP_int_intarray_int_7_oe
-joda_3782_8,"    public void test_add_RP_int_intarray_int_8_oe() {
+joda_3823_8,"    public void test_add_RP_int_intarray_int_8_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
         BaseDateTimeField field = new MockStandardBaseDateTimeField();
@@ -23147,7 +23147,7 @@ joda_3782_8,"    public void test_add_RP_int_intarray_int_8_oe() {
     }
     }
 ",TestBaseDateTimeField::test_add_RP_int_intarray_int_8_oe
-joda_3782_9,"    public void test_add_RP_int_intarray_int_9_oe() {
+joda_3823_9,"    public void test_add_RP_int_intarray_int_9_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
         BaseDateTimeField field = new MockStandardBaseDateTimeField();
@@ -23199,7 +23199,7 @@ joda_3782_9,"    public void test_add_RP_int_intarray_int_9_oe() {
     }
     }
 ",TestBaseDateTimeField::test_add_RP_int_intarray_int_9_oe
-joda_3788_3,"    public void test_set_RP_int_intarray_int_3_oe() {
+joda_3829_3,"    public void test_set_RP_int_intarray_int_3_oe() {
         BaseDateTimeField field = new MockBaseDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -23219,7 +23219,7 @@ joda_3788_3,"    public void test_set_RP_int_intarray_int_3_oe() {
     }
     }
 ",TestBaseDateTimeField::test_set_RP_int_intarray_int_3_oe
-joda_3788_5,"    public void test_set_RP_int_intarray_int_5_oe() {
+joda_3829_5,"    public void test_set_RP_int_intarray_int_5_oe() {
         BaseDateTimeField field = new MockBaseDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -23247,7 +23247,7 @@ joda_3788_5,"    public void test_set_RP_int_intarray_int_5_oe() {
     }
     }
 ",TestBaseDateTimeField::test_set_RP_int_intarray_int_5_oe
-joda_3791_3,"    public void test_set_RP_int_intarray_String_Locale_3_oe() {
+joda_3832_3,"    public void test_set_RP_int_intarray_String_Locale_3_oe() {
         BaseDateTimeField field = new MockBaseDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -23267,7 +23267,7 @@ joda_3791_3,"    public void test_set_RP_int_intarray_String_Locale_3_oe() {
     }
     }
 ",TestBaseDateTimeField::test_set_RP_int_intarray_String_Locale_3_oe
-joda_3791_5,"    public void test_set_RP_int_intarray_String_Locale_5_oe() {
+joda_3832_5,"    public void test_set_RP_int_intarray_String_Locale_5_oe() {
         BaseDateTimeField field = new MockBaseDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -23295,7 +23295,7 @@ joda_3791_5,"    public void test_set_RP_int_intarray_String_Locale_5_oe() {
     }
     }
 ",TestBaseDateTimeField::test_set_RP_int_intarray_String_Locale_5_oe
-joda_3792_3,"    public void test_convertText_3_oe() {
+joda_3833_3,"    public void test_convertText_3_oe() {
         BaseDateTimeField field = new MockBaseDateTimeField();
         // removed other assertion
         // removed other assertion
@@ -23305,7 +23305,7 @@ joda_3792_3,"    public void test_convertText_3_oe() {
     }
     }
 ",TestBaseDateTimeField::test_convertText_3_oe
-joda_3792_4,"    public void test_convertText_4_oe() {
+joda_3833_4,"    public void test_convertText_4_oe() {
         BaseDateTimeField field = new MockBaseDateTimeField();
         // removed other assertion
         // removed other assertion
@@ -23319,7 +23319,7 @@ joda_3792_4,"    public void test_convertText_4_oe() {
     }
     }
 ",TestBaseDateTimeField::test_convertText_4_oe
-joda_3812_3,"    public void test_constructor1_3_oe() {
+joda_3853_3,"    public void test_constructor1_3_oe() {
         OffsetDateTimeField field = new OffsetDateTimeField(
             ISOChronology.getInstance().secondOfMinute(), 3
         );
@@ -23332,7 +23332,7 @@ joda_3812_3,"    public void test_constructor1_3_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_constructor1_3_oe
-joda_3812_4,"    public void test_constructor1_4_oe() {
+joda_3853_4,"    public void test_constructor1_4_oe() {
         OffsetDateTimeField field = new OffsetDateTimeField(
             ISOChronology.getInstance().secondOfMinute(), 3
         );
@@ -23350,7 +23350,7 @@ joda_3812_4,"    public void test_constructor1_4_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_constructor1_4_oe
-joda_3812_5,"    public void test_constructor1_5_oe() {
+joda_3853_5,"    public void test_constructor1_5_oe() {
         OffsetDateTimeField field = new OffsetDateTimeField(
             ISOChronology.getInstance().secondOfMinute(), 3
         );
@@ -23374,7 +23374,7 @@ joda_3812_5,"    public void test_constructor1_5_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_constructor1_5_oe
-joda_3813_3,"    public void test_constructor2_3_oe() {
+joda_3854_3,"    public void test_constructor2_3_oe() {
         OffsetDateTimeField field = new OffsetDateTimeField(
             ISOChronology.getInstance().secondOfMinute(), DateTimeFieldType.secondOfDay(), 3
         );
@@ -23387,7 +23387,7 @@ joda_3813_3,"    public void test_constructor2_3_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_constructor2_3_oe
-joda_3813_4,"    public void test_constructor2_4_oe() {
+joda_3854_4,"    public void test_constructor2_4_oe() {
         OffsetDateTimeField field = new OffsetDateTimeField(
             ISOChronology.getInstance().secondOfMinute(), DateTimeFieldType.secondOfDay(), 3
         );
@@ -23405,7 +23405,7 @@ joda_3813_4,"    public void test_constructor2_4_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_constructor2_4_oe
-joda_3813_5,"    public void test_constructor2_5_oe() {
+joda_3854_5,"    public void test_constructor2_5_oe() {
         OffsetDateTimeField field = new OffsetDateTimeField(
             ISOChronology.getInstance().secondOfMinute(), DateTimeFieldType.secondOfDay(), 3
         );
@@ -23428,7 +23428,7 @@ joda_3813_5,"    public void test_constructor2_5_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_constructor2_5_oe
-joda_3833_5,"    public void test_add_RP_int_intarray_int_5_oe() {
+joda_3874_5,"    public void test_add_RP_int_intarray_int_5_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
         OffsetDateTimeField field = new MockStandardDateTimeField();
@@ -23457,7 +23457,7 @@ joda_3833_5,"    public void test_add_RP_int_intarray_int_5_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_add_RP_int_intarray_int_5_oe
-joda_3833_8,"    public void test_add_RP_int_intarray_int_8_oe() {
+joda_3874_8,"    public void test_add_RP_int_intarray_int_8_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
         OffsetDateTimeField field = new MockStandardDateTimeField();
@@ -23502,7 +23502,7 @@ joda_3833_8,"    public void test_add_RP_int_intarray_int_8_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_add_RP_int_intarray_int_8_oe
-joda_3839_3,"    public void test_set_RP_int_intarray_int_3_oe() {
+joda_3880_3,"    public void test_set_RP_int_intarray_int_3_oe() {
         OffsetDateTimeField field = new MockOffsetDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -23522,7 +23522,7 @@ joda_3839_3,"    public void test_set_RP_int_intarray_int_3_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_set_RP_int_intarray_int_3_oe
-joda_3839_5,"    public void test_set_RP_int_intarray_int_5_oe() {
+joda_3880_5,"    public void test_set_RP_int_intarray_int_5_oe() {
         OffsetDateTimeField field = new MockOffsetDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -23550,7 +23550,7 @@ joda_3839_5,"    public void test_set_RP_int_intarray_int_5_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_set_RP_int_intarray_int_5_oe
-joda_3842_3,"    public void test_set_RP_int_intarray_String_Locale_3_oe() {
+joda_3883_3,"    public void test_set_RP_int_intarray_String_Locale_3_oe() {
         OffsetDateTimeField field = new MockOffsetDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -23570,7 +23570,7 @@ joda_3842_3,"    public void test_set_RP_int_intarray_String_Locale_3_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_set_RP_int_intarray_String_Locale_3_oe
-joda_3842_5,"    public void test_set_RP_int_intarray_String_Locale_5_oe() {
+joda_3883_5,"    public void test_set_RP_int_intarray_String_Locale_5_oe() {
         OffsetDateTimeField field = new MockOffsetDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -23598,7 +23598,7 @@ joda_3842_5,"    public void test_set_RP_int_intarray_String_Locale_5_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_set_RP_int_intarray_String_Locale_5_oe
-joda_3843_3,"    public void test_convertText_3_oe() {
+joda_3884_3,"    public void test_convertText_3_oe() {
         OffsetDateTimeField field = new MockOffsetDateTimeField();
         // removed other assertion
         // removed other assertion
@@ -23608,7 +23608,7 @@ joda_3843_3,"    public void test_convertText_3_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_convertText_3_oe
-joda_3843_4,"    public void test_convertText_4_oe() {
+joda_3884_4,"    public void test_convertText_4_oe() {
         OffsetDateTimeField field = new MockOffsetDateTimeField();
         // removed other assertion
         // removed other assertion
@@ -23622,7 +23622,7 @@ joda_3843_4,"    public void test_convertText_4_oe() {
     }
     }
 ",TestOffsetDateTimeField::test_convertText_4_oe
-joda_3863_10,"    public void testSafeAddInt_10_oe() {
+joda_3904_10,"    public void testSafeAddInt_10_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -23642,7 +23642,7 @@ joda_3863_10,"    public void testSafeAddInt_10_oe() {
     }
     }
 ",TestFieldUtils::testSafeAddInt_10_oe
-joda_3863_11,"    public void testSafeAddInt_11_oe() {
+joda_3904_11,"    public void testSafeAddInt_11_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -23668,7 +23668,7 @@ joda_3863_11,"    public void testSafeAddInt_11_oe() {
     }
     }
 ",TestFieldUtils::testSafeAddInt_11_oe
-joda_3863_12,"    public void testSafeAddInt_12_oe() {
+joda_3904_12,"    public void testSafeAddInt_12_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -23700,7 +23700,7 @@ joda_3863_12,"    public void testSafeAddInt_12_oe() {
     }
     }
 ",TestFieldUtils::testSafeAddInt_12_oe
-joda_3863_13,"    public void testSafeAddInt_13_oe() {
+joda_3904_13,"    public void testSafeAddInt_13_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -23738,7 +23738,7 @@ joda_3863_13,"    public void testSafeAddInt_13_oe() {
     }
     }
 ",TestFieldUtils::testSafeAddInt_13_oe
-joda_3863_14,"    public void testSafeAddInt_14_oe() {
+joda_3904_14,"    public void testSafeAddInt_14_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -23782,7 +23782,7 @@ joda_3863_14,"    public void testSafeAddInt_14_oe() {
     }
     }
 ",TestFieldUtils::testSafeAddInt_14_oe
-joda_3863_15,"    public void testSafeAddInt_15_oe() {
+joda_3904_15,"    public void testSafeAddInt_15_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -23832,7 +23832,7 @@ joda_3863_15,"    public void testSafeAddInt_15_oe() {
     }
     }
 ",TestFieldUtils::testSafeAddInt_15_oe
-joda_3864_10,"    public void testSafeAddLong_10_oe() {
+joda_3905_10,"    public void testSafeAddLong_10_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -23852,7 +23852,7 @@ joda_3864_10,"    public void testSafeAddLong_10_oe() {
     }
     }
 ",TestFieldUtils::testSafeAddLong_10_oe
-joda_3864_11,"    public void testSafeAddLong_11_oe() {
+joda_3905_11,"    public void testSafeAddLong_11_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -23878,7 +23878,7 @@ joda_3864_11,"    public void testSafeAddLong_11_oe() {
     }
     }
 ",TestFieldUtils::testSafeAddLong_11_oe
-joda_3864_12,"    public void testSafeAddLong_12_oe() {
+joda_3905_12,"    public void testSafeAddLong_12_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -23910,7 +23910,7 @@ joda_3864_12,"    public void testSafeAddLong_12_oe() {
     }
     }
 ",TestFieldUtils::testSafeAddLong_12_oe
-joda_3864_13,"    public void testSafeAddLong_13_oe() {
+joda_3905_13,"    public void testSafeAddLong_13_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -23948,7 +23948,7 @@ joda_3864_13,"    public void testSafeAddLong_13_oe() {
     }
     }
 ",TestFieldUtils::testSafeAddLong_13_oe
-joda_3864_14,"    public void testSafeAddLong_14_oe() {
+joda_3905_14,"    public void testSafeAddLong_14_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -23992,7 +23992,7 @@ joda_3864_14,"    public void testSafeAddLong_14_oe() {
     }
     }
 ",TestFieldUtils::testSafeAddLong_14_oe
-joda_3864_15,"    public void testSafeAddLong_15_oe() {
+joda_3905_15,"    public void testSafeAddLong_15_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -24042,7 +24042,7 @@ joda_3864_15,"    public void testSafeAddLong_15_oe() {
     }
     }
 ",TestFieldUtils::testSafeAddLong_15_oe
-joda_3865_10,"    public void testSafeSubtractLong_10_oe() {
+joda_3906_10,"    public void testSafeSubtractLong_10_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -24062,7 +24062,7 @@ joda_3865_10,"    public void testSafeSubtractLong_10_oe() {
     }
     }
 ",TestFieldUtils::testSafeSubtractLong_10_oe
-joda_3865_11,"    public void testSafeSubtractLong_11_oe() {
+joda_3906_11,"    public void testSafeSubtractLong_11_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -24088,7 +24088,7 @@ joda_3865_11,"    public void testSafeSubtractLong_11_oe() {
     }
     }
 ",TestFieldUtils::testSafeSubtractLong_11_oe
-joda_3865_12,"    public void testSafeSubtractLong_12_oe() {
+joda_3906_12,"    public void testSafeSubtractLong_12_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -24120,7 +24120,7 @@ joda_3865_12,"    public void testSafeSubtractLong_12_oe() {
     }
     }
 ",TestFieldUtils::testSafeSubtractLong_12_oe
-joda_3865_13,"    public void testSafeSubtractLong_13_oe() {
+joda_3906_13,"    public void testSafeSubtractLong_13_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -24158,7 +24158,7 @@ joda_3865_13,"    public void testSafeSubtractLong_13_oe() {
     }
     }
 ",TestFieldUtils::testSafeSubtractLong_13_oe
-joda_3865_14,"    public void testSafeSubtractLong_14_oe() {
+joda_3906_14,"    public void testSafeSubtractLong_14_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -24202,7 +24202,7 @@ joda_3865_14,"    public void testSafeSubtractLong_14_oe() {
     }
     }
 ",TestFieldUtils::testSafeSubtractLong_14_oe
-joda_3865_15,"    public void testSafeSubtractLong_15_oe() {
+joda_3906_15,"    public void testSafeSubtractLong_15_oe() {
         // removed other assertion
 
         // removed other assertion
@@ -24252,7 +24252,7 @@ joda_3865_15,"    public void testSafeSubtractLong_15_oe() {
     }
     }
 ",TestFieldUtils::testSafeSubtractLong_15_oe
-joda_3866_12,"    public void testSafeMultiplyLongLong_12_oe() {
+joda_3907_12,"    public void testSafeMultiplyLongLong_12_oe() {
         // removed other assertion
         
         // removed other assertion
@@ -24274,7 +24274,7 @@ joda_3866_12,"    public void testSafeMultiplyLongLong_12_oe() {
     }
     }
 ",TestFieldUtils::testSafeMultiplyLongLong_12_oe
-joda_3866_13,"    public void testSafeMultiplyLongLong_13_oe() {
+joda_3907_13,"    public void testSafeMultiplyLongLong_13_oe() {
         // removed other assertion
         
         // removed other assertion
@@ -24302,7 +24302,7 @@ joda_3866_13,"    public void testSafeMultiplyLongLong_13_oe() {
     }
     }
 ",TestFieldUtils::testSafeMultiplyLongLong_13_oe
-joda_3866_14,"    public void testSafeMultiplyLongLong_14_oe() {
+joda_3907_14,"    public void testSafeMultiplyLongLong_14_oe() {
         // removed other assertion
         
         // removed other assertion
@@ -24336,7 +24336,7 @@ joda_3866_14,"    public void testSafeMultiplyLongLong_14_oe() {
     }
     }
 ",TestFieldUtils::testSafeMultiplyLongLong_14_oe
-joda_3866_15,"    public void testSafeMultiplyLongLong_15_oe() {
+joda_3907_15,"    public void testSafeMultiplyLongLong_15_oe() {
         // removed other assertion
         
         // removed other assertion
@@ -24376,7 +24376,7 @@ joda_3866_15,"    public void testSafeMultiplyLongLong_15_oe() {
     }
     }
 ",TestFieldUtils::testSafeMultiplyLongLong_15_oe
-joda_3866_16,"    public void testSafeMultiplyLongLong_16_oe() {
+joda_3907_16,"    public void testSafeMultiplyLongLong_16_oe() {
         // removed other assertion
         
         // removed other assertion
@@ -24422,7 +24422,7 @@ joda_3866_16,"    public void testSafeMultiplyLongLong_16_oe() {
     }
     }
 ",TestFieldUtils::testSafeMultiplyLongLong_16_oe
-joda_3867_13,"    public void testSafeMultiplyLongInt_13_oe() {
+joda_3908_13,"    public void testSafeMultiplyLongInt_13_oe() {
         // removed other assertion
         
         // removed other assertion
@@ -24446,7 +24446,7 @@ joda_3867_13,"    public void testSafeMultiplyLongInt_13_oe() {
     }
     }
 ",TestFieldUtils::testSafeMultiplyLongInt_13_oe
-joda_3867_14,"    public void testSafeMultiplyLongInt_14_oe() {
+joda_3908_14,"    public void testSafeMultiplyLongInt_14_oe() {
         // removed other assertion
         
         // removed other assertion
@@ -24476,7 +24476,7 @@ joda_3867_14,"    public void testSafeMultiplyLongInt_14_oe() {
     }
     }
 ",TestFieldUtils::testSafeMultiplyLongInt_14_oe
-joda_3867_15,"    public void testSafeMultiplyLongInt_15_oe() {
+joda_3908_15,"    public void testSafeMultiplyLongInt_15_oe() {
         // removed other assertion
         
         // removed other assertion
@@ -24512,7 +24512,7 @@ joda_3867_15,"    public void testSafeMultiplyLongInt_15_oe() {
     }
     }
 ",TestFieldUtils::testSafeMultiplyLongInt_15_oe
-joda_3867_16,"    public void testSafeMultiplyLongInt_16_oe() {
+joda_3908_16,"    public void testSafeMultiplyLongInt_16_oe() {
         // removed other assertion
         
         // removed other assertion
@@ -24554,7 +24554,7 @@ joda_3867_16,"    public void testSafeMultiplyLongInt_16_oe() {
     }
     }
 ",TestFieldUtils::testSafeMultiplyLongInt_16_oe
-joda_3868_20,"    public void testSafeDivideLongLong_20_oe() {
+joda_3909_20,"    public void testSafeDivideLongLong_20_oe() {
         // removed other assertion
         
         // removed other assertion
@@ -24586,7 +24586,7 @@ joda_3868_20,"    public void testSafeDivideLongLong_20_oe() {
     }
     }
 ",TestFieldUtils::testSafeDivideLongLong_20_oe
-joda_3868_21,"    public void testSafeDivideLongLong_21_oe() {
+joda_3909_21,"    public void testSafeDivideLongLong_21_oe() {
         // removed other assertion
         
         // removed other assertion
@@ -24624,7 +24624,7 @@ joda_3868_21,"    public void testSafeDivideLongLong_21_oe() {
     }
     }
 ",TestFieldUtils::testSafeDivideLongLong_21_oe
-joda_3869_11,"    public void testSafeDivideRoundingModeLong_11_oe() {
+joda_3910_11,"    public void testSafeDivideRoundingModeLong_11_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -24643,7 +24643,7 @@ joda_3869_11,"    public void testSafeDivideRoundingModeLong_11_oe() {
     }
     }
 ",TestFieldUtils::testSafeDivideRoundingModeLong_11_oe
-joda_3869_12,"    public void testSafeDivideRoundingModeLong_12_oe() {
+joda_3910_12,"    public void testSafeDivideRoundingModeLong_12_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -24668,7 +24668,7 @@ joda_3869_12,"    public void testSafeDivideRoundingModeLong_12_oe() {
     }
     }
 ",TestFieldUtils::testSafeDivideRoundingModeLong_12_oe
-joda_3870_1,"    public void testNullValuesToGetInstanceThrowsException_1_oe() {
+joda_3911_1,"    public void testNullValuesToGetInstanceThrowsException_1_oe() {
 
         try {
             UnsupportedDateTimeField.getInstance(null, null);
@@ -24676,7 +24676,7 @@ joda_3870_1,"    public void testNullValuesToGetInstanceThrowsException_1_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testNullValuesToGetInstanceThrowsException_1_oe
-joda_3875_1,"    public void testUnsupportedMethods_1_oe() {
+joda_3916_1,"    public void testUnsupportedMethods_1_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -24689,7 +24689,7 @@ joda_3875_1,"    public void testUnsupportedMethods_1_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_1_oe
-joda_3875_3,"    public void testUnsupportedMethods_3_oe() {
+joda_3916_3,"    public void testUnsupportedMethods_3_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -24709,7 +24709,7 @@ joda_3875_3,"    public void testUnsupportedMethods_3_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_3_oe
-joda_3875_5,"    public void testUnsupportedMethods_5_oe() {
+joda_3916_5,"    public void testUnsupportedMethods_5_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -24737,7 +24737,7 @@ joda_3875_5,"    public void testUnsupportedMethods_5_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_5_oe
-joda_3875_7,"    public void testUnsupportedMethods_7_oe() {
+joda_3916_7,"    public void testUnsupportedMethods_7_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -24773,7 +24773,7 @@ joda_3875_7,"    public void testUnsupportedMethods_7_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_7_oe
-joda_3875_9,"    public void testUnsupportedMethods_9_oe() {
+joda_3916_9,"    public void testUnsupportedMethods_9_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -24816,7 +24816,7 @@ joda_3875_9,"    public void testUnsupportedMethods_9_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_9_oe
-joda_3875_11,"    public void testUnsupportedMethods_11_oe() {
+joda_3916_11,"    public void testUnsupportedMethods_11_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -24868,7 +24868,7 @@ joda_3875_11,"    public void testUnsupportedMethods_11_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_11_oe
-joda_3875_13,"    public void testUnsupportedMethods_13_oe() {
+joda_3916_13,"    public void testUnsupportedMethods_13_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -24928,7 +24928,7 @@ joda_3875_13,"    public void testUnsupportedMethods_13_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_13_oe
-joda_3875_15,"    public void testUnsupportedMethods_15_oe() {
+joda_3916_15,"    public void testUnsupportedMethods_15_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -24996,7 +24996,7 @@ joda_3875_15,"    public void testUnsupportedMethods_15_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_15_oe
-joda_3875_17,"    public void testUnsupportedMethods_17_oe() {
+joda_3916_17,"    public void testUnsupportedMethods_17_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -25074,7 +25074,7 @@ joda_3875_17,"    public void testUnsupportedMethods_17_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_17_oe
-joda_3875_19,"    public void testUnsupportedMethods_19_oe() {
+joda_3916_19,"    public void testUnsupportedMethods_19_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -25161,7 +25161,7 @@ joda_3875_19,"    public void testUnsupportedMethods_19_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_19_oe
-joda_3875_21,"    public void testUnsupportedMethods_21_oe() {
+joda_3916_21,"    public void testUnsupportedMethods_21_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -25257,7 +25257,7 @@ joda_3875_21,"    public void testUnsupportedMethods_21_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_21_oe
-joda_3875_23,"    public void testUnsupportedMethods_23_oe() {
+joda_3916_23,"    public void testUnsupportedMethods_23_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -25361,7 +25361,7 @@ joda_3875_23,"    public void testUnsupportedMethods_23_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_23_oe
-joda_3875_25,"    public void testUnsupportedMethods_25_oe() {
+joda_3916_25,"    public void testUnsupportedMethods_25_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -25473,7 +25473,7 @@ joda_3875_25,"    public void testUnsupportedMethods_25_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_25_oe
-joda_3875_27,"    public void testUnsupportedMethods_27_oe() {
+joda_3916_27,"    public void testUnsupportedMethods_27_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -25595,7 +25595,7 @@ joda_3875_27,"    public void testUnsupportedMethods_27_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_27_oe
-joda_3875_29,"    public void testUnsupportedMethods_29_oe() {
+joda_3916_29,"    public void testUnsupportedMethods_29_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -25726,7 +25726,7 @@ joda_3875_29,"    public void testUnsupportedMethods_29_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_29_oe
-joda_3875_31,"    public void testUnsupportedMethods_31_oe() {
+joda_3916_31,"    public void testUnsupportedMethods_31_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -25866,7 +25866,7 @@ joda_3875_31,"    public void testUnsupportedMethods_31_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_31_oe
-joda_3875_33,"    public void testUnsupportedMethods_33_oe() {
+joda_3916_33,"    public void testUnsupportedMethods_33_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -26016,7 +26016,7 @@ joda_3875_33,"    public void testUnsupportedMethods_33_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_33_oe
-joda_3875_35,"    public void testUnsupportedMethods_35_oe() {
+joda_3916_35,"    public void testUnsupportedMethods_35_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -26176,7 +26176,7 @@ joda_3875_35,"    public void testUnsupportedMethods_35_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_35_oe
-joda_3875_37,"    public void testUnsupportedMethods_37_oe() {
+joda_3916_37,"    public void testUnsupportedMethods_37_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -26345,7 +26345,7 @@ joda_3875_37,"    public void testUnsupportedMethods_37_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_37_oe
-joda_3875_39,"    public void testUnsupportedMethods_39_oe() {
+joda_3916_39,"    public void testUnsupportedMethods_39_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -26524,7 +26524,7 @@ joda_3875_39,"    public void testUnsupportedMethods_39_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_39_oe
-joda_3875_41,"    public void testUnsupportedMethods_41_oe() {
+joda_3916_41,"    public void testUnsupportedMethods_41_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -26713,7 +26713,7 @@ joda_3875_41,"    public void testUnsupportedMethods_41_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_41_oe
-joda_3875_43,"    public void testUnsupportedMethods_43_oe() {
+joda_3916_43,"    public void testUnsupportedMethods_43_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -26913,7 +26913,7 @@ joda_3875_43,"    public void testUnsupportedMethods_43_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_43_oe
-joda_3875_45,"    public void testUnsupportedMethods_45_oe() {
+joda_3916_45,"    public void testUnsupportedMethods_45_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -27122,7 +27122,7 @@ joda_3875_45,"    public void testUnsupportedMethods_45_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_45_oe
-joda_3875_47,"    public void testUnsupportedMethods_47_oe() {
+joda_3916_47,"    public void testUnsupportedMethods_47_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -27340,7 +27340,7 @@ joda_3875_47,"    public void testUnsupportedMethods_47_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_47_oe
-joda_3875_49,"    public void testUnsupportedMethods_49_oe() {
+joda_3916_49,"    public void testUnsupportedMethods_49_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -27568,7 +27568,7 @@ joda_3875_49,"    public void testUnsupportedMethods_49_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_49_oe
-joda_3875_51,"    public void testUnsupportedMethods_51_oe() {
+joda_3916_51,"    public void testUnsupportedMethods_51_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -27806,7 +27806,7 @@ joda_3875_51,"    public void testUnsupportedMethods_51_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_51_oe
-joda_3875_53,"    public void testUnsupportedMethods_53_oe() {
+joda_3916_53,"    public void testUnsupportedMethods_53_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -28053,7 +28053,7 @@ joda_3875_53,"    public void testUnsupportedMethods_53_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_53_oe
-joda_3875_55,"    public void testUnsupportedMethods_55_oe() {
+joda_3916_55,"    public void testUnsupportedMethods_55_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -28309,7 +28309,7 @@ joda_3875_55,"    public void testUnsupportedMethods_55_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_55_oe
-joda_3875_57,"    public void testUnsupportedMethods_57_oe() {
+joda_3916_57,"    public void testUnsupportedMethods_57_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -28575,7 +28575,7 @@ joda_3875_57,"    public void testUnsupportedMethods_57_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_57_oe
-joda_3875_59,"    public void testUnsupportedMethods_59_oe() {
+joda_3916_59,"    public void testUnsupportedMethods_59_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -28850,7 +28850,7 @@ joda_3875_59,"    public void testUnsupportedMethods_59_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_59_oe
-joda_3875_61,"    public void testUnsupportedMethods_61_oe() {
+joda_3916_61,"    public void testUnsupportedMethods_61_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -29135,7 +29135,7 @@ joda_3875_61,"    public void testUnsupportedMethods_61_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_61_oe
-joda_3875_63,"    public void testUnsupportedMethods_63_oe() {
+joda_3916_63,"    public void testUnsupportedMethods_63_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -29430,7 +29430,7 @@ joda_3875_63,"    public void testUnsupportedMethods_63_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_63_oe
-joda_3875_65,"    public void testUnsupportedMethods_65_oe() {
+joda_3916_65,"    public void testUnsupportedMethods_65_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -29735,7 +29735,7 @@ joda_3875_65,"    public void testUnsupportedMethods_65_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_65_oe
-joda_3875_67,"    public void testUnsupportedMethods_67_oe() {
+joda_3916_67,"    public void testUnsupportedMethods_67_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -30050,7 +30050,7 @@ joda_3875_67,"    public void testUnsupportedMethods_67_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_67_oe
-joda_3875_69,"    public void testUnsupportedMethods_69_oe() {
+joda_3916_69,"    public void testUnsupportedMethods_69_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -30375,7 +30375,7 @@ joda_3875_69,"    public void testUnsupportedMethods_69_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_69_oe
-joda_3875_71,"    public void testUnsupportedMethods_71_oe() {
+joda_3916_71,"    public void testUnsupportedMethods_71_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -30712,7 +30712,7 @@ joda_3875_71,"    public void testUnsupportedMethods_71_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_71_oe
-joda_3875_73,"    public void testUnsupportedMethods_73_oe() {
+joda_3916_73,"    public void testUnsupportedMethods_73_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -31061,7 +31061,7 @@ joda_3875_73,"    public void testUnsupportedMethods_73_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_73_oe
-joda_3875_75,"    public void testUnsupportedMethods_75_oe() {
+joda_3916_75,"    public void testUnsupportedMethods_75_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -31424,7 +31424,7 @@ joda_3875_75,"    public void testUnsupportedMethods_75_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testUnsupportedMethods_75_oe
-joda_3876_1,"    public void testDelegatedMethods_1_oe() {
+joda_3917_1,"    public void testDelegatedMethods_1_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -31444,7 +31444,7 @@ joda_3876_1,"    public void testDelegatedMethods_1_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testDelegatedMethods_1_oe
-joda_3876_3,"    public void testDelegatedMethods_3_oe() {
+joda_3917_3,"    public void testDelegatedMethods_3_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -31473,7 +31473,7 @@ joda_3876_3,"    public void testDelegatedMethods_3_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testDelegatedMethods_3_oe
-joda_3876_5,"    public void testDelegatedMethods_5_oe() {
+joda_3917_5,"    public void testDelegatedMethods_5_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -31514,7 +31514,7 @@ joda_3876_5,"    public void testDelegatedMethods_5_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testDelegatedMethods_5_oe
-joda_3876_7,"    public void testDelegatedMethods_7_oe() {
+joda_3917_7,"    public void testDelegatedMethods_7_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -31565,7 +31565,7 @@ joda_3876_7,"    public void testDelegatedMethods_7_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testDelegatedMethods_7_oe
-joda_3876_8,"    public void testDelegatedMethods_8_oe() {
+joda_3917_8,"    public void testDelegatedMethods_8_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -31617,7 +31617,7 @@ joda_3876_8,"    public void testDelegatedMethods_8_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testDelegatedMethods_8_oe
-joda_3876_10,"    public void testDelegatedMethods_10_oe() {
+joda_3917_10,"    public void testDelegatedMethods_10_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -31681,7 +31681,7 @@ joda_3876_10,"    public void testDelegatedMethods_10_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testDelegatedMethods_10_oe
-joda_3876_12,"    public void testDelegatedMethods_12_oe() {
+joda_3917_12,"    public void testDelegatedMethods_12_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -31753,7 +31753,7 @@ joda_3876_12,"    public void testDelegatedMethods_12_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testDelegatedMethods_12_oe
-joda_3876_14,"    public void testDelegatedMethods_14_oe() {
+joda_3917_14,"    public void testDelegatedMethods_14_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -31837,7 +31837,7 @@ joda_3876_14,"    public void testDelegatedMethods_14_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testDelegatedMethods_14_oe
-joda_3876_16,"    public void testDelegatedMethods_16_oe() {
+joda_3917_16,"    public void testDelegatedMethods_16_oe() {
         DateTimeField fieldOne = UnsupportedDateTimeField.getInstance(
                 dateTimeFieldTypeOne, UnsupportedDurationField
                         .getInstance(weeks));
@@ -31929,7 +31929,7 @@ joda_3876_16,"    public void testDelegatedMethods_16_oe() {
     }
     }
 ",TestUnsupportedDateTimeField::testDelegatedMethods_16_oe
-joda_3878_2,"    public void test_constructor_2_oe() {
+joda_3919_2,"    public void test_constructor_2_oe() {
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         // removed other assertion
         try {
@@ -31938,7 +31938,7 @@ joda_3878_2,"    public void test_constructor_2_oe() {
     }
     }
 ",TestPreciseDurationDateTimeField::test_constructor_2_oe
-joda_3878_3,"    public void test_constructor_3_oe() {
+joda_3919_3,"    public void test_constructor_3_oe() {
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         // removed other assertion
         try {
@@ -31953,7 +31953,7 @@ joda_3878_3,"    public void test_constructor_3_oe() {
     }
     }
 ",TestPreciseDurationDateTimeField::test_constructor_3_oe
-joda_3878_4,"    public void test_constructor_4_oe() {
+joda_3919_4,"    public void test_constructor_4_oe() {
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         // removed other assertion
         try {
@@ -31974,7 +31974,7 @@ joda_3878_4,"    public void test_constructor_4_oe() {
     }
     }
 ",TestPreciseDurationDateTimeField::test_constructor_4_oe
-joda_3897_4,"    public void test_add_RP_int_intarray_int_4_oe() {
+joda_3938_4,"    public void test_add_RP_int_intarray_int_4_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
         BaseDateTimeField field = new MockStandardBaseDateTimeField();
@@ -31998,7 +31998,7 @@ joda_3897_4,"    public void test_add_RP_int_intarray_int_4_oe() {
     }
     }
 ",TestPreciseDurationDateTimeField::test_add_RP_int_intarray_int_4_oe
-joda_3897_7,"    public void test_add_RP_int_intarray_int_7_oe() {
+joda_3938_7,"    public void test_add_RP_int_intarray_int_7_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
         BaseDateTimeField field = new MockStandardBaseDateTimeField();
@@ -32038,7 +32038,7 @@ joda_3897_7,"    public void test_add_RP_int_intarray_int_7_oe() {
     }
     }
 ",TestPreciseDurationDateTimeField::test_add_RP_int_intarray_int_7_oe
-joda_3903_3,"    public void test_set_RP_int_intarray_int_3_oe() {
+joda_3944_3,"    public void test_set_RP_int_intarray_int_3_oe() {
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -32058,7 +32058,7 @@ joda_3903_3,"    public void test_set_RP_int_intarray_int_3_oe() {
     }
     }
 ",TestPreciseDurationDateTimeField::test_set_RP_int_intarray_int_3_oe
-joda_3903_5,"    public void test_set_RP_int_intarray_int_5_oe() {
+joda_3944_5,"    public void test_set_RP_int_intarray_int_5_oe() {
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -32086,7 +32086,7 @@ joda_3903_5,"    public void test_set_RP_int_intarray_int_5_oe() {
     }
     }
 ",TestPreciseDurationDateTimeField::test_set_RP_int_intarray_int_5_oe
-joda_3906_3,"    public void test_set_RP_int_intarray_String_Locale_3_oe() {
+joda_3947_3,"    public void test_set_RP_int_intarray_String_Locale_3_oe() {
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -32106,7 +32106,7 @@ joda_3906_3,"    public void test_set_RP_int_intarray_String_Locale_3_oe() {
     }
     }
 ",TestPreciseDurationDateTimeField::test_set_RP_int_intarray_String_Locale_3_oe
-joda_3906_5,"    public void test_set_RP_int_intarray_String_Locale_5_oe() {
+joda_3947_5,"    public void test_set_RP_int_intarray_String_Locale_5_oe() {
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -32134,7 +32134,7 @@ joda_3906_5,"    public void test_set_RP_int_intarray_String_Locale_5_oe() {
     }
     }
 ",TestPreciseDurationDateTimeField::test_set_RP_int_intarray_String_Locale_5_oe
-joda_3907_3,"    public void test_convertText_3_oe() {
+joda_3948_3,"    public void test_convertText_3_oe() {
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         // removed other assertion
         // removed other assertion
@@ -32144,7 +32144,7 @@ joda_3907_3,"    public void test_convertText_3_oe() {
     }
     }
 ",TestPreciseDurationDateTimeField::test_convertText_3_oe
-joda_3907_4,"    public void test_convertText_4_oe() {
+joda_3948_4,"    public void test_convertText_4_oe() {
         BaseDateTimeField field = new MockPreciseDurationDateTimeField();
         // removed other assertion
         // removed other assertion
@@ -32158,14 +32158,14 @@ joda_3907_4,"    public void test_convertText_4_oe() {
     }
     }
 ",TestPreciseDurationDateTimeField::test_convertText_4_oe
-joda_3927_1,"    public void test_constructor_1_oe() {
+joda_3968_1,"    public void test_constructor_1_oe() {
         try {
             new ScaledDurationField(null, DurationFieldType.minutes(), 10);
             fail();
     }
     }
 ",TestScaledDurationField::test_constructor_1_oe
-joda_3927_2,"    public void test_constructor_2_oe() {
+joda_3968_2,"    public void test_constructor_2_oe() {
         try {
             new ScaledDurationField(null, DurationFieldType.minutes(), 10);
             // removed other assertion
@@ -32176,7 +32176,7 @@ joda_3927_2,"    public void test_constructor_2_oe() {
     }
     }
 ",TestScaledDurationField::test_constructor_2_oe
-joda_3927_3,"    public void test_constructor_3_oe() {
+joda_3968_3,"    public void test_constructor_3_oe() {
         try {
             new ScaledDurationField(null, DurationFieldType.minutes(), 10);
             // removed other assertion
@@ -32191,7 +32191,7 @@ joda_3927_3,"    public void test_constructor_3_oe() {
     }
     }
 ",TestScaledDurationField::test_constructor_3_oe
-joda_3927_4,"    public void test_constructor_4_oe() {
+joda_3968_4,"    public void test_constructor_4_oe() {
         try {
             new ScaledDurationField(null, DurationFieldType.minutes(), 10);
             // removed other assertion
@@ -32210,7 +32210,7 @@ joda_3927_4,"    public void test_constructor_4_oe() {
     }
     }
 ",TestScaledDurationField::test_constructor_4_oe
-joda_3935_5,"    public void test_getValue_long_5_oe() {
+joda_3976_5,"    public void test_getValue_long_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -32221,7 +32221,7 @@ joda_3935_5,"    public void test_getValue_long_5_oe() {
     }
     }
 ",TestScaledDurationField::test_getValue_long_5_oe
-joda_3937_5,"    public void test_getValue_long_long_5_oe() {
+joda_3978_5,"    public void test_getValue_long_long_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -32232,7 +32232,7 @@ joda_3937_5,"    public void test_getValue_long_long_5_oe() {
     }
     }
 ",TestScaledDurationField::test_getValue_long_long_5_oe
-joda_3940_4,"    public void test_getMillis_long_4_oe() {
+joda_3981_4,"    public void test_getMillis_long_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -32242,7 +32242,7 @@ joda_3940_4,"    public void test_getMillis_long_4_oe() {
     }
     }
 ",TestScaledDurationField::test_getMillis_long_4_oe
-joda_3942_4,"    public void test_getMillis_long_long_4_oe() {
+joda_3983_4,"    public void test_getMillis_long_long_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -32252,7 +32252,7 @@ joda_3942_4,"    public void test_getMillis_long_long_4_oe() {
     }
     }
 ",TestScaledDurationField::test_getMillis_long_long_4_oe
-joda_3943_4,"    public void test_add_long_int_4_oe() {
+joda_3984_4,"    public void test_add_long_int_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -32262,7 +32262,7 @@ joda_3943_4,"    public void test_add_long_int_4_oe() {
     }
     }
 ",TestScaledDurationField::test_add_long_int_4_oe
-joda_3944_4,"    public void test_add_long_long_4_oe() {
+joda_3985_4,"    public void test_add_long_long_4_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -32272,7 +32272,7 @@ joda_3944_4,"    public void test_add_long_long_4_oe() {
     }
     }
 ",TestScaledDurationField::test_add_long_long_4_oe
-joda_3944_5,"    public void test_add_long_long_5_oe() {
+joda_3985_5,"    public void test_add_long_long_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -32286,7 +32286,7 @@ joda_3944_5,"    public void test_add_long_long_5_oe() {
     }
     }
 ",TestScaledDurationField::test_add_long_long_5_oe
-joda_3945_5,"    public void test_getDifference_long_int_5_oe() {
+joda_3986_5,"    public void test_getDifference_long_int_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -32297,7 +32297,7 @@ joda_3945_5,"    public void test_getDifference_long_int_5_oe() {
     }
     }
 ",TestScaledDurationField::test_getDifference_long_int_5_oe
-joda_3946_5,"    public void test_getDifferenceAsLong_long_long_5_oe() {
+joda_3987_5,"    public void test_getDifferenceAsLong_long_long_5_oe() {
         // removed other assertion
         // removed other assertion
         // removed other assertion
@@ -32308,7 +32308,7 @@ joda_3946_5,"    public void test_getDifferenceAsLong_long_long_5_oe() {
     }
     }
 ",TestScaledDurationField::test_getDifferenceAsLong_long_long_5_oe
-joda_3949_4,"    public void test_compareTo_4_oe() {
+joda_3990_4,"    public void test_compareTo_4_oe() {
         // removed other assertion
         // removed other assertion
         DurationField dummy = new PreciseDurationField(DurationFieldType.minutes(), 0);
@@ -32323,7 +32323,7 @@ joda_3949_4,"    public void test_compareTo_4_oe() {
     }
     }
 ",TestScaledDurationField::test_compareTo_4_oe
-joda_3951_2,"    public void test_constructor_2_oe() {
+joda_3992_2,"    public void test_constructor_2_oe() {
         BaseDateTimeField field = new PreciseDateTimeField(
             DateTimeFieldType.secondOfMinute(),
             ISOChronology.getInstanceUTC().millis(),
@@ -32336,7 +32336,7 @@ joda_3951_2,"    public void test_constructor_2_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_constructor_2_oe
-joda_3951_3,"    public void test_constructor_3_oe() {
+joda_3992_3,"    public void test_constructor_3_oe() {
         BaseDateTimeField field = new PreciseDateTimeField(
             DateTimeFieldType.secondOfMinute(),
             ISOChronology.getInstanceUTC().millis(),
@@ -32356,7 +32356,7 @@ joda_3951_3,"    public void test_constructor_3_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_constructor_3_oe
-joda_3951_4,"    public void test_constructor_4_oe() {
+joda_3992_4,"    public void test_constructor_4_oe() {
         BaseDateTimeField field = new PreciseDateTimeField(
             DateTimeFieldType.secondOfMinute(),
             ISOChronology.getInstanceUTC().millis(),
@@ -32383,7 +32383,7 @@ joda_3951_4,"    public void test_constructor_4_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_constructor_4_oe
-joda_3951_5,"    public void test_constructor_5_oe() {
+joda_3992_5,"    public void test_constructor_5_oe() {
         BaseDateTimeField field = new PreciseDateTimeField(
             DateTimeFieldType.secondOfMinute(),
             ISOChronology.getInstanceUTC().millis(),
@@ -32417,7 +32417,7 @@ joda_3951_5,"    public void test_constructor_5_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_constructor_5_oe
-joda_3951_6,"    public void test_constructor_6_oe() {
+joda_3992_6,"    public void test_constructor_6_oe() {
         BaseDateTimeField field = new PreciseDateTimeField(
             DateTimeFieldType.secondOfMinute(),
             ISOChronology.getInstanceUTC().millis(),
@@ -32458,7 +32458,7 @@ joda_3951_6,"    public void test_constructor_6_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_constructor_6_oe
-joda_3970_4,"    public void test_add_RP_int_intarray_int_4_oe() {
+joda_4011_4,"    public void test_add_RP_int_intarray_int_4_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
         BaseDateTimeField field = new MockStandardDateTimeField();
@@ -32482,7 +32482,7 @@ joda_3970_4,"    public void test_add_RP_int_intarray_int_4_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_add_RP_int_intarray_int_4_oe
-joda_3970_7,"    public void test_add_RP_int_intarray_int_7_oe() {
+joda_4011_7,"    public void test_add_RP_int_intarray_int_7_oe() {
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
         BaseDateTimeField field = new MockStandardDateTimeField();
@@ -32522,7 +32522,7 @@ joda_3970_7,"    public void test_add_RP_int_intarray_int_7_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_add_RP_int_intarray_int_7_oe
-joda_3976_3,"    public void test_set_RP_int_intarray_int_3_oe() {
+joda_4017_3,"    public void test_set_RP_int_intarray_int_3_oe() {
         BaseDateTimeField field = new MockPreciseDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -32542,7 +32542,7 @@ joda_3976_3,"    public void test_set_RP_int_intarray_int_3_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_set_RP_int_intarray_int_3_oe
-joda_3976_5,"    public void test_set_RP_int_intarray_int_5_oe() {
+joda_4017_5,"    public void test_set_RP_int_intarray_int_5_oe() {
         BaseDateTimeField field = new MockPreciseDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -32570,7 +32570,7 @@ joda_3976_5,"    public void test_set_RP_int_intarray_int_5_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_set_RP_int_intarray_int_5_oe
-joda_3979_3,"    public void test_set_RP_int_intarray_String_Locale_3_oe() {
+joda_4020_3,"    public void test_set_RP_int_intarray_String_Locale_3_oe() {
         BaseDateTimeField field = new MockPreciseDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -32590,7 +32590,7 @@ joda_3979_3,"    public void test_set_RP_int_intarray_String_Locale_3_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_set_RP_int_intarray_String_Locale_3_oe
-joda_3979_5,"    public void test_set_RP_int_intarray_String_Locale_5_oe() {
+joda_4020_5,"    public void test_set_RP_int_intarray_String_Locale_5_oe() {
         BaseDateTimeField field = new MockPreciseDateTimeField();
         int[] values = new int[] {10, 20, 30, 40};
         int[] expected = new int[] {10, 20, 30, 40};
@@ -32618,7 +32618,7 @@ joda_3979_5,"    public void test_set_RP_int_intarray_String_Locale_5_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_set_RP_int_intarray_String_Locale_5_oe
-joda_3980_3,"    public void test_convertText_3_oe() {
+joda_4021_3,"    public void test_convertText_3_oe() {
         BaseDateTimeField field = new MockPreciseDateTimeField();
         // removed other assertion
         // removed other assertion
@@ -32628,7 +32628,7 @@ joda_3980_3,"    public void test_convertText_3_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_convertText_3_oe
-joda_3980_4,"    public void test_convertText_4_oe() {
+joda_4021_4,"    public void test_convertText_4_oe() {
         BaseDateTimeField field = new MockPreciseDateTimeField();
         // removed other assertion
         // removed other assertion
@@ -32642,7 +32642,7 @@ joda_3980_4,"    public void test_convertText_4_oe() {
     }
     }
 ",TestPreciseDateTimeField::test_convertText_4_oe
-joda_4006_1,"  public void testWriteZoneInfoMapThrowsIllegalArgumentException_1_oe() throws IOException {
+joda_4047_1,"  public void testWriteZoneInfoMapThrowsIllegalArgumentException_1_oe() throws IOException {
     Map<String, MockZone> hashMap = new HashMap<String, MockZone>();
     MockZone mockZone = new MockZone(0L, 3022, 90);
     hashMap.put(""     - "", mockZone);
@@ -32655,14 +32655,14 @@ joda_4006_1,"  public void testWriteZoneInfoMapThrowsIllegalArgumentException_1_
   }
   }
 ",TestZoneInfoCompiler::testWriteZoneInfoMapThrowsIllegalArgumentException_1_oe
-joda_4021_1,"    public void testCompileOnBrokenTimeZoneFile_1_oe() throws Exception {
+joda_4062_1,"    public void testCompileOnBrokenTimeZoneFile_1_oe() throws Exception {
         try {
             Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE);
             fail();
     }
     }
 ",TestCompiler::testCompileOnBrokenTimeZoneFile_1_oe
-joda_4022_1,"    public void testCompileOnBrokenTimeZoneFile_2_1_oe() throws Exception {
+joda_4063_1,"    public void testCompileOnBrokenTimeZoneFile_2_1_oe() throws Exception {
         try {
             Provider provider = compileAndLoad(BROKEN_TIMEZONE_FILE_2);
             fail();

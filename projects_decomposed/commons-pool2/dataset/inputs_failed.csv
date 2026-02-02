@@ -831,7 +831,7 @@ pool_145_3,"    @Test
     }
     }
 ",TestGenericObjectPool::testMultipleReturn_3_oe
-pool_161_3,"    @Test
+pool_162_3,"    @Test
     @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
     public void testWhenExhaustedBlockInterrupt_3_oe() throws Exception {
         genericObjectPool.setMaxTotal(1);
@@ -867,7 +867,7 @@ pool_161_3,"    @Test
     }
     }
 ",TestGenericObjectPool::testWhenExhaustedBlockInterrupt_3_oe
-pool_215_3,"    @Test
+pool_275_3,"    @Test
     public void testMultipleReturn_3_oe() throws Exception {
         final WaiterFactory<String> factory = new WaiterFactory<>(0, 0, 0, 0, 0, 0);
         try (final GenericKeyedObjectPool<String, Waiter> pool = new GenericKeyedObjectPool<>(factory)) {
@@ -883,7 +883,7 @@ pool_215_3,"    @Test
     }
     }
 ",TestGenericKeyedObjectPool::testMultipleReturn_3_oe
-pool_234_1,"    @Test
+pool_294_1,"    @Test
     public void testOutOfMemoryError_1_oe() throws Exception {
         pool = new SoftReferenceObjectPool<>(
                 new OomeFactory(OomeTrigger.CREATE));
@@ -894,7 +894,7 @@ pool_234_1,"    @Test
     }
     }
 ",TestSoftRefOutOfMemory::testOutOfMemoryError_1_oe
-pool_234_2,"    @Test
+pool_294_2,"    @Test
     public void testOutOfMemoryError_2_oe() throws Exception {
         pool = new SoftReferenceObjectPool<>(
                 new OomeFactory(OomeTrigger.CREATE));
@@ -917,7 +917,7 @@ pool_234_2,"    @Test
     }
     }
 ",TestSoftRefOutOfMemory::testOutOfMemoryError_2_oe
-pool_234_3,"    @Test
+pool_294_3,"    @Test
     public void testOutOfMemoryError_3_oe() throws Exception {
         pool = new SoftReferenceObjectPool<>(
                 new OomeFactory(OomeTrigger.CREATE));

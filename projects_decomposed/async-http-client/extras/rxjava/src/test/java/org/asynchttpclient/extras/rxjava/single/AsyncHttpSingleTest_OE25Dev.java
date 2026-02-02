@@ -251,69 +251,6 @@ public class AsyncHttpSingleTest_OE25Dev {
   }
 
   @Test
-  public void testErrorInOnThrowablePropagation_1_oe() {
-
-    final RuntimeException processingException = new RuntimeException("processing");
-    final RuntimeException thrownException = new RuntimeException("thrown");
-    @SuppressWarnings("unchecked") final AsyncHandler<Object> handler = mock(AsyncHandler.class);
-    doThrow(thrownException).when(handler).onThrowable(processingException);
-
-    final Single<?> underTest = AsyncHttpSingle.create(bridge -> {
-      try {
-        bridge.onThrowable(processingException);
-        return mock(Future.class);
-      } catch (final Throwable t) {
-        throw new AssertionError(t);
-      }
-    }, () -> handler);
-
-    final TestSubscriber<Object> subscriber = new TestSubscriber<>();
-    underTest.subscribe(subscriber);
-
-    verify(handler).onThrowable(processingException);
-    verifyNoMoreInteractions(handler);
-
-    subscriber.awaitTerminalEvent();
-    subscriber.assertTerminalEvent();
-    subscriber.assertNoValues();
-
-    final List<Throwable> errorEvents = subscriber.getOnErrorEvents();
-    assertEquals(errorEvents.size(), 1);
-  }
-
-  @Test
-  public void testErrorInOnThrowablePropagation_2_oe() {
-
-    final RuntimeException processingException = new RuntimeException("processing");
-    final RuntimeException thrownException = new RuntimeException("thrown");
-    @SuppressWarnings("unchecked") final AsyncHandler<Object> handler = mock(AsyncHandler.class);
-    doThrow(thrownException).when(handler).onThrowable(processingException);
-
-    final Single<?> underTest = AsyncHttpSingle.create(bridge -> {
-      try {
-        bridge.onThrowable(processingException);
-        return mock(Future.class);
-      } catch (final Throwable t) {
-        throw new AssertionError(t);
-      }
-    }, () -> handler);
-
-    final TestSubscriber<Object> subscriber = new TestSubscriber<>();
-    underTest.subscribe(subscriber);
-
-    verify(handler).onThrowable(processingException);
-    verifyNoMoreInteractions(handler);
-
-    subscriber.awaitTerminalEvent();
-    subscriber.assertTerminalEvent();
-    subscriber.assertNoValues();
-
-    final List<Throwable> errorEvents = subscriber.getOnErrorEvents();
-    // removed other assertion
-    assertThat(errorEvents.get(0), is(instanceOf(CompositeException.class)));
-  }
-
-  @Test
   public void testErrorInOnThrowablePropagation_3_oe() {
 
     final RuntimeException processingException = new RuntimeException("processing");
@@ -337,8 +274,71 @@ public class AsyncHttpSingleTest_OE25Dev {
     verifyNoMoreInteractions(handler);
 
     subscriber.awaitTerminalEvent();
-    subscriber.assertTerminalEvent();
-    subscriber.assertNoValues();
+    // removed other assertion
+    // removed other assertion
+
+    final List<Throwable> errorEvents = subscriber.getOnErrorEvents();
+    assertEquals(errorEvents.size(), 1);
+  }
+
+  @Test
+  public void testErrorInOnThrowablePropagation_4_oe() {
+
+    final RuntimeException processingException = new RuntimeException("processing");
+    final RuntimeException thrownException = new RuntimeException("thrown");
+    @SuppressWarnings("unchecked") final AsyncHandler<Object> handler = mock(AsyncHandler.class);
+    doThrow(thrownException).when(handler).onThrowable(processingException);
+
+    final Single<?> underTest = AsyncHttpSingle.create(bridge -> {
+      try {
+        bridge.onThrowable(processingException);
+        return mock(Future.class);
+      } catch (final Throwable t) {
+        throw new AssertionError(t);
+      }
+    }, () -> handler);
+
+    final TestSubscriber<Object> subscriber = new TestSubscriber<>();
+    underTest.subscribe(subscriber);
+
+    verify(handler).onThrowable(processingException);
+    verifyNoMoreInteractions(handler);
+
+    subscriber.awaitTerminalEvent();
+    // removed other assertion
+    // removed other assertion
+
+    final List<Throwable> errorEvents = subscriber.getOnErrorEvents();
+    // removed other assertion
+    assertThat(errorEvents.get(0), is(instanceOf(CompositeException.class)));
+  }
+
+  @Test
+  public void testErrorInOnThrowablePropagation_5_oe() {
+
+    final RuntimeException processingException = new RuntimeException("processing");
+    final RuntimeException thrownException = new RuntimeException("thrown");
+    @SuppressWarnings("unchecked") final AsyncHandler<Object> handler = mock(AsyncHandler.class);
+    doThrow(thrownException).when(handler).onThrowable(processingException);
+
+    final Single<?> underTest = AsyncHttpSingle.create(bridge -> {
+      try {
+        bridge.onThrowable(processingException);
+        return mock(Future.class);
+      } catch (final Throwable t) {
+        throw new AssertionError(t);
+      }
+    }, () -> handler);
+
+    final TestSubscriber<Object> subscriber = new TestSubscriber<>();
+    underTest.subscribe(subscriber);
+
+    verify(handler).onThrowable(processingException);
+    verifyNoMoreInteractions(handler);
+
+    subscriber.awaitTerminalEvent();
+    // removed other assertion
+    // removed other assertion
 
     final List<Throwable> errorEvents = subscriber.getOnErrorEvents();
     // removed other assertion

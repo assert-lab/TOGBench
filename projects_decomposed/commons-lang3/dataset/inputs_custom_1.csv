@@ -1,0 +1,2459 @@
+id,test_prefix,test_name,custom_assert_name,custom_assert_method,custom_assert_file
+lang_203_1,"    @Test
+    public void testMustBeSupportedJava1_3_1_and_above_1_oe() {
+        this.assertSupportedEncoding(CharEncoding.ISO_8859_1);
+    }
+",CharEncodingTest::testMustBeSupportedJava1_3_1_and_above_1_oe,assertSupportedEncoding,"    private void assertSupportedEncoding(final String name) {
+        assertTrue(CharEncoding.isSupported(name), ""Encoding should be supported: "" + name);
+    }
+",src/test/java/org/apache/commons/lang3/CharEncodingTest.java
+lang_203_2,"    @Test
+    public void testMustBeSupportedJava1_3_1_and_above_2_oe() {
+        // removed other assertion
+        this.assertSupportedEncoding(CharEncoding.US_ASCII);
+    }
+",CharEncodingTest::testMustBeSupportedJava1_3_1_and_above_2_oe,assertSupportedEncoding,"    private void assertSupportedEncoding(final String name) {
+        assertTrue(CharEncoding.isSupported(name), ""Encoding should be supported: "" + name);
+    }
+",src/test/java/org/apache/commons/lang3/CharEncodingTest.java
+lang_203_3,"    @Test
+    public void testMustBeSupportedJava1_3_1_and_above_3_oe() {
+        // removed other assertion
+        // removed other assertion
+        this.assertSupportedEncoding(CharEncoding.UTF_16);
+    }
+",CharEncodingTest::testMustBeSupportedJava1_3_1_and_above_3_oe,assertSupportedEncoding,"    private void assertSupportedEncoding(final String name) {
+        assertTrue(CharEncoding.isSupported(name), ""Encoding should be supported: "" + name);
+    }
+",src/test/java/org/apache/commons/lang3/CharEncodingTest.java
+lang_203_4,"    @Test
+    public void testMustBeSupportedJava1_3_1_and_above_4_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        this.assertSupportedEncoding(CharEncoding.UTF_16BE);
+    }
+",CharEncodingTest::testMustBeSupportedJava1_3_1_and_above_4_oe,assertSupportedEncoding,"    private void assertSupportedEncoding(final String name) {
+        assertTrue(CharEncoding.isSupported(name), ""Encoding should be supported: "" + name);
+    }
+",src/test/java/org/apache/commons/lang3/CharEncodingTest.java
+lang_203_5,"    @Test
+    public void testMustBeSupportedJava1_3_1_and_above_5_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        this.assertSupportedEncoding(CharEncoding.UTF_16LE);
+    }
+",CharEncodingTest::testMustBeSupportedJava1_3_1_and_above_5_oe,assertSupportedEncoding,"    private void assertSupportedEncoding(final String name) {
+        assertTrue(CharEncoding.isSupported(name), ""Encoding should be supported: "" + name);
+    }
+",src/test/java/org/apache/commons/lang3/CharEncodingTest.java
+lang_203_6,"    @Test
+    public void testMustBeSupportedJava1_3_1_and_above_6_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        this.assertSupportedEncoding(CharEncoding.UTF_8);
+    }
+",CharEncodingTest::testMustBeSupportedJava1_3_1_and_above_6_oe,assertSupportedEncoding,"    private void assertSupportedEncoding(final String name) {
+        assertTrue(CharEncoding.isSupported(name), ""Encoding should be supported: "" + name);
+    }
+",src/test/java/org/apache/commons/lang3/CharEncodingTest.java
+lang_290_1,"    @Test
+    public void testSimpleStreamFilter_1_oe() {
+        final List<String> input = Arrays.asList(""1"", ""2"", ""3"", ""4"", ""5"", ""6"");
+        final List<Integer> output = Functions.stream(input)
+                .map(Integer::valueOf)
+                .filter(i -> (i.intValue() %2 == 0))
+                .collect(Collectors.toList());
+        assertEvenNumbers(output);
+    }
+",StreamsTest::testSimpleStreamFilter_1_oe,assertEvenNumbers,"    private void assertEvenNumbers(final List<Integer> output) {
+        assertEquals(3, output.size());
+        for (int i = 0;  i < 3;  i++) {
+            assertEquals((i+1)*2, output.get(i).intValue());
+        }
+    }
+",src/test/java/org/apache/commons/lang3/StreamsTest.java
+lang_291_1,"    @TestFactory
+    public Stream<DynamicTest> simpleStreamFilterFailing_1_oe() {
+        final List<String> input = Arrays.asList(""1"", ""2"", ""3"", ""4"", ""5"", ""6"");
+        final List<Integer> output = Functions.stream(input)
+                .map(Integer::valueOf)
+                .filter(asIntPredicate(null))
+                .collect(Collectors.toList());
+        assertEvenNumbers(output);
+    }
+",StreamsTest::simpleStreamFilterFailing_1_oe,assertEvenNumbers,"    private void assertEvenNumbers(final List<Integer> output) {
+        assertEquals(3, output.size());
+        for (int i = 0;  i < 3;  i++) {
+            assertEquals((i+1)*2, output.get(i).intValue());
+        }
+    }
+",src/test/java/org/apache/commons/lang3/StreamsTest.java
+lang_343_1,"    @Test
+    public void testGetClassClassNotFound_1_oe() throws Exception {
+        assertGetClassThrowsClassNotFound( ""bool"" );
+    }
+",ClassUtilsTest::testGetClassClassNotFound_1_oe,assertGetClassThrowsClassNotFound,"    private void assertGetClassThrowsClassNotFound( final String className ) {
+        assertGetClassThrowsException( className, ClassNotFoundException.class );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_343_2,"    @Test
+    public void testGetClassClassNotFound_2_oe() throws Exception {
+        // removed other assertion
+        assertGetClassThrowsClassNotFound( ""bool[]"" );
+    }
+",ClassUtilsTest::testGetClassClassNotFound_2_oe,assertGetClassThrowsClassNotFound,"    private void assertGetClassThrowsClassNotFound( final String className ) {
+        assertGetClassThrowsException( className, ClassNotFoundException.class );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_343_3,"    @Test
+    public void testGetClassClassNotFound_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertGetClassThrowsClassNotFound( ""integer[]"" );
+    }
+",ClassUtilsTest::testGetClassClassNotFound_3_oe,assertGetClassThrowsClassNotFound,"    private void assertGetClassThrowsClassNotFound( final String className ) {
+        assertGetClassThrowsException( className, ClassNotFoundException.class );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_344_1,"    @Test
+    public void testGetClassInvalidArguments_1_oe() throws Exception {
+        assertGetClassThrowsNullPointerException( null );
+    }
+",ClassUtilsTest::testGetClassInvalidArguments_1_oe,assertGetClassThrowsNullPointerException,"    private void assertGetClassThrowsNullPointerException( final String className ) {
+        assertGetClassThrowsException( className, NullPointerException.class );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_344_2,"    @Test
+    public void testGetClassInvalidArguments_2_oe() throws Exception {
+        // removed other assertion
+        assertGetClassThrowsClassNotFound( ""[][][]"" );
+    }
+",ClassUtilsTest::testGetClassInvalidArguments_2_oe,assertGetClassThrowsClassNotFound,"    private void assertGetClassThrowsClassNotFound( final String className ) {
+        assertGetClassThrowsException( className, ClassNotFoundException.class );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_344_3,"    @Test
+    public void testGetClassInvalidArguments_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertGetClassThrowsClassNotFound( ""[[]"" );
+    }
+",ClassUtilsTest::testGetClassInvalidArguments_3_oe,assertGetClassThrowsClassNotFound,"    private void assertGetClassThrowsClassNotFound( final String className ) {
+        assertGetClassThrowsException( className, ClassNotFoundException.class );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_344_4,"    @Test
+    public void testGetClassInvalidArguments_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassThrowsClassNotFound( ""["" );
+    }
+",ClassUtilsTest::testGetClassInvalidArguments_4_oe,assertGetClassThrowsClassNotFound,"    private void assertGetClassThrowsClassNotFound( final String className ) {
+        assertGetClassThrowsException( className, ClassNotFoundException.class );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_344_5,"    @Test
+    public void testGetClassInvalidArguments_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassThrowsClassNotFound( ""java.lang.String]["" );
+    }
+",ClassUtilsTest::testGetClassInvalidArguments_5_oe,assertGetClassThrowsClassNotFound,"    private void assertGetClassThrowsClassNotFound( final String className ) {
+        assertGetClassThrowsException( className, ClassNotFoundException.class );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_344_6,"    @Test
+    public void testGetClassInvalidArguments_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassThrowsClassNotFound( "".hello.world"" );
+    }
+",ClassUtilsTest::testGetClassInvalidArguments_6_oe,assertGetClassThrowsClassNotFound,"    private void assertGetClassThrowsClassNotFound( final String className ) {
+        assertGetClassThrowsException( className, ClassNotFoundException.class );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_344_7,"    @Test
+    public void testGetClassInvalidArguments_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassThrowsClassNotFound( ""hello..world"" );
+    }
+",ClassUtilsTest::testGetClassInvalidArguments_7_oe,assertGetClassThrowsClassNotFound,"    private void assertGetClassThrowsClassNotFound( final String className ) {
+        assertGetClassThrowsException( className, ClassNotFoundException.class );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_346_1,"    @Test
+    public void testGetClassWithArrayClasses_1_oe() throws Exception {
+        assertGetClassReturnsClass( String[].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses_1_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_346_2,"    @Test
+    public void testGetClassWithArrayClasses_2_oe() throws Exception {
+        // removed other assertion
+        assertGetClassReturnsClass( int[].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses_2_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_346_3,"    @Test
+    public void testGetClassWithArrayClasses_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( long[].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses_3_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_346_4,"    @Test
+    public void testGetClassWithArrayClasses_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( short[].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses_4_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_346_5,"    @Test
+    public void testGetClassWithArrayClasses_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( byte[].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses_5_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_346_6,"    @Test
+    public void testGetClassWithArrayClasses_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( char[].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses_6_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_346_7,"    @Test
+    public void testGetClassWithArrayClasses_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( float[].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses_7_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_346_8,"    @Test
+    public void testGetClassWithArrayClasses_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( double[].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses_8_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_346_9,"    @Test
+    public void testGetClassWithArrayClasses_9_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( boolean[].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses_9_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_347_1,"    @Test
+    public void testGetClassWithArrayClasses2D_1_oe() throws Exception {
+        assertGetClassReturnsClass( String[][].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses2D_1_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_347_2,"    @Test
+    public void testGetClassWithArrayClasses2D_2_oe() throws Exception {
+        // removed other assertion
+        assertGetClassReturnsClass( int[][].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses2D_2_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_347_3,"    @Test
+    public void testGetClassWithArrayClasses2D_3_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( long[][].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses2D_3_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_347_4,"    @Test
+    public void testGetClassWithArrayClasses2D_4_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( short[][].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses2D_4_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_347_5,"    @Test
+    public void testGetClassWithArrayClasses2D_5_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( byte[][].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses2D_5_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_347_6,"    @Test
+    public void testGetClassWithArrayClasses2D_6_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( char[][].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses2D_6_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_347_7,"    @Test
+    public void testGetClassWithArrayClasses2D_7_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( float[][].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses2D_7_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_347_8,"    @Test
+    public void testGetClassWithArrayClasses2D_8_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( double[][].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses2D_8_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_347_9,"    @Test
+    public void testGetClassWithArrayClasses2D_9_oe() throws Exception {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertGetClassReturnsClass( boolean[][].class );
+    }
+",ClassUtilsTest::testGetClassWithArrayClasses2D_9_oe,assertGetClassReturnsClass,"    private void assertGetClassReturnsClass( final Class<?> c ) throws Exception {
+        assertEquals( c, ClassUtils.getClass( c.getName() ) );
+    }
+",src/test/java/org/apache/commons/lang3/ClassUtilsTest.java
+lang_402_1,"    @Test
+    public void testConstructors_1_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = ""Not Implemented"";
+        final String code = ""CODE"";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        assertCorrect(""Issue in (String)"", nie, message, null, null);
+    }
+",NotImplementedExceptionTest::testConstructors_1_oe,assertCorrect,"    private void assertCorrect(final String assertMessage, final NotImplementedException nie, final String message, final Throwable nested, final String code) {
+        assertNotNull(nie, assertMessage + "": target is null"");
+        assertEquals(message, nie.getMessage(), assertMessage + "": Message not equal"");
+        assertEquals(nested, nie.getCause(), assertMessage + "": Nested throwable not equal"");
+        assertEquals(code, nie.getCode(), assertMessage + "": Code not equal"");
+    }
+",src/test/java/org/apache/commons/lang3/NotImplementedExceptionTest.java
+lang_402_2,"    @Test
+    public void testConstructors_2_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = ""Not Implemented"";
+        final String code = ""CODE"";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        assertCorrect(""Issue in (Throwable)"", nie, nested.toString(), nested, null);
+    }
+",NotImplementedExceptionTest::testConstructors_2_oe,assertCorrect,"    private void assertCorrect(final String assertMessage, final NotImplementedException nie, final String message, final Throwable nested, final String code) {
+        assertNotNull(nie, assertMessage + "": target is null"");
+        assertEquals(message, nie.getMessage(), assertMessage + "": Message not equal"");
+        assertEquals(nested, nie.getCause(), assertMessage + "": Nested throwable not equal"");
+        assertEquals(code, nie.getCode(), assertMessage + "": Code not equal"");
+    }
+",src/test/java/org/apache/commons/lang3/NotImplementedExceptionTest.java
+lang_402_3,"    @Test
+    public void testConstructors_3_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = ""Not Implemented"";
+        final String code = ""CODE"";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        assertCorrect(""Issue in (String, Throwable)"", nie, message, nested, null);
+    }
+",NotImplementedExceptionTest::testConstructors_3_oe,assertCorrect,"    private void assertCorrect(final String assertMessage, final NotImplementedException nie, final String message, final Throwable nested, final String code) {
+        assertNotNull(nie, assertMessage + "": target is null"");
+        assertEquals(message, nie.getMessage(), assertMessage + "": Message not equal"");
+        assertEquals(nested, nie.getCause(), assertMessage + "": Nested throwable not equal"");
+        assertEquals(code, nie.getCode(), assertMessage + "": Code not equal"");
+    }
+",src/test/java/org/apache/commons/lang3/NotImplementedExceptionTest.java
+lang_402_4,"    @Test
+    public void testConstructors_4_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = ""Not Implemented"";
+        final String code = ""CODE"";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+        assertCorrect(""Issue in (String, String)"", nie, message, null, code);
+    }
+",NotImplementedExceptionTest::testConstructors_4_oe,assertCorrect,"    private void assertCorrect(final String assertMessage, final NotImplementedException nie, final String message, final Throwable nested, final String code) {
+        assertNotNull(nie, assertMessage + "": target is null"");
+        assertEquals(message, nie.getMessage(), assertMessage + "": Message not equal"");
+        assertEquals(nested, nie.getCause(), assertMessage + "": Nested throwable not equal"");
+        assertEquals(code, nie.getCode(), assertMessage + "": Code not equal"");
+    }
+",src/test/java/org/apache/commons/lang3/NotImplementedExceptionTest.java
+lang_402_5,"    @Test
+    public void testConstructors_5_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = ""Not Implemented"";
+        final String code = ""CODE"";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+        // removed other assertion
+        nie = new NotImplementedException(nested, code);
+        assertCorrect(""Issue in (Throwable, String)"", nie, nested.toString(), nested, code);
+    }
+",NotImplementedExceptionTest::testConstructors_5_oe,assertCorrect,"    private void assertCorrect(final String assertMessage, final NotImplementedException nie, final String message, final Throwable nested, final String code) {
+        assertNotNull(nie, assertMessage + "": target is null"");
+        assertEquals(message, nie.getMessage(), assertMessage + "": Message not equal"");
+        assertEquals(nested, nie.getCause(), assertMessage + "": Nested throwable not equal"");
+        assertEquals(code, nie.getCode(), assertMessage + "": Code not equal"");
+    }
+",src/test/java/org/apache/commons/lang3/NotImplementedExceptionTest.java
+lang_402_6,"    @Test
+    public void testConstructors_6_oe() {
+        final Throwable nested = new RuntimeException();
+        final String message = ""Not Implemented"";
+        final String code = ""CODE"";
+
+        NotImplementedException nie = new NotImplementedException(message);
+        // removed other assertion
+        nie = new NotImplementedException(nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested);
+        // removed other assertion
+        nie = new NotImplementedException(message, code);
+        // removed other assertion
+        nie = new NotImplementedException(nested, code);
+        // removed other assertion
+        nie = new NotImplementedException(message, nested, code);
+        assertCorrect(""Issue in (String, Throwable, String)"", nie, message, nested, code);
+    }
+",NotImplementedExceptionTest::testConstructors_6_oe,assertCorrect,"    private void assertCorrect(final String assertMessage, final NotImplementedException nie, final String message, final Throwable nested, final String code) {
+        assertNotNull(nie, assertMessage + "": target is null"");
+        assertEquals(message, nie.getMessage(), assertMessage + "": Message not equal"");
+        assertEquals(nested, nie.getCause(), assertMessage + "": Nested throwable not equal"");
+        assertEquals(code, nie.getCode(), assertMessage + "": Code not equal"");
+    }
+",src/test/java/org/apache/commons/lang3/NotImplementedExceptionTest.java
+lang_529_3,"    @Test
+    public void testArch_3_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        assertNotEqualsTypeNotNull(Processor.Type.PPC, processor);
+    }
+",ArchUtilsTest::testArch_3_oe,assertNotEqualsTypeNotNull,"    private void assertNotEqualsTypeNotNull(final Processor.Type type, final Processor processor) {
+        assertNotNull(type);
+        assertNotNull(processor);
+        assertNotEquals(type, processor.getType());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_529_11,"    @Test
+    public void testArch_11_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        // removed other assertion
+        // removed other assertion
+        assertNotEqualsTypeNotNull(Processor.Type.X86, processor);
+    }
+",ArchUtilsTest::testArch_11_oe,assertNotEqualsTypeNotNull,"    private void assertNotEqualsTypeNotNull(final Processor.Type type, final Processor processor) {
+        assertNotNull(type);
+        assertNotNull(processor);
+        assertNotEquals(type, processor.getType());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_529_15,"    @Test
+    public void testArch_15_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC);
+        // removed other assertion
+        // removed other assertion
+        assertNotEqualsTypeNotNull(Processor.Type.IA_64, processor);
+    }
+",ArchUtilsTest::testArch_15_oe,assertNotEqualsTypeNotNull,"    private void assertNotEqualsTypeNotNull(final Processor.Type type, final Processor processor) {
+        assertNotNull(type);
+        assertNotNull(processor);
+        assertNotEquals(type, processor.getType());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_532_1,"    @Test
+    public void testIs32BitJVM_1_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        assertEqualsArchNotNull(Processor.Arch.BIT_32, processor);
+    }
+",ArchUtilsTest::testIs32BitJVM_1_oe,assertEqualsArchNotNull,"    private void assertEqualsArchNotNull(final Processor.Arch arch, final Processor processor) {
+        assertNotNull(arch);
+        assertNotNull(processor);
+        assertEquals(arch, processor.getArch());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_532_3,"    @Test
+    public void testIs32BitJVM_3_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        assertEqualsArchNotNull(Processor.Arch.BIT_32, processor);
+    }
+",ArchUtilsTest::testIs32BitJVM_3_oe,assertEqualsArchNotNull,"    private void assertEqualsArchNotNull(final Processor.Arch arch, final Processor processor) {
+        assertNotNull(arch);
+        assertNotNull(processor);
+        assertEquals(arch, processor.getArch());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_532_5,"    @Test
+    public void testIs32BitJVM_5_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC);
+        assertEqualsArchNotNull(Processor.Arch.BIT_32, processor);
+    }
+",ArchUtilsTest::testIs32BitJVM_5_oe,assertEqualsArchNotNull,"    private void assertEqualsArchNotNull(final Processor.Arch arch, final Processor processor) {
+        assertNotNull(arch);
+        assertNotNull(processor);
+        assertEquals(arch, processor.getArch());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_532_6,"    @Test
+    public void testIs32BitJVM_6_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC);
+        // removed other assertion
+        processor.is32Bit();
+
+        processor = ArchUtils.getProcessor(X86_64);
+        assertNotEqualsArchNotNull(Processor.Arch.BIT_32, processor);
+    }
+",ArchUtilsTest::testIs32BitJVM_6_oe,assertNotEqualsArchNotNull,"    private void assertNotEqualsArchNotNull(final Processor.Arch arch, final Processor processor) {
+        assertNotNull(arch);
+        assertNotNull(processor);
+        assertNotEquals(arch, processor.getArch());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_532_8,"    @Test
+    public void testIs32BitJVM_8_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC);
+        // removed other assertion
+        processor.is32Bit();
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC64);
+        assertNotEqualsArchNotNull(Processor.Arch.BIT_32, processor);
+    }
+",ArchUtilsTest::testIs32BitJVM_8_oe,assertNotEqualsArchNotNull,"    private void assertNotEqualsArchNotNull(final Processor.Arch arch, final Processor processor) {
+        assertNotNull(arch);
+        assertNotNull(processor);
+        assertNotEquals(arch, processor.getArch());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_532_10,"    @Test
+    public void testIs32BitJVM_10_oe() {
+        Processor processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC);
+        // removed other assertion
+        processor.is32Bit();
+
+        processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        assertNotEqualsArchNotNull(Processor.Arch.BIT_32, processor);
+    }
+",ArchUtilsTest::testIs32BitJVM_10_oe,assertNotEqualsArchNotNull,"    private void assertNotEqualsArchNotNull(final Processor.Arch arch, final Processor processor) {
+        assertNotNull(arch);
+        assertNotNull(processor);
+        assertNotEquals(arch, processor.getArch());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_533_1,"    @Test
+    public void testIs64BitJVM_1_oe() {
+        Processor processor = ArchUtils.getProcessor(X86_64);
+        assertEqualsArchNotNull(Processor.Arch.BIT_64, processor);
+    }
+",ArchUtilsTest::testIs64BitJVM_1_oe,assertEqualsArchNotNull,"    private void assertEqualsArchNotNull(final Processor.Arch arch, final Processor processor) {
+        assertNotNull(arch);
+        assertNotNull(processor);
+        assertEquals(arch, processor.getArch());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_533_3,"    @Test
+    public void testIs64BitJVM_3_oe() {
+        Processor processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC64);
+        assertEqualsArchNotNull(Processor.Arch.BIT_64, processor);
+    }
+",ArchUtilsTest::testIs64BitJVM_3_oe,assertEqualsArchNotNull,"    private void assertEqualsArchNotNull(final Processor.Arch arch, final Processor processor) {
+        assertNotNull(arch);
+        assertNotNull(processor);
+        assertEquals(arch, processor.getArch());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_533_5,"    @Test
+    public void testIs64BitJVM_5_oe() {
+        Processor processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        assertEqualsArchNotNull(Processor.Arch.BIT_64, processor);
+    }
+",ArchUtilsTest::testIs64BitJVM_5_oe,assertEqualsArchNotNull,"    private void assertEqualsArchNotNull(final Processor.Arch arch, final Processor processor) {
+        assertNotNull(arch);
+        assertNotNull(processor);
+        assertEquals(arch, processor.getArch());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_533_7,"    @Test
+    public void testIs64BitJVM_7_oe() {
+        Processor processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86);
+        assertNotEqualsArchNotNull(Processor.Arch.BIT_64, processor);
+    }
+",ArchUtilsTest::testIs64BitJVM_7_oe,assertNotEqualsArchNotNull,"    private void assertNotEqualsArchNotNull(final Processor.Arch arch, final Processor processor) {
+        assertNotNull(arch);
+        assertNotNull(processor);
+        assertNotEquals(arch, processor.getArch());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_533_9,"    @Test
+    public void testIs64BitJVM_9_oe() {
+        Processor processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC);
+        assertNotEqualsArchNotNull(Processor.Arch.BIT_64, processor);
+    }
+",ArchUtilsTest::testIs64BitJVM_9_oe,assertNotEqualsArchNotNull,"    private void assertNotEqualsArchNotNull(final Processor.Arch arch, final Processor processor) {
+        assertNotNull(arch);
+        assertNotNull(processor);
+        assertNotEquals(arch, processor.getArch());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_533_11,"    @Test
+    public void testIs64BitJVM_11_oe() {
+        Processor processor = ArchUtils.getProcessor(X86_64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(X86);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(PPC);
+        // removed other assertion
+        // removed other assertion
+
+        processor = ArchUtils.getProcessor(IA64_32);
+        assertNotEqualsArchNotNull(Processor.Arch.BIT_64, processor);
+    }
+",ArchUtilsTest::testIs64BitJVM_11_oe,assertNotEqualsArchNotNull,"    private void assertNotEqualsArchNotNull(final Processor.Arch arch, final Processor processor) {
+        assertNotNull(arch);
+        assertNotNull(processor);
+        assertNotEquals(arch, processor.getArch());
+    }
+",src/test/java/org/apache/commons/lang3/ArchUtilsTest.java
+lang_536_8,"    @Test
+    public void testAbbreviate_StringIntInt_8_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        assertAbbreviateWithOffset(""abcdefg..."", -1, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_8_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_9,"    @Test
+    public void testAbbreviate_StringIntInt_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""abcdefg..."", 0, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_9_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_10,"    @Test
+    public void testAbbreviate_StringIntInt_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""abcdefg..."", 1, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_10_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_11,"    @Test
+    public void testAbbreviate_StringIntInt_11_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""abcdefg..."", 2, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_11_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_12,"    @Test
+    public void testAbbreviate_StringIntInt_12_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""abcdefg..."", 3, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_12_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_13,"    @Test
+    public void testAbbreviate_StringIntInt_13_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""abcdefg..."", 4, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_13_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_14,"    @Test
+    public void testAbbreviate_StringIntInt_14_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...fghi..."", 5, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_14_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_15,"    @Test
+    public void testAbbreviate_StringIntInt_15_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...ghij..."", 6, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_15_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_16,"    @Test
+    public void testAbbreviate_StringIntInt_16_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...hijk..."", 7, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_16_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_17,"    @Test
+    public void testAbbreviate_StringIntInt_17_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...ijklmno"", 8, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_17_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_18,"    @Test
+    public void testAbbreviate_StringIntInt_18_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...ijklmno"", 9, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_18_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_19,"    @Test
+    public void testAbbreviate_StringIntInt_19_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...ijklmno"", 10, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_19_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_20,"    @Test
+    public void testAbbreviate_StringIntInt_20_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...ijklmno"", 10, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_20_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_21,"    @Test
+    public void testAbbreviate_StringIntInt_21_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...ijklmno"", 11, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_21_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_22,"    @Test
+    public void testAbbreviate_StringIntInt_22_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...ijklmno"", 12, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_22_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_23,"    @Test
+    public void testAbbreviate_StringIntInt_23_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...ijklmno"", 13, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_23_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_24,"    @Test
+    public void testAbbreviate_StringIntInt_24_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...ijklmno"", 14, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_24_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_25,"    @Test
+    public void testAbbreviate_StringIntInt_25_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...ijklmno"", 15, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_25_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_26,"    @Test
+    public void testAbbreviate_StringIntInt_26_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...ijklmno"", 16, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_26_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_536_27,"    @Test
+    public void testAbbreviate_StringIntInt_27_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithOffset(""...ijklmno"", Integer.MAX_VALUE, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringIntInt_27_oe,assertAbbreviateWithOffset,"    private void assertAbbreviateWithOffset(final String expected, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_9,"    @Test
+    public void testAbbreviate_StringStringIntInt_9_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""abcdefgh;;"", "";;"", -1, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_9_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_10,"    @Test
+    public void testAbbreviate_StringStringIntInt_10_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""abcdefghi."", ""."", 0, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_10_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_11,"    @Test
+    public void testAbbreviate_StringStringIntInt_11_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""abcdefgh++"", ""++"", 1, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_11_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_12,"    @Test
+    public void testAbbreviate_StringStringIntInt_12_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""abcdefghi*"", ""*"", 2, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_12_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_13,"    @Test
+    public void testAbbreviate_StringStringIntInt_13_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""abcdef{{{{"", ""{{{{"", 4, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_13_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_14,"    @Test
+    public void testAbbreviate_StringStringIntInt_14_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""abcdef____"", ""____"", 5, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_14_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_15,"    @Test
+    public void testAbbreviate_StringStringIntInt_15_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""==fghijk=="", ""=="", 5, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_15_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_16,"    @Test
+    public void testAbbreviate_StringStringIntInt_16_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""___ghij___"", ""___"", 6, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_16_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_17,"    @Test
+    public void testAbbreviate_StringStringIntInt_17_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""/ghijklmno"", ""/"", 7, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_17_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_18,"    @Test
+    public void testAbbreviate_StringStringIntInt_18_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""/ghijklmno"", ""/"", 8, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_18_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_19,"    @Test
+    public void testAbbreviate_StringStringIntInt_19_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""/ghijklmno"", ""/"", 9, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_19_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_20,"    @Test
+    public void testAbbreviate_StringStringIntInt_20_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""///ijklmno"", ""///"", 10, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_20_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_21,"    @Test
+    public void testAbbreviate_StringStringIntInt_21_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""//hijklmno"", ""//"", 10, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_21_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_22,"    @Test
+    public void testAbbreviate_StringStringIntInt_22_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""//hijklmno"", ""//"", 11, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_22_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_23,"    @Test
+    public void testAbbreviate_StringStringIntInt_23_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""...ijklmno"", ""..."", 12, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_23_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_24,"    @Test
+    public void testAbbreviate_StringStringIntInt_24_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""/ghijklmno"", ""/"", 13, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_24_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_25,"    @Test
+    public void testAbbreviate_StringStringIntInt_25_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""/ghijklmno"", ""/"", 14, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_25_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_26,"    @Test
+    public void testAbbreviate_StringStringIntInt_26_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""999ijklmno"", ""999"", 15, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_26_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_27,"    @Test
+    public void testAbbreviate_StringStringIntInt_27_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""_ghijklmno"", ""_"", 16, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_27_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_538_28,"    @Test
+    public void testAbbreviate_StringStringIntInt_28_oe() {
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+
+        final String raspberry = ""raspberry peach"";
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertAbbreviateWithAbbrevMarkerAndOffset(""+ghijklmno"", ""+"", Integer.MAX_VALUE, 10);
+    }
+",StringUtilsTest::testAbbreviate_StringStringIntInt_28_oe,assertAbbreviateWithAbbrevMarkerAndOffset,"    private void assertAbbreviateWithAbbrevMarkerAndOffset(final String expected, final String abbrevMarker, final int offset, final int maxWidth) {
+        final String abcdefghijklmno = ""abcdefghijklmno"";
+        final String message = ""abbreviate(String,String,int,int) failed"";
+        final String actual = StringUtils.abbreviate(abcdefghijklmno, abbrevMarker, offset, maxWidth);
+        if (offset >= 0 && offset < abcdefghijklmno.length()) {
+            assertTrue(actual.indexOf((char) ('a' + offset)) != -1,
+                    message + "" -- should contain offset character"");
+        }
+        assertTrue(actual.length() <= maxWidth,
+                message + "" -- should not be greater than maxWidth"");
+        assertEquals(expected, actual, message);
+    }
+",src/test/java/org/apache/commons/lang3/StringUtilsTest.java
+lang_780_1,"    @Test
+    public void testIsEquals_1_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        this.assertIsEquals(larray1, larray2, larray3);
+    }
+",ArrayUtilsTest::testIsEquals_1_oe,assertIsEquals,"    private void assertIsEquals(final Object array1, final Object array2, final Object array3) {
+        assertTrue(ArrayUtils.isEquals(array1, array1));
+        assertTrue(ArrayUtils.isEquals(array2, array2));
+        assertTrue(ArrayUtils.isEquals(array3, array3));
+        assertFalse(ArrayUtils.isEquals(array1, array2));
+        assertFalse(ArrayUtils.isEquals(array2, array1));
+        assertFalse(ArrayUtils.isEquals(array1, array3));
+        assertFalse(ArrayUtils.isEquals(array3, array1));
+        assertFalse(ArrayUtils.isEquals(array1, array2));
+        assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",src/test/java/org/apache/commons/lang3/ArrayUtilsTest.java
+lang_780_2,"    @Test
+    public void testIsEquals_2_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        this.assertIsEquals(iarray1, iarray2, iarray3);
+    }
+",ArrayUtilsTest::testIsEquals_2_oe,assertIsEquals,"    private void assertIsEquals(final Object array1, final Object array2, final Object array3) {
+        assertTrue(ArrayUtils.isEquals(array1, array1));
+        assertTrue(ArrayUtils.isEquals(array2, array2));
+        assertTrue(ArrayUtils.isEquals(array3, array3));
+        assertFalse(ArrayUtils.isEquals(array1, array2));
+        assertFalse(ArrayUtils.isEquals(array2, array1));
+        assertFalse(ArrayUtils.isEquals(array1, array3));
+        assertFalse(ArrayUtils.isEquals(array3, array1));
+        assertFalse(ArrayUtils.isEquals(array1, array2));
+        assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",src/test/java/org/apache/commons/lang3/ArrayUtilsTest.java
+lang_780_3,"    @Test
+    public void testIsEquals_3_oe() {
+        final long[][] larray1 = new long[][]{{2, 5}, {4, 5}};
+        final long[][] larray2 = new long[][]{{2, 5}, {4, 6}};
+        final long[] larray3 = new long[]{2, 5};
+        // removed other assertion
+
+        final int[][] iarray1 = new int[][]{{2, 5}, {4, 5}};
+        final int[][] iarray2 = new int[][]{{2, 5}, {4, 6}};
+        final int[] iarray3 = new int[]{2, 5};
+        // removed other assertion
+
+        final short[][] sarray1 = new short[][]{{2, 5}, {4, 5}};
+        final short[][] sarray2 = new short[][]{{2, 5}, {4, 6}};
+        final short[] sarray3 = new short[]{2, 5};
+        this.assertIsEquals(sarray1, sarray2, sarray3);
+    }
+",ArrayUtilsTest::testIsEquals_3_oe,assertIsEquals,"    private void assertIsEquals(final Object array1, final Object array2, final Object array3) {
+        assertTrue(ArrayUtils.isEquals(array1, array1));
+        assertTrue(ArrayUtils.isEquals(array2, array2));
+        assertTrue(ArrayUtils.isEquals(array3, array3));
+        assertFalse(ArrayUtils.isEquals(array1, array2));
+        assertFalse(ArrayUtils.isEquals(array2, array1));
+        assertFalse(ArrayUtils.isEquals(array1, array3));
+        assertFalse(ArrayUtils.isEquals(array3, array1));
+        assertFalse(ArrayUtils.isEquals(array1, array2));
+        assertFalse(ArrayUtils.isEquals(array2, array1));
+    }
+",src/test/java/org/apache/commons/lang3/ArrayUtilsTest.java

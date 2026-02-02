@@ -21,219 +21,73 @@
 [INFO] Copying 70 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ jsoup ---
-[INFO] Compiling 109 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[172,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[177,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[184,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[194,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[206,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[217,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[230,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[245,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[262,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[282,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[306,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[333,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[361,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[390,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[420,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[451,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[485,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[520,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[556,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[593,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[631,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[671,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[712,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[757,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[803,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[852,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[904,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[957,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1011,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1067,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1124,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1132,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1141,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1151,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1165,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1180,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1196,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1213,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1231,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1252,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1274,16] method tracksDataNodes() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1282,16] method tracksDataNodes() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1291,16] method tracksDataNodes() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1302,16] method tracksDataNodes() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1314,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1322,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1333,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1347,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1362,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1378,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1397,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1417,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1440,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1448,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1457,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1469,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1482,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1496,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1513,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1531,16] method tracksFromXmlFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1539,16] method tracksFromXmlFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1548,16] method tracksFromXmlFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[241,23] method handleSuperLargeTagNames() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[256,23] method handleSuperLargeTagNames() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[273,23] method handleSuperLargeTagNames() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[291,23] method handleSuperLargeTagNames() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[310,23] method handleSuperLargeAttributeName() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[323,23] method handleSuperLargeAttributeName() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[338,23] method handleSuperLargeAttributeName() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[354,23] method handleSuperLargeAttributeName() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[372,23] method handleSuperLargeAttributeName() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[391,23] method handleLargeText() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[404,23] method handleLargeText() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[420,23] method handleLargeText() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[437,23] method handleLargeComment() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[450,23] method handleLargeComment() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[466,23] method handleLargeComment() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[484,23] method handleLargeCdata() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[497,23] method handleLargeCdata() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[513,23] method handleLargeCdata() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[531,23] method handleLargeCdata() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[550,23] method handleLargeTitle() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[563,23] method handleLargeTitle() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[579,23] method handleLargeTitle() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[597,23] method handleLargeTitle() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[616,23] method handleLargeTitle() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[636,23] method cp1252Entities() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[640,23] method cp1252Entities() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[645,23] method cp1252Entities() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[651,23] method cp1252EntitiesProduceError() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[657,23] method cp1252EntitiesProduceError() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[664,23] method canParseVeryLongBogusComment() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[679,23] method canParseVeryLongBogusComment() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[695,23] method canParseCdataEndingAtEdgeOfBuffer() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[711,23] method canParseCdataEndingAtEdgeOfBuffer() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[110,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[120,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[131,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[143,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[156,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
-[INFO] 100 errors 
-[INFO] -------------------------------------------------------------
+[INFO] Compiling 77 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ jsoup ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.jsoup.select.CssTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.256 s - in org.jsoup.select.CssTest_OE25Dev
+[INFO] Running org.jsoup.parser.ParserTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.jsoup.parser.ParserTest_OE25Dev
+[INFO] Running org.jsoup.parser.ParserIT_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.601 s - in org.jsoup.parser.ParserIT_OE25Dev
+[INFO] Running org.jsoup.safety.SafelistTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.jsoup.safety.SafelistTest_OE25Dev
+[INFO] Running org.jsoup.nodes.LeafNodeTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.jsoup.nodes.LeafNodeTest_OE25Dev
+[INFO] Running org.jsoup.nodes.CommentTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.jsoup.nodes.CommentTest_OE25Dev
+[INFO] Running org.jsoup.nodes.ElementIT_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.741 s - in org.jsoup.nodes.ElementIT_OE25Dev
+[INFO] Running org.jsoup.integration.SessionIT_OE25Dev
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 23.002 s <<< FAILURE! - in org.jsoup.integration.SessionIT_OE25Dev
+[ERROR] org.jsoup.integration.SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe  Time elapsed: 11.168 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <19> but was: <18>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at org.jsoup.integration.SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe(SessionIT_OE25Dev.java:120)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+
+[INFO] Running org.jsoup.integration.FuzzFixesTest_OE25Dev
+[WARNING] Tests run: 66, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 1.646 s - in org.jsoup.integration.FuzzFixesTest_OE25Dev
+[INFO] Running org.jsoup.integration.SessionTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in org.jsoup.integration.SessionTest_OE25Dev
+[INFO] Running org.jsoup.integration.FuzzFixesIT_OE25Dev
+[INFO] Tests run: 124, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 47.306 s - in org.jsoup.integration.FuzzFixesIT_OE25Dev
+[INFO] Running org.jsoup.integration.ConnectIT_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 32.043 s - in org.jsoup.integration.ConnectIT_OE25Dev
+[INFO] Running org.jsoup.helper.W3CDomTest_OE25Dev
+[INFO] Tests run: 56, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.284 s - in org.jsoup.helper.W3CDomTest_OE25Dev
+[INFO] Running org.jsoup.helper.DataUtilTest_OE25Dev
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s - in org.jsoup.helper.DataUtilTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   SessionIT_OE25Dev.multiThreadWithoutNewRequestBlowsUp_2_oe:120 expected: <19> but was: <18>
+[INFO] 
+[ERROR] Tests run: 406, Failures: 1, Errors: 0, Skipped: 1
+[INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.541 s
-[INFO] Finished at: 2026-01-26T16:29:35-06:00
+[INFO] Total time:  02:01 min
+[INFO] Finished at: 2026-02-02T13:41:45-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project jsoup: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[172,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[177,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[184,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[194,16] method parserTrackDefaults() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[206,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[217,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[230,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[245,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[262,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[282,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[306,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[333,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[361,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[390,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[420,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[451,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[485,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[520,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[556,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[593,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[631,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[671,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[712,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[757,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[803,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[852,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[904,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[957,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1011,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1067,16] method tracksPosition() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1124,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1132,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1141,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1151,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1165,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1180,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1196,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1213,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1231,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1252,16] method tracksMarkup() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1274,16] method tracksDataNodes() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1282,16] method tracksDataNodes() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1291,16] method tracksDataNodes() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1302,16] method tracksDataNodes() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1314,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1322,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1333,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1347,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1362,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1378,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1397,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1417,16] method tracksXml() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1440,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1448,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1457,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1469,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1482,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1496,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1513,16] method tracksFromFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1531,16] method tracksFromXmlFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1539,16] method tracksFromXmlFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/PositionTest_OE25Dev.java:[1548,16] method tracksFromXmlFetch() is already defined in class org.jsoup.nodes.PositionTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[241,23] method handleSuperLargeTagNames() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[256,23] method handleSuperLargeTagNames() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[273,23] method handleSuperLargeTagNames() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[291,23] method handleSuperLargeTagNames() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[310,23] method handleSuperLargeAttributeName() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[323,23] method handleSuperLargeAttributeName() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[338,23] method handleSuperLargeAttributeName() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[354,23] method handleSuperLargeAttributeName() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[372,23] method handleSuperLargeAttributeName() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[391,23] method handleLargeText() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[404,23] method handleLargeText() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[420,23] method handleLargeText() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[437,23] method handleLargeComment() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[450,23] method handleLargeComment() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[466,23] method handleLargeComment() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[484,23] method handleLargeCdata() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[497,23] method handleLargeCdata() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[513,23] method handleLargeCdata() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[531,23] method handleLargeCdata() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[550,23] method handleLargeTitle() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[563,23] method handleLargeTitle() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[579,23] method handleLargeTitle() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[597,23] method handleLargeTitle() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[616,23] method handleLargeTitle() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[636,23] method cp1252Entities() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[640,23] method cp1252Entities() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[645,23] method cp1252Entities() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[651,23] method cp1252EntitiesProduceError() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[657,23] method cp1252EntitiesProduceError() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[664,23] method canParseVeryLongBogusComment() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[679,23] method canParseVeryLongBogusComment() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[695,23] method canParseCdataEndingAtEdgeOfBuffer() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/parser/TokeniserTest_OE25Dev.java:[711,23] method canParseCdataEndingAtEdgeOfBuffer() is already defined in class org.jsoup.parser.TokeniserTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[110,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[120,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[131,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[143,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/test/java/org/jsoup/nodes/TextNodeTest_OE25Dev.java:[156,23] method testBlank() is already defined in class org.jsoup.nodes.TextNodeTest_OE25Dev
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project jsoup: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

@@ -160,26 +160,14 @@ class AxisAngleSequenceTest_OE25Dev {
     }
 
     @Test
-    void testEquals_1_oe() {
-        // arrange
-        final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 3);
-
-        // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(seq);
-
-        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.RELATIVE, AxisSequence.XYZ, 1, 2, 3));
-    }
-
-    @Test
     void testEquals_2_oe() {
         // arrange
         final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(seq);
-
         // removed other assertion
-        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.ZYX, 1, 2, 3));
+
+        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.RELATIVE, AxisSequence.XYZ, 1, 2, 3));
     }
 
     @Test
@@ -188,11 +176,10 @@ class AxisAngleSequenceTest_OE25Dev {
         final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(seq);
+        // removed other assertion
 
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 9, 2, 3));
+        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.ZYX, 1, 2, 3));
     }
 
     @Test
@@ -201,12 +188,11 @@ class AxisAngleSequenceTest_OE25Dev {
         final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(seq);
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
-        // removed other assertion
-        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 9, 3));
+        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 9, 2, 3));
     }
 
     @Test
@@ -215,7 +201,21 @@ class AxisAngleSequenceTest_OE25Dev {
         final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(seq);
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 9, 3));
+    }
+
+    @Test
+    void testEquals_6_oe() {
+        // arrange
+        final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 3);
+
+        // act/assert
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -225,12 +225,12 @@ class AxisAngleSequenceTest_OE25Dev {
     }
 
     @Test
-    void testEquals_6_oe() {
+    void testEquals_7_oe() {
         // arrange
         final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 3);
 
         // act/assert
-        GeometryTestUtils.assertSimpleEqualsCases(seq);
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

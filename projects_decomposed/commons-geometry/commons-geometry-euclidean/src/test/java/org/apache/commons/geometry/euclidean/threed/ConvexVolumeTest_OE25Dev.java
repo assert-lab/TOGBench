@@ -154,19 +154,6 @@ class ConvexVolumeTest_OE25Dev {
     }
 
     @Test
-    void testFull_3_oe() {
-        // act
-        final ConvexVolume vol = ConvexVolume.full();
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(vol.getSize());
-        Assertions.assertNull(vol.getCentroid());
-    }
-
-    @Test
     void testFull_4_oe() {
         // act
         final ConvexVolume vol = ConvexVolume.full();
@@ -175,10 +162,8 @@ class ConvexVolumeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(vol.getSize());
         // removed other assertion
-
-        Assertions.assertEquals(0, vol.getBoundaries().size());
+        Assertions.assertNull(vol.getCentroid());
     }
 
     @Test
@@ -190,7 +175,22 @@ class ConvexVolumeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(vol.getSize());
+        // removed other assertion
+        // removed other assertion
+
+        Assertions.assertEquals(0, vol.getBoundaries().size());
+    }
+
+    @Test
+    void testFull_6_oe() {
+        // act
+        final ConvexVolume vol = ConvexVolume.full();
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
 
         // removed other assertion
@@ -442,19 +442,6 @@ class ConvexVolumeTest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_halfspace_3_oe() {
-        // act
-        final ConvexVolume vol = ConvexVolume.fromBounds(Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION));
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        GeometryTestUtils.assertPositiveInfinity(vol.getSize());
-        Assertions.assertNull(vol.getCentroid());
-    }
-
-    @Test
     void testFromBounds_halfspace_4_oe() {
         // act
         final ConvexVolume vol = ConvexVolume.fromBounds(Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION));
@@ -463,7 +450,20 @@ class ConvexVolumeTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        GeometryTestUtils.assertPositiveInfinity(vol.getSize());
+        // removed other assertion
+        Assertions.assertNull(vol.getCentroid());
+    }
+
+    @Test
+    void testFromBounds_halfspace_5_oe() {
+        // act
+        final ConvexVolume vol = ConvexVolume.fromBounds(Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION));
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
         // removed other assertion
 
         Assertions.assertEquals(1, vol.getBoundaries().size());
@@ -501,21 +501,6 @@ class ConvexVolumeTest_OE25Dev {
     }
 
     @Test
-    void testFromBounds_cube_4_oe() {
-        // act
-        final ConvexVolume vol = rect(Vector3D.of(1, 1, 1), 0.5, 1, 2);
-
-        // assert
-        // removed other assertion
-        // removed other assertion
-
-        // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 1), vol.getCentroid(), TEST_EPS);
-
-        Assertions.assertEquals(6, vol.getBoundaries().size());
-    }
-
-    @Test
     void testFromBounds_cube_5_oe() {
         // act
         final ConvexVolume vol = rect(Vector3D.of(1, 1, 1), 0.5, 1, 2);
@@ -525,7 +510,22 @@ class ConvexVolumeTest_OE25Dev {
         // removed other assertion
 
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 1), vol.getCentroid(), TEST_EPS);
+        // removed other assertion
+
+        Assertions.assertEquals(6, vol.getBoundaries().size());
+    }
+
+    @Test
+    void testFromBounds_cube_6_oe() {
+        // act
+        final ConvexVolume vol = rect(Vector3D.of(1, 1, 1), 0.5, 1, 2);
+
+        // assert
+        // removed other assertion
+        // removed other assertion
+
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertEquals(28, vol.getBoundarySize(), TEST_EPS);
@@ -597,7 +597,7 @@ class ConvexVolumeTest_OE25Dev {
     }
 
     @Test
-    void testSplit_3_oe() {
+    void testSplit_4_oe() {
         // arrange
         final ConvexVolume vol = rect(Vector3D.ZERO, 0.5, 0.5, 0.5);
 
@@ -611,7 +611,7 @@ class ConvexVolumeTest_OE25Dev {
 
         final ConvexVolume minus = split.getMinus();
         // removed other assertion
-        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-0.25, 0, 0), minus.getCentroid(), TEST_EPS);
+        // removed other assertion
 
         final ConvexVolume plus = split.getPlus();
         Assertions.assertEquals(0.5, plus.getSize(), TEST_EPS);

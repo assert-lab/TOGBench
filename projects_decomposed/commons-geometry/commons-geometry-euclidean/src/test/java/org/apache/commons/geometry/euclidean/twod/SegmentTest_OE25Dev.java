@@ -369,7 +369,7 @@ class SegmentTest_OE25Dev {
     }
 
     @Test
-    void testFromPoints_5_oe() {
+    void testFromPoints_8_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
         final Vector2D p2 = Vector2D.of(3, 2);
@@ -383,15 +383,15 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(p1, seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(p2, seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2, 2), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, seg.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
-    void testFromPoints_6_oe() {
+    void testFromPoints_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
         final Vector2D p2 = Vector2D.of(3, 2);
@@ -405,16 +405,16 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(p1, seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(p2, seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2, 2), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertEquals(3, seg.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
-    void testFromPoints_7_oe() {
+    void testFromPoints_10_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(1, 2);
         final Vector2D p2 = Vector2D.of(3, 2);
@@ -428,9 +428,9 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(p1, seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(p2, seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(2, 2), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -505,7 +505,7 @@ class SegmentTest_OE25Dev {
     }
 
     @Test
-    void testFromPoints_givenLine_5_oe() {
+    void testFromPoints_givenLine_8_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
         final Vector2D p2 = Vector2D.of(3, 3);
@@ -521,15 +521,15 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 3), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2.5), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(2, seg.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
-    void testFromPoints_givenLine_6_oe() {
+    void testFromPoints_givenLine_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
         final Vector2D p2 = Vector2D.of(3, 3);
@@ -545,16 +545,16 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 3), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2.5), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertEquals(3, seg.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
-    void testFromPoints_givenLine_7_oe() {
+    void testFromPoints_givenLine_10_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
         final Vector2D p2 = Vector2D.of(3, 3);
@@ -570,9 +570,9 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 3), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2.5), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -643,7 +643,7 @@ class SegmentTest_OE25Dev {
     }
 
     @Test
-    void testFromPoints_givenLine_singlePoint_5_oe() {
+    void testFromPoints_givenLine_singlePoint_8_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
 
@@ -658,15 +658,15 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(2, seg.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
-    void testFromPoints_givenLine_singlePoint_6_oe() {
+    void testFromPoints_givenLine_singlePoint_9_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
 
@@ -681,16 +681,16 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertEquals(2, seg.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
-    void testFromPoints_givenLine_singlePoint_7_oe() {
+    void testFromPoints_givenLine_singlePoint_10_oe() {
         // arrange
         final Vector2D p1 = Vector2D.of(-1, 2);
 
@@ -705,9 +705,9 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 2), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -770,7 +770,7 @@ class SegmentTest_OE25Dev {
     }
 
     @Test
-    void testFromLocations_5_oe() {
+    void testFromLocations_8_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
@@ -783,15 +783,15 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, -1), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 2), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 0.5), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-1, seg.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
-    void testFromLocations_6_oe() {
+    void testFromLocations_9_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
@@ -804,16 +804,16 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, -1), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 2), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 0.5), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertEquals(2, seg.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
-    void testFromLocations_7_oe() {
+    void testFromLocations_10_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
@@ -826,9 +826,9 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, -1), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 2), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 0.5), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -891,7 +891,7 @@ class SegmentTest_OE25Dev {
     }
 
     @Test
-    void testFromLocations_reversedLocationOrder_5_oe() {
+    void testFromLocations_reversedLocationOrder_8_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
@@ -904,15 +904,15 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, -1), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 2), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 0.5), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(-1, seg.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
-    void testFromLocations_reversedLocationOrder_6_oe() {
+    void testFromLocations_reversedLocationOrder_9_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
@@ -925,16 +925,16 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, -1), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 2), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 0.5), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertEquals(2, seg.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
-    void testFromLocations_reversedLocationOrder_7_oe() {
+    void testFromLocations_reversedLocationOrder_10_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
@@ -947,9 +947,9 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, -1), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 2), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 0.5), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion
@@ -1012,7 +1012,7 @@ class SegmentTest_OE25Dev {
     }
 
     @Test
-    void testFromLocations_singlePoint_5_oe() {
+    void testFromLocations_singlePoint_8_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
@@ -1025,15 +1025,15 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 1), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 1), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 1), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertEquals(1, seg.getSubspaceStart(), TEST_EPS);
     }
 
     @Test
-    void testFromLocations_singlePoint_6_oe() {
+    void testFromLocations_singlePoint_9_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
@@ -1046,16 +1046,16 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 1), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 1), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 1), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertEquals(1, seg.getSubspaceEnd(), TEST_EPS);
     }
 
     @Test
-    void testFromLocations_singlePoint_7_oe() {
+    void testFromLocations_singlePoint_10_oe() {
         // arrange
         final Line line = Lines.fromPointAndDirection(Vector2D.of(-1, 0), Vector2D.Unit.PLUS_Y, TEST_PRECISION);
 
@@ -1068,9 +1068,9 @@ class SegmentTest_OE25Dev {
         // removed other assertion
         // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 1), seg.getStartPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 1), seg.getEndPoint(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(-1, 1), seg.getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

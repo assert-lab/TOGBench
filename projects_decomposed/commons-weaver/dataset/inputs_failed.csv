@@ -1,5 +1,5 @@
 id,test_prefix,test_name
-weav_25_1,"    @Test
+weav_26_1,"    @Test
     public void testThrowingCheckedException1_1_oe() {
         try {
             StaticNoArgs.throwingCheckedException1();
@@ -7,7 +7,7 @@ weav_25_1,"    @Test
     }
     }
 ",StaticNoArgsTest::testThrowingCheckedException1_1_oe
-weav_35_1,"    @Test
+weav_36_1,"    @Test
     public void testThrowingCheckedException1_1_oe() {
         try {
             noArgs.throwingCheckedException1();

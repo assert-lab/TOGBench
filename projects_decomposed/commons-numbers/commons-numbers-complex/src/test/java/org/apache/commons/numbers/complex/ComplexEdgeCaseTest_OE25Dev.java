@@ -410,7 +410,7 @@ class ComplexEdgeCaseTest_OE25Dev {
     }
 
     @Test
-    void testCosh_1_oe() {
+    void testCosh_10_oe() {
         // cosh(a + b i) = cosh(a)cos(b) + i sinh(a)sin(b)
         // Even function: negative real cases defined by positive real cases
         final String name = "cosh";
@@ -421,15 +421,15 @@ class ComplexEdgeCaseTest_OE25Dev {
         final double big = Double.MAX_VALUE;
         final double medium = 2;
         final double small = Double.MIN_NORMAL;
-        assertComplex(big, big, name, operation, -inf, inf);
-        assertComplex(big, medium, name, operation, -inf, inf);
-        assertComplex(big, small, name, operation, inf, inf);
-        assertComplex(medium, big, name, operation, -3.7621493762972804, 0.017996317370418576);
-        assertComplex(medium, medium, name, operation, -1.5656258353157435, 3.297894836311237);
-        assertComplex(medium, small, name, operation, 3.7621956910836314, 8.0700322819551687e-308);
-        assertComplex(small, big, name, operation, -0.99998768942655991, 1.1040715888508271e-310);
-        assertComplex(small, medium, name, operation, -0.41614683654714241, 2.0232539340376892e-308);
-        assertComplex(small, small, name, operation, 1, 0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // Overflow test.
         // Based on MATH-901 discussion of FastMath functionality.
@@ -446,7 +446,7 @@ class ComplexEdgeCaseTest_OE25Dev {
     }
 
     @Test
-    void testSinh_1_oe() {
+    void testSinh_10_oe() {
         // sinh(a + b i) = sinh(a)cos(b) + i cosh(a)sin(b)
         // Odd function: negative real cases defined by positive real cases
         final String name = "sinh";
@@ -457,15 +457,15 @@ class ComplexEdgeCaseTest_OE25Dev {
         final double big = Double.MAX_VALUE;
         final double medium = 2;
         final double small = Double.MIN_NORMAL;
-        assertComplex(big, big, name, operation, -inf, inf);
-        assertComplex(big, medium, name, operation, -inf, inf);
-        assertComplex(big, small, name, operation, inf, inf);
-        assertComplex(medium, big, name, operation, -3.6268157591156114, 0.018667844927220067);
-        assertComplex(medium, medium, name, operation, -1.5093064853236158, 3.4209548611170133);
-        assertComplex(medium, small, name, operation, 3.626860407847019, 8.3711632828186228e-308);
-        assertComplex(small, big, name, operation, -2.2250464665720564e-308, 0.004961954789184062);
-        assertComplex(small, medium, name, operation, -9.2595744730151568e-309, 0.90929742682568171);
-        assertComplex(small, small, name, operation, 2.2250738585072014e-308, 2.2250738585072014e-308);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // Overflow test.
         // As per cosh with sign changes to real and imaginary
@@ -480,7 +480,7 @@ class ComplexEdgeCaseTest_OE25Dev {
     }
 
     @Test
-    void testTanh_1_oe() {
+    void testTanh_10_oe() {
         // tan(a + b i) = sinh(2a)/(cosh(2a)+cos(2b)) + i [sin(2b)/(cosh(2a)+cos(2b))]
         // Odd function: negative real cases defined by positive real cases
         final String name = "tanh";
@@ -489,29 +489,29 @@ class ComplexEdgeCaseTest_OE25Dev {
         // Overflow on 2b:
         // cos(2b) = cos(inf) = NaN
         // sin(2b) = sin(inf) = NaN
-        assertComplex(1, Double.MAX_VALUE, name, operation, 0.76160203106265523, -0.0020838895895863505);
+        // removed other assertion
 
         // Underflow on 2b:
         // cos(2b) -> 1
         // sin(2b) -> 0
-        assertComplex(1, Double.MIN_NORMAL, name, operation, 0.76159415595576485, 9.344739287691424e-309);
-        assertComplex(1, Double.MIN_VALUE, name, operation, 0.76159415595576485, 0);
+        // removed other assertion
+        // removed other assertion
 
         // Overflow on 2a:
         // sinh(2a) = sinh(inf) = inf
         // cosh(2a) = cosh(inf) = inf
         // Test all sign variants as this execution path to treat real as infinite
         // is not tested else where.
-        assertComplex(Double.MAX_VALUE, 1, name, operation, 1, 0.0);
-        assertComplex(Double.MAX_VALUE, -1, name, operation, 1, -0.0);
-        assertComplex(-Double.MAX_VALUE, 1, name, operation, -1, 0.0);
-        assertComplex(-Double.MAX_VALUE, -1, name, operation, -1, -0.0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // Underflow on 2a:
         // sinh(2a) -> 0
         // cosh(2a) -> 0
-        assertComplex(Double.MIN_NORMAL, 1, name, operation, 7.6220323800193346e-308, 1.5574077246549021);
-        assertComplex(Double.MIN_VALUE, 1, name, operation, 1.4821969375237396e-323, 1.5574077246549021);
+        // removed other assertion
+        // removed other assertion
 
         // Underflow test.
         // sinh(x) can be approximated by exp(x) but must be overflow safe.
@@ -524,7 +524,7 @@ class ComplexEdgeCaseTest_OE25Dev {
     }
 
     @Test
-    void testTanh_2_oe() {
+    void testTanh_11_oe() {
         // tan(a + b i) = sinh(2a)/(cosh(2a)+cos(2b)) + i [sin(2b)/(cosh(2a)+cos(2b))]
         // Odd function: negative real cases defined by positive real cases
         final String name = "tanh";
@@ -533,29 +533,29 @@ class ComplexEdgeCaseTest_OE25Dev {
         // Overflow on 2b:
         // cos(2b) = cos(inf) = NaN
         // sin(2b) = sin(inf) = NaN
-        assertComplex(1, Double.MAX_VALUE, name, operation, 0.76160203106265523, -0.0020838895895863505);
+        // removed other assertion
 
         // Underflow on 2b:
         // cos(2b) -> 1
         // sin(2b) -> 0
-        assertComplex(1, Double.MIN_NORMAL, name, operation, 0.76159415595576485, 9.344739287691424e-309);
-        assertComplex(1, Double.MIN_VALUE, name, operation, 0.76159415595576485, 0);
+        // removed other assertion
+        // removed other assertion
 
         // Overflow on 2a:
         // sinh(2a) = sinh(inf) = inf
         // cosh(2a) = cosh(inf) = inf
         // Test all sign variants as this execution path to treat real as infinite
         // is not tested else where.
-        assertComplex(Double.MAX_VALUE, 1, name, operation, 1, 0.0);
-        assertComplex(Double.MAX_VALUE, -1, name, operation, 1, -0.0);
-        assertComplex(-Double.MAX_VALUE, 1, name, operation, -1, 0.0);
-        assertComplex(-Double.MAX_VALUE, -1, name, operation, -1, -0.0);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
 
         // Underflow on 2a:
         // sinh(2a) -> 0
         // cosh(2a) -> 0
-        assertComplex(Double.MIN_NORMAL, 1, name, operation, 7.6220323800193346e-308, 1.5574077246549021);
-        assertComplex(Double.MIN_VALUE, 1, name, operation, 1.4821969375237396e-323, 1.5574077246549021);
+        // removed other assertion
+        // removed other assertion
 
         // Underflow test.
         // sinh(x) can be approximated by exp(x) but must be overflow safe.
@@ -827,7 +827,7 @@ class ComplexEdgeCaseTest_OE25Dev {
     }
 
     @Test
-    void testSqrt_10_oe() {
+    void testSqrt_14_oe() {
         final String name = "sqrt";
         final UnaryOperator<Complex> operation = Complex::sqrt;
 
@@ -864,14 +864,14 @@ class ComplexEdgeCaseTest_OE25Dev {
         // removed other assertion
         for (final double a : new double[] {0.5, 1.0, 1.2322, 345345.234523}) {
             final double rootA = Math.sqrt(a);
-            assertComplex(a, 0, name, operation, rootA * cosArgRe, rootA * sinArgRe, 0);
+            // removed other assertion
             // This should be exact. It will fail if using the polar computation
             // real = sqrt(abs()) * Math.cos(arg() / 2) as cos(pi/2) is not 0.0 but 6.123233995736766e-17
-            assertComplex(-a, 0, name, operation, rootA * sinArgRe, rootA * cosArgRe, 0);
+            // removed other assertion
             // This should be exact. It won't be if Complex is using polar computation
             // with sin/cos which does not output the same result for angle pi/4.
-            assertComplex(0, a, name, operation, rootA * root2over2, rootA * root2over2, 0);
-            assertComplex(0, -a, name, operation, rootA * root2over2, -rootA * root2over2, 0);
+            // removed other assertion
+            // removed other assertion
         }
 
         // Check overflow safe.

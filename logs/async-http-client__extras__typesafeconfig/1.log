@@ -19,23 +19,17 @@
 [INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/typesafeconfig/src/test/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-typesafe-config ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/typesafeconfig/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/typesafeconfig/src/test/java/org/asynchttpclient/extras/typesafeconfig/AsyncHttpClientTypesafeConfigTest_OE25Dev.java:[212,8] class org.asynchttpclient.extras.typesafeconfig.AsyncHttpClientTypesafeConfigTest_OE25Dev.AsyncHttpClientTypesafeConfigTest is already defined in class org.asynchttpclient.extras.typesafeconfig.AsyncHttpClientTypesafeConfigTest_OE25Dev
-[INFO] 1 error
-[INFO] -------------------------------------------------------------
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-extras-typesafe-config ---
+[INFO] No tests to run.
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.295 s
-[INFO] Finished at: 2026-01-26T16:27:56-06:00
+[INFO] Total time:  5.576 s
+[INFO] Finished at: 2026-02-02T13:38:39-06:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client-extras-typesafe-config: Compilation failure
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/typesafeconfig/src/test/java/org/asynchttpclient/extras/typesafeconfig/AsyncHttpClientTypesafeConfigTest_OE25Dev.java:[212,8] class org.asynchttpclient.extras.typesafeconfig.AsyncHttpClientTypesafeConfigTest_OE25Dev.AsyncHttpClientTypesafeConfigTest is already defined in class org.asynchttpclient.extras.typesafeconfig.AsyncHttpClientTypesafeConfigTest_OE25Dev
-[ERROR] -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-typesafe-config: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

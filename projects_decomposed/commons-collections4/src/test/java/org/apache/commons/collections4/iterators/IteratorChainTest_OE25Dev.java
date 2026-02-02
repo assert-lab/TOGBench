@@ -293,6 +293,21 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         assertTrue("should have next",chain.hasNext());
     }
 
+    public void testFirstIteratorIsEmptyBug_4_oe() {
+        final List<String> empty = new ArrayList<>();
+        final List<String> notEmpty = new ArrayList<>();
+        notEmpty.add("A");
+        notEmpty.add("B");
+        notEmpty.add("C");
+        final IteratorChain<String> chain = new IteratorChain<>();
+        chain.addIterator(empty.iterator());
+        chain.addIterator(notEmpty.iterator());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("B",chain.next());
+    }
+
     public void testFirstIteratorIsEmptyBug_5_oe() {
         final List<String> empty = new ArrayList<>();
         final List<String> notEmpty = new ArrayList<>();
@@ -307,6 +322,41 @@ public class IteratorChainTest_OE25Dev extends AbstractIteratorTest<String> {
         // removed other assertion
         // removed other assertion
         assertTrue("should have next",chain.hasNext());
+    }
+
+    public void testFirstIteratorIsEmptyBug_6_oe() {
+        final List<String> empty = new ArrayList<>();
+        final List<String> notEmpty = new ArrayList<>();
+        notEmpty.add("A");
+        notEmpty.add("B");
+        notEmpty.add("C");
+        final IteratorChain<String> chain = new IteratorChain<>();
+        chain.addIterator(empty.iterator());
+        chain.addIterator(notEmpty.iterator());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertEquals("C",chain.next());
+    }
+
+    public void testFirstIteratorIsEmptyBug_7_oe() {
+        final List<String> empty = new ArrayList<>();
+        final List<String> notEmpty = new ArrayList<>();
+        notEmpty.add("A");
+        notEmpty.add("B");
+        notEmpty.add("C");
+        final IteratorChain<String> chain = new IteratorChain<>();
+        chain.addIterator(empty.iterator());
+        chain.addIterator(notEmpty.iterator());
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        assertTrue("should not have next",!chain.hasNext());
     }
 
     public void testEmptyChain_1_oe() {

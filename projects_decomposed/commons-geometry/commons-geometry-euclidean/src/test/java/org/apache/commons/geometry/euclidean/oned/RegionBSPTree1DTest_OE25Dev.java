@@ -1508,7 +1508,7 @@ class RegionBSPTree1DTest_OE25Dev {
     }
 
     @Test
-    void testGetMinMax_halfSpaces_2_oe() {
+    void testGetMinMax_halfSpaces_4_oe() {
         // arrange
         final RegionBSPTree1D posHalfSpace = RegionBSPTree1D.empty();
         posHalfSpace.getRoot().cut(OrientedPoints.createNegativeFacing(-2.0, TEST_PRECISION));
@@ -1518,9 +1518,9 @@ class RegionBSPTree1DTest_OE25Dev {
 
         // act/assert
         // removed other assertion
-        GeometryTestUtils.assertPositiveInfinity(posHalfSpace.getMax());
+        // removed other assertion
 
-        GeometryTestUtils.assertNegativeInfinity(negHalfSpace.getMin());
+        // removed other assertion
         Assertions.assertEquals(3, negHalfSpace.getMax(), TEST_EPS);
     }
 

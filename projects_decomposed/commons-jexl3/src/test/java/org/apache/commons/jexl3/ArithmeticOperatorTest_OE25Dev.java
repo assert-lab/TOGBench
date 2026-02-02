@@ -63,106 +63,6 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         super("ArithmeticOperatorTest_OE25Dev");
     }
 
-    @Test
-    public void testRegexp() throws Exception {
-        asserter.setVariable("str", "abc456");
-        asserter.assertExpression("str =~ '.*456'", Boolean.TRUE);
-        asserter.assertExpression("str !~ 'ABC.*'", Boolean.TRUE);
-        asserter.setVariable("match", "abc.*");
-        asserter.setVariable("nomatch", ".*123");
-        asserter.assertExpression("str =~ match", Boolean.TRUE);
-        asserter.assertExpression("str !~ match", Boolean.FALSE);
-        asserter.assertExpression("str !~ nomatch", Boolean.TRUE);
-        asserter.assertExpression("str =~ nomatch", Boolean.FALSE);
-        asserter.setVariable("match", new StringBuilder("abc.*"));
-        asserter.setVariable("nomatch", new StringBuilder(".*123"));
-        asserter.assertExpression("str =~ match", Boolean.TRUE);
-        asserter.assertExpression("str !~ match", Boolean.FALSE);
-        asserter.assertExpression("str !~ nomatch", Boolean.TRUE);
-        asserter.assertExpression("str =~ nomatch", Boolean.FALSE);
-        asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
-        asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
-        asserter.assertExpression("str =~ match", Boolean.TRUE);
-        asserter.assertExpression("str !~ match", Boolean.FALSE);
-        asserter.assertExpression("str !~ nomatch", Boolean.TRUE);
-        asserter.assertExpression("str =~ nomatch", Boolean.FALSE);
-        // check the in/not-in variant
-        asserter.assertExpression("'a' =~ ['a','b','c','d','e','f']", Boolean.TRUE);
-        asserter.assertExpression("'a' !~ ['a','b','c','d','e','f']", Boolean.FALSE);
-        asserter.assertExpression("'z' =~ ['a','b','c','d','e','f']", Boolean.FALSE);
-        asserter.assertExpression("'z' !~ ['a','b','c','d','e','f']", Boolean.TRUE);
-    }
-
-    @Test
-    public void testRegexp2() throws Exception {
-        asserter.setVariable("str", "abc456");
-        asserter.assertExpression("str =~ ~/.*456/", Boolean.TRUE);
-        asserter.assertExpression("str !~ ~/ABC.*/", Boolean.TRUE);
-        asserter.assertExpression("str =~ ~/abc\\d{3}/", Boolean.TRUE);
-        asserter.setVariable("str", "4/6");
-        asserter.assertExpression("str =~ ~/\\d\\/\\d/", Boolean.TRUE);
-    }
-
-    @Test
-    public void testStartsEndsWithString() throws Exception {
-        asserter.setVariable("x", "foobar");
-        asserter.assertExpression("x =^ 'foo'", Boolean.TRUE);
-        asserter.assertExpression("x =$ 'foo'", Boolean.FALSE);
-        asserter.setVariable("x", "barfoo");
-        asserter.assertExpression("x =^ 'foo'", Boolean.FALSE);
-        asserter.assertExpression("x =$ 'foo'", Boolean.TRUE);
-    }
-
-    @Test
-    public void testStartsEndsWithStringDot() throws Exception {
-        asserter.setVariable("x.y", "foobar");
-        asserter.assertExpression("x.y =^ 'foo'", Boolean.TRUE);
-        asserter.assertExpression("x.y =$ 'foo'", Boolean.FALSE);
-        asserter.setVariable("x.y", "barfoo");
-        asserter.assertExpression("x.y =^ 'foo'", Boolean.FALSE);
-        asserter.assertExpression("x.y =$ 'foo'", Boolean.TRUE);
-    }
-
-    @Test
-    public void testNotStartsEndsWithString() throws Exception {
-        asserter.setVariable("x", "foobar");
-        asserter.assertExpression("x !^ 'foo'", Boolean.FALSE);
-        asserter.assertExpression("x !$ 'foo'", Boolean.TRUE);
-        asserter.setVariable("x", "barfoo");
-        asserter.assertExpression("x !^ 'foo'", Boolean.TRUE);
-        asserter.assertExpression("x !$ 'foo'", Boolean.FALSE);
-    }
-
-    @Test
-    public void testNotStartsEndsWithStringDot() throws Exception {
-        asserter.setVariable("x.y", "foobar");
-        asserter.assertExpression("x.y !^ 'foo'", Boolean.FALSE);
-        asserter.assertExpression("x.y !$ 'foo'", Boolean.TRUE);
-        asserter.setVariable("x.y", "barfoo");
-        asserter.assertExpression("x.y !^ 'foo'", Boolean.TRUE);
-        asserter.assertExpression("x.y !$ 'foo'", Boolean.FALSE);
-    }
-
-    @Test
-    public void testStartsEndsWithStringBuilder() throws Exception {
-        asserter.setVariable("x", new StringBuilder("foobar"));
-        asserter.assertExpression("x =^ 'foo'", Boolean.TRUE);
-        asserter.assertExpression("x =$ 'foo'", Boolean.FALSE);
-        asserter.setVariable("x", new StringBuilder("barfoo"));
-        asserter.assertExpression("x =^ 'foo'", Boolean.FALSE);
-        asserter.assertExpression("x =$ 'foo'", Boolean.TRUE);
-    }
-
-    @Test
-    public void testNotStartsEndsWithStringBuilder() throws Exception {
-        asserter.setVariable("x", new StringBuilder("foobar"));
-        asserter.assertExpression("x !^ 'foo'", Boolean.FALSE);
-        asserter.assertExpression("x !$ 'foo'", Boolean.TRUE);
-        asserter.setVariable("x", new StringBuilder("barfoo"));
-        asserter.assertExpression("x !^ 'foo'", Boolean.TRUE);
-        asserter.assertExpression("x !$ 'foo'", Boolean.FALSE);
-    }
-
     public static class MatchingContainer {
         private final Set<Integer> values;
 
@@ -231,75 +131,6 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         }
     }
 
-    @Test
-    public void testMatch() throws Exception {
-        // check in/not-in on array, list, map, set and duck-type collection
-        final int[] ai = {2, 4, 42, 54};
-        final List<Integer> al = new ArrayList<Integer>();
-        for (final int i : ai) {
-            al.add(i);
-        }
-        final Map<Integer, String> am = new HashMap<Integer, String>();
-        am.put(2, "two");
-        am.put(4, "four");
-        am.put(42, "forty-two");
-        am.put(54, "fifty-four");
-        final MatchingContainer ad = new MatchingContainer(ai);
-        final IterableContainer ic = new IterableContainer(ai);
-        final Set<Integer> as = ad.values;
-        final Object[] vars = {ai, al, am, ad, as, ic};
-
-        for (final Object var : vars) {
-            asserter.setVariable("container", var);
-            for (final int x : ai) {
-                asserter.setVariable("x", x);
-                asserter.assertExpression("x =~ container", Boolean.TRUE);
-            }
-            asserter.setVariable("x", 169);
-            asserter.assertExpression("x !~ container", Boolean.TRUE);
-        }
-    }
-
-    @Test
-    public void testStartsEndsWith() throws Exception {
-        asserter.setVariable("x", "foobar");
-        asserter.assertExpression("x =^ 'foo'", Boolean.TRUE);
-        asserter.assertExpression("x =$ 'foo'", Boolean.FALSE);
-        asserter.setVariable("x", "barfoo");
-        asserter.assertExpression("x =^ 'foo'", Boolean.FALSE);
-        asserter.assertExpression("x =$ 'foo'", Boolean.TRUE);
-
-        final int[] ai = {2, 4, 42, 54};
-        final IterableContainer ic = new IterableContainer(ai);
-        asserter.setVariable("x", ic);
-        asserter.assertExpression("x =^ 2", Boolean.TRUE);
-        asserter.assertExpression("x =$ 54", Boolean.TRUE);
-        asserter.assertExpression("x =^ 4", Boolean.FALSE);
-        asserter.assertExpression("x =$ 42", Boolean.FALSE);
-        asserter.assertExpression("x =^ [2, 4]", Boolean.TRUE);
-        asserter.assertExpression("x =^ [42, 54]", Boolean.TRUE);
-    }
-
-    @Test
-    public void testNotStartsEndsWith() throws Exception {
-        asserter.setVariable("x", "foobar");
-        asserter.assertExpression("x !^ 'foo'", Boolean.FALSE);
-        asserter.assertExpression("x !$ 'foo'", Boolean.TRUE);
-        asserter.setVariable("x", "barfoo");
-        asserter.assertExpression("x !^ 'foo'", Boolean.TRUE);
-        asserter.assertExpression("x !$ 'foo'", Boolean.FALSE);
-
-        final int[] ai = {2, 4, 42, 54};
-        final IterableContainer ic = new IterableContainer(ai);
-        asserter.setVariable("x", ic);
-        asserter.assertExpression("x !^ 2", Boolean.FALSE);
-        asserter.assertExpression("x !$ 54", Boolean.FALSE);
-        asserter.assertExpression("x !^ 4", Boolean.TRUE);
-        asserter.assertExpression("x !$ 42", Boolean.TRUE);
-        asserter.assertExpression("x !^ [2, 4]", Boolean.FALSE);
-        asserter.assertExpression("x !^ [42, 54]", Boolean.FALSE);
-    }
-
     public static class Aggregate {
         private Aggregate() {}
         public static int sum(final Iterable<Integer> ii) {
@@ -309,6 +140,45 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
             }
             return sum;
         }
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testInterval() throws Exception {
+        final Map<String, Object> ns = new HashMap<String, Object>();
+        ns.put("calc", Aggregate.class);
+        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
+        JexlScript script;
+        Object result;
+
+        script = jexl.createScript("1 .. 3");
+        result = script.execute(null);
+        Assert.assertTrue(result instanceof Iterable<?>);
+        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
+        Assert.assertEquals(Integer.valueOf(1), ii.next());
+        Assert.assertEquals(Integer.valueOf(2), ii.next());
+        Assert.assertEquals(Integer.valueOf(3), ii.next());
+
+        script = jexl.createScript("(4 - 3) .. (9 / 3)");
+        result = script.execute(null);
+        Assert.assertTrue(result instanceof Iterable<?>);
+        ii = ((Iterable<Integer>) result).iterator();
+        Assert.assertEquals(Integer.valueOf(1), ii.next());
+        Assert.assertEquals(Integer.valueOf(2), ii.next());
+        Assert.assertEquals(Integer.valueOf(3), ii.next());
+
+        // sum of 1, 2, 3
+        script = jexl.createScript("var x = 0; for(var y : ((5 - 4) .. (12 / 4))) { x = x + y }; x");
+        result = script.execute(null);
+        Assert.assertEquals(Integer.valueOf(6), result);
+
+        script = jexl.createScript("calc:sum(1 .. 3)");
+        result = script.execute(null);
+        Assert.assertEquals(Integer.valueOf(6), result);
+
+        script = jexl.createScript("calc:sum(-3 .. 3)");
+        result = script.execute(null);
+        Assert.assertEquals(Integer.valueOf(0), result);
     }
 
     public static class DateArithmetic extends JexlArithmetic {
@@ -424,326 +294,22 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_1_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        Assert.assertTrue(result instanceof Iterable<?>);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_2_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        Assert.assertEquals(Integer.valueOf(1), ii.next());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_3_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        Assert.assertEquals(Integer.valueOf(2), ii.next());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_4_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        Assert.assertEquals(Integer.valueOf(3), ii.next());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_5_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        script = jexl.createScript("(4 - 3) .. (9 / 3)");
-        result = script.execute(null);
-        Assert.assertTrue(result instanceof Iterable<?>);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_6_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        script = jexl.createScript("(4 - 3) .. (9 / 3)");
-        result = script.execute(null);
-        // removed other assertion
-        ii = ((Iterable<Integer>) result).iterator();
-        Assert.assertEquals(Integer.valueOf(1), ii.next());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_7_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        script = jexl.createScript("(4 - 3) .. (9 / 3)");
-        result = script.execute(null);
-        // removed other assertion
-        ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        Assert.assertEquals(Integer.valueOf(2), ii.next());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_8_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        script = jexl.createScript("(4 - 3) .. (9 / 3)");
-        result = script.execute(null);
-        // removed other assertion
-        ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        Assert.assertEquals(Integer.valueOf(3), ii.next());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_9_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        script = jexl.createScript("(4 - 3) .. (9 / 3)");
-        result = script.execute(null);
-        // removed other assertion
-        ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // sum of 1, 2, 3
-        script = jexl.createScript("var x = 0; for(var y : ((5 - 4) .. (12 / 4))) { x = x + y }; x");
-        result = script.execute(null);
-        Assert.assertEquals(Integer.valueOf(6), result);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_10_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        script = jexl.createScript("(4 - 3) .. (9 / 3)");
-        result = script.execute(null);
-        // removed other assertion
-        ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // sum of 1, 2, 3
-        script = jexl.createScript("var x = 0; for(var y : ((5 - 4) .. (12 / 4))) { x = x + y }; x");
-        result = script.execute(null);
-        // removed other assertion
-
-        script = jexl.createScript("calc:sum(1 .. 3)");
-        result = script.execute(null);
-        Assert.assertEquals(Integer.valueOf(6), result);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testInterval_11_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
-        JexlScript script;
-        Object result;
-
-        script = jexl.createScript("1 .. 3");
-        result = script.execute(null);
-        // removed other assertion
-        Iterator<Integer> ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        script = jexl.createScript("(4 - 3) .. (9 / 3)");
-        result = script.execute(null);
-        // removed other assertion
-        ii = ((Iterable<Integer>) result).iterator();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-
-        // sum of 1, 2, 3
-        script = jexl.createScript("var x = 0; for(var y : ((5 - 4) .. (12 / 4))) { x = x + y }; x");
-        result = script.execute(null);
-        // removed other assertion
-
-        script = jexl.createScript("calc:sum(1 .. 3)");
-        result = script.execute(null);
-        // removed other assertion
-
-        script = jexl.createScript("calc:sum(-3 .. 3)");
-        result = script.execute(null);
-        Assert.assertEquals(Integer.valueOf(0), result);
-    }
-
-    @Test
-    public void testDateArithmetic_1_oe() throws Exception {
+    public void testDateArithmetic() throws Exception {
         final Date d = new Date();
         final JexlContext jc = new MapContext();
         final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
         final JexlScript expr0 = jexl.createScript("date.yyyy = 1969; date.MM=7; date.dd=20; ", "date");
         Object value0 = expr0.execute(jc, d);
         Assert.assertNotNull(value0);
-    }
-
-    @Test
-    public void testDateArithmetic_2_oe() throws Exception {
-        final Date d = new Date();
-        final JexlContext jc = new MapContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("date.yyyy = 1969; date.MM=7; date.dd=20; ", "date");
-        Object value0 = expr0.execute(jc, d);
-        // removed other assertion
         value0 = d;
         //d = new Date();
         Assert.assertEquals(1969, jexl.createScript("date.yyyy", "date").execute(jc, value0));
-    }
-
-    @Test
-    public void testDateArithmetic_3_oe() throws Exception {
-        final Date d = new Date();
-        final JexlContext jc = new MapContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("date.yyyy = 1969; date.MM=7; date.dd=20; ", "date");
-        Object value0 = expr0.execute(jc, d);
-        // removed other assertion
-        value0 = d;
-        //d = new Date();
-        // removed other assertion
         Assert.assertEquals(7, jexl.createScript("date.MM", "date").execute(jc, value0));
-    }
-
-    @Test
-    public void testDateArithmetic_4_oe() throws Exception {
-        final Date d = new Date();
-        final JexlContext jc = new MapContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("date.yyyy = 1969; date.MM=7; date.dd=20; ", "date");
-        Object value0 = expr0.execute(jc, d);
-        // removed other assertion
-        value0 = d;
-        //d = new Date();
-        // removed other assertion
-        // removed other assertion
         Assert.assertEquals(20, jexl.createScript("date.dd", "date").execute(jc, value0));
     }
 
     @Test
-    public void testFormatArithmetic_1_oe() throws Exception {
+    public void testFormatArithmetic() throws Exception {
         final Calendar cal = Calendar.getInstance(UTC);
         cal.set(1969, Calendar.AUGUST, 20);
         final Date x0 = cal.getTime();
@@ -756,352 +322,38 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         Object value10 = expr0.execute(jc, x0, y0);
         final Object value20 = expr0.execute(jc, x0, y0);
         Assert.assertEquals(value10, value20);
-    }
-
-    @Test
-    public void testFormatArithmetic_2_oe() throws Exception {
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "MM/yy/dd";
-        final Number x1 = 42.12345;
-        final String y1 = "##0.##";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
-        Object value10 = expr0.execute(jc, x0, y0);
-        final Object value20 = expr0.execute(jc, x0, y0);
-        // removed other assertion
         Object value11 = expr0.execute(jc, x1, y1);
         final Object value21 = expr0.execute(jc, x1, y1);
         Assert.assertEquals(value11, value21);
-    }
-
-    @Test
-    public void testFormatArithmetic_3_oe() throws Exception {
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "MM/yy/dd";
-        final Number x1 = 42.12345;
-        final String y1 = "##0.##";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
-        Object value10 = expr0.execute(jc, x0, y0);
-        final Object value20 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        Object value11 = expr0.execute(jc, x1, y1);
-        final Object value21 = expr0.execute(jc, x1, y1);
-        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
         Assert.assertEquals(value10, value20);
-    }
-
-    @Test
-    public void testFormatArithmetic_4_oe() throws Exception {
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "MM/yy/dd";
-        final Number x1 = 42.12345;
-        final String y1 = "##0.##";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
-        Object value10 = expr0.execute(jc, x0, y0);
-        final Object value20 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        Object value11 = expr0.execute(jc, x1, y1);
-        final Object value21 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
         Assert.assertEquals(value11, value21);
-    }
-
-    @Test
-    public void testFormatArithmetic_5_oe() throws Exception {
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "MM/yy/dd";
-        final Number x1 = 42.12345;
-        final String y1 = "##0.##";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
-        Object value10 = expr0.execute(jc, x0, y0);
-        final Object value20 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        Object value11 = expr0.execute(jc, x1, y1);
-        final Object value21 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
         value10 = expr0.execute(jc, x0, y0);
         Assert.assertEquals(value10, value20);
-    }
-
-    @Test
-    public void testFormatArithmetic_6_oe() throws Exception {
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "MM/yy/dd";
-        final Number x1 = 42.12345;
-        final String y1 = "##0.##";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
-        Object value10 = expr0.execute(jc, x0, y0);
-        final Object value20 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        Object value11 = expr0.execute(jc, x1, y1);
-        final Object value21 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
         value11 = expr0.execute(jc, x1, y1);
         Assert.assertEquals(value11, value21);
-    }
-
-    @Test
-    public void testFormatArithmetic_7_oe() throws Exception {
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "MM/yy/dd";
-        final Number x1 = 42.12345;
-        final String y1 = "##0.##";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
-        Object value10 = expr0.execute(jc, x0, y0);
-        final Object value20 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        Object value11 = expr0.execute(jc, x1, y1);
-        final Object value21 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
 
         JexlScript expr1 = jexl.createScript("format(x, y)", "x", "y");
         value10 = expr1.execute(jc, x0, y0);
         Assert.assertEquals(value10, value20);
-    }
-
-    @Test
-    public void testFormatArithmetic_8_oe() throws Exception {
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "MM/yy/dd";
-        final Number x1 = 42.12345;
-        final String y1 = "##0.##";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
-        Object value10 = expr0.execute(jc, x0, y0);
-        final Object value20 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        Object value11 = expr0.execute(jc, x1, y1);
-        final Object value21 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-
-        JexlScript expr1 = jexl.createScript("format(x, y)", "x", "y");
-        value10 = expr1.execute(jc, x0, y0);
-        // removed other assertion
         Object s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
         Assert.assertEquals("Wed 20 Aug 1969", s0);
-    }
-
-    @Test
-    public void testFormatArithmetic_9_oe() throws Exception {
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "MM/yy/dd";
-        final Number x1 = 42.12345;
-        final String y1 = "##0.##";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
-        Object value10 = expr0.execute(jc, x0, y0);
-        final Object value20 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        Object value11 = expr0.execute(jc, x1, y1);
-        final Object value21 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-
-        JexlScript expr1 = jexl.createScript("format(x, y)", "x", "y");
-        value10 = expr1.execute(jc, x0, y0);
-        // removed other assertion
-        Object s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
-        // removed other assertion
         jc.setLocale(Locale.FRANCE);
         s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
         Assert.assertEquals("mer. 20 ao\u00fbt 1969", s0);
-    }
-
-    @Test
-    public void testFormatArithmetic_10_oe() throws Exception {
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "MM/yy/dd";
-        final Number x1 = 42.12345;
-        final String y1 = "##0.##";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
-        Object value10 = expr0.execute(jc, x0, y0);
-        final Object value20 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        Object value11 = expr0.execute(jc, x1, y1);
-        final Object value21 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-
-        JexlScript expr1 = jexl.createScript("format(x, y)", "x", "y");
-        value10 = expr1.execute(jc, x0, y0);
-        // removed other assertion
-        Object s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
-        // removed other assertion
-        jc.setLocale(Locale.FRANCE);
-        s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
-        // removed other assertion
 
         expr1 = jexl.createScript("format(now(), y)", "y");
         final Object n0 = expr1.execute(jc, y0);
         Assert.assertNotNull(n0);
-    }
-
-    @Test
-    public void testFormatArithmetic_11_oe() throws Exception {
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "MM/yy/dd";
-        final Number x1 = 42.12345;
-        final String y1 = "##0.##";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
-        Object value10 = expr0.execute(jc, x0, y0);
-        final Object value20 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        Object value11 = expr0.execute(jc, x1, y1);
-        final Object value21 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-
-        JexlScript expr1 = jexl.createScript("format(x, y)", "x", "y");
-        value10 = expr1.execute(jc, x0, y0);
-        // removed other assertion
-        Object s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
-        // removed other assertion
-        jc.setLocale(Locale.FRANCE);
-        s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
-        // removed other assertion
-
-        expr1 = jexl.createScript("format(now(), y)", "y");
-        final Object n0 = expr1.execute(jc, y0);
-        // removed other assertion
         expr1 = jexl.createScript("now().format(y)", "y");
         final Object n1 = expr1.execute(jc, y0);
         Assert.assertNotNull(n0);
-    }
-
-    @Test
-    public void testFormatArithmetic_12_oe() throws Exception {
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "MM/yy/dd";
-        final Number x1 = 42.12345;
-        final String y1 = "##0.##";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).arithmetic(new DateArithmetic(true)).create();
-        final JexlScript expr0 = jexl.createScript("x.format(y)", "x", "y");
-        Object value10 = expr0.execute(jc, x0, y0);
-        final Object value20 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        Object value11 = expr0.execute(jc, x1, y1);
-        final Object value21 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-        value10 = expr0.execute(jc, x0, y0);
-        // removed other assertion
-        value11 = expr0.execute(jc, x1, y1);
-        // removed other assertion
-
-        JexlScript expr1 = jexl.createScript("format(x, y)", "x", "y");
-        value10 = expr1.execute(jc, x0, y0);
-        // removed other assertion
-        Object s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
-        // removed other assertion
-        jc.setLocale(Locale.FRANCE);
-        s0 = expr1.execute(jc, x0, "EEE dd MMM yyyy");
-        // removed other assertion
-
-        expr1 = jexl.createScript("format(now(), y)", "y");
-        final Object n0 = expr1.execute(jc, y0);
-        // removed other assertion
-        expr1 = jexl.createScript("now().format(y)", "y");
-        final Object n1 = expr1.execute(jc, y0);
-        // removed other assertion
         Assert.assertEquals(n0, n1);
     }
 
     @Test
-    public void testFormatArithmeticJxlt_1_oe() throws Exception {
+    public void testFormatArithmeticJxlt() throws Exception {
         final Map<String, Object> ns = new HashMap<String, Object>();
         ns.put("calc", Aggregate.class);
         final Calendar cal = Calendar.getInstance(UTC);
@@ -1117,99 +369,982 @@ public class ArithmeticOperatorTest_OE25Dev extends JexlTestCase {
         expr0.evaluate(jc, strw, x0, y0);
         String strws = strw.toString();
         Assert.assertEquals("1969-08-20", strws);
-    }
-
-    @Test
-    public void testFormatArithmeticJxlt_2_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "yyyy-MM-dd";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).namespaces(ns).arithmetic(new DateArithmetic(true)).create();
-        final JxltEngine jxlt = jexl.createJxltEngine();
-
-        JxltEngine.Template expr0 = jxlt.createTemplate("${x.format(y)}", "x", "y");
-        StringWriter strw = new StringWriter();
-        expr0.evaluate(jc, strw, x0, y0);
-        String strws = strw.toString();
-        // removed other assertion
 
         expr0 = jxlt.createTemplate("${calc:sum(x .. y)}", "x", "y");
         strw = new StringWriter();
         expr0.evaluate(jc, strw, 1, 3);
         strws = strw.toString();
         Assert.assertEquals("6", strws);
-    }
-
-    @Test
-    public void testFormatArithmeticJxlt_3_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "yyyy-MM-dd";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).namespaces(ns).arithmetic(new DateArithmetic(true)).create();
-        final JxltEngine jxlt = jexl.createJxltEngine();
-
-        JxltEngine.Template expr0 = jxlt.createTemplate("${x.format(y)}", "x", "y");
-        StringWriter strw = new StringWriter();
-        expr0.evaluate(jc, strw, x0, y0);
-        String strws = strw.toString();
-        // removed other assertion
-
-        expr0 = jxlt.createTemplate("${calc:sum(x .. y)}", "x", "y");
-        strw = new StringWriter();
-        expr0.evaluate(jc, strw, 1, 3);
-        strws = strw.toString();
-        // removed other assertion
 
         final JxltEngine.Template expr1 = jxlt.createTemplate("${jexl:include(s, x, y)}", "s", "x", "y");
         strw = new StringWriter();
         expr1.evaluate(jc, strw, expr0, 1, 3);
         strws = strw.toString();
         Assert.assertEquals("6", strws);
-    }
-
-    @Test
-    public void testFormatArithmeticJxlt_4_oe() throws Exception {
-        final Map<String, Object> ns = new HashMap<String, Object>();
-        ns.put("calc", Aggregate.class);
-        final Calendar cal = Calendar.getInstance(UTC);
-        cal.set(1969, Calendar.AUGUST, 20);
-        final Date x0 = cal.getTime();
-        final String y0 =  "yyyy-MM-dd";
-        final DateContext jc = new DateContext();
-        final JexlEngine jexl = new JexlBuilder().cache(32).namespaces(ns).arithmetic(new DateArithmetic(true)).create();
-        final JxltEngine jxlt = jexl.createJxltEngine();
-
-        JxltEngine.Template expr0 = jxlt.createTemplate("${x.format(y)}", "x", "y");
-        StringWriter strw = new StringWriter();
-        expr0.evaluate(jc, strw, x0, y0);
-        String strws = strw.toString();
-        // removed other assertion
-
-        expr0 = jxlt.createTemplate("${calc:sum(x .. y)}", "x", "y");
-        strw = new StringWriter();
-        expr0.evaluate(jc, strw, 1, 3);
-        strws = strw.toString();
-        // removed other assertion
-
-        final JxltEngine.Template expr1 = jxlt.createTemplate("${jexl:include(s, x, y)}", "s", "x", "y");
-        strw = new StringWriter();
-        expr1.evaluate(jc, strw, expr0, 1, 3);
-        strws = strw.toString();
-        // removed other assertion
 
         expr0 = jxlt.createTemplate("${now().format(y)}", "y");
         strw = new StringWriter();
         expr0.evaluate(jc, strw, y0);
         strws = strw.toString();
         Assert.assertNotNull(strws);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_1_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        asserter.assertExpression("str =~ '.*456'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_2_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        asserter.assertExpression("str !~ 'ABC.*'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_3_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        asserter.assertExpression("str =~ match", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_4_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        asserter.assertExpression("str !~ match", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_5_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("str !~ nomatch", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_6_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("str =~ nomatch", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_7_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", new StringBuilder("abc.*"));
+        asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        asserter.assertExpression("str =~ match", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_8_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", new StringBuilder("abc.*"));
+        asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        asserter.assertExpression("str !~ match", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_9_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", new StringBuilder("abc.*"));
+        asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("str !~ nomatch", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_10_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", new StringBuilder("abc.*"));
+        asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("str =~ nomatch", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_11_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", new StringBuilder("abc.*"));
+        asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
+        asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        asserter.assertExpression("str =~ match", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_12_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", new StringBuilder("abc.*"));
+        asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
+        asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        asserter.assertExpression("str !~ match", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_13_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", new StringBuilder("abc.*"));
+        asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
+        asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("str !~ nomatch", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_14_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", new StringBuilder("abc.*"));
+        asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
+        asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("str =~ nomatch", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_15_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", new StringBuilder("abc.*"));
+        asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
+        asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // check the in/not-in variant
+        asserter.assertExpression("'a' =~ ['a','b','c','d','e','f']", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_16_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", new StringBuilder("abc.*"));
+        asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
+        asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // check the in/not-in variant
+        // removed other assertion
+        asserter.assertExpression("'a' !~ ['a','b','c','d','e','f']", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_17_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", new StringBuilder("abc.*"));
+        asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
+        asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // check the in/not-in variant
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("'z' =~ ['a','b','c','d','e','f']", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp_18_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", "abc.*");
+        asserter.setVariable("nomatch", ".*123");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", new StringBuilder("abc.*"));
+        asserter.setVariable("nomatch", new StringBuilder(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("match", java.util.regex.Pattern.compile("abc.*"));
+        asserter.setVariable("nomatch", java.util.regex.Pattern.compile(".*123"));
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // check the in/not-in variant
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("'z' !~ ['a','b','c','d','e','f']", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp2_1_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        asserter.assertExpression("str =~ ~/.*456/", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp2_2_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        asserter.assertExpression("str !~ ~/ABC.*/", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp2_3_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("str =~ ~/abc\\d{3}/", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testRegexp2_4_oe() throws Exception {
+        asserter.setVariable("str", "abc456");
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("str", "4/6");
+        asserter.assertExpression("str =~ ~/\\d\\/\\d/", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWithString_1_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        asserter.assertExpression("x =^ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWithString_2_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        asserter.assertExpression("x =$ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWithString_3_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        asserter.assertExpression("x =^ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWithString_4_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        asserter.assertExpression("x =$ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWithStringDot_1_oe() throws Exception {
+        asserter.setVariable("x.y", "foobar");
+        asserter.assertExpression("x.y =^ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWithStringDot_2_oe() throws Exception {
+        asserter.setVariable("x.y", "foobar");
+        // removed other assertion
+        asserter.assertExpression("x.y =$ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWithStringDot_3_oe() throws Exception {
+        asserter.setVariable("x.y", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x.y", "barfoo");
+        asserter.assertExpression("x.y =^ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWithStringDot_4_oe() throws Exception {
+        asserter.setVariable("x.y", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x.y", "barfoo");
+        // removed other assertion
+        asserter.assertExpression("x.y =$ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWithString_1_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        asserter.assertExpression("x !^ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWithString_2_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        asserter.assertExpression("x !$ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWithString_3_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        asserter.assertExpression("x !^ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWithString_4_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        asserter.assertExpression("x !$ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWithStringDot_1_oe() throws Exception {
+        asserter.setVariable("x.y", "foobar");
+        asserter.assertExpression("x.y !^ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWithStringDot_2_oe() throws Exception {
+        asserter.setVariable("x.y", "foobar");
+        // removed other assertion
+        asserter.assertExpression("x.y !$ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWithStringDot_3_oe() throws Exception {
+        asserter.setVariable("x.y", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x.y", "barfoo");
+        asserter.assertExpression("x.y !^ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWithStringDot_4_oe() throws Exception {
+        asserter.setVariable("x.y", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x.y", "barfoo");
+        // removed other assertion
+        asserter.assertExpression("x.y !$ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWithStringBuilder_1_oe() throws Exception {
+        asserter.setVariable("x", new StringBuilder("foobar"));
+        asserter.assertExpression("x =^ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWithStringBuilder_2_oe() throws Exception {
+        asserter.setVariable("x", new StringBuilder("foobar"));
+        // removed other assertion
+        asserter.assertExpression("x =$ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWithStringBuilder_3_oe() throws Exception {
+        asserter.setVariable("x", new StringBuilder("foobar"));
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", new StringBuilder("barfoo"));
+        asserter.assertExpression("x =^ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWithStringBuilder_4_oe() throws Exception {
+        asserter.setVariable("x", new StringBuilder("foobar"));
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", new StringBuilder("barfoo"));
+        // removed other assertion
+        asserter.assertExpression("x =$ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWithStringBuilder_1_oe() throws Exception {
+        asserter.setVariable("x", new StringBuilder("foobar"));
+        asserter.assertExpression("x !^ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWithStringBuilder_2_oe() throws Exception {
+        asserter.setVariable("x", new StringBuilder("foobar"));
+        // removed other assertion
+        asserter.assertExpression("x !$ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWithStringBuilder_3_oe() throws Exception {
+        asserter.setVariable("x", new StringBuilder("foobar"));
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", new StringBuilder("barfoo"));
+        asserter.assertExpression("x !^ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWithStringBuilder_4_oe() throws Exception {
+        asserter.setVariable("x", new StringBuilder("foobar"));
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", new StringBuilder("barfoo"));
+        // removed other assertion
+        asserter.assertExpression("x !$ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testMatch_1_oe() throws Exception {
+        // check in/not-in on array, list, map, set and duck-type collection
+        final int[] ai = {2, 4, 42, 54};
+        final List<Integer> al = new ArrayList<Integer>();
+        for (final int i : ai) {
+            al.add(i);
+        }
+        final Map<Integer, String> am = new HashMap<Integer, String>();
+        am.put(2, "two");
+        am.put(4, "four");
+        am.put(42, "forty-two");
+        am.put(54, "fifty-four");
+        final MatchingContainer ad = new MatchingContainer(ai);
+        final IterableContainer ic = new IterableContainer(ai);
+        final Set<Integer> as = ad.values;
+        final Object[] vars = {ai, al, am, ad, as, ic};
+
+        for (final Object var : vars) {
+            asserter.setVariable("container", var);
+            for (final int x : ai) {
+                asserter.setVariable("x", x);
+                asserter.assertExpression("x =~ container", Boolean.TRUE);
+    }
+    }
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testMatch_2_oe() throws Exception {
+        // check in/not-in on array, list, map, set and duck-type collection
+        final int[] ai = {2, 4, 42, 54};
+        final List<Integer> al = new ArrayList<Integer>();
+        for (final int i : ai) {
+            al.add(i);
+        }
+        final Map<Integer, String> am = new HashMap<Integer, String>();
+        am.put(2, "two");
+        am.put(4, "four");
+        am.put(42, "forty-two");
+        am.put(54, "fifty-four");
+        final MatchingContainer ad = new MatchingContainer(ai);
+        final IterableContainer ic = new IterableContainer(ai);
+        final Set<Integer> as = ad.values;
+        final Object[] vars = {ai, al, am, ad, as, ic};
+
+        for (final Object var : vars) {
+            asserter.setVariable("container", var);
+            for (final int x : ai) {
+                asserter.setVariable("x", x);
+                // removed other assertion
+            }
+            asserter.setVariable("x", 169);
+            asserter.assertExpression("x !~ container", Boolean.TRUE);
+    }
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWith_1_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        asserter.assertExpression("x =^ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWith_2_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        asserter.assertExpression("x =$ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWith_3_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        asserter.assertExpression("x =^ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWith_4_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        asserter.assertExpression("x =$ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWith_5_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
+
+        final int[] ai = {2, 4, 42, 54};
+        final IterableContainer ic = new IterableContainer(ai);
+        asserter.setVariable("x", ic);
+        asserter.assertExpression("x =^ 2", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWith_6_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
+
+        final int[] ai = {2, 4, 42, 54};
+        final IterableContainer ic = new IterableContainer(ai);
+        asserter.setVariable("x", ic);
+        // removed other assertion
+        asserter.assertExpression("x =$ 54", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWith_7_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
+
+        final int[] ai = {2, 4, 42, 54};
+        final IterableContainer ic = new IterableContainer(ai);
+        asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("x =^ 4", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWith_8_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
+
+        final int[] ai = {2, 4, 42, 54};
+        final IterableContainer ic = new IterableContainer(ai);
+        asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("x =$ 42", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWith_9_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
+
+        final int[] ai = {2, 4, 42, 54};
+        final IterableContainer ic = new IterableContainer(ai);
+        asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("x =^ [2, 4]", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testStartsEndsWith_10_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
+
+        final int[] ai = {2, 4, 42, 54};
+        final IterableContainer ic = new IterableContainer(ai);
+        asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("x =^ [42, 54]", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWith_1_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        asserter.assertExpression("x !^ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWith_2_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        asserter.assertExpression("x !$ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWith_3_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        asserter.assertExpression("x !^ 'foo'", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWith_4_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        asserter.assertExpression("x !$ 'foo'", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWith_5_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
+
+        final int[] ai = {2, 4, 42, 54};
+        final IterableContainer ic = new IterableContainer(ai);
+        asserter.setVariable("x", ic);
+        asserter.assertExpression("x !^ 2", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWith_6_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
+
+        final int[] ai = {2, 4, 42, 54};
+        final IterableContainer ic = new IterableContainer(ai);
+        asserter.setVariable("x", ic);
+        // removed other assertion
+        asserter.assertExpression("x !$ 54", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWith_7_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
+
+        final int[] ai = {2, 4, 42, 54};
+        final IterableContainer ic = new IterableContainer(ai);
+        asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("x !^ 4", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWith_8_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
+
+        final int[] ai = {2, 4, 42, 54};
+        final IterableContainer ic = new IterableContainer(ai);
+        asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("x !$ 42", Boolean.TRUE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWith_9_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
+
+        final int[] ai = {2, 4, 42, 54};
+        final IterableContainer ic = new IterableContainer(ai);
+        asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("x !^ [2, 4]", Boolean.FALSE);
+    }
+
+// TODO: verify inlining
+    @Test
+    public void testNotStartsEndsWith_10_oe() throws Exception {
+        asserter.setVariable("x", "foobar");
+        // removed other assertion
+        // removed other assertion
+        asserter.setVariable("x", "barfoo");
+        // removed other assertion
+        // removed other assertion
+
+        final int[] ai = {2, 4, 42, 54};
+        final IterableContainer ic = new IterableContainer(ai);
+        asserter.setVariable("x", ic);
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        // removed other assertion
+        asserter.assertExpression("x !^ [42, 54]", Boolean.FALSE);
     }
 
 }

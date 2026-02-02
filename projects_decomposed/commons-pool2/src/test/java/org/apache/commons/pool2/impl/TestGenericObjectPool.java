@@ -592,43 +592,7 @@ public class TestGenericObjectPool extends TestBaseObjectPool {
 
     private SimpleFactory simpleFactory;
 
-    @SuppressWarnings("deprecation")
-    private void assertConfiguration(final GenericObjectPoolConfig<?> expected, final GenericObjectPool<?> actual) {
-        assertEquals(Boolean.valueOf(expected.getTestOnCreate()), Boolean.valueOf(actual.getTestOnCreate()),
-                "testOnCreate");
-        assertEquals(Boolean.valueOf(expected.getTestOnBorrow()), Boolean.valueOf(actual.getTestOnBorrow()),
-                "testOnBorrow");
-        assertEquals(Boolean.valueOf(expected.getTestOnReturn()), Boolean.valueOf(actual.getTestOnReturn()),
-                "testOnReturn");
-        assertEquals(Boolean.valueOf(expected.getTestWhileIdle()), Boolean.valueOf(actual.getTestWhileIdle()),
-                "testWhileIdle");
-        assertEquals(Boolean.valueOf(expected.getBlockWhenExhausted()), Boolean.valueOf(actual.getBlockWhenExhausted()),
-                "whenExhaustedAction");
-        assertEquals(expected.getMaxTotal(), actual.getMaxTotal(), "maxTotal");
-        assertEquals(expected.getMaxIdle(), actual.getMaxIdle(), "maxIdle");
-        assertEquals(expected.getMaxWaitMillis(), actual.getMaxWaitMillis(), "maxWaitDuration");
-        assertEquals(expected.getMaxWaitDuration(), actual.getMaxWaitDuration(), "maxWaitDuration");
-        assertEquals(expected.getMinEvictableIdleTimeMillis(), actual.getMinEvictableIdleTimeMillis(),
-                "minEvictableIdleTimeMillis");
-        assertEquals(expected.getMinEvictableIdleTime(), actual.getMinEvictableIdleTime(),
-                "minEvictableIdleTime");
-        assertEquals(expected.getMinEvictableIdleDuration(), actual.getMinEvictableIdleDuration(),
-                "minEvictableIdleDuration");
-        assertEquals(expected.getNumTestsPerEvictionRun(), actual.getNumTestsPerEvictionRun(),
-                "numTestsPerEvictionRun");
-        assertEquals(expected.getEvictorShutdownTimeoutDuration(), actual.getEvictorShutdownTimeoutDuration(),
-                "evictorShutdownTimeoutDuration");
-        assertEquals(expected.getEvictorShutdownTimeoutMillis(), actual.getEvictorShutdownTimeoutMillis(),
-                "evictorShutdownTimeoutMillis");
-        assertEquals(expected.getEvictorShutdownTimeout(), actual.getEvictorShutdownTimeout(),
-                "evictorShutdownTimeout");
-        assertEquals(expected.getTimeBetweenEvictionRunsMillis(), actual.getTimeBetweenEvictionRunsMillis(),
-                "timeBetweenEvictionRunsMillis");
-        assertEquals(expected.getDurationBetweenEvictionRuns(), actual.getTimeBetweenEvictionRuns(),
-                "timeBetweenEvictionRuns");
-        assertEquals(expected.getTimeBetweenEvictionRuns(), actual.getTimeBetweenEvictionRuns(),
-                "timeBetweenEvictionRuns");
-    }
+
 
     private void checkEvict(final boolean lifo) throws Exception {
         // yea this is hairy but it tests all the code paths in GOP.evict()
@@ -1379,11 +1343,7 @@ public class TestGenericObjectPool extends TestBaseObjectPool {
         }
     }
 
-    @Test
-    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
-    public void testDefaultConfiguration() {
-        assertConfiguration(new GenericObjectPoolConfig<>(),genericObjectPool);
-    }
+
 
     /**
      * Verifies that when a factory's makeObject produces instances that are not
@@ -2994,4 +2954,991 @@ public class TestGenericObjectPool extends TestBaseObjectPool {
         genericObjectPool.close();
     }
 
+    @SuppressWarnings("deprecation")
+    private void assertConfiguration(final GenericObjectPoolConfig<?> expected, final GenericObjectPool<?> actual) {
+        assertEquals(Boolean.valueOf(expected.getTestOnCreate()), Boolean.valueOf(actual.getTestOnCreate()),
+                "testOnCreate");
+        assertEquals(Boolean.valueOf(expected.getTestOnBorrow()), Boolean.valueOf(actual.getTestOnBorrow()),
+                "testOnBorrow");
+        assertEquals(Boolean.valueOf(expected.getTestOnReturn()), Boolean.valueOf(actual.getTestOnReturn()),
+                "testOnReturn");
+        assertEquals(Boolean.valueOf(expected.getTestWhileIdle()), Boolean.valueOf(actual.getTestWhileIdle()),
+                "testWhileIdle");
+        assertEquals(Boolean.valueOf(expected.getBlockWhenExhausted()), Boolean.valueOf(actual.getBlockWhenExhausted()),
+                "whenExhaustedAction");
+        assertEquals(expected.getMaxTotal(), actual.getMaxTotal(), "maxTotal");
+        assertEquals(expected.getMaxIdle(), actual.getMaxIdle(), "maxIdle");
+        assertEquals(expected.getMaxWaitMillis(), actual.getMaxWaitMillis(), "maxWaitDuration");
+        assertEquals(expected.getMaxWaitDuration(), actual.getMaxWaitDuration(), "maxWaitDuration");
+        assertEquals(expected.getMinEvictableIdleTimeMillis(), actual.getMinEvictableIdleTimeMillis(),
+                "minEvictableIdleTimeMillis");
+        assertEquals(expected.getMinEvictableIdleTime(), actual.getMinEvictableIdleTime(),
+                "minEvictableIdleTime");
+        assertEquals(expected.getMinEvictableIdleDuration(), actual.getMinEvictableIdleDuration(),
+                "minEvictableIdleDuration");
+        assertEquals(expected.getNumTestsPerEvictionRun(), actual.getNumTestsPerEvictionRun(),
+                "numTestsPerEvictionRun");
+        assertEquals(expected.getEvictorShutdownTimeoutDuration(), actual.getEvictorShutdownTimeoutDuration(),
+                "evictorShutdownTimeoutDuration");
+        assertEquals(expected.getEvictorShutdownTimeoutMillis(), actual.getEvictorShutdownTimeoutMillis(),
+                "evictorShutdownTimeoutMillis");
+        assertEquals(expected.getEvictorShutdownTimeout(), actual.getEvictorShutdownTimeout(),
+                "evictorShutdownTimeout");
+        assertEquals(expected.getTimeBetweenEvictionRunsMillis(), actual.getTimeBetweenEvictionRunsMillis(),
+                "timeBetweenEvictionRunsMillis");
+        assertEquals(expected.getDurationBetweenEvictionRuns(), actual.getTimeBetweenEvictionRuns(),
+                "timeBetweenEvictionRuns");
+        assertEquals(expected.getTimeBetweenEvictionRuns(), actual.getTimeBetweenEvictionRuns(),
+                "timeBetweenEvictionRuns");
+    }
+
+    // custom assertion
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration() {
+        assertConfiguration(new GenericObjectPoolConfig<>(),genericObjectPool);
+    }
+
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testInlined() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        
+        final GenericObjectPoolConfig<?> expected_alias_1 = expected;
+        final GenericObjectPool<?> actual_alias_1 = genericObjectPool;
+        assertEquals(Boolean.valueOf(expected_alias_1.getTestOnCreate()), Boolean.valueOf(actual_alias_1.getTestOnCreate()),
+                "testOnCreate");
+        assertEquals(Boolean.valueOf(expected_alias_1.getTestOnBorrow()), Boolean.valueOf(actual_alias_1.getTestOnBorrow()),
+                "testOnBorrow");
+        assertEquals(Boolean.valueOf(expected_alias_1.getTestOnReturn()), Boolean.valueOf(actual_alias_1.getTestOnReturn()),
+                "testOnReturn");
+        assertEquals(Boolean.valueOf(expected_alias_1.getTestWhileIdle()), Boolean.valueOf(actual_alias_1.getTestWhileIdle()),
+                "testWhileIdle");
+        assertEquals(Boolean.valueOf(expected_alias_1.getBlockWhenExhausted()), Boolean.valueOf(actual_alias_1.getBlockWhenExhausted()),
+                "whenExhaustedAction");
+        assertEquals(expected_alias_1.getMaxTotal(), actual_alias_1.getMaxTotal(), "maxTotal");
+        assertEquals(expected_alias_1.getMaxIdle(), actual_alias_1.getMaxIdle(), "maxIdle");
+        assertEquals(expected_alias_1.getMaxWaitMillis(), actual_alias_1.getMaxWaitMillis(), "maxWaitDuration");
+        assertEquals(expected_alias_1.getMaxWaitDuration(), actual_alias_1.getMaxWaitDuration(), "maxWaitDuration");
+        assertEquals(expected_alias_1.getMinEvictableIdleTimeMillis(), actual_alias_1.getMinEvictableIdleTimeMillis(),
+                "minEvictableIdleTimeMillis");
+        assertEquals(expected_alias_1.getMinEvictableIdleTime(), actual_alias_1.getMinEvictableIdleTime(),
+                "minEvictableIdleTime");
+        assertEquals(expected_alias_1.getMinEvictableIdleDuration(), actual_alias_1.getMinEvictableIdleDuration(),
+                "minEvictableIdleDuration");
+        assertEquals(expected_alias_1.getNumTestsPerEvictionRun(), actual_alias_1.getNumTestsPerEvictionRun(),
+                "numTestsPerEvictionRun");
+        assertEquals(expected_alias_1.getEvictorShutdownTimeoutDuration(), actual_alias_1.getEvictorShutdownTimeoutDuration(),
+                "evictorShutdownTimeoutDuration");
+        assertEquals(expected_alias_1.getEvictorShutdownTimeoutMillis(), actual_alias_1.getEvictorShutdownTimeoutMillis(),
+                "evictorShutdownTimeoutMillis");
+        assertEquals(expected_alias_1.getEvictorShutdownTimeout(), actual_alias_1.getEvictorShutdownTimeout(),
+                "evictorShutdownTimeout");
+        assertEquals(expected_alias_1.getTimeBetweenEvictionRunsMillis(), actual_alias_1.getTimeBetweenEvictionRunsMillis(),
+                "timeBetweenEvictionRunsMillis");
+        assertEquals(expected_alias_1.getDurationBetweenEvictionRuns(), actual_alias_1.getTimeBetweenEvictionRuns(),
+                "timeBetweenEvictionRuns");
+        assertEquals(expected_alias_1.getTimeBetweenEvictionRuns(), actual_alias_1.getTimeBetweenEvictionRuns(),
+                "timeBetweenEvictionRuns");
+
+    }
+
+    @Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_1_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl1_expected.getTestOnCreate()), Boolean.valueOf(inl1_actual.getTestOnCreate()),
+                        "testOnCreate");
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_2_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl1_expected.getTestOnBorrow()), Boolean.valueOf(inl1_actual.getTestOnBorrow()),
+                        "testOnBorrow");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_3_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl1_expected.getTestOnReturn()), Boolean.valueOf(inl1_actual.getTestOnReturn()),
+                        "testOnReturn");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_4_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl1_expected.getTestWhileIdle()), Boolean.valueOf(inl1_actual.getTestWhileIdle()),
+                        "testWhileIdle");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_5_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl1_expected.getBlockWhenExhausted()), Boolean.valueOf(inl1_actual.getBlockWhenExhausted()),
+                        "whenExhaustedAction");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_6_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getMaxTotal(), inl1_actual.getMaxTotal(), "maxTotal");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_7_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getMaxIdle(), inl1_actual.getMaxIdle(), "maxIdle");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_8_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getMaxWaitMillis(), inl1_actual.getMaxWaitMillis(), "maxWaitDuration");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_9_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getMaxWaitDuration(), inl1_actual.getMaxWaitDuration(), "maxWaitDuration");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_10_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getMinEvictableIdleTimeMillis(), inl1_actual.getMinEvictableIdleTimeMillis(),
+                        "minEvictableIdleTimeMillis");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_11_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getMinEvictableIdleTime(), inl1_actual.getMinEvictableIdleTime(),
+                        "minEvictableIdleTime");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_12_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getMinEvictableIdleDuration(), inl1_actual.getMinEvictableIdleDuration(),
+                        "minEvictableIdleDuration");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_13_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getNumTestsPerEvictionRun(), inl1_actual.getNumTestsPerEvictionRun(),
+                        "numTestsPerEvictionRun");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_14_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getEvictorShutdownTimeoutDuration(), inl1_actual.getEvictorShutdownTimeoutDuration(),
+                        "evictorShutdownTimeoutDuration");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_15_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getEvictorShutdownTimeoutMillis(), inl1_actual.getEvictorShutdownTimeoutMillis(),
+                        "evictorShutdownTimeoutMillis");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_16_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getEvictorShutdownTimeout(), inl1_actual.getEvictorShutdownTimeout(),
+                        "evictorShutdownTimeout");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_17_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getTimeBetweenEvictionRunsMillis(), inl1_actual.getTimeBetweenEvictionRunsMillis(),
+                        "timeBetweenEvictionRunsMillis");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_18_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getDurationBetweenEvictionRuns(), inl1_actual.getTimeBetweenEvictionRuns(),
+                        "timeBetweenEvictionRuns");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testDefaultConfiguration_1_serial_19_oe() {
+        GenericObjectPoolConfig<?> inl1_expected = new GenericObjectPoolConfig<>();
+        GenericObjectPool<?> inl1_actual = genericObjectPool;
+                assertEquals(inl1_expected.getTimeBetweenEvictionRuns(), inl1_actual.getTimeBetweenEvictionRuns(),
+                        "timeBetweenEvictionRuns");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_1_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl2_expected.getTestOnCreate()), Boolean.valueOf(inl2_actual.getTestOnCreate()),
+                        "testOnCreate");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_2_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl2_expected.getTestOnBorrow()), Boolean.valueOf(inl2_actual.getTestOnBorrow()),
+                        "testOnBorrow");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_3_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl2_expected.getTestOnReturn()), Boolean.valueOf(inl2_actual.getTestOnReturn()),
+                        "testOnReturn");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_4_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl2_expected.getTestWhileIdle()), Boolean.valueOf(inl2_actual.getTestWhileIdle()),
+                        "testWhileIdle");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_5_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl2_expected.getBlockWhenExhausted()), Boolean.valueOf(inl2_actual.getBlockWhenExhausted()),
+                        "whenExhaustedAction");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_6_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getMaxTotal(), inl2_actual.getMaxTotal(), "maxTotal");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_7_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getMaxIdle(), inl2_actual.getMaxIdle(), "maxIdle");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_8_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getMaxWaitMillis(), inl2_actual.getMaxWaitMillis(), "maxWaitDuration");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_9_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getMaxWaitDuration(), inl2_actual.getMaxWaitDuration(), "maxWaitDuration");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_10_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getMinEvictableIdleTimeMillis(), inl2_actual.getMinEvictableIdleTimeMillis(),
+                        "minEvictableIdleTimeMillis");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_11_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getMinEvictableIdleTime(), inl2_actual.getMinEvictableIdleTime(),
+                        "minEvictableIdleTime");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_12_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getMinEvictableIdleDuration(), inl2_actual.getMinEvictableIdleDuration(),
+                        "minEvictableIdleDuration");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_13_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getNumTestsPerEvictionRun(), inl2_actual.getNumTestsPerEvictionRun(),
+                        "numTestsPerEvictionRun");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_14_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getEvictorShutdownTimeoutDuration(), inl2_actual.getEvictorShutdownTimeoutDuration(),
+                        "evictorShutdownTimeoutDuration");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_15_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getEvictorShutdownTimeoutMillis(), inl2_actual.getEvictorShutdownTimeoutMillis(),
+                        "evictorShutdownTimeoutMillis");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_16_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getEvictorShutdownTimeout(), inl2_actual.getEvictorShutdownTimeout(),
+                        "evictorShutdownTimeout");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_17_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getTimeBetweenEvictionRunsMillis(), inl2_actual.getTimeBetweenEvictionRunsMillis(),
+                        "timeBetweenEvictionRunsMillis");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_18_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getDurationBetweenEvictionRuns(), inl2_actual.getTimeBetweenEvictionRuns(),
+                        "timeBetweenEvictionRuns");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_1_serial_19_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        GenericObjectPoolConfig<?> inl2_expected = expected;
+        GenericObjectPool<?> inl2_actual = genericObjectPool;
+                assertEquals(inl2_expected.getTimeBetweenEvictionRuns(), inl2_actual.getTimeBetweenEvictionRuns(),
+                        "timeBetweenEvictionRuns");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_1_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl3_expected.getTestOnCreate()), Boolean.valueOf(inl3_actual.getTestOnCreate()),
+                        "testOnCreate");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_2_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl3_expected.getTestOnBorrow()), Boolean.valueOf(inl3_actual.getTestOnBorrow()),
+                        "testOnBorrow");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_3_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl3_expected.getTestOnReturn()), Boolean.valueOf(inl3_actual.getTestOnReturn()),
+                        "testOnReturn");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_4_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl3_expected.getTestWhileIdle()), Boolean.valueOf(inl3_actual.getTestWhileIdle()),
+                        "testWhileIdle");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_5_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(Boolean.valueOf(inl3_expected.getBlockWhenExhausted()), Boolean.valueOf(inl3_actual.getBlockWhenExhausted()),
+                        "whenExhaustedAction");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_6_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getMaxTotal(), inl3_actual.getMaxTotal(), "maxTotal");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_7_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getMaxIdle(), inl3_actual.getMaxIdle(), "maxIdle");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_8_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getMaxWaitMillis(), inl3_actual.getMaxWaitMillis(), "maxWaitDuration");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_9_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getMaxWaitDuration(), inl3_actual.getMaxWaitDuration(), "maxWaitDuration");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_10_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getMinEvictableIdleTimeMillis(), inl3_actual.getMinEvictableIdleTimeMillis(),
+                        "minEvictableIdleTimeMillis");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_11_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getMinEvictableIdleTime(), inl3_actual.getMinEvictableIdleTime(),
+                        "minEvictableIdleTime");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_12_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getMinEvictableIdleDuration(), inl3_actual.getMinEvictableIdleDuration(),
+                        "minEvictableIdleDuration");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_13_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getNumTestsPerEvictionRun(), inl3_actual.getNumTestsPerEvictionRun(),
+                        "numTestsPerEvictionRun");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_14_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getEvictorShutdownTimeoutDuration(), inl3_actual.getEvictorShutdownTimeoutDuration(),
+                        "evictorShutdownTimeoutDuration");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_15_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getEvictorShutdownTimeoutMillis(), inl3_actual.getEvictorShutdownTimeoutMillis(),
+                        "evictorShutdownTimeoutMillis");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_16_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getEvictorShutdownTimeout(), inl3_actual.getEvictorShutdownTimeout(),
+                        "evictorShutdownTimeout");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_17_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getTimeBetweenEvictionRunsMillis(), inl3_actual.getTimeBetweenEvictionRunsMillis(),
+                        "timeBetweenEvictionRunsMillis");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_18_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getDurationBetweenEvictionRuns(), inl3_actual.getTimeBetweenEvictionRuns(),
+                        "timeBetweenEvictionRuns");
+    
+
+    }
+
+@Test
+    @Timeout(value = 60000, unit = TimeUnit.MILLISECONDS)
+    public void testSetConfig_2_serial_19_oe() throws Exception {
+        final GenericObjectPoolConfig<String> expected = new GenericObjectPoolConfig<>();
+        // removed other assertion
+        expected.setMaxTotal(2);
+        expected.setMaxIdle(3);
+        expected.setMaxWait(Duration.ofMillis(5));
+        expected.setMinEvictableIdleTime(Duration.ofMillis(7L));
+        expected.setNumTestsPerEvictionRun(9);
+        expected.setTestOnCreate(true);
+        expected.setTestOnBorrow(true);
+        expected.setTestOnReturn(true);
+        expected.setTestWhileIdle(true);
+        expected.setTimeBetweenEvictionRuns(Duration.ofMillis(11L));
+        expected.setBlockWhenExhausted(false);
+        genericObjectPool.setConfig(expected);
+        GenericObjectPoolConfig<?> inl3_expected = expected;
+        GenericObjectPool<?> inl3_actual = genericObjectPool;
+                assertEquals(inl3_expected.getTimeBetweenEvictionRuns(), inl3_actual.getTimeBetweenEvictionRuns(),
+                        "timeBetweenEvictionRuns");
+    
+
+    }
 }

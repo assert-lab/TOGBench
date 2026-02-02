@@ -204,7 +204,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
     }
 
     @Test
-    void testSingleFacet_3_oe() {
+    void testSingleFacet_4_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid test\n" +
@@ -225,10 +225,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
 
         // removed other assertion
 
-        EuclideanIOTestUtils.assertFacetVerticesAndNormal(
-                facets.get(0),
-                Arrays.asList(Vector3D.of(4, 5, 6), Vector3D.of(7, 8, 9), Vector3D.of(10, 11, 12)),
-                Vector3D.of(1, 2, 3), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertNull(reader.readFacet());
     }
@@ -306,7 +303,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
     }
 
     @Test
-    void testMultipleFacets_3_oe() {
+    void testMultipleFacets_6_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid test solid\r\n\n" +
@@ -341,20 +338,11 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
 
         // removed other assertion
 
-        EuclideanIOTestUtils.assertFacetVerticesAndNormal(
-                facets.get(0),
-                Arrays.asList(Vector3D.of(4, 5, 6), Vector3D.of(7, 8, 9), Vector3D.of(10, 11, 12)),
-                Vector3D.of(1, 2, 3), TEST_EPS);
+        // removed other assertion
 
-        EuclideanIOTestUtils.assertFacetVerticesAndNormal(
-                facets.get(1),
-                Arrays.asList(Vector3D.of(40, 50, 60), Vector3D.of(70, 80, 90), Vector3D.of(100, 110, 120)),
-                Vector3D.of(0, 0, 0), TEST_EPS);
+        // removed other assertion
 
-        EuclideanIOTestUtils.assertFacetVerticesAndNormal(
-                facets.get(2),
-                Arrays.asList(Vector3D.of(0.4, 0.5, 0.6), Vector3D.of(-0.07, -0.08, -0.09), Vector3D.of(1, 1.1, 1.2)),
-                Vector3D.of(0.1, 0.2, 0.3), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertNull(reader.readFacet());
     }
@@ -404,7 +392,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
     }
 
     @Test
-    void testNoName_3_oe() {
+    void testNoName_4_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid\n" +
@@ -425,10 +413,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
 
         // removed other assertion
 
-        EuclideanIOTestUtils.assertFacetVerticesAndNormal(
-                facets.get(0),
-                Arrays.asList(Vector3D.of(4, 5, 6), Vector3D.of(7, 8, 9), Vector3D.of(10, 11, 12)),
-                Vector3D.of(1, 2, 3), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertNull(reader.readFacet());
     }
@@ -476,7 +461,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
     }
 
     @Test
-    void testContentEndsEarly_3_oe() {
+    void testContentEndsEarly_4_oe() {
         // arrange
         final TextStlFacetDefinitionReader reader = facetReader(
                 "solid test\n" +
@@ -496,10 +481,7 @@ class TextStlFacetDefinitionReaderTest_OE25Dev {
 
         // removed other assertion
 
-        EuclideanIOTestUtils.assertFacetVerticesAndNormal(
-                facets.get(0),
-                Arrays.asList(Vector3D.of(4, 5, 6), Vector3D.of(7, 8, 9), Vector3D.of(10, 11, 12)),
-                Vector3D.of(1, 2, 3), TEST_EPS);
+        // removed other assertion
 
         Assertions.assertNull(reader.readFacet());
     }

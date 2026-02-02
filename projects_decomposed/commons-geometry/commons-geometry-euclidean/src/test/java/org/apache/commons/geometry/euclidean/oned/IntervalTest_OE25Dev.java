@@ -752,50 +752,38 @@ class IntervalTest_OE25Dev {
     }
 
     @Test
-    void testGetCentroid_1_oe() {
+    void testGetCentroid_5_oe() {
         // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.ZERO,
-                Interval.of(-1, 1, TEST_PRECISION).getCentroid(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(10),
-                Interval.of(10, 10, TEST_PRECISION).getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(2),
-                Interval.of(1, 3, TEST_PRECISION).getCentroid(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(-1),
-                Interval.of(-2, 0, TEST_PRECISION).getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         Assertions.assertNull(Interval.of(1, Double.POSITIVE_INFINITY, TEST_PRECISION).getCentroid());
     }
 
     @Test
-    void testGetCentroid_2_oe() {
+    void testGetCentroid_6_oe() {
         // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.ZERO,
-                Interval.of(-1, 1, TEST_PRECISION).getCentroid(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(10),
-                Interval.of(10, 10, TEST_PRECISION).getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(2),
-                Interval.of(1, 3, TEST_PRECISION).getCentroid(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(-1),
-                Interval.of(-2, 0, TEST_PRECISION).getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         Assertions.assertNull(Interval.of(Double.NEGATIVE_INFINITY, 1, TEST_PRECISION).getCentroid());
     }
 
     @Test
-    void testGetCentroid_3_oe() {
+    void testGetCentroid_7_oe() {
         // act/assert
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.ZERO,
-                Interval.of(-1, 1, TEST_PRECISION).getCentroid(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(10),
-                Interval.of(10, 10, TEST_PRECISION).getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(2),
-                Interval.of(1, 3, TEST_PRECISION).getCentroid(), TEST_EPS);
-        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(-1),
-                Interval.of(-2, 0, TEST_PRECISION).getCentroid(), TEST_EPS);
+        // removed other assertion
+        // removed other assertion
 
         // removed other assertion
         // removed other assertion

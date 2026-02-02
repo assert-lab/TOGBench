@@ -434,28 +434,13 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testGetIndexedValues_2_oe() {
-        for (int i = 0; i < 5; i++) {
-            Object value = bean.get("intArray", i);
-
-            // removed other assertion
-            ObjectAssert.assertInstanceOf("intArray index " + i, Integer.class, value);
-            assertEquals("intArray " + i + " returned incorrect value.", i * 10, ((Integer) value).intValue());
-    }
-    }
-
-    @Test
     public void testGetIndexedValues_3_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intArray index " + i, Integer.class, value);
             // removed other assertion
-
-            value = bean.get("intIndexed", i);
-
-            assertNotNull("intIndexed index " + i + "returned value " + i, value);
+            assertEquals("intArray " + i + " returned incorrect value.", i * 10, ((Integer) value).intValue());
     }
     }
 
@@ -465,35 +450,12 @@ public class TestConfigurationDynaBean_OE25Dev {
             Object value = bean.get("intArray", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intArray index " + i, Integer.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("intIndexed", i);
 
-            // removed other assertion
-            ObjectAssert.assertInstanceOf("intIndexed index " + i, Integer.class, value);
-            assertEquals("intIndexed index " + i + "returned correct " + i, i * 10, ((Integer) value).intValue());
-    }
-    }
-
-    @Test
-    public void testGetIndexedValues_5_oe() {
-        for (int i = 0; i < 5; i++) {
-            Object value = bean.get("intArray", i);
-
-            // removed other assertion
-            ObjectAssert.assertInstanceOf("intArray index " + i, Integer.class, value);
-            // removed other assertion
-
-            value = bean.get("intIndexed", i);
-
-            // removed other assertion
-            ObjectAssert.assertInstanceOf("intIndexed index " + i, Integer.class, value);
-            // removed other assertion
-
-            value = bean.get("listIndexed", i);
-
-            assertNotNull("listIndexed index " + i + "returned value " + i, value);
+            assertNotNull("intIndexed index " + i + "returned value " + i, value);
     }
     }
 
@@ -503,20 +465,14 @@ public class TestConfigurationDynaBean_OE25Dev {
             Object value = bean.get("intArray", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intArray index " + i, Integer.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("intIndexed", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intIndexed index " + i, Integer.class, value);
             // removed other assertion
-
-            value = bean.get("listIndexed", i);
-
-            // removed other assertion
-            ObjectAssert.assertInstanceOf("list index " + i, String.class, value);
-            assertEquals("listIndexed index " + i + "returned correct " + i, "String " + i, value);
+            assertEquals("intIndexed index " + i + "returned correct " + i, i * 10, ((Integer) value).intValue());
     }
     }
 
@@ -526,19 +482,63 @@ public class TestConfigurationDynaBean_OE25Dev {
             Object value = bean.get("intArray", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intArray index " + i, Integer.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("intIndexed", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intIndexed index " + i, Integer.class, value);
+            // removed other assertion
+            // removed other assertion
+
+            value = bean.get("listIndexed", i);
+
+            assertNotNull("listIndexed index " + i + "returned value " + i, value);
+    }
+    }
+
+    @Test
+    public void testGetIndexedValues_9_oe() {
+        for (int i = 0; i < 5; i++) {
+            Object value = bean.get("intArray", i);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            value = bean.get("intIndexed", i);
+
+            // removed other assertion
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("listIndexed", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("list index " + i, String.class, value);
+            // removed other assertion
+            assertEquals("listIndexed index " + i + "returned correct " + i, "String " + i, value);
+    }
+    }
+
+    @Test
+    public void testGetIndexedValues_10_oe() {
+        for (int i = 0; i < 5; i++) {
+            Object value = bean.get("intArray", i);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            value = bean.get("intIndexed", i);
+
+            // removed other assertion
+            // removed other assertion
+            // removed other assertion
+
+            value = bean.get("listIndexed", i);
+
+            // removed other assertion
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("stringArray", i);
@@ -548,24 +548,24 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testGetIndexedValues_8_oe() {
+    public void testGetIndexedValues_11_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intArray index " + i, Integer.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("intIndexed", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intIndexed index " + i, Integer.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("listIndexed", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("list index " + i, String.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("stringArray", i);
@@ -576,61 +576,61 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testGetIndexedValues_9_oe() {
+    public void testGetIndexedValues_13_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intArray index " + i, Integer.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("intIndexed", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intIndexed index " + i, Integer.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("listIndexed", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("list index " + i, String.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("stringArray", i);
 
             // removed other assertion
             // removed other assertion
-            ObjectAssert.assertInstanceOf("stringArray index " + i, String.class, value);
+            // removed other assertion
             assertEquals("stringArray returned correct " + i, "String " + i, value);
     }
     }
 
     @Test
-    public void testGetIndexedValues_10_oe() {
+    public void testGetIndexedValues_14_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intArray index " + i, Integer.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("intIndexed", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intIndexed index " + i, Integer.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("listIndexed", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("list index " + i, String.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("stringArray", i);
 
             // removed other assertion
             // removed other assertion
-            ObjectAssert.assertInstanceOf("stringArray index " + i, String.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("stringIndexed", i);
@@ -640,37 +640,37 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testGetIndexedValues_11_oe() {
+    public void testGetIndexedValues_16_oe() {
         for (int i = 0; i < 5; i++) {
             Object value = bean.get("intArray", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intArray index " + i, Integer.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("intIndexed", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("intIndexed index " + i, Integer.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("listIndexed", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("list index " + i, String.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("stringArray", i);
 
             // removed other assertion
             // removed other assertion
-            ObjectAssert.assertInstanceOf("stringArray index " + i, String.class, value);
+            // removed other assertion
             // removed other assertion
 
             value = bean.get("stringIndexed", i);
 
             // removed other assertion
-            ObjectAssert.assertInstanceOf("stringIndexed", String.class, value);
+            // removed other assertion
             assertEquals("stringIndexed returned correct " + i, "String " + i, value);
     }
     }
@@ -719,10 +719,10 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testGetSimpleBoolean_2_oe() {
+    public void testGetSimpleBoolean_3_oe() {
         final Object value = bean.get("booleanProperty");
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Got correct type", Boolean.class, value);
+        // removed other assertion
         assertTrue("Got correct value", ((Boolean) value).booleanValue());
     }
 
@@ -733,10 +733,10 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testGetSimpleDouble_2_oe() {
+    public void testGetSimpleDouble_3_oe() {
         final Object value = bean.get("doubleProperty");
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Got correct type", Double.class, value);
+        // removed other assertion
         assertEquals("Got correct value", ((Double) value).doubleValue(), Double.MAX_VALUE, 0.005);
     }
 
@@ -747,10 +747,10 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testGetSimpleFloat_2_oe() {
+    public void testGetSimpleFloat_3_oe() {
         final Object value = bean.get("floatProperty");
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Got correct type", Float.class, value);
+        // removed other assertion
         assertEquals("Got correct value", ((Float) value).floatValue(), Float.MAX_VALUE, 0.005f);
     }
 
@@ -761,10 +761,10 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testGetSimpleInt_2_oe() {
+    public void testGetSimpleInt_3_oe() {
         final Object value = bean.get("intProperty");
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Incorrect type", Integer.class, value);
+        // removed other assertion
         assertEquals("Incorrect value", ((Integer) value).intValue(), Integer.MAX_VALUE);
     }
 
@@ -775,10 +775,10 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testGetSimpleLong_2_oe() {
+    public void testGetSimpleLong_3_oe() {
         final Object value = bean.get("longProperty");
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned incorrect type", Long.class, value);
+        // removed other assertion
         assertEquals("Returned value of Incorrect value", ((Long) value).longValue(), Long.MAX_VALUE);
     }
 
@@ -789,10 +789,10 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testGetSimpleShort_2_oe() {
+    public void testGetSimpleShort_3_oe() {
         final Object value = bean.get("shortProperty");
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Got correct type", Short.class, value);
+        // removed other assertion
         assertEquals("Got correct value", ((Short) value).shortValue(), Short.MAX_VALUE);
     }
 
@@ -803,10 +803,10 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testGetSimpleString_2_oe() {
+    public void testGetSimpleString_3_oe() {
         final Object value = bean.get("stringProperty");
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Got correct type", String.class, value);
+        // removed other assertion
         assertEquals("Got correct value", value, "This is a string");
     }
 
@@ -886,7 +886,7 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testSetArrayValue_2_oe() {
+    public void testSetArrayValue_3_oe() {
         final MapConfiguration configuration = new MapConfiguration(new HashMap<>());
         configuration.getMap().put("objectArray", new Object[] {"value1", "value2", "value3"});
 
@@ -896,7 +896,7 @@ public class TestConfigurationDynaBean_OE25Dev {
         final Object value = bean.get("objectArray", 1);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned String new value 1", String.class, value);
+        // removed other assertion
         assertEquals("Returned correct new value 1", "New Value 1", value);
     }
 
@@ -909,22 +909,22 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testSetIndexedValues_2_oe() {
-        bean.set("intArray", 0, Integer.valueOf(1));
-        Object value = bean.get("intArray", 0);
-
-        // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 0", Integer.class, value);
-        assertEquals("Returned correct new value 0", 1, ((Integer) value).intValue());
-    }
-
-    @Test
     public void testSetIndexedValues_3_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 0", Integer.class, value);
+        // removed other assertion
+        assertEquals("Returned correct new value 0", 1, ((Integer) value).intValue());
+    }
+
+    @Test
+    public void testSetIndexedValues_4_oe() {
+        bean.set("intArray", 0, Integer.valueOf(1));
+        Object value = bean.get("intArray", 0);
+
+        // removed other assertion
+        // removed other assertion
         // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
@@ -934,36 +934,36 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testSetIndexedValues_4_oe() {
+    public void testSetIndexedValues_6_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 0", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 1", Integer.class, value);
+        // removed other assertion
         assertEquals("Returned correct new value 1", 11, ((Integer) value).intValue());
     }
 
     @Test
-    public void testSetIndexedValues_5_oe() {
+    public void testSetIndexedValues_7_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 0", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 1", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
@@ -973,50 +973,50 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testSetIndexedValues_6_oe() {
+    public void testSetIndexedValues_9_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 0", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 1", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned String new value 2", String.class, value);
+        // removed other assertion
         assertEquals("Returned correct new value 2", "New Value 2", value);
     }
 
     @Test
-    public void testSetIndexedValues_7_oe() {
+    public void testSetIndexedValues_10_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 0", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 1", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned String new value 2", String.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("stringArray", 3, "New Value 3");
@@ -1026,64 +1026,64 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testSetIndexedValues_8_oe() {
+    public void testSetIndexedValues_12_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 0", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 1", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned String new value 2", String.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("stringArray", 3, "New Value 3");
         value = bean.get("stringArray", 3);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned String new value 3", String.class, value);
+        // removed other assertion
         assertEquals("Returned correct new value 3", "New Value 3", value);
     }
 
     @Test
-    public void testSetIndexedValues_9_oe() {
+    public void testSetIndexedValues_13_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 0", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 1", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned String new value 2", String.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("stringArray", 3, "New Value 3");
         value = bean.get("stringArray", 3);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned String new value 3", String.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("stringIndexed", 4, "New Value 4");
@@ -1093,40 +1093,40 @@ public class TestConfigurationDynaBean_OE25Dev {
     }
 
     @Test
-    public void testSetIndexedValues_10_oe() {
+    public void testSetIndexedValues_15_oe() {
         bean.set("intArray", 0, Integer.valueOf(1));
         Object value = bean.get("intArray", 0);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 0", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("intIndexed", 1, Integer.valueOf(11));
         value = bean.get("intIndexed", 1);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned Integer new value 1", Integer.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("listIndexed", 2, "New Value 2");
         value = bean.get("listIndexed", 2);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned String new value 2", String.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("stringArray", 3, "New Value 3");
         value = bean.get("stringArray", 3);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned String new value 3", String.class, value);
+        // removed other assertion
         // removed other assertion
 
         bean.set("stringIndexed", 4, "New Value 4");
         value = bean.get("stringIndexed", 4);
 
         // removed other assertion
-        ObjectAssert.assertInstanceOf("Returned String new value 4", String.class, value);
+        // removed other assertion
         assertEquals("Returned correct new value 4", "New Value 4", value);
     }
 

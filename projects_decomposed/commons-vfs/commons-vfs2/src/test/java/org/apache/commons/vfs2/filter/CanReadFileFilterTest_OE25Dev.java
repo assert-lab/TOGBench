@@ -168,29 +168,14 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
-    public void testAcceptZipFile_1_oe() throws FileSystemException {
-
-        FileObject[] files;
-
-        // CAN_READ Filter
-        files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CAN_READ));
-        assertContains(files, READONLY, WRITABLE);
-        Assert.assertEquals(2, files.length);
-    }
-
-    @Test
     public void testAcceptZipFile_2_oe() throws FileSystemException {
 
         FileObject[] files;
 
         // CAN_READ Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CAN_READ));
-        assertContains(files, READONLY, WRITABLE);
         // removed other assertion
-
-        // CANNOT_READ Filter
-        files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CANNOT_READ));
-        Assert.assertTrue(files == null || files.length == 0);
+        Assert.assertEquals(2, files.length);
     }
 
     @Test
@@ -200,7 +185,22 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
 
         // CAN_READ Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CAN_READ));
-        assertContains(files, READONLY, WRITABLE);
+        // removed other assertion
+        // removed other assertion
+
+        // CANNOT_READ Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CANNOT_READ));
+        Assert.assertTrue(files == null || files.length == 0);
+    }
+
+    @Test
+    public void testAcceptZipFile_5_oe() throws FileSystemException {
+
+        FileObject[] files;
+
+        // CAN_READ Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CAN_READ));
+        // removed other assertion
         // removed other assertion
 
         // CANNOT_READ Filter
@@ -209,7 +209,7 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
 
         // READ_ONLY Filter
         files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.READ_ONLY));
-        assertContains(files, READONLY, WRITABLE);
+        // removed other assertion
         Assert.assertEquals(2, files.length);
     }
 
